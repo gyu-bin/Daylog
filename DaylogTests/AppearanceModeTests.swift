@@ -63,3 +63,47 @@ struct AppearanceModeTests {
         #expect(application.appearance == nil)
     }
 }
+
+/// 브랜드 아이콘 에셋과 외관 연동
+@MainActor
+struct BrandIconTests {
+    /// 그 외관에서 그렸을 때 아이콘 한가운데 위쪽(배경 부분)의 밝기.
+    private func backgroundBrightness(of image: NSImage, in appearanceName: NSAppearance.Name, at y: Int = 5) throws -> CGFloat {
+        let appearance = try #require(NSAppearance(named: appearanceName))
+        let rep = try #require(NSBitmapImageRep(
+            bitmapDataPlanes: nil, pixelsWide: 64, pixelsHigh: 64, bitsPerSample: 8, samplesPerPixel: 4,
+            hasAlpha: true, isPlanar: false, colorSpaceName: .deviceRGB, bytesPerRow: 0, bitsPerPixel: 0
+        ))
+        appearance.performAsCurrentDrawingAppearance {
+            NSGraphicsContext.saveGraphicsState()
+            NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: rep)
+            image.draw(in: NSRect(x: 0, y: 0, width: 64, height: 64))
+            NSGraphicsContext.restoreGraphicsState()
+        }
+        return try #require(rep.colorAt(x: 32, y: y)).brightnessComponent
+    }
+
+    /// 앱 안의 브랜드 아이콘은 외관에 따라 라이트·다크 그림으로 바뀐다.
+    @Test func brandIconFollowsAppearance() throws {
+        let image = try #require(NSImage(named: "BrandIcon"))
+        #expect(try backgroundBrightness(of: image, in: .aqua) > 0.9)
+        #expect(try backgroundBrightness(of: image, in: .darkAqua) < 0.5)
+    }
+
+    /// Dock 아이콘: 다크일 때만 다크 그림을 걸고, 라이트에서는 번들의 기본 아이콘으로 되돌린다(nil).
+    @Test func dockIconFollowsAppearance() throws {
+        let dark = try #require(NSAppearance(named: .darkAqua))
+        let light = try #require(NSAppearance(named: .aqua))
+        #expect(DockIcon.isDark(dark))
+        #expect(!DockIcon.isDark(light))
+        #expect(DockIcon.image(for: light) == nil)
+        let image = try #require(DockIcon.image(for: dark))
+        // macOS 아이콘 격자에 맞춘 그림이라 가장자리는 투명하고, 안쪽 배경은 어둡다.
+        #expect(try backgroundBrightness(of: image, in: .darkAqua, at: 12) < 0.5)
+    }
+
+    @Test func sidebarMenuKeepsItsFourSections() {
+        #expect(AppStore.Section.allCases.map(\.title) == ["대시보드", "루틴 관리", "통계", "설정"])
+        #expect(Set(AppStore.Section.allCases.map(\.filledSymbol)).count == 4)
+    }
+}

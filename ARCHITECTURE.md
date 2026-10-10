@@ -255,6 +255,22 @@ SwiftData는 저장이나 조회가 지나가면 같은 체크를 **다른 객�
 - 실행할 때 창이 뜨기 전에 적용하고(`AppLaunch.make`), 설정에서 바꾸면 즉시 적용한다.
 - 색은 전부 `Theme`/`GroupColor`의 동적 색이라 외관이 바뀌면 같이 바뀐다.
 
+## 브랜드 아이콘과 사이드바 (v1.3.3)
+
+- 아이콘은 시안 이미지를 확대하지 않고, 시안에서 잰 경계와 색으로 벡터를 다시 그려 만든다(`Tools/GenerateIcons.swift`).
+  크기마다 따로 그리므로 16px에서도 또렷하다. 에셋을 고치려면 스크립트를 고쳐 다시 실행한다.
+- 에셋(`Daylog/Assets.xcassets`)
+  - `BrandIcon.imageset`: `DaylogIconLight.png` + `DaylogIconDark.png`(다크 외관 변형). 1024×1024, 여백 없는 둥근 사각형.
+    앱 안(사이드바 머리말, 설정의 앱 정보)에서 쓰고, 앱의 외관에 따라 자동으로 바뀐다.
+  - `AppIcon.appiconset`: macOS 아이콘 격자(바깥 여백·그림자 포함)에 맞춘 **라이트** 아이콘. Finder와 Dock의 기본 아이콘.
+  - `DockIconDark.imageset`: 같은 격자의 다크 아이콘.
+- macOS의 에셋 카탈로그는 앱 아이콘의 다크 변형을 iOS·iPadOS에서만 지원한다(Apple 문서 "Configuring your app icon").
+  macOS에서 외관별 앱 아이콘을 번들에 넣는 공식 방법은 Icon Composer 파일(macOS 26+)인데, 이번에는 쓰지 않았다.
+  대신 실행 중에는 `NSApplication.applicationIconImage`로 Dock 아이콘을 앱의 외관에 맞춘다(`DockIcon`, `AppDelegate`가
+  `effectiveAppearance`를 관찰). 앱을 끄면 Dock·Finder에는 라이트 아이콘이 보인다.
+- 사이드바는 `Views/Sidebar/SidebarView.swift`: `SidebarBrandHeader`(아이콘 42pt + 이름 + 슬로건, 좁으면 슬로건부터 뺀다),
+  메뉴 4개(색은 아이콘과 선택 표시에만: 대시보드 민트, 루틴 관리 파랑, 통계 보라, 설정 회색), 아래쪽 한 줄 문구.
+
 ## 검증 전용 빌드
 
 실제 앱·실제 기록·iCloud와 완전히 분리된 빌드. 번들 ID가 달라 컨테이너도 따로이고, iCloud 권한이 없다.

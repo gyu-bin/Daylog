@@ -38,7 +38,13 @@ struct DaylogApp: App {
 /// 등록하지 않으면 iCloud의 변경은 앱을 다시 실행할 때에만 들어온다(실측).
 /// 알림을 받은 뒤 가져오기 자체는 시스템이 하고, 끝나면 저장소 변경 알림으로 화면이 갱신된다.
 final class AppDelegate: NSObject, NSApplicationDelegate {
+    private var appearanceObservation: NSKeyValueObservation?
+
     func applicationDidFinishLaunching(_ notification: Notification) {
+        // 앱의 외관이 바뀌면(설정에서 고르거나, 시스템 설정을 따르는 중에 Mac의 외관이 바뀌면) Dock 아이콘도 맞춘다.
+        appearanceObservation = NSApplication.shared.observe(\.effectiveAppearance, options: [.initial]) { application, _ in
+            MainActor.assumeIsolated { DockIcon.update(for: application) }
+        }
         guard RuntimeEnvironment.cloudKitContainerID != nil else { return }
         NSApplication.shared.registerForRemoteNotifications()
     }

@@ -64,8 +64,20 @@ struct SettingsView: View {
             }
 
             Section("앱 정보") {
-                LabeledContent("이름", value: "Daylog")
-                LabeledContent("버전", value: Self.version)
+                HStack(spacing: 12) {
+                    BrandIcon(size: 44)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Daylog")
+                            .font(.headline)
+                        Text("버전 \(Self.version)")
+                            .font(.callout)
+                            .foregroundStyle(.secondary)
+                            .monospacedDigit()
+                    }
+                    Spacer(minLength: 0)
+                }
+                .padding(.vertical, 2)
+                .accessibilityElement(children: .combine)
             }
         }
         .formStyle(.grouped)
