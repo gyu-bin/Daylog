@@ -30,12 +30,14 @@ struct StatCardsGrid: View {
 private struct StatCard<Content: View>: View {
     let symbol: String
     let title: String
+    /// 이 지표를 나타내는 색. 아이콘에만 쓴다.
+    let tint: Color
     @ViewBuilder var content: () -> Content
 
     var body: some View {
         Card {
             VStack(alignment: .leading, spacing: 10) {
-                CardHeader(symbol: symbol, title: title)
+                CardHeader(symbol: symbol, title: title, tint: tint)
                 content()
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             }
@@ -49,6 +51,7 @@ private struct BigNumber: View {
     let text: String
     var unit: String = ""
     var size: CGFloat = 34
+    var tint: Color = .primary
 
     var body: some View {
         HStack(alignment: .firstTextBaseline, spacing: 2) {
@@ -61,7 +64,7 @@ private struct BigNumber: View {
             }
         }
         // 값이 아직 없을 때의 "—"는 강조하지 않는다.
-        .foregroundStyle(text == "—" ? AnyShapeStyle(.tertiary) : AnyShapeStyle(Theme.accent))
+        .foregroundStyle(text == "—" ? AnyShapeStyle(.tertiary) : AnyShapeStyle(tint))
         .lineLimit(1)
         .fixedSize()
     }
@@ -72,7 +75,7 @@ private struct TodayRateCard: View {
 
     var body: some View {
         let outcome = store.stats.today
-        StatCard(symbol: "leaf.fill", title: "오늘 달성률") {
+        StatCard(symbol: "leaf.fill", title: "오늘 달성률", tint: Theme.todayTint) {
             HStack(spacing: 14) {
                 ZStack {
                     ProgressRing(ratio: outcome.ratio)
@@ -115,7 +118,7 @@ private struct WeeklyAverageCard: View {
     @Environment(AppStore.self) private var store
 
     var body: some View {
-        StatCard(symbol: "chart.bar.fill", title: "최근 7일 평균") {
+        StatCard(symbol: "chart.bar.fill", title: "최근 7일 평균", tint: Theme.weekTint) {
             let average = store.stats.weeklyAverage.map { "\($0)%" } ?? "—"
             // 카드가 좁아지면 숫자를 줄이고, 그래도 좁으면 막대를 생략한다.
             ViewThatFits(in: .horizontal) {
@@ -166,8 +169,9 @@ private struct WeekBars: View {
     @ViewBuilder
     private func bar(for outcome: DayOutcome) -> some View {
         if let ratio = outcome.ratio {
+            // 기준 이상인 날은 진하게, 미만인 날은 옅게.
             RoundedRectangle(cornerRadius: 3, style: .continuous)
-                .fill(outcome.tint(threshold: threshold))
+                .fill(Theme.weekTint.opacity(outcome.isAchieved(threshold: threshold) ? 1 : 0.4))
                 .frame(height: max(3, barHeight * ratio))
         } else {
             // 휴식일·시작 전: 값이 없다는 뜻의 얇은 받침선.
@@ -182,7 +186,7 @@ private struct CurrentStreakCard: View {
     @Environment(AppStore.self) private var store
 
     var body: some View {
-        StatCard(symbol: "flame.fill", title: "연속 달성일") {
+        StatCard(symbol: "flame.fill", title: "연속 달성일", tint: Theme.streakTint) {
             VStack(alignment: .leading, spacing: 6) {
                 BigNumber(text: store.stats.hasStarted ? "\(store.stats.currentStreak)" : "—",
                           unit: store.stats.hasStarted ? "일" : "")
@@ -206,7 +210,7 @@ private struct LongestStreakCard: View {
     @Environment(AppStore.self) private var store
 
     var body: some View {
-        StatCard(symbol: "crown.fill", title: "최장 연속 달성일") {
+        StatCard(symbol: "crown.fill", title: "최장 연속 달성일", tint: Theme.longestTint) {
             VStack(alignment: .leading, spacing: 6) {
                 BigNumber(text: store.stats.hasStarted ? "\(store.stats.longestStreak)" : "—",
                           unit: store.stats.hasStarted ? "일" : "")

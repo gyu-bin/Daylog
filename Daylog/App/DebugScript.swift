@@ -1,5 +1,4 @@
 #if DEBUG
-import CloudKit
 import Foundation
 import SwiftData
 
@@ -8,12 +7,15 @@ import SwiftData
 /// 한 Mac에서 저장소 파일을 둘로 나눠 두 기기처럼 띄우고, 각 인스턴스가 정해진 동작을 한 뒤 상태를
 /// 표준 출력에 찍게 한다. 팀 서명된 앱의 저장소는 다른 프로세스가 읽을 수 없어서 앱이 직접 출력해야 한다.
 ///
-///     Daylog.app/Contents/MacOS/Daylog -DaylogStoreName syncA -DaylogCloud YES \
-///         -DaylogDebugScript "add:운동;check:운동;text:breakfast=토스트;waitExport:60;dump:A;quit"
+///     open -n -W --stdout /tmp/a.log Daylog.app --args -DaylogStoreName verify \
+///         -DaylogDebugScript "add:운동;check:운동;text:breakfast=토스트;dump:A;quit"
 ///
-/// 명령: add, check, uncheck, text:<칸>=<값>, rename:<전>=<후>, archive, restore, threshold,
+/// 명령: group, add(마지막으로 쓴 그룹에), check, uncheck, text:<칸>=<값>, rename:<전>=<후>, archive, restore, threshold,
 ///       wait:<초>, waitImport:<최대 초>, waitExport:<최대 초>, refresh, dump:<이름>,
-///       deleteCloudZone, purgeLocalStore, quit
+///       counts(개수만 출력), purgeLocalStore, quit
+///
+/// 실제 기록이 iCloud에 있으므로, iCloud의 데이터를 지우는 명령은 두지 않는다.
+/// 검증용 저장소는 항상 로컬 전용으로 열린다(`RuntimeEnvironment.cloudKitContainerID`).
 @MainActor
 enum DebugScript {
     static func runIfRequested(store: AppStore, sync: CloudSyncMonitor, container: ModelContainer) {
@@ -34,8 +36,10 @@ enum DebugScript {
         let pair = argument.split(separator: "=", maxSplits: 1, omittingEmptySubsequences: false).map(String.init)
 
         switch name {
+        case "group":
+            store.addGroup(title: argument)
         case "add":
-            store.addRoutine(title: argument)
+            store.addRoutine(title: argument, in: store.quickAddGroup)
         case "check", "uncheck":
             if let check = store.checks.first(where: { $0.title == argument }) {
                 store.setDone(routineID: check.routineID, name == "check")
@@ -68,8 +72,8 @@ enum DebugScript {
         case "dump":
             store.flush()
             dump(label: argument, store: store, sync: sync, container: container)
-        case "deleteCloudZone":
-            await deleteCloudZone(sync: sync)
+        case "counts":
+            counts(container: container)
         case "purgeLocalStore":
             purgeLocalStore()
         case "quit":
@@ -130,19 +134,26 @@ enum DebugScript {
         log("DUMP \(label) \(String(decoding: data, as: UTF8.self))")
     }
 
-    /// iCloud에 올라간 이 앱의 동기화 영역을 통째로 지운다. 검증용 데이터를 치울 때만 쓴다.
-    private static func deleteCloudZone(sync: CloudSyncMonitor) async {
-        // 동기화 중인 인스턴스가 지우면 로컬 내용을 곧바로 다시 올린다. 로컬 전용으로 실행한 인스턴스에서 지운다.
-        guard let identifier = CloudSyncConfiguration.containerIdentifier else {
-            log("CLOUD_ZONE no container")
-            return
+    /// 저장소와 백업에 든 기록의 "개수"만 출력한다. 내용(루틴 이름, 식사 등)은 출력하지 않는다.
+    private static func counts(container: ModelContainer) {
+        let context = container.mainContext
+        func count<T: PersistentModel>(_ type: T.Type) -> Int {
+            (try? context.fetchCount(FetchDescriptor<T>())) ?? -1
         }
-        let zoneID = CKRecordZone.ID(zoneName: "com.apple.coredata.cloudkit.zone", ownerName: CKCurrentUserDefaultName)
-        do {
-            _ = try await CKContainer(identifier: identifier).privateCloudDatabase.deleteRecordZone(withID: zoneID)
-            log("CLOUD_ZONE deleted")
-        } catch {
-            log("CLOUD_ZONE error \(error.localizedDescription)")
+        log("COUNTS now 그룹 \(count(RoutineGroup.self)), 루틴 \(count(RoutineItem.self)), 이력 \(count(RoutineRevision.self)), "
+            + "기록 \(count(DayRecord.self)), 체크 \(count(DayCheck.self)), 설정 \(count(AppSettings.self)), 편집 기록 \(count(FieldEdit.self))")
+
+        let name = UserDefaults.standard.string(forKey: "DaylogStoreName") ?? "Daylog"
+        guard let url = try? DaylogStore.storeURL(name: name) else { return }
+        log("COUNTS info \(StoreInfo.read(for: url).map { "형식 v\($0.schemaVersion), iCloud \($0.cloudKitContainerID ?? "없음")" } ?? "정보 파일 없음")")
+        let root = StoreBackup.backupsRoot(for: url)
+        let backups = (try? FileManager.default.contentsOfDirectory(at: root, includingPropertiesForKeys: nil)) ?? []
+        if backups.isEmpty { log("COUNTS backup 없음") }
+        for backup in backups.sorted(by: { $0.lastPathComponent < $1.lastPathComponent }) {
+            let store = backup.appendingPathComponent(url.lastPathComponent)
+            let summary = (try? StoreBackup.counts(at: store).summary) ?? "읽을 수 없음"
+            let intact = (try? StoreBackup.verifyIntegrity(at: store)) != nil
+            log("COUNTS backup \(backup.lastPathComponent): \(summary), 무결성 \(intact ? "정상" : "확인 실패")")
         }
     }
 

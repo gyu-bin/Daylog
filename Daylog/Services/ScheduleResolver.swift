@@ -12,6 +12,15 @@ struct RevisionSnapshot: Equatable, Sendable {
     let isArchived: Bool
     let order: Int
     let updatedAt: Date
+    /// 당시 속해 있던 그룹.
+    let group: GroupSnapshot
+
+    var state: RoutineState {
+        RoutineState(
+            title: title, timeLabel: timeLabel, note: note, weekdayMask: weekdayMask,
+            isArchived: isArchived, order: order, group: group
+        )
+    }
 
     func isScheduled(on day: Day) -> Bool {
         !isArchived && weekdayMask & (1 << (day.weekday - 1)) != 0
@@ -29,7 +38,8 @@ extension RoutineRevision {
             weekdayMask: weekdayMask,
             isArchived: isArchived,
             order: order,
-            updatedAt: updatedAt
+            updatedAt: updatedAt,
+            group: group
         )
     }
 }
@@ -56,7 +66,13 @@ struct ScheduleResolver: Sendable {
         revisionsByRoutine.keys
             .compactMap { state(of: $0, on: day) }
             .filter { $0.isScheduled(on: day) }
-            .sorted { ($0.order, $0.title, $0.routineID.uuidString) < ($1.order, $1.title, $1.routineID.uuidString) }
+            .sorted {
+                if $0.group.id != $1.group.id {
+                    return ($0.group.order, $0.group.title, $0.group.id.uuidString)
+                        < ($1.group.order, $1.group.title, $1.group.id.uuidString)
+                }
+                return ($0.order, $0.title, $0.routineID.uuidString) < ($1.order, $1.title, $1.routineID.uuidString)
+            }
     }
 }
 

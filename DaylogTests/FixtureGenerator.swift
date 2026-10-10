@@ -1,4 +1,5 @@
 import Foundation
+import SQLite3
 import SwiftData
 import Testing
 @testable import Daylog
@@ -8,34 +9,63 @@ import Testing
 /// 저장소 형식이 바뀌기 "전" 코드로 실행해서 `Fixtures/`에 고정해 둔다. 이후 버전의 테스트가
 /// 이 파일을 열어 기록이 그대로 넘어오는지 확인한다.
 ///
-///     TEST_RUNNER_DAYLOG_FIXTURE_DIR=<앱 컨테이너 안의 쓰기 가능한 폴더> xcodebuild ... \
-///         test -only-testing:DaylogTests/FixtureGenerator
+/// 팀 서명된 앱의 컨테이너는 다른 프로세스가 읽을 수 없어서, 만든 저장소와 기대값을 base64로 출력한다.
+///
+///     TEST_RUNNER_DAYLOG_FIXTURE=1 xcodebuild ... test -only-testing:DaylogTests/FixtureGenerator > log
+///     (log의 DAYLOG_FIXTURE_STORE / DAYLOG_FIXTURE_JSON 줄을 순서대로 이어 붙여 디코드한다)
 @MainActor
 struct FixtureGenerator {
-    private nonisolated static let outputDirectory = ProcessInfo.processInfo.environment["DAYLOG_FIXTURE_DIR"]
+    private nonisolated static let isRequested = ProcessInfo.processInfo.environment["DAYLOG_FIXTURE"] != nil
 
-    @Test(.enabled(if: FixtureGenerator.outputDirectory != nil))
+    @Test(.enabled(if: FixtureGenerator.isRequested))
     func writeFixture() throws {
-        let directory = URL(fileURLWithPath: try #require(Self.outputDirectory), isDirectory: true)
+        let directory = FileManager.default.temporaryDirectory
+            .appendingPathComponent("DaylogFixture-\(UUID().uuidString)", isDirectory: true)
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: directory) }
         let storeURL = directory.appendingPathComponent("fixture.store")
-        for suffix in ["", "-shm", "-wal"] {
-            try? FileManager.default.removeItem(at: URL(fileURLWithPath: storeURL.path + suffix))
-        }
-
         let today = day("2026-10-10")
+
+        let expected = try populate(storeURL: storeURL, today: today)
+
+        // 컨테이너가 해제된 뒤 WAL 내용을 본 파일로 합쳐 파일 하나로 만든다.
+        var handle: OpaquePointer?
+        #expect(sqlite3_open_v2(storeURL.path, &handle, SQLITE_OPEN_READWRITE, nil) == SQLITE_OK)
+        sqlite3_exec(handle, "PRAGMA wal_checkpoint(TRUNCATE)", nil, nil, nil)
+        sqlite3_close(handle)
+
+        emit("DAYLOG_FIXTURE_STORE", try Data(contentsOf: storeURL))
+        emit("DAYLOG_FIXTURE_JSON", try JSONEncoder.fixture.encode(expected))
+        #expect(expected.records.count > 15)
+    }
+
+    private func emit(_ tag: String, _ data: Data) {
+        let encoded = data.base64EncodedString()
+        var index = 0
+        var offset = encoded.startIndex
+        while offset < encoded.endIndex {
+            let end = encoded.index(offset, offsetBy: 2000, limitedBy: encoded.endIndex) ?? encoded.endIndex
+            print("\(tag) \(String(format: "%05d", index)) \(encoded[offset..<end])")
+            offset = end
+            index += 1
+        }
+        fflush(stdout)
+    }
+
+    private func populate(storeURL: URL, today: Day) throws -> FixtureSnapshot {
         let start = today.adding(days: -20)
         let container = try DaylogStore.makeContainer(.file(storeURL))
         let context = container.mainContext
         let routines = RoutineService(context: context)
         let records = DayRecordService(context: context)
+        let edits = FieldEditService(context: context, deviceID: "fixture-mac-mini")
 
-        let leave = try routines.add(title: "현관 출발", note: "기상 후 바로 나가기", timeLabel: "07:00", today: start)
+        try routines.add(title: "현관 출발", note: "기상 후 바로 나가기", timeLabel: "07:00", today: start)
         let run = try routines.add(title: "운동", note: "러닝 30분", timeLabel: "07:30", today: start)
         let read = try routines.add(title: "독서", today: start)
         let words = try routines.add(title: "영어 단어", weekdays: Weekdays.workdays, today: start)
-        let review = try routines.add(title: "주간 회고", weekdays: [7], today: start)
-        _ = (leave, read, review)
+        try routines.add(title: "주간 회고", weekdays: [7], today: start)
+        let walk = try routines.add(title: "산책", today: start)
 
         // 완료 개수 패턴. nil은 앱을 열지 않은 날(미기록).
         let pattern: [Int?] = [4, 3, nil, 5, 2, 4, 4, nil, 3, 5]
@@ -57,6 +87,7 @@ struct FixtureGenerator {
             if offset % 2 == 0 {
                 records.setText("현미밥, 계란 \(offset)", at: \.lunch, of: record)
                 records.setText("내일 할 일 \(offset)", at: \.tomorrowTask, of: record)
+                try edits.recordEdit(dateKey: day.key, field: .lunch, value: record.lunch, now: day.anchorDate)
             }
             record.activityAt = day.anchorDate
         }
@@ -73,13 +104,29 @@ struct FixtureGenerator {
         records.setText("바나나", at: \.snack, of: record)
         records.setText("물 2L 마심.", at: \.mealMemo, of: record)
         records.setText("기획서 정리", at: \.tomorrowTask, of: record)
+        for field in DayTextField.allCases {
+            try edits.recordEdit(dateKey: today.key, field: field, value: record[keyPath: field.keyPath])
+        }
         try context.save()
+
+        // 오늘 완료하지 않은 채 보관한 루틴: 오늘 목록에서는 숨김으로 남는다.
+        try routines.setArchived(walk, true, today: today)
+
+        // 다른 기기에서 들어온 같은 날짜의 기록(중복)과 편집 기록. 병합까지 끝난 상태로 고정한다.
+        let duplicateDay = today.adding(days: -3)
+        let duplicate = DayRecord(day: duplicateDay, now: Date(timeIntervalSince1970: 4_102_444_800))
+        duplicate.dinner = "다른 Mac에서 쓴 저녁"
+        duplicate.activityAt = duplicateDay.anchorDate
+        context.insert(duplicate)
+        let other = FieldEdit(dateKey: today.key, field: DayTextField.snack.rawValue, deviceID: "fixture-macbook")
+        other.value = "견과류"
+        other.editedAt = today.anchorDate
+        context.insert(other)
+        try context.save()
+        try SyncReconciler(context: context, deviceID: "fixture-mac-mini").reconcile(today: today)
         try SettingsService(context: context).setThreshold(70)
 
-        let expected = try FixtureSnapshot.capture(context: context, today: today)
-        let data = try JSONEncoder.fixture.encode(expected)
-        try data.write(to: directory.appendingPathComponent("fixture.expected.json"))
-        #expect(expected.records.count > 15)
+        return try FixtureSnapshot.capture(context: context, today: today)
     }
 }
 
@@ -144,6 +191,8 @@ struct FixtureSnapshot: Codable, Equatable {
     var records: [Record]
     var settingsCount: Int
     var stats: Stats
+    /// "날짜|칸|기기|값". v1.2 형식부터 있다.
+    var fieldEdits: [String]?
 
     @MainActor
     static func capture(context: ModelContext, today: Day) throws -> FixtureSnapshot {
@@ -156,7 +205,9 @@ struct FixtureSnapshot: Codable, Equatable {
                      timeLabel: $0.timeLabel, weekdays: Weekdays.days(mask: $0.weekdayMask),
                      isArchived: $0.isArchived, order: $0.order)
         }.sorted { ($0.routineID.uuidString, $0.effectiveFromKey) < ($1.routineID.uuidString, $1.effectiveFromKey) }
-        let records = try context.fetch(FetchDescriptor<DayRecord>(sortBy: [SortDescriptor(\.dateKey)])).map { record in
+        let records = try context.fetch(
+            FetchDescriptor<DayRecord>(sortBy: [SortDescriptor(\.dateKey), SortDescriptor(\.createdAt)])
+        ).map { record in
             Record(
                 dateKey: record.dateKey, isRecorded: record.isRecorded,
                 breakfast: record.breakfast, lunch: record.lunch, dinner: record.dinner,
@@ -181,7 +232,10 @@ struct FixtureSnapshot: Codable, Equatable {
                 longestStreak: stats.longestStreak,
                 trendPercents: stats.trend.map(\.percent),
                 routineRates: stats.routineRates.map { "\($0.title)|\($0.done)/\($0.scheduled)|\($0.isArchived)" }
-            )
+            ),
+            fieldEdits: try context.fetch(FetchDescriptor<FieldEdit>())
+                .map { "\($0.dateKey)|\($0.field)|\($0.deviceID)|\($0.value)" }
+                .sorted()
         )
     }
 

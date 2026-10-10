@@ -21,13 +21,14 @@ struct CardHeader<Trailing: View>: View {
     let symbol: String
     let title: String
     var subtitle: String?
+    var tint: Color = Theme.accent
     @ViewBuilder var trailing: () -> Trailing
 
     var body: some View {
         HStack(alignment: .firstTextBaseline, spacing: 8) {
             Image(systemName: symbol)
                 .font(.system(size: 15, weight: .semibold))
-                .foregroundStyle(Theme.accent)
+                .foregroundStyle(tint)
                 .frame(width: 20)
                 .accessibilityHidden(true)
             // 좁아지면 부제부터 줄이고, 제목과 오른쪽 컨트롤은 온전히 남긴다.
@@ -51,8 +52,8 @@ struct CardHeader<Trailing: View>: View {
 }
 
 extension CardHeader where Trailing == EmptyView {
-    init(symbol: String, title: String, subtitle: String? = nil) {
-        self.init(symbol: symbol, title: title, subtitle: subtitle, trailing: { EmptyView() })
+    init(symbol: String, title: String, subtitle: String? = nil, tint: Color = Theme.accent) {
+        self.init(symbol: symbol, title: title, subtitle: subtitle, tint: tint, trailing: { EmptyView() })
     }
 }
 

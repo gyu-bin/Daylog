@@ -1,0 +1,1203 @@
+{
+  "fieldEdits" : [
+    "2026-09-20|lunch|fixture-mac-mini|현미밥, 계란 0",
+    "2026-09-24|lunch|fixture-mac-mini|현미밥, 계란 4",
+    "2026-09-26|lunch|fixture-mac-mini|현미밥, 계란 6",
+    "2026-09-28|lunch|fixture-mac-mini|현미밥, 계란 8",
+    "2026-09-30|lunch|fixture-mac-mini|현미밥, 계란 10",
+    "2026-10-04|lunch|fixture-mac-mini|현미밥, 계란 14",
+    "2026-10-06|lunch|fixture-mac-mini|현미밥, 계란 16",
+    "2026-10-08|lunch|fixture-mac-mini|현미밥, 계란 18",
+    "2026-10-10|breakfast|fixture-mac-mini|그릭요거트, 블루베리",
+    "2026-10-10|dinner|fixture-mac-mini|계란 2개",
+    "2026-10-10|lunch|fixture-mac-mini|일반식\n닭가슴살 추가",
+    "2026-10-10|mealMemo|fixture-mac-mini|물 2L 마심.",
+    "2026-10-10|snack|fixture-mac-mini|바나나\n견과류",
+    "2026-10-10|snack|fixture-macbook|견과류",
+    "2026-10-10|tomorrowTask|fixture-mac-mini|기획서 정리"
+  ],
+  "records" : [
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:30",
+          "title" : "운동"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 4,
+          "routineID" : "7C6D2ECF-E568-487C-B6EC-E0001CFE9ECD",
+          "timeLabel" : "",
+          "title" : "주간 회고"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-09-20",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "현미밥, 계란 0",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : "내일 할 일 0"
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:30",
+          "title" : "운동"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 3,
+          "routineID" : "12697A85-89C9-42E3-B1D0-163048DC5A8A",
+          "timeLabel" : "",
+          "title" : "영어 단어"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-09-21",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : ""
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : false,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : false,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:30",
+          "title" : "운동"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 3,
+          "routineID" : "12697A85-89C9-42E3-B1D0-163048DC5A8A",
+          "timeLabel" : "",
+          "title" : "영어 단어"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-09-22",
+      "dinner" : "",
+      "isRecorded" : false,
+      "lunch" : "",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : ""
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:30",
+          "title" : "운동"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 3,
+          "routineID" : "12697A85-89C9-42E3-B1D0-163048DC5A8A",
+          "timeLabel" : "",
+          "title" : "영어 단어"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-09-23",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : ""
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:30",
+          "title" : "운동"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 3,
+          "routineID" : "12697A85-89C9-42E3-B1D0-163048DC5A8A",
+          "timeLabel" : "",
+          "title" : "영어 단어"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-09-24",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "현미밥, 계란 4",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : "내일 할 일 4"
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:30",
+          "title" : "운동"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 3,
+          "routineID" : "12697A85-89C9-42E3-B1D0-163048DC5A8A",
+          "timeLabel" : "",
+          "title" : "영어 단어"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-09-25",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : ""
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:30",
+          "title" : "운동"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-09-26",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "현미밥, 계란 6",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : "내일 할 일 6"
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:40",
+          "title" : "운동 (러닝)"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 3,
+          "routineID" : "12697A85-89C9-42E3-B1D0-163048DC5A8A",
+          "timeLabel" : "",
+          "title" : "영어 단어"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-09-28",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "현미밥, 계란 8",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : "내일 할 일 8"
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:40",
+          "title" : "운동 (러닝)"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 3,
+          "routineID" : "12697A85-89C9-42E3-B1D0-163048DC5A8A",
+          "timeLabel" : "",
+          "title" : "영어 단어"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-09-29",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : ""
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:40",
+          "title" : "운동 (러닝)"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 3,
+          "routineID" : "12697A85-89C9-42E3-B1D0-163048DC5A8A",
+          "timeLabel" : "",
+          "title" : "영어 단어"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-09-30",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "현미밥, 계란 10",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : "내일 할 일 10"
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:40",
+          "title" : "운동 (러닝)"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 3,
+          "routineID" : "12697A85-89C9-42E3-B1D0-163048DC5A8A",
+          "timeLabel" : "",
+          "title" : "영어 단어"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-10-01",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : ""
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:40",
+          "title" : "운동 (러닝)"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-10-03",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : ""
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:40",
+          "title" : "운동 (러닝)"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 4,
+          "routineID" : "7C6D2ECF-E568-487C-B6EC-E0001CFE9ECD",
+          "timeLabel" : "",
+          "title" : "주간 회고"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-10-04",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "현미밥, 계란 14",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : "내일 할 일 14"
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:40",
+          "title" : "운동 (러닝)"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-10-05",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : ""
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:40",
+          "title" : "운동 (러닝)"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-10-06",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "현미밥, 계란 16",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : "내일 할 일 16"
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+
+      ],
+      "dateKey" : "2026-10-07",
+      "dinner" : "다른 Mac에서 쓴 저녁",
+      "isRecorded" : true,
+      "lunch" : "",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : ""
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:40",
+          "title" : "운동 (러닝)"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-10-08",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "현미밥, 계란 18",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : "내일 할 일 18"
+    },
+    {
+      "breakfast" : "",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:40",
+          "title" : "운동 (러닝)"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        },
+        {
+          "isDone" : true,
+          "note" : "",
+          "order" : 5,
+          "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+          "timeLabel" : "",
+          "title" : "산책"
+        }
+      ],
+      "dateKey" : "2026-10-09",
+      "dinner" : "",
+      "isRecorded" : true,
+      "lunch" : "",
+      "mealMemo" : "",
+      "snack" : "",
+      "tomorrowTask" : ""
+    },
+    {
+      "breakfast" : "그릭요거트, 블루베리",
+      "checks" : [
+        {
+          "isDone" : true,
+          "note" : "기상 후 바로 나가기",
+          "order" : 0,
+          "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+          "timeLabel" : "07:00",
+          "title" : "현관 출발"
+        },
+        {
+          "isDone" : true,
+          "note" : "러닝 30분",
+          "order" : 1,
+          "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+          "timeLabel" : "07:40",
+          "title" : "운동 (러닝)"
+        },
+        {
+          "isDone" : false,
+          "note" : "",
+          "order" : 2,
+          "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+          "timeLabel" : "",
+          "title" : "독서"
+        }
+      ],
+      "dateKey" : "2026-10-10",
+      "dinner" : "계란 2개",
+      "isRecorded" : true,
+      "lunch" : "일반식\n닭가슴살 추가",
+      "mealMemo" : "물 2L 마심.",
+      "snack" : "바나나\n견과류",
+      "tomorrowTask" : "기획서 정리"
+    }
+  ],
+  "revisions" : [
+    {
+      "effectiveFromKey" : "2026-09-20",
+      "isArchived" : false,
+      "order" : 3,
+      "routineID" : "12697A85-89C9-42E3-B1D0-163048DC5A8A",
+      "timeLabel" : "",
+      "title" : "영어 단어",
+      "weekdays" : [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "effectiveFromKey" : "2026-10-02",
+      "isArchived" : true,
+      "order" : 3,
+      "routineID" : "12697A85-89C9-42E3-B1D0-163048DC5A8A",
+      "timeLabel" : "",
+      "title" : "영어 단어",
+      "weekdays" : [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "effectiveFromKey" : "2026-09-20",
+      "isArchived" : false,
+      "order" : 0,
+      "routineID" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+      "timeLabel" : "07:00",
+      "title" : "현관 출발",
+      "weekdays" : [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "effectiveFromKey" : "2026-09-20",
+      "isArchived" : false,
+      "order" : 1,
+      "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+      "timeLabel" : "07:30",
+      "title" : "운동",
+      "weekdays" : [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "effectiveFromKey" : "2026-09-28",
+      "isArchived" : false,
+      "order" : 1,
+      "routineID" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+      "timeLabel" : "07:40",
+      "title" : "운동 (러닝)",
+      "weekdays" : [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "effectiveFromKey" : "2026-09-20",
+      "isArchived" : false,
+      "order" : 5,
+      "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+      "timeLabel" : "",
+      "title" : "산책",
+      "weekdays" : [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "effectiveFromKey" : "2026-10-10",
+      "isArchived" : true,
+      "order" : 5,
+      "routineID" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+      "timeLabel" : "",
+      "title" : "산책",
+      "weekdays" : [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "effectiveFromKey" : "2026-09-20",
+      "isArchived" : false,
+      "order" : 2,
+      "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+      "timeLabel" : "",
+      "title" : "독서",
+      "weekdays" : [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "effectiveFromKey" : "2026-10-05",
+      "isArchived" : false,
+      "order" : 2,
+      "routineID" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+      "timeLabel" : "",
+      "title" : "독서",
+      "weekdays" : [
+        1,
+        3,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "effectiveFromKey" : "2026-09-20",
+      "isArchived" : false,
+      "order" : 4,
+      "routineID" : "7C6D2ECF-E568-487C-B6EC-E0001CFE9ECD",
+      "timeLabel" : "",
+      "title" : "주간 회고",
+      "weekdays" : [
+        7
+      ]
+    }
+  ],
+  "routines" : [
+    {
+      "id" : "1390B538-EAB6-4613-89F7-411341D9CE17",
+      "isArchived" : false,
+      "note" : "기상 후 바로 나가기",
+      "order" : 0,
+      "timeLabel" : "07:00",
+      "title" : "현관 출발",
+      "weekdays" : [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id" : "269284FB-C1D0-42E1-9A1D-D5C8FE5327F7",
+      "isArchived" : false,
+      "note" : "러닝 30분",
+      "order" : 1,
+      "timeLabel" : "07:40",
+      "title" : "운동 (러닝)",
+      "weekdays" : [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id" : "4074D3C9-014A-4C0A-AC79-519D7C31A1FC",
+      "isArchived" : false,
+      "note" : "",
+      "order" : 2,
+      "timeLabel" : "",
+      "title" : "독서",
+      "weekdays" : [
+        1,
+        3,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id" : "12697A85-89C9-42E3-B1D0-163048DC5A8A",
+      "isArchived" : true,
+      "note" : "",
+      "order" : 3,
+      "timeLabel" : "",
+      "title" : "영어 단어",
+      "weekdays" : [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id" : "7C6D2ECF-E568-487C-B6EC-E0001CFE9ECD",
+      "isArchived" : false,
+      "note" : "",
+      "order" : 4,
+      "timeLabel" : "",
+      "title" : "주간 회고",
+      "weekdays" : [
+        7
+      ]
+    },
+    {
+      "id" : "2EBBC21E-221B-47E5-8584-62931B18D7F6",
+      "isArchived" : true,
+      "note" : "",
+      "order" : 5,
+      "timeLabel" : "",
+      "title" : "산책",
+      "weekdays" : [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  ],
+  "settingsCount" : 1,
+  "stats" : {
+    "currentStreak" : 4,
+    "firstDayKey" : "2026-09-20",
+    "longestStreak" : 4,
+    "routineRates" : [
+      "현관 출발|17\/20|false",
+      "운동 (러닝)|17\/20|false",
+      "독서|12\/18|false",
+      "영어 단어|4\/9|true",
+      "산책|8\/19|true",
+      "주간 회고|1\/3|false"
+    ],
+    "threshold" : 70,
+    "todayDone" : 2,
+    "todayTotal" : 3,
+    "trendPercents" : [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      80,
+      60,
+      0,
+      100,
+      40,
+      80,
+      100,
+      0,
+      60,
+      100,
+      80,
+      60,
+      0,
+      100,
+      40,
+      100,
+      100,
+      null,
+      100,
+      100,
+      67
+    ],
+    "weekPercents" : [
+      40,
+      100,
+      100,
+      null,
+      100,
+      100,
+      67
+    ],
+    "weeklyAverage" : 84
+  }
+}

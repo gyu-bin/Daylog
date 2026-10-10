@@ -87,6 +87,8 @@ struct SyncReconciler {
         try mergeSettings()
         try resolveFieldEdits(report: &report)
         try mergeRecords(today: today, report: &report)
+        // 그룹 없이 만든 항목이 다른 기기에서 들어왔을 수 있다.
+        try RoutineService(context: context).ensureDefaultGroup()
         try RoutineService(context: context).syncTodayRecord(today: today)
         report.changed = context.hasChanges
         try context.saveIfNeeded()
@@ -204,8 +206,12 @@ struct SyncReconciler {
         let siblings = representative.physicalChecks.filter { $0.routineID == check.routineID }
         guard let target = siblings.min(by: { SyncOrder.precedes($0.syncID, $1.syncID) }) else {
             let copy = DayCheck(
-                routineID: check.routineID, title: check.title, timeLabel: check.timeLabel,
-                note: check.note, order: check.order, isDone: check.isDone
+                routineID: check.routineID,
+                state: RoutineState(
+                    title: check.title, timeLabel: check.timeLabel, note: check.note, weekdayMask: 0,
+                    isArchived: false, order: check.order, group: check.group
+                ),
+                isDone: check.isDone
             )
             copy.isHidden = check.isHidden
             context.insert(copy)

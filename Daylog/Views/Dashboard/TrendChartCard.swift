@@ -56,8 +56,8 @@ struct TrendChartCard: View {
 
     private func chart(trend: [DayOutcome], points: [Point]) -> some View {
         let lastIndex = max(trend.count - 1, 1)
-        // 오늘부터 일주일 간격.
-        let ticks = Array(stride(from: lastIndex, through: 0, by: -7).reversed())
+        // 오늘부터 9일 간격. 더 촘촘하면 좁은 카드에서 마지막 눈금(오늘)과 겹친다.
+        let ticks = Array(stride(from: lastIndex, through: 0, by: -9).reversed())
 
         return Chart {
             ForEach(points) { point in

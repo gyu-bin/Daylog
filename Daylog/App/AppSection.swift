@@ -26,3 +26,16 @@ extension AppStore {
         }
     }
 }
+
+enum StatisticsTab: String, CaseIterable, Identifiable {
+    case routines, meals
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .routines: return "루틴 통계"
+        case .meals: return "식사 기록"
+        }
+    }
+}

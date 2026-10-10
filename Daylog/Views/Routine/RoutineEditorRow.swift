@@ -6,6 +6,10 @@ struct RoutineEditorRow: View {
     let routine: RoutineItem
     let canMoveUp: Bool
     let canMoveDown: Bool
+    /// 이 항목을 옮길 수 있는 다른 그룹들.
+    let otherGroups: [RoutineGroup]
+    /// 속한 그룹의 색.
+    var tint: Color = Theme.accent
     let onTitleSubmitted: () -> Void
 
     // 입력 중에는 초안만 바꾸고, Enter를 누르거나 포커스가 떠날 때 한 번에 반영한다.
@@ -27,7 +31,7 @@ struct RoutineEditorRow: View {
                 .foregroundStyle(.tertiary)
                 .frame(width: 20, height: 24)
                 .contentShape(Rectangle())
-                .draggable(routine.id.uuidString) {
+                .draggable(DragPayload.item(routine.id).string) {
                     Text(routine.title)
                         .padding(.horizontal, 10)
                         .padding(.vertical, 6)
@@ -59,7 +63,7 @@ struct RoutineEditorRow: View {
                 }
 
                 HStack(spacing: 10) {
-                    WeekdayPicker(selection: routine.weekdays, routineTitle: routine.title, onToggle: toggleWeekday)
+                    WeekdayPicker(selection: routine.weekdays, routineTitle: routine.title, tint: tint, onToggle: toggleWeekday)
                     presetButtons
                     Spacer(minLength: 0)
                     Text(Weekdays.summary(routine.weekdays))
@@ -103,6 +107,22 @@ struct RoutineEditorRow: View {
                     .accessibilityLabel("\(routine.title) 아래로 이동")
                     .help("아래로 이동")
                 }
+                if !otherGroups.isEmpty {
+                    Menu {
+                        ForEach(otherGroups) { group in
+                            Button(group.title) {
+                                commit()
+                                store.moveRoutine(routine, to: group)
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "arrow.right.square")
+                    }
+                    .menuIndicator(.hidden)
+                    .fixedSize()
+                    .accessibilityLabel("\(routine.title) 다른 그룹으로 이동")
+                    .help("다른 그룹으로 이동")
+                }
                 Button("보관") {
                     commit()
                     store.setArchived(routine, true)
@@ -115,7 +135,8 @@ struct RoutineEditorRow: View {
         .padding(.vertical, 10)
         .background(isDropTarget ? Theme.accentWash : .clear)
         .dropDestination(for: String.self) { items, _ in
-            guard let id = items.first.flatMap(UUID.init(uuidString:)) else { return false }
+            // 항목만 받는다. 그룹을 놓은 경우는 바깥의 그룹 카드가 처리하도록 넘긴다.
+            guard case .item(let id)? = items.first.flatMap(DragPayload.init(string:)) else { return false }
             store.moveActiveRoutine(id: id, to: routine.id)
             return true
         } isTargeted: {
@@ -183,6 +204,7 @@ struct RoutineEditorRow: View {
 private struct WeekdayPicker: View {
     let selection: [Int]
     let routineTitle: String
+    let tint: Color
     let onToggle: (Int) -> Void
 
     var body: some View {
@@ -196,7 +218,7 @@ private struct WeekdayPicker: View {
                         .font(.callout.weight(isOn ? .bold : .regular))
                         .foregroundStyle(isOn ? AnyShapeStyle(Theme.onAccent) : AnyShapeStyle(.secondary))
                         .frame(width: 26, height: 26)
-                        .background(isOn ? AnyShapeStyle(Theme.accent) : AnyShapeStyle(Theme.track), in: Circle())
+                        .background(isOn ? AnyShapeStyle(tint) : AnyShapeStyle(Theme.track), in: Circle())
                         .contentShape(Circle())
                 }
                 .buttonStyle(.plain)

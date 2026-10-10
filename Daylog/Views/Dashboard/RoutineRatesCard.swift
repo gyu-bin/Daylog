@@ -29,7 +29,7 @@ struct RoutineRatesCard: View {
                                     .truncationMode(.tail)
                                     .frame(width: 104, alignment: .leading)
                                     .help(rate.title)
-                                ProgressBar(ratio: rate.ratio, height: 10)
+                                ProgressBar(ratio: rate.ratio, height: 10, tint: GroupColor(key: rate.colorKey).color)
                                 Text("\(rate.percent)%")
                                     .font(.callout)
                                     .monospacedDigit()

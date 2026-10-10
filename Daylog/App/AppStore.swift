@@ -8,6 +8,10 @@ import SwiftData
 final class AppStore {
     var section: Section = .dashboard
     var errorMessage: String?
+    // 통계 화면의 탭·필터·검색어. 다른 메뉴에 다녀와도 그대로 남는다.
+    var statisticsTab: StatisticsTab = .routines
+    var mealPeriod: MealPeriod = .month
+    var mealQuery = ""
 
     /// 실제 오늘. 통계의 기준 날짜다.
     private(set) var today: Day
@@ -16,6 +20,12 @@ final class AppStore {
     private(set) var record: DayRecord?
     /// 보관된 루틴을 포함한 전체 루틴. 표시 순서대로.
     private(set) var routines: [RoutineItem] = []
+    /// 보관된 그룹을 포함한 전체 그룹. 표시 순서대로.
+    private(set) var groups: [RoutineGroup] = []
+    /// 저장된 내용이 바뀔 때마다 올라간다. 식사 기록 탭처럼 따로 조회하는 화면이 이 값을 보고 다시 읽는다.
+    private(set) var dataVersion = 0
+    /// 마지막으로 항목을 추가한 그룹. ⌘N과 추천 칩이 이 그룹을 대상으로 한다.
+    var lastUsedGroupID: UUID?
     private(set) var stats: DashboardStats
     /// 캘린더가 보여 주는 달의 1일.
     private(set) var calendarMonth: Day
@@ -28,7 +38,7 @@ final class AppStore {
 
     /// 컨테이너가 해제되면 컨텍스트의 모델 객체가 모두 무효화되므로 직접 붙잡아 둔다.
     @ObservationIgnored private let container: ModelContainer
-    @ObservationIgnored private let context: ModelContext
+    @ObservationIgnored let context: ModelContext
     @ObservationIgnored private let clock: () -> Day
     @ObservationIgnored private var pendingSave: Task<Void, Never>?
     @ObservationIgnored private var editingSources: Set<String> = []
@@ -231,21 +241,19 @@ final class AppStore {
         return succeeded
     }
 
-    // MARK: - 설정
-
-    func setThreshold(_ value: Int) {
-        perform { try SettingsService(context: context).setThreshold(value) }
-        reloadStats()
-    }
-
     // MARK: - 다시 계산
 
     private func reload() {
-        perform { routines = try RoutineService(context: context).routines() }
+        perform {
+            let service = RoutineService(context: context)
+            groups = try service.groups()
+            routines = try service.routines()
+        }
         reloadStats()
     }
 
-    private func reloadStats() {
+    func reloadStats() {
+        dataVersion += 1
         perform {
             let updated = try StatsService(context: context).dashboard(today: today)
             if updated != stats { stats = updated }
@@ -266,7 +274,7 @@ final class AppStore {
 
     /// 저장·조회 실패를 삼키지 않고 사용자에게 알린다.
     @discardableResult
-    private func perform(_ body: () throws -> Void) -> Bool {
+    func perform(_ body: () throws -> Void) -> Bool {
         do {
             try body()
             return true

@@ -1,50 +1,87 @@
 import SwiftUI
 
-/// 보고 있는 날짜의 루틴 체크, 빠른 추가, 내일 오전 할 일.
+/// 보고 있는 날짜의 루틴 체크(그룹별), 빠른 추가, 내일 오전 할 일.
 struct RoutineCard: View {
-    @Environment(AppStore.self) private var store
-    @State private var draft = ""
-    @FocusState private var focus: Field?
+    @Environment(AppStore.self) var store
+    /// 접어 둔 그룹의 ID(쉼표로 이어 붙인 문자열). 이 Mac에만 저장된다.
+    @AppStorage("collapsedGroupIDs") var collapsedGroupIDs = ""
+    @State var itemDrafts: [UUID: String] = [:]
+    @State private var groupDraft = ""
+    @State private var isAddingGroup = false
+    @FocusState var focus: Field?
 
-    private enum Field: Hashable {
-        case quickAdd, tomorrowTask
+    enum Field: Hashable {
+        case item(UUID)
+        case newGroup
+        case tomorrowTask
     }
 
-    /// 뷰가 모델 객체를 붙잡지 않도록 행에는 값만 넘긴다(보관으로 체크가 삭제될 수 있다).
-    private struct Row: Identifiable, Equatable {
-        let id: UUID
-        let title: String
-        let timeLabel: String
-        let note: String
-        let isDone: Bool
+    /// 화면에 그릴 그룹 한 칸. 체크가 있는 그룹은 그날의 스냅샷, 항목이 아직 없는 새 그룹은 현재 모습.
+    struct Section: Identifiable {
+        let group: GroupSnapshot
+        let checks: [CheckValue]
+        /// 오늘 항목을 추가할 수 있는 현재 그룹. 과거 날짜이거나 보관된 그룹이면 nil.
+        let target: RoutineGroup?
+
+        var id: UUID { group.id }
+        var done: Int { checks.filter(\.isDone).count }
     }
 
-    private var rows: [Row] {
-        store.checks.map {
-            Row(id: $0.routineID, title: $0.title, timeLabel: $0.timeLabel, note: $0.note, isDone: $0.isDone)
+    private var sections: [Section] {
+        let active = store.activeGroups
+        var result = store.checkSections.map { section in
+            Section(
+                group: section.group,
+                checks: section.checks,
+                target: store.isViewingToday ? active.first { $0.id == section.group.id } : nil
+            )
         }
+        guard store.isViewingToday else { return result }
+        // 항목이 하나도 없는 그룹은 첫 항목을 넣을 수 있게 보여 준다.
+        // 항목은 있는데 오늘 해당하는 것이 없는 그룹은 보여 주지 않는다.
+        for group in active where !result.contains(where: { $0.id == group.id })
+            && store.activeRoutines(inGroup: group.id).isEmpty {
+            result.append(Section(group: GroupSnapshot(group), checks: [], target: group))
+        }
+        return result.sorted { ($0.group.order, $0.group.title) < ($1.group.order, $1.group.title) }
     }
 
     var body: some View {
-        let rows = rows
+        let sections = sections
         Card {
             VStack(alignment: .leading, spacing: 12) {
                 CardHeader(symbol: "checklist", title: store.isViewingToday ? "오늘의 루틴" : "\(store.selectedDay.shortTitle)의 루틴") {
-                    Button("루틴 편집") {
-                        store.section = .routines
+                    HStack(spacing: 6) {
+                        if store.isViewingToday, !store.activeGroups.isEmpty {
+                            Button {
+                                isAddingGroup = true
+                                focus = .newGroup
+                            } label: {
+                                Label("그룹 추가", systemImage: "plus")
+                            }
+                        }
+                        Button("루틴 편집") {
+                            store.section = .routines
+                        }
                     }
                 }
 
-                if rows.isEmpty {
+                if sections.isEmpty {
                     emptyState
                 } else {
-                    checkList(rows)
+                    VStack(spacing: 10) {
+                        ForEach(sections) { section in
+                            sectionView(section)
+                        }
+                    }
                 }
 
                 if store.isViewingToday {
-                    quickAdd
-                    if !store.suggestions.isEmpty {
-                        suggestionChips
+                    if store.activeGroups.isEmpty || isAddingGroup {
+                        newGroupField
+                    }
+                    if !store.suggestions.isEmpty, let group = store.quickAddGroup {
+                        suggestionChips(into: group)
                     }
                 } else {
                     pastDayNotice
@@ -52,63 +89,27 @@ struct RoutineCard: View {
 
                 Spacer(minLength: 0)
 
-                if !rows.isEmpty {
+                if store.selectedOutcome.total > 0 {
                     progress
                 }
                 tomorrowTask
             }
         }
         .onChange(of: store.quickAddFocusToken) {
-            focus = .quickAdd
+            focusQuickAdd()
         }
         .onChange(of: focus) { _, newValue in
             store.setEditing(newValue != nil, source: "routine")
+            if newValue != .newGroup, groupDraft.isEmpty { isAddingGroup = false }
         }
     }
 
-    // MARK: - 목록
-
-    private func checkList(_ rows: [Row]) -> some View {
-        let showsTime = rows.contains { !$0.timeLabel.isEmpty }
-        let showsNote = rows.contains { !$0.note.isEmpty }
-        return VStack(spacing: 0) {
-            ForEach(rows) { row in
-                Divider()
-                Toggle(isOn: Binding(
-                    get: { row.isDone },
-                    set: { store.setDone(routineID: row.id, $0) }
-                )) {
-                    HStack(alignment: .firstTextBaseline, spacing: 12) {
-                        Text(row.title)
-                            .font(.body.weight(.semibold))
-                            .lineLimit(2)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        if showsTime {
-                            Text(row.timeLabel)
-                                .monospacedDigit()
-                                .foregroundStyle(.secondary)
-                                .lineLimit(1)
-                                .frame(width: 60, alignment: .leading)
-                        }
-                        if showsNote {
-                            Text(row.note)
-                                .foregroundStyle(.secondary)
-                                .lineLimit(1)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-                    }
-                }
-                .toggleStyle(RoutineCheckStyle())
-                .padding(.vertical, 7)
-            }
-            Divider()
-        }
-    }
+    // MARK: - 그룹 추가와 빈 상태
 
     @ViewBuilder
     private var emptyState: some View {
-        if !store.hasRoutines {
-            EmptyHint(symbol: "leaf", message: "아직 루틴이 없어요.\n매일 하고 싶은 일을 하나 적어보세요.")
+        if store.isViewingToday, store.activeGroups.isEmpty {
+            EmptyHint(symbol: "sparkles", message: "첫 루틴을 만들어보세요.\n그룹 이름을 정하면 바로 항목을 적을 수 있어요.")
         } else if store.isViewingToday {
             EmptyHint(symbol: "cup.and.saucer", message: "오늘은 예정된 루틴이 없어요.")
         } else {
@@ -116,53 +117,69 @@ struct RoutineCard: View {
         }
     }
 
-    // MARK: - 빠른 추가
-
-    private var quickAdd: some View {
+    private var newGroupField: some View {
         HStack(spacing: 8) {
-            Image(systemName: "plus")
-                .font(.system(size: 13, weight: .semibold))
+            Image(systemName: "folder.badge.plus")
                 .foregroundStyle(Theme.accent)
                 .accessibilityHidden(true)
-            TextField(
-                "새 루틴",
-                text: $draft,
-                prompt: Text(store.hasRoutines ? "루틴 추가 (Enter)" : "예: 아침 운동 30분")
-            )
-            .textFieldStyle(.plain)
-            .focused($focus, equals: .quickAdd)
-            .onSubmit(addRoutine)
-            .accessibilityLabel("새 루틴 이름")
-            .accessibilityHint("Enter를 누르면 매일 하는 루틴으로 추가됩니다.")
-
-            if !store.hasRoutines || !draft.isEmpty {
-                Button("추가", action: addRoutine)
-                    .disabled(draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
-            }
+            TextField("새 그룹 이름", text: $groupDraft, prompt: Text("그룹 이름 (예: 아침 루틴)"))
+                .textFieldStyle(.plain)
+                .focused($focus, equals: .newGroup)
+                .onSubmit(addGroup)
+                .accessibilityLabel("새 그룹 이름")
+                .accessibilityHint("Enter를 누르면 그룹이 만들어지고 바로 첫 항목을 적을 수 있습니다.")
+            Button("추가", action: addGroup)
+                .disabled(groupDraft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
         }
         .padding(.horizontal, 10)
         .frame(minHeight: 34)
         .background(Theme.track.opacity(0.5), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
         .overlay(RoundedRectangle(cornerRadius: 8, style: .continuous).strokeBorder(Theme.separator, lineWidth: 1))
-        .help("새 루틴 (⌘N)")
     }
 
-    private var suggestionChips: some View {
+    /// 그룹을 만들면 곧바로 그 그룹의 항목 입력칸으로 넘어간다.
+    private func addGroup() {
+        guard let group = store.addGroup(title: groupDraft) else {
+            focus = .newGroup
+            return
+        }
+        groupDraft = ""
+        isAddingGroup = false
+        setCollapsed(group.id, false)
+        DispatchQueue.main.async {
+            focus = .item(group.id)
+        }
+    }
+
+    /// ⌘N: 마지막으로 쓴 그룹(없으면 첫 그룹)의 항목 입력칸으로. 그룹이 없으면 그룹 이름 입력칸으로.
+    private func focusQuickAdd() {
+        if let group = store.quickAddGroup {
+            setCollapsed(group.id, false)
+            DispatchQueue.main.async {
+                focus = .item(group.id)
+            }
+        } else {
+            isAddingGroup = true
+            focus = .newGroup
+        }
+    }
+
+    private func suggestionChips(into group: RoutineGroup) -> some View {
         FlowLayout(spacing: 6) {
             ForEach(store.suggestions, id: \.self) { suggestion in
                 Button {
-                    store.addRoutine(title: suggestion)
+                    store.addRoutine(title: suggestion, in: group)
                 } label: {
                     Label(suggestion, systemImage: "plus")
                         .font(.callout)
                         .labelStyle(.titleAndIcon)
                         .padding(.horizontal, 10)
                         .padding(.vertical, 5)
-                        .background(Theme.accentWash, in: Capsule())
+                        .background(GroupColor(key: group.colorKey).wash, in: Capsule())
                         .contentShape(Capsule())
                 }
                 .buttonStyle(.plain)
-                .accessibilityLabel("\(suggestion) 루틴 추가")
+                .accessibilityLabel("\(group.title) 그룹에 \(suggestion) 추가")
             }
         }
     }
@@ -171,7 +188,7 @@ struct RoutineCard: View {
         HStack(spacing: 6) {
             Image(systemName: "info.circle")
                 .accessibilityHidden(true)
-            Text("루틴 추가는 오늘 날짜에서만 할 수 있어요.")
+            Text("그룹과 항목 추가는 오늘 날짜에서만 할 수 있어요.")
             Spacer(minLength: 0)
             Button("오늘로 이동") {
                 store.goToToday()
@@ -180,13 +197,6 @@ struct RoutineCard: View {
         }
         .font(.callout)
         .foregroundStyle(.secondary)
-    }
-
-    private func addRoutine() {
-        if store.addRoutine(title: draft) {
-            draft = ""
-        }
-        focus = .quickAdd
     }
 
     // MARK: - 진행률과 내일 할 일
@@ -201,13 +211,13 @@ struct RoutineCard: View {
                 .fixedSize()
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("달성률 \(outcome.percentLabel), \(outcome.total)개 중 \(outcome.done)개 완료")
+        .accessibilityLabel("전체 달성률 \(outcome.percentLabel), \(outcome.total)개 중 \(outcome.done)개 완료")
     }
 
     private var tomorrowTask: some View {
         let label = store.isViewingToday ? "내일 오전 할 일" : "다음 날 오전 할 일"
         return HStack(spacing: 10) {
-            Label(label, systemImage: "doc.text")
+            Label(label, systemImage: "lightbulb")
                 .font(.callout.weight(.semibold))
                 .fixedSize()
             TextField(
@@ -223,34 +233,5 @@ struct RoutineCard: View {
             .labelsHidden()
         }
         .id(store.selectedDay)
-    }
-}
-
-/// 체크 표시와 이름 전체가 눌리는 체크박스. VoiceOver에는 표준 체크박스로 보인다.
-struct RoutineCheckStyle: ToggleStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        Button {
-            configuration.isOn.toggle()
-        } label: {
-            HStack(alignment: .firstTextBaseline, spacing: 12) {
-                Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
-                    .font(.system(size: 19))
-                    .symbolRenderingMode(.palette)
-                    .foregroundStyle(
-                        configuration.isOn ? Theme.onAccent : Color.secondary,
-                        configuration.isOn ? Theme.accent : Color.secondary
-                    )
-                    .alignmentGuide(.firstTextBaseline) { $0[.bottom] - 4 }
-                configuration.label
-            }
-            .contentShape(Rectangle())
-        }
-        .buttonStyle(.plain)
-        .accessibilityRepresentation {
-            Toggle(isOn: configuration.$isOn) {
-                configuration.label
-            }
-            .toggleStyle(.checkbox)
-        }
     }
 }

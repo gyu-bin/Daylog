@@ -1,77 +1,48 @@
 import SwiftUI
 
-/// 루틴 추가·수정·순서 변경·보관·복원. 변경은 오늘과 미래에만 적용되고 과거 기록은 그대로다.
+/// 루틴 그룹과 항목의 추가·수정·순서 변경·보관·복원. 변경은 오늘과 미래에만 적용되고 과거 기록은 그대로다.
 struct RoutineManagementView: View {
     @Environment(AppStore.self) private var store
-    @State private var draft = ""
-    @State private var showsArchived = false
-    @FocusState private var addFieldFocused: Bool
+    @State private var groupDraft = ""
+    @State private var showsArchivedGroups = false
+    @FocusState private var newGroupFocused: Bool
 
     var body: some View {
-        let active = store.activeRoutines
-        let archived = store.archivedRoutines
+        let active = store.activeGroups
+        let archived = store.archivedGroups
 
-        // List를 쓰면 행 안의 입력 칸이 첫 클릭에 바로 편집되지 않아서, 스크롤 뷰에 직접 배치한다.
         ScrollView {
             VStack(alignment: .leading, spacing: Theme.spacing) {
                 VStack(alignment: .leading, spacing: 4) {
                     PageTitle(title: "루틴 관리")
-                    Text("변경한 내용은 오늘부터 적용되고, 지난 날짜의 기록은 바뀌지 않아요. 왼쪽 손잡이를 끌거나 화살표로 순서를 바꿀 수 있어요.")
+                    Text("그룹을 만들고 그 안에 항목을 넣어 보세요. 변경한 내용은 오늘부터 적용되고, 지난 날짜의 기록은 바뀌지 않아요.")
                         .font(.callout)
                         .foregroundStyle(.secondary)
                 }
 
-                Card {
-                    VStack(alignment: .leading, spacing: 0) {
-                        if active.isEmpty {
-                            Text(archived.isEmpty
-                                 ? "아직 루틴이 없어요. 아래에 이름을 적고 Enter를 눌러 보세요."
-                                 : "사용 중인 루틴이 없어요. 새로 추가하거나 보관된 루틴을 복원하세요.")
-                                .foregroundStyle(.secondary)
-                                .padding(.vertical, 8)
-                            Divider()
-                        }
-                        ForEach(active) { routine in
-                            RoutineEditorRow(
-                                routine: routine,
-                                canMoveUp: routine.id != active.first?.id,
-                                canMoveDown: routine.id != active.last?.id,
-                                onTitleSubmitted: { addFieldFocused = true }
-                            )
-                            Divider()
-                        }
-                        addRow
+                newGroupCard
+
+                if active.isEmpty {
+                    Card {
+                        EmptyHint(
+                            symbol: "square.stack.3d.up",
+                            message: archived.isEmpty
+                                ? "아직 그룹이 없어요.\n위에 그룹 이름을 적고 Enter를 눌러 보세요."
+                                : "사용 중인 그룹이 없어요.\n새로 만들거나 보관된 그룹을 복원하세요."
+                        )
                     }
                 }
 
+                ForEach(active) { group in
+                    GroupEditorCard(
+                        group: group,
+                        canMoveUp: group.id != active.first?.id,
+                        canMoveDown: group.id != active.last?.id
+                    )
+                }
+
                 if !archived.isEmpty {
-                    Card {
-                        DisclosureGroup(isExpanded: $showsArchived) {
-                            VStack(spacing: 0) {
-                                ForEach(archived) { routine in
-                                    Divider()
-                                    HStack {
-                                        VStack(alignment: .leading, spacing: 2) {
-                                            Text(routine.title)
-                                            Text(Weekdays.summary(routine.weekdays))
-                                                .font(.caption)
-                                                .foregroundStyle(.secondary)
-                                        }
-                                        Spacer()
-                                        Button("복원") {
-                                            store.setArchived(routine, false)
-                                        }
-                                        .accessibilityLabel("\(routine.title) 복원")
-                                    }
-                                    .padding(.vertical, 8)
-                                }
-                            }
-                            .padding(.top, 8)
-                        } label: {
-                            Text("보관된 루틴 \(archived.count)개")
-                                .font(.headline)
-                        }
-                    }
+                    archivedGroupsCard(archived)
                 }
 
                 Card {
@@ -90,27 +61,58 @@ struct RoutineManagementView: View {
         }
     }
 
-    private var addRow: some View {
-        HStack(spacing: 8) {
-            Image(systemName: "plus.circle.fill")
-                .foregroundStyle(Theme.accent)
-                .accessibilityHidden(true)
-            TextField("새 루틴", text: $draft, prompt: Text("새 루틴 이름을 적고 Enter"))
-                .textFieldStyle(.plain)
-                .focused($addFieldFocused)
-                .onSubmit(addRoutine)
-                .accessibilityLabel("새 루틴 이름")
-            Button("추가", action: addRoutine)
-                .disabled(draft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+    private var newGroupCard: some View {
+        Card {
+            HStack(spacing: 8) {
+                Image(systemName: "folder.badge.plus")
+                    .foregroundStyle(Theme.accent)
+                    .accessibilityHidden(true)
+                TextField("새 그룹", text: $groupDraft, prompt: Text("새 그룹 이름을 적고 Enter (예: 아침 루틴)"))
+                    .textFieldStyle(.plain)
+                    .focused($newGroupFocused)
+                    .onSubmit(addGroup)
+                    .accessibilityLabel("새 그룹 이름")
+                Button("그룹 추가", action: addGroup)
+                    .disabled(groupDraft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            }
         }
-        .padding(.top, 12)
     }
 
-    /// Enter 후에도 포커스를 유지해 다음 루틴을 이어서 입력할 수 있게 한다.
-    private func addRoutine() {
-        if store.addRoutine(title: draft) {
-            draft = ""
+    private func addGroup() {
+        if store.addGroup(title: groupDraft) != nil {
+            groupDraft = ""
         }
-        addFieldFocused = true
+        newGroupFocused = true
+    }
+
+    private func archivedGroupsCard(_ archived: [RoutineGroup]) -> some View {
+        Card {
+            DisclosureGroup(isExpanded: $showsArchivedGroups) {
+                VStack(spacing: 0) {
+                    ForEach(archived) { group in
+                        Divider()
+                        HStack(spacing: 10) {
+                            GroupBadge(title: group.title, color: GroupColor(key: group.colorKey))
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(group.title)
+                                Text("항목 \(store.routines.filter { $0.effectiveGroupID == group.id }.count)개")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                            Spacer()
+                            Button("복원") {
+                                store.setGroupArchived(group, false)
+                            }
+                            .accessibilityLabel("\(group.title) 그룹 복원")
+                        }
+                        .padding(.vertical, 8)
+                    }
+                }
+                .padding(.top, 8)
+            } label: {
+                Text("보관된 그룹 \(archived.count)개")
+                    .font(.headline)
+            }
+        }
     }
 }

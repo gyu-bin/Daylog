@@ -70,10 +70,16 @@ struct PersistenceTests {
         defer { cleanUp() }
         let (container, store) = try launch(today: saturday)
         store.setText("샐러드", at: \.lunch)
-        try await Task.sleep(for: .milliseconds(1500))
 
-        let saved = try DayRecordService(context: ModelContext(container)).record(on: saturday)
-        #expect(saved?.lunch == "샐러드")
+        // 저장은 입력 후 0.6초 뒤에 일어난다. 다른 테스트가 메인 액터를 오래 잡고 있을 수 있어
+        // 정해진 시간만 기다리지 않고, 저장될 때까지(최대 10초) 확인한다.
+        var savedLunch: String?
+        for _ in 0..<100 {
+            try await Task.sleep(for: .milliseconds(100))
+            savedLunch = try DayRecordService(context: ModelContext(container)).record(on: saturday)?.lunch
+            if savedLunch == "샐러드" { break }
+        }
+        #expect(savedLunch == "샐러드")
     }
 
     @Test func routineEditsSurviveRelaunch() throws {

@@ -6,10 +6,11 @@ macOS 14+ / SwiftUI / SwiftData / Swift Charts / CloudKit. 외부 의존성·자
 
 | 엔티티 | 핵심 필드 | 생성 | 수정 | 삭제 |
 |---|---|---|---|---|
-| `RoutineItem` | id, title, note, timeLabel, weekdays, order, isArchived, updatedAt | 사용자 | 사용자 | 없음(보관만) |
-| `RoutineRevision` | routineID, effectiveFromKey, 당시 title·timeLabel·weekdays·isArchived·order, updatedAt | 루틴 변경 시 자동 | 같은 날(또는 더 늦은 날짜의 이력이 있으면 그 이력) 재변경 시 덮어씀 | 없음 |
+| `RoutineGroup` | id, title, colorKey, order, isArchived, createdAt, updatedAt | 사용자(또는 기존 항목 이전 시 "기본 루틴") | 사용자 | 없음(보관만) |
+| `RoutineItem` | id, title, note, timeLabel, weekdays, order, isArchived, updatedAt, groupID | 사용자 | 사용자 | 없음(보관만) |
+| `RoutineRevision` | routineID, effectiveFromKey, 당시 title·timeLabel·weekdays·isArchived·order·그룹(ID·이름·색·순서), updatedAt | 루틴 변경 시 자동 | 같은 날(또는 더 늦은 날짜의 이력이 있으면 그 이력) 재변경 시 덮어씀 | 없음 |
 | `DayRecord` | dateKey, checks, 식사 4종, mealMemo, tomorrowTask, activityAt, syncID, mergeState | 날짜를 처음 열 때 | 사용자, 병합 | 없음 |
-| `DayCheck` | routineID, title, timeLabel, note, order, isDone, isHidden, syncID | 기록 생성·오늘 동기화·병합 | 오늘만 동기화 | 없음(대상에서 빠지면 숨김) |
+| `DayCheck` | routineID, title, timeLabel, note, order, isDone, isHidden, syncID, 그날의 그룹(ID·이름·색·순서) | 기록 생성·오늘 동기화·병합 | 오늘만 동기화 | 없음(대상에서 빠지면 숨김) |
 | `FieldEdit` | dateKey, field, deviceID, value, editedAt, seenState | 텍스트 칸을 고쳐 저장할 때 | 그 기기만 | 없음 |
 | `AppSettings` | achieveThreshold, firstRoutineDate, updatedAt, syncID | 최초 필요 시 | 사용자, 병합 | 없음 |
 
@@ -85,11 +86,15 @@ SwiftData + CloudKit(Private Database). Bundle ID `com.mungyubin.daylog`, 컨테
 | 항목 | 내용 |
 |---|---|
 | v1.1 형식 | `DaylogSchemaV1`에 동결. 수정 금지 |
-| v1.2 형식 | `DaylogSchemaV2`. 고유 제약 제거, 모든 속성 기본값, `checks` optional, 새 속성·`FieldEdit` 추가 |
+| v1.2 형식 | `DaylogSchemaV2`에 동결. 고유 제약 제거, 모든 속성 기본값, `checks` optional, 새 속성·`FieldEdit` 추가 |
+| v1.3 형식 | `DaylogSchemaV3`(현재). `RoutineGroup` 추가, 항목·체크·이력에 그룹 속성 추가. 전부 추가뿐 |
 | 옮기는 방법 | 경량 마이그레이션(`DaylogMigrationPlan`) |
 | 열기 전 | 형식이 바뀌거나 iCloud에 처음 연결할 때 `Backups/<이름>-<사유>-<시각>/`에 백업을 만들고 무결성과 기록 수를 검증 |
 | 순서 | 백업 → iCloud 없이 로컬에서만 옮김 → 기록 수 대조·동기화 식별자 채움 → 그다음 iCloud 연결 |
 | 실패 시 | 백업으로 되돌리고 오류 화면에 백업 위치 표시. 빈 저장소로 대체하지 않음 |
+
+`StoreLock`: 저장소 하나는 한 번에 한 프로세스만 연다(`<이름>.store.lock`에 `flock`). 형식이 다른 두 버전이 같은 저장소에
+동시에 쓰면 기록이 깨질 수 있어서, 두 번째 프로세스는 백업·변환 전에 오류 화면에서 멈춘다.
 
 저장소 옆의 `<이름>.store.info.json`에 마지막으로 연 형식, iCloud 연결 여부, 기기 식별자를 적는다(동기화되지 않음).
 
@@ -124,18 +129,60 @@ SwiftData + CloudKit(Private Database). Bundle ID `com.mungyubin.daylog`, 컨테
 Xcode가 그 Mac을 등록한다. 두 Mac 모두 개발용 서명이면 CloudKit **Development** 환경을 쓴다.
 Developer ID로 배포하려면 CloudKit Console에서 스키마를 Production에 배포해야 한다.
 
-### 동기화 검증 도구 (Debug 전용)
+### 실제 iCloud로 다시 검증해야 할 때
 
-`DebugScript`: 한 Mac에서 저장소 2개를 두 기기처럼 띄워 실제 iCloud로 검증한다.
-팀 서명된 앱의 저장소는 다른 프로세스가 읽을 수 없어서 앱이 직접 상태를 출력한다.
+v1.2에서는 한 Mac에서 저장소 2개를 실제 iCloud에 붙여 두 기기를 재현했다. 지금은 실제 기록이 같은 iCloud 영역에 있으므로
+그 방법을 쓰지 않는다. 검증용 저장소(`-DaylogStoreName`)는 항상 로컬 전용으로 열리고, iCloud의 데이터를 지우는 디버그 명령은 제거했다.
+실제 iCloud 검증이 다시 필요하면 검증 전용 컨테이너를 따로 만들어야 한다(컨테이너는 계정에서 삭제할 수 없으므로 승인 후에만).
+
+## 루틴 그룹 (v1.3)
+
+### 구조
+
+- `RoutineGroup`과 `RoutineItem`은 관계가 아니라 `RoutineItem.groupID` 값으로 연결한다.
+- `groupID`가 nil인 항목(v1.2까지 만든 항목)은 **고정된 ID**(`RoutineGroup.defaultID`)의 "기본 루틴" 그룹에 속한 것으로 읽는다.
+  기존 항목·체크·이력 레코드는 고쳐 쓰지 않는다. "기본 루틴" 그룹 레코드는 그런 항목이 있을 때만 만든다.
+- ID가 고정이라 두 Mac이 각자 "기본 루틴"을 만들어도 같은 그룹이다. 같은 ID의 그룹이 둘이면 나중에 수정된 쪽 하나만 쓴다(지우지 않는다).
+- 그룹 보관: 항목 자체는 그대로 두고 "유효 상태"만 보관으로 본다(`RoutineState.isArchived = 항목 보관 || 그룹 보관`). 복원하면 그대로 돌아온다.
+
+### 과거 보존
+
+- `DayCheck`와 `RoutineRevision`에 그날/그 시점의 그룹 ID·이름·색·순서를 복사해 둔다(`GroupSnapshot`).
+- 그룹을 바꾸면(이름·색·순서·보관) 그 그룹에 속한 항목마다 이력을 남긴다. 그래서 기록이 없던 과거 날짜를 나중에 열어도
+  당시의 그룹 모습으로 스냅샷이 만들어진다.
+- 그룹 정보 없이 저장된 v1.2까지의 체크·이력은 `GroupSnapshot.legacy`("기본 루틴", 초록)로 읽는다.
+- 오늘 기록만 현재 그룹 정의로 동기화한다(`RoutineService.syncTodayRecord`).
+
+### 달성률
+
+- 하루 전체: 항목 수 기준(완료 항목 수 / 전체 항목 수). 그룹 평균이 아니다. 그룹을 추가해도 값이 바뀌지 않는다.
+- 그룹별(오늘): `AppStore.checkSections`. 그룹별(30일): `StatsSource.groupTallies` — 기록이 있는 날은 그날의 스냅샷,
+  없는 날은 당시 이력의 그룹으로 집계하고, 표시는 현재 그룹의 이름·색으로 한다.
+
+### 색
+
+저장소에는 `GroupColor`의 식별자 문자열만 들어간다. 실제 색(라이트/다크)은 `GroupColor.rgb(isDark:)`가 정하고,
+모르는 식별자는 초록으로 보인다. 색만으로 구분하지 않도록 그룹 이름의 첫 글자 배지와 숫자를 함께 표시한다.
+
+## 식사 기록 조회 (v1.3)
+
+- 새 데이터를 만들지 않고 `DayRecord`를 읽는다(`MealHistoryService`).
+- **식사 기록일**: 아침·점심·저녁·간식 중 하나라도 내용이 있는 날. 메모만 있는 날은 세지 않지만 목록과 검색에는 나온다.
+- **이번 달 기록률**: 분모는 "이번 달 1일"과 "앱을 쓰기 시작한 날" 중 늦은 날부터 오늘까지.
+  쓰기 시작한 날 = 첫 루틴을 만든 날과 무엇이든 처음 입력한 날 중 이른 쪽.
+- 날짜 범위로만 저장소를 조회하고 한 번의 호출이 읽는 양을 제한한다(`scanLimit`). 전체 기간은 이어 읽기로 넘긴다.
+  검색은 입력이 0.25초 멈춘 뒤 한 번 실행한다.
+- 같은 날짜의 기록이 둘이면 대표 기록 하나만 보고, 한 번만 센다.
+
+## 검증 전용 빌드
+
+실제 앱·실제 기록·iCloud와 완전히 분리된 빌드. 번들 ID가 달라 컨테이너도 따로이고, iCloud 권한이 없다.
 
 ```bash
-APP=build/Build/Products/Debug/Daylog.app
-# 기기 A: 오프라인(iCloud 없이) 수정 → 다시 연결
-open -n -W --stdout /tmp/a.log "$APP" --args -DaylogStoreName syncA -DaylogCloud NO  -DaylogDebugScript "text:dinner=A;dump:A;quit"
-open -n -W --stdout /tmp/a.log "$APP" --args -DaylogStoreName syncA -DaylogCloud YES -DaylogDebugScript "waitExport:90;dump:A;quit"
-# 끝나면 iCloud와 로컬의 검증 데이터를 지운다(실제 기록이 있는 상태에서는 실행하지 말 것: iCloud의 기록을 모두 지운다)
-open -n -W --stdout /tmp/z.log "$APP" --args -DaylogStoreName syncTmp -DaylogCloud NO -DaylogDebugScript "deleteCloudZone;purgeLocalStore;quit"
+ARGS=(-project Daylog.xcodeproj -scheme Daylog -derivedDataPath build-verify PRODUCT_BUNDLE_IDENTIFIER=com.daylog.verify \
+      CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= PROVISIONING_PROFILE_SPECIFIER= CODE_SIGN_ENTITLEMENTS=Config/Verify.entitlements)
+TEST_RUNNER_DAYLOG_SEED=2026-10-10 xcodebuild "${ARGS[@]}" test -only-testing:DaylogTests/VerificationSeed   # 45일치 검증 데이터
+open -n build-verify/Build/Products/Debug/Daylog.app --args -DaylogStoreName verify -DaylogDebugToday 2026-10-10 -DaylogDebugAppearance dark
 ```
 
 ## 빌드와 테스트
@@ -157,7 +204,7 @@ open build/Build/Products/Debug/Daylog.app
 | `defaults write com.mungyubin.daylog DaylogDebugToday 2026-10-11` | 앱을 다시 활성화하면 자정이 지난 것처럼 동작한다. 끝나면 `defaults delete com.mungyubin.daylog DaylogDebugToday` |
 
 화면 검증용 기록(45일치)은 `DaylogTests/VerificationSeed.swift`가 실제 서비스 코드로 `verify.store`에 만든다.
-평소 테스트 실행에서는 건너뛴다.
+평소 테스트 실행에서는 건너뛴다. 실제 앱과 섞이지 않게 아래의 "검증 전용 빌드"에서 실행한다.
 
 ```bash
 TEST_RUNNER_DAYLOG_SEED=2026-10-10 xcodebuild -project Daylog.xcodeproj -scheme Daylog \

@@ -89,6 +89,10 @@ enum AppLaunch {
             #endif
             return .ready(container, store, sync)
         } catch {
+            #if DEBUG
+            print("DAYLOG_SCRIPT LAUNCH_FAILED \(error.localizedDescription)")
+            fflush(stdout)
+            #endif
             return .failed(error.localizedDescription)
         }
     }
@@ -120,10 +124,9 @@ extension RuntimeEnvironment {
     static var cloudKitContainerID: String? {
         if isRunningTests { return nil }
         #if DEBUG
-        // 검증용 저장소(-DaylogStoreName)는 실수로 iCloud에 올라가지 않게 기본적으로 로컬 전용이다.
-        // 한 Mac에서 두 기기를 흉내 내는 동기화 검증 때만 `-DaylogCloud YES`를 함께 준다.
-        if UserDefaults.standard.string(forKey: "DaylogStoreName") != nil,
-           !UserDefaults.standard.bool(forKey: "DaylogCloud") {
+        // 검증용 저장소(-DaylogStoreName)는 항상 로컬 전용이다. 실제 기록과 같은 iCloud 영역을 쓰면
+        // 검증 데이터가 실제 기록에 섞이기 때문에, 붙일 방법 자체를 두지 않는다.
+        if UserDefaults.standard.string(forKey: "DaylogStoreName") != nil {
             return nil
         }
         #endif

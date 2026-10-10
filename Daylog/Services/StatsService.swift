@@ -7,8 +7,24 @@ struct RoutineRate: Equatable, Identifiable, Sendable {
     let isArchived: Bool
     let done: Int
     let scheduled: Int
+    /// 지금 속한 그룹의 색.
+    var colorKey: String = RoutineGroup.defaultColorKey
 
     var id: UUID { routineID }
+    var ratio: Double { Achievement.ratio(done: done, total: scheduled) ?? 0 }
+    var percent: Int { Achievement.percent(ratio: ratio) }
+}
+
+/// 그룹별 달성률. 그룹 이름이 바뀌어도 같은 ID면 한 항목이다.
+struct GroupRate: Equatable, Identifiable, Sendable {
+    let groupID: UUID
+    let title: String
+    let colorKey: String
+    let isArchived: Bool
+    let done: Int
+    let scheduled: Int
+
+    var id: UUID { groupID }
     var ratio: Double { Achievement.ratio(done: done, total: scheduled) ?? 0 }
     var percent: Int { Achievement.percent(ratio: ratio) }
 }
@@ -26,6 +42,8 @@ struct DashboardStats: Equatable, Sendable {
     /// 오늘을 포함한 최근 30일. 날짜 오름차순.
     var trend: [DayOutcome]
     var routineRates: [RoutineRate]
+    /// 최근 30일의 그룹별 달성률. 각 날짜는 그날 실제로 속해 있던 그룹으로 집계한다.
+    var groupRates: [GroupRate]
 
     var hasStarted: Bool { firstDay != nil }
 
@@ -39,7 +57,8 @@ struct DashboardStats: Equatable, Sendable {
             currentStreak: 0,
             longestStreak: 0,
             trend: [],
-            routineRates: []
+            routineRates: [],
+            groupRates: []
         )
     }
 }
@@ -48,7 +67,14 @@ struct DashboardStats: Equatable, Sendable {
 struct StatsSource: Sendable {
     struct RecordSummary: Sendable {
         let isRecorded: Bool
-        let checks: [(routineID: UUID, isDone: Bool)]
+        let checks: [(routineID: UUID, isDone: Bool, group: GroupSnapshot)]
+    }
+
+    /// 그룹별 집계. `latest`는 기간 안에서 마지막으로 본 그룹 모습(그룹 레코드가 없을 때의 표시용).
+    struct GroupTally {
+        var done = 0
+        var scheduled = 0
+        var latest: GroupSnapshot
     }
 
     let firstDay: Day?
@@ -94,6 +120,27 @@ struct StatsSource: Sendable {
         }
         return tallies
     }
+
+    /// 그룹별 (완료, 예정). 기록이 있는 날은 그날의 스냅샷, 없는 날은 당시 이력의 그룹으로 집계한다.
+    func groupTallies(on days: [Day], today: Day) -> [UUID: GroupTally] {
+        var tallies: [UUID: GroupTally] = [:]
+        func count(_ group: GroupSnapshot, isDone: Bool) {
+            var tally = tallies[group.id] ?? GroupTally(latest: group)
+            tally.scheduled += 1
+            if isDone { tally.done += 1 }
+            tally.latest = group
+            tallies[group.id] = tally
+        }
+        for day in days.sorted() {
+            guard day <= today, let firstDay, day >= firstDay else { continue }
+            if let record = records[day] {
+                for check in record.checks { count(check.group, isDone: check.isDone) }
+            } else {
+                for snapshot in resolver.scheduled(on: day) { count(snapshot.group, isDone: false) }
+            }
+        }
+        return tallies
+    }
 }
 
 @MainActor
@@ -131,7 +178,8 @@ struct StatsService {
             currentStreak: StatsCalculator.currentStreak(all, today: today, threshold: threshold),
             longestStreak: StatsCalculator.longestStreak(all, threshold: threshold),
             trend: trend,
-            routineRates: try routineRates(source: source, days: trend.map(\.day), today: today)
+            routineRates: try routineRates(source: source, days: trend.map(\.day), today: today),
+            groupRates: try groupRates(source: source, days: trend.map(\.day), today: today)
         )
     }
 
@@ -141,7 +189,7 @@ struct StatsService {
             guard let day = Day(key: record.dateKey) else { continue }
             summaries[day] = StatsSource.RecordSummary(
                 isRecorded: record.isRecorded,
-                checks: record.checkList.map { (routineID: $0.routineID, isDone: $0.isDone) }
+                checks: record.checkList.map { (routineID: $0.routineID, isDone: $0.isDone, group: $0.group) }
             )
         }
         return StatsSource(
@@ -154,7 +202,9 @@ struct StatsService {
     /// 같은 routineID는 이름이 바뀌어도 한 항목으로 합산하고, 현재 이름으로 표시한다.
     private func routineRates(source: StatsSource, days: [Day], today: Day) throws -> [RoutineRate] {
         let tallies = source.routineTallies(on: days, today: today)
-        let routines = try RoutineService(context: context).routines()
+        let service = RoutineService(context: context)
+        let routines = try service.routines()
+        let colors = Dictionary(uniqueKeysWithValues: try service.groups().map { ($0.id, $0.colorKey) })
         return routines
             .compactMap { routine -> (rate: RoutineRate, order: Int)? in
                 guard let tally = tallies[routine.id], tally.scheduled > 0 else { return nil }
@@ -163,11 +213,37 @@ struct StatsService {
                     title: routine.title,
                     isArchived: routine.isArchived,
                     done: tally.done,
-                    scheduled: tally.scheduled
+                    scheduled: tally.scheduled,
+                    colorKey: colors[routine.effectiveGroupID] ?? RoutineGroup.defaultColorKey
                 )
                 return (rate, routine.order)
             }
             .sorted { ($0.rate.ratio, -$0.order) > ($1.rate.ratio, -$1.order) }
             .map(\.rate)
+    }
+
+    /// 같은 그룹 ID는 이름·색이 바뀌어도 한 항목으로 합산하고, 현재 이름과 색으로 표시한다.
+    private func groupRates(source: StatsSource, days: [Day], today: Day) throws -> [GroupRate] {
+        let tallies = source.groupTallies(on: days, today: today)
+        let groups = try RoutineService(context: context).groups()
+        let current = Dictionary(uniqueKeysWithValues: groups.map { ($0.id, $0) })
+        let position = Dictionary(uniqueKeysWithValues: groups.enumerated().map { ($1.id, $0) })
+        return tallies
+            .filter { $0.value.scheduled > 0 }
+            .map { id, tally -> GroupRate in
+                let group = current[id]
+                return GroupRate(
+                    groupID: id,
+                    title: group?.title ?? tally.latest.title,
+                    colorKey: group?.colorKey ?? tally.latest.colorKey,
+                    isArchived: group?.isArchived ?? false,
+                    done: tally.done,
+                    scheduled: tally.scheduled
+                )
+            }
+            .sorted {
+                (position[$0.groupID] ?? Int.max, $0.title, $0.groupID.uuidString)
+                    < (position[$1.groupID] ?? Int.max, $1.title, $1.groupID.uuidString)
+            }
     }
 }

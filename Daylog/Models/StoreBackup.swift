@@ -10,9 +10,11 @@ enum StoreBackup {
         var records: Int
         var checks: Int
         var settings: Int
+        /// v1.1 형식에는 이 테이블이 없다(0으로 센다).
+        var fieldEdits: Int = 0
 
         var summary: String {
-            "루틴 \(routines), 이력 \(revisions), 기록 \(records), 체크 \(checks), 설정 \(settings)"
+            "루틴 \(routines), 이력 \(revisions), 기록 \(records), 체크 \(checks), 설정 \(settings), 편집 기록 \(fieldEdits)"
         }
     }
 
@@ -94,7 +96,8 @@ enum StoreBackup {
                 revisions: try rowCount("ZROUTINEREVISION", in: database),
                 records: try rowCount("ZDAYRECORD", in: database),
                 checks: try rowCount("ZDAYCHECK", in: database),
-                settings: try rowCount("ZAPPSETTINGS", in: database)
+                settings: try rowCount("ZAPPSETTINGS", in: database),
+                fieldEdits: try tableExists("ZFIELDEDIT", in: database) ? try rowCount("ZFIELDEDIT", in: database) : 0
             )
         }
     }
@@ -127,6 +130,10 @@ enum StoreBackup {
             throw DaylogError.backupVerificationFailed("저장소 파일을 열 수 없습니다(\(status)).")
         }
         return try body(handle)
+    }
+
+    private static func tableExists(_ table: String, in database: OpaquePointer) throws -> Bool {
+        (Int(try firstText("SELECT count(*) FROM sqlite_master WHERE type = 'table' AND name = '\(table)'", in: database)) ?? 0) > 0
     }
 
     private static func rowCount(_ table: String, in database: OpaquePointer) throws -> Int {

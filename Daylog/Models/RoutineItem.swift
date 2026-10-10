@@ -17,6 +17,8 @@ final class RoutineItem {
     var createdAt: Date = Date.distantPast
     /// 마지막으로 수정한 시각. 두 기기에서 같은 루틴이 다르게 들어오면 나중 것을 따른다.
     var updatedAt: Date?
+    /// 속한 그룹. nil이면 그룹 도입 전(v1.2까지)에 만든 항목으로, "기본 루틴" 그룹에 속한다.
+    var groupID: UUID?
 
     init(
         id: UUID = UUID(),
@@ -26,9 +28,11 @@ final class RoutineItem {
         weekdays: [Int] = Weekdays.all,
         order: Int,
         isArchived: Bool = false,
-        createdAt: Date = .now
+        createdAt: Date = .now,
+        groupID: UUID? = nil
     ) {
         self.id = id
+        self.groupID = groupID
         self.title = title
         self.note = note
         self.timeLabel = timeLabel
@@ -38,6 +42,8 @@ final class RoutineItem {
         self.createdAt = createdAt
         self.updatedAt = createdAt
     }
+
+    var effectiveGroupID: UUID { groupID ?? RoutineGroup.defaultID }
 
     /// 1 = 월요일 … 7 = 일요일.
     var weekdays: [Int] {
