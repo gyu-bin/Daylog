@@ -1,23 +1,21 @@
 <p align="center">
-  <img src="Daylog/Assets.xcassets/BrandIcon.imageset/DaylogIconLight.png" width="128" alt="Daylog 아이콘">
+  <img src="Daylog/Assets.xcassets/BrandIcon.imageset/DaylogIconLight.png" width="120" alt="Daylog 아이콘">
 </p>
 
 <h1 align="center">Daylog</h1>
 
 <p align="center">
   <b>하루를 기록하다.</b><br>
-  루틴과 식사를 매일 가볍게 적고, 쌓인 기록을 한눈에 보는 macOS 앱
+  루틴을 체크하고 식사를 적는, 가볍고 예쁜 Mac 앱
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/macOS-14%2B-43BFA6" alt="macOS 14+">
-  <img src="https://img.shields.io/badge/SwiftUI-SwiftData-6395E8" alt="SwiftUI · SwiftData">
-  <img src="https://img.shields.io/badge/iCloud-CloudKit-A78BFA" alt="iCloud · CloudKit">
-  <a href="https://github.com/gyu-bin/Daylog/releases/latest"><img src="https://img.shields.io/github/v/release/gyu-bin/Daylog?color=F59E63&label=release" alt="최신 릴리스"></a>
+  <a href="https://github.com/gyu-bin/Daylog/releases/latest"><img src="https://img.shields.io/github/v/release/gyu-bin/Daylog?color=43BFA6&label=%EC%B5%9C%EC%8B%A0%20%EB%B2%84%EC%A0%84" alt="최신 버전"></a>
+  <img src="https://img.shields.io/badge/macOS-14%2B-6395E8" alt="macOS 14 이상">
 </p>
 
 <p align="center">
-  <a href="https://github.com/gyu-bin/Daylog/releases/latest"><b>⬇️ 최신 버전 내려받기</b></a>
+  <a href="https://github.com/gyu-bin/Daylog/releases/latest"><b>⬇️ 내려받기</b></a>
 </p>
 
 <p align="center">
@@ -25,43 +23,61 @@
   <img src="docs/screenshots/dashboard-dark.jpg" width="40.8%" alt="대시보드 (다크)">
 </p>
 
-> 스크린샷의 내용은 화면 확인용으로 만든 예시 데이터입니다.
+<br>
 
-## 무엇을 하는 앱인가요
+## ✨ 이런 걸 할 수 있어요
 
-| | |
-|---|---|
-| ✅ **오늘의 루틴** | 그룹별로 묶은 루틴을 체크합니다. 요일을 정해 두면 해당하는 날에만 나옵니다. |
-| 🍚 **식사 기록** | 아침·점심·저녁·간식과 메모를 자유롭게 적습니다. 입력하면 자동으로 저장됩니다. |
-| 📈 **통계** | 오늘 달성률, 7일 평균, 연속 달성일, 기간별 추이, 활동 히트맵, 그룹·항목별 달성률. |
-| 🗂 **루틴 관리** | 그룹과 항목을 추가·편집·순서 변경·보관·삭제합니다. 바꿔도 지난 날짜의 기록은 그대로입니다. |
-| 🌗 **외관** | 시스템 설정 / 라이트 / 다크. Mac마다 따로 고를 수 있습니다. |
-| ☁️ **iCloud 동기화** | 같은 Apple 계정의 Mac끼리 내 iCloud 개인 데이터베이스로 동기화합니다. 별도 계정이나 서버가 없습니다. |
+- ✅ **오늘의 루틴 체크** — 아침 루틴, 운동처럼 그룹으로 묶어서 하나씩 체크해요.
+- 🍚 **식사 기록** — 아침·점심·저녁·간식을 자유롭게 적어요. 저장 버튼은 없어요, 알아서 저장돼요.
+- 📈 **통계** — 달성률, 연속 달성일, 한눈에 보는 활동 달력까지.
+- 🌗 **라이트 / 다크** — 취향대로 고르세요.
+- ☁️ **iCloud 동기화** — 같은 Apple 계정의 Mac끼리 기록을 맞춰요.
 
 <p align="center">
   <img src="docs/screenshots/statistics-light.jpg" width="49%" alt="통계">
   <img src="docs/screenshots/routines-light.jpg" width="49%" alt="루틴 관리">
 </p>
 
-## 설치
+<sub>스크린샷 속 내용은 예시 데이터예요.</sub>
 
-### 내려받아 설치하기
+<br>
 
-Xcode나 개발자 계정이 없어도 됩니다. macOS 14 이상이 필요합니다.
+## 📥 설치하기
 
-1. [Releases](https://github.com/gyu-bin/Daylog/releases/latest)에서 `Daylog-v<버전>-macOS.dmg`를 받습니다.
-2. DMG를 열고 **Daylog**를 **Applications** 폴더로 끌어다 놓습니다.
-3. Applications에서 Daylog를 엽니다. "인터넷에서 다운로드한 앱" 안내가 나오면 **열기**를 누릅니다.
-4. 설정에서 버전과 iCloud 연결 상태를 확인합니다.
+1. [**최신 버전**](https://github.com/gyu-bin/Daylog/releases/latest)에서 `Daylog-…-macOS.dmg`를 받아요.
+2. 열어서 **Daylog**를 **Applications** 폴더로 끌어다 놓아요.
+3. Daylog를 실행해요. 처음엔 "인터넷에서 받은 앱"이라는 안내가 나오는데, **열기**를 누르면 돼요.
 
-새 버전이 나오면 같은 방법으로 받아 Applications의 Daylog를 덮어쓰면 됩니다. 자동 업데이트는 아직 없습니다.
-기록은 앱이 아니라 `~/Library/Containers/com.mungyubin.daylog`에 저장되므로, 앱을 덮어쓰거나 지워도 남아 있습니다.
+끝! macOS 14 이상이면 되고, 다른 프로그램은 필요 없어요.
 
-> 앱은 Developer ID로 서명되고 Apple 공증을 받았습니다. DMG 파일 자체는 서명·공증되지 않았지만, 앱을 Applications로 옮겨 실행하는 데에는 문제가 없습니다.
+**업데이트**는 새 버전을 받아서 같은 방법으로 덮어쓰면 돼요. 기록은 그대로 남아요.
 
-### 소스에서 빌드해 설치하기 (개발용)
+<br>
 
-Xcode와, iCloud를 쓰려면 Xcode에 로그인된 Apple 개발자 계정이 필요합니다.
+## 🙋 자주 묻는 것
+
+**기록은 어디에 저장되나요?**
+내 Mac에 저장되고, iCloud를 쓰면 내 iCloud에만 올라가요. 따로 가입하는 계정도, 정보를 모으는 서버도 없어요.
+
+**루틴을 지우면 예전 기록도 사라지나요?**
+아니요. 지난 날짜의 기록과 통계는 그대로 남아요.
+
+**다른 Mac에서도 같은 기록을 보고 싶어요.**
+두 Mac에 같은 방법(위의 DMG)으로 설치하고, 같은 Apple 계정으로 iCloud에 로그인되어 있으면 돼요.
+설정 화면에서 iCloud 상태를 확인할 수 있어요.
+
+> iCloud 동기화는 아직 다듬는 중이에요. 두 대의 Mac 사이에서 충분히 확인되지 않았어요.
+
+<br>
+
+## 🛠 개발자라면
+
+<details>
+<summary>소스에서 빌드하기, 배포하기, 구조 보기</summary>
+
+<br>
+
+**빌드해서 설치** (Xcode 필요)
 
 ```bash
 git clone https://github.com/gyu-bin/Daylog.git
@@ -69,94 +85,61 @@ cd Daylog
 Tools/install.sh
 ```
 
-Release로 빌드해 `/Applications/Daylog.app`에 설치하고 실행합니다.
-이미 Daylog가 실행 중이면 멈추므로, 앱을 종료(⌘Q)한 뒤 다시 실행하세요. 새 버전으로 올릴 때는 `git pull` 후 같은 명령입니다.
-
-저장 형식이 바뀌는 버전으로 올릴 때는 앱이 열기 전에 자동으로 백업을 만들고, 실패하면 백업으로 되돌립니다.
-
-### ⚠️ 두 설치 방법은 iCloud 데이터가 서로 다릅니다
-
-| 설치 방법 | 서명 | iCloud 환경 |
-|---|---|---|
-| DMG로 내려받아 설치 | Developer ID (배포용) | **Production** |
-| 소스에서 빌드 (`Tools/install.sh`, Xcode 실행) | Apple Development (개발용) | **Development** |
-
-같은 Apple 계정이라도 두 환경의 데이터는 따로입니다. **Mac끼리 동기화하려면 모든 Mac에 같은 방법으로 설치해야 합니다.**
-한 Mac에서 설치 방법을 바꿔도 그 Mac의 기존 기록은 새 환경의 iCloud로 저절로 올라가지 않습니다.
-옮기려면 앱을 끈 뒤 터미널에서 한 번만 아래처럼 실행합니다(백업을 만들고 기존 기록을 지금 환경에 다시 올립니다).
+**테스트**
 
 ```bash
-open -n /Applications/Daylog.app --args -DaylogReuploadAll YES
-```
-
-지금 어느 환경인지는 설정의 **iCloud 환경**에서 볼 수 있습니다. 자세한 내용은 [ARCHITECTURE.md](ARCHITECTURE.md)의 "배포"에 있습니다.
-
-### 다른 Apple 계정으로 빌드한다면
-
-이 저장소의 서명 설정(팀, 번들 ID `com.mungyubin.daylog`, iCloud 컨테이너)은 만든 사람의 계정에 맞춰져 있습니다.
-Xcode에서 **Signing & Capabilities**의 Team과 Bundle Identifier를 본인 것으로 바꾸면 됩니다.
-iCloud 권한 없이 빌드하면 기록은 그 Mac에만 저장됩니다.
-
-### 배포판 만들기 (DMG)
-
-```bash
-Tools/release.sh                 # 테스트 → Developer ID 서명 → 공증 → DMG → 검증 (게시하지 않음)
-Tools/release.sh --publish-only  # 방금 만들어 검증한 DMG를 GitHub Release에 올림
-```
-
-결과물은 `build/release/Daylog-v<버전>-macOS.dmg`입니다. 필요한 준비물은 스크립트 맨 위에 적혀 있습니다.
-인증서, 키, 암호는 저장소에 들어 있지 않습니다.
-
-## 개발
-
-```bash
-# 빌드
-xcodebuild -project Daylog.xcodeproj -scheme Daylog -configuration Debug -derivedDataPath build -allowProvisioningUpdates build
-
-# 테스트 (메모리 저장소만 쓰므로 실제 기록을 건드리지 않습니다)
 xcodebuild -project Daylog.xcodeproj -scheme Daylog -derivedDataPath build -allowProvisioningUpdates test
 ```
 
-화면을 띄워 확인할 때는 실제 기록과 분리된 검증 전용 빌드(별도 번들 ID, iCloud 없음)를 씁니다.
-방법은 [ARCHITECTURE.md](ARCHITECTURE.md)의 "검증 전용 빌드"에 있습니다.
+**배포판(DMG) 만들기**
+
+```bash
+Tools/release.sh                 # 테스트 → 서명 → 공증 → DMG → 검증
+Tools/release.sh --publish-only  # 방금 만든 DMG를 GitHub Release에 올리기
+```
+
+**알아 둘 점**
+
+- 내려받은 앱(DMG)과 Xcode로 빌드한 앱은 서로 다른 iCloud 환경(Production / Development)을 써서, 둘 사이에는 동기화되지 않아요.
+  어느 쪽인지는 설정의 **iCloud 환경**에 나와요.
+- 한 Mac에서 설치 방법을 바꿨다면, 앱을 끄고 아래를 한 번 실행하면 기존 기록을 새 환경에 다시 올려요(백업을 먼저 만들어요).
+
+  ```bash
+  open -n /Applications/Daylog.app --args -DaylogReuploadAll YES
+  ```
+
+- DMG 안의 앱은 Apple 공증을 받았지만, DMG 파일 자체는 서명되지 않았어요.
+- 서명 설정은 만든 사람의 Apple 계정에 맞춰져 있어요. 다른 계정으로 빌드하려면 Xcode의 Signing & Capabilities에서 Team과 Bundle Identifier를 바꾸세요.
+
+**폴더 구조**
 
 ```
 Daylog/
-├── App/          앱 시작, 화면이 읽는 상태(AppStore), 메뉴 명령
-├── Models/       SwiftData 모델, 저장소 열기·백업·형식 변환
-├── Services/     기록·루틴·통계·동기화 병합 규칙 (화면과 무관한 계산)
-├── Views/        대시보드, 루틴 관리, 통계, 설정, 사이드바
-├── Components/   카드, 통계 타일, 진행 표시 같은 공통 부품
-└── Theme/        색과 간격, 외관 설정
-DaylogTests/      단위 테스트와 형식 변환용 예시 저장소
-Tools/            아이콘 생성, 설치 스크립트
+├── App/          앱 시작, 화면이 읽는 상태
+├── Models/       저장 모델, 백업, 형식 변환
+├── Services/     기록·루틴·통계·동기화 규칙
+├── Views/        화면
+├── Components/   공통 부품
+└── Theme/        색과 외관
+DaylogTests/      테스트
+Tools/            설치·배포·아이콘 스크립트
 ```
 
-설계 결정과 그 이유(날짜 처리, 과거 기록 보존, 동기화 병합, 삭제 방식 등)는 [ARCHITECTURE.md](ARCHITECTURE.md)에 정리되어 있습니다.
+설계 결정과 그 이유는 [ARCHITECTURE.md](ARCHITECTURE.md)에 있어요.
 
-## 데이터와 개인정보
+</details>
 
-- 기록은 이 Mac에 저장되고, iCloud를 켠 빌드에서는 **내 iCloud 개인 데이터베이스**로만 동기화됩니다.
-- 자체 서버, 회원 가입, 사용 정보 수집이 없습니다.
-- 앱은 기록을 물리적으로 지우지 않습니다. 삭제한 루틴도 지난 날짜의 기록과 통계에는 남습니다.
+<br>
 
-## 알려진 한계
+## 📝 버전 기록
 
-- **두 Mac 사이의 실제 동기화는 아직 검증되지 않았습니다.** 병합 규칙은 테스트로만 확인했습니다.
-- DMG 배포판과 소스 빌드는 서로 다른 iCloud 환경을 씁니다(위 표).
-- DMG 파일 자체는 서명·공증되지 않았습니다(안의 앱은 공증됨).
-- 자동 업데이트가 없습니다. 새 버전은 Releases에서 직접 받습니다.
-- Dock·Finder의 앱 아이콘은 라이트 한 가지입니다. 다크 아이콘은 앱이 다크로 실행 중일 때 Dock에만 보입니다.
-
-## 버전 기록
-
-| 버전 | 내용 |
+| 버전 | 달라진 점 |
 |---|---|
-| 1.3.5 | 다른 iCloud 환경에서 쓰던 기록을 다시 올리는 기능, 설정에 iCloud 환경 표시, 환경이 다른 저장소는 열지 않고 멈춤 |
-| 1.3.4 | 대시보드의 오늘의 루틴 간소화(그룹 만들기와 추천 항목은 루틴 관리 화면으로), 첫 DMG 배포 |
-| 1.3.3 | 새 앱 아이콘(라이트·다크), 사이드바 브랜드 머리말 |
-| 1.3.2 | 체크 해제가 되지 않던 오류 수정, 외관 설정(시스템/라이트/다크) |
-| 1.3.1 | 루틴 관리 화면 개편, 삭제 기능, 기간별 통계와 활동 히트맵, 식사 타임라인 |
-| 1.3 | 루틴 그룹, 멀티컬러 디자인, 식사 기록 조회 |
+| 1.3.5 | iCloud 환경을 옮길 때 기록을 다시 올리는 기능, 설정에 iCloud 환경 표시 |
+| 1.3.4 | 오늘의 루틴 화면을 더 단순하게, 첫 DMG 배포 |
+| 1.3.3 | 새 앱 아이콘과 사이드바 |
+| 1.3.2 | 체크 해제가 안 되던 문제 수정, 라이트/다크 선택 |
+| 1.3.1 | 루틴 관리 새 단장, 삭제 기능, 기간별 통계와 활동 달력 |
+| 1.3 | 루틴 그룹, 컬러풀한 디자인, 지난 식사 보기 |
 | 1.2 | iCloud 동기화 |
-| 1.1 | 첫 버전: 대시보드, 루틴, 식사 기록, 통계 |
+| 1.1 | 첫 버전 |
