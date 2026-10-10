@@ -239,6 +239,13 @@ open build/Build/Products/Debug/Daylog.app
 | `--args -DaylogDebugAppearance light` 또는 `dark` | 시스템 설정과 다른 모드로 화면을 본다 |
 | `defaults write com.mungyubin.daylog DaylogDebugToday 2026-10-11` | 앱을 다시 활성화하면 자정이 지난 것처럼 동작한다. 끝나면 `defaults delete com.mungyubin.daylog DaylogDebugToday` |
 
+| `--args -DaylogDebugScript "counts;quit"` | 기록의 개수, 저장소 형식, 백업별 개수·무결성, iCloud 상태를 표준 출력에 적는다(내용은 적지 않음) |
+| `--args -DaylogDebugScript "compareBackup:before-v4;quit"` | 이름에 그 글자가 든 최신 백업과 지금의 저장소를 행·열 단위로 비교해 표·열 이름과 개수만 적는다 |
+
+실제 저장소의 형식을 올릴 때는 실제 앱을 PID로 종료해 종료를 확인한 뒤, 위 두 명령을 Debug 빌드로 실행해
+(`open -n -W --stdout <로그> …`) 변환 전 백업과 값이 같은지 확인하고 Release를 실행한다. 두 빌드를 동시에 띄우지 않는다
+(`StoreLock`이 막는다).
+
 화면 검증용 기록(45일치)은 `DaylogTests/VerificationSeed.swift`가 실제 서비스 코드로 `verify.store`에 만든다.
 평소 테스트 실행에서는 건너뛴다. 실제 앱과 섞이지 않게 아래의 "검증 전용 빌드"에서 실행한다.
 

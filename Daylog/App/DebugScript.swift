@@ -12,7 +12,7 @@ import SwiftData
 ///
 /// 명령: group, add(마지막으로 쓴 그룹에), check, uncheck, text:<칸>=<값>, rename:<전>=<후>, archive, restore, archiveGroup, threshold,
 ///       wait:<초>, waitImport:<최대 초>, waitExport:<최대 초>, refresh, dump:<이름>,
-///       counts(개수만 출력), purgeLocalStore, quit
+///       counts(개수만 출력), compareBackup:<백업 이름 일부>, purgeLocalStore, quit
 ///
 /// 실제 기록이 iCloud에 있으므로, iCloud의 데이터를 지우는 명령은 두지 않는다.
 /// 검증용 저장소는 항상 로컬 전용으로 열린다(`RuntimeEnvironment.cloudKitContainerID`).
@@ -78,6 +78,12 @@ enum DebugScript {
             dump(label: argument, store: store, sync: sync, container: container)
         case "counts":
             counts(container: container)
+            // 동기화 상태도 내용 없이 한 줄로 남긴다.
+            log("COUNTS sync 계정 \(sync.account.title), 컨테이너 \(sync.containerIdentifier ?? "(로컬 전용)"), "
+                + "가져오기 \(sync.lastImportAt.map { "\($0)" } ?? "-"), 보내기 \(sync.lastExportAt.map { "\($0)" } ?? "-"), "
+                + "오류 \(sync.lastErrorMessage ?? "없음"), 앱 오류 \(store.errorMessage ?? "없음")")
+        case "compareBackup":
+            compareBackup(labelled: argument, store: store)
         case "purgeLocalStore":
             purgeLocalStore()
         case "quit":
@@ -158,6 +164,28 @@ enum DebugScript {
             let summary = (try? StoreBackup.counts(at: store).summary) ?? "읽을 수 없음"
             let intact = (try? StoreBackup.verifyIntegrity(at: store)) != nil
             log("COUNTS backup \(backup.lastPathComponent): \(summary), 무결성 \(intact ? "정상" : "확인 실패")")
+        }
+    }
+
+    /// 이름에 `label`이 들어간 가장 최근 백업과 지금의 저장소를 비교해, 표·열 이름과 개수만 출력한다.
+    private static func compareBackup(labelled label: String, store: AppStore) {
+        store.flush()
+        let name = UserDefaults.standard.string(forKey: "DaylogStoreName") ?? "Daylog"
+        guard let url = try? DaylogStore.storeURL(name: name) else { return }
+        let root = StoreBackup.backupsRoot(for: url)
+        let backups = ((try? FileManager.default.contentsOfDirectory(at: root, includingPropertiesForKeys: nil)) ?? [])
+            .filter { $0.lastPathComponent.contains(label) }
+            .sorted { $0.lastPathComponent < $1.lastPathComponent }
+        guard let backup = backups.last else {
+            log("COMPARE 백업 없음(\(label))")
+            return
+        }
+        do {
+            let reports = try StoreComparison.compare(backup: backup.appendingPathComponent(url.lastPathComponent), live: url)
+            log("COMPARE \(backup.lastPathComponent) 와 현재 저장소")
+            for report in reports { log("COMPARE \(report.summary)") }
+        } catch {
+            log("COMPARE 실패 \(error.localizedDescription)")
         }
     }
 
