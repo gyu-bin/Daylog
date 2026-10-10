@@ -10,7 +10,7 @@ import SwiftData
 ///     open -n -W --stdout /tmp/a.log Daylog.app --args -DaylogStoreName verify \
 ///         -DaylogDebugScript "add:운동;check:운동;text:breakfast=토스트;dump:A;quit"
 ///
-/// 명령: group, add(마지막으로 쓴 그룹에), check, uncheck, text:<칸>=<값>, rename:<전>=<후>, archive, restore, threshold,
+/// 명령: group, add(마지막으로 쓴 그룹에), check, uncheck, text:<칸>=<값>, rename:<전>=<후>, archive, restore, archiveGroup, threshold,
 ///       wait:<초>, waitImport:<최대 초>, waitExport:<최대 초>, refresh, dump:<이름>,
 ///       counts(개수만 출력), purgeLocalStore, quit
 ///
@@ -58,6 +58,10 @@ enum DebugScript {
         case "archive", "restore":
             if let routine = store.routines.first(where: { $0.title == argument }) {
                 store.setArchived(routine, name == "archive")
+            }
+        case "archiveGroup":
+            if let group = store.groups.first(where: { $0.title == argument }) {
+                store.setGroupArchived(group, true)
             }
         case "threshold":
             store.setThreshold(Int(argument) ?? store.threshold)

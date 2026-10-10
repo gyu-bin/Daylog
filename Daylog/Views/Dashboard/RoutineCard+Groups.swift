@@ -9,7 +9,10 @@ extension RoutineCard {
         let isCollapsed = isCollapsed(section.id)
         return VStack(alignment: .leading, spacing: 0) {
             Button {
-                toggleCollapsed(section.id)
+                // 텍스트를 입력하는 중에는 화면이 움직이지 않게 애니메이션을 끄고, "동작 줄이기" 설정도 따른다.
+                withAnimation(reduceMotion || focus != nil ? nil : .easeInOut(duration: 0.18)) {
+                    toggleCollapsed(section.id)
+                }
             } label: {
                 HStack(spacing: 8) {
                     Image(systemName: "chevron.right")

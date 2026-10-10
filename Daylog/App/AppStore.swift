@@ -227,9 +227,12 @@ final class AppStore {
 
     // MARK: - 루틴
 
+    /// ⌘N. 루틴 관리 화면에서는 그 화면의 입력칸으로, 다른 화면에서는 오늘의 대시보드로 간다.
     func requestQuickAddFocus() {
-        section = .dashboard
-        goToToday()
+        if section != .routines {
+            section = .dashboard
+            goToToday()
+        }
         quickAddFocusToken += 1
     }
 

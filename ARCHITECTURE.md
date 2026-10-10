@@ -6,8 +6,8 @@ macOS 14+ / SwiftUI / SwiftData / Swift Charts / CloudKit. 외부 의존성·자
 
 | 엔티티 | 핵심 필드 | 생성 | 수정 | 삭제 |
 |---|---|---|---|---|
-| `RoutineGroup` | id, title, colorKey, order, isArchived, createdAt, updatedAt | 사용자(또는 기존 항목 이전 시 "기본 루틴") | 사용자 | 없음(보관만) |
-| `RoutineItem` | id, title, note, timeLabel, weekdays, order, isArchived, updatedAt, groupID | 사용자 | 사용자 | 없음(보관만) |
+| `RoutineGroup` | id, title, colorKey, order, isArchived, deletedAt, createdAt, updatedAt | 사용자(또는 기존 항목 이전 시 "기본 루틴") | 사용자 | 삭제 시각만 기록(v1.3.1) |
+| `RoutineItem` | id, title, note, timeLabel, weekdays, order, isArchived, deletedAt, updatedAt, groupID | 사용자 | 사용자 | 삭제 시각만 기록(v1.3.1) |
 | `RoutineRevision` | routineID, effectiveFromKey, 당시 title·timeLabel·weekdays·isArchived·order·그룹(ID·이름·색·순서), updatedAt | 루틴 변경 시 자동 | 같은 날(또는 더 늦은 날짜의 이력이 있으면 그 이력) 재변경 시 덮어씀 | 없음 |
 | `DayRecord` | dateKey, checks, 식사 4종, mealMemo, tomorrowTask, activityAt, syncID, mergeState | 날짜를 처음 열 때 | 사용자, 병합 | 없음 |
 | `DayCheck` | routineID, title, timeLabel, note, order, isDone, isHidden, syncID, 그날의 그룹(ID·이름·색·순서) | 기록 생성·오늘 동기화·병합 | 오늘만 동기화 | 없음(대상에서 빠지면 숨김) |
@@ -15,7 +15,7 @@ macOS 14+ / SwiftUI / SwiftData / Swift Charts / CloudKit. 외부 의존성·자
 | `AppSettings` | achieveThreshold, firstRoutineDate, updatedAt, syncID | 최초 필요 시 | 사용자, 병합 | 없음 |
 
 v1.2부터 앱은 어떤 기록도 지우지 않는다. 동기화 환경에서는 "한 기기가 지운 것을 다른 기기가 아직 쓰고 있는" 경우를
-되돌릴 방법이 없기 때문이다.
+되돌릴 방법이 없기 때문이다. v1.3.1의 "삭제"도 레코드를 지우지 않고 `deletedAt`만 남긴다(아래 "삭제" 절).
 
 관계: `DayRecord 1:N DayCheck` (cascade). `RoutineItem`과 `DayCheck`/`RoutineRevision`은 관계가 아니라
 `routineID` 값으로만 연결한다. 루틴이 바뀌어도 과거 스냅샷이 따라 바뀌지 않게 하기 위함이다.
@@ -87,7 +87,8 @@ SwiftData + CloudKit(Private Database). Bundle ID `com.mungyubin.daylog`, 컨테
 |---|---|
 | v1.1 형식 | `DaylogSchemaV1`에 동결. 수정 금지 |
 | v1.2 형식 | `DaylogSchemaV2`에 동결. 고유 제약 제거, 모든 속성 기본값, `checks` optional, 새 속성·`FieldEdit` 추가 |
-| v1.3 형식 | `DaylogSchemaV3`(현재). `RoutineGroup` 추가, 항목·체크·이력에 그룹 속성 추가. 전부 추가뿐 |
+| v1.3 형식 | `DaylogSchemaV3`에 동결. `RoutineGroup` 추가, 항목·체크·이력에 그룹 속성 추가. 전부 추가뿐 |
+| v1.3.1 형식 | `DaylogSchemaV4`(현재). `RoutineItem.deletedAt`, `RoutineGroup.deletedAt`(둘 다 optional) 추가뿐 |
 | 옮기는 방법 | 경량 마이그레이션(`DaylogMigrationPlan`) |
 | 열기 전 | 형식이 바뀌거나 iCloud에 처음 연결할 때 `Backups/<이름>-<사유>-<시각>/`에 백업을 만들고 무결성과 기록 수를 검증 |
 | 순서 | 백업 → iCloud 없이 로컬에서만 옮김 → 기록 수 대조·동기화 식별자 채움 → 그다음 iCloud 연결 |
@@ -173,6 +174,41 @@ v1.2에서는 한 Mac에서 저장소 2개를 실제 iCloud에 붙여 두 기기
 - 날짜 범위로만 저장소를 조회하고 한 번의 호출이 읽는 양을 제한한다(`scanLimit`). 전체 기간은 이어 읽기로 넘긴다.
   검색은 입력이 0.25초 멈춘 뒤 한 번 실행한다.
 - 같은 날짜의 기록이 둘이면 대표 기록 하나만 보고, 한 번만 센다.
+
+## 삭제 (v1.3.1)
+
+보관과 삭제는 다른 기능이다.
+
+| | 보관 | 삭제 |
+|---|---|---|
+| 목록 | 빠짐 | 빠짐 |
+| 보관함 | 보이고 복원 가능 | 보이지 않음(화면에서 되돌릴 수 없음) |
+| 지난 기록·변경 이력·통계 | 그대로 | 그대로("삭제됨" 표시와 함께 통계에 계속 나온다) |
+| 저장 | `isArchived = true` | `deletedAt = 시각`. 레코드는 지우지 않는다 |
+
+- 실제 상태는 `RoutineState(routine:group:)` 한 곳에서 정한다: 항목이 보관·삭제됐거나 그룹이 보관·삭제됐으면 "빠진 상태"다.
+  그래서 삭제도 보관과 같은 경로(`applyChange` → 그날부터의 `RoutineRevision`, 오늘 기록 동기화)를 탄다.
+  오늘 이미 완료한 항목은 오늘 기록에 남고, 완료하지 않은 항목은 오늘 목록에서도 빠진다.
+- 그룹 삭제는 한 트랜잭션에서 그룹과 그 안의 항목(보관된 것 포함)에 모두 `deletedAt`을 적는다. 확인창이 항목 수를 알려 준다.
+- 동기화: `deletedAt`은 일반 속성이라 CloudKit으로 그대로 전달된다. 같은 ID의 사본이 여럿이면 삭제된 쪽이 이긴다
+  (다른 기기의 오래된 사본이 삭제를 되살리지 않게). 물리 삭제가 없으므로 "한쪽이 지운 것을 다른 쪽이 쓰는" 충돌은 생기지 않는다.
+- 속성 이름은 `isRemoved`(계산 속성)다. `isDeleted`는 SwiftData가 이미 쓰는 이름이라 피했다.
+
+## 기간 통계와 화면 구조 (v1.3.1)
+
+- `StatsService.period(_:today:)`가 고른 기간(7일·30일·90일·전체)의 `PeriodStats`를 만든다: 날짜별 결과, 평균, 달성한 날/유효한 날,
+  그룹·항목 달성률(내림차순), 히트맵용 날짜들(기간과 최근 90일 중 긴 쪽, 최대 53주).
+  연속 달성일은 기간과 무관하게 전체 이력 기준(`DashboardStats`)이고, 화면에 그렇게 적는다.
+- 히트맵 배치(`HeatmapLayout`)와 칸의 단계(`HeatLevel`)는 뷰 밖의 순수 함수라 테스트한다. 색만으로 구분하지 않도록
+  휴식일은 테두리만 그리고, 칸마다 문장으로 된 접근성 이름과 도움말이 있다.
+- 항목 편집은 시트(`RoutineEditSheet`)에서 초안(`RoutineDraft`)만 고치다가 [저장]에서 `AppStore.apply(_:to:)` 한 번으로 반영한다.
+  [취소]는 아무것도 저장하지 않는다. 목록 화면의 이름·요일 인라인 편집은 없앴다(실수로 바뀌는 일을 막기 위해).
+- 루틴 관리 화면의 시트·확인창 상태는 `RoutineEditorState` 하나가 들고, 그룹 카드와 항목 행이 환경으로 받아 쓴다.
+- 디자인 규칙은 `Theme`에 모은다: 포인트 색은 민트, 지표별 색(오늘=민트, 7일 평균=파랑, 연속=코랄, 최장=노랑), 식사=코랄,
+  끼니별 색·아이콘(`MealKind`), 그룹은 사용자가 고른 색. 큰 숫자는 밝은 배경에서 읽히도록 한 단계 진한 `GroupColor.ink`를 쓴다.
+  공통 부품은 `Card`, `CardHeader`, `StatTile`, `EmptyHint`, `StatusBadge`, `ProgressBar`, `ProgressRing`.
+- 버튼을 `.accessibilityElement(children: .ignore)`로 감싸면 "누르기" 동작이 사라진다. 버튼에는 이름만 직접 붙이고,
+  탭 제스처로 만든 칸에는 `.accessibilityAction`을 함께 단다(히트맵에서 실제로 겪은 문제).
 
 ## 검증 전용 빌드
 

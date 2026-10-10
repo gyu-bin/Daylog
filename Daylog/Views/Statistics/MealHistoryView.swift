@@ -13,47 +13,20 @@ struct MealHistoryView: View {
     @FocusState private var searchFocused: Bool
 
     var body: some View {
-        @Bindable var store = store
         VStack(alignment: .leading, spacing: Theme.spacing) {
             AdaptiveRow(isWide: isWide) {
-                recordedDaysCard
-                monthRateCard
+                recordedDaysTile
+                monthRateTile
             }
 
-            Card {
-                VStack(alignment: .leading, spacing: 12) {
-                    ViewThatFits(in: .horizontal) {
-                        HStack(spacing: 12) {
-                            periodPicker(selection: $store.mealPeriod)
-                            searchField(text: $store.mealQuery)
-                        }
-                        VStack(alignment: .leading, spacing: 10) {
-                            periodPicker(selection: $store.mealPeriod)
-                            searchField(text: $store.mealQuery)
-                        }
-                    }
-
-                    if days.isEmpty {
-                        emptyState
-                    } else {
-                        LazyVStack(alignment: .leading, spacing: 10) {
-                            ForEach(days) { day in
-                                MealDayRow(day: day, query: appliedQuery) {
-                                    store.open(day.day)
-                                }
-                            }
-                            if nextOffset != nil {
-                                Button("이전 기록 더 보기") {
-                                    loadMore()
-                                }
-                                .frame(maxWidth: .infinity)
-                                .padding(.top, 4)
-                                // 목록 끝에 닿으면 알아서 이어 읽는다.
-                                .onAppear(perform: loadMore)
-                            }
-                        }
-                    }
+            if isWide {
+                HStack(alignment: .top, spacing: Theme.spacing) {
+                    timeline
+                    MealCalendarCard().frame(width: 300)
                 }
+            } else {
+                MealCalendarCard()
+                timeline
             }
         }
         .onAppear {
@@ -91,61 +64,84 @@ struct MealHistoryView: View {
 
     // MARK: - 요약
 
-    private var recordedDaysCard: some View {
-        Card {
-            VStack(alignment: .leading, spacing: 8) {
-                CardHeader(symbol: "fork.knife", title: "식사 기록 일수", subtitle: "(\(store.mealPeriod.title))")
-                HStack(alignment: .firstTextBaseline, spacing: 3) {
-                    Text("\(summary.recordedDays)")
-                        .font(.system(size: 32, weight: .bold, design: .rounded))
-                        .monospacedDigit()
-                    Text("일")
-                        .font(.title3.weight(.semibold))
-                }
-                .foregroundStyle(GroupColor.orange.color)
-                Text("아침·점심·저녁·간식 중 하나라도 적은 날이에요. 메모만 적은 날은 세지 않아요.")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-        }
-        .accessibilityElement(children: .combine)
+    private var recordedDaysTile: some View {
+        StatTile(
+            symbol: "fork.knife", title: "식사 기록 일수", color: .coral,
+            value: "\(summary.recordedDays)", unit: "일",
+            caption: "\(store.mealPeriod.title) · 한 끼라도 적은 날 (메모만 적은 날 제외)"
+        )
     }
 
-    private var monthRateCard: some View {
-        Card {
-            VStack(alignment: .leading, spacing: 8) {
-                CardHeader(symbol: "calendar", title: "이번 달 식사 기록률")
-                HStack(alignment: .firstTextBaseline, spacing: 8) {
-                    Text(summary.monthPercent.map { "\($0)%" } ?? "—")
-                        .font(.system(size: 32, weight: .bold, design: .rounded))
-                        .monospacedDigit()
-                        .foregroundStyle(summary.monthPercent == nil ? AnyShapeStyle(.tertiary) : AnyShapeStyle(GroupColor.blue.color))
-                    if summary.monthElapsedDays > 0 {
-                        Text("\(summary.monthElapsedDays)일 중 \(summary.monthRecordedDays)일")
-                            .font(.callout)
+    private var monthRateTile: some View {
+        StatTile(
+            symbol: "calendar", title: "이번 달 식사 기록률", color: .blue,
+            value: summary.monthPercent.map { "\($0)%" },
+            caption: summary.monthElapsedDays > 0
+                ? "\(summary.monthElapsedDays)일 중 \(summary.monthRecordedDays)일 · 식단 평가가 아니에요"
+                : "식사를 적기 시작하면 표시돼요."
+        )
+    }
+
+    // MARK: - 타임라인
+
+    private var timeline: some View {
+        @Bindable var store = store
+        return Card(fillsHeight: false) {
+            VStack(alignment: .leading, spacing: 12) {
+                CardHeader(symbol: "clock.arrow.circlepath", title: "식사 타임라인", tint: Theme.mealTint) {
+                    if !days.isEmpty {
+                        Text("\(days.count)일\(nextOffset == nil ? "" : "+")")
+                            .font(.caption)
                             .foregroundStyle(.secondary)
                             .monospacedDigit()
                     }
                 }
-                Text("이번 달에 식사를 적은 날의 비율이에요(앱을 쓰기 시작한 날부터). 식단이나 영양을 평가하는 숫자가 아니에요.")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+
+                ViewThatFits(in: .horizontal) {
+                    HStack(spacing: 12) {
+                        periodPicker(selection: $store.mealPeriod)
+                        searchField(text: $store.mealQuery)
+                    }
+                    VStack(alignment: .leading, spacing: 10) {
+                        periodPicker(selection: $store.mealPeriod)
+                        searchField(text: $store.mealQuery)
+                    }
+                }
+
+                if days.isEmpty {
+                    emptyState
+                } else {
+                    LazyVStack(alignment: .leading, spacing: 0) {
+                        ForEach(days) { day in
+                            MealTimelineRow(day: day, query: appliedQuery, isLast: day.id == days.last?.id && nextOffset == nil) {
+                                store.open(day.day)
+                            }
+                        }
+                        if nextOffset != nil {
+                            Button("이전 기록 더 보기") {
+                                loadMore()
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.top, 4)
+                            // 목록 끝에 닿으면 알아서 이어 읽는다.
+                            .onAppear(perform: loadMore)
+                        }
+                    }
+                }
             }
         }
-        .accessibilityElement(children: .combine)
     }
-
-    // MARK: - 필터
 
     private func periodPicker(selection: Binding<MealPeriod>) -> some View {
         Picker("기간", selection: selection) {
             ForEach(MealPeriod.allCases) { period in
-                Text(period.title).tag(period)
+                Text(period.shortTitle).tag(period)
             }
         }
         .pickerStyle(.segmented)
         .labelsHidden()
         .fixedSize()
+        .accessibilityLabel("식사 기록 기간")
     }
 
     private func searchField(text: Binding<String>) -> some View {
@@ -171,8 +167,11 @@ struct MealHistoryView: View {
         }
         .padding(.horizontal, 10)
         .frame(minWidth: 200, maxWidth: .infinity, minHeight: 28)
-        .background(Theme.track.opacity(0.5), in: RoundedRectangle(cornerRadius: 7, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 7, style: .continuous).strokeBorder(Theme.separator, lineWidth: 1))
+        .background(Theme.inset, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: 8, style: .continuous)
+                .strokeBorder(searchFocused ? Theme.mealTint.opacity(0.7) : .clear, lineWidth: 1.5)
+        )
     }
 
     @ViewBuilder
@@ -180,99 +179,29 @@ struct MealHistoryView: View {
         if !appliedQuery.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             EmptyHint(
                 symbol: "magnifyingglass",
-                message: "\(store.mealPeriod.title) 기록에서 \"\(appliedQuery)\"을(를) 찾지 못했어요.\n기간을 넓히거나 다른 말로 찾아보세요."
+                message: "\(store.mealPeriod.title) 기록에서 \"\(appliedQuery)\"을(를) 찾지 못했어요.\n기간을 넓히거나 다른 말로 찾아보세요.",
+                tint: Theme.mealTint
             )
         } else {
             EmptyHint(
                 symbol: "fork.knife",
-                message: "\(store.mealPeriod.title)에 적은 식사 기록이 없어요.\n대시보드에서 오늘 식사를 적으면 여기에 쌓여요."
-            )
+                message: "\(store.mealPeriod.title)에 적은 식사 기록이 없어요.\n대시보드에서 오늘 식사를 적으면 여기에 쌓여요.",
+                tint: Theme.mealTint,
+                actionTitle: "오늘 식사 적으러 가기"
+            ) {
+                store.open(store.today)
+            }
         }
     }
 }
 
-/// 하루치 식사 기록 한 칸.
-private struct MealDayRow: View {
-    let day: MealDay
-    let query: String
-    let open: () -> Void
-
-    private var meals: [(label: String, text: String, color: Color)] {
-        [
-            ("아침", day.breakfast, .orange),
-            ("점심", day.lunch, .yellow),
-            ("저녁", day.dinner, .indigo),
-            ("간식", day.snack, .teal),
-        ]
-    }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            HStack(alignment: .firstTextBaseline) {
-                Text("\(day.day.shortTitle) \(day.day.weekdaySymbol)요일")
-                    .font(.headline)
-                    .monospacedDigit()
-                Text(String(day.day.year))
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
-                    .monospacedDigit()
-                Spacer()
-                Button("해당 날짜 열기", action: open)
-                    .controlSize(.small)
-                    .accessibilityLabel("\(day.day.shortTitle) 기록 열기")
-                    .help("대시보드에서 이 날짜의 루틴과 식사를 보고 고칩니다.")
-            }
-
-            VStack(alignment: .leading, spacing: 5) {
-                ForEach(meals, id: \.label) { meal in
-                    line(label: meal.label, text: meal.text, color: meal.color)
-                }
-                if !MealDay.isBlank(day.memo) {
-                    line(label: "메모", text: day.memo, color: Theme.accent)
-                }
-            }
+extension MealPeriod {
+    /// 기간 선택 버튼에 쓰는 짧은 이름.
+    var shortTitle: String {
+        switch self {
+        case .week: return "7일"
+        case .month: return "30일"
+        case .all: return "전체"
         }
-        .padding(12)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Theme.track.opacity(0.45), in: RoundedRectangle(cornerRadius: 9, style: .continuous))
-        .accessibilityElement(children: .contain)
-    }
-
-    private func line(label: String, text: String, color: Color) -> some View {
-        HStack(alignment: .firstTextBaseline, spacing: 8) {
-            HStack(spacing: 5) {
-                Circle().fill(color).frame(width: 6, height: 6)
-                Text(label)
-                    .font(.callout.weight(.semibold))
-            }
-            .frame(width: 52, alignment: .leading)
-
-            if MealDay.isBlank(text) {
-                // 비워 둔 칸. 사용자가 직접 "없음"이라고 적은 경우는 그 글자를 그대로 보여 준다.
-                Text("미기록")
-                    .font(.callout)
-                    .foregroundStyle(.tertiary)
-            } else {
-                Text(highlighted(text))
-                    .font(.callout)
-                    .textSelection(.enabled)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-        }
-        .accessibilityElement(children: .combine)
-    }
-
-    /// 검색어와 일치하는 부분을 굵게 표시한다.
-    private func highlighted(_ text: String) -> AttributedString {
-        var attributed = AttributedString(text)
-        let needle = query.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !needle.isEmpty else { return attributed }
-        var searchRange = attributed.startIndex..<attributed.endIndex
-        while let found = attributed[searchRange].range(of: needle, options: [.caseInsensitive, .diacriticInsensitive]) {
-            attributed[found].font = .callout.bold()
-            attributed[found].backgroundColor = GroupColor.yellow.color.opacity(0.35)
-            searchRange = found.upperBound..<attributed.endIndex
-        }
-        return attributed
     }
 }

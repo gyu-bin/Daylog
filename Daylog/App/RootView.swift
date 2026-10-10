@@ -82,50 +82,80 @@ struct RootView: View {
     }()
 }
 
+/// 사이드바. 선택한 메뉴는 옅은 민트 바탕과 민트색 글자·아이콘으로 표시한다(굵기도 달라 색만으로 구분하지 않는다).
 private struct SidebarView: View {
     @Environment(AppStore.self) private var store
 
     var body: some View {
-        List(selection: selection) {
-            Section {
-                ForEach(AppStore.Section.allCases) { section in
-                    Label(section.title, systemImage: section.symbol)
-                        .tag(section)
+        VStack(alignment: .leading, spacing: 3) {
+            VStack(alignment: .leading, spacing: 3) {
+                HStack(spacing: 7) {
+                    Image(systemName: "leaf.fill")
+                        .font(.system(size: 17))
+                        .foregroundStyle(Theme.accent)
+                    Text("Daylog")
+                        .font(.system(size: 20, weight: .bold))
                 }
-            } header: {
-                VStack(alignment: .leading, spacing: 4) {
-                    Label {
-                        Text("Daylog")
-                            .font(.system(size: 22, weight: .bold))
-                            .foregroundStyle(.primary)
-                    } icon: {
-                        Image(systemName: "leaf.fill")
-                            .font(.system(size: 20))
-                            .foregroundStyle(Theme.accent)
-                    }
-                    Text("작은 반복이 큰 변화를 만든다.")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-                .textCase(nil)
-                .padding(.vertical, 10)
-                .accessibilityElement(children: .combine)
+                Text("작은 반복이 큰 변화를 만든다.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
-        }
-        .listStyle(.sidebar)
-        .safeAreaInset(edge: .bottom) {
+            .padding(.horizontal, 10)
+            .padding(.top, 4)
+            .padding(.bottom, 14)
+            .accessibilityElement(children: .combine)
+
+            ForEach(Array(AppStore.Section.allCases.enumerated()), id: \.element) { index, section in
+                SidebarRow(section: section, isSelected: store.section == section, shortcut: index + 1) {
+                    store.section = section
+                }
+            }
+
+            Spacer(minLength: 12)
+
             Label("오늘도, 더 나은 내일을 위해.", systemImage: "leaf")
                 .font(.caption)
-                .foregroundStyle(.secondary)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(14)
+                .foregroundStyle(.tertiary)
+                .padding(.horizontal, 10)
+                .padding(.bottom, 6)
         }
+        .padding(.horizontal, 10)
+        .padding(.top, 6)
+        .frame(maxHeight: .infinity, alignment: .top)
     }
+}
 
-    private var selection: Binding<AppStore.Section?> {
-        Binding(
-            get: { store.section },
-            set: { if let section = $0 { store.section = section } }
-        )
+private struct SidebarRow: View {
+    let section: AppStore.Section
+    let isSelected: Bool
+    let shortcut: Int
+    let action: () -> Void
+
+    @State private var isHovered = false
+
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 9) {
+                Image(systemName: section.symbol)
+                    .font(.system(size: 14, weight: isSelected ? .semibold : .regular))
+                    .frame(width: 20)
+                Text(section.title)
+                    .font(.body.weight(isSelected ? .semibold : .regular))
+                Spacer(minLength: 0)
+            }
+            .foregroundStyle(isSelected ? AnyShapeStyle(Theme.accent) : AnyShapeStyle(.primary))
+            .padding(.horizontal, 10)
+            .frame(height: 32)
+            .background(
+                isSelected ? AnyShapeStyle(Theme.accentWash) : AnyShapeStyle(isHovered ? Theme.track : Color.clear),
+                in: RoundedRectangle(cornerRadius: 8, style: .continuous)
+            )
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .onHover { isHovered = $0 }
+        .help("\(section.title) (⌘\(shortcut))")
+        .accessibilityLabel(section.title)
+        .accessibilityAddTraits(isSelected ? [.isButton, .isSelected] : .isButton)
     }
 }

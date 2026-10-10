@@ -4,6 +4,7 @@ import SwiftUI
 struct RoutineCard: View {
     @Environment(AppStore.self) var store
     /// 접어 둔 그룹의 ID(쉼표로 이어 붙인 문자열). 이 Mac에만 저장된다.
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
     @AppStorage("collapsedGroupIDs") var collapsedGroupIDs = ""
     @State var itemDrafts: [UUID: String] = [:]
     @State private var groupDraft = ""
@@ -48,21 +49,12 @@ struct RoutineCard: View {
 
     var body: some View {
         let sections = sections
-        Card {
+        Card(fillsHeight: false) {
             VStack(alignment: .leading, spacing: 12) {
                 CardHeader(symbol: "checklist", title: store.isViewingToday ? "오늘의 루틴" : "\(store.selectedDay.shortTitle)의 루틴") {
-                    HStack(spacing: 6) {
-                        if store.isViewingToday, !store.activeGroups.isEmpty {
-                            Button {
-                                isAddingGroup = true
-                                focus = .newGroup
-                            } label: {
-                                Label("그룹 추가", systemImage: "plus")
-                            }
-                        }
-                        Button("루틴 편집") {
-                            store.section = .routines
-                        }
+                    // 여기서는 기록만 한다. 이름·요일·순서 같은 편집은 루틴 관리 화면에서 한다.
+                    HeaderLink(title: "루틴 관리") {
+                        store.section = .routines
                     }
                 }
 
@@ -79,6 +71,8 @@ struct RoutineCard: View {
                 if store.isViewingToday {
                     if store.activeGroups.isEmpty || isAddingGroup {
                         newGroupField
+                    } else {
+                        addGroupButton
                     }
                     if !store.suggestions.isEmpty, let group = store.quickAddGroup {
                         suggestionChips(into: group)
@@ -86,8 +80,6 @@ struct RoutineCard: View {
                 } else {
                     pastDayNotice
                 }
-
-                Spacer(minLength: 0)
 
                 if store.selectedOutcome.total > 0 {
                     progress
@@ -117,6 +109,22 @@ struct RoutineCard: View {
         }
     }
 
+    /// 항목 추가(그룹 안의 "+ 항목 추가")와 헷갈리지 않게, 그룹 목록 아래에 따로 둔다.
+    private var addGroupButton: some View {
+        Button {
+            isAddingGroup = true
+            focus = .newGroup
+        } label: {
+            Label("새 그룹", systemImage: "folder.badge.plus")
+                .font(.callout)
+                .foregroundStyle(.secondary)
+                .padding(.vertical, 4)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityHint("새 루틴 그룹을 만듭니다.")
+    }
+
     private var newGroupField: some View {
         HStack(spacing: 8) {
             Image(systemName: "folder.badge.plus")
@@ -133,8 +141,7 @@ struct RoutineCard: View {
         }
         .padding(.horizontal, 10)
         .frame(minHeight: 34)
-        .background(Theme.track.opacity(0.5), in: RoundedRectangle(cornerRadius: 8, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 8, style: .continuous).strokeBorder(Theme.separator, lineWidth: 1))
+        .background(Theme.inset, in: RoundedRectangle(cornerRadius: 9, style: .continuous))
     }
 
     /// 그룹을 만들면 곧바로 그 그룹의 항목 입력칸으로 넘어간다.

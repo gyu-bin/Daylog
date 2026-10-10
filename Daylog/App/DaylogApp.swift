@@ -25,7 +25,6 @@ struct DaylogApp: App {
                 }
             }
             .frame(minWidth: 900, minHeight: 650)
-            .tint(Theme.accent)
         }
         .defaultSize(width: 1200, height: 850)
         .windowResizability(.contentMinSize)

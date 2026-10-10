@@ -19,6 +19,7 @@ struct DashboardView: View {
                         StartHint()
                     }
                     StatCardsGrid(columns: isWide ? 4 : 2)
+                    // 두 카드는 내용만큼만 차지한다(위쪽을 맞춰 나란히). 비어 있을 때 억지로 늘리지 않는다.
                     AdaptiveRow(isWide: isWide) {
                         RoutineCard()
                         MealCard()
@@ -53,7 +54,8 @@ struct DashboardView: View {
     }
 }
 
-/// 넓으면 같은 높이의 가로 열, 좁으면 세로로 쌓는다.
+/// 넓으면 가로 열(위쪽 맞춤), 좁으면 세로로 쌓는다.
+/// 안의 카드가 `fillsHeight`면 가장 높은 카드에 맞춰 늘어나고, 아니면 각자 내용만큼만 차지한다.
 struct AdaptiveRow<Content: View>: View {
     let isWide: Bool
     @ViewBuilder var content: () -> Content
@@ -69,16 +71,17 @@ struct AdaptiveRow<Content: View>: View {
 
 private struct StartHint: View {
     var body: some View {
-        Label("루틴을 추가하면 통계가 시작돼요.", systemImage: "sparkles")
+        Label("그룹을 만들고 루틴을 추가하면 통계가 시작돼요.", systemImage: "sparkles")
             .font(.callout)
             .foregroundStyle(.secondary)
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Theme.accentWash, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+            .background(Theme.accentWash, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
     }
 }
 
+/// 제목과 날짜 이동을 한 줄에 둔다. 좁으면 두 줄로 내려간다.
 struct DashboardHeader: View {
     var body: some View {
         ViewThatFits(in: .horizontal) {
@@ -87,20 +90,19 @@ struct DashboardHeader: View {
                 Spacer(minLength: 16)
                 DateNavigator()
             }
-            VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: 10) {
                 titles
                 DateNavigator()
             }
         }
-        .padding(.bottom, 4)
     }
 
     private var titles: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: 2) {
             Text("좋은 하루예요.")
-                .font(.system(size: 28, weight: .bold))
+                .font(.system(size: 24, weight: .bold))
             Text("완벽한 하루보다, 꾸준한 하루.")
-                .font(.title3)
+                .font(.callout)
                 .foregroundStyle(.secondary)
         }
         .fixedSize()
@@ -119,9 +121,9 @@ struct DateNavigator: View {
                     store.goToPreviousDay()
                 }
                 Text(store.selectedDay.longTitle)
-                    .font(.headline)
+                    .font(.callout.weight(.semibold))
                     .monospacedDigit()
-                    .frame(minWidth: 168)
+                    .frame(minWidth: 160)
                     .accessibilityLabel("선택한 날짜 \(store.selectedDay.longTitle)")
                 stepButton(symbol: "chevron.right", label: "다음 날짜", help: "다음 날짜 (⌘])") {
                     store.goToNextDay()
@@ -129,15 +131,28 @@ struct DateNavigator: View {
                 .disabled(!store.canGoToNextDay)
             }
             .frame(height: 32)
-            .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
-            .overlay(RoundedRectangle(cornerRadius: 8, style: .continuous).strokeBorder(Theme.separator, lineWidth: 1))
+            .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: 9, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: 9, style: .continuous).strokeBorder(Theme.cardBorder, lineWidth: 1))
 
-            Button("오늘") {
+            // 오늘을 보고 있으면 눌러도 할 일이 없다: 흐리게 비활성화하고, 과거를 볼 때는 눈에 띄게 한다.
+            Button {
                 store.goToToday()
+            } label: {
+                Text("오늘")
+                    .font(.callout.weight(.semibold))
+                    .foregroundStyle(store.isViewingToday ? AnyShapeStyle(.tertiary) : AnyShapeStyle(Theme.onAccent))
+                    .padding(.horizontal, 14)
+                    .frame(height: 32)
+                    .background(
+                        store.isViewingToday ? AnyShapeStyle(Theme.track) : AnyShapeStyle(Theme.accent),
+                        in: RoundedRectangle(cornerRadius: 9, style: .continuous)
+                    )
+                    .contentShape(Rectangle())
             }
-            .controlSize(.large)
+            .buttonStyle(.plain)
             .disabled(store.isViewingToday)
             .help("오늘로 이동 (⌘T)")
+            .accessibilityLabel("오늘로 이동")
         }
         .fixedSize()
     }
@@ -146,7 +161,7 @@ struct DateNavigator: View {
         Button(action: action) {
             Image(systemName: symbol)
                 .font(.system(size: 12, weight: .semibold))
-                .frame(width: 32, height: 32)
+                .frame(width: 34, height: 32)
                 .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
