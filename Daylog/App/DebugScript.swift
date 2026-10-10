@@ -12,7 +12,8 @@ import SwiftData
 ///
 /// 명령: group, add(마지막으로 쓴 그룹에), check, uncheck, text:<칸>=<값>, rename:<전>=<후>, archive, restore, archiveGroup, threshold,
 ///       wait:<초>, waitImport:<최대 초>, waitExport:<최대 초>, refresh, dump:<이름>,
-///       counts(개수만 출력), compareBackup:<백업 이름 일부>, purgeLocalStore, quit
+///       counts(개수만 출력), compareBackup:<백업 이름 일부>, verifyBackup:<백업 이름 일부>,
+///       purgeLocalStore, quit
 ///
 /// 실제 기록이 iCloud에 있으므로, iCloud의 데이터를 지우는 명령은 두지 않는다.
 /// 검증용 저장소는 항상 로컬 전용으로 열린다(`RuntimeEnvironment.cloudKitContainerID`).
@@ -82,6 +83,9 @@ enum DebugScript {
             log("COUNTS sync 계정 \(sync.account.title), 컨테이너 \(sync.containerIdentifier ?? "(로컬 전용)"), "
                 + "가져오기 \(sync.lastImportAt.map { "\($0)" } ?? "-"), 보내기 \(sync.lastExportAt.map { "\($0)" } ?? "-"), "
                 + "오류 \(sync.lastErrorMessage ?? "없음"), 앱 오류 \(store.errorMessage ?? "없음")")
+        case "verifyBackup":
+            store.flush()
+            DebugBackup.verify(labelled: argument, live: container.mainContext)
         case "compareBackup":
             compareBackup(labelled: argument, store: store)
         case "purgeLocalStore":

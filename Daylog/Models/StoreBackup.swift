@@ -26,7 +26,10 @@ enum StoreBackup {
     }
 
     static let keptBackups = 5
-    private static let sidecarSuffixes = ["", "-wal", "-shm"]
+    /// 저장소 파일과 함께 다니는 파일들. `.info.json`에는 이 기기의 식별자가 들어 있어 함께 보관한다.
+    private static let sidecarSuffixes = ["", "-wal", "-shm", ".info.json"]
+    /// 이름에 이 글자가 든 백업은 자동 정리에서 빼고 계속 남긴다(환경 전환 전의 수동 백업 등).
+    static let keepMarker = "-keep-"
 
     /// <저장소 폴더>/Backups/<이름>-<label>-<시각>/ 에 사본을 만들고, 사본이 읽히는지와 기록 수가 원본과 같은지 확인한다.
     static func create(for storeURL: URL, label: String, now: Date = .now) throws -> Backup {
@@ -159,7 +162,7 @@ enum StoreBackup {
             at: root, includingPropertiesForKeys: [.creationDateKey], options: [.skipsHiddenFiles]
         ) else { return }
         let mine = entries
-            .filter { $0.lastPathComponent.hasPrefix("\(storeName)-") }
+            .filter { $0.lastPathComponent.hasPrefix("\(storeName)-") && !$0.lastPathComponent.contains(keepMarker) }
             .sorted { lhs, rhs in
                 let left = (try? lhs.resourceValues(forKeys: [.creationDateKey]).creationDate) ?? .distantPast
                 let right = (try? rhs.resourceValues(forKeys: [.creationDateKey]).creationDate) ?? .distantPast
