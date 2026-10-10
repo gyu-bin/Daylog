@@ -271,6 +271,21 @@ SwiftData는 저장이나 조회가 지나가면 같은 체크를 **다른 객�
 - 사이드바는 `Views/Sidebar/SidebarView.swift`: `SidebarBrandHeader`(아이콘 42pt + 이름 + 슬로건, 좁으면 슬로건부터 뺀다),
   메뉴 4개(색은 아이콘과 선택 표시에만: 대시보드 민트, 루틴 관리 파랑, 통계 보라, 설정 회색), 아래쪽 한 줄 문구.
 
+## 배포 (DMG, Developer ID)
+
+- `Tools/release.sh`: 테스트 → 아카이브 → Developer ID 서명 → 공증 → 스테이플 → DMG → 검증. `--publish`/`--publish-only`로 GitHub Release에 올린다.
+  인증서는 Apple이 보관하는 "Cloud Managed Developer ID Application"을 Xcode 계정으로 쓴다(저장소에 인증서·키·암호 없음).
+  DMG 파일 자체의 서명·공증에는 이 Mac 키체인의 Developer ID 인증서와 `notarytool` 자격 증명이 더 필요하다(없으면 앱만 공증된다).
+- **환경이 둘이다.** Xcode로 직접 빌드한 앱(개발용 서명, `Tools/install.sh`)은 CloudKit **Development**를,
+  Developer ID로 배포한 앱은 **Production**을 쓴다. 프로비저닝 프로파일이 그렇게 정해서 고를 수 없다(내보내기에서 Development를 지정하면 거부된다).
+  같은 컨테이너(`iCloud.com.mungyubin.daylog`)지만 서로 다른 데이터라, 두 종류의 앱끼리는 동기화되지 않는다.
+- Production은 스키마를 CloudKit Console에서 배포해야 기록을 만들 수 있다(2026-10-10 사용자가 배포했다고 확인, 앱에서의 확인은 아직).
+- **기존 저장소를 Production으로 옮기는 일은 아직 하지 않았다.** 저장소에는 Development에서 "이미 보냈다"는 동기화 기록이 남아 있어,
+  배포판으로 그대로 열면 기존 기록이 Production에 올라간다고 가정할 수 없다. 옮기기 전에 복제 저장소로 먼저 확인한다.
+- 옮기기 전 백업: 앱을 끈 뒤 Debug 빌드를 `-DaylogDebugBackup keep-<이름>`으로 실행하면 저장소를 열기 전에 백업을 만들고,
+  `verifyBackup:<이름>`이 임시 위치에 복원해 지금 저장소와 행·열 단위로 같은지 확인한다(내용은 출력하지 않는다).
+  이름에 `-keep-`이 든 백업은 자동 정리에서 빠진다. 2026-10-10의 백업: `Backups/Daylog-keep-pre-production-20261010-200813`.
+
 ## 검증 전용 빌드
 
 실제 앱·실제 기록·iCloud와 완전히 분리된 빌드. 번들 ID가 달라 컨테이너도 따로이고, iCloud 권한이 없다.
