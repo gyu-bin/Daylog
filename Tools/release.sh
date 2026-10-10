@@ -110,7 +110,8 @@ STAGING="$OUT/dmg"
 mkdir -p "$STAGING"
 ditto "$APP" "$STAGING/Daylog.app"
 ln -s /Applications "$STAGING/Applications"
-hdiutil create -volname "Daylog $VERSION" -srcfolder "$STAGING" -fs HFS+ -format UDZO -ov "$DMG" >/dev/null
+hdiutil create -volname "Daylog $VERSION" -srcfolder "$STAGING" -fs HFS+ -format UDZO -ov "$DMG" >/dev/null 2>&1 \
+  || fail "DMG를 만들지 못했습니다."
 rm -rf "$STAGING"
 
 DMG_STATE="서명·공증 안 됨"
@@ -131,7 +132,7 @@ fi
 step "DMG 검증"
 hdiutil verify "$DMG" >/dev/null 2>&1 || fail "DMG가 손상됐습니다."
 MOUNT=$(mktemp -d)
-hdiutil attach "$DMG" -nobrowse -readonly -mountpoint "$MOUNT" >/dev/null
+hdiutil attach "$DMG" -nobrowse -readonly -mountpoint "$MOUNT" >/dev/null 2>&1 || fail "DMG를 열지 못했습니다."
 {
   [[ -L "$MOUNT/Applications" ]] || fail "DMG에 Applications 바로가기가 없습니다."
   codesign --verify --deep --strict "$MOUNT/Daylog.app" || fail "DMG 안의 앱 서명이 깨졌습니다."
