@@ -53,6 +53,7 @@ struct MigrationTests {
         let container = try DaylogStore.makeContainer(.file(storeURL))
         var migrated = try FixtureSnapshot.capture(context: container.mainContext, today: Fixture.today)
         migrated.fieldEdits = nil // v1.1에는 편집 기록이 없었다
+        migrated.clearGroupInfo()
 
         // 기록 수, 루틴 UUID, 날짜 키, 체크 상태, 식사 기록, 변경 이력, 설정, 통계가 모두 그대로다.
         #expect(migrated.routines == expected.routines)
@@ -187,6 +188,7 @@ struct BackupTests {
         let restored = try DaylogStore.makeContainer(.file(restoredURL))
         var snapshot = try FixtureSnapshot.capture(context: restored.mainContext, today: Fixture.today)
         snapshot.fieldEdits = nil
+        snapshot.clearGroupInfo()
         #expect(snapshot == expected)
     }
 

@@ -7,8 +7,12 @@ struct RoutineRate: Equatable, Identifiable, Sendable {
     let isArchived: Bool
     let done: Int
     let scheduled: Int
-    /// 지금 속한 그룹의 색.
+    /// 지금 속한 그룹의 색과 이름.
     var colorKey: String = RoutineGroup.defaultColorKey
+    var groupID: UUID = RoutineGroup.defaultID
+    var groupTitle: String = ""
+    /// 삭제한 항목. 지난 기록이 기간 안에 있으면 통계에는 계속 나온다.
+    var isRemoved = false
 
     var id: UUID { routineID }
     var ratio: Double { Achievement.ratio(done: done, total: scheduled) ?? 0 }
@@ -23,6 +27,7 @@ struct GroupRate: Equatable, Identifiable, Sendable {
     let isArchived: Bool
     let done: Int
     let scheduled: Int
+    var isRemoved = false
 
     var id: UUID { groupID }
     var ratio: Double { Achievement.ratio(done: done, total: scheduled) ?? 0 }
@@ -143,10 +148,70 @@ struct StatsSource: Sendable {
     }
 }
 
+/// 통계 화면의 기간 필터.
+enum StatsPeriod: String, CaseIterable, Identifiable, Sendable {
+    case week, month, quarter, all
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .week: return "7일"
+        case .month: return "30일"
+        case .quarter: return "90일"
+        case .all: return "전체"
+        }
+    }
+
+    /// "최근 30일 평균"처럼 문장에 넣는 이름.
+    var label: String {
+        self == .all ? "전체 기간" : "최근 \(title)"
+    }
+
+    /// 오늘을 포함한 일수. 전체는 nil(통계 시작일부터).
+    var days: Int? {
+        switch self {
+        case .week: return 7
+        case .month: return 30
+        case .quarter: return 90
+        case .all: return nil
+        }
+    }
+}
+
+/// 통계 화면이 선택한 기간에 대해 보여 주는 값. 모든 항목이 같은 기간을 기준으로 한다.
+struct PeriodStats: Equatable, Sendable {
+    var period: StatsPeriod
+    var threshold: Int
+    var hasStarted: Bool
+    /// 기간의 날짜별 결과. 날짜 오름차순.
+    var outcomes: [DayOutcome]
+    /// 유효한 날(휴식일·시작 전 제외)의 평균 달성률.
+    var averagePercent: Int?
+    /// 기준 이상을 달성한 날 수 / 유효한 날 수.
+    var achievedDays: Int
+    var countedDays: Int
+    /// 달성률 내림차순.
+    var groupRates: [GroupRate]
+    var routineRates: [RoutineRate]
+    /// 활동 히트맵에 쓰는 날짜별 결과(기간과 최근 90일 중 긴 쪽, 최대 53주). 날짜 오름차순.
+    var heatmap: [DayOutcome]
+
+    static func empty(_ period: StatsPeriod) -> PeriodStats {
+        PeriodStats(
+            period: period, threshold: SettingsService.defaultThreshold, hasStarted: false, outcomes: [],
+            averagePercent: nil, achievedDays: 0, countedDays: 0, groupRates: [], routineRates: [], heatmap: []
+        )
+    }
+}
+
 @MainActor
 struct StatsService {
     static let weekDays = 7
     static let trendDays = 30
+    /// 히트맵이 보여 주는 최소·최대 일수.
+    static let heatmapMinimumDays = 90
+    static let heatmapMaximumDays = 371
 
     let context: ModelContext
 
@@ -179,7 +244,40 @@ struct StatsService {
             longestStreak: StatsCalculator.longestStreak(all, threshold: threshold),
             trend: trend,
             routineRates: try routineRates(source: source, days: trend.map(\.day), today: today),
-            groupRates: try groupRates(source: source, days: trend.map(\.day), today: today)
+            groupRates: try groupRates(source: source, days: trend.map(\.day), today: today, byRate: false)
+        )
+    }
+
+    /// 선택한 기간의 통계. 기간과 히트맵을 덮는 범위를 한 번만 조회한다.
+    func period(_ period: StatsPeriod, today: Day) throws -> PeriodStats {
+        let settings = try SettingsService(context: context).existingSettings()
+        let threshold = settings?.achieveThreshold ?? SettingsService.defaultThreshold
+        guard let firstDay = settings?.firstRoutineDay, firstDay <= today else {
+            var empty = PeriodStats.empty(period)
+            empty.threshold = threshold
+            return empty
+        }
+
+        let start = period.days.map { today.adding(days: -($0 - 1)) } ?? firstDay
+        let heatmapStart = max(
+            min(start, today.adding(days: -(Self.heatmapMinimumDays - 1))),
+            today.adding(days: -(Self.heatmapMaximumDays - 1))
+        )
+        let source = try loadSource(from: min(start, heatmapStart), to: today)
+        let outcomes = Day.range(from: start, to: today).map { source.outcome(on: $0, today: today) }
+        let days = outcomes.map(\.day)
+
+        return PeriodStats(
+            period: period,
+            threshold: threshold,
+            hasStarted: true,
+            outcomes: outcomes,
+            averagePercent: StatsCalculator.averagePercent(outcomes),
+            achievedDays: outcomes.filter { $0.isAchieved(threshold: threshold) }.count,
+            countedDays: outcomes.filter { $0.ratio != nil }.count,
+            groupRates: try groupRates(source: source, days: days, today: today, byRate: true),
+            routineRates: try routineRates(source: source, days: days, today: today),
+            heatmap: Day.range(from: heatmapStart, to: today).map { source.outcome(on: $0, today: today) }
         )
     }
 
@@ -199,22 +297,26 @@ struct StatsService {
         )
     }
 
-    /// 같은 routineID는 이름이 바뀌어도 한 항목으로 합산하고, 현재 이름으로 표시한다.
+    /// 같은 routineID는 이름이 바뀌어도 한 항목으로 합산하고, 현재 이름으로 표시한다. 달성률 내림차순.
+    /// 삭제한 항목도 기간 안에 지난 기록이 있으면 나온다(지웠다고 지난 통계가 달라지지 않는다).
     private func routineRates(source: StatsSource, days: [Day], today: Day) throws -> [RoutineRate] {
         let tallies = source.routineTallies(on: days, today: today)
         let service = RoutineService(context: context)
-        let routines = try service.routines()
-        let colors = Dictionary(uniqueKeysWithValues: try service.groups().map { ($0.id, $0.colorKey) })
-        return routines
+        let groups = Dictionary(uniqueKeysWithValues: try service.groups(includingRemoved: true).map { ($0.id, $0) })
+        return try service.routines(includingRemoved: true)
             .compactMap { routine -> (rate: RoutineRate, order: Int)? in
                 guard let tally = tallies[routine.id], tally.scheduled > 0 else { return nil }
+                let group = groups[routine.effectiveGroupID]
                 let rate = RoutineRate(
                     routineID: routine.id,
                     title: routine.title,
                     isArchived: routine.isArchived,
                     done: tally.done,
                     scheduled: tally.scheduled,
-                    colorKey: colors[routine.effectiveGroupID] ?? RoutineGroup.defaultColorKey
+                    colorKey: group?.colorKey ?? RoutineGroup.defaultColorKey,
+                    groupID: routine.effectiveGroupID,
+                    groupTitle: group?.title ?? RoutineGroup.defaultTitle,
+                    isRemoved: routine.isRemoved || (group?.isRemoved ?? false)
                 )
                 return (rate, routine.order)
             }
@@ -223,12 +325,13 @@ struct StatsService {
     }
 
     /// 같은 그룹 ID는 이름·색이 바뀌어도 한 항목으로 합산하고, 현재 이름과 색으로 표시한다.
-    private func groupRates(source: StatsSource, days: [Day], today: Day) throws -> [GroupRate] {
+    /// `byRate`면 달성률 내림차순, 아니면 그룹 순서대로.
+    private func groupRates(source: StatsSource, days: [Day], today: Day, byRate: Bool) throws -> [GroupRate] {
         let tallies = source.groupTallies(on: days, today: today)
-        let groups = try RoutineService(context: context).groups()
+        let groups = try RoutineService(context: context).groups(includingRemoved: true)
         let current = Dictionary(uniqueKeysWithValues: groups.map { ($0.id, $0) })
         let position = Dictionary(uniqueKeysWithValues: groups.enumerated().map { ($1.id, $0) })
-        return tallies
+        let rates = tallies
             .filter { $0.value.scheduled > 0 }
             .map { id, tally -> GroupRate in
                 let group = current[id]
@@ -238,12 +341,15 @@ struct StatsService {
                     colorKey: group?.colorKey ?? tally.latest.colorKey,
                     isArchived: group?.isArchived ?? false,
                     done: tally.done,
-                    scheduled: tally.scheduled
+                    scheduled: tally.scheduled,
+                    isRemoved: group?.isRemoved ?? false
                 )
             }
-            .sorted {
-                (position[$0.groupID] ?? Int.max, $0.title, $0.groupID.uuidString)
-                    < (position[$1.groupID] ?? Int.max, $1.title, $1.groupID.uuidString)
-            }
+        return rates.sorted { lhs, rhs in
+            let left = (position[lhs.groupID] ?? Int.max, lhs.title, lhs.groupID.uuidString)
+            let right = (position[rhs.groupID] ?? Int.max, rhs.title, rhs.groupID.uuidString)
+            if byRate, lhs.ratio != rhs.ratio { return lhs.ratio > rhs.ratio }
+            return left < right
+        }
     }
 }

@@ -77,7 +77,8 @@ extension RoutineState {
         self.init(
             title: routine.title, timeLabel: routine.timeLabel, note: routine.note,
             weekdayMask: routine.weekdayMask,
-            isArchived: routine.isArchived || (group?.isArchived ?? false),
+            // 보관이든 삭제든, 항목이든 그룹이든: 그날부터 예정에서 빠진다는 점은 같다.
+            isArchived: routine.isArchived || routine.isRemoved || (group?.isArchived ?? false) || (group?.isRemoved ?? false),
             order: routine.order, group: snapshot
         )
     }

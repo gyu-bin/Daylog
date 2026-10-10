@@ -12,6 +12,7 @@ final class AppStore {
     var statisticsTab: StatisticsTab = .routines
     var mealPeriod: MealPeriod = .month
     var mealQuery = ""
+    var statsPeriod: StatsPeriod = .month
 
     /// 실제 오늘. 통계의 기준 날짜다.
     private(set) var today: Day

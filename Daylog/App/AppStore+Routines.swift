@@ -19,6 +19,11 @@ extension AppStore {
         mutateRoutines { try $0.updateGroup(group, title: title, colorKey: colorKey, today: today) }
     }
 
+    /// 그룹과 그 안의 항목을 삭제한다(되돌릴 수 없다). 지난 기록과 통계는 그대로다.
+    func deleteGroup(_ group: RoutineGroup) {
+        mutateRoutines { try $0.deleteGroup(group, today: today) }
+    }
+
     func setGroupArchived(_ group: RoutineGroup, _ isArchived: Bool) {
         mutateRoutines { try $0.setGroupArchived(group, isArchived, today: today) }
     }
@@ -67,6 +72,24 @@ extension AppStore {
         }
     }
 
+    /// 항목을 삭제한다(되돌릴 수 없다). 지난 기록과 통계는 그대로다.
+    func deleteRoutine(_ routine: RoutineItem) {
+        mutateRoutines { try $0.delete(routine, today: today) }
+    }
+
+    /// 편집 시트의 [저장]: 초안의 내용을 한 번에 반영한다. 입력이 올바르지 않으면 아무것도 바꾸지 않는다.
+    @discardableResult
+    func apply(_ draft: RoutineDraft, to routine: RoutineItem) -> Bool {
+        guard draft.validationMessage == nil else { return false }
+        let group = groups.first { $0.id == draft.groupID }
+        return mutateRoutines {
+            try $0.update(
+                routine, title: draft.title, note: draft.note, timeLabel: draft.timeLabel,
+                weekdays: draft.weekdays.sorted(), group: group, today: today
+            )
+        }
+    }
+
     func setArchived(_ routine: RoutineItem, _ isArchived: Bool) {
         mutateRoutines { try $0.setArchived(routine, isArchived, today: today) }
     }
@@ -105,5 +128,33 @@ extension AppStore {
         guard ordered.indices.contains(target) else { return }
         ordered.swapAt(index, target)
         mutateRoutines { try $0.reorder(ordered, today: today) }
+    }
+}
+
+/// 항목 편집 시트가 들고 있는 초안. [저장]을 누르기 전에는 아무것도 저장하지 않는다.
+struct RoutineDraft: Equatable {
+    var title: String
+    var timeLabel: String
+    var note: String
+    var weekdays: Set<Int>
+    var groupID: UUID
+
+    init(_ routine: RoutineItem) {
+        title = routine.title
+        timeLabel = routine.timeLabel
+        note = routine.note
+        weekdays = Set(routine.weekdays)
+        groupID = routine.effectiveGroupID
+    }
+
+    /// 저장할 수 없는 이유. 저장할 수 있으면 nil.
+    var validationMessage: String? {
+        if title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return "이름을 입력해 주세요."
+        }
+        if weekdays.isEmpty {
+            return "요일을 하나 이상 선택해 주세요."
+        }
+        return nil
     }
 }

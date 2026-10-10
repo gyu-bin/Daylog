@@ -1,12 +1,12 @@
 import Foundation
 import SwiftData
 
-/// 현재 저장소 형식(v1.3). 루틴 그룹과, 날짜별 체크·변경 이력의 그룹 스냅샷이 추가됐다.
+/// 현재 저장소 형식(v1.3.1). 그룹과 항목에 삭제 시각(`deletedAt`)이 추가됐다.
 ///
 /// 형식을 바꿀 때: 현재 모델을 `DaylogSchemaV<n>.swift`로 동결하고, 여기의 버전을 올리고,
 /// `DaylogMigrationPlan`에 단계를 추가하고, `DaylogStore.schemaVersion`을 올린다.
-enum DaylogSchemaV3: VersionedSchema {
-    static var versionIdentifier: Schema.Version { Schema.Version(3, 0, 0) }
+enum DaylogSchemaV4: VersionedSchema {
+    static var versionIdentifier: Schema.Version { Schema.Version(4, 0, 0) }
 
     static var models: [any PersistentModel.Type] {
         [
@@ -18,7 +18,7 @@ enum DaylogSchemaV3: VersionedSchema {
 
 enum DaylogMigrationPlan: SchemaMigrationPlan {
     static var schemas: [any VersionedSchema.Type] {
-        [DaylogSchemaV1.self, DaylogSchemaV2.self, DaylogSchemaV3.self]
+        [DaylogSchemaV1.self, DaylogSchemaV2.self, DaylogSchemaV3.self, DaylogSchemaV4.self]
     }
 
     /// 모든 단계가 "추가"뿐이다(새 모델, 기본값이 있거나 optional인 새 속성, 제약 제거).
@@ -27,6 +27,7 @@ enum DaylogMigrationPlan: SchemaMigrationPlan {
         [
             .lightweight(fromVersion: DaylogSchemaV1.self, toVersion: DaylogSchemaV2.self),
             .lightweight(fromVersion: DaylogSchemaV2.self, toVersion: DaylogSchemaV3.self),
+            .lightweight(fromVersion: DaylogSchemaV3.self, toVersion: DaylogSchemaV4.self),
         ]
     }
 }
@@ -41,9 +42,9 @@ enum DaylogStore {
     }
 
     /// 저장소 형식이 바뀔 때마다 올린다. 이 값이 저장소 옆의 정보 파일과 다르면 열기 전에 백업한다.
-    static let schemaVersion = 3
+    static let schemaVersion = 4
 
-    static var schema: Schema { Schema(versionedSchema: DaylogSchemaV3.self) }
+    static var schema: Schema { Schema(versionedSchema: DaylogSchemaV4.self) }
 
     /// `cloudKitContainerID`가 nil이면 로컬 전용이다.
     static func makeContainer(_ location: Location, cloudKitContainerID: String? = nil) throws -> ModelContainer {

@@ -16,7 +16,8 @@ struct GroupMigrationTests {
         let context = container.mainContext
 
         // 루틴 UUID, 변경 이력, 날짜 키, 체크, 식사, 편집 기록, 설정, 통계가 모두 그대로다.
-        let migrated = try FixtureSnapshot.capture(context: context, today: Fixture.today)
+        var migrated = try FixtureSnapshot.capture(context: context, today: Fixture.today)
+        migrated.clearGroupInfo() // v1.2에는 그룹이 없었다
         #expect(migrated.routines == expected.routines)
         #expect(migrated.revisions == expected.revisions)
         #expect(migrated.records == expected.records)
@@ -44,7 +45,7 @@ struct GroupMigrationTests {
         // 열기 전에 만든 백업은 옮기기 전 상태 그대로다.
         let root = StoreBackup.backupsRoot(for: storeURL)
         let backup = root.appendingPathComponent(try #require(try FileManager.default.contentsOfDirectory(atPath: root.path).first))
-        #expect(backup.lastPathComponent.hasPrefix("Daylog-before-v3-"))
+        #expect(backup.lastPathComponent.hasPrefix("Daylog-before-v\(DaylogStore.schemaVersion)-"))
         #expect(try Data(contentsOf: backup.appendingPathComponent("Daylog.store")) == originalBytes)
     }
 
@@ -103,5 +104,51 @@ struct GroupMigrationTests {
         let container = try DaylogStore.makeContainer(.file(storeURL))
         #expect(try RoutineService(context: container.mainContext).groups().map(\.title) == ["기본 루틴"])
         #expect(try container.mainContext.fetchCount(FetchDescriptor<RoutineItem>()) == 5)
+    }
+
+    /// v1.3.1: v1.3 저장소(그룹 있음) → 삭제 시각이 추가된 형식. 값과 식별자까지 그대로다.
+    @Test func v3StoreMigratesToV4WithIdenticalContents() throws {
+        let directory = FileManager.default.temporaryDirectory
+            .appendingPathComponent("DaylogMigration-\(UUID().uuidString)", isDirectory: true)
+        try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let storeURL = directory.appendingPathComponent("Daylog.store")
+        try FileManager.default.copyItem(at: try Fixture.url("v1_3", "store"), to: storeURL)
+        let expected = try JSONDecoder().decode(
+            FixtureSnapshot.self, from: Data(contentsOf: try Fixture.url("v1_3.expected", "json"))
+        )
+        let originalBytes = try Data(contentsOf: storeURL)
+
+        let container = try DaylogStore.makeContainer(.file(storeURL))
+        let context = container.mainContext
+        let migrated = try FixtureSnapshot.capture(context: context, today: Fixture.today)
+
+        // 루틴·이력·기록·체크·식사·편집 기록·그룹·그룹 스냅샷·통계까지 전부 같다.
+        #expect(migrated.routines == expected.routines)
+        #expect(migrated.revisions == expected.revisions)
+        #expect(migrated.records == expected.records)
+        #expect(migrated.fieldEdits == expected.fieldEdits)
+        #expect(migrated.groups == expected.groups)
+        #expect(migrated.routineGroups == expected.routineGroups)
+        #expect(migrated.checkGroups == expected.checkGroups)
+        #expect(migrated.revisionGroups == expected.revisionGroups)
+        #expect(migrated.groupRates == expected.groupRates)
+        #expect(migrated.stats == expected.stats)
+        #expect(migrated == expected)
+        #expect(expected.groups?.count == 3)
+
+        // 새 속성은 비어 있다: 아무것도 삭제된 것으로 바뀌지 않았다.
+        #expect(try context.fetch(FetchDescriptor<RoutineItem>()).allSatisfy { $0.deletedAt == nil })
+        #expect(try context.fetch(FetchDescriptor<RoutineGroup>()).allSatisfy { $0.deletedAt == nil })
+
+        // 열기 전에 만든 백업은 옮기기 전 상태 그대로이고, 복원하면 다시 같은 내용으로 열린다.
+        let root = StoreBackup.backupsRoot(for: storeURL)
+        let backup = root.appendingPathComponent(try #require(try FileManager.default.contentsOfDirectory(atPath: root.path).first))
+        #expect(backup.lastPathComponent.hasPrefix("Daylog-before-v4-"))
+        #expect(try Data(contentsOf: backup.appendingPathComponent("Daylog.store")) == originalBytes)
+        let restoredURL = directory.appendingPathComponent("Restored.store")
+        try StoreBackup.restore(from: backup, storeFileName: "Daylog.store", to: restoredURL)
+        let restored = try DaylogStore.makeContainer(.file(restoredURL))
+        #expect(try FixtureSnapshot.capture(context: restored.mainContext, today: Fixture.today) == expected)
     }
 }

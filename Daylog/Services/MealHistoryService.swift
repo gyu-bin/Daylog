@@ -136,6 +136,26 @@ struct MealHistoryService {
         return summary
     }
 
+    /// `month`(그 달의 아무 날)에 식사 4칸 중 하나라도 적은 날짜들. 미래는 제외.
+    func mealDays(inMonth month: Day, today: Day) throws -> Set<Day> {
+        let first = month.firstOfMonth
+        let last = min(first.adding(days: first.daysInMonth - 1), today)
+        guard first <= last else { return [] }
+        let lower = first.key
+        let upper = last.key
+        let records = try context.fetch(FetchDescriptor<DayRecord>(
+            predicate: #Predicate { $0.dateKey >= lower && $0.dateKey <= upper }
+        ))
+        return Set(
+            Dictionary(grouping: records, by: \.dateKey)
+                .values
+                .compactMap { $0.min(by: DayRecordService.precedes) }
+                .map(Self.mealDay)
+                .filter(\.hasMeal)
+                .map(\.day)
+        )
+    }
+
     /// 앱을 쓰기 시작한 날: 첫 루틴을 만든 날과, 무엇이든 처음 입력한 날 중 이른 쪽.
     /// 그 이전 날짜는 기록률의 분모에 넣지 않는다.
     func firstUseDay() throws -> Day? {

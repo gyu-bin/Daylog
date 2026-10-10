@@ -112,6 +112,16 @@ struct FixtureGenerator {
         // 오늘 완료하지 않은 채 보관한 루틴: 오늘 목록에서는 숨김으로 남는다.
         try routines.setArchived(walk, true, today: today)
 
+        // v1.3: 그룹을 만들고, 이름·색을 바꾸고, 항목을 옮기고, 그룹 하나는 보관한다.
+        let morning = try routines.addGroup(title: "아침", colorKey: "orange")
+        let evening = try routines.addGroup(title: "저녁 루틴", colorKey: "purple")
+        let stretch = try routines.add(title: "스트레칭", timeLabel: "07:10", group: morning, today: today.adding(days: -6))
+        try routines.add(title: "일기", timeLabel: "21:00", group: evening, today: today.adding(days: -6))
+        try routines.updateGroup(morning, title: "아침 루틴", colorKey: "coral", today: today.adding(days: -4))
+        try routines.move(run, to: morning, today: today.adding(days: -2))
+        try routines.setGroupArchived(evening, true, today: today.adding(days: -1))
+        _ = stretch
+
         // 다른 기기에서 들어온 같은 날짜의 기록(중복)과 편집 기록. 병합까지 끝난 상태로 고정한다.
         let duplicateDay = today.adding(days: -3)
         let duplicate = DayRecord(day: duplicateDay, now: Date(timeIntervalSince1970: 4_102_444_800))
@@ -193,6 +203,12 @@ struct FixtureSnapshot: Codable, Equatable {
     var stats: Stats
     /// "날짜|칸|기기|값". v1.2 형식부터 있다.
     var fieldEdits: [String]?
+    /// v1.3 형식부터 있다: 그룹, 항목의 소속, 체크·이력의 그룹 스냅샷, 그룹별 달성률.
+    var groups: [String]?
+    var routineGroups: [String]?
+    var checkGroups: [String]?
+    var revisionGroups: [String]?
+    var groupRates: [String]?
 
     @MainActor
     static func capture(context: ModelContext, today: Day) throws -> FixtureSnapshot {
@@ -235,7 +251,20 @@ struct FixtureSnapshot: Codable, Equatable {
             ),
             fieldEdits: try context.fetch(FetchDescriptor<FieldEdit>())
                 .map { "\($0.dateKey)|\($0.field)|\($0.deviceID)|\($0.value)" }
-                .sorted()
+                .sorted(),
+            groups: try context.fetch(FetchDescriptor<RoutineGroup>())
+                .map { "\($0.id)|\($0.title)|\($0.colorKey)|\($0.order)|\($0.isArchived)" }
+                .sorted(),
+            routineGroups: try context.fetch(FetchDescriptor<RoutineItem>())
+                .map { "\($0.id)|\($0.groupID?.uuidString ?? "nil")|\($0.order)" }
+                .sorted(),
+            checkGroups: try context.fetch(FetchDescriptor<DayCheck>())
+                .map { "\($0.record?.dateKey ?? "-")|\($0.routineID)|\($0.groupID?.uuidString ?? "nil")|\($0.groupTitle)|\($0.groupColorKey)|\($0.groupOrder)|\($0.isHidden)" }
+                .sorted(),
+            revisionGroups: try context.fetch(FetchDescriptor<RoutineRevision>())
+                .map { "\($0.routineID)|\($0.effectiveFromKey)|\($0.groupID?.uuidString ?? "nil")|\($0.groupTitle)|\($0.groupColorKey)|\($0.groupOrder)|\($0.isArchived)" }
+                .sorted(),
+            groupRates: stats.groupRates.map { "\($0.groupID)|\($0.title)|\($0.colorKey)|\($0.done)/\($0.scheduled)" }
         )
     }
 
@@ -247,6 +276,17 @@ struct FixtureSnapshot: Codable, Equatable {
                       note: $0.note, order: $0.order, isDone: $0.isDone)
             }
             .sorted { ($0.order, $0.routineID.uuidString) < ($1.order, $1.routineID.uuidString) }
+    }
+}
+
+extension FixtureSnapshot {
+    /// 그룹이 없던 형식의 기대값과 비교할 때 쓴다.
+    mutating func clearGroupInfo() {
+        groups = nil
+        routineGroups = nil
+        checkGroups = nil
+        revisionGroups = nil
+        groupRates = nil
     }
 }
 

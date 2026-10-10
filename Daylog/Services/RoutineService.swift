@@ -16,30 +16,41 @@ struct RoutineService {
 
     // MARK: - 조회
 
-    /// 보관된 그룹을 포함한 전체 그룹. 표시 순서대로.
-    /// 같은 `id`가 둘 이상 들어와 있으면(두 기기가 각자 "기본 루틴"을 만든 경우 등) 나중에 수정된 쪽 하나만 돌려준다.
-    func groups() throws -> [RoutineGroup] {
+    /// 보관된 그룹을 포함한 전체 그룹. 표시 순서대로. 삭제한 그룹은 `includingRemoved`일 때만 나온다.
+    ///
+    /// 같은 `id`가 둘 이상 들어와 있으면(두 기기가 각자 "기본 루틴"을 만든 경우 등) 하나만 돌려준다.
+    /// 그중 하나라도 삭제됐으면 삭제된 쪽을 고른다. 그래야 한 기기에서 지운 그룹이 다른 기기의 사본 때문에 되살아나지 않는다.
+    func groups(includingRemoved: Bool = false) throws -> [RoutineGroup] {
         let all = try context.fetch(FetchDescriptor<RoutineGroup>())
         return Dictionary(grouping: all, by: \.id)
             .values
             .compactMap { duplicates in
                 duplicates.max {
-                    ($0.updatedAt ?? $0.createdAt, $0.createdAt, $0.title) < ($1.updatedAt ?? $1.createdAt, $1.createdAt, $1.title)
+                    ($0.isRemoved ? 1 : 0, $0.updatedAt ?? $0.createdAt, $0.createdAt, $0.title)
+                        < ($1.isRemoved ? 1 : 0, $1.updatedAt ?? $1.createdAt, $1.createdAt, $1.title)
                 }
             }
+            .filter { includingRemoved || !$0.isRemoved }
             .sorted { ($0.order, $0.createdAt, $0.id.uuidString) < ($1.order, $1.createdAt, $1.id.uuidString) }
     }
 
     /// 보관된 루틴을 포함한 전체 루틴. 그룹 순서 → 그룹 안의 순서.
-    /// 같은 `id`가 둘 이상 들어와 있으면(고유 제약이 없다) 나중에 수정된 쪽 하나만 돌려준다.
-    func routines() throws -> [RoutineItem] {
-        let groupOrder = Dictionary(uniqueKeysWithValues: try groups().enumerated().map { ($1.id, $0) })
+    /// 삭제한 항목과 삭제한 그룹에 속한 항목은 `includingRemoved`일 때만 나온다.
+    /// 같은 `id`가 둘 이상이면 하나만 돌려주고, 하나라도 삭제됐으면 삭제된 쪽을 고른다.
+    func routines(includingRemoved: Bool = false) throws -> [RoutineItem] {
+        let allGroups = try groups(includingRemoved: true)
+        let groupOrder = Dictionary(uniqueKeysWithValues: allGroups.enumerated().map { ($1.id, $0) })
+        let removedGroups = Set(allGroups.filter(\.isRemoved).map(\.id))
         let all = try context.fetch(FetchDescriptor<RoutineItem>())
         return Dictionary(grouping: all, by: \.id)
             .values
             .compactMap { duplicates in
-                duplicates.max { ($0.updatedAt ?? $0.createdAt, $0.createdAt) < ($1.updatedAt ?? $1.createdAt, $1.createdAt) }
+                duplicates.max {
+                    ($0.isRemoved ? 1 : 0, $0.updatedAt ?? $0.createdAt, $0.createdAt)
+                        < ($1.isRemoved ? 1 : 0, $1.updatedAt ?? $1.createdAt, $1.createdAt)
+                }
             }
+            .filter { includingRemoved || !($0.isRemoved || removedGroups.contains($0.effectiveGroupID)) }
             .sorted { lhs, rhs in
                 let left = groupOrder[lhs.effectiveGroupID] ?? Int.max
                 let right = groupOrder[rhs.effectiveGroupID] ?? Int.max
@@ -49,7 +60,7 @@ struct RoutineService {
     }
 
     private func groupsByID() throws -> [UUID: RoutineGroup] {
-        Dictionary(uniqueKeysWithValues: try groups().map { ($0.id, $0) })
+        Dictionary(uniqueKeysWithValues: try groups(includingRemoved: true).map { ($0.id, $0) })
     }
 
     private func state(of routine: RoutineItem, in groups: [UUID: RoutineGroup]) -> RoutineState {
@@ -93,6 +104,23 @@ struct RoutineService {
             group.isArchived = isArchived
             group.updatedAt = now
             try applyGroupChange(group, today: today, now: now)
+        }
+    }
+
+    /// 그룹과 그 안의 항목(보관된 것 포함)을 삭제한다. 레코드는 지우지 않고 삭제 시각만 남긴다.
+    /// 오늘부터 예정에서 빠지고, 지난 기록·변경 이력·통계는 그대로다. 삭제한 항목 수를 돌려준다.
+    @discardableResult
+    func deleteGroup(_ group: RoutineGroup, today: Day, now: Date = .now) throws -> Int {
+        try transaction {
+            let members = try routines().filter { $0.effectiveGroupID == group.id }
+            group.deletedAt = now
+            group.updatedAt = now
+            for routine in members {
+                routine.deletedAt = now
+                routine.updatedAt = now
+                try applyChange(to: routine, today: today, now: now)
+            }
+            return members.count
         }
     }
 
@@ -174,6 +202,7 @@ struct RoutineService {
         note: String? = nil,
         timeLabel: String? = nil,
         weekdays: [Int]? = nil,
+        group: RoutineGroup? = nil,
         today: Day,
         now: Date = .now
     ) throws {
@@ -184,6 +213,12 @@ struct RoutineService {
             if let note { routine.note = Self.trimmed(note) }
             if let timeLabel { routine.timeLabel = Self.validatedTimeLabel(timeLabel) }
             if let weekdays { routine.weekdays = weekdays }
+            // 편집 시트에서 그룹까지 바꾼 경우: 한 번의 저장으로 함께 옮긴다(새 그룹의 맨 뒤로).
+            if let group, group.id != routine.effectiveGroupID {
+                let siblings = try routines().filter { $0.effectiveGroupID == group.id }
+                routine.groupID = group.id
+                routine.order = (siblings.map(\.order).max() ?? -1) + 1
+            }
             routine.updatedAt = now
             try applyChange(to: routine, today: today, now: now)
         }
@@ -192,6 +227,16 @@ struct RoutineService {
     func setArchived(_ routine: RoutineItem, _ isArchived: Bool, today: Day, now: Date = .now) throws {
         try transaction {
             routine.isArchived = isArchived
+            routine.updatedAt = now
+            try applyChange(to: routine, today: today, now: now)
+        }
+    }
+
+    /// 항목을 삭제한다. 레코드는 지우지 않고 삭제 시각만 남긴다.
+    /// 오늘부터 예정에서 빠지고(오늘 이미 완료했으면 오늘 기록에는 남는다), 지난 기록·통계는 그대로다.
+    func delete(_ routine: RoutineItem, today: Day, now: Date = .now) throws {
+        try transaction {
+            routine.deletedAt = now
             routine.updatedAt = now
             try applyChange(to: routine, today: today, now: now)
         }
@@ -223,7 +268,8 @@ struct RoutineService {
     /// 오늘 기록을 현재 그룹·항목 정의에 맞춘다. 다른 기기의 변경이 들어온 뒤에 호출한다.
     func syncTodayRecord(today: Day) throws {
         let groups = try groupsByID()
-        for routine in try routines() {
+        // 다른 기기에서 삭제한 항목도 오늘 목록에서 빠지도록, 삭제된 것까지 포함해 맞춘다.
+        for routine in try routines(includingRemoved: true) {
             try syncTodayRecord(routineID: routine.id, state: state(of: routine, in: groups), weekdays: routine.weekdays, today: today)
         }
     }

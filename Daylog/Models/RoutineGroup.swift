@@ -15,6 +15,10 @@ final class RoutineGroup {
     var isArchived: Bool = false
     var createdAt: Date = Date.distantPast
     var updatedAt: Date?
+    /// 사용자가 삭제한 시각. 레코드는 지우지 않는다. 삭제한 그룹은 어디에도 나오지 않고 되살릴 수 없다.
+    var deletedAt: Date?
+
+    var isRemoved: Bool { deletedAt != nil }
 
     init(
         id: UUID = UUID(),

@@ -12,6 +12,20 @@ extension AppStore {
         return page
     }
 
+    /// 선택한 기간의 루틴 통계.
+    func periodStats(_ period: StatsPeriod) -> PeriodStats {
+        var stats = PeriodStats.empty(period)
+        perform { stats = try StatsService(context: context).period(period, today: today) }
+        return stats
+    }
+
+    /// 그 달에 식사 내용이 있는 날짜들. 식사 기록 캘린더가 쓴다.
+    func mealDays(inMonth month: Day) -> Set<Day> {
+        var days: Set<Day> = []
+        perform { days = try MealHistoryService(context: context).mealDays(inMonth: month, today: today) }
+        return days
+    }
+
     func mealSummary(period: MealPeriod) -> MealSummary {
         var summary = MealSummary()
         perform { summary = try MealHistoryService(context: context).summary(period: period, today: today) }
