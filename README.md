@@ -13,7 +13,11 @@
   <img src="https://img.shields.io/badge/macOS-14%2B-43BFA6" alt="macOS 14+">
   <img src="https://img.shields.io/badge/SwiftUI-SwiftData-6395E8" alt="SwiftUI · SwiftData">
   <img src="https://img.shields.io/badge/iCloud-CloudKit-A78BFA" alt="iCloud · CloudKit">
-  <img src="https://img.shields.io/badge/version-1.3.4-F59E63" alt="version 1.3.4">
+  <a href="https://github.com/gyu-bin/Daylog/releases/latest"><img src="https://img.shields.io/github/v/release/gyu-bin/Daylog?color=F59E63&label=release" alt="최신 릴리스"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/gyu-bin/Daylog/releases/latest"><b>⬇️ 최신 버전 내려받기</b></a>
 </p>
 
 <p align="center">
@@ -41,15 +45,23 @@
 
 ## 설치
 
-Xcode로 직접 빌드해서 설치합니다. 배포용 패키지는 없습니다.
+### 내려받아 설치하기
 
-### 필요한 것
+Xcode나 개발자 계정이 없어도 됩니다. macOS 14 이상이 필요합니다.
 
-- macOS 14 이상
-- Xcode (Swift 5 이상을 지원하는 최신 버전)
-- iCloud 동기화를 쓰려면 Apple 개발자 계정으로 Xcode에 로그인되어 있어야 합니다
+1. [Releases](https://github.com/gyu-bin/Daylog/releases/latest)에서 `Daylog-v<버전>-macOS.dmg`를 받습니다.
+2. DMG를 열고 **Daylog**를 **Applications** 폴더로 끌어다 놓습니다.
+3. Applications에서 Daylog를 엽니다. "인터넷에서 다운로드한 앱" 안내가 나오면 **열기**를 누릅니다.
+4. 설정에서 버전과 iCloud 연결 상태를 확인합니다.
 
-### 한 번에 설치
+새 버전이 나오면 같은 방법으로 받아 Applications의 Daylog를 덮어쓰면 됩니다. 자동 업데이트는 아직 없습니다.
+기록은 앱이 아니라 `~/Library/Containers/com.mungyubin.daylog`에 저장되므로, 앱을 덮어쓰거나 지워도 남아 있습니다.
+
+> 앱은 Developer ID로 서명되고 Apple 공증을 받았습니다. DMG 파일 자체는 서명·공증되지 않았지만, 앱을 Applications로 옮겨 실행하는 데에는 문제가 없습니다.
+
+### 소스에서 빌드해 설치하기 (개발용)
+
+Xcode와, iCloud를 쓰려면 Xcode에 로그인된 Apple 개발자 계정이 필요합니다.
 
 ```bash
 git clone https://github.com/gyu-bin/Daylog.git
@@ -58,17 +70,20 @@ Tools/install.sh
 ```
 
 Release로 빌드해 `/Applications/Daylog.app`에 설치하고 실행합니다.
-이미 Daylog가 실행 중이면 멈추므로, 앱을 종료(⌘Q)한 뒤 다시 실행하세요.
+이미 Daylog가 실행 중이면 멈추므로, 앱을 종료(⌘Q)한 뒤 다시 실행하세요. 새 버전으로 올릴 때는 `git pull` 후 같은 명령입니다.
 
-새 버전으로 올릴 때도 같습니다.
-
-```bash
-git pull
-Tools/install.sh
-```
-
-기록은 앱이 아니라 `~/Library/Containers/com.mungyubin.daylog`에 저장되므로, 앱을 다시 설치하거나 지워도 남아 있습니다.
 저장 형식이 바뀌는 버전으로 올릴 때는 앱이 열기 전에 자동으로 백업을 만들고, 실패하면 백업으로 되돌립니다.
+
+### ⚠️ 두 설치 방법은 iCloud 데이터가 서로 다릅니다
+
+| 설치 방법 | 서명 | iCloud 환경 |
+|---|---|---|
+| DMG로 내려받아 설치 | Developer ID (배포용) | **Production** |
+| 소스에서 빌드 (`Tools/install.sh`, Xcode 실행) | Apple Development (개발용) | **Development** |
+
+같은 Apple 계정이라도 두 환경의 데이터는 따로입니다. **Mac끼리 동기화하려면 모든 Mac에 같은 방법으로 설치해야 합니다.**
+한 Mac에서 설치 방법을 바꾸면 그 Mac의 기록이 새 환경의 iCloud로 자동으로 옮겨진다고 볼 수 없으니, 바꾸기 전에 백업부터 하세요
+([ARCHITECTURE.md](ARCHITECTURE.md)의 "배포" 참고).
 
 ### 다른 Apple 계정으로 빌드한다면
 
@@ -76,15 +91,15 @@ Tools/install.sh
 Xcode에서 **Signing & Capabilities**의 Team과 Bundle Identifier를 본인 것으로 바꾸면 됩니다.
 iCloud 권한 없이 빌드하면 기록은 그 Mac에만 저장됩니다.
 
-### 다른 Mac에 배포하기 (DMG)
+### 배포판 만들기 (DMG)
 
 ```bash
-Tools/release.sh            # 테스트 → Developer ID 서명 → 공증 → DMG → 검증 (게시하지 않음)
-Tools/release.sh --publish  # 검증을 통과하면 GitHub Release에 올림
+Tools/release.sh                 # 테스트 → Developer ID 서명 → 공증 → DMG → 검증 (게시하지 않음)
+Tools/release.sh --publish-only  # 방금 만들어 검증한 DMG를 GitHub Release에 올림
 ```
 
-결과물은 `build/release/Daylog-v<버전>-macOS.dmg`입니다. 필요한 준비물과 주의할 점은 스크립트 맨 위에 적혀 있습니다.
-Developer ID로 배포한 앱은 iCloud의 Production 환경을 쓰므로, Xcode로 직접 빌드한 앱과는 서로 다른 iCloud 데이터를 봅니다.
+결과물은 `build/release/Daylog-v<버전>-macOS.dmg`입니다. 필요한 준비물은 스크립트 맨 위에 적혀 있습니다.
+인증서, 키, 암호는 저장소에 들어 있지 않습니다.
 
 ## 개발
 
@@ -121,15 +136,17 @@ Tools/            아이콘 생성, 설치 스크립트
 
 ## 알려진 한계
 
-- 두 Mac 사이의 실제 동기화는 아직 충분히 검증되지 않았습니다. 병합 규칙은 테스트로만 확인했습니다.
-- iCloud는 개발(Development) 환경을 씁니다.
+- **두 Mac 사이의 실제 동기화는 아직 검증되지 않았습니다.** 병합 규칙은 테스트로만 확인했습니다.
+- DMG 배포판과 소스 빌드는 서로 다른 iCloud 환경을 씁니다(위 표).
+- DMG 파일 자체는 서명·공증되지 않았습니다(안의 앱은 공증됨).
+- 자동 업데이트가 없습니다. 새 버전은 Releases에서 직접 받습니다.
 - Dock·Finder의 앱 아이콘은 라이트 한 가지입니다. 다크 아이콘은 앱이 다크로 실행 중일 때 Dock에만 보입니다.
 
 ## 버전 기록
 
 | 버전 | 내용 |
 |---|---|
-| 1.3.4 | 대시보드의 오늘의 루틴 간소화(그룹 만들기와 추천 항목은 루틴 관리 화면으로) |
+| 1.3.4 | 대시보드의 오늘의 루틴 간소화(그룹 만들기와 추천 항목은 루틴 관리 화면으로), 첫 DMG 배포 |
 | 1.3.3 | 새 앱 아이콘(라이트·다크), 사이드바 브랜드 머리말 |
 | 1.3.2 | 체크 해제가 되지 않던 오류 수정, 외관 설정(시스템/라이트/다크) |
 | 1.3.1 | 루틴 관리 화면 개편, 삭제 기능, 기간별 통계와 활동 히트맵, 식사 타임라인 |
