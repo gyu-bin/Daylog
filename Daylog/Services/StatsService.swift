@@ -1,105 +1,13 @@
 import Foundation
 import SwiftData
 
-struct RoutineRate: Equatable, Identifiable, Sendable {
-    let routineID: UUID
-    let title: String
-    let isArchived: Bool
-    let done: Int
-    let scheduled: Int
-
-    var id: UUID { routineID }
-    var ratio: Double { Achievement.ratio(done: done, total: scheduled) ?? 0 }
-    var percent: Int { Achievement.percent(ratio: ratio) }
-}
-
-/// 대시보드와 통계 화면이 함께 쓰는 계산 결과. 기준 날짜는 항상 실제 오늘이다.
-struct DashboardStats: Equatable, Sendable {
-    var threshold: Int
-    var firstDay: Day?
-    var today: DayOutcome
-    /// 오늘을 포함한 최근 7일. 날짜 오름차순.
-    var week: [DayOutcome]
-    var weeklyAverage: Int?
-    var currentStreak: Int
-    var longestStreak: Int
-    /// 오늘을 포함한 최근 30일. 날짜 오름차순.
-    var trend: [DayOutcome]
-    var routineRates: [RoutineRate]
-
-    var hasStarted: Bool { firstDay != nil }
-
-    static func empty(today: Day) -> DashboardStats {
-        DashboardStats(
-            threshold: SettingsService.defaultThreshold,
-            firstDay: nil,
-            today: DayOutcome(day: today, status: .preStart, done: 0, total: 0),
-            week: [],
-            weeklyAverage: nil,
-            currentStreak: 0,
-            longestStreak: 0,
-            trend: [],
-            routineRates: []
-        )
-    }
-}
-
-/// 통계 계산에 필요한 입력을 한 번에 모은 값. 날짜 상태 판정 규칙이 여기 한 곳에만 있다.
-struct StatsSource: Sendable {
-    struct RecordSummary: Sendable {
-        let isRecorded: Bool
-        let checks: [(routineID: UUID, isDone: Bool)]
-    }
-
-    let firstDay: Day?
-    let resolver: ScheduleResolver
-    let records: [Day: RecordSummary]
-
-    func outcome(on day: Day, today: Day) -> DayOutcome {
-        if day > today {
-            return DayOutcome(day: day, status: .future, done: 0, total: 0)
-        }
-        guard let firstDay, day >= firstDay else {
-            return DayOutcome(day: day, status: .preStart, done: 0, total: 0)
-        }
-        if let record = records[day] {
-            // 기록이 있으면 스냅샷이 진실이다. 예정에서 빠졌어도 완료한 항목은 스냅샷에 남아 있다.
-            let total = record.checks.count
-            guard total > 0 else {
-                return DayOutcome(day: day, status: .rest, done: 0, total: 0)
-            }
-            let done = record.checks.filter(\.isDone).count
-            return DayOutcome(day: day, status: record.isRecorded ? .recorded : .unrecorded, done: done, total: total)
-        }
-        // 한 번도 열지 않은 날은 당시의 루틴 이력으로 예정 여부를 판정한다.
-        let scheduled = resolver.scheduled(on: day).count
-        return DayOutcome(day: day, status: scheduled > 0 ? .unrecorded : .rest, done: 0, total: scheduled)
-    }
-
-    /// 루틴별 (완료한 날, 예정된 날). 미기록 예정일은 분모에만 들어간다.
-    func routineTallies(on days: [Day], today: Day) -> [UUID: (done: Int, scheduled: Int)] {
-        var tallies: [UUID: (done: Int, scheduled: Int)] = [:]
-        for day in days {
-            guard day <= today, let firstDay, day >= firstDay else { continue }
-            if let record = records[day] {
-                for check in record.checks {
-                    tallies[check.routineID, default: (0, 0)].scheduled += 1
-                    if check.isDone { tallies[check.routineID, default: (0, 0)].done += 1 }
-                }
-            } else {
-                for snapshot in resolver.scheduled(on: day) {
-                    tallies[snapshot.routineID, default: (0, 0)].scheduled += 1
-                }
-            }
-        }
-        return tallies
-    }
-}
-
 @MainActor
 struct StatsService {
     static let weekDays = 7
     static let trendDays = 30
+    /// 히트맵이 보여 주는 최소·최대 일수.
+    static let heatmapMinimumDays = 90
+    static let heatmapMaximumDays = 371
 
     let context: ModelContext
 
@@ -131,7 +39,41 @@ struct StatsService {
             currentStreak: StatsCalculator.currentStreak(all, today: today, threshold: threshold),
             longestStreak: StatsCalculator.longestStreak(all, threshold: threshold),
             trend: trend,
-            routineRates: try routineRates(source: source, days: trend.map(\.day), today: today)
+            routineRates: try routineRates(source: source, days: trend.map(\.day), today: today),
+            groupRates: try groupRates(source: source, days: trend.map(\.day), today: today, byRate: false)
+        )
+    }
+
+    /// 선택한 기간의 통계. 기간과 히트맵을 덮는 범위를 한 번만 조회한다.
+    func period(_ period: StatsPeriod, today: Day) throws -> PeriodStats {
+        let settings = try SettingsService(context: context).existingSettings()
+        let threshold = settings?.achieveThreshold ?? SettingsService.defaultThreshold
+        guard let firstDay = settings?.firstRoutineDay, firstDay <= today else {
+            var empty = PeriodStats.empty(period)
+            empty.threshold = threshold
+            return empty
+        }
+
+        let start = period.days.map { today.adding(days: -($0 - 1)) } ?? firstDay
+        let heatmapStart = max(
+            min(start, today.adding(days: -(Self.heatmapMinimumDays - 1))),
+            today.adding(days: -(Self.heatmapMaximumDays - 1))
+        )
+        let source = try loadSource(from: min(start, heatmapStart), to: today)
+        let outcomes = Day.range(from: start, to: today).map { source.outcome(on: $0, today: today) }
+        let days = outcomes.map(\.day)
+
+        return PeriodStats(
+            period: period,
+            threshold: threshold,
+            hasStarted: true,
+            outcomes: outcomes,
+            averagePercent: StatsCalculator.averagePercent(outcomes),
+            achievedDays: outcomes.filter { $0.isAchieved(threshold: threshold) }.count,
+            countedDays: outcomes.filter { $0.ratio != nil }.count,
+            groupRates: try groupRates(source: source, days: days, today: today, byRate: true),
+            routineRates: try routineRates(source: source, days: days, today: today),
+            heatmap: Day.range(from: heatmapStart, to: today).map { source.outcome(on: $0, today: today) }
         )
     }
 
@@ -141,7 +83,7 @@ struct StatsService {
             guard let day = Day(key: record.dateKey) else { continue }
             summaries[day] = StatsSource.RecordSummary(
                 isRecorded: record.isRecorded,
-                checks: record.checkList.map { (routineID: $0.routineID, isDone: $0.isDone) }
+                checks: record.checkList.map { (routineID: $0.routineID, isDone: $0.isDone, group: $0.group) }
             )
         }
         return StatsSource(
@@ -151,23 +93,59 @@ struct StatsService {
         )
     }
 
-    /// 같은 routineID는 이름이 바뀌어도 한 항목으로 합산하고, 현재 이름으로 표시한다.
+    /// 같은 routineID는 이름이 바뀌어도 한 항목으로 합산하고, 현재 이름으로 표시한다. 달성률 내림차순.
+    /// 삭제한 항목도 기간 안에 지난 기록이 있으면 나온다(지웠다고 지난 통계가 달라지지 않는다).
     private func routineRates(source: StatsSource, days: [Day], today: Day) throws -> [RoutineRate] {
         let tallies = source.routineTallies(on: days, today: today)
-        let routines = try RoutineService(context: context).routines()
-        return routines
+        let service = RoutineService(context: context)
+        let groups = Dictionary(uniqueKeysWithValues: try service.groups(includingRemoved: true).map { ($0.id, $0) })
+        return try service.routines(includingRemoved: true)
             .compactMap { routine -> (rate: RoutineRate, order: Int)? in
                 guard let tally = tallies[routine.id], tally.scheduled > 0 else { return nil }
+                let group = groups[routine.effectiveGroupID]
                 let rate = RoutineRate(
                     routineID: routine.id,
                     title: routine.title,
                     isArchived: routine.isArchived,
                     done: tally.done,
-                    scheduled: tally.scheduled
+                    scheduled: tally.scheduled,
+                    colorKey: group?.colorKey ?? RoutineGroup.defaultColorKey,
+                    groupID: routine.effectiveGroupID,
+                    groupTitle: group?.title ?? RoutineGroup.defaultTitle,
+                    isRemoved: routine.isRemoved || (group?.isRemoved ?? false)
                 )
                 return (rate, routine.order)
             }
             .sorted { ($0.rate.ratio, -$0.order) > ($1.rate.ratio, -$1.order) }
             .map(\.rate)
+    }
+
+    /// 같은 그룹 ID는 이름·색이 바뀌어도 한 항목으로 합산하고, 현재 이름과 색으로 표시한다.
+    /// `byRate`면 달성률 내림차순, 아니면 그룹 순서대로.
+    private func groupRates(source: StatsSource, days: [Day], today: Day, byRate: Bool) throws -> [GroupRate] {
+        let tallies = source.groupTallies(on: days, today: today)
+        let groups = try RoutineService(context: context).groups(includingRemoved: true)
+        let current = Dictionary(uniqueKeysWithValues: groups.map { ($0.id, $0) })
+        let position = Dictionary(uniqueKeysWithValues: groups.enumerated().map { ($1.id, $0) })
+        let rates = tallies
+            .filter { $0.value.scheduled > 0 }
+            .map { id, tally -> GroupRate in
+                let group = current[id]
+                return GroupRate(
+                    groupID: id,
+                    title: group?.title ?? tally.latest.title,
+                    colorKey: group?.colorKey ?? tally.latest.colorKey,
+                    isArchived: group?.isArchived ?? false,
+                    done: tally.done,
+                    scheduled: tally.scheduled,
+                    isRemoved: group?.isRemoved ?? false
+                )
+            }
+        return rates.sorted { lhs, rhs in
+            let left = (position[lhs.groupID] ?? Int.max, lhs.title, lhs.groupID.uuidString)
+            let right = (position[rhs.groupID] ?? Int.max, rhs.title, rhs.groupID.uuidString)
+            if byRate, lhs.ratio != rhs.ratio { return lhs.ratio > rhs.ratio }
+            return left < right
+        }
     }
 }

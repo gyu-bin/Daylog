@@ -4,6 +4,7 @@ struct ProgressRing: View {
     /// 0...1. nil이면 빈 고리.
     let ratio: Double?
     var lineWidth: CGFloat = 8
+    var tint: Color = Theme.accent
 
     var body: some View {
         ZStack {
@@ -11,7 +12,7 @@ struct ProgressRing: View {
                 .stroke(Theme.track, lineWidth: lineWidth)
             Circle()
                 .trim(from: 0, to: min(max(ratio ?? 0, 0), 1))
-                .stroke(Theme.accent, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
+                .stroke(tint, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                 .rotationEffect(.degrees(-90))
         }
         .padding(lineWidth / 2)

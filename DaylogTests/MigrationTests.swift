@@ -21,6 +21,20 @@ enum Fixture {
         return (directory, store)
     }
 
+    /// v1.2 형식 저장소의 사본(중복 날짜·편집 기록·숨김 체크 포함).
+    static func copyOfV2Store() throws -> (directory: URL, store: URL) {
+        let directory = FileManager.default.temporaryDirectory
+            .appendingPathComponent("DaylogMigration-\(UUID().uuidString)", isDirectory: true)
+        try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        let store = directory.appendingPathComponent("Daylog.store")
+        try FileManager.default.copyItem(at: try url("v1_2", "store"), to: store)
+        return (directory, store)
+    }
+
+    static func expectedV2Snapshot() throws -> FixtureSnapshot {
+        try JSONDecoder().decode(FixtureSnapshot.self, from: Data(contentsOf: try url("v1_2.expected", "json")))
+    }
+
     static func expectedV1Snapshot() throws -> FixtureSnapshot {
         try JSONDecoder().decode(FixtureSnapshot.self, from: Data(contentsOf: try url("v1_1.expected", "json")))
     }
@@ -37,7 +51,9 @@ struct MigrationTests {
         let expected = try Fixture.expectedV1Snapshot()
 
         let container = try DaylogStore.makeContainer(.file(storeURL))
-        let migrated = try FixtureSnapshot.capture(context: container.mainContext, today: Fixture.today)
+        var migrated = try FixtureSnapshot.capture(context: container.mainContext, today: Fixture.today)
+        migrated.fieldEdits = nil // v1.1에는 편집 기록이 없었다
+        migrated.clearGroupInfo()
 
         // 기록 수, 루틴 UUID, 날짜 키, 체크 상태, 식사 기록, 변경 이력, 설정, 통계가 모두 그대로다.
         #expect(migrated.routines == expected.routines)
@@ -138,7 +154,7 @@ struct BackupTests {
         let backupDirectory = root.appendingPathComponent(
             try #require(try FileManager.default.contentsOfDirectory(atPath: root.path).first)
         )
-        #expect(backupDirectory.lastPathComponent.hasPrefix("Daylog-before-v2-"))
+        #expect(backupDirectory.lastPathComponent.hasPrefix("Daylog-before-v\(DaylogStore.schemaVersion)-"))
         let backupStore = backupDirectory.appendingPathComponent("Daylog.store")
         // 옮기기 전 상태 그대로다.
         #expect(try Data(contentsOf: backupStore) == originalBytes)
@@ -170,7 +186,10 @@ struct BackupTests {
         try StoreBackup.restore(from: backupDirectory, storeFileName: "Daylog.store", to: restoredURL)
 
         let restored = try DaylogStore.makeContainer(.file(restoredURL))
-        #expect(try FixtureSnapshot.capture(context: restored.mainContext, today: Fixture.today) == expected)
+        var snapshot = try FixtureSnapshot.capture(context: restored.mainContext, today: Fixture.today)
+        snapshot.fieldEdits = nil
+        snapshot.clearGroupInfo()
+        #expect(snapshot == expected)
     }
 
     @Test func failedOpenRestoresTheOriginalFile() throws {
@@ -185,6 +204,30 @@ struct BackupTests {
         }
         #expect(try Data(contentsOf: storeURL) == garbage)
         #expect(StoreInfo.read(for: storeURL) == nil)
+    }
+
+    /// 다른 프로세스가 저장소를 열고 있으면 백업도 변환도 하지 않고 멈춘다.
+    @Test func storeHeldByAnotherProcessIsNotTouched() throws {
+        let (directory, storeURL) = try Fixture.copyOfV2Store()
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let originalBytes = try Data(contentsOf: storeURL)
+
+        // 다른 프로세스의 잠금을 흉내 낸다(다른 파일 디스크립터로 잡은 잠금은 같은 프로세스라도 충돌한다).
+        let descriptor = open(storeURL.path + ".lock", O_CREAT | O_RDWR, 0o644)
+        #expect(flock(descriptor, LOCK_EX | LOCK_NB) == 0)
+        #expect(throws: (any Error).self) {
+            _ = try DaylogStore.makeContainer(.file(storeURL))
+        }
+        #expect(try Data(contentsOf: storeURL) == originalBytes)
+        #expect(!FileManager.default.fileExists(atPath: StoreBackup.backupsRoot(for: storeURL).path))
+        #expect(StoreInfo.read(for: storeURL) == nil)
+
+        // 그쪽이 끝나면 정상적으로 열린다. 같은 프로세스에서는 다시 열어도 된다.
+        flock(descriptor, LOCK_UN)
+        close(descriptor)
+        _ = try DaylogStore.makeContainer(.file(storeURL))
+        _ = try DaylogStore.makeContainer(.file(storeURL))
+        StoreLock.release(for: storeURL)
     }
 
     @Test func onlyRecentBackupsAreKept() throws {

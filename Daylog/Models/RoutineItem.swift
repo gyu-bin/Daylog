@@ -17,6 +17,11 @@ final class RoutineItem {
     var createdAt: Date = Date.distantPast
     /// 마지막으로 수정한 시각. 두 기기에서 같은 루틴이 다르게 들어오면 나중 것을 따른다.
     var updatedAt: Date?
+    /// 속한 그룹. nil이면 그룹 도입 전(v1.2까지)에 만든 항목으로, "기본 루틴" 그룹에 속한다.
+    var groupID: UUID?
+    /// 사용자가 삭제한 시각. 레코드는 지우지 않는다(과거 기록·통계가 이 항목을 가리키고, 지운 것은 동기화에서 되돌릴 수 없다).
+    /// 삭제한 항목은 목록과 보관함 어디에도 나오지 않고, 되살리는 기능도 없다.
+    var deletedAt: Date?
 
     init(
         id: UUID = UUID(),
@@ -26,9 +31,11 @@ final class RoutineItem {
         weekdays: [Int] = Weekdays.all,
         order: Int,
         isArchived: Bool = false,
-        createdAt: Date = .now
+        createdAt: Date = .now,
+        groupID: UUID? = nil
     ) {
         self.id = id
+        self.groupID = groupID
         self.title = title
         self.note = note
         self.timeLabel = timeLabel
@@ -38,6 +45,10 @@ final class RoutineItem {
         self.createdAt = createdAt
         self.updatedAt = createdAt
     }
+
+    var effectiveGroupID: UUID { groupID ?? RoutineGroup.defaultID }
+    /// `isDeleted`는 SwiftData가 쓰는 이름이라 피한다.
+    var isRemoved: Bool { deletedAt != nil }
 
     /// 1 = 월요일 … 7 = 일요일.
     var weekdays: [Int] {

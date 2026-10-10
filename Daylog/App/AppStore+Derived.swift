@@ -9,18 +9,25 @@ extension AppStore {
     var activeRoutines: [RoutineItem] { routines.filter { !$0.isArchived } }
     var archivedRoutines: [RoutineItem] { routines.filter(\.isArchived) }
     var hasRoutines: Bool { !routines.isEmpty }
-    var threshold: Int { stats.threshold }
+    var activeGroups: [RoutineGroup] { groups.filter { !$0.isArchived } }
+    var archivedGroups: [RoutineGroup] { groups.filter(\.isArchived) }
 
-    /// 보고 있는 날짜의 체크 목록. 표시 순서대로.
-    var checks: [DayCheck] {
-        record?.checkList ?? []
+    func activeRoutines(inGroup groupID: UUID) -> [RoutineItem] {
+        activeRoutines.filter { $0.effectiveGroupID == groupID }
     }
 
-    /// 보고 있는 날짜의 달성 결과. 오늘이면 통계와 같은 값이다.
-    var selectedOutcome: DayOutcome {
-        let checks = checks
-        let done = checks.filter(\.isDone).count
-        return DayOutcome(day: selectedDay, status: checks.isEmpty ? .rest : .recorded, done: done, total: checks.count)
+    func archivedRoutines(inGroup groupID: UUID) -> [RoutineItem] {
+        archivedRoutines.filter { $0.effectiveGroupID == groupID }
+    }
+
+    /// ⌘N과 추천 칩이 항목을 넣을 그룹: 마지막으로 쓴 그룹, 없으면 첫 그룹.
+    var quickAddGroup: RoutineGroup? {
+        activeGroups.first { $0.id == lastUsedGroupID } ?? activeGroups.first
+    }
+    var threshold: Int { stats.threshold }
+
+    func text(_ keyPath: KeyPath<DayRecord, String>) -> String {
+        record?[keyPath: keyPath] ?? ""
     }
 
     /// 추천 칩은 첫 루틴을 만든 당일까지만, 아직 만들지 않은 것만 보여 준다.

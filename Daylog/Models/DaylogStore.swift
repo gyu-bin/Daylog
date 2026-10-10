@@ -1,24 +1,34 @@
 import Foundation
 import SwiftData
 
-/// 현재 저장소 형식(v1.2). CloudKit과 호환된다.
-enum DaylogSchemaV2: VersionedSchema {
-    static var versionIdentifier: Schema.Version { Schema.Version(2, 0, 0) }
+/// 현재 저장소 형식(v1.3.1). 그룹과 항목에 삭제 시각(`deletedAt`)이 추가됐다.
+///
+/// 형식을 바꿀 때: 현재 모델을 `DaylogSchemaV<n>.swift`로 동결하고, 여기의 버전을 올리고,
+/// `DaylogMigrationPlan`에 단계를 추가하고, `DaylogStore.schemaVersion`을 올린다.
+enum DaylogSchemaV4: VersionedSchema {
+    static var versionIdentifier: Schema.Version { Schema.Version(4, 0, 0) }
 
     static var models: [any PersistentModel.Type] {
-        [RoutineItem.self, RoutineRevision.self, DayRecord.self, DayCheck.self, AppSettings.self, FieldEdit.self]
+        [
+            RoutineGroup.self, RoutineItem.self, RoutineRevision.self,
+            DayRecord.self, DayCheck.self, AppSettings.self, FieldEdit.self,
+        ]
     }
 }
 
 enum DaylogMigrationPlan: SchemaMigrationPlan {
     static var schemas: [any VersionedSchema.Type] {
-        [DaylogSchemaV1.self, DaylogSchemaV2.self]
+        [DaylogSchemaV1.self, DaylogSchemaV2.self, DaylogSchemaV3.self, DaylogSchemaV4.self]
     }
 
-    /// V1 → V2: 고유 제약 제거, 속성 기본값, optional 관계, 새 optional 속성과 `FieldEdit` 추가.
-    /// 기존 값의 변환이 없어 경량 단계로 충분하다.
+    /// 모든 단계가 "추가"뿐이다(새 모델, 기본값이 있거나 optional인 새 속성, 제약 제거).
+    /// 기존 값의 변환이 없어 경량 단계로 충분하고, CloudKit 스키마에도 추가만 일어난다.
     static var stages: [MigrationStage] {
-        [.lightweight(fromVersion: DaylogSchemaV1.self, toVersion: DaylogSchemaV2.self)]
+        [
+            .lightweight(fromVersion: DaylogSchemaV1.self, toVersion: DaylogSchemaV2.self),
+            .lightweight(fromVersion: DaylogSchemaV2.self, toVersion: DaylogSchemaV3.self),
+            .lightweight(fromVersion: DaylogSchemaV3.self, toVersion: DaylogSchemaV4.self),
+        ]
     }
 }
 
@@ -32,9 +42,9 @@ enum DaylogStore {
     }
 
     /// 저장소 형식이 바뀔 때마다 올린다. 이 값이 저장소 옆의 정보 파일과 다르면 열기 전에 백업한다.
-    static let schemaVersion = 2
+    static let schemaVersion = 4
 
-    static var schema: Schema { Schema(versionedSchema: DaylogSchemaV2.self) }
+    static var schema: Schema { Schema(versionedSchema: DaylogSchemaV4.self) }
 
     /// `cloudKitContainerID`가 nil이면 로컬 전용이다.
     static func makeContainer(_ location: Location, cloudKitContainerID: String? = nil) throws -> ModelContainer {
@@ -78,6 +88,8 @@ enum DaylogStore {
     /// 1) 검증된 백업을 만들고 2) iCloud 없이 로컬에서만 옮긴 뒤 개수를 확인하고 3) 그다음에 iCloud를 연결한다.
     /// 중간에 실패하면 백업으로 되돌리고 오류를 알린다. 기존 기록을 지우거나 빈 저장소로 대체하지 않는다.
     private static func openStore(at url: URL, cloudKitContainerID: String?) throws -> ModelContainer {
+        // 백업이나 형식 변환보다 먼저: 다른 프로세스가 이 저장소를 쓰고 있으면 아무것도 하지 않고 멈춘다.
+        try StoreLock.acquire(for: url)
         let exists = FileManager.default.fileExists(atPath: url.path)
         let info = StoreInfo.read(for: url)
         let needsMigration = exists && info?.schemaVersion != schemaVersion
@@ -126,7 +138,8 @@ enum DaylogStore {
                 revisions: try context.fetchCount(FetchDescriptor<RoutineRevision>()),
                 records: try context.fetchCount(FetchDescriptor<DayRecord>()),
                 checks: try context.fetchCount(FetchDescriptor<DayCheck>()),
-                settings: try context.fetchCount(FetchDescriptor<AppSettings>())
+                settings: try context.fetchCount(FetchDescriptor<AppSettings>()),
+                fieldEdits: try context.fetchCount(FetchDescriptor<FieldEdit>())
             )
             guard migrated == counts else {
                 throw DaylogError.migrationCountMismatch(expected: counts.summary, actual: migrated.summary)
@@ -147,6 +160,11 @@ enum DaylogStore {
         }
         for settings in try context.fetch(FetchDescriptor<AppSettings>()) where settings.syncID == nil {
             settings.syncID = UUID()
+        }
+        // 그룹 없이 만든 항목이 있으면 "기본 루틴" 그룹을 만든다. 항목과 과거 기록은 고쳐 쓰지 않는다
+        // (그룹 정보가 없는 항목·기록은 읽을 때 "기본 루틴"으로 본다).
+        try MainActor.assumeIsolated {
+            _ = try RoutineService(context: context).ensureDefaultGroup()
         }
         try context.saveIfNeeded()
     }

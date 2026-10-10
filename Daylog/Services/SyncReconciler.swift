@@ -87,6 +87,9 @@ struct SyncReconciler {
         try mergeSettings()
         try resolveFieldEdits(report: &report)
         try mergeRecords(today: today, report: &report)
+        try resolveCheckEdits()
+        // 그룹 없이 만든 항목이 다른 기기에서 들어왔을 수 있다.
+        try RoutineService(context: context).ensureDefaultGroup()
         try RoutineService(context: context).syncTodayRecord(today: today)
         report.changed = context.hasChanges
         try context.saveIfNeeded()
@@ -139,6 +142,24 @@ struct SyncReconciler {
             if representative[keyPath: group.field.keyPath] != resolution.value {
                 representative[keyPath: group.field.keyPath] = resolution.value
             }
+        }
+    }
+
+    // MARK: - 체크의 동시 변경
+
+    /// 두 기기가 같은 체크를 바꿨다면 기기별 편집 기록으로 "가장 나중의 변경"을 정해 대표 기록에 반영한다.
+    /// 기록 병합 뒤에 실행해서, 늦게 도착한 옛 완료 표시가 방금 한 해제를 되살리지 못하게 한다.
+    private func resolveCheckEdits() throws {
+        let records = DayRecordService(context: context)
+        for group in try edits.checkGroups() {
+            guard let isDone = CheckEdit.resolve(group.entries.map(\.snapshot)),
+                  let day = Day(key: group.dateKey),
+                  let representative = try records.record(on: day),
+                  let check = representative.physicalChecks
+                      .filter({ $0.routineID == group.routineID })
+                      .min(by: { SyncOrder.precedes($0.syncID, $1.syncID) })
+            else { continue }
+            if check.isDone != isDone { check.isDone = isDone }
         }
     }
 
@@ -204,8 +225,12 @@ struct SyncReconciler {
         let siblings = representative.physicalChecks.filter { $0.routineID == check.routineID }
         guard let target = siblings.min(by: { SyncOrder.precedes($0.syncID, $1.syncID) }) else {
             let copy = DayCheck(
-                routineID: check.routineID, title: check.title, timeLabel: check.timeLabel,
-                note: check.note, order: check.order, isDone: check.isDone
+                routineID: check.routineID,
+                state: RoutineState(
+                    title: check.title, timeLabel: check.timeLabel, note: check.note, weekdayMask: 0,
+                    isArchived: false, order: check.order, group: check.group
+                ),
+                isDone: check.isDone
             )
             copy.isHidden = check.isHidden
             context.insert(copy)

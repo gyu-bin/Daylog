@@ -56,9 +56,7 @@ final class DayRecord {
                 let isVisible = !representative.isHidden || group.contains(where: \.isDone)
                 return isVisible ? representative : nil
             }
-            .sorted {
-                ($0.order, $0.title, $0.routineID.uuidString) < ($1.order, $1.title, $1.routineID.uuidString)
-            }
+            .sorted(by: DayCheck.displayOrder)
     }
 
     func attach(_ check: DayCheck) {

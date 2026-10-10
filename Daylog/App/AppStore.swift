@@ -8,14 +8,29 @@ import SwiftData
 final class AppStore {
     var section: Section = .dashboard
     var errorMessage: String?
+    // 통계 화면의 탭·필터·검색어. 다른 메뉴에 다녀와도 그대로 남는다.
+    var statisticsTab: StatisticsTab = .routines
+    var mealPeriod: MealPeriod = .month
+    var mealQuery = ""
+    var statsPeriod: StatsPeriod = .month
 
     /// 실제 오늘. 통계의 기준 날짜다.
     private(set) var today: Day
     /// 대시보드에서 보고 있는 날짜.
     private(set) var selectedDay: Day
     private(set) var record: DayRecord?
+    /// 화면이 읽는 체크 목록(그룹별). 모델 객체가 아니라 값의 사본이다.
+    /// SwiftData는 저장·조회 뒤에 같은 체크를 다른 객체로 다시 만들 수 있어서, 화면이 모델 객체를 직접 관찰하면
+    /// 값을 바꿔도 알림이 가지 않는다. 그래서 값이 바뀔 수 있는 모든 지점에서 `refreshChecks()`로 다시 만든다.
+    private(set) var checkSections: [CheckSection] = []
     /// 보관된 루틴을 포함한 전체 루틴. 표시 순서대로.
     private(set) var routines: [RoutineItem] = []
+    /// 보관된 그룹을 포함한 전체 그룹. 표시 순서대로.
+    private(set) var groups: [RoutineGroup] = []
+    /// 저장된 내용이 바뀔 때마다 올라간다. 식사 기록 탭처럼 따로 조회하는 화면이 이 값을 보고 다시 읽는다.
+    private(set) var dataVersion = 0
+    /// 마지막으로 항목을 추가한 그룹. ⌘N과 추천 칩이 이 그룹을 대상으로 한다.
+    var lastUsedGroupID: UUID?
     private(set) var stats: DashboardStats
     /// 캘린더가 보여 주는 달의 1일.
     private(set) var calendarMonth: Day
@@ -28,12 +43,12 @@ final class AppStore {
 
     /// 컨테이너가 해제되면 컨텍스트의 모델 객체가 모두 무효화되므로 직접 붙잡아 둔다.
     @ObservationIgnored private let container: ModelContainer
-    @ObservationIgnored private let context: ModelContext
+    @ObservationIgnored let context: ModelContext
     @ObservationIgnored private let clock: () -> Day
     @ObservationIgnored private var pendingSave: Task<Void, Never>?
     @ObservationIgnored private var editingSources: Set<String> = []
     /// 이 기기의 식별자. 같은 칸을 두 기기가 동시에 고쳤는지 가려내는 편집 기록에 쓴다.
-    @ObservationIgnored private let deviceID: String
+    @ObservationIgnored let deviceID: String
     /// 고친 뒤 아직 편집 기록으로 남기지 않은 칸.
     @ObservationIgnored private var unrecordedEdits: [String: Set<DayTextField>] = [:]
 
@@ -142,21 +157,10 @@ final class AppStore {
                 reloadMonth()
             }
         }
+        refreshChecks()
     }
 
     // MARK: - 하루 기록
-
-    func setDone(routineID: UUID, _ isDone: Bool) {
-        guard let check = checks.first(where: { $0.routineID == routineID }) else { return }
-        perform {
-            try DayRecordService(context: context).setDone(check, isDone)
-        }
-        reloadStats()
-    }
-
-    func text(_ keyPath: KeyPath<DayRecord, String>) -> String {
-        record?[keyPath: keyPath] ?? ""
-    }
 
     /// 입력은 모델에 즉시 반영하고, 디스크 저장은 잠깐 모아서 한다.
     func setText(_ value: String, at keyPath: ReferenceWritableKeyPath<DayRecord, String>) {
@@ -216,9 +220,12 @@ final class AppStore {
 
     // MARK: - 루틴
 
+    /// ⌘N. 루틴 관리 화면에서는 그 화면의 입력칸으로, 다른 화면에서는 오늘의 대시보드로 간다.
     func requestQuickAddFocus() {
-        section = .dashboard
-        goToToday()
+        if section != .routines {
+            section = .dashboard
+            goToToday()
+        }
         quickAddFocusToken += 1
     }
 
@@ -231,21 +238,26 @@ final class AppStore {
         return succeeded
     }
 
-    // MARK: - 설정
-
-    func setThreshold(_ value: Int) {
-        perform { try SettingsService(context: context).setThreshold(value) }
-        reloadStats()
-    }
-
     // MARK: - 다시 계산
 
     private func reload() {
-        perform { routines = try RoutineService(context: context).routines() }
+        perform {
+            let service = RoutineService(context: context)
+            groups = try service.groups()
+            routines = try service.routines()
+        }
         reloadStats()
     }
 
-    private func reloadStats() {
+    /// 보고 있는 날짜의 체크 목록을 저장된 값으로 다시 만든다.
+    func refreshChecks() {
+        let updated = makeCheckSections()
+        if updated != checkSections { checkSections = updated }
+    }
+
+    func reloadStats() {
+        dataVersion += 1
+        refreshChecks()
         perform {
             let updated = try StatsService(context: context).dashboard(today: today)
             if updated != stats { stats = updated }
@@ -266,7 +278,7 @@ final class AppStore {
 
     /// 저장·조회 실패를 삼키지 않고 사용자에게 알린다.
     @discardableResult
-    private func perform(_ body: () throws -> Void) -> Bool {
+    func perform(_ body: () throws -> Void) -> Bool {
         do {
             try body()
             return true
