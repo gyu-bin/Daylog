@@ -13,7 +13,7 @@
   <img src="https://img.shields.io/badge/macOS-14%2B-43BFA6" alt="macOS 14+">
   <img src="https://img.shields.io/badge/SwiftUI-SwiftData-6395E8" alt="SwiftUI · SwiftData">
   <img src="https://img.shields.io/badge/iCloud-CloudKit-A78BFA" alt="iCloud · CloudKit">
-  <img src="https://img.shields.io/badge/version-1.3.3-F59E63" alt="version 1.3.3">
+  <img src="https://img.shields.io/badge/version-1.3.4-F59E63" alt="version 1.3.4">
 </p>
 
 <p align="center">
@@ -119,6 +119,7 @@ Tools/            아이콘 생성, 설치 스크립트
 
 | 버전 | 내용 |
 |---|---|
+| 1.3.4 | 대시보드의 오늘의 루틴 간소화(그룹 만들기와 추천 항목은 루틴 관리 화면으로) |
 | 1.3.3 | 새 앱 아이콘(라이트·다크), 사이드바 브랜드 머리말 |
 | 1.3.2 | 체크 해제가 되지 않던 오류 수정, 외관 설정(시스템/라이트/다크) |
 | 1.3.1 | 루틴 관리 화면 개편, 삭제 기능, 기간별 통계와 활동 히트맵, 식사 타임라인 |
