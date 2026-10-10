@@ -1,0 +1,194 @@
+import Foundation
+import SwiftData
+
+/// 현재 저장소 형식(v1.2). CloudKit과 호환된다.
+enum DaylogSchemaV2: VersionedSchema {
+    static var versionIdentifier: Schema.Version { Schema.Version(2, 0, 0) }
+
+    static var models: [any PersistentModel.Type] {
+        [RoutineItem.self, RoutineRevision.self, DayRecord.self, DayCheck.self, AppSettings.self, FieldEdit.self]
+    }
+}
+
+enum DaylogMigrationPlan: SchemaMigrationPlan {
+    static var schemas: [any VersionedSchema.Type] {
+        [DaylogSchemaV1.self, DaylogSchemaV2.self]
+    }
+
+    /// V1 → V2: 고유 제약 제거, 속성 기본값, optional 관계, 새 optional 속성과 `FieldEdit` 추가.
+    /// 기존 값의 변환이 없어 경량 단계로 충분하다.
+    static var stages: [MigrationStage] {
+        [.lightweight(fromVersion: DaylogSchemaV1.self, toVersion: DaylogSchemaV2.self)]
+    }
+}
+
+/// SwiftData 컨테이너 구성. 기록은 앱 번들이 아니라 사용자의 Application Support에 저장된다.
+enum DaylogStore {
+    enum Location {
+        /// Application Support/Daylog/<name>.store
+        case onDisk(name: String)
+        case file(URL)
+        case inMemory
+    }
+
+    /// 저장소 형식이 바뀔 때마다 올린다. 이 값이 저장소 옆의 정보 파일과 다르면 열기 전에 백업한다.
+    static let schemaVersion = 2
+
+    static var schema: Schema { Schema(versionedSchema: DaylogSchemaV2.self) }
+
+    /// `cloudKitContainerID`가 nil이면 로컬 전용이다.
+    static func makeContainer(_ location: Location, cloudKitContainerID: String? = nil) throws -> ModelContainer {
+        switch location {
+        case .onDisk(let name):
+            return try openStore(at: try storeURL(name: name), cloudKitContainerID: cloudKitContainerID)
+        case .file(let url):
+            return try openStore(at: url, cloudKitContainerID: cloudKitContainerID)
+        case .inMemory:
+            // 이름을 매번 다르게 해서 같은 프로세스의 다른 in-memory 컨테이너와 섞이지 않게 한다.
+            let configuration = ModelConfiguration(
+                UUID().uuidString, schema: schema, isStoredInMemoryOnly: true, cloudKitDatabase: .none
+            )
+            return try ModelContainer(for: schema, migrationPlan: DaylogMigrationPlan.self, configurations: [configuration])
+        }
+    }
+
+    /// 그 저장소의 기기 식별자. 저장소를 연 뒤에 호출한다. 메모리 저장소는 매번 새 값이다.
+    static func deviceID(for location: Location) -> String {
+        let url: URL?
+        switch location {
+        case .onDisk(let name): url = try? storeURL(name: name)
+        case .file(let fileURL): url = fileURL
+        case .inMemory: url = nil
+        }
+        return url.flatMap { StoreInfo.read(for: $0)?.deviceID } ?? UUID().uuidString
+    }
+
+    static func storeURL(name: String) throws -> URL {
+        let support = try FileManager.default.url(
+            for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true
+        )
+        let directory = support.appendingPathComponent("Daylog", isDirectory: true)
+        try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        return directory.appendingPathComponent("\(name).store")
+    }
+
+    // MARK: - 안전하게 열기
+
+    /// 기존 저장소를 새 형식으로 옮기거나 iCloud에 처음 연결할 때는
+    /// 1) 검증된 백업을 만들고 2) iCloud 없이 로컬에서만 옮긴 뒤 개수를 확인하고 3) 그다음에 iCloud를 연결한다.
+    /// 중간에 실패하면 백업으로 되돌리고 오류를 알린다. 기존 기록을 지우거나 빈 저장소로 대체하지 않는다.
+    private static func openStore(at url: URL, cloudKitContainerID: String?) throws -> ModelContainer {
+        let exists = FileManager.default.fileExists(atPath: url.path)
+        let info = StoreInfo.read(for: url)
+        let needsMigration = exists && info?.schemaVersion != schemaVersion
+        let isEnablingCloud = exists && cloudKitContainerID != nil && info?.cloudKitContainerID != cloudKitContainerID
+
+        var backup: StoreBackup.Backup?
+        if needsMigration || isEnablingCloud {
+            backup = try StoreBackup.create(for: url, label: needsMigration ? "before-v\(schemaVersion)" : "before-icloud")
+        }
+
+        do {
+            if needsMigration || isEnablingCloud {
+                try prepareLocally(at: url, expecting: needsMigration ? backup?.counts : nil)
+            }
+            let container = try container(at: url, cloudKitContainerID: cloudKitContainerID)
+            try StoreInfo(
+                schemaVersion: schemaVersion,
+                cloudKitContainerID: cloudKitContainerID,
+                deviceID: info?.deviceID ?? UUID().uuidString
+            ).write(for: url)
+            return container
+        } catch {
+            if let backup, needsMigration {
+                // 옮기다 만 저장소를 남기지 않는다. 이전 버전의 앱으로는 그대로 다시 열 수 있다.
+                try? StoreBackup.restore(backup, to: url)
+            }
+            throw StoreOpenError(underlying: error, backupDirectory: backup?.directory)
+        }
+    }
+
+    private static func container(at url: URL, cloudKitContainerID: String?) throws -> ModelContainer {
+        let database: ModelConfiguration.CloudKitDatabase = cloudKitContainerID.map { .private($0) } ?? .none
+        let configuration = ModelConfiguration("Daylog", schema: schema, url: url, cloudKitDatabase: database)
+        return try ModelContainer(for: schema, migrationPlan: DaylogMigrationPlan.self, configurations: [configuration])
+    }
+
+    /// iCloud 없이 열어서 형식을 옮기고, 기록 수가 그대로인지 확인하고, 동기화 식별자를 채운다.
+    /// 식별자는 반드시 iCloud에 올라가기 전에, 이 기기에서 한 번만 채워야 기기마다 값이 달라지지 않는다.
+    private static func prepareLocally(at url: URL, expecting counts: StoreBackup.Counts?) throws {
+        let container = try container(at: url, cloudKitContainerID: nil)
+        let context = ModelContext(container)
+
+        if let counts {
+            let migrated = StoreBackup.Counts(
+                routines: try context.fetchCount(FetchDescriptor<RoutineItem>()),
+                revisions: try context.fetchCount(FetchDescriptor<RoutineRevision>()),
+                records: try context.fetchCount(FetchDescriptor<DayRecord>()),
+                checks: try context.fetchCount(FetchDescriptor<DayCheck>()),
+                settings: try context.fetchCount(FetchDescriptor<AppSettings>())
+            )
+            guard migrated == counts else {
+                throw DaylogError.migrationCountMismatch(expected: counts.summary, actual: migrated.summary)
+            }
+        }
+
+        for routine in try context.fetch(FetchDescriptor<RoutineItem>()) where routine.updatedAt == nil {
+            routine.updatedAt = routine.createdAt
+        }
+        for revision in try context.fetch(FetchDescriptor<RoutineRevision>()) where revision.syncID == nil {
+            revision.syncID = UUID()
+        }
+        for record in try context.fetch(FetchDescriptor<DayRecord>()) where record.syncID == nil {
+            record.syncID = UUID()
+        }
+        for check in try context.fetch(FetchDescriptor<DayCheck>()) where check.syncID == nil {
+            check.syncID = UUID()
+        }
+        for settings in try context.fetch(FetchDescriptor<AppSettings>()) where settings.syncID == nil {
+            settings.syncID = UUID()
+        }
+        try context.saveIfNeeded()
+    }
+}
+
+/// 저장소 옆에 두는 작은 정보 파일(<이름>.store.info.json). 마지막으로 연 형식과 iCloud 연결 여부를 적는다.
+struct StoreInfo: Codable, Equatable {
+    var schemaVersion: Int
+    var cloudKitContainerID: String?
+    /// 이 저장소 파일(= 이 기기)의 식별자. 기기별 편집 기록을 구분하는 데 쓴다. 동기화되지 않는다.
+    var deviceID: String?
+
+    private static func url(for storeURL: URL) -> URL {
+        URL(fileURLWithPath: storeURL.path + ".info.json")
+    }
+
+    static func read(for storeURL: URL) -> StoreInfo? {
+        guard let data = try? Data(contentsOf: url(for: storeURL)) else { return nil }
+        return try? JSONDecoder().decode(StoreInfo.self, from: data)
+    }
+
+    func write(for storeURL: URL) throws {
+        try JSONEncoder().encode(self).write(to: Self.url(for: storeURL), options: .atomic)
+    }
+}
+
+struct StoreOpenError: LocalizedError {
+    let underlying: Error
+    let backupDirectory: URL?
+
+    var errorDescription: String? {
+        var message = underlying.localizedDescription
+        if let backupDirectory {
+            message += "\n\n열기 전에 만든 백업: \(backupDirectory.path)"
+        }
+        return message
+    }
+}
+
+extension ModelContext {
+    func saveIfNeeded() throws {
+        guard hasChanges else { return }
+        try save()
+    }
+}

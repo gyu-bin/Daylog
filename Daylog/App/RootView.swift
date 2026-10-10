@@ -1,0 +1,131 @@
+import AppKit
+import Combine
+import CoreData
+import SwiftUI
+
+struct RootView: View {
+    @Environment(AppStore.self) private var store
+
+    var body: some View {
+        NavigationSplitView {
+            SidebarView()
+                .navigationSplitViewColumnWidth(min: 180, ideal: 200, max: 240)
+        } detail: {
+            Group {
+                switch store.section {
+                case .dashboard: DashboardView()
+                case .routines: RoutineManagementView()
+                case .statistics: StatisticsView()
+                case .settings: SettingsView()
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Theme.windowBackground)
+        }
+        .alert("문제가 발생했어요", isPresented: errorIsPresented) {
+            Button("확인", role: .cancel) {}
+        } message: {
+            Text(store.errorMessage ?? "")
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification).first()) { notification in
+            // 실행 직후 첫 입력 칸이 전체 선택된 채 포커스를 받으면 실수로 덮어쓰기 쉽다.
+            let window = notification.object as? NSWindow
+            DispatchQueue.main.async {
+                window?.makeFirstResponder(nil)
+            }
+        }
+        .onReceive(Self.todayMayHaveChanged) { _ in
+            store.refreshToday()
+        }
+        .onReceive(Self.storeMayHaveChanged) { _ in
+            store.handleExternalChanges()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.willResignActiveNotification)) { _ in
+            store.flush()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.willTerminateNotification)) { _ in
+            store.flush()
+        }
+    }
+
+    private var errorIsPresented: Binding<Bool> {
+        Binding(
+            get: { store.errorMessage != nil },
+            set: { if !$0 { store.errorMessage = nil } }
+        )
+    }
+
+    /// 다른 기기의 변경이 iCloud를 통해 저장소에 들어왔을 수 있는 시점: 저장소 변경 알림과 앱 활성화.
+    /// 자체 폴링은 하지 않는다. 가져오기 자체는 시스템이 알아서 한다.
+    private static let storeMayHaveChanged: AnyPublisher<Notification, Never> = {
+        let center = NotificationCenter.default
+        return Publishers.Merge(
+            center.publisher(for: .NSPersistentStoreRemoteChange),
+            center.publisher(for: NSApplication.didBecomeActiveNotification)
+        )
+        .debounce(for: .milliseconds(700), scheduler: RunLoop.main)
+        .eraseToAnyPublisher()
+    }()
+
+    /// 자정, 앱 활성화, 잠자기 해제, 시계·시간대 변경.
+    private static let todayMayHaveChanged: AnyPublisher<Notification, Never> = {
+        let center = NotificationCenter.default
+        return Publishers.MergeMany([
+            center.publisher(for: .NSCalendarDayChanged),
+            center.publisher(for: .NSSystemTimeZoneDidChange),
+            center.publisher(for: .NSSystemClockDidChange),
+            center.publisher(for: NSApplication.didBecomeActiveNotification),
+            NSWorkspace.shared.notificationCenter.publisher(for: NSWorkspace.didWakeNotification),
+        ])
+        .receive(on: RunLoop.main)
+        .eraseToAnyPublisher()
+    }()
+}
+
+private struct SidebarView: View {
+    @Environment(AppStore.self) private var store
+
+    var body: some View {
+        List(selection: selection) {
+            Section {
+                ForEach(AppStore.Section.allCases) { section in
+                    Label(section.title, systemImage: section.symbol)
+                        .tag(section)
+                }
+            } header: {
+                VStack(alignment: .leading, spacing: 4) {
+                    Label {
+                        Text("Daylog")
+                            .font(.system(size: 22, weight: .bold))
+                            .foregroundStyle(.primary)
+                    } icon: {
+                        Image(systemName: "leaf.fill")
+                            .font(.system(size: 20))
+                            .foregroundStyle(Theme.accent)
+                    }
+                    Text("작은 반복이 큰 변화를 만든다.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                .textCase(nil)
+                .padding(.vertical, 10)
+                .accessibilityElement(children: .combine)
+            }
+        }
+        .listStyle(.sidebar)
+        .safeAreaInset(edge: .bottom) {
+            Label("오늘도, 더 나은 내일을 위해.", systemImage: "leaf")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(14)
+        }
+    }
+
+    private var selection: Binding<AppStore.Section?> {
+        Binding(
+            get: { store.section },
+            set: { if let section = $0 { store.section = section } }
+        )
+    }
+}
