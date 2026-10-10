@@ -76,6 +76,16 @@ Tools/install.sh
 Xcode에서 **Signing & Capabilities**의 Team과 Bundle Identifier를 본인 것으로 바꾸면 됩니다.
 iCloud 권한 없이 빌드하면 기록은 그 Mac에만 저장됩니다.
 
+### 다른 Mac에 배포하기 (DMG)
+
+```bash
+Tools/release.sh            # 테스트 → Developer ID 서명 → 공증 → DMG → 검증 (게시하지 않음)
+Tools/release.sh --publish  # 검증을 통과하면 GitHub Release에 올림
+```
+
+결과물은 `build/release/Daylog-v<버전>-macOS.dmg`입니다. 필요한 준비물과 주의할 점은 스크립트 맨 위에 적혀 있습니다.
+Developer ID로 배포한 앱은 iCloud의 Production 환경을 쓰므로, Xcode로 직접 빌드한 앱과는 서로 다른 iCloud 데이터를 봅니다.
+
 ## 개발
 
 ```bash

@@ -77,6 +77,7 @@ enum AppLaunch {
         #endif
         #if DEBUG
         DebugScript.purgeAndExitIfRequested()
+        DebugBackup.createIfRequested()
         #endif
         do {
             let cloudContainerID = RuntimeEnvironment.cloudKitContainerID
