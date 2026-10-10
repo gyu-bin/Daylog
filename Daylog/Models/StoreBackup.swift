@@ -114,7 +114,7 @@ enum StoreBackup {
 
     // MARK: - SQLite
 
-    private static func withDatabase<T>(at url: URL, _ body: (OpaquePointer) throws -> T) throws -> T {
+    static func withDatabase<T>(at url: URL, _ body: (OpaquePointer) throws -> T) throws -> T {
         var handle: OpaquePointer?
         // WAL 방식 저장소는 읽기 전용으로 열 때도 보조 파일(-shm)을 만들려고 해서 그냥은 열리지 않는다.
         // 아직 반영 안 된 WAL 내용이 없으면 "변하지 않는 파일"로 열어 아무것도 쓰지 않고,

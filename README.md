@@ -82,8 +82,14 @@ Release로 빌드해 `/Applications/Daylog.app`에 설치하고 실행합니다.
 | 소스에서 빌드 (`Tools/install.sh`, Xcode 실행) | Apple Development (개발용) | **Development** |
 
 같은 Apple 계정이라도 두 환경의 데이터는 따로입니다. **Mac끼리 동기화하려면 모든 Mac에 같은 방법으로 설치해야 합니다.**
-한 Mac에서 설치 방법을 바꾸면 그 Mac의 기록이 새 환경의 iCloud로 자동으로 옮겨진다고 볼 수 없으니, 바꾸기 전에 백업부터 하세요
-([ARCHITECTURE.md](ARCHITECTURE.md)의 "배포" 참고).
+한 Mac에서 설치 방법을 바꿔도 그 Mac의 기존 기록은 새 환경의 iCloud로 저절로 올라가지 않습니다.
+옮기려면 앱을 끈 뒤 터미널에서 한 번만 아래처럼 실행합니다(백업을 만들고 기존 기록을 지금 환경에 다시 올립니다).
+
+```bash
+open -n /Applications/Daylog.app --args -DaylogReuploadAll YES
+```
+
+지금 어느 환경인지는 설정의 **iCloud 환경**에서 볼 수 있습니다. 자세한 내용은 [ARCHITECTURE.md](ARCHITECTURE.md)의 "배포"에 있습니다.
 
 ### 다른 Apple 계정으로 빌드한다면
 
@@ -146,6 +152,7 @@ Tools/            아이콘 생성, 설치 스크립트
 
 | 버전 | 내용 |
 |---|---|
+| 1.3.5 | 다른 iCloud 환경에서 쓰던 기록을 다시 올리는 기능, 설정에 iCloud 환경 표시, 환경이 다른 저장소는 열지 않고 멈춤 |
 | 1.3.4 | 대시보드의 오늘의 루틴 간소화(그룹 만들기와 추천 항목은 루틴 관리 화면으로), 첫 DMG 배포 |
 | 1.3.3 | 새 앱 아이콘(라이트·다크), 사이드바 브랜드 머리말 |
 | 1.3.2 | 체크 해제가 되지 않던 오류 수정, 외관 설정(시스템/라이트/다크) |

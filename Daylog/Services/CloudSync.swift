@@ -17,6 +17,15 @@ enum CloudSyncConfiguration {
         guard entitlement("com.apple.developer.icloud-services").contains("CloudKit") else { return nil }
         return entitlement("com.apple.developer.icloud-container-identifiers").first
     }
+
+    /// 이 빌드가 쓰는 CloudKit 환경. Developer ID로 배포한 앱은 "Production", Xcode로 직접 빌드한 앱은 "Development".
+    /// 두 환경의 기록은 같은 계정이어도 서로 따로다.
+    static var environment: String? {
+        guard containerIdentifier != nil, let task = SecTaskCreateFromSelf(nil) else { return nil }
+        let value = SecTaskCopyValueForEntitlement(task, "com.apple.developer.icloud-container-environment" as CFString, nil)
+        // 개발용 서명에는 이 권한이 없고, 그때 CloudKit은 Development를 쓴다.
+        return (value as? String) ?? "Development"
+    }
 }
 
 /// 설정 화면에 보여 줄 iCloud 상태. 시스템이 공식적으로 알려 주는 것만 담는다.
@@ -49,6 +58,8 @@ final class CloudSyncMonitor {
     }
 
     let containerIdentifier: String?
+    /// 이 앱이 쓰는 CloudKit 환경("Development"/"Production"). 두 Mac의 환경이 같아야 서로 동기화된다.
+    let environment: String?
     private(set) var account: Account
     private(set) var lastImportAt: Date?
     private(set) var lastExportAt: Date?
@@ -59,8 +70,18 @@ final class CloudSyncMonitor {
 
     var isEnabled: Bool { containerIdentifier != nil }
 
-    init(containerIdentifier: String?) {
+    /// 설정 화면에 보여 줄 환경 이름.
+    var environmentTitle: String? {
+        switch environment {
+        case "Production"?: return "Production (내려받아 설치한 앱)"
+        case "Development"?: return "Development (Xcode로 빌드한 앱)"
+        default: return environment
+        }
+    }
+
+    init(containerIdentifier: String?, environment: String? = nil) {
         self.containerIdentifier = containerIdentifier
+        self.environment = environment
         self.account = containerIdentifier == nil ? .notConfigured : .checking
     }
 

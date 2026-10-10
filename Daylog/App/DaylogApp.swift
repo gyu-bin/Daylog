@@ -82,7 +82,11 @@ enum AppLaunch {
         do {
             let cloudContainerID = RuntimeEnvironment.cloudKitContainerID
             let container = try DaylogStore.makeContainer(
-                RuntimeEnvironment.storeLocation, cloudKitContainerID: cloudContainerID
+                RuntimeEnvironment.storeLocation, cloudKitContainerID: cloudContainerID,
+                cloudKitEnvironment: RuntimeEnvironment.cloudKitEnvironment,
+                // `--args -DaylogReuploadAll YES`로 한 번 실행하면, 이 Mac의 기존 기록을 지금 환경의 iCloud에 다시 올린다
+                // (다른 환경과 동기화하던 저장소를 옮길 때). 백업을 만들고, 같은 환경에는 한 번만 한다.
+                reuploadAll: UserDefaults.standard.bool(forKey: "DaylogReuploadAll")
             )
             let store = AppStore(
                 container: container,
@@ -90,7 +94,7 @@ enum AppLaunch {
                 clock: RuntimeEnvironment.clock
             )
             store.start()
-            let sync = CloudSyncMonitor(containerIdentifier: cloudContainerID)
+            let sync = CloudSyncMonitor(containerIdentifier: cloudContainerID, environment: RuntimeEnvironment.cloudKitEnvironment)
             sync.start()
             #if DEBUG
             DebugScript.runIfRequested(store: store, sync: sync, container: container)
@@ -139,6 +143,11 @@ extension RuntimeEnvironment {
         }
         #endif
         return CloudSyncConfiguration.containerIdentifier
+    }
+
+    /// 이 빌드의 CloudKit 환경. 로컬 전용이면 nil.
+    static var cloudKitEnvironment: String? {
+        cloudKitContainerID == nil ? nil : CloudSyncConfiguration.environment
     }
 
     /// "오늘"을 알려 주는 시계.

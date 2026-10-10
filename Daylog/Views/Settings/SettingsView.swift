@@ -28,6 +28,9 @@ struct SettingsView: View {
             Section {
                 LabeledContent("상태", value: sync.account.title)
                 if sync.isEnabled {
+                    if let environment = sync.environmentTitle {
+                        LabeledContent("iCloud 환경", value: environment)
+                    }
                     if let lastImportAt = sync.lastImportAt {
                         LabeledContent("이 Mac이 마지막으로 변경을 가져온 시각", value: Self.timestamp(lastImportAt))
                     }
@@ -49,7 +52,7 @@ struct SettingsView: View {
                 Text("iCloud 동기화")
             } footer: {
                 Text(sync.isEnabled
-                     ? "같은 Apple 계정의 Mac끼리 자동으로 동기화돼요. iCloud는 변경을 즉시 반영한다고 보장하지 않습니다. 위 시각은 시스템이 알려 준 값이며, 모든 기록이 다른 Mac에 도착했다는 뜻은 아니에요. 새로고침은 계정 상태만 다시 확인합니다."
+                     ? "같은 Apple 계정이고 iCloud 환경이 같은 Mac끼리 자동으로 동기화돼요. iCloud는 변경을 즉시 반영한다고 보장하지 않습니다. 위 시각은 시스템이 알려 준 값이며, 모든 기록이 다른 Mac에 도착했다는 뜻은 아니에요. 새로고침은 계정 상태만 다시 확인합니다."
                      : "iCloud 권한이 있는 빌드로 실행하면 같은 Apple 계정의 Mac끼리 자동으로 동기화돼요.")
             }
 

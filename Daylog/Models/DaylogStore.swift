@@ -47,12 +47,20 @@ enum DaylogStore {
     static var schema: Schema { Schema(versionedSchema: DaylogSchemaV4.self) }
 
     /// `cloudKitContainerID`가 nil이면 로컬 전용이다.
-    static func makeContainer(_ location: Location, cloudKitContainerID: String? = nil) throws -> ModelContainer {
+    /// `cloudKitEnvironment`는 이 빌드가 쓰는 CloudKit 환경, `reuploadAll`은 기존 기록을 그 환경에 다시 올리라는 요청이다.
+    static func makeContainer(
+        _ location: Location, cloudKitContainerID: String? = nil, cloudKitEnvironment: String? = nil, reuploadAll: Bool = false
+    ) throws -> ModelContainer {
         switch location {
         case .onDisk(let name):
-            return try openStore(at: try storeURL(name: name), cloudKitContainerID: cloudKitContainerID)
+            return try openStore(
+                at: try storeURL(name: name), cloudKitContainerID: cloudKitContainerID,
+                environment: cloudKitEnvironment, reuploadAll: reuploadAll
+            )
         case .file(let url):
-            return try openStore(at: url, cloudKitContainerID: cloudKitContainerID)
+            return try openStore(
+                at: url, cloudKitContainerID: cloudKitContainerID, environment: cloudKitEnvironment, reuploadAll: reuploadAll
+            )
         case .inMemory:
             // 이름을 매번 다르게 해서 같은 프로세스의 다른 in-memory 컨테이너와 섞이지 않게 한다.
             let configuration = ModelConfiguration(
@@ -87,15 +95,29 @@ enum DaylogStore {
     /// 기존 저장소를 새 형식으로 옮기거나 iCloud에 처음 연결할 때는
     /// 1) 검증된 백업을 만들고 2) iCloud 없이 로컬에서만 옮긴 뒤 개수를 확인하고 3) 그다음에 iCloud를 연결한다.
     /// 중간에 실패하면 백업으로 되돌리고 오류를 알린다. 기존 기록을 지우거나 빈 저장소로 대체하지 않는다.
-    private static func openStore(at url: URL, cloudKitContainerID: String?) throws -> ModelContainer {
+    private static func openStore(
+        at url: URL, cloudKitContainerID: String?, environment: String?, reuploadAll: Bool
+    ) throws -> ModelContainer {
         // 백업이나 형식 변환보다 먼저: 다른 프로세스가 이 저장소를 쓰고 있으면 아무것도 하지 않고 멈춘다.
         try StoreLock.acquire(for: url)
         let exists = FileManager.default.fileExists(atPath: url.path)
         let info = StoreInfo.read(for: url)
         let needsMigration = exists && info?.schemaVersion != schemaVersion
         let isEnablingCloud = exists && cloudKitContainerID != nil && info?.cloudKitContainerID != cloudKitContainerID
+        let environment = cloudKitContainerID == nil ? nil : environment
+
+        // 다른 CloudKit 환경과 동기화하던 저장소면, 아무것도 바꾸기 전에 멈추거나(기본) 다시 올릴 준비를 한다(요청한 경우).
+        let plan = CloudEnvironmentPlan.decide(
+            storeExists: exists, info: info, cloudKitContainerID: cloudKitContainerID, environment: environment, reuploadAll: reuploadAll
+        )
+        if case .refuse(let previous, let current) = plan {
+            throw StoreOpenError(
+                underlying: DaylogError.cloudEnvironmentMismatch(previous: previous, current: current), backupDirectory: nil
+            )
+        }
 
         var backup: StoreBackup.Backup?
+        var reseedBackup: StoreBackup.Backup?
         if needsMigration || isEnablingCloud {
             backup = try StoreBackup.create(for: url, label: needsMigration ? "before-v\(schemaVersion)" : "before-icloud")
         }
@@ -104,23 +126,30 @@ enum DaylogStore {
             if needsMigration || isEnablingCloud {
                 try prepareLocally(at: url, expecting: needsMigration ? backup?.counts : nil)
             }
+            if plan == .reseed {
+                reseedBackup = try StoreReseed.backUpAndRebuild(at: url)
+            }
             let container = try container(at: url, cloudKitContainerID: cloudKitContainerID)
             try StoreInfo(
                 schemaVersion: schemaVersion,
                 cloudKitContainerID: cloudKitContainerID,
-                deviceID: info?.deviceID ?? UUID().uuidString
+                deviceID: info?.deviceID ?? UUID().uuidString,
+                cloudKitEnvironment: environment ?? info?.cloudKitEnvironment,
+                reseedEnvironment: plan == .reseed ? environment : info?.reseedEnvironment
             ).write(for: url)
             return container
         } catch {
-            if let backup, needsMigration {
+            if let reseedBackup {
+                try? StoreBackup.restore(reseedBackup, to: url)
+            } else if let backup, needsMigration {
                 // 옮기다 만 저장소를 남기지 않는다. 이전 버전의 앱으로는 그대로 다시 열 수 있다.
                 try? StoreBackup.restore(backup, to: url)
             }
-            throw StoreOpenError(underlying: error, backupDirectory: backup?.directory)
+            throw StoreOpenError(underlying: error, backupDirectory: (reseedBackup ?? backup)?.directory)
         }
     }
 
-    private static func container(at url: URL, cloudKitContainerID: String?) throws -> ModelContainer {
+    static func container(at url: URL, cloudKitContainerID: String?) throws -> ModelContainer {
         let database: ModelConfiguration.CloudKitDatabase = cloudKitContainerID.map { .private($0) } ?? .none
         let configuration = ModelConfiguration("Daylog", schema: schema, url: url, cloudKitDatabase: database)
         return try ModelContainer(for: schema, migrationPlan: DaylogMigrationPlan.self, configurations: [configuration])
@@ -176,6 +205,10 @@ struct StoreInfo: Codable, Equatable {
     var cloudKitContainerID: String?
     /// 이 저장소 파일(= 이 기기)의 식별자. 기기별 편집 기록을 구분하는 데 쓴다. 동기화되지 않는다.
     var deviceID: String?
+    /// 마지막으로 연결한 CloudKit 환경("Development" 또는 "Production"). v1.3.4 이하가 쓴 파일에는 없다.
+    var cloudKitEnvironment: String?
+    /// 기록을 통째로 다시 올린 환경. 같은 환경에 두 번 올리지 않으려고 적어 둔다.
+    var reseedEnvironment: String?
 
     private static func url(for storeURL: URL) -> URL {
         URL(fileURLWithPath: storeURL.path + ".info.json")
