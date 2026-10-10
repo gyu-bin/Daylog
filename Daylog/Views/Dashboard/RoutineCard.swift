@@ -9,6 +9,7 @@ struct RoutineCard: View {
     @State var itemDrafts: [UUID: String] = [:]
     @State private var groupDraft = ""
     @State private var isAddingGroup = false
+    @State private var lastSuggestionAt = Date.distantPast
     @FocusState var focus: Field?
 
     enum Field: Hashable {
@@ -171,23 +172,50 @@ struct RoutineCard: View {
         }
     }
 
+    /// 추천 항목. 어느 그룹에 들어가는지 글로 알려 주고, 누른 항목은 목록에서 바로 빠진다.
     private func suggestionChips(into group: RoutineGroup) -> some View {
-        FlowLayout(spacing: 6) {
-            ForEach(store.suggestions, id: \.self) { suggestion in
-                Button {
-                    store.addRoutine(title: suggestion, in: group)
-                } label: {
-                    Label(suggestion, systemImage: "plus")
-                        .font(.callout)
-                        .labelStyle(.titleAndIcon)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 5)
-                        .background(GroupColor(key: group.colorKey).wash, in: Capsule())
-                        .contentShape(Capsule())
-                }
-                .buttonStyle(.plain)
-                .accessibilityLabel("\(group.title) 그룹에 \(suggestion) 추가")
+        let color = GroupColor(key: group.colorKey)
+        return VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 5) {
+                Text("추천 항목")
+                    .font(.caption.weight(.semibold))
+                Text("· 누르면")
+                GroupBadge(title: group.title, color: color, size: 14)
+                Text("\(group.title)에 매일 하는 항목으로 추가돼요.")
+                    .lineLimit(1)
             }
+            .font(.caption)
+            .foregroundStyle(.secondary)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("추천 항목. 누르면 \(group.title) 그룹에 매일 하는 항목으로 추가됩니다.")
+
+            FlowLayout(spacing: 6) {
+                ForEach(store.suggestions, id: \.self) { suggestion in
+                    Button {
+                        addSuggestion(suggestion, to: group)
+                    } label: {
+                        Label(suggestion, systemImage: "plus")
+                            .font(.callout)
+                            .labelStyle(.titleAndIcon)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .background(color.wash, in: Capsule())
+                            .contentShape(Capsule())
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("\(group.title) 그룹에 \(suggestion) 추가")
+                }
+            }
+        }
+    }
+
+    /// 칩을 누르면 그 칩이 사라지고 옆의 칩이 그 자리로 온다. 빠르게 두 번 누른 클릭이 옆 항목까지
+    /// 추가하지 않도록, 방금 추가한 직후의 클릭은 받지 않는다.
+    private func addSuggestion(_ title: String, to group: RoutineGroup) {
+        let now = Date.now
+        guard now.timeIntervalSince(lastSuggestionAt) > 0.6 else { return }
+        if store.addSuggestion(title, in: group) {
+            lastSuggestionAt = now
         }
     }
 

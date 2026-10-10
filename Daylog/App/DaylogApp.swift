@@ -61,8 +61,10 @@ enum AppLaunch {
     }
 
     static func make() -> AppLaunch {
+        // 설정에서 고른 외관을 창이 뜨기 전에 적용한다.
+        AppearanceMode.stored().apply()
         #if DEBUG
-        // 개발 중 화면 검증용: `-DaylogDebugAppearance light|dark`로 시스템 설정과 다른 모드를 본다.
+        // 개발 중 화면 검증용: `-DaylogDebugAppearance light|dark`로 설정과 다른 모드를 본다.
         if let name = UserDefaults.standard.string(forKey: "DaylogDebugAppearance") {
             NSApplication.shared.appearance = NSAppearance(named: name == "light" ? .aqua : .darkAqua)
         }

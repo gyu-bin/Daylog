@@ -102,6 +102,22 @@ struct RoutineManagementTests {
         #expect(store.activeGroups.map(\.title) == ["저녁", "아침"])
     }
 
+    /// 추천 항목은 한 번만 추가된다. 추가한 항목은 추천 목록에서 빠진다.
+    @Test func suggestionIsAddedOnlyOnce() throws {
+        let env = try TestEnv()
+        let store = makeStore(env, today: monday)
+        let group = try #require(store.addGroup(title: "아침"))
+        let suggestion = try #require(store.suggestions.first)
+
+        #expect(store.addSuggestion(suggestion, in: group))
+        #expect(!store.addSuggestion(suggestion, in: group))
+        #expect(store.routines.filter { $0.title == suggestion }.count == 1)
+        #expect(!store.suggestions.contains(suggestion))
+        #expect(store.checkSections.flatMap(\.checks).map(\.title) == [suggestion])
+        // 목록에 없는 이름은 추천 경로로 추가되지 않는다.
+        #expect(!store.addSuggestion("추천에 없는 이름", in: group))
+    }
+
     /// 기간 선택 버튼의 이름과, 식사 종류별 표시가 서로 겹치지 않는다.
     @Test func periodTitlesAndMealKinds() {
         #expect(StatsPeriod.allCases.map(\.title) == ["7일", "30일", "90일", "전체"])

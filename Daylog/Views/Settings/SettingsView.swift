@@ -5,7 +5,18 @@ struct SettingsView: View {
     @Environment(CloudSyncMonitor.self) private var sync
 
     var body: some View {
+        // 폼을 창 너비 전체에 두고 내용만 가운데 640pt로 모은다.
+        // 폼 자체를 좁히면 제목 표시줄 아래의 스크롤 가장자리 효과가 폼 너비만큼만 생겨 띠처럼 보인다(다크 모드에서 두드러진다).
+        GeometryReader { proxy in
+            form
+                .contentMargins(.horizontal, max(20, (proxy.size.width - 640) / 2), for: .scrollContent)
+        }
+    }
+
+    private var form: some View {
         Form {
+            AppearanceSection()
+
             Section {
                 ThresholdControl()
             } header: {
@@ -59,8 +70,6 @@ struct SettingsView: View {
         }
         .formStyle(.grouped)
         .scrollContentBackground(.hidden)
-        .frame(maxWidth: 640)
-        .frame(maxWidth: .infinity, alignment: .top)
     }
 
     private static func timestamp(_ date: Date) -> String {
@@ -72,6 +81,29 @@ struct SettingsView: View {
         let short = info?["CFBundleShortVersionString"] as? String ?? "—"
         let build = info?["CFBundleVersion"] as? String ?? "—"
         return "\(short) (\(build))"
+    }
+}
+
+/// 외관(시스템 설정/라이트/다크). 고르는 즉시 앱 전체에 적용되고, 이 Mac에만 저장된다.
+private struct AppearanceSection: View {
+    @AppStorage(AppearanceMode.storageKey) private var mode: AppearanceMode = .system
+
+    var body: some View {
+        Section {
+            Picker("테마", selection: $mode) {
+                ForEach(AppearanceMode.allCases) { mode in
+                    Text(mode.title).tag(mode)
+                }
+            }
+            .pickerStyle(.radioGroup)
+            .onChange(of: mode) { _, newValue in
+                newValue.apply()
+            }
+        } header: {
+            Text("외관")
+        } footer: {
+            Text("\"시스템 설정\"은 Mac의 외관 설정을 따라요. 라이트·다크를 고르면 Daylog만 그 모드로 보여요. 이 Mac에만 적용되고 다른 Mac과 동기화하지 않아요.")
+        }
     }
 }
 

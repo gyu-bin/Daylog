@@ -136,6 +136,7 @@ struct TrendChartCard: View {
                 AxisValueLabel(anchor: value.as(Int.self) == lastIndex ? .topTrailing : .top) {
                     if let index = value.as(Int.self), trend.indices.contains(index) {
                         Text(axisLabel(trend[index].day, spansYears: trend.count > 300))
+                            .fixedSize()
                     }
                 }
             }

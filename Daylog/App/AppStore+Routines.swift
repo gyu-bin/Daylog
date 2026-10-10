@@ -59,6 +59,13 @@ extension AppStore {
         return mutateRoutines { try $0.add(title: title, group: group, today: today) }
     }
 
+    /// 추천 항목을 추가한다. 이미 같은 이름의 항목이 있으면(이미 추가했으면) 아무것도 하지 않는다.
+    @discardableResult
+    func addSuggestion(_ title: String, in group: RoutineGroup) -> Bool {
+        guard suggestions.contains(title) else { return false }
+        return addRoutine(title: title, in: group)
+    }
+
     @discardableResult
     func updateRoutine(
         _ routine: RoutineItem,
