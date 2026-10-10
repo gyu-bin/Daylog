@@ -19,6 +19,10 @@ final class AppStore {
     /// 대시보드에서 보고 있는 날짜.
     private(set) var selectedDay: Day
     private(set) var record: DayRecord?
+    /// 화면이 읽는 체크 목록(그룹별). 모델 객체가 아니라 값의 사본이다.
+    /// SwiftData는 저장·조회 뒤에 같은 체크를 다른 객체로 다시 만들 수 있어서, 화면이 모델 객체를 직접 관찰하면
+    /// 값을 바꿔도 알림이 가지 않는다. 그래서 값이 바뀔 수 있는 모든 지점에서 `refreshChecks()`로 다시 만든다.
+    private(set) var checkSections: [CheckSection] = []
     /// 보관된 루틴을 포함한 전체 루틴. 표시 순서대로.
     private(set) var routines: [RoutineItem] = []
     /// 보관된 그룹을 포함한 전체 그룹. 표시 순서대로.
@@ -44,7 +48,7 @@ final class AppStore {
     @ObservationIgnored private var pendingSave: Task<Void, Never>?
     @ObservationIgnored private var editingSources: Set<String> = []
     /// 이 기기의 식별자. 같은 칸을 두 기기가 동시에 고쳤는지 가려내는 편집 기록에 쓴다.
-    @ObservationIgnored private let deviceID: String
+    @ObservationIgnored let deviceID: String
     /// 고친 뒤 아직 편집 기록으로 남기지 않은 칸.
     @ObservationIgnored private var unrecordedEdits: [String: Set<DayTextField>] = [:]
 
@@ -153,21 +157,10 @@ final class AppStore {
                 reloadMonth()
             }
         }
+        refreshChecks()
     }
 
     // MARK: - 하루 기록
-
-    func setDone(routineID: UUID, _ isDone: Bool) {
-        guard let check = checks.first(where: { $0.routineID == routineID }) else { return }
-        perform {
-            try DayRecordService(context: context).setDone(check, isDone)
-        }
-        reloadStats()
-    }
-
-    func text(_ keyPath: KeyPath<DayRecord, String>) -> String {
-        record?[keyPath: keyPath] ?? ""
-    }
 
     /// 입력은 모델에 즉시 반영하고, 디스크 저장은 잠깐 모아서 한다.
     func setText(_ value: String, at keyPath: ReferenceWritableKeyPath<DayRecord, String>) {
@@ -256,8 +249,15 @@ final class AppStore {
         reloadStats()
     }
 
+    /// 보고 있는 날짜의 체크 목록을 저장된 값으로 다시 만든다.
+    func refreshChecks() {
+        let updated = makeCheckSections()
+        if updated != checkSections { checkSections = updated }
+    }
+
     func reloadStats() {
         dataVersion += 1
+        refreshChecks()
         perform {
             let updated = try StatsService(context: context).dashboard(today: today)
             if updated != stats { stats = updated }
