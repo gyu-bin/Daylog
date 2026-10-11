@@ -1,4 +1,3 @@
-import AppKit
 import SwiftUI
 
 /// Modern Colorful Minimal. 바탕은 시스템 색, 색은 의미를 구분하는 곳에만 제한적으로 쓴다.
@@ -9,11 +8,7 @@ enum Theme {
     /// 앱의 기본 포인트 컬러(민트). 선택 상태와 주요 동작에만 쓴다.
     static let accent = GroupColor.mint.color
     /// 포인트 컬러 위에 올리는 글자·기호. 다크 모드의 밝은 색 위에서는 어두운 색이어야 읽힌다.
-    static let onAccent = Color(nsColor: NSColor(name: "DaylogOnAccent") { appearance in
-        appearance.bestMatch(from: [.aqua, .darkAqua]) == .darkAqua
-            ? NSColor(white: 0.08, alpha: 1)
-            : NSColor.white
-    })
+    static let onAccent = Color.adaptive(name: "DaylogOnAccent", light: (1, 1, 1), dark: (0.08, 0.08, 0.08))
     /// 기준 미만인 날처럼 한 단계 약한 강조.
     static let accentSoft = accent.opacity(0.4)
     static let accentWash = accent.opacity(0.14)
@@ -24,9 +19,9 @@ enum Theme {
     static let longestTint = GroupColor.yellow.color
     static let mealTint = GroupColor.coral.color
 
-    static let windowBackground = Color(nsColor: .windowBackgroundColor)
-    static let cardBackground = Color(nsColor: .controlBackgroundColor)
-    static let separator = Color(nsColor: .separatorColor)
+    static let windowBackground = Color.platformWindowBackground
+    static let cardBackground = Color.platformCardBackground
+    static let separator = Color.platformSeparator
     /// 카드 테두리. 구분선보다 옅게 해서 테두리가 화면을 지배하지 않게 한다.
     static let cardBorder = Color.primary.opacity(0.07)
     static let track = Color.primary.opacity(0.08)
@@ -37,6 +32,8 @@ enum Theme {
     static let cardPadding: CGFloat = 18
     static let spacing: CGFloat = 16
     static let pagePadding: CGFloat = 22
+    /// 좁은 화면(iPhone, 좁은 iPad 창)의 화면 가장자리 여백.
+    static let compactPagePadding: CGFloat = 16
     static let statCardHeight: CGFloat = 122
 }
 
@@ -79,20 +76,20 @@ enum MealKind: CaseIterable, Identifiable {
 extension GroupColor {
     /// 라이트/다크에 따라 달라지는 그룹 색.
     var color: Color {
-        Color(nsColor: NSColor(name: "DaylogGroup-\(rawValue)") { appearance in
-            let rgb = self.rgb(isDark: appearance.bestMatch(from: [.aqua, .darkAqua]) == .darkAqua)
-            return NSColor(srgbRed: rgb.red, green: rgb.green, blue: rgb.blue, alpha: 1)
-        })
+        let light = rgb(isDark: false), dark = rgb(isDark: true)
+        return Color.adaptive(
+            name: "DaylogGroup-\(rawValue)",
+            light: (light.red, light.green, light.blue), dark: (dark.red, dark.green, dark.blue)
+        )
     }
 
     /// 큰 숫자처럼 색으로 쓰는 글자. 밝은 배경에서는 파스텔 색이 흐려 보여 한 단계 진하게 쓴다.
     var ink: Color {
-        Color(nsColor: NSColor(name: "DaylogGroupInk-\(rawValue)") { appearance in
-            let isDark = appearance.bestMatch(from: [.aqua, .darkAqua]) == .darkAqua
-            let rgb = self.rgb(isDark: isDark)
-            let scale = isDark ? 1.0 : 0.72
-            return NSColor(srgbRed: rgb.red * scale, green: rgb.green * scale, blue: rgb.blue * scale, alpha: 1)
-        })
+        let light = rgb(isDark: false), dark = rgb(isDark: true)
+        return Color.adaptive(
+            name: "DaylogGroupInk-\(rawValue)",
+            light: (light.red * 0.72, light.green * 0.72, light.blue * 0.72), dark: (dark.red, dark.green, dark.blue)
+        )
     }
 
     /// 그룹 머리말 바탕처럼 넓은 면에 까는 옅은 색.
@@ -112,5 +109,20 @@ struct GroupBadge: View {
             .frame(width: size, height: size)
             .background(color.color, in: RoundedRectangle(cornerRadius: size * 0.3, style: .continuous))
             .accessibilityHidden(true)
+    }
+}
+
+extension View {
+    /// 화면 가장자리 여백. 좁은 화면에서는 조금 줄인다.
+    func pagePadding() -> some View {
+        modifier(PagePadding())
+    }
+}
+
+private struct PagePadding: ViewModifier {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+
+    func body(content: Content) -> some View {
+        content.padding(horizontalSizeClass == .compact ? Theme.compactPagePadding : Theme.pagePadding)
     }
 }

@@ -53,27 +53,43 @@ struct RoutineStatisticsView: View {
 
     // MARK: - 기간
 
+    /// 넓으면 한 줄, 좁으면 기간 범위를 아래 줄로 내린다.
     private var periodBar: some View {
-        @Bindable var store = store
-        return HStack(spacing: 12) {
-            Picker("기간", selection: $store.statsPeriod) {
-                ForEach(StatsPeriod.allCases) { period in
-                    Text(period.title).tag(period)
-                }
+        ViewThatFits(in: .horizontal) {
+            HStack(spacing: 12) {
+                periodPicker
+                periodRange
+                Spacer(minLength: 0)
             }
-            .pickerStyle(.segmented)
-            .labelsHidden()
-            .fixedSize()
-            .accessibilityLabel("통계 기간")
+            VStack(alignment: .leading, spacing: 8) {
+                periodPicker
+                periodRange
+            }
+        }
+    }
 
-            if let first = stats.outcomes.first, let last = stats.outcomes.last {
-                Text("\(first.day.shortTitle) ~ \(last.day.shortTitle) · \(stats.outcomes.count)일")
-                    .font(.callout)
-                    .foregroundStyle(.secondary)
-                    .monospacedDigit()
-                    .lineLimit(1)
+    private var periodPicker: some View {
+        @Bindable var store = store
+        return Picker("기간", selection: $store.statsPeriod) {
+            ForEach(StatsPeriod.allCases) { period in
+                Text(period.title).tag(period)
             }
-            Spacer(minLength: 0)
+        }
+        .pickerStyle(.segmented)
+        .labelsHidden()
+        .fixedSize()
+        .accessibilityLabel("통계 기간")
+    }
+
+    @ViewBuilder
+    private var periodRange: some View {
+        if let first = stats.outcomes.first, let last = stats.outcomes.last {
+            Text("\(first.day.shortTitle) ~ \(last.day.shortTitle) · \(stats.outcomes.count)일")
+                .font(.callout)
+                .foregroundStyle(.secondary)
+                .monospacedDigit()
+                .lineLimit(1)
+                .fixedSize()
         }
     }
 

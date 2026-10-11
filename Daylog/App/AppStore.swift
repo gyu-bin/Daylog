@@ -9,7 +9,6 @@ final class AppStore {
     var section: Section = .dashboard
     var errorMessage: String?
     // 통계 화면의 탭·필터·검색어. 다른 메뉴에 다녀와도 그대로 남는다.
-    var statisticsTab: StatisticsTab = .routines
     var mealPeriod: MealPeriod = .month
     var mealQuery = ""
     var statsPeriod: StatsPeriod = .month

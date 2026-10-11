@@ -2,13 +2,16 @@ import CloudKit
 import CoreData
 import Foundation
 import Observation
+#if os(macOS)
 import Security
+#endif
 
 /// iCloud 동기화를 켤지 여부. 앱 서명에 들어 있는 권한만 보고 정한다.
 ///
 /// 컨테이너 이름을 코드에 적어 두지 않는다. Xcode의 Signing & Capabilities에서 iCloud(CloudKit)를
 /// 켜면 서명에 컨테이너가 들어가고, 그때부터 동기화가 켜진다. 권한이 없는 빌드는 지금까지처럼 로컬 전용이다.
 enum CloudSyncConfiguration {
+    #if os(macOS)
     static var containerIdentifier: String? {
         guard let task = SecTaskCreateFromSelf(nil) else { return nil }
         func entitlement(_ key: String) -> [String] {
@@ -26,6 +29,32 @@ enum CloudSyncConfiguration {
         // 개발용 서명에는 이 권한이 없고, 그때 CloudKit은 Development를 쓴다.
         return (value as? String) ?? "Development"
     }
+    #else
+    /// iOS·iPadOS 앱은 Mac 앱과 같은 컨테이너를 쓴다(번들 ID가 달라 이름을 직접 적는다. 권한 파일의 값과 같아야 한다).
+    /// 시뮬레이터에서는 iCloud에 연결하지 않고 그 기기에만 저장한다.
+    static var containerIdentifier: String? {
+        #if targetEnvironment(simulator)
+        return nil
+        #else
+        return "iCloud.com.mungyubin.daylog"
+        #endif
+    }
+
+    /// Xcode로 기기에 직접 설치한 앱은 "Development", TestFlight·App Store로 설치한 앱은 "Production".
+    /// iOS에는 자기 권한을 읽는 API가 없어서, 개발용 설치에만 들어 있는 프로비저닝 프로파일로 가린다.
+    static var environment: String? {
+        guard containerIdentifier != nil else { return nil }
+        guard let url = Bundle.main.url(forResource: "embedded", withExtension: "mobileprovision"),
+              let data = try? Data(contentsOf: url),
+              let text = String(data: data, encoding: .isoLatin1)
+        else { return "Production" }
+        // 프로파일 안의 aps-environment가 development면 개발용 설치다.
+        let isDevelopment = text.range(
+            of: "<key>aps-environment</key>\\s*<string>development</string>", options: .regularExpression
+        ) != nil
+        return isDevelopment ? "Development" : "Production"
+    }
+    #endif
 }
 
 /// 설정 화면에 보여 줄 iCloud 상태. 시스템이 공식적으로 알려 주는 것만 담는다.
@@ -50,7 +79,7 @@ final class CloudSyncMonitor {
             case .checking: return "확인 중…"
             case .available: return "iCloud 연결됨"
             case .noAccount: return "iCloud에 로그인되어 있지 않아요"
-            case .restricted: return "이 Mac에서는 iCloud 사용이 제한되어 있어요"
+            case .restricted: return "\(Platform.thisDevice)에서는 iCloud 사용이 제한되어 있어요"
             case .temporarilyUnavailable: return "iCloud를 일시적으로 사용할 수 없어요"
             case .unknown(let detail): return "iCloud 상태를 확인하지 못했어요 (\(detail))"
             }
@@ -70,11 +99,18 @@ final class CloudSyncMonitor {
 
     var isEnabled: Bool { containerIdentifier != nil }
 
+    /// iCloud를 쓰는데 이번 실행에서 아직 한 번도 가져오기를 마치지 않았다.
+    /// 이때 화면이 비어 있으면 "기록이 없다"가 아니라 "아직 받는 중일 수 있다"로 안내한다.
+    var isWaitingForFirstImport: Bool {
+        guard isEnabled, lastImportAt == nil else { return false }
+        return account == .checking || account == .available
+    }
+
     /// 설정 화면에 보여 줄 환경 이름.
     var environmentTitle: String? {
         switch environment {
-        case "Production"?: return "Production (내려받아 설치한 앱)"
-        case "Development"?: return "Development (Xcode로 빌드한 앱)"
+        case "Production"?: return "Production (배포판)"
+        case "Development"?: return "Development (개발용 설치)"
         default: return environment
         }
     }

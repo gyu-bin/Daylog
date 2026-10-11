@@ -12,6 +12,7 @@ final class RoutineEditorState {
 }
 
 /// 루틴 그룹과 항목의 추가·수정·순서 변경·보관·삭제. 변경은 오늘과 미래에만 적용되고 과거 기록은 그대로다.
+/// 목록에는 이름·요일·시간만 보이고, 자세한 설정은 항목을 눌러 여는 편집 화면에서 한다.
 struct RoutineManagementView: View {
     @Environment(AppStore.self) private var store
     @State private var editor = RoutineEditorState()
@@ -26,14 +27,29 @@ struct RoutineManagementView: View {
 
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
-                PageTitle(title: "루틴 관리", subtitle: "변경한 내용은 오늘부터 적용되고, 지난 기록은 바뀌지 않아요.")
+                HStack(alignment: .center, spacing: 12) {
+                    PageTitle(title: "루틴 관리", subtitle: "변경한 내용은 오늘부터 적용되고, 지난 기록은 바뀌지 않아요.")
+                    Spacer(minLength: 8)
+                    Button(action: beginAddingGroup) {
+                        Label("새 그룹", systemImage: "plus")
+                            .font(.callout.weight(.semibold))
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(GroupColor.blue.color)
+                    .fixedSize()
+                    .accessibilityHint("새 루틴 그룹을 만듭니다.")
+                }
+
+                if active.isEmpty || isAddingGroup {
+                    newGroupField
+                }
 
                 if active.isEmpty {
                     Card(fillsHeight: false) {
                         EmptyHint(
                             symbol: "square.stack.3d.up",
                             message: archived.isEmpty
-                                ? "아직 그룹이 없어요.\n아래에 그룹 이름을 적고 Enter를 눌러 보세요."
+                                ? "아직 그룹이 없어요.\n위에 그룹 이름을 적고 추가해 보세요. (예: 아침 루틴)"
                                 : "사용 중인 그룹이 없어요.\n새로 만들거나 보관된 그룹을 복원하세요.",
                             tint: Theme.accent
                         )
@@ -48,27 +64,15 @@ struct RoutineManagementView: View {
                     )
                 }
 
-                newGroupRow(alwaysOpen: active.isEmpty)
-
                 if !archived.isEmpty {
                     ArchivedGroupsCard(groups: archived, isExpanded: $showsArchivedGroups)
                 }
-
-                Card(fillsHeight: false) {
-                    VStack(alignment: .leading, spacing: 10) {
-                        CardHeader(symbol: "target", title: "달성한 날 기준값")
-                        ThresholdControl()
-                        Text("바꾸면 연속 달성일, 최장 연속 달성일, 달성 표시가 바로 다시 계산돼요.")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                }
-                .padding(.top, 8)
             }
-            .padding(Theme.pagePadding)
+            .pagePadding()
             .frame(maxWidth: 760, alignment: .leading)
             .frame(maxWidth: .infinity)
         }
+        .scrollDismissesKeyboard(.interactively)
         .environment(editor)
         .routineEditorDialogs(editor)
         .onChange(of: store.quickAddFocusToken) {
@@ -86,47 +90,32 @@ struct RoutineManagementView: View {
 
     // MARK: - 새 그룹
 
-    /// 항목 추가(그룹 안)와 헷갈리지 않게 그룹 목록 아래에 따로 둔다.
-    @ViewBuilder
-    private func newGroupRow(alwaysOpen: Bool) -> some View {
-        if alwaysOpen || isAddingGroup {
-            HStack(spacing: 8) {
-                Image(systemName: "folder.badge.plus")
-                    .foregroundStyle(Theme.accent)
-                    .accessibilityHidden(true)
-                TextField("새 그룹", text: $groupDraft, prompt: Text("그룹 이름을 적고 Enter (예: 아침 루틴)"))
-                    .textFieldStyle(.plain)
-                    .focused($newGroupFocused)
-                    .onSubmit(addGroup)
-                    .onExitCommand {
-                        groupDraft = ""
-                        newGroupFocused = false
-                        isAddingGroup = false
-                    }
-                    .accessibilityLabel("새 그룹 이름")
-                Button("추가", action: addGroup)
-                    .disabled(groupDraft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+    private var newGroupField: some View {
+        HStack(spacing: 8) {
+            Image(systemName: "folder.badge.plus")
+                .foregroundStyle(GroupColor.blue.color)
+                .accessibilityHidden(true)
+            TextField("새 그룹", text: $groupDraft, prompt: Text("그룹 이름 (예: 아침 루틴)"))
+                .textFieldStyle(.plain)
+                .focused($newGroupFocused)
+                .onSubmit(addGroup)
+                #if os(macOS)
+                .onExitCommand(perform: cancelAddingGroup)
+                #endif
+                .accessibilityLabel("새 그룹 이름")
+            Button("추가", action: addGroup)
+                .disabled(groupDraft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            if !store.activeGroups.isEmpty {
+                Button("취소", action: cancelAddingGroup)
             }
-            .padding(.horizontal, 14)
-            .padding(.vertical, 10)
-            .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous))
-            .overlay(RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous).strokeBorder(Theme.accent.opacity(0.5), lineWidth: 1))
-        } else {
-            Button(action: beginAddingGroup) {
-                Label("새 그룹", systemImage: "plus")
-                    .font(.callout.weight(.medium))
-                    .foregroundStyle(.secondary)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 10)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
-                            .strokeBorder(Theme.separator, style: StrokeStyle(lineWidth: 1, dash: [5, 4]))
-                    )
-                    .contentShape(Rectangle())
-            }
-            .buttonStyle(.plain)
-            .accessibilityHint("새 루틴 그룹을 만듭니다.")
         }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 10)
+        .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
+                .strokeBorder(GroupColor.blue.color.opacity(0.5), lineWidth: 1)
+        )
     }
 
     private func beginAddingGroup() {
@@ -134,13 +123,19 @@ struct RoutineManagementView: View {
         newGroupFocused = true
     }
 
-    /// 그룹을 만든 뒤에도 입력칸을 열어 두어 이어서 만들 수 있게 한다.
+    private func cancelAddingGroup() {
+        groupDraft = ""
+        newGroupFocused = false
+        isAddingGroup = false
+    }
+
+    /// 그룹을 만든 뒤에는 입력칸을 닫는다. 이어서 그 그룹의 "+ 항목 추가"로 항목을 넣으면 된다.
     private func addGroup() {
-        if store.addGroup(title: groupDraft) != nil {
-            groupDraft = ""
+        guard store.addGroup(title: groupDraft) != nil else {
+            newGroupFocused = true
+            return
         }
-        isAddingGroup = true
-        newGroupFocused = true
+        cancelAddingGroup()
     }
 }
 

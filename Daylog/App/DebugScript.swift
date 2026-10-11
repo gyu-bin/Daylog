@@ -12,6 +12,7 @@ import SwiftData
 ///
 /// 명령: group, add(마지막으로 쓴 그룹에), check, uncheck, text:<칸>=<값>, rename:<전>=<후>, archive, restore, archiveGroup, threshold,
 ///       wait:<초>, waitImport:<최대 초>, waitExport:<최대 초>, refresh, dump:<이름>,
+///       section:<메뉴>(dashboard, routines, meals, statistics, calendar, settings),
 ///       counts(개수만 출력), compareBackup:<백업 이름 일부>, verifyBackup:<백업 이름 일부>,
 ///       purgeLocalStore, quit
 ///
@@ -74,6 +75,11 @@ enum DebugScript {
             await waitForEvent(named: "export", timeout: Double(argument) ?? 60) { sync.lastExportAt }
         case "refresh":
             store.handleExternalChanges()
+        case "section":
+            // 화면 전환: section:routines 처럼 메뉴 이름(dashboard, routines, meals, statistics, calendar, settings).
+            if let section = AppStore.Section.allCases.first(where: { "\($0)" == argument }) {
+                store.section = section
+            }
         case "dump":
             store.flush()
             dump(label: argument, store: store, sync: sync, container: container)

@@ -1,52 +1,89 @@
-import AppKit
 import Combine
 import CoreData
 import SwiftUI
+#if os(macOS)
+import AppKit
+#else
+import UIKit
+#endif
 
+/// 화면의 뿌리. 플랫폼과 창 너비에 맞는 탐색 구조를 고르고, 날짜 변경·외부 변경·저장 시점을 한곳에서 처리한다.
 struct RootView: View {
     @Environment(AppStore.self) private var store
+    #if !os(macOS)
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @AppStorage(AppearanceMode.storageKey) private var appearance: AppearanceMode = .system
+    #endif
 
     var body: some View {
-        NavigationSplitView {
-            SidebarView()
-                .navigationSplitViewColumnWidth(min: 180, ideal: 200, max: 240)
-        } detail: {
-            Group {
-                switch store.section {
-                case .dashboard: DashboardView()
-                case .routines: RoutineManagementView()
-                case .statistics: StatisticsView()
-                case .settings: SettingsView()
+        navigation
+            .alert("문제가 발생했어요", isPresented: errorIsPresented) {
+                Button("확인", role: .cancel) {}
+            } message: {
+                Text(store.errorMessage ?? "")
+            }
+            .onReceive(Self.todayMayHaveChanged) { _ in
+                store.refreshToday()
+            }
+            .onReceive(Self.storeMayHaveChanged) { _ in
+                store.handleExternalChanges()
+            }
+            .onReceive(NotificationCenter.default.publisher(for: Platform.willResignActive)) { _ in
+                store.flush()
+            }
+            .onReceive(NotificationCenter.default.publisher(for: Platform.willTerminate)) { _ in
+                store.flush()
+            }
+    }
+
+    @ViewBuilder
+    private var navigation: some View {
+        #if os(macOS)
+        SidebarNavigation()
+            .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification).first()) { notification in
+                // 실행 직후 첫 입력 칸이 전체 선택된 채 포커스를 받으면 실수로 덮어쓰기 쉽다.
+                let window = notification.object as? NSWindow
+                DispatchQueue.main.async {
+                    window?.makeFirstResponder(nil)
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Theme.windowBackground)
-        }
-        .alert("문제가 발생했어요", isPresented: errorIsPresented) {
-            Button("확인", role: .cancel) {}
-        } message: {
-            Text(store.errorMessage ?? "")
-        }
-        .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification).first()) { notification in
-            // 실행 직후 첫 입력 칸이 전체 선택된 채 포커스를 받으면 실수로 덮어쓰기 쉽다.
-            let window = notification.object as? NSWindow
-            DispatchQueue.main.async {
-                window?.makeFirstResponder(nil)
+        #else
+        Group {
+            // 창이 좁으면(iPhone, iPad의 좁은 Split View·Stage Manager 창) 아래 탭, 넓으면 사이드바.
+            if horizontalSizeClass == .compact {
+                TabNavigation()
+            } else {
+                SidebarNavigation()
             }
         }
-        .onReceive(Self.todayMayHaveChanged) { _ in
-            store.refreshToday()
+        .preferredColorScheme(Self.debugColorScheme ?? appearance.colorScheme)
+        .toolbar {
+            // 여러 줄 입력칸은 Return이 줄바꿈이라, 키보드를 내릴 단추를 따로 둔다.
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("완료") {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                }
+                .fontWeight(.semibold)
+            }
         }
-        .onReceive(Self.storeMayHaveChanged) { _ in
-            store.handleExternalChanges()
-        }
-        .onReceive(NotificationCenter.default.publisher(for: NSApplication.willResignActiveNotification)) { _ in
-            store.flush()
-        }
-        .onReceive(NotificationCenter.default.publisher(for: NSApplication.willTerminateNotification)) { _ in
-            store.flush()
-        }
+        #endif
     }
+
+    #if !os(macOS)
+    /// 개발 중 화면 검증용: `-DaylogDebugAppearance light|dark`.
+    private static var debugColorScheme: ColorScheme? {
+        #if DEBUG
+        switch UserDefaults.standard.string(forKey: "DaylogDebugAppearance") {
+        case "light": return .light
+        case "dark": return .dark
+        default: return nil
+        }
+        #else
+        return nil
+        #endif
+    }
+    #endif
 
     private var errorIsPresented: Binding<Bool> {
         Binding(
@@ -61,7 +98,7 @@ struct RootView: View {
         let center = NotificationCenter.default
         return Publishers.Merge(
             center.publisher(for: .NSPersistentStoreRemoteChange),
-            center.publisher(for: NSApplication.didBecomeActiveNotification)
+            center.publisher(for: Platform.didBecomeActive)
         )
         .debounce(for: .milliseconds(700), scheduler: RunLoop.main)
         .eraseToAnyPublisher()
@@ -71,13 +108,85 @@ struct RootView: View {
     private static let todayMayHaveChanged: AnyPublisher<Notification, Never> = {
         let center = NotificationCenter.default
         return Publishers.MergeMany([
-            center.publisher(for: .NSCalendarDayChanged),
-            center.publisher(for: .NSSystemTimeZoneDidChange),
-            center.publisher(for: .NSSystemClockDidChange),
-            center.publisher(for: NSApplication.didBecomeActiveNotification),
-            NSWorkspace.shared.notificationCenter.publisher(for: NSWorkspace.didWakeNotification),
+            center.publisher(for: .NSCalendarDayChanged).eraseToAnyPublisher(),
+            center.publisher(for: .NSSystemTimeZoneDidChange).eraseToAnyPublisher(),
+            center.publisher(for: .NSSystemClockDidChange).eraseToAnyPublisher(),
+            center.publisher(for: Platform.didBecomeActive).eraseToAnyPublisher(),
+            Platform.timeMayHaveJumped.eraseToAnyPublisher(),
         ])
         .receive(on: RunLoop.main)
         .eraseToAnyPublisher()
     }()
 }
+
+/// 메뉴 하나에 해당하는 화면.
+struct SectionContent: View {
+    let section: AppStore.Section
+
+    var body: some View {
+        Group {
+            switch section {
+            case .dashboard: DashboardView()
+            case .routines: RoutineManagementView()
+            case .meals: MealsView()
+            case .statistics: StatisticsView()
+            case .calendar: CalendarView()
+            case .settings: SettingsView()
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Theme.windowBackground)
+    }
+}
+
+/// 사이드바 + 상세 화면. macOS와, 창이 넓은 iPad에서 쓴다.
+struct SidebarNavigation: View {
+    @Environment(AppStore.self) private var store
+
+    var body: some View {
+        #if os(macOS)
+        NavigationSplitView {
+            SidebarView()
+                .navigationSplitViewColumnWidth(min: 180, ideal: 200, max: 240)
+        } detail: {
+            SectionContent(section: store.section)
+        }
+        #else
+        // iPad에서는 사이드바를 늘 보이게 둔다(세로 방향에서도 숨지 않는다).
+        // 창이 좁아지면 이 화면 대신 아래 탭으로 바뀌므로, 접었다 펴는 단추가 필요 없다.
+        HStack(spacing: 0) {
+            SidebarView()
+                .frame(width: 216)
+                .background(Theme.cardBackground)
+            Divider()
+            SectionContent(section: store.section)
+        }
+        #endif
+    }
+}
+
+#if !os(macOS)
+/// 아래 탭. iPhone과, 창이 좁은 iPad에서 쓴다. 캘린더는 탭에 없어서 통계 탭으로 보낸다(그 화면에 캘린더가 있다).
+struct TabNavigation: View {
+    @Environment(AppStore.self) private var store
+
+    var body: some View {
+        TabView(selection: selection) {
+            ForEach(AppStore.Section.phoneTabs) { section in
+                SectionContent(section: section)
+                    .tabItem {
+                        Label(section == .meals ? "식사" : section.title, systemImage: section.symbol)
+                    }
+                    .tag(section)
+            }
+        }
+    }
+
+    private var selection: Binding<AppStore.Section> {
+        Binding(
+            get: { store.section == .calendar ? .statistics : store.section },
+            set: { store.section = $0 }
+        )
+    }
+}
+#endif

@@ -4,6 +4,7 @@ import SwiftUI
 /// 그룹을 만들고 지우고 설정하는 일은 루틴 관리 화면이 맡는다. 여기서는 오늘의 체크에 집중한다.
 struct RoutineCard: View {
     @Environment(AppStore.self) var store
+    @Environment(CloudSyncMonitor.self) private var sync
     /// 접어 둔 그룹의 ID(쉼표로 이어 붙인 문자열). 이 Mac에만 저장된다.
     @Environment(\.accessibilityReduceMotion) var reduceMotion
     @AppStorage("collapsedGroupIDs") var collapsedGroupIDs = ""
@@ -88,7 +89,18 @@ struct RoutineCard: View {
 
     @ViewBuilder
     private var emptyState: some View {
-        if store.isViewingToday, !store.hasRoutines {
+        if store.isViewingToday, !store.hasRoutines, sync.isWaitingForFirstImport {
+            // iCloud를 쓰는데 아직 한 번도 가져오지 못했다. 다른 기기의 기록이 곧 내려올 수 있으니 "없다"고 단정하지 않는다.
+            VStack(spacing: 10) {
+                ProgressView()
+                Text("iCloud에서 기록을 확인하는 중이에요.\n다른 기기에서 쓰던 기록이 있으면 잠시 뒤 나타나요.")
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 16)
+        } else if store.isViewingToday, !store.hasRoutines {
             // 그룹이나 루틴이 아직 없다. 만드는 곳(루틴 관리)으로 안내한다.
             EmptyHint(
                 symbol: "checklist", message: "아직 등록된 루틴이 없어요.", tint: Theme.accent,
@@ -124,7 +136,7 @@ struct RoutineCard: View {
             Button("오늘로 이동") {
                 store.goToToday()
             }
-            .buttonStyle(.link)
+            .buttonStyle(.borderless)
         }
         .font(.callout)
         .foregroundStyle(.secondary)

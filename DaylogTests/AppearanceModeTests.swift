@@ -102,8 +102,15 @@ struct BrandIconTests {
         #expect(try backgroundBrightness(of: image, in: .darkAqua, at: 12) < 0.5)
     }
 
-    @Test func sidebarMenuKeepsItsFourSections() {
-        #expect(AppStore.Section.allCases.map(\.title) == ["대시보드", "루틴 관리", "통계", "설정"])
-        #expect(Set(AppStore.Section.allCases.map(\.filledSymbol)).count == 4)
+    /// v1.4: 메뉴는 여섯 개. 식사 기록과 캘린더가 따로 생겼다.
+    @Test func sidebarMenuHasSixSections() {
+        #expect(AppStore.Section.allCases.map(\.title) == ["오늘", "루틴", "식사 기록", "통계", "캘린더", "설정"])
+        #expect(Set(AppStore.Section.allCases.map(\.filledSymbol)).count == 6)
+    }
+
+    /// 아래 탭(iPhone, 좁은 iPad 창)은 다섯 개. 캘린더는 통계 화면 안에서 연다.
+    @Test func phoneTabsLeaveCalendarToStatistics() {
+        #expect(AppStore.Section.phoneTabs == [.dashboard, .routines, .meals, .statistics, .settings])
+        #expect(!AppStore.Section.phoneTabs.contains(.calendar))
     }
 }

@@ -71,3 +71,26 @@ struct CheckSection: Identifiable, Equatable {
     var ratio: Double? { Achievement.ratio(done: done, total: total) }
     var percent: Int? { Achievement.percent(done: done, total: total) }
 }
+
+/// 오늘 화면에 띄울 "다음 루틴": 시간이 정해진, 아직 하지 않은 항목 가운데 하나.
+struct NextCheck: Equatable {
+    let check: CheckValue
+    let group: GroupSnapshot
+    let minutes: Int
+    /// 예정 시간이 이미 지났다.
+    let isOverdue: Bool
+
+    /// 지금 이후로 가장 이른 것. 남은 것이 모두 지난 시간이면 그중 가장 이른 것(밀린 것부터).
+    /// 시간이 없거나 시각으로 읽히지 않는 항목은 고르지 않는다.
+    static func pick(from sections: [CheckSection], nowMinutes: Int) -> NextCheck? {
+        let pending = sections.flatMap { section in
+            section.checks.compactMap { check -> NextCheck? in
+                guard !check.isDone, let minutes = TimeLabel.minutes(check.timeLabel) else { return nil }
+                return NextCheck(check: check, group: section.group, minutes: minutes, isOverdue: minutes < nowMinutes)
+            }
+        }
+        // 같은 시각이면 목록 순서를 따른다(정렬이 순서를 보존하지 않으므로 순번을 함께 본다).
+        let ordered = pending.enumerated().sorted { ($0.element.minutes, $0.offset) < ($1.element.minutes, $1.offset) }.map(\.element)
+        return ordered.first { !$0.isOverdue } ?? ordered.first
+    }
+}

@@ -132,6 +132,9 @@ enum StoreBackup {
         guard status == SQLITE_OK, let handle else {
             throw DaylogError.backupVerificationFailed("저장소 파일을 열 수 없습니다(\(status)).")
         }
+        // 방금 닫힌 저장소가 마무리 기록(WAL 정리)을 하는 중이면 곧바로 "database is locked"로 실패한다.
+        // 읽기만 하는 검사이므로 잠깐 기다렸다가 읽는다.
+        sqlite3_busy_timeout(handle, 5000)
         return try body(handle)
     }
 

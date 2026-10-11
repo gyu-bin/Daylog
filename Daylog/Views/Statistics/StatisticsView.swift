@@ -1,53 +1,39 @@
 import SwiftUI
 
-/// 통계 화면. [루틴 통계]는 고른 기간의 달성 기록을, [식사 기록]은 지난 식사를 보여 준다.
+/// 통계 화면: 고른 기간의 루틴 달성 기록과, 식사를 얼마나 적었는지.
+/// 지난 식사를 찾아보고 고치는 일은 식사 기록 화면이 맡는다.
 struct StatisticsView: View {
     @Environment(AppStore.self) private var store
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @State private var mealSummary = MealSummary()
 
     var body: some View {
         GeometryReader { proxy in
             let isWide = proxy.size.width >= 880
             ScrollView {
                 VStack(alignment: .leading, spacing: Theme.spacing) {
-                    ViewThatFits(in: .horizontal) {
-                        HStack(alignment: .center) {
-                            PageTitle(title: "통계", subtitle: "오늘(\(store.today.longTitle)) 기준")
-                            Spacer(minLength: 16)
-                            tabPicker
-                        }
-                        VStack(alignment: .leading, spacing: 10) {
-                            PageTitle(title: "통계", subtitle: "오늘(\(store.today.longTitle)) 기준")
-                            tabPicker
-                        }
-                    }
+                    PageTitle(title: "통계", subtitle: "오늘(\(store.today.longTitle)) 기준")
 
-                    switch store.statisticsTab {
-                    case .routines:
-                        RoutineStatisticsView(isWide: isWide)
-                    case .meals:
-                        MealHistoryView(isWide: isWide)
+                    RoutineStatisticsView(isWide: isWide)
+
+                    SectionTitle(symbol: "fork.knife", title: "식사 기록", tint: Theme.mealTint)
+                    MealSummaryTiles(summary: mealSummary, periodTitle: MealPeriod.month.title, isWide: isWide)
+
+                    // 아래 탭에는 캘린더가 없어서(iPhone, 좁은 창) 여기에 둔다. 날짜를 누르면 그날의 기록을 연다.
+                    if horizontalSizeClass == .compact {
+                        SectionTitle(symbol: "calendar", title: "캘린더", tint: Theme.accent)
+                        MonthCalendarCard(opensDashboard: true)
                     }
                 }
-                .padding(Theme.pagePadding)
+                .pagePadding()
             }
         }
+        .onAppear(perform: reload)
+        .onChange(of: store.dataVersion) { reload() }
     }
 
-    private var tabPicker: some View {
-        Picker("통계 종류", selection: Binding(
-            get: { store.statisticsTab },
-            set: { tab in
-                withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.18)) { store.statisticsTab = tab }
-            }
-        )) {
-            ForEach(StatisticsTab.allCases) { tab in
-                Text(tab.title).tag(tab)
-            }
-        }
-        .pickerStyle(.segmented)
-        .labelsHidden()
-        .fixedSize()
+    private func reload() {
+        mealSummary = store.mealSummary(period: .month)
     }
 }
 
@@ -67,5 +53,22 @@ struct PageTitle: View {
             }
         }
         .padding(.bottom, 2)
+    }
+}
+
+/// 한 화면 안에서 묶음을 나누는 작은 제목.
+struct SectionTitle: View {
+    let symbol: String
+    let title: String
+    var tint: Color = Theme.accent
+
+    var body: some View {
+        Label {
+            Text(title).font(.headline)
+        } icon: {
+            Image(systemName: symbol).foregroundStyle(tint)
+        }
+        .padding(.top, 6)
+        .accessibilityAddTraits(.isHeader)
     }
 }

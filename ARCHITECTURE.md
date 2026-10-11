@@ -269,7 +269,76 @@ SwiftData는 저장이나 조회가 지나가면 같은 체크를 **다른 객�
   대신 실행 중에는 `NSApplication.applicationIconImage`로 Dock 아이콘을 앱의 외관에 맞춘다(`DockIcon`, `AppDelegate`가
   `effectiveAppearance`를 관찰). 앱을 끄면 Dock·Finder에는 라이트 아이콘이 보인다.
 - 사이드바는 `Views/Sidebar/SidebarView.swift`: `SidebarBrandHeader`(아이콘 42pt + 이름 + 슬로건, 좁으면 슬로건부터 뺀다),
-  메뉴 4개(색은 아이콘과 선택 표시에만: 대시보드 민트, 루틴 관리 파랑, 통계 보라, 설정 회색), 아래쪽 한 줄 문구.
+  메뉴 6개(v1.4부터. 색은 아이콘과 선택 표시에만: 오늘 민트, 루틴 파랑, 식사 기록 코랄, 통계 보라, 캘린더 주황, 설정 회색), 아래쪽 한 줄 문구.
+
+## 플랫폼 구조: macOS · iPhone · iPad (v1.4)
+
+타깃은 둘이고 소스 폴더는 하나다.
+
+| 타깃 | 플랫폼 | 번들 ID | iCloud 컨테이너 |
+|---|---|---|---|
+| `Daylog` | macOS 14+ | `com.mungyubin.daylog` | `iCloud.com.mungyubin.daylog` |
+| `DaylogiOS` | iOS·iPadOS 17+ (유니버설) | `com.mungyubin.daylog.ios` | 같은 컨테이너 |
+
+- **공유 방식**: `Daylog/` 폴더를 두 타깃이 그대로 함께 컴파일한다. 모델·서비스·`AppStore`·화면이 모두 같다.
+  플랫폼마다 다른 코드는 `#if os(macOS)`로 그 자리에서 가르고, 타깃별 파일 목록은 두지 않는다(파일을 추가할 때 빠뜨릴 일이 없다).
+  패키지로 나누지 않은 이유: 나눌 만큼 크지 않고, 지금 구조에서 가장 적게 바꾸는 방법이다.
+- **플랫폼 차이가 모이는 곳**: `App/Platform.swift`(앱 활성화·종료 알림 이름, 시계가 뛰었을 수 있는 시점, 기기 이름, 라이트/다크 색 만들기),
+  `Theme/AppearanceMode.swift`(macOS는 `NSApplication.appearance`, iOS는 화면 뿌리의 `preferredColorScheme`), `App/DaylogApp.swift`(창·앱 델리게이트),
+  `Services/CloudSync.swift`(권한 읽기: macOS는 코드 서명, iOS는 프로비저닝 프로파일. 시뮬레이터는 로컬 전용).
+  창 크기·Dock 아이콘·메뉴 막대·첫 응답자 처리는 macOS에만 있다. 저장소 잠금(`StoreLock`)과 백업은 두 플랫폼이 같은 코드를 쓴다.
+- **스키마와 동기화는 그대로다.** 모델을 바꾸지 않았고 컨테이너도 새로 만들지 않았다. iOS 앱은 같은 `ModelContainer` 설정으로 같은 개인 데이터베이스를 쓴다.
+  기기마다 `deviceID`가 따로라서 필드별 편집 기록(`FieldEdit`)과 체크 병합 규칙이 Mac끼리와 똑같이 적용된다.
+
+### 메뉴와 탐색
+
+메뉴는 여섯 개: 오늘, 루틴, 식사 기록, 통계, 캘린더, 설정(`AppStore.Section`).
+
+| 화면 | 탐색 | 고르는 기준 |
+|---|---|---|
+| macOS | `NavigationSplitView` 사이드바 | 항상 |
+| iPad(넓은 창) | 고정 사이드바 + 상세 | `horizontalSizeClass == .regular` |
+| iPhone, iPad의 좁은 창 | 아래 탭 5개(오늘·루틴·식사·통계·설정) | `horizontalSizeClass == .compact` |
+
+- 기기 종류나 고정 크기가 아니라 **창 너비**로 고른다. iPad의 Split View·Stage Manager에서 창이 좁아지면 탭으로 바뀐다.
+- 아래 탭에는 캘린더가 없다. 좁은 화면에서는 통계 화면 맨 아래에 달력이 붙고, 날짜를 누르면 그날의 기록으로 간다.
+- iPad의 사이드바는 `NavigationSplitView`가 아니라 고정 너비 열이다. 세로 방향에서도 숨지 않게 하려는 것이고, 좁아지면 어차피 탭으로 바뀌므로 접는 단추가 필요 없다.
+- 각 화면 안의 열 수(1열·2열·4열)는 `GeometryReader`로 잰 내용 너비로 정한다. 그래서 iPad 가로 화면은 같은 너비의 Mac 창과 같은 배치가 된다.
+
+### 좁은 화면의 오늘 (`TodayCompactView`)
+
+진행률 고리 → 다음 루틴 → 체크 목록 → 식사 요약. 통계 카드와 차트는 통계 탭에 있다.
+
+- 진행률 카드는 "시작 전(첫 루틴을 만들기 전)", "휴식(예정된 루틴이 없는 날)", "미기록(예정은 있었는데 체크 없음)"을 글자로 구분한다.
+- "다음 루틴"은 `NextCheck.pick`(순수 함수)이 고른다: 시간이 정해진 남은 항목 중 지금 이후 가장 이른 것, 없으면 가장 먼저 밀린 것. 표시만 하고 알림은 없다.
+- iCloud를 쓰는데 아직 한 번도 가져오지 못했으면(`CloudSyncMonitor.isWaitingForFirstImport`) "아직 등록된 루틴이 없어요" 대신 확인 중이라고 알린다.
+  다른 기기에서 쓰던 사람에게 빈 화면을 새 사용자의 화면처럼 보여 주지 않기 위해서다. 예시 기록은 만들지 않는다.
+
+### 루틴 관리와 편집 (v1.4)
+
+- 목록에는 이름·요일·시간만 둔다. 색상 팔레트와 요일 버튼은 편집 화면에만 있고, 달성 기준값은 설정 화면에만 있다.
+- 그룹 접기 상태는 기기마다 따로 저장한다(`collapsedRoutineGroupIDs`). 대시보드의 접기(`collapsedGroupIDs`)와는 별개다.
+- 순서 변경은 끌어 놓기(항목은 손잡이, 그룹은 이름)와 더 보기 메뉴의 위/아래 이동 두 가지다.
+- 편집 화면은 초안(`RoutineDraft`)만 고치다가 [저장]에서 한 번에 반영한다. [취소]·닫기·아래로 쓸어 닫기는 모두 버린다.
+  빠른 선택(매일·평일·주말)과 요일 버튼은 같은 값을 읽어서 늘 일치한다(`WeekdaySelector`).
+- 예정 시간은 예전처럼 `timeLabel` 글자로 저장한다("07:30"). 편집은 시스템 시간 선택기로 하고, `TimeLabel`이 글자와 시각을 오간다.
+  예전에 자유롭게 적은 글자("아침 먹고")는 그대로 보여 주고, 원할 때만 시각으로 바꾼다. 스키마는 바꾸지 않았다.
+
+### 식사 기록 · 캘린더 화면
+
+- 둘 다 새 저장 구조 없이 `DayRecord`와 기존 카드(`MealCard`, `RoutineCard`, `MonthCalendarCard`, `MealHistoryView`)를 다시 쓴다.
+  보고 있는 날짜(`AppStore.selectedDay`)를 화면들이 공유하므로, 캘린더에서 고른 날짜의 식사를 식사 화면에서 이어서 볼 수 있다.
+- 미래 날짜는 고를 수 없다(`AppStore.select`). 달력의 상태는 색과 함께 기호(●/○/–)와 퍼센트로도 표시한다.
+- 통계 화면은 탭을 없애고 루틴 통계 아래에 식사 요약을 붙였다. 지난 식사를 찾고 고치는 일은 식사 기록 화면이 맡는다.
+
+### 검증 범위와 한계 (2026-10-11)
+
+- macOS: 격리된 검증 빌드로 화면을 확인했다.
+- iPhone·iPad: 시뮬레이터에서 확인했다. 시뮬레이터는 iCloud 없이 로컬 전용이라 **iOS의 CloudKit 동기화는 검증하지 못했다.**
+- iPad 가로 화면, Split View, Stage Manager 크기 조절은 직접 확인하지 못했다(이 Mac의 개발 환경에는 시뮬레이터 화면을 회전시키거나 창을 나누는 수단이 없었다).
+  넓은 배치는 같은 너비의 macOS 창에서, 좁은 배치는 iPhone에서 같은 코드로 확인했다.
+- Xcode로 기기에 넣은 iOS 앱은 Development 환경을 쓴다. DMG(Production)로 설치한 Mac과 맞추려면 TestFlight/App Store 배포(Production)가 필요하다.
+  Production 스키마에는 이미 같은 레코드 형식이 있어서 스키마를 다시 배포할 필요는 없을 것으로 보지만, 실제 기기에서 확인한 것은 아니다.
 
 ## 배포 (DMG, Developer ID)
 
@@ -323,6 +392,7 @@ open build/Build/Products/Debug/Daylog.app
 | `--args -DaylogDebugAppearance light` 또는 `dark` | 시스템 설정과 다른 모드로 화면을 본다 |
 | `defaults write com.mungyubin.daylog DaylogDebugToday 2026-10-11` | 앱을 다시 활성화하면 자정이 지난 것처럼 동작한다. 끝나면 `defaults delete com.mungyubin.daylog DaylogDebugToday` |
 
+| `--args -DaylogDebugScript "section:calendar"` | 그 화면을 연 채로 시작한다(dashboard, routines, meals, statistics, calendar, settings). iOS 시뮬레이터에서는 `xcrun simctl launch <기기> com.mungyubin.daylog.ios -DaylogStoreName verify -DaylogDebugScript "…"` |
 | `--args -DaylogDebugScript "counts;quit"` | 기록의 개수, 저장소 형식, 백업별 개수·무결성, iCloud 상태를 표준 출력에 적는다(내용은 적지 않음) |
 | `--args -DaylogDebugScript "compareBackup:before-v4;quit"` | 이름에 그 글자가 든 최신 백업과 지금의 저장소를 행·열 단위로 비교해 표·열 이름과 개수만 적는다 |
 

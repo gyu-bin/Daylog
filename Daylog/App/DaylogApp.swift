@@ -1,10 +1,18 @@
-import AppKit
 import SwiftData
 import SwiftUI
+#if os(macOS)
+import AppKit
+#else
+import UIKit
+#endif
 
 @main
 struct DaylogApp: App {
+    #if os(macOS)
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    #else
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    #endif
     private let launch: AppLaunch
 
     init() {
@@ -12,24 +20,36 @@ struct DaylogApp: App {
     }
 
     var body: some Scene {
+        #if os(macOS)
         Window("Daylog", id: "main") {
-            Group {
-                switch launch {
-                case .ready(let container, let store, let sync):
-                    RootView()
-                        .environment(store)
-                        .environment(sync)
-                        .modelContainer(container)
-                case .failed(let message):
-                    StoreFailureView(message: message)
-                }
-            }
-            .frame(minWidth: 900, minHeight: 650)
+            content
+                .frame(minWidth: 900, minHeight: 650)
         }
         .defaultSize(width: 1200, height: 850)
         .windowResizability(.contentMinSize)
         .commands {
             DaylogCommands(store: launch.store)
+        }
+        #else
+        WindowGroup {
+            content
+        }
+        .commands {
+            DaylogCommands(store: launch.store)
+        }
+        #endif
+    }
+
+    @ViewBuilder
+    private var content: some View {
+        switch launch {
+        case .ready(let container, let store, let sync):
+            RootView()
+                .environment(store)
+                .environment(sync)
+                .modelContainer(container)
+        case .failed(let message):
+            StoreFailureView(message: message)
         }
     }
 }
@@ -37,6 +57,7 @@ struct DaylogApp: App {
 /// 실행 중에도 다른 기기의 변경을 받으려면 앱이 원격 알림을 등록해야 한다.
 /// 등록하지 않으면 iCloud의 변경은 앱을 다시 실행할 때에만 들어온다(실측).
 /// 알림을 받은 뒤 가져오기 자체는 시스템이 하고, 끝나면 저장소 변경 알림으로 화면이 갱신된다.
+#if os(macOS)
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var appearanceObservation: NSKeyValueObservation?
 
@@ -54,6 +75,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         NSLog("Daylog: 원격 알림 등록 실패 - %@", error.localizedDescription)
     }
 }
+#else
+final class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(
+        _ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    ) -> Bool {
+        if RuntimeEnvironment.cloudKitContainerID != nil {
+            application.registerForRemoteNotifications()
+        }
+        return true
+    }
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        NSLog("Daylog: 원격 알림 등록 실패 - %@", error.localizedDescription)
+    }
+}
+#endif
 
 /// 저장소를 열 수 없을 때 빈 저장소로 조용히 대체하지 않는다. 그러면 기록이 사라진 것처럼 보인다.
 @MainActor
@@ -67,13 +104,15 @@ enum AppLaunch {
     }
 
     static func make() -> AppLaunch {
-        // 설정에서 고른 외관을 창이 뜨기 전에 적용한다.
+        #if os(macOS)
+        // 설정에서 고른 외관을 창이 뜨기 전에 적용한다. (iOS·iPadOS는 화면 뿌리에서 색 구성으로 건다.)
         AppearanceMode.stored().apply()
         #if DEBUG
         // 개발 중 화면 검증용: `-DaylogDebugAppearance light|dark`로 설정과 다른 모드를 본다.
         if let name = UserDefaults.standard.string(forKey: "DaylogDebugAppearance") {
             NSApplication.shared.appearance = NSAppearance(named: name == "light" ? .aqua : .darkAqua)
         }
+        #endif
         #endif
         #if DEBUG
         DebugScript.purgeAndExitIfRequested()
@@ -164,7 +203,7 @@ extension RuntimeEnvironment {
     }
 }
 
-private struct StoreFailureView: View {
+struct StoreFailureView: View {
     let message: String
 
     var body: some View {

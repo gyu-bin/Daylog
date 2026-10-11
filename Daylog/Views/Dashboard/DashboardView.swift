@@ -2,6 +2,7 @@ import SwiftUI
 
 struct DashboardView: View {
     @Environment(AppStore.self) private var store
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
     /// 이 너비 이상이면 지표 4열 · 루틴/식사 2열로 배치한다.
     private static let wideBreakpoint: CGFloat = 880
@@ -9,6 +10,15 @@ struct DashboardView: View {
     private static let threeColumnBreakpoint: CGFloat = 980
 
     var body: some View {
+        // 좁은 화면(iPhone, 좁은 iPad 창)은 오늘 할 일만 담은 짧은 화면을 쓴다. macOS는 늘 넓은 쪽이다.
+        if horizontalSizeClass == .compact {
+            TodayCompactView()
+        } else {
+            wideDashboard
+        }
+    }
+
+    private var wideDashboard: some View {
         GeometryReader { proxy in
             let isWide = proxy.size.width >= Self.wideBreakpoint
             let isExtraWide = proxy.size.width >= Self.threeColumnBreakpoint
@@ -69,7 +79,7 @@ struct AdaptiveRow<Content: View>: View {
     }
 }
 
-private struct StartHint: View {
+struct StartHint: View {
     var body: some View {
         Label("그룹을 만들고 루틴을 추가하면 통계가 시작돼요.", systemImage: "sparkles")
             .font(.callout)

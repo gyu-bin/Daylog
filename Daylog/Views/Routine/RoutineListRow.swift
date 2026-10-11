@@ -47,20 +47,26 @@ struct RoutineListRow: View {
                         }
                     }
                     Spacer(minLength: 8)
-                    if !routine.timeLabel.isEmpty {
-                        Label(routine.timeLabel, systemImage: "clock")
-                            .font(.caption)
-                            .monospacedDigit()
-                            .foregroundStyle(.secondary)
-                            .lineLimit(1)
-                    }
+                    // 요일 → 시간 순서로, 줄마다 같은 자리에 오도록 시간 칸의 너비를 고정한다.
                     Text(Weekdays.summary(routine.weekdays))
                         .font(.caption.weight(.medium))
                         .foregroundStyle(.secondary)
-                        .padding(.horizontal, 7)
-                        .padding(.vertical, 2)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 3)
                         .background(Theme.track, in: Capsule())
                         .fixedSize()
+                    Group {
+                        if routine.timeLabel.isEmpty {
+                            Color.clear
+                        } else {
+                            Label(routine.timeLabel, systemImage: "clock")
+                                .font(.callout)
+                                .monospacedDigit()
+                                .foregroundStyle(.secondary)
+                                .lineLimit(1)
+                        }
+                    }
+                    .frame(width: 74, alignment: .leading)
                 }
                 .contentShape(Rectangle())
             }
@@ -72,13 +78,14 @@ struct RoutineListRow: View {
                 rowMenu
             } label: {
                 Image(systemName: "ellipsis")
-                    .frame(width: 26, height: 22)
+                    .foregroundStyle(.secondary)
+                    .frame(width: 34, height: 28)
                     .contentShape(Rectangle())
             }
             .menuStyle(.borderlessButton)
             .menuIndicator(.hidden)
+            .tint(.secondary)
             .fixedSize()
-            .opacity(isHovered ? 1 : 0.55)
             .accessibilityLabel("\(routine.title) 더 보기")
             .help("편집, 이동, 보관, 삭제")
         }

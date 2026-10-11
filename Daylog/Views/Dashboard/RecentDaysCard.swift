@@ -130,5 +130,7 @@ private struct DayRow: View {
         .accessibilityLabel(outcome.spokenSummary(threshold: threshold))
         .accessibilityHint("이 날짜의 기록으로 이동")
         .accessibilityAddTraits(isSelected ? [.isButton, .isSelected] : .isButton)
+        // 자식을 합친 요소에는 단추의 누르기 동작이 빠지므로 다시 붙인다.
+        .accessibilityAction { action() }
     }
 }

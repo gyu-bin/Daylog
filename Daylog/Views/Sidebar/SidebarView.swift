@@ -129,7 +129,9 @@ extension AppStore.Section {
         switch self {
         case .dashboard: return GroupColor.mint.color
         case .routines: return GroupColor.blue.color
+        case .meals: return GroupColor.coral.color
         case .statistics: return GroupColor.purple.color
+        case .calendar: return GroupColor.orange.color
         case .settings: return Color.secondary
         }
     }
@@ -137,8 +139,10 @@ extension AppStore.Section {
     var filledSymbol: String {
         switch self {
         case .dashboard: return "house.fill"
-        case .routines: return "list.bullet.rectangle.fill"
+        case .routines: return "checklist"
+        case .meals: return "fork.knife"
         case .statistics: return "chart.bar.fill"
+        case .calendar: return "calendar"
         case .settings: return "gearshape.fill"
         }
     }

@@ -3,6 +3,8 @@ import SwiftUI
 /// 월간 캘린더. 월요일 시작. 날짜를 누르면 그 날짜의 기록으로 이동한다.
 struct MonthCalendarCard: View {
     @Environment(AppStore.self) private var store
+    /// 날짜를 누르면 대시보드로 옮겨 그 날짜를 연다. 꺼 두면 지금 화면에서 날짜만 바꾼다.
+    var opensDashboard = false
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
 
@@ -37,7 +39,11 @@ struct MonthCalendarCard: View {
                             isSelected: day == store.selectedDay,
                             threshold: store.threshold
                         ) {
-                            store.open(day)
+                            if opensDashboard {
+                                store.open(day)
+                            } else {
+                                store.select(day)
+                            }
                         }
                     }
                 }
@@ -183,6 +189,10 @@ private struct DayCell: View {
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(spokenLabel)
         .accessibilityAddTraits(isSelected ? [.isButton, .isSelected] : .isButton)
+        // 자식을 합쳐 하나의 요소로 만들면 단추의 누르기 동작이 빠진다. VoiceOver로도 날짜를 고를 수 있게 다시 붙인다.
+        .accessibilityAction {
+            if !isFuture { action() }
+        }
     }
 
     @ViewBuilder

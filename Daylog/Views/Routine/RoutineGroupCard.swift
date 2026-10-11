@@ -8,12 +8,25 @@ struct RoutineGroupCard: View {
     let canMoveUp: Bool
     let canMoveDown: Bool
 
+    /// 접어 둔 그룹의 ID(쉼표로 이어 붙인 문자열). 이 기기에만 저장된다.
+    @AppStorage("collapsedRoutineGroupIDs") private var collapsedGroupIDs = ""
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var itemDraft = ""
     @State private var showsArchivedItems = false
     @State private var isDropTarget = false
     @FocusState private var isAddFocused: Bool
 
     private var color: GroupColor { GroupColor(key: group.colorKey) }
+
+    private var isCollapsed: Bool {
+        collapsedGroupIDs.split(separator: ",").contains(Substring(group.id.uuidString))
+    }
+
+    private func toggleCollapsed() {
+        var ids = Set(collapsedGroupIDs.split(separator: ",").map(String.init))
+        if !ids.insert(group.id.uuidString).inserted { ids.remove(group.id.uuidString) }
+        collapsedGroupIDs = ids.sorted().joined(separator: ",")
+    }
     private var editingSource: String { "group-card-\(group.id.uuidString)" }
 
     var body: some View {
@@ -24,6 +37,7 @@ struct RoutineGroupCard: View {
 
         VStack(alignment: .leading, spacing: 0) {
             header(itemCount: items.count)
+            if !isCollapsed {
             VStack(alignment: .leading, spacing: 1) {
                 ForEach(items) { routine in
                     RoutineListRow(
@@ -41,6 +55,7 @@ struct RoutineGroupCard: View {
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 6)
+            }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Theme.cardBackground, in: shape)
@@ -62,10 +77,17 @@ struct RoutineGroupCard: View {
         }
         .onChange(of: store.quickAddFocusToken) {
             // ⌘N: 마지막으로 쓴 그룹(없으면 첫 그룹)의 입력칸으로 간다.
-            if store.quickAddGroup?.id == group.id { isAddFocused = true }
+            if store.quickAddGroup?.id == group.id {
+                if isCollapsed { toggleCollapsed() }
+                isAddFocused = true
+            }
         }
         .onChange(of: isAddFocused) { _, isFocused in
             store.setEditing(isFocused, source: editingSource)
+        }
+        .onChange(of: editor.editing != nil) { _, isEditing in
+            // 편집 화면이 닫힌 뒤 입력칸이 포커스를 되찾아 키보드가 다시 올라오지 않게 한다.
+            if isEditing { isAddFocused = false }
         }
         .onDisappear {
             store.setEditing(false, source: editingSource)
@@ -76,18 +98,18 @@ struct RoutineGroupCard: View {
 
     private func header(itemCount: Int) -> some View {
         HStack(spacing: 10) {
-            Image(systemName: "line.3.horizontal")
-                .font(.system(size: 11, weight: .semibold))
-                .foregroundStyle(.tertiary)
-                .frame(width: 18, height: 24)
-                .contentShape(Rectangle())
-                .draggable(DragPayload.group(group.id).string) {
-                    Label(group.title, systemImage: "square.stack")
-                        .padding(8)
-                        .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: 6))
-                }
-                .help("끌어서 그룹 순서 변경")
-                .accessibilityHidden(true)
+            Button {
+                withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.18)) { toggleCollapsed() }
+            } label: {
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 11, weight: .bold))
+                    .foregroundStyle(.secondary)
+                    .rotationEffect(.degrees(isCollapsed ? 0 : 90))
+                    .frame(width: 22, height: 28)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("\(group.title) 그룹 \(isCollapsed ? "펼치기" : "접기")")
 
             Button {
                 editor.recoloringGroupID = group.id
@@ -103,12 +125,20 @@ struct RoutineGroupCard: View {
                     editor.recoloringGroupID = nil
                 }
                 .padding(12)
+                // iPhone에서도 화면을 덮는 시트 대신 작은 말풍선으로 띄운다.
+                .presentationCompactAdaptation(.popover)
             }
 
             Text(group.title)
                 .font(.headline)
                 .lineLimit(1)
                 .accessibilityAddTraits(.isHeader)
+                // 그룹 이름을 끌어서 순서를 바꾼다. 키보드로는 더 보기 메뉴의 위/아래 이동을 쓴다.
+                .draggable(DragPayload.group(group.id).string) {
+                    Label(group.title, systemImage: "square.stack")
+                        .padding(8)
+                        .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: 6))
+                }
             Text("항목 \(itemCount)개")
                 .font(.caption)
                 .foregroundStyle(.secondary)
@@ -120,11 +150,14 @@ struct RoutineGroupCard: View {
                 groupMenu
             } label: {
                 Image(systemName: "ellipsis")
-                    .frame(width: 26, height: 22)
+                    .font(.body.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                    .frame(width: 34, height: 28)
                     .contentShape(Rectangle())
             }
             .menuStyle(.borderlessButton)
             .menuIndicator(.hidden)
+            .tint(.secondary)
             .fixedSize()
             .accessibilityLabel("\(group.title) 그룹 더 보기")
             .help("이름·색상 변경, 이동, 보관, 삭제")

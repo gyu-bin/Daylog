@@ -6,11 +6,12 @@
 // - BrandIcon.imageset/DaylogIconLight.png, DaylogIconDark.png : 1024×1024, 여백 없이 꽉 찬 둥근 사각형(앱 안에서 쓰는 브랜드 아이콘)
 // - AppIcon.appiconset/icon_*.png : macOS 아이콘 격자(바깥 여백과 그림자 포함)에 맞춘 라이트 아이콘. 크기마다 따로 그린다.
 // - DockIconDark.imageset/DockIconDark.png : 같은 격자의 다크 아이콘(실행 중 Dock 아이콘 교체용)
+// - AppIcon.appiconset/icon_ios_1024.png : iOS·iPadOS용(모서리 없이 꽉 찬 정사각형, 투명도 없음). 같은 그림이다.
 import AppKit
 import SwiftUI
 
 enum Style { case light, dark }
-enum Layout { case fullBleed, macGrid }
+enum Layout { case fullBleed, macGrid, iosSquare }
 
 func color(_ hex: UInt32, _ alpha: CGFloat = 1) -> CGColor {
     CGColor(srgbRed: CGFloat((hex >> 16) & 0xFF) / 255, green: CGFloat((hex >> 8) & 0xFF) / 255, blue: CGFloat(hex & 0xFF) / 255, alpha: alpha)
@@ -104,8 +105,9 @@ func rimPath() -> CGPath {
 // MARK: - 그리기
 
 /// `rect`(왼쪽 위가 원점인 좌표) 안에 아이콘 한 개를 그린다.
-func drawIcon(_ ctx: CGContext, in rect: CGRect, style: Style, withDropShadow: Bool) {
-    let radius = rect.width * 0.225
+func drawIcon(_ ctx: CGContext, in rect: CGRect, style: Style, withDropShadow: Bool, squareCorners: Bool = false) {
+    // iOS는 시스템이 모서리를 깎으므로 모서리 없이 꽉 채운다.
+    let radius = squareCorners ? 0 : rect.width * 0.225
     let squircle = RoundedRectangle(cornerRadius: radius, style: .continuous).path(in: rect).cgPath
 
     if withDropShadow {
@@ -189,7 +191,8 @@ func drawIcon(_ ctx: CGContext, in rect: CGRect, style: Style, withDropShadow: B
     ctx.fillPath()
     ctx.restoreGState()
 
-    // 가장자리의 옅은 안쪽 선
+    // 가장자리의 옅은 안쪽 선(모서리를 시스템이 깎는 iOS 아이콘에는 그리지 않는다)
+    guard !squareCorners else { return }
     ctx.saveGState()
     ctx.addPath(squircle)
     ctx.clip()
@@ -201,8 +204,10 @@ func drawIcon(_ ctx: CGContext, in rect: CGRect, style: Style, withDropShadow: B
 }
 
 func render(size: Int, style: Style, layout: Layout) -> CGImage {
+    // iOS 아이콘은 투명도가 없어야 한다.
+    let alpha: CGImageAlphaInfo = layout == .iosSquare ? .noneSkipLast : .premultipliedLast
     let ctx = CGContext(data: nil, width: size, height: size, bitsPerComponent: 8, bytesPerRow: 0, space: sRGB,
-                        bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)!
+                        bitmapInfo: alpha.rawValue)!
     ctx.interpolationQuality = .high
     // 왼쪽 위를 원점으로
     ctx.translateBy(x: 0, y: CGFloat(size))
@@ -211,6 +216,8 @@ func render(size: Int, style: Style, layout: Layout) -> CGImage {
     switch layout {
     case .fullBleed:
         drawIcon(ctx, in: CGRect(x: 0, y: 0, width: s, height: s), style: style, withDropShadow: false)
+    case .iosSquare:
+        drawIcon(ctx, in: CGRect(x: 0, y: 0, width: s, height: s), style: style, withDropShadow: false, squareCorners: true)
     case .macGrid:
         // macOS 아이콘 격자: 1024 기준 824×824의 둥근 사각형과 바깥 여백 100
         let inset = s * 100 / 1024
@@ -234,4 +241,5 @@ for (points, scale) in [(16, 1), (16, 2), (32, 1), (32, 2), (128, 1), (128, 2), 
     let name = "icon_\(points)x\(points)\(scale == 2 ? "@2x" : "").png"
     write(render(size: points * scale, style: .light, layout: .macGrid), to: root.appendingPathComponent("AppIcon.appiconset/\(name)"))
 }
+write(render(size: 1024, style: .light, layout: .iosSquare), to: root.appendingPathComponent("AppIcon.appiconset/icon_ios_1024.png"))
 print("done")

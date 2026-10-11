@@ -4,6 +4,8 @@ import SwiftUI
 struct MealHistoryView: View {
     @Environment(AppStore.self) private var store
     let isWide: Bool
+    /// 지난 날짜를 골랐을 때 할 일(그 날짜의 식사를 열어 고친다).
+    let onOpen: (Day) -> Void
 
     @State private var days: [MealDay] = []
     @State private var nextOffset: Int?
@@ -14,18 +16,15 @@ struct MealHistoryView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: Theme.spacing) {
-            AdaptiveRow(isWide: isWide) {
-                recordedDaysTile
-                monthRateTile
-            }
+            MealSummaryTiles(summary: summary, periodTitle: store.mealPeriod.title, isWide: isWide)
 
             if isWide {
                 HStack(alignment: .top, spacing: Theme.spacing) {
                     timeline
-                    MealCalendarCard().frame(width: 300)
+                    MealCalendarCard(onOpen: onOpen).frame(width: 300)
                 }
             } else {
-                MealCalendarCard()
+                MealCalendarCard(onOpen: onOpen)
                 timeline
             }
         }
@@ -62,26 +61,6 @@ struct MealHistoryView: View {
         nextOffset = page.nextOffset
     }
 
-    // MARK: - 요약
-
-    private var recordedDaysTile: some View {
-        StatTile(
-            symbol: "fork.knife", title: "식사 기록 일수", color: .coral,
-            value: "\(summary.recordedDays)", unit: "일",
-            caption: "\(store.mealPeriod.title) · 한 끼라도 적은 날 (메모만 적은 날 제외)"
-        )
-    }
-
-    private var monthRateTile: some View {
-        StatTile(
-            symbol: "calendar", title: "이번 달 식사 기록률", color: .blue,
-            value: summary.monthPercent.map { "\($0)%" },
-            caption: summary.monthElapsedDays > 0
-                ? "\(summary.monthElapsedDays)일 중 \(summary.monthRecordedDays)일 · 식단 평가가 아니에요"
-                : "식사를 적기 시작하면 표시돼요."
-        )
-    }
-
     // MARK: - 타임라인
 
     private var timeline: some View {
@@ -114,7 +93,7 @@ struct MealHistoryView: View {
                     LazyVStack(alignment: .leading, spacing: 0) {
                         ForEach(days) { day in
                             MealTimelineRow(day: day, query: appliedQuery, isLast: day.id == days.last?.id && nextOffset == nil) {
-                                store.open(day.day)
+                                onOpen(day.day)
                             }
                         }
                         if nextOffset != nil {
@@ -185,11 +164,11 @@ struct MealHistoryView: View {
         } else {
             EmptyHint(
                 symbol: "fork.knife",
-                message: "\(store.mealPeriod.title)에 적은 식사 기록이 없어요.\n대시보드에서 오늘 식사를 적으면 여기에 쌓여요.",
+                message: "\(store.mealPeriod.title)에 적은 식사 기록이 없어요.\n위에서 식사를 적으면 여기에 쌓여요.",
                 tint: Theme.mealTint,
-                actionTitle: "오늘 식사 적으러 가기"
+                actionTitle: "오늘 식사 적기"
             ) {
-                store.open(store.today)
+                onOpen(store.today)
             }
         }
     }
@@ -202,6 +181,30 @@ extension MealPeriod {
         case .week: return "7일"
         case .month: return "30일"
         case .all: return "전체"
+        }
+    }
+}
+
+/// 식사 기록 요약 두 칸. 식사 기록 화면과 통계 화면이 같이 쓴다.
+struct MealSummaryTiles: View {
+    let summary: MealSummary
+    let periodTitle: String
+    let isWide: Bool
+
+    var body: some View {
+        AdaptiveRow(isWide: isWide) {
+            StatTile(
+                symbol: "fork.knife", title: "식사 기록 일수", color: .coral,
+                value: "\(summary.recordedDays)", unit: "일",
+                caption: "\(periodTitle) · 한 끼라도 적은 날"
+            )
+            StatTile(
+                symbol: "calendar", title: "이번 달 식사 기록률", color: .blue,
+                value: summary.monthPercent.map { "\($0)%" },
+                caption: summary.monthElapsedDays > 0
+                    ? "\(summary.monthElapsedDays)일 중 \(summary.monthRecordedDays)일"
+                    : "식사를 적기 시작하면 표시돼요."
+            )
         }
     }
 }

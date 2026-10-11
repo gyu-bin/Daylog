@@ -26,7 +26,9 @@ struct RoutineCheckStyle: ToggleStyle {
             Toggle(isOn: configuration.$isOn) {
                 configuration.label
             }
+            #if os(macOS)
             .toggleStyle(.checkbox)
+            #endif
         }
     }
 }

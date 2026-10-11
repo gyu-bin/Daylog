@@ -1,4 +1,7 @@
+import SwiftUI
+#if os(macOS)
 import AppKit
+#endif
 
 /// 앱의 외관 설정. 이 Mac의 UserDefaults에만 저장하고 iCloud로 동기화하지 않는다
 /// (Mac mini와 MacBook에서 서로 다른 외관을 고를 수 있어야 한다).
@@ -20,6 +23,16 @@ enum AppearanceMode: String, CaseIterable, Identifiable, Sendable {
         }
     }
 
+    /// SwiftUI의 색 구성. 시스템을 따를 때는 nil. iOS·iPadOS에서 화면 전체에 건다.
+    var colorScheme: ColorScheme? {
+        switch self {
+        case .system: return nil
+        case .light: return .light
+        case .dark: return .dark
+        }
+    }
+
+    #if os(macOS)
     /// 앱에 지정할 외관의 이름. 시스템을 따를 때는 nil(지정하지 않음).
     var appearanceName: NSAppearance.Name? {
         switch self {
@@ -28,12 +41,14 @@ enum AppearanceMode: String, CaseIterable, Identifiable, Sendable {
         case .dark: return .darkAqua
         }
     }
+    #endif
 
     /// 저장된 설정. 없거나 알 수 없는 값이면 시스템 설정을 따른다.
     static func stored(in defaults: UserDefaults = .standard) -> AppearanceMode {
         defaults.string(forKey: storageKey).flatMap(AppearanceMode.init(rawValue:)) ?? .system
     }
 
+    #if os(macOS)
     /// 앱 전체(창, 시트, 팝오버, 알림창, 메뉴)에 적용한다.
     /// SwiftUI의 `preferredColorScheme`은 창의 내용에만 걸려서 알림창·메뉴가 따로 놀 수 있고
     /// 시스템 설정으로 되돌릴 때 바로 풀리지 않는 경우가 있어, 앱의 외관을 직접 지정한다.
@@ -41,8 +56,10 @@ enum AppearanceMode: String, CaseIterable, Identifiable, Sendable {
     func apply(to application: NSApplication? = nil) {
         (application ?? .shared).appearance = appearanceName.flatMap(NSAppearance.init(named:))
     }
+    #endif
 }
 
+#if os(macOS)
 /// 실행 중인 동안 Dock 아이콘을 앱의 외관에 맞춘다.
 ///
 /// macOS의 에셋 카탈로그는 앱 아이콘의 다크 변형을 iOS에서만 지원한다(macOS는 Icon Composer 파일이 필요하다).
@@ -66,3 +83,4 @@ enum DockIcon {
         isDark(appearance) ? NSImage(named: darkImageName) : nil
     }
 }
+#endif

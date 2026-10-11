@@ -3,6 +3,7 @@ import SwiftUI
 /// 식사 기록 캘린더. 식사를 적은 날에 표시가 붙고, 날짜를 누르면 그 날짜의 기록을 연다.
 struct MealCalendarCard: View {
     @Environment(AppStore.self) private var store
+    let onOpen: (Day) -> Void
     /// 보고 있는 달의 1일. nil이면 이번 달.
     @State private var shownMonth: Day?
     @State private var mealDays: Set<Day> = []
@@ -95,7 +96,7 @@ struct MealCalendarCard: View {
         let isToday = day == store.today
         let isFuture = day > store.today
         return Button {
-            store.open(day)
+            onOpen(day)
         } label: {
             Text("\(day.day)")
                 .font(.callout.weight(hasMeal || isToday ? .semibold : .regular))

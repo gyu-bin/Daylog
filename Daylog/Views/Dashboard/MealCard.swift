@@ -1,5 +1,7 @@
-import AppKit
 import SwiftUI
+#if os(macOS)
+import AppKit
+#endif
 
 /// 아침·점심·저녁·간식과 식사 메모. 모두 자유 텍스트이고 자동 저장된다.
 struct MealCard: View {
@@ -41,6 +43,12 @@ struct MealCard: View {
         }
     }
 
+    #if os(macOS)
+    private static let rowAlignment: VerticalAlignment = .firstTextBaseline
+    #else
+    private static let rowAlignment: VerticalAlignment = .top
+    #endif
+
     private func binding(_ field: DayTextField) -> Binding<String> {
         Binding(
             get: { store.text(field.keyPath) },
@@ -50,7 +58,8 @@ struct MealCard: View {
 
     private func mealRow(_ kind: MealKind) -> some View {
         let field = kind.field
-        return HStack(alignment: .firstTextBaseline, spacing: 10) {
+        // iOS는 빈 여러 줄 입력칸의 글자 기준선을 엉뚱하게 알려 줘서, 기준선으로 맞추면 빈 칸만 두 줄 높이가 된다.
+        return HStack(alignment: Self.rowAlignment, spacing: 10) {
             Label {
                 Text(kind.title).font(.callout.weight(.semibold))
             } icon: {
@@ -62,9 +71,10 @@ struct MealCard: View {
             TextField(kind.title, text: binding(field), prompt: Text("무엇을 드셨나요?"), axis: .vertical)
                 .lineLimit(1...4)
                 .textFieldStyle(.plain)
+                .focused($focus, equals: field)
+                #if os(macOS)
                 // macOS에서는 이게 없으면 긴 내용이 한 줄에서 잘린 채 늘어나지 않는다.
                 .fixedSize(horizontal: false, vertical: true)
-                .focused($focus, equals: field)
                 .onSubmit {
                     focus = next(after: field)
                     moveCaretToEnd()
@@ -75,8 +85,9 @@ struct MealCard: View {
                     NSApp.sendAction(#selector(NSResponder.insertNewlineIgnoringFieldEditor(_:)), to: nil, from: nil)
                     return .handled
                 }
-                .accessibilityLabel(kind.title)
                 .accessibilityHint("Enter로 다음 칸, Shift+Enter로 줄바꿈")
+                #endif
+                .accessibilityLabel(kind.title)
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 9)
@@ -93,6 +104,7 @@ struct MealCard: View {
         }
     }
 
+    #if os(macOS)
     /// 포커스를 옮기면 macOS는 칸 전체를 선택한다. 그대로 타이핑하면 기존 내용이 지워지므로
     /// 이어 쓸 수 있게 커서를 끝으로 보낸다.
     private func moveCaretToEnd() {
@@ -101,6 +113,7 @@ struct MealCard: View {
             editor.setSelectedRange(NSRange(location: editor.string.utf16.count, length: 0))
         }
     }
+    #endif
 
     private var memo: some View {
         VStack(alignment: .leading, spacing: 4) {
