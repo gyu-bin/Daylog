@@ -42,6 +42,7 @@ struct WidgetBrand: View {
 
 /// 데이터가 없을 때의 안내.
 struct WidgetNotice: View {
+    @Environment(\.widgetFamily) private var family
     let symbol: String
     let title: String
     let detail: String
@@ -59,6 +60,10 @@ struct WidgetNotice: View {
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
+            // 큰 위젯에서는 안내가 맨 아래에 몰려 위가 텅 비어 보인다. 가운데 높이에 둔다.
+            if family == .systemLarge {
+                Spacer(minLength: 0)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }

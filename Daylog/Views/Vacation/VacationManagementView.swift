@@ -51,7 +51,7 @@ struct VacationManagementView: View {
                     .buttonStyle(.plain)
                 }
             }
-            .navigationTitle("휴가 관리")
+            .sheetTitle("휴가 관리")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("닫기") { dismiss() } }
             }
@@ -155,7 +155,8 @@ struct VacationEditorSheet: View {
             // 저장된 달력 날짜가 사용자의 시간대에 따라 하루 밀리지 않게 한다.
             .environment(\.timeZone, .gmt)
             .environment(\.calendar, Day.calendar)
-            .navigationTitle(target.period == nil ? "휴가 추가" : "휴가 수정")
+            .sheetTitle(target.period == nil ? "휴가 추가" : "휴가 수정")
+            .keyboardDoneBar()
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("취소") { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {

@@ -62,16 +62,8 @@ struct RootView: View {
             }
         }
         .preferredColorScheme(Self.debugColorScheme ?? appearance.colorScheme)
-        .toolbar {
-            // 여러 줄 입력칸은 Return이 줄바꿈이라, 키보드를 내릴 단추를 따로 둔다.
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button("완료") {
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                }
-                .fontWeight(.semibold)
-            }
-        }
+        .keyboardDoneBar()
+        .clearingWindowControls()
         #endif
     }
 

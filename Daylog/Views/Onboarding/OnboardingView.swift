@@ -30,6 +30,7 @@ struct OnboardingView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.bottom, 6)
             }
+            .scrollDismissesKeyboard(.interactively)
             HStack {
                 if step != .introduction {
                     Button("이전") { step = OnboardingStep(rawValue: step.rawValue - 1) ?? .introduction }
@@ -48,6 +49,7 @@ struct OnboardingView: View {
         .padding(24)
         .frame(idealWidth: 520, maxWidth: 600, minHeight: 440, idealHeight: 540)
         .interactiveDismissDisabled()
+        .keyboardDoneBar()
     }
 
     private var introduction: some View {
@@ -78,15 +80,14 @@ struct OnboardingView: View {
                 TextField("그룹 이름", text: $draft.groupTitle, prompt: Text("예: 아침"))
             }
             TextField("루틴 이름", text: $draft.routineTitle, prompt: Text("예: 물 한 잔 마시기"))
+                // 키보드가 올라오면 아래의 만들기 단추가 가려진다. Return으로도 만들 수 있게 한다.
+                .submitLabel(.done)
+                .onSubmit(createRoutineFromDraft)
             Text("매일 반복하는 루틴으로 만들어요. 요일과 시간은 루틴 화면에서 바꿀 수 있어요.")
                 .font(.caption).foregroundStyle(.secondary)
-            Button("입력한 루틴 만들기") {
-                if store.createOnboardingRoutine(draft) {
-                    didCreate = true
-                    step = .ready
-                }
-            }
-            .disabled(draft.validationMessage != nil)
+            Button("입력한 루틴 만들기", action: createRoutineFromDraft)
+                .buttonStyle(.bordered)
+                .disabled(draft.validationMessage != nil)
             if let message = draft.validationMessage, !draft.routineTitle.isEmpty || !draft.groupTitle.isEmpty {
                 Text(message).font(.caption).foregroundStyle(.secondary)
             }
@@ -104,6 +105,14 @@ struct OnboardingView: View {
             Text(store.activeRoutines.isEmpty ? "오늘 화면에서 언제든 루틴을 추가할 수 있어요." : "오늘 화면에서 루틴을 체크하며 시작해 보세요.")
             Text("설정에서 카드 순서를 바꾸고, 필요 없는 카드를 숨기세요. 오늘 루틴은 항상 남아 있어요.")
                 .font(.callout).foregroundStyle(.secondary)
+        }
+    }
+
+    private func createRoutineFromDraft() {
+        guard draft.validationMessage == nil else { return }
+        if store.createOnboardingRoutine(draft) {
+            didCreate = true
+            step = .ready
         }
     }
 

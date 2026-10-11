@@ -574,3 +574,12 @@ open -n build/Build/Products/Debug/Daylog.app --args -DaylogStoreName verify
 - `DashboardCards`가 좁은/넓은 화면에 같은 순서를 적용한다. `RootView`에서 식사 메뉴 숨김과 안전한 선택을 처리한다. 온보딩은 자동 seed 없이 확인한 입력만 기존 서비스를 통해 추가한다.
 - 기간 통계는 직전 동일 길이 기간을 같이 읽어 비교한다. 휴가/휴식 등 집계 대상이 없으면 nil, 미기록 예정일은 기존 분모 규칙을 유지하면서 UI에서 실제 0%와 구분한다.
 - macOS만 Sparkle를 링크한다. `UpdateConfiguration`이 번들 내 활성화·승인된 HTTPS feed·32바이트 공개 키를 요구하며, 현재 updater는 비활성이다. Developer ID·CloudKit 서명 설정과 실제 릴리스는 변경하지 않았다. 파일 선택을 위한 사용자 선택 파일 read/write sandbox 권한만 추가했다. [업데이트 활성화 절차](docs/UPDATES.md) 참고.
+
+## 시트와 키보드, iPad 창 모드 (Phase 4-A)
+
+실제 화면 점검에서 나온 규칙. 구현은 `Components/SheetChrome.swift`에 있다.
+
+- **시트의 제목은 `sheetTitle`로 단다.** macOS에서 시트 안의 `navigationTitle`은 바깥 창의 제목을 바꾸고 시트를 닫아도 남는다.
+- **키보드를 내리는 [완료]는 `keyboardDoneBar`로 단다.** `toolbar(placement: .keyboard)`는 시트를 한 번 띄우면 사라졌다. 시트는 따로 붙여야 한다.
+- **iPad 창 모드의 창 조절 단추**는 탐색 막대가 없는 화면의 왼쪽 위 내용을 가린다. 뿌리 화면의 `clearingWindowControls`가 창 모드일 때만 위쪽을 비운다.
+- 위젯 체크 직후 위젯 그림이 늦게 바뀌는 문제는 시뮬레이터에서만 확인했고 미해결이다([진행 기록](docs/PROGRESS.md)의 Phase 4-A).

@@ -67,6 +67,7 @@ struct GroupRatesCard: View {
 
 /// 항목별 달성률 표: 항목, 그룹, 완료한 날, 예정된 날, 달성률.
 struct ItemRatesCard: View {
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     let rates: [RoutineRate]
     let periodLabel: String
     /// 이 그룹의 항목만 보고 있다. nil이면 전체.
@@ -101,10 +102,12 @@ struct ItemRatesCard: View {
     }
 
     private var table: some View {
-        Grid(alignment: .leading, horizontalSpacing: 12, verticalSpacing: 9) {
+        // 좁은 화면(iPhone)에서는 그룹 이름 칸을 빼고 색 점만 남긴다. 다섯 칸을 다 넣으면 항목 이름이 잘리고 "100%"가 두 줄로 꺾인다.
+        let isCompact = horizontalSizeClass == .compact
+        return Grid(alignment: .leading, horizontalSpacing: isCompact ? 8 : 12, verticalSpacing: 9) {
             GridRow {
                 Text("항목")
-                Text("그룹")
+                if !isCompact { Text("그룹") }
                 Text("완료").gridColumnAlignment(.trailing)
                 Text("예정").gridColumnAlignment(.trailing)
                 Text("달성률").gridColumnAlignment(.trailing)
@@ -120,31 +123,39 @@ struct ItemRatesCard: View {
                 let groupTitle = rate.groupTitle.isEmpty ? RoutineGroup.defaultTitle : rate.groupTitle
                 GridRow {
                     HStack(spacing: 6) {
+                        if isCompact {
+                            Circle().fill(color).frame(width: 7, height: 7)
+                        }
                         Text(rate.title)
                             .foregroundStyle(rate.isArchived || rate.isRemoved ? .secondary : .primary)
-                            .lineLimit(1)
+                            .lineLimit(isCompact ? 2 : 1)
                             .help(rate.title)
                         RateStateBadge(isArchived: rate.isArchived, isRemoved: rate.isRemoved)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                    HStack(spacing: 5) {
-                        Circle().fill(color).frame(width: 7, height: 7)
-                        Text(groupTitle)
-                            .foregroundStyle(.secondary)
-                            .lineLimit(1)
+                    if !isCompact {
+                        HStack(spacing: 5) {
+                            Circle().fill(color).frame(width: 7, height: 7)
+                            Text(groupTitle)
+                                .foregroundStyle(.secondary)
+                                .lineLimit(1)
+                        }
+                        .frame(maxWidth: 120, alignment: .leading)
                     }
-                    .frame(maxWidth: 120, alignment: .leading)
 
-                    Text("\(rate.done)일").monospacedDigit()
-                    Text("\(rate.scheduled)일").monospacedDigit().foregroundStyle(.secondary)
+                    Text("\(rate.done)일").monospacedDigit().fixedSize()
+                    Text("\(rate.scheduled)일").monospacedDigit().foregroundStyle(.secondary).fixedSize()
                     HStack(spacing: 8) {
                         ProgressBar(ratio: rate.ratio, height: 7, tint: color)
-                            .frame(width: 56)
+                            .frame(width: isCompact ? 36 : 56)
+                        // 글자 크기를 키워도 "100%"가 줄바꿈되지 않게 너비를 고정하지 않는다.
                         Text("\(rate.percent)%")
                             .font(.callout.weight(.semibold))
                             .monospacedDigit()
-                            .frame(width: 40, alignment: .trailing)
+                            .lineLimit(1)
+                            .fixedSize()
+                            .frame(minWidth: 40, alignment: .trailing)
                     }
                 }
                 .font(.callout)

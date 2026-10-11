@@ -126,6 +126,7 @@ struct RoutineEditSheet: View {
                 .frame(maxWidth: .infinity)
             }
             .scrollDismissesKeyboard(.interactively)
+            .keyboardDoneBar()
             .background(Theme.windowBackground)
             .navigationTitle("루틴 편집")
             .navigationBarTitleDisplayMode(.inline)
@@ -191,6 +192,7 @@ struct RoutineEditSheet: View {
             HStack(spacing: 12) {
                 Toggle("시간 정하기", isOn: hasTime)
                     .toggleStyle(.switch)
+                    .tint(tint)
                     .labelsHidden()
                     .accessibilityLabel("예정 시간 정하기")
                 if TimeLabel.minutes(draft.timeLabel) != nil {
@@ -212,7 +214,7 @@ struct RoutineEditSheet: View {
                 }
                 Spacer(minLength: 0)
             }
-            Text("목록에 표시만 해요. 알림은 울리지 않아요.")
+            Text("목록에 표시돼요. 설정에서 루틴 알림을 켜면 이 시간에 알려 줘요.")
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }

@@ -59,7 +59,7 @@ struct DataTransferView: View {
                 }
             }
             .formStyle(.grouped)
-            .navigationTitle("가져오기 · 내보내기")
+            .sheetTitle("가져오기 · 내보내기")
             .toolbar { ToolbarItem(placement: .cancellationAction) { Button("닫기") { dismiss() } } }
             .fileImporter(isPresented: $importing, allowedContentTypes: [.commaSeparatedText, .json, .plainText]) { result in
                 load(result)
@@ -90,7 +90,7 @@ struct DataTransferView: View {
             ForEach(value.rows) { row in
                 VStack(alignment: .leading, spacing: 4) {
                     Text("\(row.id). \(row.routine.group) / \(row.routine.title)").font(.callout.weight(.medium))
-                    Text("요일 \(row.routine.weekdays.map(String.init).joined(separator: ", ")) · \(row.routine.time.isEmpty ? "시간 없음" : row.routine.time)")
+                    Text(Self.scheduleLabel(weekdays: row.routine.weekdays, time: row.routine.time))
                         .font(.caption).foregroundStyle(.secondary)
                     if !row.routine.note.isEmpty { Text(row.routine.note).font(.caption).lineLimit(3) }
                     Text(row.action.label).font(.caption).foregroundStyle(isError(row.action) ? Color.red : Color.secondary)
@@ -101,6 +101,11 @@ struct DataTransferView: View {
             Button("\(value.createdCount)개 추가…") { confirming = true }
                 .disabled(!value.canSave)
         } header: { Text("저장 전 미리보기") }
+    }
+
+    /// 미리보기의 요일·시간 한 줄. 파일의 숫자(1;2;3) 대신 루틴 화면과 같은 말(평일, 월·수·금)로 보여 준다.
+    static func scheduleLabel(weekdays: [Int], time: String) -> String {
+        "\(Weekdays.summary(weekdays)) · \(time.isEmpty ? "시간 없음" : time)"
     }
 
     private func isError(_ action: RoutineImportPreview.Action) -> Bool {
