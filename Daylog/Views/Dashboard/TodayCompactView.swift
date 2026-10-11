@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// 좁은 화면(iPhone, 좁은 iPad 창)의 오늘 화면: 진행률 → 다음 루틴 → 체크 목록 → 식사 요약.
-/// 통계 카드와 차트는 통계 탭에 있다. 여기서는 오늘 할 일만 짧게 보여 준다.
+/// 넓은 화면과 같은 카드 순서·표시 설정을 한 열로 보여 준다.
 struct TodayCompactView: View {
     @Environment(AppStore.self) private var store
 
@@ -14,14 +14,7 @@ struct TodayCompactView: View {
                 if !store.stats.hasStarted {
                     StartHint()
                 }
-                TodayProgressCard()
-                VacationDayCard(day: store.selectedDay)
-                // 시간이 정해진 남은 루틴이 있을 때만 자리를 차지한다.
-                if store.isViewingToday, !store.isVacation(on: store.today), NextCheck.pick(from: store.checkSections, nowMinutes: 0) != nil {
-                    NextRoutineCard()
-                }
-                RoutineCard()
-                MealSummaryCard()
+                DashboardCards(compact: true, wide: false)
             }
             .padding(Theme.compactPagePadding)
         }
@@ -104,7 +97,7 @@ struct TodayProgressCard: View {
 
     /// 쉬는 날(예정된 루틴 없음)과 미기록(예정은 있었는데 체크 없음)을 다르게 말한다.
     static func detail(_ outcome: DayOutcome, isToday: Bool, hasStarted: Bool) -> String {
-        if outcome.status == .vacation { return "루틴 통계와 알림은 쉬어 가요. 식사는 계속 기록할 수 있어요." }
+        if outcome.status == .vacation { return "루틴 통계와 알림은 쉬어 가요. 기존 기록은 보관돼요." }
         if outcome.total == 0 {
             if !hasStarted {
                 return isToday ? "루틴을 추가하면 여기에 진행률이 보여요." : "루틴을 시작하기 전의 날이에요."

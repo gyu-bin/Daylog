@@ -84,7 +84,7 @@ extension RoutineCard {
                 }
             }
         }
-        .toggleStyle(RoutineCheckStyle(tint: tint))
+        .toggleStyle(RoutineCheckStyle(tint: tint, routineTitle: check.title))
         .padding(.horizontal, 10)
         .padding(.vertical, 6)
     }

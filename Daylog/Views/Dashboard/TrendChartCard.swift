@@ -1,7 +1,7 @@
 import Charts
 import SwiftUI
 
-/// 달성률 추이. 미기록일은 0%, 휴식일은 값 없음(선이 끊긴다).
+/// 달성률 추이. 기록된 값은 선으로 잇고, 미기록은 별도 기호로 표시한다.
 struct TrendChartCard: View {
     @Environment(AppStore.self) private var store
     /// 그릴 날짜들(오름차순). nil이면 대시보드와 같은 최근 30일.
@@ -28,7 +28,7 @@ struct TrendChartCard: View {
         var segment = 0
         var previousHadValue = false
         for (index, outcome) in trend.enumerated() {
-            guard let percent = outcome.percent else {
+            guard outcome.status == .recorded, let percent = outcome.percent else {
                 if previousHadValue { segment += 1 }
                 previousHadValue = false
                 continue
@@ -62,12 +62,19 @@ struct TrendChartCard: View {
                         .frame(minHeight: chartHeight)
                 } else {
                     if points.isEmpty {
-                        Text("집계할 기록 없음 · 휴가 날짜는 제외돼요.")
+                        Text(trend.contains { $0.status == .unrecorded }
+                             ? "아직 기록한 날이 없어요. 미기록 예정일은 평균에 0%로 포함돼요."
+                             : "집계할 기록 없음 · 휴가 날짜는 제외돼요.")
                             .font(.caption).foregroundStyle(.secondary)
                     }
                     chart(trend: trend, points: points)
                         .frame(height: chartHeight)
                         .frame(maxHeight: isInteractive ? nil : .infinity, alignment: .top)
+                    if trend.contains(where: { $0.status == .unrecorded }) {
+                        Label("미기록 · 평균 계산에는 0%로 포함", systemImage: "diamond")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
         }
@@ -111,6 +118,14 @@ struct TrendChartCard: View {
                 }
             }
 
+
+            ForEach(Array(trend.enumerated()).filter { $0.element.status == .unrecorded }, id: \.offset) { index, _ in
+                PointMark(x: .value("날짜", index), y: .value("미기록", 0))
+                    .symbol(.diamond)
+                    .symbolSize(22)
+                    .foregroundStyle(Color.secondary)
+            }
+
             RuleMark(y: .value("기준값", store.threshold))
                 .lineStyle(StrokeStyle(lineWidth: 1, dash: [4, 3]))
                 .foregroundStyle(Color.secondary.opacity(0.7))
@@ -125,7 +140,7 @@ struct TrendChartCard: View {
                     ) {
                         tooltip(hovered)
                     }
-                if let percent = hovered.percent {
+                if hovered.status == .recorded, let percent = hovered.percent {
                     PointMark(x: .value("날짜", hoveredIndex), y: .value("달성률", percent))
                         .symbolSize(60)
                         .foregroundStyle(Theme.accent)
@@ -212,7 +227,7 @@ struct TrendChartCard: View {
     private func detail(_ outcome: DayOutcome) -> String {
         switch outcome.status {
         case .recorded: return "\(outcome.percentLabel) · \(outcome.total)개 중 \(outcome.done)개"
-        case .unrecorded: return "미기록 · 0%"
+        case .unrecorded: return "미기록 · 평균에는 0%로 포함"
         case .vacation: return "휴가 · 통계 제외"
         case .rest: return "휴식일"
         case .preStart: return "통계 시작 전"
@@ -223,6 +238,7 @@ struct TrendChartCard: View {
     private func summary(_ trend: [DayOutcome]) -> String {
         let average = StatsCalculator.averagePercent(trend).map { "평균 \($0)%" } ?? "기록 없음"
         let achieved = trend.filter { $0.isAchieved(threshold: store.threshold) }.count
-        return "\(average), 기준 \(store.threshold)% 이상 \(achieved)일"
+        let unrecorded = trend.filter { $0.status == .unrecorded }.count
+        return "\(average), 기준 \(store.threshold)% 이상 \(achieved)일, 미기록 \(unrecorded)일은 마름모로 구분하며 평균에는 0%로 포함"
     }
 }

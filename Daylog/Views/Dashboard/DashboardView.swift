@@ -4,10 +4,7 @@ struct DashboardView: View {
     @Environment(AppStore.self) private var store
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
-    /// 이 너비 이상이면 지표 4열 · 루틴/식사 2열로 배치한다.
     private static let wideBreakpoint: CGFloat = 880
-    /// 이 너비 이상이면 하단 통계를 3열로 배치한다. 그 사이에서는 2×2.
-    private static let threeColumnBreakpoint: CGFloat = 980
 
     var body: some View {
         // 좁은 화면(iPhone, 좁은 iPad 창)은 오늘 할 일만 담은 짧은 화면을 쓴다. macOS는 늘 넓은 쪽이다.
@@ -20,47 +17,15 @@ struct DashboardView: View {
 
     private var wideDashboard: some View {
         GeometryReader { proxy in
-            let isWide = proxy.size.width >= Self.wideBreakpoint
-            let isExtraWide = proxy.size.width >= Self.threeColumnBreakpoint
             ScrollView {
                 VStack(alignment: .leading, spacing: Theme.spacing) {
                     DashboardHeader()
-                    if !store.stats.hasStarted {
-                        StartHint()
-                    }
-                    StatCardsGrid(columns: isWide ? 4 : 2)
-                    // 두 카드는 내용만큼만 차지한다(위쪽을 맞춰 나란히). 비어 있을 때 억지로 늘리지 않는다.
-                    AdaptiveRow(isWide: isWide) {
-                        RoutineCard()
-                        MealCard()
-                    }
-                    if isExtraWide {
-                        AdaptiveRow(isWide: true) {
-                            recentDays
-                            MonthCalendarCard()
-                            VStack(spacing: Theme.spacing) {
-                                TrendChartCard()
-                                RoutineRatesCard()
-                            }
-                        }
-                    } else {
-                        AdaptiveRow(isWide: isWide) {
-                            recentDays
-                            MonthCalendarCard()
-                        }
-                        AdaptiveRow(isWide: isWide) {
-                            TrendChartCard()
-                            RoutineRatesCard()
-                        }
-                    }
+                    if !store.stats.hasStarted { StartHint() }
+                    DashboardCards(compact: false, wide: proxy.size.width >= Self.wideBreakpoint)
                 }
                 .padding(Theme.pagePadding)
             }
         }
-    }
-
-    private var recentDays: some View {
-        RecentDaysCard(title: "최근 7일 기록", outcomes: store.stats.week.reversed())
     }
 }
 

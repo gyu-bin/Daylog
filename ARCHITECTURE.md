@@ -1,6 +1,8 @@
 # Daylog 설계
 
-macOS 14+ / SwiftUI / SwiftData / Swift Charts / CloudKit. 외부 의존성·자체 서버 없음.
+macOS 14+ / iOS 17+ / SwiftUI / SwiftData / Swift Charts / CloudKit. 자체 서버 없음. macOS 업데이트 기반에만 Sparkle 2.10.0을 사용한다(배포 활성화 전).
+
+장기 개발: [로드맵](docs/DEVELOPMENT_PLAN.md) · [Phase 3 명세](docs/PHASE3.md) · [현재 진행](docs/PROGRESS.md).
 
 ## 엔티티
 
@@ -563,3 +565,12 @@ TEST_RUNNER_DAYLOG_SEED=2026-10-10 xcodebuild -project Daylog.xcodeproj -scheme 
     -derivedDataPath build test -only-testing:DaylogTests/VerificationSeed
 open -n build/Build/Products/Debug/Daylog.app --args -DaylogStoreName verify
 ```
+
+## Phase 3 데이터 이동과 기기 설정
+
+- `RoutineTransferFormat`은 CSV/버전 JSON을 검증하고 `RoutineTransferService`는 미리보기와 최신 카탈로그·날짜를 비교한다. 명시적 확인 뒤 신규 ID에만 `applyChange`를 적용하고 한 번 저장한다. 오류 시 해당 작업을 되돌린다. 이름 기반 중복은 건너뛰고 서로 다른 설정은 덮어쓰지 않는다.
+- `DataExportService`는 모델을 저장하거나 병합하지 않는다. 루틴 파일은 안전하게 재가져올 수 있는 활성 정의만 제공한다. 이름이 모호하거나 포맷으로 보존할 수 없는 정의는 오류를 표시한다. 전체 JSON은 v4의 7개 엔티티 물리 행·관계·휴가/충돌 이력을 보존하지만 복원 API는 없다. [파일 형식](docs/ROUTINE_FILES.md) 참고.
+- `DevicePreferences`의 UserDefaults는 식사 표시, 카드 순서·숨김, 온보딩 완료만 담는다. SwiftData/CloudKit에 새 필드는 추가하지 않는다. 식사 숨김은 기록 삭제와 무관하고 필수 루틴 카드는 숨길 수 없다.
+- `DashboardCards`가 좁은/넓은 화면에 같은 순서를 적용한다. `RootView`에서 식사 메뉴 숨김과 안전한 선택을 처리한다. 온보딩은 자동 seed 없이 확인한 입력만 기존 서비스를 통해 추가한다.
+- 기간 통계는 직전 동일 길이 기간을 같이 읽어 비교한다. 휴가/휴식 등 집계 대상이 없으면 nil, 미기록 예정일은 기존 분모 규칙을 유지하면서 UI에서 실제 0%와 구분한다.
+- macOS만 Sparkle를 링크한다. `UpdateConfiguration`이 번들 내 활성화·승인된 HTTPS feed·32바이트 공개 키를 요구하며, 현재 updater는 비활성이다. Developer ID·CloudKit 서명 설정과 실제 릴리스는 변경하지 않았다. 파일 선택을 위한 사용자 선택 파일 read/write sandbox 권한만 추가했다. [업데이트 활성화 절차](docs/UPDATES.md) 참고.

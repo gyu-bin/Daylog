@@ -8,6 +8,7 @@ import UIKit
 /// 화면의 뿌리. 플랫폼과 창 너비에 맞는 탐색 구조를 고른다.
 struct RootView: View {
     @Environment(AppStore.self) private var store
+    @State private var preferences = DevicePreferences.shared
     #if !os(macOS)
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @AppStorage(AppearanceMode.storageKey) private var appearance: AppearanceMode = .system
@@ -15,6 +16,17 @@ struct RootView: View {
 
     var body: some View {
         navigation
+            .environment(preferences)
+            .sheet(isPresented: onboardingPresented) {
+                OnboardingView().environment(preferences)
+            }
+            .onChange(of: preferences.mealsEnabled) { _, _ in
+                store.section = preferences.safeSelection(store.section)
+            }
+            .onChange(of: store.section) { _, section in
+                let safe = preferences.safeSelection(section)
+                if safe != section { store.section = safe }
+            }
             .alert("문제가 발생했어요", isPresented: errorIsPresented) {
                 Button("확인", role: .cancel) {}
             } message: {
@@ -78,6 +90,13 @@ struct RootView: View {
     }
     #endif
 
+    private var onboardingPresented: Binding<Bool> {
+        Binding(
+            get: { !preferences.onboardingCompleted && !RuntimeEnvironment.isRunningTests },
+            set: { if !$0 { preferences.completeOnboarding() } }
+        )
+    }
+
     private var errorIsPresented: Binding<Bool> {
         Binding(
             get: { store.errorMessage != nil },
@@ -88,6 +107,7 @@ struct RootView: View {
 
 /// 메뉴 하나에 해당하는 화면.
 struct SectionContent: View {
+    @Environment(DevicePreferences.self) private var preferences
     let section: AppStore.Section
 
     var body: some View {
@@ -95,7 +115,8 @@ struct SectionContent: View {
             switch section {
             case .dashboard: DashboardView()
             case .routines: RoutineManagementView()
-            case .meals: MealsView()
+            case .meals:
+                if preferences.mealsEnabled { MealsView() } else { DashboardView() }
             case .statistics: StatisticsView()
             case .calendar: CalendarView()
             case .settings: SettingsView()
@@ -136,10 +157,11 @@ struct SidebarNavigation: View {
 /// 아래 탭. iPhone과, 창이 좁은 iPad에서 쓴다. 캘린더는 탭에 없어서 통계 탭으로 보낸다(그 화면에 캘린더가 있다).
 struct TabNavigation: View {
     @Environment(AppStore.self) private var store
+    @Environment(DevicePreferences.self) private var preferences
 
     var body: some View {
         TabView(selection: selection) {
-            ForEach(AppStore.Section.phoneTabs) { section in
+            ForEach(preferences.navigationSections(phone: true)) { section in
                 SectionContent(section: section)
                     .tabItem {
                         Label(section == .meals ? "식사" : section.title, systemImage: section.symbol)
@@ -151,7 +173,7 @@ struct TabNavigation: View {
 
     private var selection: Binding<AppStore.Section> {
         Binding(
-            get: { store.section == .calendar ? .statistics : store.section },
+            get: { preferences.safeSelection(store.section == .calendar ? .statistics : store.section) },
             set: { store.section = $0 }
         )
     }

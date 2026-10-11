@@ -3,6 +3,7 @@ import SwiftUI
 /// 사이드바: 브랜드 머리말, 메뉴, 아래쪽 한 줄 문구.
 struct SidebarView: View {
     @Environment(AppStore.self) private var store
+    @Environment(DevicePreferences.self) private var preferences
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -11,7 +12,7 @@ struct SidebarView: View {
                 .padding(.top, 2)
                 .padding(.bottom, 16)
 
-            ForEach(Array(AppStore.Section.allCases.enumerated()), id: \.element) { index, section in
+            ForEach(Array(preferences.navigationSections(phone: false).enumerated()), id: \.element) { index, section in
                 SidebarRow(section: section, isSelected: store.section == section, shortcut: index + 1) {
                     store.section = section
                 }

@@ -176,3 +176,10 @@ Tools/            설치·배포·아이콘 스크립트
 | 1.3 | 루틴 그룹, 컬러풀한 디자인, 지난 식사 보기 |
 | 1.2 | iCloud 동기화 |
 | 1.1 | 첫 버전 |
+
+## 개발 진행 문서
+
+- [개발 로드맵](docs/DEVELOPMENT_PLAN.md)
+- [Phase 3 요구사항과 검증 기준](docs/PHASE3.md)
+- [현재 진행 상태와 다음 작업](docs/PROGRESS.md)
+- [macOS 업데이트 활성화 절차](docs/UPDATES.md)

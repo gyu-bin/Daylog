@@ -59,7 +59,8 @@ struct StatsService {
             min(start, today.adding(days: -(Self.heatmapMinimumDays - 1))),
             today.adding(days: -(Self.heatmapMaximumDays - 1))
         )
-        let source = try loadSource(from: min(start, heatmapStart), to: today)
+        let previousStart = period.days.map { start.adding(days: -$0) }
+        let source = try loadSource(from: min(previousStart ?? start, heatmapStart), to: today)
         let outcomes = Day.range(from: start, to: today).map { source.outcome(on: $0, today: today) }
         let days = outcomes.map(\.day)
 
@@ -73,7 +74,12 @@ struct StatsService {
             countedDays: outcomes.filter { $0.ratio != nil }.count,
             groupRates: try groupRates(source: source, days: days, today: today, byRate: true),
             routineRates: try routineRates(source: source, days: days, today: today),
-            heatmap: Day.range(from: heatmapStart, to: today).map { source.outcome(on: $0, today: today) }
+            heatmap: Day.range(from: heatmapStart, to: today).map { source.outcome(on: $0, today: today) },
+            previousPeriod: previousStart.map { previousStart in
+                let end = start.adding(days: -1)
+                let previous = Day.range(from: previousStart, to: end).map { source.outcome(on: $0, today: today) }
+                return PreviousPeriodStats(start: previousStart, end: end, outcomes: previous)
+            }
         )
     }
 

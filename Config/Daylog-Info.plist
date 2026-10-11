@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Activation requires the release approval checklist in docs/UPDATES.md. -->
+    <key>DaylogUpdatesEnabled</key><false/>
+    <key>SUFeedURL</key><string>https://github.com/gyu-bin/Daylog/releases/latest/download/appcast.xml</string>
+    <key>SUPublicEDKey</key><string></string>
+    <key>SUEnableInstallerLauncherService</key><true/>
+    <key>SUEnableDownloaderService</key><true/>
+    <key>SUVerifyUpdateBeforeExtraction</key><true/>
+    <key>SUEnableAutomaticChecks</key><false/>
+    <key>SUAutomaticallyUpdate</key><false/>
+</dict>
+</plist>

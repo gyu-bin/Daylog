@@ -14,9 +14,13 @@ extension DayOutcome {
         }
     }
 
-    /// "80%". 달성률이 없는 날은 "—".
+    /// 실제 기록된 0%와 미기록을 구분한다. 계산용 percent는 그대로 유지한다.
     var percentLabel: String {
-        status == .vacation ? "휴가" : percent.map { "\($0)%" } ?? "—"
+        switch status {
+        case .unrecorded: return "미기록"
+        case .vacation: return "휴가"
+        default: return percent.map { "\($0)%" } ?? "—"
+        }
     }
 
     func tint(threshold: Int) -> Color {
@@ -30,7 +34,7 @@ extension DayOutcome {
             let achieved = isAchieved(threshold: threshold) ? "기준 달성" : "기준 미달"
             return "\(day.shortTitle) \(day.weekdaySymbol)요일, \(total)개 중 \(done)개 완료, 달성률 \(percentLabel), \(achieved)"
         case .unrecorded:
-            return "\(day.shortTitle) \(day.weekdaySymbol)요일, 미기록, 달성률 0%"
+            return "\(day.shortTitle) \(day.weekdaySymbol)요일, 미기록, 평균 계산에는 0%로 포함"
         case .vacation:
             return "\(day.shortTitle) \(day.weekdaySymbol)요일, 휴가, 통계 제외"
         case .rest:

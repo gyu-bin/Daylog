@@ -202,6 +202,8 @@ struct PeriodStats: Equatable, Sendable {
     var routineRates: [RoutineRate]
     /// 활동 히트맵에 쓰는 날짜별 결과(기간과 최근 90일 중 긴 쪽, 최대 53주). 날짜 오름차순.
     var heatmap: [DayOutcome]
+    /// 바로 앞 동일 길이 기간. 전체 기간에는 비교가 없다.
+    var previousPeriod: PreviousPeriodStats? = nil
 
     static func empty(_ period: StatsPeriod) -> PeriodStats {
         PeriodStats(

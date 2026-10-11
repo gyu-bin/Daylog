@@ -4,6 +4,7 @@ import SwiftUI
 /// 지난 식사를 찾아보고 고치는 일은 식사 기록 화면이 맡는다.
 struct StatisticsView: View {
     @Environment(AppStore.self) private var store
+    @Environment(DevicePreferences.self) private var preferences
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var mealSummary = MealSummary()
 
@@ -16,8 +17,10 @@ struct StatisticsView: View {
 
                     RoutineStatisticsView(isWide: isWide)
 
-                    SectionTitle(symbol: "fork.knife", title: "식사 기록", tint: Theme.mealTint)
-                    MealSummaryTiles(summary: mealSummary, periodTitle: MealPeriod.month.title, isWide: isWide)
+                    if preferences.mealsEnabled {
+                        SectionTitle(symbol: "fork.knife", title: "식사 기록", tint: Theme.mealTint)
+                        MealSummaryTiles(summary: mealSummary, periodTitle: MealPeriod.month.title, isWide: isWide)
+                    }
 
                     // 아래 탭에는 캘린더가 없어서(iPhone, 좁은 창) 여기에 둔다. 날짜를 누르면 그날의 기록을 연다.
                     if horizontalSizeClass == .compact {
@@ -30,9 +33,11 @@ struct StatisticsView: View {
         }
         .onAppear(perform: reload)
         .onChange(of: store.dataVersion) { reload() }
+        .onChange(of: preferences.mealsEnabled) { reload() }
     }
 
     private func reload() {
+        guard preferences.mealsEnabled else { return }
         mealSummary = store.mealSummary(period: .month)
     }
 }

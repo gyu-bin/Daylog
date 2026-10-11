@@ -3,13 +3,14 @@ import SwiftUI
 /// 캘린더: 달력에서 날짜를 고르면 그날의 루틴과 식사를 옆(좁으면 아래)에서 보고 고친다.
 struct CalendarView: View {
     @Environment(AppStore.self) private var store
+    @Environment(DevicePreferences.self) private var preferences
 
     var body: some View {
         GeometryReader { proxy in
             let isWide = proxy.size.width >= 820
             ScrollView {
                 VStack(alignment: .leading, spacing: Theme.spacing) {
-                    PageTitle(title: "캘린더", subtitle: "날짜를 누르면 그날의 루틴과 식사를 보고 고칠 수 있어요.")
+                    PageTitle(title: "캘린더", subtitle: preferences.mealsEnabled ? "날짜를 누르면 그날의 루틴과 식사를 보고 고칠 수 있어요." : "날짜를 누르면 그날의 루틴을 보고 고칠 수 있어요.")
                     if isWide {
                         HStack(alignment: .top, spacing: Theme.spacing) {
                             MonthCalendarCard()
@@ -42,7 +43,7 @@ struct CalendarView: View {
             }
             VacationDayCard(day: store.selectedDay)
             RoutineCard()
-            MealCard()
+            if preferences.mealsEnabled { MealCard() }
         }
     }
 

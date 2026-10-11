@@ -144,7 +144,7 @@ struct MenuBarView: View {
                         }
                     }
                 }
-                .toggleStyle(RoutineCheckStyle(tint: color.color))
+                .toggleStyle(RoutineCheckStyle(tint: color.color, routineTitle: check.title))
                 .padding(.horizontal, 8)
                 .frame(height: Self.rowHeight)
             }

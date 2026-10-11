@@ -16,6 +16,8 @@ struct SettingsView: View {
     private var form: some View {
         Form {
             AppearanceSection()
+            DevicePreferenceSections()
+            DataTransferSettingsSection()
 
             Section {
                 ThresholdControl()

@@ -33,7 +33,7 @@ struct StatCardsGrid: View {
         let outcome = stats.today
         return StatTile(
             symbol: "checkmark.circle.fill", title: "오늘 달성률", color: .mint,
-            value: outcome.status == .vacation ? "휴가" : outcome.percent.map { "\($0)%" },
+            value: outcome.status == .vacation || outcome.status == .unrecorded ? outcome.percentLabel : outcome.percent.map { "\($0)%" },
             caption: todayCaption(outcome)
         ) {
             if outcome.total > 0 {
@@ -45,6 +45,7 @@ struct StatCardsGrid: View {
 
     private func todayCaption(_ outcome: DayOutcome) -> String {
         if outcome.status == .vacation { return "통계와 루틴 알림에서 제외돼요." }
+        if outcome.status == .unrecorded { return "예정된 루틴 \(outcome.total)개 · 아직 기록하지 않았어요." }
         guard stats.hasStarted else { return "첫 루틴을 완료하면 표시돼요." }
         guard outcome.total > 0 else { return "오늘은 예정된 루틴이 없어요." }
         if outcome.done == outcome.total { return "\(outcome.total)개 모두 완료했어요." }

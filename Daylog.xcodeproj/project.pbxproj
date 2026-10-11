@@ -24,6 +24,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXBuildFile section */
+		D50000000000000000000001 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = D50000000000000000000002 /* Sparkle */; };
 		D20000000000000000000020 /* DaylogWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D40000000000000000000004 /* DaylogWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D50000000000000000000001 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +189,7 @@
 			);
 			name = Daylog;
 			packageProductDependencies = (
+				D50000000000000000000002 /* Sparkle */,
 			);
 			productName = Daylog;
 			productReference = D10000000000000000000004 /* Daylog.app */;
@@ -271,6 +274,7 @@
 				Base,
 			);
 			mainGroup = D10000000000000000000002;
+			packageReferences = (D50000000000000000000003 /* Sparkle */,);
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D10000000000000000000003 /* Products */;
@@ -284,6 +288,21 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D50000000000000000000003 /* Sparkle */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {kind = exactVersion; version = 2.10.0;};
+		};
+/* End XCRemoteSwiftPackageReference section */
+/* Begin XCSwiftPackageProductDependency section */
+		D50000000000000000000002 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D50000000000000000000003 /* Sparkle */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin PBXResourcesBuildPhase section */
 		D2000000000000000000000E /* Resources */ = {
@@ -404,6 +423,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Config/Daylog.entitlements;
+				INFOPLIST_FILE = "Config/Daylog-Info.plist";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				CODE_SIGN_STYLE = Automatic;
@@ -431,6 +451,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Config/Daylog.entitlements;
+				INFOPLIST_FILE = "Config/Daylog-Info.plist";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				CODE_SIGN_STYLE = Automatic;

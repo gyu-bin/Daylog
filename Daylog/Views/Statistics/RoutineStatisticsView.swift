@@ -16,6 +16,7 @@ struct RoutineStatisticsView: View {
             if store.stats.hasStarted {
                 periodBar
                 tiles
+                comparison
                 TrendChartCard(
                     outcomes: stats.outcomes, subtitle: "(\(stats.period.label))",
                     chartHeight: 200, isInteractive: true
@@ -121,8 +122,40 @@ struct RoutineStatisticsView: View {
         StatTile(
             symbol: "chart.bar.fill", title: "기간 평균 달성률", color: .blue,
             value: stats.averagePercent.map { "\($0)%" },
-            caption: stats.averagePercent == nil ? "이 기간에 집계할 날이 없어요." : "\(stats.period.label) · 미기록일은 0%"
+            caption: stats.averagePercent == nil ? "이 기간에 집계할 날이 없어요."
+                : "집계 \(stats.countedDays)일 · 미기록 \(stats.unrecordedDays)일 포함"
         )
+    }
+
+    @ViewBuilder
+    private var comparison: some View {
+        if let previous = stats.previousPeriod {
+            Card(fillsHeight: false) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("이전 \(stats.period.title)과 비교")
+                        .font(.headline)
+                    if let change = stats.averageChange, let average = previous.averagePercent {
+                        Text(change == 0 ? "평균 달성률이 같아요."
+                             : "평균 달성률 \(abs(change))%p \(change > 0 ? "증가" : "감소")")
+                            .font(.body.weight(.semibold))
+                        Text("이전 평균 \(average)% · 집계 \(previous.countedDays)일")
+                            .font(.callout)
+                            .foregroundStyle(.secondary)
+                    } else {
+                        Text(previous.averagePercent == nil ? "이전 기간에 비교할 기록이 없어요." : "현재 기간에 집계할 기록이 없어 비교할 수 없어요.")
+                            .font(.callout)
+                            .foregroundStyle(.secondary)
+                    }
+                    Text("\(previous.start.longTitle) ~ \(previous.end.longTitle)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Text("미기록 예정일은 평균에 0%로 포함하며, 휴가·휴식일은 제외해요.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                .accessibilityElement(children: .combine)
+            }
+        }
     }
 
     private var achievedTile: some View {

@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ProgressRing: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     /// 0...1. nil이면 빈 고리.
     let ratio: Double?
     var lineWidth: CGFloat = 8
@@ -16,12 +17,13 @@ struct ProgressRing: View {
                 .rotationEffect(.degrees(-90))
         }
         .padding(lineWidth / 2)
-        .animation(.easeOut(duration: 0.25), value: ratio)
+        .animation(reduceMotion ? nil : .easeOut(duration: 0.25), value: ratio)
         .accessibilityHidden(true)
     }
 }
 
 struct ProgressBar: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     let ratio: Double
     var height: CGFloat = 8
     var tint: Color = Theme.accent
@@ -39,7 +41,7 @@ struct ProgressBar: View {
             }
         }
         .frame(height: height)
-        .animation(.easeOut(duration: 0.25), value: ratio)
+        .animation(reduceMotion ? nil : .easeOut(duration: 0.25), value: ratio)
         .accessibilityHidden(true)
     }
 }
