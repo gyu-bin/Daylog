@@ -20,22 +20,44 @@ extension AppStore {
         setDone(routineID: routineID, !check.isDone)
     }
 
-    /// 완료 여부를 저장하고 화면의 값과 통계를 다시 계산한다.
-    /// 이미 그 값이거나 저장에 실패해도 화면의 값은 저장된 값으로 맞춰진다.
+    /// 보고 있는 날짜의 완료 여부를 저장한다.
     func setDone(routineID: UUID, _ isDone: Bool) {
-        if let check = checks.first(where: { $0.routineID == routineID }), check.isDone != isDone {
-            perform {
-                // 이 기기가 이 값을 정했다는 기록을 함께 남긴다(다른 Mac의 늦은 변경과 순서를 가리기 위해).
-                try FieldEditService(context: context, deviceID: deviceID)
-                    .recordCheck(dateKey: check.record?.dateKey ?? selectedDay.key, routineID: routineID, isDone: isDone)
-                try DayRecordService(context: context).setDone(check, isDone)
-            }
+        setDone(routineID: routineID, on: selectedDay, isDone)
+    }
+
+    /// 그 날짜의 완료 여부를 저장하고 화면의 값과 통계를 다시 계산한다. 보고 있는 날짜가 아니어도 된다
+    /// (메뉴 막대, 알림의 [완료], 위젯). 이미 그 값이거나 저장에 실패해도 화면의 값은 저장된 값으로 맞춰진다.
+    func setDone(routineID: UUID, on day: Day, _ isDone: Bool, at now: Date = .now) {
+        guard day <= today else { return }
+        perform {
+            let record = try day == selectedDay && self.record != nil
+                ? self.record
+                : DayRecordService(context: context).fetchOrCreate(day: day, today: today)
+            guard let record, let check = record.checkList.first(where: { $0.routineID == routineID }),
+                  check.isDone != isDone else { return }
+            // 이 기기가 이 값을 정했다는 기록을 함께 남긴다(다른 기기의 늦은 변경과 순서를 가리기 위해).
+            try FieldEditService(context: context, deviceID: deviceID)
+                .recordCheck(dateKey: record.dateKey, routineID: routineID, isDone: isDone, now: now)
+            try DayRecordService(context: context).setDone(check, isDone, now: now)
         }
         reloadStats()
     }
 
     /// 보고 있는 날짜의 체크를 그날의 그룹별로 묶은 값 사본. 그룹 순서 → 항목 순서.
     func makeCheckSections() -> [CheckSection] {
+        Self.sections(of: checks)
+    }
+
+    /// 실제 오늘의 체크. 다른 날짜를 보고 있을 때 쓴다(오늘을 보고 있으면 `checkSections`와 같다).
+    func makeTodaySections() -> [CheckSection] {
+        var result: [CheckSection] = []
+        perform {
+            result = Self.sections(of: try DayRecordService(context: context).fetchOrCreate(day: today, today: today).checkList)
+        }
+        return result
+    }
+
+    static func sections(of checks: [DayCheck]) -> [CheckSection] {
         var sections: [CheckSection] = []
         for check in checks {
             let value = CheckValue(
@@ -80,17 +102,12 @@ struct NextCheck: Equatable {
     /// 예정 시간이 이미 지났다.
     let isOverdue: Bool
 
-    /// 지금 이후로 가장 이른 것. 남은 것이 모두 지난 시간이면 그중 가장 이른 것(밀린 것부터).
-    /// 시간이 없거나 시각으로 읽히지 않는 항목은 고르지 않는다.
+    /// 고르는 규칙은 `NextRoutine`(위젯과 공유)에 있다.
     static func pick(from sections: [CheckSection], nowMinutes: Int) -> NextCheck? {
-        let pending = sections.flatMap { section in
-            section.checks.compactMap { check -> NextCheck? in
-                guard !check.isDone, let minutes = TimeLabel.minutes(check.timeLabel) else { return nil }
-                return NextCheck(check: check, group: section.group, minutes: minutes, isOverdue: minutes < nowMinutes)
-            }
-        }
-        // 같은 시각이면 목록 순서를 따른다(정렬이 순서를 보존하지 않으므로 순번을 함께 본다).
-        let ordered = pending.enumerated().sorted { ($0.element.minutes, $0.offset) < ($1.element.minutes, $1.offset) }.map(\.element)
-        return ordered.first { !$0.isOverdue } ?? ordered.first
+        let all = sections.flatMap { section in section.checks.map { (check: $0, group: section.group) } }
+        guard let pick = NextRoutine.pick(
+            timeLabels: all.map(\.check.timeLabel), isDone: all.map(\.check.isDone), nowMinutes: nowMinutes
+        ) else { return nil }
+        return NextCheck(check: all[pick.index].check, group: all[pick.index].group, minutes: pick.minutes, isOverdue: pick.isOverdue)
     }
 }

@@ -14,6 +14,9 @@ struct DaylogApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     #endif
     private let launch: AppLaunch
+    #if os(macOS)
+    @AppStorage(MenuBarSettings.key) private var showsMenuBar = true
+    #endif
 
     init() {
         launch = AppLaunch.make()
@@ -30,6 +33,16 @@ struct DaylogApp: App {
         .commands {
             DaylogCommands(store: launch.store)
         }
+
+        // 메뉴 막대의 빠른 체크. 같은 프로세스의 같은 저장소를 쓴다(따로 띄우는 프로세스가 없다).
+        // 앱을 종료하면 함께 사라진다.
+        MenuBarExtra(isInserted: menuBarInserted) {
+            menuBarContent
+        } label: {
+            Image(systemName: "checklist")
+                .accessibilityLabel("Daylog 오늘의 루틴")
+        }
+        .menuBarExtraStyle(.window)
         #else
         WindowGroup {
             content
@@ -43,15 +56,34 @@ struct DaylogApp: App {
     @ViewBuilder
     private var content: some View {
         switch launch {
-        case .ready(let container, let store, let sync):
+        case .ready(let container, let store, let sync, let runtime):
             RootView()
                 .environment(store)
                 .environment(sync)
+                .environment(runtime.notifications)
                 .modelContainer(container)
         case .failed(let message):
             StoreFailureView(message: message)
         }
     }
+
+    #if os(macOS)
+    /// 설정에서 끄거나, 저장소를 열지 못했거나, 단위 테스트의 호스트로 떠 있을 때는 메뉴 막대에 넣지 않는다.
+    private var menuBarInserted: Binding<Bool> {
+        Binding(
+            get: { showsMenuBar && launch.store != nil && !RuntimeEnvironment.isRunningTests },
+            set: { showsMenuBar = $0 }
+        )
+    }
+
+    @ViewBuilder
+    private var menuBarContent: some View {
+        if case .ready(_, let store, _, _) = launch {
+            MenuBarView()
+                .environment(store)
+        }
+    }
+    #endif
 }
 
 /// 실행 중에도 다른 기기의 변경을 받으려면 앱이 원격 알림을 등록해야 한다.
@@ -68,6 +100,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
         guard RuntimeEnvironment.cloudKitContainerID != nil else { return }
         NSApplication.shared.registerForRemoteNotifications()
+    }
+
+    /// 메뉴 막대를 쓰는 동안에는 창을 닫아도 앱이 남는다(메뉴 막대에서 계속 체크할 수 있게).
+    /// 메뉴 막대를 껐으면 예전처럼 창을 닫을 때 끝난다.
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        !MenuBarSettings.isShown
     }
 
     func application(_ application: NSApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -95,11 +133,11 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 /// 저장소를 열 수 없을 때 빈 저장소로 조용히 대체하지 않는다. 그러면 기록이 사라진 것처럼 보인다.
 @MainActor
 enum AppLaunch {
-    case ready(ModelContainer, AppStore, CloudSyncMonitor)
+    case ready(ModelContainer, AppStore, CloudSyncMonitor, AppRuntime)
     case failed(String)
 
     var store: AppStore? {
-        if case .ready(_, let store, _) = self { return store }
+        if case .ready(_, let store, _, _) = self { return store }
         return nil
     }
 
@@ -135,10 +173,17 @@ enum AppLaunch {
             store.start()
             let sync = CloudSyncMonitor(containerIdentifier: cloudContainerID, environment: RuntimeEnvironment.cloudKitEnvironment)
             sync.start()
+            // 단위 테스트의 호스트로 떠 있을 때는 실제 알림 센터를 건드리지 않는다.
+            let isTesting = RuntimeEnvironment.isRunningTests
+            let runtime = AppRuntime(
+                store: store,
+                notifications: RoutineNotifications(client: isTesting ? DisabledNotificationClient() : SystemNotificationClient())
+            )
+            runtime.start(installDelegate: !isTesting)
             #if DEBUG
             DebugScript.runIfRequested(store: store, sync: sync, container: container)
             #endif
-            return .ready(container, store, sync)
+            return .ready(container, store, sync, runtime)
         } catch {
             #if DEBUG
             print("DAYLOG_SCRIPT LAUNCH_FAILED \(error.localizedDescription)")
@@ -225,3 +270,15 @@ struct StoreFailureView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
+
+#if os(macOS)
+/// 메뉴 막대 아이콘 표시 여부. 이 Mac에만 저장한다.
+enum MenuBarSettings {
+    static let key = "showsMenuBarExtra"
+
+    /// 기본은 켜짐.
+    static var isShown: Bool {
+        UserDefaults.standard.object(forKey: key) as? Bool ?? true
+    }
+}
+#endif

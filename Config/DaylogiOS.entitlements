@@ -10,6 +10,10 @@
 	<array>
 		<string>iCloud.com.mungyubin.daylog</string>
 	</array>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.com.mungyubin.daylog</string>
+	</array>
 	<key>aps-environment</key>
 	<string>development</string>
 </dict>

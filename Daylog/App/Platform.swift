@@ -16,6 +16,14 @@ enum Platform {
         NSWorkspace.shared.notificationCenter.publisher(for: NSWorkspace.didWakeNotification)
     }
     static let thisDevice = "이 Mac"
+
+    /// 시스템 설정의 알림 화면을 연다.
+    @MainActor
+    static func openNotificationSettings() {
+        if let url = URL(string: "x-apple.systempreferences:com.apple.Notifications-Settings.extension") {
+            NSWorkspace.shared.open(url)
+        }
+    }
     #else
     static let didBecomeActive = UIApplication.didBecomeActiveNotification
     static let willResignActive = UIApplication.willResignActiveNotification
@@ -26,25 +34,18 @@ enum Platform {
     static var thisDevice: String {
         UIDevice.current.userInterfaceIdiom == .pad ? "이 iPad" : "이 iPhone"
     }
+
+    /// 설정 앱에서 Daylog의 알림 화면을 연다.
+    @MainActor
+    static func openNotificationSettings() {
+        if let url = URL(string: UIApplication.openNotificationSettingsURLString) {
+            UIApplication.shared.open(url)
+        }
+    }
     #endif
 }
 
 extension Color {
-    /// 라이트/다크에 따라 달라지는 색. 값은 sRGB 0...1.
-    static func adaptive(name: String, light: (Double, Double, Double), dark: (Double, Double, Double)) -> Color {
-        #if os(macOS)
-        return Color(nsColor: NSColor(name: name) { appearance in
-            let value = appearance.bestMatch(from: [.aqua, .darkAqua]) == .darkAqua ? dark : light
-            return NSColor(srgbRed: value.0, green: value.1, blue: value.2, alpha: 1)
-        })
-        #else
-        return Color(uiColor: UIColor { traits in
-            let value = traits.userInterfaceStyle == .dark ? dark : light
-            return UIColor(red: value.0, green: value.1, blue: value.2, alpha: 1)
-        })
-        #endif
-    }
-
     /// 화면 바탕, 카드 바탕, 구분선. 각 플랫폼의 시스템 색을 쓴다.
     static var platformWindowBackground: Color {
         #if os(macOS)

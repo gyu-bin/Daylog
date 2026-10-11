@@ -22,6 +22,8 @@ final class AppStore {
     /// SwiftData는 저장·조회 뒤에 같은 체크를 다른 객체로 다시 만들 수 있어서, 화면이 모델 객체를 직접 관찰하면
     /// 값을 바꿔도 알림이 가지 않는다. 그래서 값이 바뀔 수 있는 모든 지점에서 `refreshChecks()`로 다시 만든다.
     private(set) var checkSections: [CheckSection] = []
+    /// 실제 오늘의 체크 목록. 보고 있는 날짜와 상관없이 메뉴 막대·위젯·알림이 이 값을 쓴다.
+    private(set) var todaySections: [CheckSection] = []
     /// 보관된 루틴을 포함한 전체 루틴. 표시 순서대로.
     private(set) var routines: [RoutineItem] = []
     /// 보관된 그룹을 포함한 전체 그룹. 표시 순서대로.
@@ -50,6 +52,8 @@ final class AppStore {
     @ObservationIgnored let deviceID: String
     /// 고친 뒤 아직 편집 기록으로 남기지 않은 칸.
     @ObservationIgnored private var unrecordedEdits: [String: Set<DayTextField>] = [:]
+    /// 저장된 내용이 바뀌어 화면 값을 다시 계산한 뒤에 불린다. 알림 예약과 위젯이 여기에 맞춰 따라온다.
+    @ObservationIgnored var onReload: (() -> Void)?
 
     init(
         container: ModelContainer,
@@ -257,12 +261,15 @@ final class AppStore {
     func reloadStats() {
         dataVersion += 1
         refreshChecks()
+        let updatedToday = isViewingToday ? checkSections : makeTodaySections()
+        if updatedToday != todaySections { todaySections = updatedToday }
         perform {
             let updated = try StatsService(context: context).dashboard(today: today)
             if updated != stats { stats = updated }
         }
         // 30일보다 오래된 날짜를 고쳐도 캘린더에는 보이므로 항상 함께 맞춘다.
         reloadMonth()
+        onReload?()
     }
 
     private func reloadMonth() {

@@ -1,5 +1,3 @@
-import Combine
-import CoreData
 import SwiftUI
 #if os(macOS)
 import AppKit
@@ -7,7 +5,7 @@ import AppKit
 import UIKit
 #endif
 
-/// 화면의 뿌리. 플랫폼과 창 너비에 맞는 탐색 구조를 고르고, 날짜 변경·외부 변경·저장 시점을 한곳에서 처리한다.
+/// 화면의 뿌리. 플랫폼과 창 너비에 맞는 탐색 구조를 고른다.
 struct RootView: View {
     @Environment(AppStore.self) private var store
     #if !os(macOS)
@@ -22,18 +20,13 @@ struct RootView: View {
             } message: {
                 Text(store.errorMessage ?? "")
             }
-            .onReceive(Self.todayMayHaveChanged) { _ in
-                store.refreshToday()
+            // 날짜 변경·외부 변경·저장 시점은 창이 없어도 돌아야 해서 화면이 아니라 `AppRuntime`이 맡는다.
+            #if os(iOS)
+            // 위젯을 눌러 들어온 링크.
+            .onOpenURL { url in
+                AppRuntime.shared?.open(url)
             }
-            .onReceive(Self.storeMayHaveChanged) { _ in
-                store.handleExternalChanges()
-            }
-            .onReceive(NotificationCenter.default.publisher(for: Platform.willResignActive)) { _ in
-                store.flush()
-            }
-            .onReceive(NotificationCenter.default.publisher(for: Platform.willTerminate)) { _ in
-                store.flush()
-            }
+            #endif
     }
 
     @ViewBuilder
@@ -91,32 +84,6 @@ struct RootView: View {
             set: { if !$0 { store.errorMessage = nil } }
         )
     }
-
-    /// 다른 기기의 변경이 iCloud를 통해 저장소에 들어왔을 수 있는 시점: 저장소 변경 알림과 앱 활성화.
-    /// 자체 폴링은 하지 않는다. 가져오기 자체는 시스템이 알아서 한다.
-    private static let storeMayHaveChanged: AnyPublisher<Notification, Never> = {
-        let center = NotificationCenter.default
-        return Publishers.Merge(
-            center.publisher(for: .NSPersistentStoreRemoteChange),
-            center.publisher(for: Platform.didBecomeActive)
-        )
-        .debounce(for: .milliseconds(700), scheduler: RunLoop.main)
-        .eraseToAnyPublisher()
-    }()
-
-    /// 자정, 앱 활성화, 잠자기 해제, 시계·시간대 변경.
-    private static let todayMayHaveChanged: AnyPublisher<Notification, Never> = {
-        let center = NotificationCenter.default
-        return Publishers.MergeMany([
-            center.publisher(for: .NSCalendarDayChanged).eraseToAnyPublisher(),
-            center.publisher(for: .NSSystemTimeZoneDidChange).eraseToAnyPublisher(),
-            center.publisher(for: .NSSystemClockDidChange).eraseToAnyPublisher(),
-            center.publisher(for: Platform.didBecomeActive).eraseToAnyPublisher(),
-            Platform.timeMayHaveJumped.eraseToAnyPublisher(),
-        ])
-        .receive(on: RunLoop.main)
-        .eraseToAnyPublisher()
-    }()
 }
 
 /// 메뉴 하나에 해당하는 화면.

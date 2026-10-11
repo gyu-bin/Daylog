@@ -10,7 +10,8 @@ import SwiftData
 ///     open -n -W --stdout /tmp/a.log Daylog.app --args -DaylogStoreName verify \
 ///         -DaylogDebugScript "add:운동;check:운동;text:breakfast=토스트;dump:A;quit"
 ///
-/// 명령: group, add(마지막으로 쓴 그룹에), check, uncheck, text:<칸>=<값>, rename:<전>=<후>, archive, restore, archiveGroup, threshold,
+/// 명령: group, add(마지막으로 쓴 그룹에), check, uncheck, text:<칸>=<값>, rename:<전>=<후>, time:<루틴>=<HH:mm>, notify:on|off,
+///       archive, restore, archiveGroup, threshold,
 ///       wait:<초>, waitImport:<최대 초>, waitExport:<최대 초>, refresh, dump:<이름>,
 ///       section:<메뉴>(dashboard, routines, meals, statistics, calendar, settings),
 ///       counts(개수만 출력), compareBackup:<백업 이름 일부>, verifyBackup:<백업 이름 일부>,
@@ -57,6 +58,16 @@ enum DebugScript {
             if pair.count == 2, let routine = store.routines.first(where: { $0.title == pair[0] }) {
                 store.updateRoutine(routine, title: pair[1])
             }
+        case "time":
+            // 예정 시간 정하기: time:<루틴>=<HH:mm>. 알림과 위젯 검증에 쓴다.
+            if pair.count == 2, let routine = store.routines.first(where: { $0.title == pair[0] }) {
+                store.updateRoutine(routine, timeLabel: pair[1])
+            }
+        case "notify":
+            // 루틴 알림 켜기/끄기: notify:on, notify:off. 처음 켜면 시스템이 권한을 묻는다.
+            await AppRuntime.shared?.notifications.setEnabled(argument == "on")
+            await AppRuntime.shared?.refreshNow()
+            log("NOTIFY \(AppRuntime.shared?.notifications.permission.title ?? "-") 예약 \(AppRuntime.shared?.notifications.scheduledCount ?? -1)개")
         case "archive", "restore":
             if let routine = store.routines.first(where: { $0.title == argument }) {
                 store.setArchived(routine, name == "archive")

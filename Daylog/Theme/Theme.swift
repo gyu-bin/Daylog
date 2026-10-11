@@ -8,7 +8,7 @@ enum Theme {
     /// 앱의 기본 포인트 컬러(민트). 선택 상태와 주요 동작에만 쓴다.
     static let accent = GroupColor.mint.color
     /// 포인트 컬러 위에 올리는 글자·기호. 다크 모드의 밝은 색 위에서는 어두운 색이어야 읽힌다.
-    static let onAccent = Color.adaptive(name: "DaylogOnAccent", light: (1, 1, 1), dark: (0.08, 0.08, 0.08))
+    static let onAccent = GroupColor.onAccent
     /// 기준 미만인 날처럼 한 단계 약한 강조.
     static let accentSoft = accent.opacity(0.4)
     static let accentWash = accent.opacity(0.14)
@@ -71,29 +71,6 @@ enum MealKind: CaseIterable, Identifiable {
         case .snack: return GroupColor.mint.color
         }
     }
-}
-
-extension GroupColor {
-    /// 라이트/다크에 따라 달라지는 그룹 색.
-    var color: Color {
-        let light = rgb(isDark: false), dark = rgb(isDark: true)
-        return Color.adaptive(
-            name: "DaylogGroup-\(rawValue)",
-            light: (light.red, light.green, light.blue), dark: (dark.red, dark.green, dark.blue)
-        )
-    }
-
-    /// 큰 숫자처럼 색으로 쓰는 글자. 밝은 배경에서는 파스텔 색이 흐려 보여 한 단계 진하게 쓴다.
-    var ink: Color {
-        let light = rgb(isDark: false), dark = rgb(isDark: true)
-        return Color.adaptive(
-            name: "DaylogGroupInk-\(rawValue)",
-            light: (light.red * 0.72, light.green * 0.72, light.blue * 0.72), dark: (dark.red, dark.green, dark.blue)
-        )
-    }
-
-    /// 그룹 머리말 바탕처럼 넓은 면에 까는 옅은 색.
-    var wash: Color { color.opacity(0.13) }
 }
 
 /// 그룹을 나타내는 작은 배지: 그룹 색 바탕에 이름의 첫 글자. 색을 못 보더라도 글자로 구분된다.

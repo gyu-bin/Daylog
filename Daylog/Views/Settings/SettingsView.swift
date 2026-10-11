@@ -25,6 +25,13 @@ struct SettingsView: View {
                 Text("하루 달성률이 이 값 이상이면 달성한 날로 세요. 바꾸면 연속 달성일과 최장 연속 달성일이 바로 다시 계산됩니다.")
             }
 
+            NotificationSettingsSection()
+            #if os(macOS)
+            MenuBarSettingsSection()
+            #else
+            WidgetGuideSection()
+            #endif
+
             Section {
                 LabeledContent("상태", value: sync.account.title)
                 if sync.isEnabled {

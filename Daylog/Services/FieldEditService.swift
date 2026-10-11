@@ -102,6 +102,11 @@ struct FieldEditService {
         try recordEdit(dateKey: dateKey, fieldName: field.rawValue, value: value, now: now)
     }
 
+    /// 그 체크를 (어느 기기든) 마지막으로 정한 시각. 아무도 정한 적 없으면 nil.
+    func latestCheckEdit(dateKey: String, routineID: UUID) throws -> Date? {
+        try entries(dateKey: dateKey, fieldName: CheckEdit.fieldName(routineID)).map(\.editedAt).max()
+    }
+
     /// 이 기기가 그 날짜의 체크를 완료/해제했다고 기록한다.
     func recordCheck(dateKey: String, routineID: UUID, isDone: Bool, now: Date = .now) throws {
         try recordEdit(dateKey: dateKey, fieldName: CheckEdit.fieldName(routineID), value: CheckEdit.value(isDone), now: now)
