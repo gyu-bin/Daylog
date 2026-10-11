@@ -57,10 +57,14 @@ struct TrendChartCard: View {
                         .monospacedDigit()
                 }
 
-                if points.isEmpty {
-                    EmptyHint(symbol: "chart.xyaxis.line", message: "기록이 쌓이면 추이가 그려져요.")
+                if trend.isEmpty {
+                    EmptyHint(symbol: "chart.xyaxis.line", message: "집계할 기록 없음")
                         .frame(minHeight: chartHeight)
                 } else {
+                    if points.isEmpty {
+                        Text("집계할 기록 없음 · 휴가 날짜는 제외돼요.")
+                            .font(.caption).foregroundStyle(.secondary)
+                    }
                     chart(trend: trend, points: points)
                         .frame(height: chartHeight)
                         .frame(maxHeight: isInteractive ? nil : .infinity, alignment: .top)
@@ -209,6 +213,7 @@ struct TrendChartCard: View {
         switch outcome.status {
         case .recorded: return "\(outcome.percentLabel) · \(outcome.total)개 중 \(outcome.done)개"
         case .unrecorded: return "미기록 · 0%"
+        case .vacation: return "휴가 · 통계 제외"
         case .rest: return "휴식일"
         case .preStart: return "통계 시작 전"
         case .future: return ""

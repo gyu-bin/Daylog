@@ -5,6 +5,7 @@ struct MonthCalendarCard: View {
     @Environment(AppStore.self) private var store
     /// 날짜를 누르면 대시보드로 옮겨 그 날짜를 연다. 꺼 두면 지금 화면에서 날짜만 바꾼다.
     var opensDashboard = false
+    @State private var vacationDay: VacationEditorTarget?
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
 
@@ -39,7 +40,9 @@ struct MonthCalendarCard: View {
                             isSelected: day == store.selectedDay,
                             threshold: store.threshold
                         ) {
-                            if opensDashboard {
+                            if day > store.today {
+                                vacationDay = VacationEditorTarget(day: day, period: store.vacations(on: day).first)
+                            } else if opensDashboard {
                                 store.open(day)
                             } else {
                                 store.select(day)
@@ -51,6 +54,9 @@ struct MonthCalendarCard: View {
                 Spacer(minLength: 0)
                 legend
             }
+        }
+        .sheet(item: $vacationDay) { target in
+            VacationEditorSheet(target: target)
         }
     }
 
@@ -71,13 +77,13 @@ struct MonthCalendarCard: View {
                 .frame(minWidth: 84)
 
             Button {
-                store.showNextMonth()
+                store.showNextMonth(allowFuture: true)
             } label: {
                 Image(systemName: "chevron.right")
                     .frame(width: 24, height: 24)
                     .contentShape(Rectangle())
             }
-            .disabled(!store.canShowNextMonth)
+
             .accessibilityLabel("다음 달")
         }
         .buttonStyle(.plain)
@@ -114,6 +120,10 @@ struct MonthCalendarCard: View {
             Text("미기록")
         }
         HStack(spacing: 4) {
+            StatusMarker(kind: .vacation)
+            Text("휴가")
+        }
+        HStack(spacing: 4) {
             StatusMarker(kind: .rest)
             Text("휴식")
         }
@@ -123,7 +133,7 @@ struct MonthCalendarCard: View {
 /// 색과 모양을 함께 써서 색만으로 상태를 구분하지 않게 한다.
 private struct StatusMarker: View {
     enum Kind {
-        case achieved, below, unrecorded, rest
+        case achieved, below, unrecorded, rest, vacation
     }
 
     let kind: Kind
@@ -138,6 +148,8 @@ private struct StatusMarker: View {
                 Circle().fill(Theme.accentSoft)
             case .unrecorded:
                 Circle().strokeBorder(Color.secondary, lineWidth: 1)
+            case .vacation:
+                Image(systemName: "sun.max.fill").foregroundStyle(.blue)
             case .rest:
                 Capsule().fill(Color.secondary.opacity(0.5)).frame(height: 2)
             }
@@ -185,13 +197,13 @@ private struct DayCell: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .disabled(isFuture)
+
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(spokenLabel)
         .accessibilityAddTraits(isSelected ? [.isButton, .isSelected] : .isButton)
         // 자식을 합쳐 하나의 요소로 만들면 단추의 누르기 동작이 빠진다. VoiceOver로도 날짜를 고를 수 있게 다시 붙인다.
         .accessibilityAction {
-            if !isFuture { action() }
+            action()
         }
     }
 
@@ -219,6 +231,8 @@ private struct DayCell: View {
                 .monospacedDigit()
                 .foregroundStyle(.tertiary)
                 .fixedSize()
+            case .vacation:
+                Text("휴가").font(.system(size: 9.5)).foregroundStyle(.blue)
             case .rest:
                 StatusMarker(kind: .rest, size: 8)
             case .preStart, .future:

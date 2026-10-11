@@ -14,7 +14,8 @@ extension WidgetSnapshot {
                                 WidgetItem(routineID: $0.id, title: $0.title, timeLabel: $0.timeLabel, isDone: $0.isDone)
                             }
                         )
-                    }
+                    },
+                    isVacation: planned.isVacation
                 )
             },
             hasRoutines: hasRoutines

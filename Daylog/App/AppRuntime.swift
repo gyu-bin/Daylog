@@ -11,14 +11,14 @@ import WidgetKit
 @MainActor
 final class AppRuntime: NSObject {
     static private(set) var shared: AppRuntime?
-    static let widgetWatermarkKey = "widgetChecksAppliedThrough"
 
     let store: AppStore
     let notifications: RoutineNotifications
     private let bridge: WidgetBridge?
-    private let defaults: UserDefaults
     private var cancellables = Set<AnyCancellable>()
     private var refreshTask: Task<Void, Never>?
+    private var isRefreshing = false
+    private var needsRefresh = false
 
     init(
         store: AppStore, notifications: RoutineNotifications,
@@ -27,7 +27,6 @@ final class AppRuntime: NSObject {
         self.store = store
         self.notifications = notifications
         self.bridge = bridge
-        self.defaults = defaults
     }
 
     /// 앱이 시작할 때 한 번. `installDelegate`가 참이면 알림 버튼을 이 객체가 받는다
@@ -99,30 +98,61 @@ final class AppRuntime: NSObject {
     }
 
     func refreshNow() async {
-        let days = store.upcomingDays(count: RoutineNotificationPlanner.horizonDays)
-        publishWidgetSnapshot(days)
-        await notifications.reschedule(days: days)
+        needsRefresh = true
+        guard !isRefreshing else { return }
+        isRefreshing = true
+        defer { isRefreshing = false }
+        repeat {
+            needsRefresh = false
+            let days = store.upcomingDays(count: RoutineNotificationPlanner.horizonDays)
+            store.perform { try publishWidgetSnapshot(days) }
+            await notifications.reschedule(days: days)
+        } while needsRefresh
     }
 
-    private func publishWidgetSnapshot(_ days: [PlannedDay]) {
+    private func publishWidgetSnapshot(_ days: [PlannedDay]) throws {
         guard let bridge else { return }
         let snapshot = WidgetSnapshot.make(days: days, hasRoutines: !store.activeRoutines.isEmpty)
         // 내용이 바뀌었을 때만 위젯을 새로 그리게 한다. 시스템은 새로 고침 횟수를 제한한다.
-        if (try? bridge.writeSnapshot(snapshot)) == true {
+        if try bridge.writeSnapshot(snapshot) {
             reloadWidgets()
         }
     }
 
-    /// 위젯에서 누른 체크를 저장소에 반영한다. 위젯은 저장소를 열지 않고 대기열 파일에만 적는다.
-    func drainWidgetChecks() {
-        guard let bridge else { return }
-        let pending = bridge.takePending()
-        guard !pending.isEmpty else { return }
-        let watermark = Date(timeIntervalSinceReferenceDate: defaults.double(forKey: Self.widgetWatermarkKey))
-        let applied = store.applyWidgetChecks(pending, after: watermark)
-        defaults.set(applied.timeIntervalSinceReferenceDate, forKey: Self.widgetWatermarkKey)
-        // 대기열이 비었으니, 반영되지 않은(더 나중 값에 밀린) 체크가 위젯에 남아 보이지 않게 다시 그린다.
-        reloadWidgets()
+    /// A journal entry is acknowledged only after its database save AND confirmed snapshot publication.
+    /// A crash at any earlier point leaves a replayable explicit target; a failure cannot discard later requests.
+    @discardableResult
+    func drainWidgetChecks(apply: ((PendingCheck) throws -> Void)? = nil) -> Bool {
+        guard let bridge else { return false }
+        return store.perform {
+            let pending = try bridge.pendingChecks()
+            guard !pending.isEmpty else { return }
+            var confirmed: [PendingCheck] = []
+            var failure: Error?
+            for check in pending {
+                do {
+                    if let apply { try apply(check) } else { try store.applyWidgetCheck(check) }
+                    confirmed.append(check)
+                } catch {
+                    failure = error
+                    break
+                }
+            }
+            store.reloadStats()
+            try publishWidgetSnapshot(store.upcomingDays(count: WidgetSnapshot.dayCount))
+            try bridge.acknowledge(confirmed)
+            reloadWidgets()
+            if let failure { throw failure }
+        }
+    }
+
+    /// Called by the app-process intent, after its target has been durably journaled.
+    func commitWidgetChecks() async -> Bool {
+        store.refreshToday()
+        store.handleExternalChanges()
+        let succeeded = drainWidgetChecks()
+        await refreshNow()
+        return succeeded
     }
 
     private func reloadWidgets() {

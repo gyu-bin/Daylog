@@ -15,8 +15,9 @@ struct TodayCompactView: View {
                     StartHint()
                 }
                 TodayProgressCard()
+                VacationDayCard(day: store.selectedDay)
                 // 시간이 정해진 남은 루틴이 있을 때만 자리를 차지한다.
-                if store.isViewingToday, NextCheck.pick(from: store.checkSections, nowMinutes: 0) != nil {
+                if store.isViewingToday, !store.isVacation(on: store.today), NextCheck.pick(from: store.checkSections, nowMinutes: 0) != nil {
                     NextRoutineCard()
                 }
                 RoutineCard()
@@ -57,8 +58,10 @@ struct TodayProgressCard: View {
         Card(fillsHeight: false) {
             HStack(spacing: 18) {
                 ZStack {
-                    ProgressRing(ratio: outcome.total > 0 ? outcome.ratio ?? 0 : nil, lineWidth: 10)
-                    if outcome.total > 0 {
+                    ProgressRing(ratio: outcome.ratio, lineWidth: 10)
+                    if outcome.status == .vacation {
+                        Image(systemName: "sun.max").foregroundStyle(Theme.accent)
+                    } else if outcome.total > 0 {
                         Text("\(outcome.done)/\(outcome.total)")
                             .font(.title3.weight(.bold))
                             .monospacedDigit()
@@ -94,12 +97,14 @@ struct TodayProgressCard: View {
     }
 
     static func headline(_ outcome: DayOutcome, hasStarted: Bool) -> String {
+        if outcome.status == .vacation { return "휴가" }
         guard outcome.total > 0 else { return hasStarted ? "휴식" : "시작 전" }
         return outcome.percentLabel
     }
 
     /// 쉬는 날(예정된 루틴 없음)과 미기록(예정은 있었는데 체크 없음)을 다르게 말한다.
     static func detail(_ outcome: DayOutcome, isToday: Bool, hasStarted: Bool) -> String {
+        if outcome.status == .vacation { return "루틴 통계와 알림은 쉬어 가요. 식사는 계속 기록할 수 있어요." }
         if outcome.total == 0 {
             if !hasStarted {
                 return isToday ? "루틴을 추가하면 여기에 진행률이 보여요." : "루틴을 시작하기 전의 날이에요."

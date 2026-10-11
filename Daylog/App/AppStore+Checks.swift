@@ -11,7 +11,7 @@ extension AppStore {
     var selectedOutcome: DayOutcome {
         let total = checkSections.reduce(0) { $0 + $1.total }
         let done = checkSections.reduce(0) { $0 + $1.done }
-        return DayOutcome(day: selectedDay, status: total == 0 ? .rest : .recorded, done: done, total: total)
+        return DayOutcome(day: selectedDay, status: isVacation(on: selectedDay) ? .vacation : total == 0 ? .rest : .recorded, done: done, total: total)
     }
 
     /// 저장된 값을 기준으로 뒤집는다. 화면이 들고 있던 값에 기대지 않는다.

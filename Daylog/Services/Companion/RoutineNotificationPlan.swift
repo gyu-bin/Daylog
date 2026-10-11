@@ -41,8 +41,8 @@ struct PlannedNotification: Equatable, Identifiable {
 /// 대신 앞으로 며칠치만 예약해 두므로, 앱이 그 기간 동안 한 번도 실행되지 않으면 그 뒤로는 울리지 않는다.
 enum RoutineNotificationPlanner {
     /// 앞으로 며칠치를 예약하는가(오늘 포함).
-    static let horizonDays = 14
-    /// 시스템이 앱 하나에 허용하는 대기 알림은 64개다. 여유를 두고 가까운 것부터 채운다.
+    static let horizonDays = 365
+    /// 가까운 60개만 예약한다. Apple의 기존 64개 제한보다 여유를 둔 앱 정책이다.
     static let maxPending = 60
 
     /// - Parameters:
@@ -52,7 +52,7 @@ enum RoutineNotificationPlanner {
         days: [PlannedDay], now: Date, calendar: Calendar = .current, muted: Set<String> = []
     ) -> [PlannedNotification] {
         var planned: [(fireDate: Date, notification: PlannedNotification)] = []
-        for day in days.prefix(horizonDays) {
+        for day in days.prefix(horizonDays) where !day.isVacation {
             for section in day.sections {
                 for check in section.checks where !check.isDone && !muted.contains(check.id.uuidString) {
                     // 시간이 없거나 시각으로 읽히지 않는 루틴은 알리지 않는다.

@@ -1,14 +1,20 @@
+#if os(iOS)
 import AppIntents
 import Foundation
 import WidgetKit
 
-/// 큰 위젯에서 루틴을 눌렀을 때. 저장소를 직접 고치지 않고 "이 루틴을 이 값으로"라는 요청을 대기열에 적는다.
-/// 앱이 다음에 실행될 때 기존 저장 경로(중복 방지, 편집 기록, iCloud 병합 규칙)로 반영한다.
+/// App and widget share the intent identity. App-only ForegroundContinuableIntent conformance routes execution
+/// to the existing app process, retaining its store lock and serial main context. The extension is a durable fallback.
 struct ToggleRoutineIntent: AppIntent {
     static var title: LocalizedStringResource = "루틴 체크"
     static var description = IntentDescription("오늘의 루틴을 완료하거나 완료를 취소합니다.")
     /// 단축어 앱에는 내놓지 않는다. 위젯의 버튼 전용이다.
     static var isDiscoverable: Bool { false }
+    // Modern routing metadata; the app-only conformance covers iOS 17–25.
+    @available(iOS 26.0, *)
+    static var supportedModes: IntentModes { .foreground(.dynamic) }
+    @available(iOS 27.0, *)
+    static var allowedExecutionTargets: IntentExecutionTargets { .main }
 
     @Parameter(title: "루틴")
     var routineID: String
@@ -25,14 +31,21 @@ struct ToggleRoutineIntent: AppIntent {
         self.isDone = isDone
     }
 
+    @MainActor
     func perform() async throws -> some IntentResult {
         // 위젯이 어제의 화면을 아직 보여 주고 있을 수 있다. 오늘 날짜의 항목만 받는다(지난 날·미래의 기록을 만들지 않는다).
         guard dateKey == Day.today().key, let id = UUID(uuidString: routineID) else { return .result() }
         guard let bridge = WidgetBridge.shared else { throw ToggleError.noSharedStorage }
         // 적지 못하면 던진다. 대기열이 그대로라 위젯의 표시도 바뀌지 않는다.
         try bridge.appendPending(PendingCheck(dateKey: dateKey, routineID: id, isDone: isDone, at: .now))
-        // 시스템이 알아서 다시 그리기를 기다리지 않고, 같은 종류의 위젯(작게·중간·크게)을 모두 새로 그리게 한다.
-        WidgetCenter.shared.reloadTimelines(ofKind: TodayWidget.kind)
+        #if !DAYLOG_WIDGET_EXTENSION
+        if let runtime = AppRuntime.shared {
+            // SwiftData save and snapshot publication finish before WidgetKit reloads the timeline.
+            // Failure leaves the journal and a visible pending target for the next app activation.
+            _ = await runtime.commitWidgetChecks()
+        }
+        #endif
+        WidgetCenter.shared.reloadTimelines(ofKind: "DaylogToday")
         return .result()
     }
 
@@ -44,3 +57,5 @@ struct ToggleRoutineIntent: AppIntent {
         }
     }
 }
+
+#endif

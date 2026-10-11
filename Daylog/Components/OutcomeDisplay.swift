@@ -7,6 +7,7 @@ extension DayOutcome {
         switch status {
         case .recorded: return "\(done) / \(total)"
         case .unrecorded: return "미기록"
+        case .vacation: return "휴가"
         case .rest: return "휴식"
         case .preStart: return "—"
         case .future: return ""
@@ -15,7 +16,7 @@ extension DayOutcome {
 
     /// "80%". 달성률이 없는 날은 "—".
     var percentLabel: String {
-        percent.map { "\($0)%" } ?? "—"
+        status == .vacation ? "휴가" : percent.map { "\($0)%" } ?? "—"
     }
 
     func tint(threshold: Int) -> Color {
@@ -30,6 +31,8 @@ extension DayOutcome {
             return "\(day.shortTitle) \(day.weekdaySymbol)요일, \(total)개 중 \(done)개 완료, 달성률 \(percentLabel), \(achieved)"
         case .unrecorded:
             return "\(day.shortTitle) \(day.weekdaySymbol)요일, 미기록, 달성률 0%"
+        case .vacation:
+            return "\(day.shortTitle) \(day.weekdaySymbol)요일, 휴가, 통계 제외"
         case .rest:
             return "\(day.shortTitle) \(day.weekdaySymbol)요일, 휴식일"
         case .preStart:

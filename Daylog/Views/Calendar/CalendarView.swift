@@ -40,6 +40,7 @@ struct CalendarView: View {
                         .controlSize(.small)
                 }
             }
+            VacationDayCard(day: store.selectedDay)
             RoutineCard()
             MealCard()
         }
@@ -48,6 +49,7 @@ struct CalendarView: View {
     /// 고른 날짜의 상태를 글자로 알려 준다(색만으로 구분하지 않는다).
     private var statusText: String {
         let outcome = store.selectedOutcome
+        if outcome.status == .vacation { return "휴가" }
         guard outcome.total > 0 else { return "휴식일" }
         guard store.record?.isRecorded == true else { return "미기록" }
         return outcome.isAchieved(threshold: store.threshold) ? "달성 \(outcome.percentLabel)" : "미달 \(outcome.percentLabel)"

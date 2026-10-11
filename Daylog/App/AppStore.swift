@@ -30,6 +30,7 @@ final class AppStore {
     private(set) var groups: [RoutineGroup] = []
     /// 저장된 내용이 바뀔 때마다 올라간다. 식사 기록 탭처럼 따로 조회하는 화면이 이 값을 보고 다시 읽는다.
     private(set) var dataVersion = 0
+    private(set) var vacationPeriods: [VacationPeriod] = []
     /// 마지막으로 항목을 추가한 그룹. ⌘N과 추천 칩이 이 그룹을 대상으로 한다.
     var lastUsedGroupID: UUID?
     private(set) var stats: DashboardStats
@@ -145,8 +146,8 @@ final class AppStore {
         reloadMonth()
     }
 
-    func showNextMonth() {
-        guard canShowNextMonth else { return }
+    func showNextMonth(allowFuture: Bool = false) {
+        guard allowFuture || canShowNextMonth else { return }
         calendarMonth = calendarMonth.addingMonths(1)
         reloadMonth()
     }
@@ -177,7 +178,7 @@ final class AppStore {
     }
 
     /// 저장 직전에, 고친 칸마다 "이 기기가 이 값을 썼다"는 편집 기록을 남긴다(글자마다가 아니라 저장마다 한 번).
-    private func recordPendingEdits() throws {
+    func recordPendingEdits() throws {
         guard !unrecordedEdits.isEmpty else { return }
         let service = FieldEditService(context: context, deviceID: deviceID)
         let records = DayRecordService(context: context)
@@ -264,6 +265,7 @@ final class AppStore {
         let updatedToday = isViewingToday ? checkSections : makeTodaySections()
         if updatedToday != todaySections { todaySections = updatedToday }
         perform {
+            vacationPeriods = try VacationService(context: context, deviceID: deviceID).periods()
             let updated = try StatsService(context: context).dashboard(today: today)
             if updated != stats { stats = updated }
         }

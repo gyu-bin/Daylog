@@ -68,7 +68,7 @@ struct TodayProvider: TimelineProvider {
         let dateKey = Day.today(now: date, timeZone: calendar.timeZone).key
         let content: TodayEntry.Content
         if let snapshot, let day = snapshot.day(dateKey) {
-            content = snapshot.hasRoutines ? .day(day.applying(pending)) : .noRoutines
+            content = (snapshot.hasRoutines || day.isVacation == true) ? .day(day.applying(pending)) : .noRoutines
         } else {
             content = .needsApp
         }

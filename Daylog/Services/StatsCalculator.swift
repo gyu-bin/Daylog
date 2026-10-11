@@ -1,6 +1,8 @@
 import Foundation
 
 enum DayStatus: Equatable, Sendable {
+    /// 사용자가 지정한 휴가. 기존 기록은 보존하고 모든 달성률·연속 일수에서 제외.
+    case vacation
     /// 사용자가 실제로 기록한 날.
     case recorded
     /// 예정된 루틴이 있었지만 기록하지 않은 날. 통계상 0%.
@@ -25,7 +27,7 @@ struct DayOutcome: Equatable, Identifiable, Sendable {
     var ratio: Double? {
         switch status {
         case .recorded, .unrecorded: return Achievement.ratio(done: done, total: total)
-        case .rest, .preStart, .future: return nil
+        case .vacation, .rest, .preStart, .future: return nil
         }
     }
 

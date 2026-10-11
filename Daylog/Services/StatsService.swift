@@ -89,7 +89,8 @@ struct StatsService {
         return StatsSource(
             firstDay: try SettingsService(context: context).existingSettings()?.firstRoutineDay,
             resolver: try ScheduleResolver(context: context),
-            records: summaries
+            records: summaries,
+            vacations: try VacationService(context: context).periods()
         )
     }
 

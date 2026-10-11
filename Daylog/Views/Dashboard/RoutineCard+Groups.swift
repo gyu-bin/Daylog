@@ -24,7 +24,7 @@ extension RoutineCard {
                         .font(.body.weight(.semibold))
                         .lineLimit(1)
                     Spacer(minLength: 8)
-                    if !section.checks.isEmpty {
+                    if !section.checks.isEmpty, !store.isVacation(on: store.selectedDay) {
                         Text("\(section.done)/\(section.checks.count)")
                             .font(.callout.weight(.medium))
                             .monospacedDigit()

@@ -85,8 +85,14 @@ struct StatsSource: Sendable {
     let firstDay: Day?
     let resolver: ScheduleResolver
     let records: [Day: RecordSummary]
+    var vacations: [VacationPeriod] = []
+
+    func isVacation(_ day: Day) -> Bool { vacations.contains { $0.contains(day) } }
 
     func outcome(on day: Day, today: Day) -> DayOutcome {
+        if isVacation(day) {
+            return DayOutcome(day: day, status: .vacation, done: 0, total: 0)
+        }
         if day > today {
             return DayOutcome(day: day, status: .future, done: 0, total: 0)
         }
@@ -111,7 +117,7 @@ struct StatsSource: Sendable {
     func routineTallies(on days: [Day], today: Day) -> [UUID: (done: Int, scheduled: Int)] {
         var tallies: [UUID: (done: Int, scheduled: Int)] = [:]
         for day in days {
-            guard day <= today, let firstDay, day >= firstDay else { continue }
+            guard !isVacation(day), day <= today, let firstDay, day >= firstDay else { continue }
             if let record = records[day] {
                 for check in record.checks {
                     tallies[check.routineID, default: (0, 0)].scheduled += 1
@@ -137,7 +143,7 @@ struct StatsSource: Sendable {
             tallies[group.id] = tally
         }
         for day in days.sorted() {
-            guard day <= today, let firstDay, day >= firstDay else { continue }
+            guard !isVacation(day), day <= today, let firstDay, day >= firstDay else { continue }
             if let record = records[day] {
                 for check in record.checks { count(check.group, isDone: check.isDone) }
             } else {

@@ -18,12 +18,15 @@ struct WidgetSnapshot: Codable, Equatable {
 struct WidgetDay: Codable, Equatable {
     var dateKey: String
     var groups: [WidgetGroup]
+    var isVacation: Bool? = nil
 
     var items: [WidgetItem] { groups.flatMap(\.items) }
     var total: Int { items.count }
     var done: Int { items.filter(\.isDone).count }
-    var percent: Int? { Achievement.percent(done: done, total: total) }
-    var ratio: Double? { Achievement.ratio(done: done, total: total) }
+    var percent: Int? { isVacation == true ? nil : Achievement.percent(done: done, total: total) }
+    var ratio: Double? { isVacation == true ? nil : Achievement.ratio(done: done, total: total) }
+
+    var hasPending: Bool { items.contains { $0.pendingIsDone != nil } }
 
     /// 다음 예정 루틴. 시간이 정해진 남은 항목이 없으면 nil.
     func nextTimed(nowMinutes: Int) -> (item: WidgetItem, isOverdue: Bool)? {
@@ -39,7 +42,7 @@ struct WidgetDay: Codable, Equatable {
         nextTimed(nowMinutes: nowMinutes)?.item ?? items.first { !$0.isDone }
     }
 
-    /// 아직 반영되지 않은 위젯의 체크를 겹쳐 본 모습. 같은 항목에는 가장 나중 것만 쓴다.
+    /// Pending targets are separate from confirmed values; progress always uses the saved snapshot.
     func applying(_ pending: [PendingCheck]) -> WidgetDay {
         var latest: [UUID: PendingCheck] = [:]
         for check in pending where check.dateKey == dateKey {
@@ -51,7 +54,7 @@ struct WidgetDay: Codable, Equatable {
         for groupIndex in copy.groups.indices {
             for itemIndex in copy.groups[groupIndex].items.indices {
                 if let check = latest[copy.groups[groupIndex].items[itemIndex].routineID] {
-                    copy.groups[groupIndex].items[itemIndex].isDone = check.isDone
+                    copy.groups[groupIndex].items[itemIndex].pendingIsDone = check.isDone
                 }
             }
         }
@@ -74,7 +77,9 @@ struct WidgetItem: Codable, Equatable, Identifiable {
     var title: String
     var timeLabel: String
     var isDone: Bool
+    var pendingIsDone: Bool? = nil
 
+    var requestedIsDone: Bool { pendingIsDone ?? isDone }
     var id: UUID { routineID }
 }
 

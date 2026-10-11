@@ -2,6 +2,7 @@ import Foundation
 
 /// 히트맵 한 칸의 상태. 색과 함께 모양·문구로도 전달한다.
 enum HeatLevel: Equatable, Sendable {
+    case vacation
     /// 통계 시작 전이거나 아직 오지 않은 날. 칸을 그리지 않는다.
     case none
     /// 예정된 루틴이 없던 날.
@@ -17,6 +18,7 @@ enum HeatLevel: Equatable, Sendable {
 
     init(_ outcome: DayOutcome, threshold: Int) {
         switch outcome.status {
+        case .vacation: self = .vacation
         case .preStart, .future: self = .none
         case .rest: self = .rest
         case .unrecorded: self = .unrecorded
@@ -34,6 +36,7 @@ enum HeatLevel: Equatable, Sendable {
 
     var label: String {
         switch self {
+        case .vacation: return "휴가"
         case .none: return ""
         case .rest: return "휴식"
         case .unrecorded: return "미기록"

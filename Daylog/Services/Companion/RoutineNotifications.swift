@@ -15,6 +15,10 @@ final class RoutineNotifications {
     private(set) var mutedRoutineIDs: Set<String>
     /// 마지막으로 맞춘 뒤 예약되어 있는 알림 수.
     private(set) var scheduledCount = 0
+    /// 알림 센터에 실제로 확인된 마지막 예약 시각. 이후 일정은 다음 앱 실행 때 채운다.
+    private(set) var lastScheduledDate: Date?
+    /// 예약 실패 또는 시스템에서 확인되지 않은 알림 수.
+    private(set) var schedulingFailedCount = 0
 
     @ObservationIgnored private let client: NotificationClient
     @ObservationIgnored private let defaults: UserDefaults
@@ -66,11 +70,16 @@ final class RoutineNotifications {
         let pending = await client.pending()
         let wanted = Set(plan.map(\.id))
 
-        // 더는 필요 없는 예약(삭제·보관·완료·시간 삭제·알림 끔)을 지운다.
+        // 더는 필요 없는 예약(삭제·보관·완료·휴가·시간 삭제·알림 끔)을 지운다.
         client.removePending(ids: pending.keys.filter { !wanted.contains($0) }.sorted())
         // 없거나 내용이 달라진 것만 예약한다. 같은 식별자로 예약하면 기존 것을 대체한다.
+        var failedIDs = Set<String>()
         for notification in plan where pending[notification.id] != notification.signature {
-            try? await client.add(notification)
+            do {
+                try await client.add(notification)
+            } catch {
+                failedIDs.insert(notification.id)
+            }
         }
         // 오늘 이미 완료한 루틴의 알림이 알림 센터에 남아 있으면 치운다.
         if let today = days.first {
@@ -78,6 +87,12 @@ final class RoutineNotifications {
                 .map { PlannedNotification.id(routineID: $0.id, dateKey: today.day.key) }
             client.removeDelivered(ids: doneIDs)
         }
-        scheduledCount = plan.count
+        // add 성공만으로 전체 예약을 단정하지 않고 실제 대기 목록을 다시 확인한다.
+        let confirmed = await client.pending()
+        let scheduled = plan.filter { confirmed[$0.id] == $0.signature }
+        scheduledCount = scheduled.count
+        lastScheduledDate = scheduled.compactMap { calendar.date(from: $0.dateComponents) }.max()
+        schedulingFailedCount = Set(plan.filter { confirmed[$0.id] != $0.signature }.map(\.id))
+            .union(failedIDs).count
     }
 }

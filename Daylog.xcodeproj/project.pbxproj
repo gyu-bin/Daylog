@@ -562,6 +562,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DAYLOG_WIDGET_EXTENSION";
 				CODE_SIGN_ENTITLEMENTS = Config/DaylogWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -591,6 +592,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DAYLOG_WIDGET_EXTENSION";
 				CODE_SIGN_ENTITLEMENTS = Config/DaylogWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

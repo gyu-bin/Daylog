@@ -21,6 +21,10 @@ struct LargeTodayView: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
+            if day.hasPending {
+                Text("저장 대기 · Daylog를 열어 확인해 주세요")
+                    .font(.caption2).foregroundStyle(.secondary)
+            }
             if let percent = day.percent {
                 HStack(alignment: .firstTextBaseline, spacing: 6) {
                     Text("\(percent)%")
@@ -73,7 +77,7 @@ struct LargeTodayView: View {
     }
 
     private func itemRow(_ item: WidgetItem, tint: Color) -> some View {
-        Button(intent: ToggleRoutineIntent(routineID: item.routineID, dateKey: day.dateKey, isDone: !item.isDone)) {
+        Button(intent: ToggleRoutineIntent(routineID: item.routineID, dateKey: day.dateKey, isDone: !item.requestedIsDone)) {
             HStack(spacing: 8) {
                 Image(systemName: item.isDone ? "checkmark.square.fill" : "square")
                     .font(.body)
@@ -83,6 +87,10 @@ struct LargeTodayView: View {
                     .foregroundStyle(item.isDone ? .secondary : .primary)
                     .lineLimit(1)
                 Spacer(minLength: 6)
+                if let pending = item.pendingIsDone {
+                    Text(pending ? "완료 대기" : "취소 대기")
+                        .font(.caption2).foregroundStyle(.secondary)
+                }
                 if let minutes = TimeLabel.minutes(item.timeLabel) {
                     Text(TimeLabel.label(minutes: minutes))
                         .font(.caption)
@@ -94,7 +102,7 @@ struct LargeTodayView: View {
         }
         .buttonStyle(.plain)
         .accessibilityLabel(item.title)
-        .accessibilityValue(item.isDone ? "완료" : "미완료")
-        .accessibilityHint(item.isDone ? "누르면 완료를 취소합니다." : "누르면 완료로 표시합니다.")
+        .accessibilityValue(item.pendingIsDone.map { $0 ? "완료 저장 대기" : "취소 저장 대기" } ?? (item.isDone ? "완료" : "미완료"))
+        .accessibilityHint(item.requestedIsDone ? "누르면 완료를 취소합니다." : "누르면 완료로 표시합니다.")
     }
 }

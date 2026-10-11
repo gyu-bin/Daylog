@@ -12,10 +12,14 @@ struct TodayWidgetView: View {
         case .noRoutines:
             WidgetNotice(symbol: "checklist", title: "아직 루틴이 없어요", detail: "Daylog에서 루틴을 추가해 보세요.")
         case .day(let day):
+            if day.isVacation == true {
+                WidgetNotice(symbol: "sun.horizon.fill", title: "오늘은 휴가", detail: "루틴 통계에서 제외돼요. 기존 기록은 보관돼요.")
+            } else {
             switch family {
             case .systemSmall: SmallTodayView(day: day, nowMinutes: entry.nowMinutes)
             case .systemMedium: MediumTodayView(day: day)
             default: LargeTodayView(day: day, date: entry.date)
+            }
             }
         }
     }
@@ -90,6 +94,7 @@ struct SmallTodayView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
             WidgetBrand()
+            if day.hasPending { Text("저장 대기 · 앱에서 확인").font(.caption2).foregroundStyle(.secondary) }
             Spacer(minLength: 0)
             if let percent = day.percent {
                 Text("오늘 \(percent)%")
@@ -172,6 +177,7 @@ struct MediumTodayView: View {
                         .foregroundStyle(GroupColor.mint.ink)
                 }
             }
+            if day.hasPending { Text("저장 대기 · 앱에서 확인").font(.caption2).foregroundStyle(.secondary) }
             if groups.isEmpty {
                 Spacer(minLength: 0)
                 Text("오늘은 예정된 루틴이 없어요.")

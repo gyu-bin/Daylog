@@ -20,13 +20,15 @@ struct WidgetSnapshotTests {
         let today = try #require(snapshot(env).day(monday.key))
         #expect((today.done, today.total, today.percent) == (1, 3, 33))
         #expect(today.nextToShow(nowMinutes: 6 * 60)?.title == "운동")
-        // 시간이 있는 것이 다 끝나면 아직 안 한 항목을 보여 준다.
-        let after = today.applying([PendingCheck(dateKey: monday.key, routineID: today.items[1].routineID, isDone: true, at: .now)])
-        #expect(after.nextToShow(nowMinutes: 6 * 60)?.title == "일기")
-        // 모두 끝나면 보여 줄 다음 항목이 없다("오늘 루틴 완료").
-        let allDone = after.applying([PendingCheck(dateKey: monday.key, routineID: today.items[2].routineID, isDone: true, at: .now)])
-        #expect(allDone.done == allDone.total)
-        #expect(allDone.nextToShow(nowMinutes: 6 * 60) == nil)
+        // Pending requests do not change confirmed achievement or the next routine.
+        let waiting = today.applying([PendingCheck(dateKey: monday.key, routineID: today.items[1].routineID, isDone: true, at: .now)])
+        #expect(waiting.done == 1)
+        #expect(waiting.items[1].pendingIsDone == true)
+        #expect(waiting.nextToShow(nowMinutes: 6 * 60)?.title == "운동")
+        env.store.setDone(routineID: today.items[1].routineID, true)
+        #expect(snapshot(env).day(monday.key)?.nextToShow(nowMinutes: 6 * 60)?.title == "일기")
+        env.store.setDone(routineID: today.items[2].routineID, true)
+        #expect(snapshot(env).day(monday.key)?.nextToShow(nowMinutes: 6 * 60) == nil)
     }
 
     /// 중간 위젯: 그룹별 진행률이 앱과 같은 규칙으로 계산된다.
@@ -176,12 +178,15 @@ struct WidgetCheckTests {
 
         try bridge.appendPending(pending(routine, true, at: Date(timeIntervalSinceReferenceDate: 10)))
         try bridge.appendPending(pending(routine, false, at: Date(timeIntervalSinceReferenceDate: 20)))
-        // 위젯은 반영 전의 요청을 겹쳐서 보여 준다: 같은 항목에는 가장 나중 것.
+        // Only pending target changes; confirmed values remain the saved snapshot.
         let shown = try #require(snapshot.day(monday.key)).applying(bridge.readPending())
         #expect(shown.items.map(\.isDone) == [false])
-        #expect(bridge.takePending().map(\.isDone) == [true, false])
+        #expect(shown.items.map(\.pendingIsDone) == [false])
+        let captured = try bridge.pendingChecks()
+        #expect(captured.map(\.isDone) == [true, false])
+        #expect(try bridge.pendingChecks() == captured)
+        try bridge.acknowledge(captured)
         #expect(bridge.readPending().isEmpty)
-        #expect(bridge.takePending().isEmpty)
     }
 
     /// 앱이 켜질 때 대기열을 반영하고 위젯용 데이터를 새로 적는다.

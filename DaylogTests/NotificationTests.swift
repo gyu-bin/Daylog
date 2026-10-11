@@ -10,8 +10,8 @@ struct NotificationPlanTests {
         env.addRoutine("헬스장 가기", time: "07:30", weekdays: [1, 3, 5])
 
         let plan = env.plan(at: seoulTime(monday, 6))
-        // 오늘(월)부터 14일: 월·수·금이 여섯 번.
-        #expect(plan.map(\.dateKey) == ["2026-10-05", "2026-10-07", "2026-10-09", "2026-10-12", "2026-10-14", "2026-10-16"])
+        // 가까운 월·수·금부터 차례로 채운다.
+        #expect(plan.prefix(6).map(\.dateKey) == ["2026-10-05", "2026-10-07", "2026-10-09", "2026-10-12", "2026-10-14", "2026-10-16"])
         #expect(plan.allSatisfy { $0.hour == 7 && $0.minute == 30 })
         let first = try #require(plan.first)
         #expect(first.notificationTitle == "Daylog · 루틴 시간이에요")
@@ -44,7 +44,7 @@ struct NotificationPlanTests {
         let env = try CompanionEnv()
         let deleted = env.addRoutine("물", time: "07:00")
         let archived = env.addRoutine("운동", time: "08:00")
-        #expect(env.plan(at: seoulTime(monday, 6)).count == 28)
+        #expect(env.plan(at: seoulTime(monday, 6)).count == 60)
 
         env.store.deleteRoutine(deleted)
         env.store.setArchived(archived, true)
@@ -53,7 +53,7 @@ struct NotificationPlanTests {
 
         env.store.setArchived(archived, false)
         #expect(env.plan(at: seoulTime(monday, 6)).allSatisfy { $0.title == "운동" })
-        #expect(env.plan(at: seoulTime(monday, 6)).count == 14)
+        #expect(env.plan(at: seoulTime(monday, 6)).count == 60)
     }
 
     /// 완료하면 오늘 것만 빠지고, 체크를 취소하면 시간이 남아 있을 때 다시 들어온다.
@@ -64,7 +64,7 @@ struct NotificationPlanTests {
         env.store.setDone(routineID: routine.id, true)
         let afterDone = env.plan(at: seoulTime(monday, 6))
         #expect(!afterDone.contains { $0.dateKey == monday.key })
-        #expect(afterDone.count == 13)
+        #expect(afterDone.count == 60)
 
         env.store.setDone(routineID: routine.id, false)
         #expect(env.plan(at: seoulTime(monday, 6)).first?.dateKey == monday.key)
@@ -99,6 +99,27 @@ struct NotificationPlanTests {
         let plan = env.plan(at: seoulTime(monday, 6))
         #expect(plan.count == RoutineNotificationPlanner.maxPending)
         #expect(Set(plan.map(\.dateKey)).sorted() == (0..<6).map { monday.adding(days: $0).key })
+        let fireDates = plan.compactMap { seoul.date(from: $0.dateComponents) }
+        #expect(fireDates == fireDates.sorted())
+    }
+
+    @Test func sparseRoutinesExtendBeyondTwoWeeksButStayWithinOneYear() throws {
+        let env = try CompanionEnv()
+        env.addRoutine("주간 정리", time: "07:30", weekdays: [1])
+        let plan = env.plan(at: seoulTime(monday, 6))
+        #expect(plan.count == 53)
+        #expect(plan.last?.dateKey == monday.adding(days: 364).key)
+        let longerInput = env.store.upcomingDays(count: 400)
+        #expect(RoutineNotificationPlanner.plan(days: longerInput, now: seoulTime(monday, 6), calendar: seoul) == plan)
+    }
+
+    @Test func vacationDoesNotStopLookingForLaterNotifications() throws {
+        let env = try CompanionEnv()
+        env.addRoutine("운동", time: "07:30")
+        #expect(env.store.saveVacation(start: monday, end: monday.adding(days: 29)))
+        let plan = env.plan(at: seoulTime(monday, 6))
+        #expect(plan.first?.dateKey == monday.adding(days: 30).key)
+        #expect(plan.count == 60)
     }
 
     /// 같은 순간이라도 기기의 시간대가 바뀌면 "아직 안 지난 시각"이 달라진다.
@@ -126,7 +147,8 @@ struct NotificationPlanTests {
 
         let plan = env.plan(at: seoulTime(monday.adding(days: 1), 0, 1))
         #expect(plan.first?.dateKey == "2026-10-07")
-        #expect(plan.last?.dateKey == "2026-10-19")
+        #expect(plan.count == 60)
+        #expect(try #require(plan.last).dateKey > monday.adding(days: 14).key)
     }
 
     @Test func mutedRoutinesAreLeftOut() throws {
@@ -145,6 +167,66 @@ struct NotificationScheduleTests {
         env.store.upcomingDays(count: RoutineNotificationPlanner.horizonDays)
     }
 
+    @Test func futureVacationAdditionEditAndRemovalReconcileWithoutChangingRecords() async throws {
+        let env = try CompanionEnv()
+        let routine = env.addRoutine("운동", time: "07:30")
+        env.store.setDone(routineID: routine.id, true)
+        let record = try #require(try env.env.records.record(on: monday))
+        record.lunch = "기존 점심"
+        try env.env.context.save()
+        let client = FakeNotificationClient(status: .authorized)
+        let notifications = RoutineNotifications(client: client, defaults: testDefaults())
+        await notifications.setEnabled(true)
+        let now = seoulTime(monday, 6)
+        let tomorrow = monday.adding(days: 1)
+        let tomorrowID = PlannedNotification.id(routineID: routine.id, dateKey: tomorrow.key)
+        await notifications.reschedule(days: days(env), now: now, calendar: seoul)
+        #expect(client.scheduled[tomorrowID] != nil)
+
+        #expect(env.store.saveVacation(start: tomorrow, end: monday.adding(days: 3), memo: "여행"))
+        let period = try #require(env.store.vacationPeriods.first)
+        await notifications.reschedule(days: days(env), now: now, calendar: seoul)
+        #expect(client.scheduled.values.allSatisfy { $0.dateKey > monday.adding(days: 3).key })
+
+        #expect(env.store.saveVacation(id: period.id, start: monday, end: tomorrow, memo: "변경"))
+        await notifications.reschedule(days: days(env), now: now, calendar: seoul)
+        #expect(client.scheduled[tomorrowID] == nil)
+        #expect(client.scheduled.values.contains { $0.dateKey == monday.adding(days: 2).key })
+        let updated = try #require(env.store.vacationPeriods.first)
+        #expect(env.store.removeVacation(updated))
+        await notifications.reschedule(days: days(env), now: now, calendar: seoul)
+        #expect(client.scheduled[tomorrowID] != nil)
+        #expect(record.lunch == "기존 점심")
+        #expect(record.checkList.first { $0.routineID == routine.id }?.isDone == true)
+        #expect(routine.weekdays == Weekdays.all)
+        #expect(routine.timeLabel == "07:30")
+    }
+
+    @Test func scheduleStatusReflectsConfirmedPendingRequestsAndRetriesFailures() async throws {
+        let env = try CompanionEnv()
+        env.addRoutine("운동", time: "07:30")
+        let client = FallibleNotificationClient()
+        let notifications = RoutineNotifications(client: client, defaults: testDefaults())
+        await notifications.setEnabled(true)
+        let now = seoulTime(monday, 6)
+        await notifications.reschedule(days: days(env), now: now, calendar: seoul)
+        #expect(notifications.scheduledCount == 0)
+        #expect(notifications.schedulingFailedCount == 60)
+        #expect(notifications.lastScheduledDate == nil)
+
+        client.shouldFail = false
+        await notifications.reschedule(days: days(env), now: now, calendar: seoul)
+        #expect(notifications.scheduledCount == 60)
+        #expect(notifications.schedulingFailedCount == 0)
+        #expect(notifications.lastScheduledDate == seoulTime(monday.adding(days: 59), 7, 30))
+
+        await notifications.setEnabled(false)
+        await notifications.reschedule(days: days(env), now: now, calendar: seoul)
+        #expect(notifications.scheduledCount == 0)
+        #expect(notifications.lastScheduledDate == nil)
+        #expect(notifications.schedulingFailedCount == 0)
+    }
+
     /// 앱을 처음 열 때는 권한을 묻지 않고, 사용자가 켤 때 묻는다.
     @Test func asksForPermissionOnlyWhenTurnedOn() async throws {
         let env = try CompanionEnv()
@@ -160,8 +242,8 @@ struct NotificationScheduleTests {
         await notifications.setEnabled(true)
         #expect(client.requests == 1)
         await notifications.reschedule(days: days(env), now: seoulTime(monday, 6), calendar: seoul)
-        #expect(client.scheduled.count == 14)
-        #expect(notifications.scheduledCount == 14)
+        #expect(client.scheduled.count == 60)
+        #expect(notifications.scheduledCount == 60)
     }
 
     /// 몇 번을 맞춰도 같은 알림을 다시 예약하지 않는다.
@@ -174,8 +256,8 @@ struct NotificationScheduleTests {
 
         await notifications.reschedule(days: days(env), now: seoulTime(monday, 6), calendar: seoul)
         await notifications.reschedule(days: days(env), now: seoulTime(monday, 6), calendar: seoul)
-        #expect(client.addCount == 14)
-        #expect(client.scheduled.count == 14)
+        #expect(client.addCount == 60)
+        #expect(client.scheduled.count == 60)
     }
 
     /// 완료·삭제·시간 변경이 예약에 반영된다.
@@ -194,7 +276,7 @@ struct NotificationScheduleTests {
         env.store.setDone(routineID: routine.id, true)
         await notifications.reschedule(days: days(env), now: now, calendar: seoul)
         #expect(client.scheduled[todayID] == nil)
-        #expect(client.scheduled.count == 13)
+        #expect(client.scheduled.count == 60)
         #expect(client.removedDelivered.contains(todayID))
 
         // 체크 취소 → 다시 예약.
@@ -205,7 +287,7 @@ struct NotificationScheduleTests {
         // 시간 변경 → 같은 식별자가 새 시각으로 바뀐다.
         env.store.updateRoutine(routine, timeLabel: "09:00")
         await notifications.reschedule(days: days(env), now: now, calendar: seoul)
-        #expect(client.scheduled.count == 14)
+        #expect(client.scheduled.count == 60)
         #expect(client.scheduled.values.allSatisfy { $0.hour == 9 })
 
         // 삭제 → 모두 취소.
@@ -232,7 +314,7 @@ struct NotificationScheduleTests {
         // 시스템 설정에서 허용하면 다음에 맞출 때 예약된다.
         client.status = .authorized
         await notifications.reschedule(days: days(env), now: seoulTime(monday, 6), calendar: seoul)
-        #expect(client.scheduled.count == 14)
+        #expect(client.scheduled.count == 60)
     }
 
     /// 끄면 예약을 모두 지운다.
@@ -261,14 +343,14 @@ struct NotificationScheduleTests {
         first.setMuted(muted.id, true)
         await first.reschedule(days: days(env), now: seoulTime(monday, 6), calendar: seoul)
         let added = client.addCount
-        #expect(client.scheduled.count == 14)
+        #expect(client.scheduled.count == 60)
 
         let relaunched = RoutineNotifications(client: client, defaults: defaults)
         #expect(relaunched.isEnabled)
         #expect(relaunched.isMuted(muted.id))
         await relaunched.reschedule(days: days(env), now: seoulTime(monday, 6), calendar: seoul)
         #expect(client.addCount == added)
-        #expect(client.scheduled.count == 14)
+        #expect(client.scheduled.count == 60)
     }
 }
 
@@ -350,4 +432,23 @@ struct NotificationActionTests {
         #expect(env.store.section == .dashboard)
         #expect(env.store.selectedDay == monday.adding(days: 1))
     }
+}
+
+/// 오류를 반환하는 시스템 예약을 재현한다.
+@MainActor
+private final class FallibleNotificationClient: NotificationClient {
+    enum Failure: Error { case rejected }
+    var shouldFail = true
+    private var scheduled: [String: String] = [:]
+    func permission() async -> NotificationPermission { .authorized }
+    func requestPermission() async -> NotificationPermission { .authorized }
+    func pending() async -> [String: String] { scheduled }
+    func add(_ notification: PlannedNotification) async throws {
+        if shouldFail { throw Failure.rejected }
+        scheduled[notification.id] = notification.signature
+    }
+    func removePending(ids: [String]) {
+        for id in ids { scheduled[id] = nil }
+    }
+    func removeDelivered(ids: [String]) {}
 }

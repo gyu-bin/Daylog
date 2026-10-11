@@ -136,7 +136,7 @@ struct ActivityHeatmapCard: View {
 
     private var legend: some View {
         HStack(spacing: 10) {
-            ForEach([HeatLevel.rest, .unrecorded, .low, .mid, .achieved], id: \.label) { level in
+            ForEach([HeatLevel.vacation, .rest, .unrecorded, .low, .mid, .achieved], id: \.label) { level in
                 HStack(spacing: 4) {
                     HeatCell(level: level, size: 10, isToday: false, isHovered: false)
                     Text(level.label)
@@ -147,7 +147,7 @@ struct ActivityHeatmapCard: View {
             }
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("범례: 테두리만 있는 칸은 휴식, 옅은 칸은 미기록, 색이 진할수록 달성률이 높아요.")
+        .accessibilityLabel("범례: 빼기 표시는 휴가, 테두리만 있는 칸은 휴식, 옅은 칸은 미기록, 색이 진할수록 달성률이 높아요.")
     }
 }
 
@@ -160,6 +160,7 @@ private struct HeatCell: View {
 
     private var fill: Color {
         switch level {
+        case .vacation: return .blue.opacity(0.25)
         case .none, .rest: return .clear
         case .unrecorded: return Theme.track
         case .low: return Theme.accent.opacity(0.32)
@@ -173,6 +174,9 @@ private struct HeatCell: View {
         shape
             .fill(fill)
             .overlay {
+                if level == .vacation {
+                    Image(systemName: "minus").font(.system(size: size * 0.65, weight: .bold)).foregroundStyle(.blue)
+                }
                 if level == .rest {
                     shape.strokeBorder(Color.primary.opacity(0.16), lineWidth: 1)
                 }

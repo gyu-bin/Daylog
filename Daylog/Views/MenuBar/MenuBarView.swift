@@ -80,7 +80,9 @@ struct MenuBarView: View {
                         .monospacedDigit()
                 }
                 Spacer(minLength: 8)
-                if let percent = Achievement.percent(done: done, total: total) {
+                if store.isVacation(on: store.today) {
+                    Label("휴가", systemImage: "sun.max").foregroundStyle(.secondary)
+                } else if let percent = Achievement.percent(done: done, total: total) {
                     VStack(alignment: .trailing, spacing: 1) {
                         Text("\(percent)%")
                             .font(.title3.weight(.bold))
@@ -92,13 +94,13 @@ struct MenuBarView: View {
                     }
                 }
             }
-            if total > 0 {
+            if total > 0, !store.isVacation(on: store.today) {
                 ProgressBar(ratio: Achievement.ratio(done: done, total: total) ?? 0, height: 6)
             }
         }
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(
-            total > 0
+            store.isVacation(on: store.today) ? "Daylog, 휴가, 통계 제외" : total > 0
                 ? "Daylog, \(store.today.longTitle), 달성률 \(Achievement.percent(done: done, total: total) ?? 0)%, \(total)개 중 \(done)개 완료"
                 : "Daylog, \(store.today.longTitle)"
         )

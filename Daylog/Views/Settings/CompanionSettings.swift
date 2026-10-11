@@ -38,6 +38,16 @@ struct NotificationSettingsSection: View {
 
             if notifications.isActive {
                 LabeledContent("예약된 알림", value: "\(notifications.scheduledCount)개")
+                if let last = notifications.lastScheduledDate {
+                    LabeledContent("마지막 예약 시각") {
+                        Text(last, format: .dateTime.year().month().day().hour().minute())
+                    }
+                }
+                if notifications.schedulingFailedCount > 0 {
+                    Label("\(notifications.schedulingFailedCount)개 알림을 예약하지 못했어요. 앱을 다시 열면 재시도해요.", systemImage: "exclamationmark.triangle")
+                        .font(.callout)
+                        .foregroundStyle(.orange)
+                }
             }
             if notifications.isEnabled {
                 DisclosureGroup("루틴별 알림", isExpanded: $showsRoutines) {
@@ -71,7 +81,8 @@ struct NotificationSettingsSection: View {
             Text("알림")
         } footer: {
             Text(
-                "예정 시간이 있는 루틴을 그 요일, 그 시간에 알려요. 이미 완료한 루틴은 알리지 않아요. 앞으로 2주 치를 미리 예약해 둬요. "
+                "예정 시간이 있는 루틴을 그 요일, 그 시간에 알려요. 이미 완료한 루틴과 휴가 날짜는 알리지 않아요. 앞으로 1년 중 가까운 알림을 최대 60개 예약하고 앱을 열 때 보충해요. "
+                    + "루틴 수에 따라 예약 기간이 달라지며, 마지막 예약 이후에도 계속 받으려면 그 전에 앱을 다시 열어 주세요. "
                     + "알림의 [완료]를 누르면 앱을 열지 않고 체크돼요. 이 설정은 \(Platform.thisDevice)에만 적용되고, "
                     + "기기가 꺼져 있거나 잠자는 중이면 제시간에 울리지 않을 수 있어요."
             )
@@ -108,7 +119,7 @@ struct WidgetGuideSection: View {
         } header: {
             Text("위젯")
         } footer: {
-            Text("큰 위젯에서는 루틴을 눌러 바로 체크하거나 취소할 수 있어요. 위젯에서 한 체크는 Daylog를 다음에 열 때 기록과 iCloud에 반영돼요. 위젯은 시스템이 정한 때에 갱신되어 조금 늦게 바뀔 수 있어요.")
+            Text("큰 위젯에서는 루틴을 눌러 바로 체크하거나 취소할 수 있어요. 체크는 앱의 저장소에 반영한 뒤 완료로 표시해요. 저장 대기 표시가 남으면 Daylog를 열어 주세요. iCloud 동기화는 시스템이 가능한 때에 진행해요. 위젯은 시스템이 정한 때에 갱신되어 조금 늦게 바뀔 수 있어요.")
         }
     }
 }

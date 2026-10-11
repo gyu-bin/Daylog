@@ -349,15 +349,18 @@ SwiftData는 저장이나 조회가 지나가면 같은 체크를 **다른 객�
 ```
 DaylogShared/   앱(macOS·iOS)과 위젯이 함께 쓰는 순수 코드: Day, Weekdays, TimeLabel, Achievement, GroupColor,
                 NextRoutine(다음 루틴 고르기), WidgetSnapshot(위젯이 그리는 값), WidgetBridge(앱 그룹 파일)
-DaylogWidgets/  위젯 확장(iOS·iPadOS): TodayProvider, TodayWidgetView(작게·중간·크게), ToggleRoutineIntent
+DaylogWidgets/  위젯 확장(iOS·iPadOS): TodayProvider, TodayWidgetView(작게·중간·크게)
+DaylogShared/ToggleRoutineIntent.swift 앱·확장이 함께 빌드하는 체크 요청
+Daylog/App/WidgetIntentExecution.swift 앱 타깃에만 있는 ForegroundContinuableIntent 채택
 Daylog/App/AppRuntime.swift            창이 없어도 도는 일(날짜·외부 변경, 알림 예약, 위젯 데이터, 알림 버튼)
 Daylog/Services/Companion/             알림 계획(순수 함수), 알림 센터 감싸개, 기기별 알림 설정
 Daylog/Views/MenuBar/MenuBarView.swift macOS 메뉴 막대의 빠른 체크
 ```
 
 - `AppStore.todaySections`: 보고 있는 날짜와 상관없는 "실제 오늘"의 체크. 메뉴 막대·위젯·알림이 이 값을 쓴다.
-- `AppStore.setDone(routineID:on:_:at:)`: 날짜를 지정해 체크를 저장한다. 대시보드·메뉴 막대·알림의 [완료]·위젯이 모두 이 한 경로
-  (편집 기록 `FieldEdit` + `DayRecordService.setDone`)로 들어온다. 미래 날짜는 받지 않는다.
+- `AppStore.setDone(routineID:on:_:at:)`: 대시보드·메뉴 막대·알림의 [완료]가 날짜를 지정해 체크를 저장한다.
+  Phase 2.1 위젯은 실패 복구와 확인 처리를 위해 `applyWidgetCheck`를 사용하며 같은 `FieldEditService`·`DayRecordService`를 재사용한다.
+  미래 날짜의 체크는 받지 않는다.
 - `AppStore.onReload`: 저장된 내용이 바뀌어 화면 값을 다시 계산할 때마다 불린다. `AppRuntime`이 0.4초 모아서 알림 예약과 위젯 데이터를 맞춘다.
   루틴 추가·삭제·보관·이름·요일·시간 변경, 체크, iCloud에서 들어온 변경, 날짜 변경이 모두 이 길을 탄다.
 - 날짜 변경·외부 변경·저장 시점의 구독을 `RootView`에서 `AppRuntime`으로 옮겼다. macOS에서 창을 닫아도 메뉴 막대가 남기 때문이다.
@@ -366,7 +369,17 @@ Daylog/Views/MenuBar/MenuBarView.swift macOS 메뉴 막대의 빠른 체크
 
 - **일회성 알림을 날짜별로** 예약한다(`RoutineNotificationPlanner`). 요일 반복 알림은 "오늘 이미 완료한 루틴은 오늘만 건너뛴다"를
   표현하지 못해서(완료해도 울리거나 반복 전체를 지워야 한다) 쓰지 않았다.
-  대가: 앞으로 14일 치(최대 60개, 시스템 한도 64개)만 예약하므로 **앱이 2주 동안 한 번도 실행되지 않으면 그 뒤로는 울리지 않는다.**
+  Phase 2.1부터 **오늘 포함 365일을 후보로 계산하고, 휴가·완료·지난 시각을 제외한 가까운 60개**만 예약한다.
+  매일 한 번이면 약 60일, 매일 여러 번이면 더 짧고 주 1회면 약 1년까지 후보를 채울 수 있다. 365일치 전달을 보장하는 뜻은 아니다.
+- 60개는 보수적인 앱 정책이다. Apple의 [기존 UILocalNotification 문서](https://developer.apple.com/documentation/uikit/uilocalnotification)는
+  가까운 64개를 유지한다고 설명하지만, 이를 현재 모든 UserNotifications 플랫폼의 동일한 보장으로 단정하지 않는다.
+  실제 예약은 `UNNotificationRequest`를 쓰며 실패한 요청은 다음 조정에서 다시 시도한다.
+- 휴가 추가·수정·해제, 외부 변경 수신, 앱 활성화·날짜·시간대 변경 때 예정 목록을 다시 계산한다.
+  휴가 날짜는 예약 후보에서 빠지고, 해제하면 아직 지나지 않은 시각만 돌아온다. 과거에 전달된 알림은 휴가 지정으로 소급 제거하지 않는다.
+- 예약이 소진되면 다음 앱 실행까지 자동으로 보충되지 않는다. 알림 전달 자체는 앱이 꺼져도 시스템이 맡지만,
+  [백그라운드 실행 시점은 시스템이 결정한다](https://developer.apple.com/documentation/backgroundtasks/choosing-background-strategies-for-your-app).
+  무기한 예약 갱신이나 다른 기기에서 지정한 휴가의 즉시 반영은 보장하지 않는다.
+  [로컬 알림 예약·취소](https://developer.apple.com/documentation/usernotifications/scheduling-a-notification-locally-from-your-app)의 실제 대기 요청과 비교해 갱신한다.
 - 식별자는 `routine.<routineID>.<날짜>`. 같은 날 같은 루틴은 몇 번을 맞춰도 하나다. 예약을 맞출 때는 지금 대기 중인 것과 비교해
   없어진 것만 지우고, 없거나 내용(이름·그룹·시간)이 달라진 것만 다시 건다.
 - 지난 시각은 예약하지 않는다. 그래서 이미 울린 알림이 같은 날 다시 울리지 않고, 체크를 취소해도 시간이 남았을 때만 되살아난다.
@@ -379,28 +392,39 @@ Daylog/Views/MenuBar/MenuBarView.swift macOS 메뉴 막대의 빠른 체크
 - 보장하지 않는 것: 기기가 꺼져 있거나 잠자는 중의 정시 알림, iCloud로 들어온 루틴 변경이 앱을 열기 전에 알림에 반영되는 것
   (iOS는 백그라운드 실행을 보장하지 않는다. 앱이 활성화될 때 반드시 다시 맞춘다).
 
-### 위젯 (iOS·iPadOS, WidgetKit + App Intents)
+### 위젯 (iOS·iPadOS, WidgetKit + App Intents, Phase 2.1)
 
-**위젯은 SwiftData 저장소를 열지 않는다.** 앱 그룹 폴더(`group.com.mungyubin.daylog`)의 파일 두 개로만 주고받는다.
+**영속 저장은 앱 프로세스의 기존 SwiftData 컨텍스트에서 수행한다.** 위젯 확장은 SwiftData를 열지 않고,
+App Group으로 SQLite를 옮기지도 않는다. 기존 저장소 위치·마이그레이션·`StoreLock`·CloudKit 연결을 유지한다.
+
+- `ToggleRoutineIntent`는 앱과 확장이 함께 빌드한다. 앱 타깃에만 있는 `WidgetIntentExecution.swift`가
+  `ForegroundContinuableIntent`를 채택해 앱 프로세스 실행을 지정한다. iOS 26 이상에는 `.foreground(.dynamic)`,
+  iOS 27 이상에는 `.main` 실행 대상도 명시한다. 앱 화면을 앞으로 열도록 요청하지 않는다.
+  Apple은 이 프로토콜을 채택한 위젯 인텐트가 [앱 프로세스에서 실행됨](https://developer.apple.com/documentation/widgetkit/adding-interactivity-to-widgets-and-live-activities)을 명시한다.
+  최신 API와 이전 OS 호환 방식은 [ForegroundContinuableIntent 문서](https://developer.apple.com/documentation/appintents/foregroundcontinuableintent)에 따른다.
+- 실행 순서: 명시적인 목표 상태를 내구성 대기열에 기록 → 앱의 `AppRuntime.commitWidgetChecks()` →
+  `AppStore.applyWidgetCheck()`가 `FieldEdit`와 체크를 저장 → 저장된 값으로 스냅샷 게시 → 해당 요청만 확인 처리(acknowledge).
+  **즉시 저장 시점은 앱 프로세스에서 `context.save()`가 성공한 때**다. CloudKit 업로드 완료 시점은 이 시점과 다르며 시스템 정책을 따른다.
+- 기존 식사 입력 등 대기 중인 편집을 먼저 저장한 다음 체크를 반영한다. 체크 저장 실패는 해당 트랜잭션만 되돌린다.
+  목표 상태는 "뒤집기" 이벤트가 아니므로 반복 실행해도 같고, 더 최신 편집을 오래된 요청이 덮지 않는다.
+  새 요청은 실제 오늘만 받는다. 과거에 받아 둔 요청은 지연 처리할 수 있고 미래 요청은 반영하지 않는다.
 
 | 파일 | 쓰는 쪽 | 내용 |
 |---|---|---|
-| `widget-snapshot.json` | 앱 | 오늘부터 7일 치의 그룹·루틴·완료 여부(내일부터는 지금의 루틴 설정으로 본 예정) |
-| `widget-pending.json` | 위젯 | 위젯에서 누른 체크의 대기열("이 날짜의 이 루틴을 이 값으로", 누른 시각) |
+| `widget-snapshot.json` | 앱 | 오늘부터 7일의 그룹·루틴·저장된 완료 여부·휴가 여부 |
+| `widget-pending.json` | 인텐트 / 앱 확인 처리 | 날짜·루틴·명시적인 목표 상태·시각을 가진 저장 대기 요청 |
 
-- 이렇게 한 이유: 저장소는 한 번에 한 프로세스만 연다는 규칙(`StoreLock`)과 형식 변환·iCloud 병합을 앱 한 곳에만 두기 위해서다.
-  공유 폴더의 SQLite를 두 프로세스가 여는 구조는 멈춘 프로세스가 잠금을 쥔 채 종료되는 문제와, 위젯이 형식을 변환해 버릴 위험이 있다.
-  저장소 위치를 옮기지 않으므로 기존 기록에 손대지 않는다.
-- 위젯이 그리는 값 = 스냅샷 위에 대기열을 겹친 것. 그래서 누르면 위젯에서는 바로 바뀐다.
-- 앱은 실행·활성화·알림 처리 때 대기열을 가져가(`WidgetBridge.takePending`: 파일을 다른 이름으로 옮긴 뒤 읽는다) `AppStore.applyWidgetChecks`로 반영한다.
-  - 누른 시각 이후에 (이 기기든 다른 기기든) 더 나중에 정한 값이 있으면 그 값을 따르고 요청은 버린다.
-  - 반영한 가장 나중 시각을 적어 두어(UserDefaults) 같은 요청이 다시 들어와도 건너뛴다. 요청은 "뒤집기"가 아니라 "이 값으로"라서 두 번 반영해도 같다.
-  - 미래 날짜의 요청은 버린다. 위젯도 오늘 날짜의 항목만 받는다.
-- **한계: 위젯에서 한 체크는 앱이 다음에 실행될 때 기록과 iCloud에 들어간다.** 그 전까지는 다른 기기에서 보이지 않는다.
-- 갱신: 스냅샷의 내용이 바뀌었을 때만 `WidgetCenter.reloadAllTimelines()`를 부른다. 타임라인에는 지금, 오늘 남은 루틴의 예정 시각(다음 루틴이 넘어간다),
-  앞으로의 자정(날짜가 바뀐다)을 넣는다. 앱을 7일 넘게 열지 않으면 "Daylog를 열어 주세요"를 보여 준다.
-- 크기: 작게(달성률·완료/전체·다음 루틴과 시간), 중간(그룹별 진행률, 남은 그룹부터 3개), 크게(체크 목록 9줄, 넘치면 남은 개수). 체크는 큰 위젯에서만 한다.
-  완료 여부는 색이 아니라 체크 표시로 구분한다. 가짜 예시는 그리지 않는다.
+- 앱 런타임을 사용할 수 없거나 저장·스냅샷 게시가 실패하면 요청을 대기열에 남긴다. 다음 앱 실행·활성화 때 다시 처리한다.
+  읽기만으로 요청을 소비하지 않으며, 이전 버전이 남긴 임시 대기열 파일도 복구한다. 짧은 파일 잠금 안에서 순서를 정하고 원자적으로 쓰며,
+  확인 처리 동안 새로 추가된 요청은 유지한다. 잠금을 SwiftData 작업이나 비동기 대기까지 붙잡지 않는다.
+- 위젯의 달성률과 확정 체크 상태는 저장된 스냅샷에서 읽는다. 대기 요청은 별도 저장 대기 상태로 표시하고,
+  저장되지 않은 체크를 확정된 실적으로 계산하지 않는다. 연속 체크·취소는 대기 중인 목표 상태를 기준으로 다음 목표를 정한다.
+- 오늘이 휴가면 달성률 대신 휴가 상태를 표시한다. 저장된 루틴 체크는 보존하며 대기 요청도 휴가를 해제하거나 기록을 지우지 않는다.
+- 스냅샷 내용이 달라졌을 때 위젯 갱신을 요청하고, 인텐트 처리 후 해당 위젯의 타임라인을 갱신한다.
+  타임라인에는 오늘 남은 예정 시각과 앞으로의 자정을 넣는다. 실제 화면 갱신 시점은 WidgetKit 정책을 따른다.
+  앱을 7일 넘게 열지 않아 스냅샷이 없으면 "Daylog를 열어 주세요"를 보여 준다.
+- 작게(오늘 상태·다음 루틴), 중간(그룹별 진행률), 크게(직접 체크 목록)를 유지한다.
+  앱 미실행·재부팅 상황의 시스템 인텐트 라우팅과 기기 서명·App Group 접근은 실제 실행 검증이 별도로 필요하다.
 
 ### 메뉴 막대 (macOS, MenuBarExtra)
 
@@ -409,7 +433,7 @@ Daylog/Views/MenuBar/MenuBarView.swift macOS 메뉴 막대의 빠른 체크
   켜져 있으면 창을 닫아도 앱이 남고(`applicationShouldTerminateAfterLastWindowClosed`), 꺼져 있으면 예전처럼 창을 닫을 때 끝난다. 종료하면 아이콘도 사라진다.
 - 스크롤 영역은 팝오버 안에서 제 높이를 정하지 못해 목록이 사라진다. 줄 수로 어림한 높이를 준다(`MenuBarView.listHeight`).
 
-### 검증 범위와 한계 (2026-10-11)
+### v1.5 기존 검증 범위와 한계 (2026-10-11)
 
 - 단위 테스트: 알림 계획·예약 맞추기·권한·버튼, 위젯 값·대기열 반영·파일, 메뉴 막대가 쓰는 오늘의 체크.
 - iPhone 시뮬레이터: 알림 권한 요청, 예약, 실제 전달, 앱이 꺼진 상태에서 [완료] → 체크 반영, 위젯 작게·중간·크게, 큰 위젯에서 체크·취소, 앱을 열어 반영, 다크 모드.
@@ -420,6 +444,56 @@ Daylog/Views/MenuBar/MenuBarView.swift macOS 메뉴 막대의 빠른 체크
   iPad의 위젯, 앱 그룹이 들어간 기기 서명(개발자 계정에 앱 그룹 등록이 필요하다), 위젯 체크의 iCloud 동기화.
 - 시뮬레이터에서 알림 버튼·위젯을 검증할 때는 `-DaylogStoreName`을 쓰지 않는다. 시스템이 앱을 백그라운드로 띄울 때는 실행 인자가 없어서 기본 저장소가 열린다
   (시뮬레이터의 기본 저장소는 iCloud 없이 그 시뮬레이터 안에만 있다).
+
+## 휴가 모드 (Phase 2.1)
+
+### 저장 및 기기 간 병합
+
+- `VacationPeriod`는 `id`, `start`, `end`, `memo`를 가진 값 타입이다. 별도 SwiftData 모델이 아니다.
+  `VacationService`가 기존 `FieldEdit`의 `dateKey = "vacation"`, `field = "vacation:<UUID>"`에 버전이 있는 JSON 전체 기간을 저장한다.
+  JSON에는 시작·종료 날짜 키, 메모, 삭제 표시가 함께 들어가므로 서로 다른 기기의 날짜 절반끼리 섞이지 않는다.
+- 기존 `FieldEdit` 레코드·속성이 그대로 CloudKit으로 전달된다. **모델 스키마 변경, 마이그레이션, Production 스키마 배포가 없다.**
+  예전 클라이언트는 모르는 칸 이름을 무시해 기록은 유지하지만 휴가 UI·통계 제외·알림 중지는 적용하지 못한다.
+  휴가 정책을 모든 기기에서 적용하려면 각 기기를 Phase 2.1로 업데이트해야 한다.
+- `FieldEditService`의 기기별 편집과 `seenState` 인과 관계를 재사용한다. 상대 변경을 보고 고친 편집이 우선하며,
+  서로 못 본 동시 수정은 시각·기기 ID로 전체 기간 하나를 결정한다. 동시 삭제와 수정은 삭제 표시가 우선한다.
+  해제할 때 레코드를 지우지 않으므로 늦게 도착한 다른 기기의 옛 편집이 휴가를 되살리지 않는다.
+- 겹친 기간은 독립적인 ID로 유지하며 날짜 판정은 합집합이다. 하나를 해제해도 다른 기간이 덮는 날짜는 휴가다.
+  하루·과거·미래 기간과 메모를 지원하고 종료일이 시작일보다 빠르면 저장하지 않는다.
+- 저장 실패 시 수정한 자기 기기의 편집 값·시각·인과 정보만 복원하고, 그 작업에서 새로 만든 미저장 객체만 취소한다.
+  다른 미저장 식사 입력이나 기존 영속 레코드를 전체 rollback으로 잃지 않는다.
+  AppStore는 먼저 입력 초안을 저장하며 그 저장이 실패하면 휴가 변경을 시작하지 않는다.
+
+### 통계와 화면
+
+- `StatsSource`가 휴가를 미래·시작 전·휴식·미기록보다 먼저 판정한다. `DayOutcome.status == .vacation`은 비율이 nil이며
+  일별·주간·기간별 평균, 항목별·그룹별 집계의 분자와 분모 모두에서 제외한다. 유효한 날짜가 없으면 평균은 nil이다.
+- 현재·최장 연속 달성일은 휴가를 건너뛴다. 휴가 자체가 일수를 늘리거나 연속 기록을 끊지 않는다.
+  차트의 날짜와 히트맵 칸은 유지하고 휴가 상태로 표현한다. 캘린더·대시보드·위젯에서도 0% 대신 휴가를 표시한다.
+- `DayRecord`·`DayCheck`·식사 기록·루틴 정의·요일·시간은 휴가 지정으로 바뀌지 않는다. 휴가 중에도 기록할 수 있고,
+  휴가를 해제하면 기존 기록이 통계에 다시 반영된다.
+- 설정의 휴가 관리와 캘린더 날짜 선택에서 같은 AppStore API를 사용한다. 저장·해제·외부 변경 수신 후
+  `reloadStats()`가 휴가 목록·통계·월별 결과를 갱신하고 `onReload`를 통해 알림 계획과 위젯도 맞춘다.
+
+### Phase 2.1 검증 현황 (2026-10-11)
+
+- 변경 범위 테스트: 휴가·위젯·알림 계획 42개, 알림 예약·액션·위젯 디스크 재열기 21개 통과.
+  미래 달 탐색을 추가하면서 발견한 기존 달력 정책 회귀를 수정하고 날짜 변경·휴가 18개도 통과했다.
+  기존 API는 미래 이동을 막고, 휴가 캘린더만 명시적으로 미래 달 탐색을 허용한다. 미래 기록은 생성하지 않는다.
+- 최종 전체 회귀: 273개 / 43개 suite 성공(검증 데이터·fixture 생성 전용 2건은 기본 설정대로 건너뜀).
+  macOS Debug·Release, iOS Simulator Debug·Release(앱 및 위젯, 앱 그룹 로컬 서명) 최종 빌드 성공.
+- iPhone Air / iOS 26.5 시뮬레이터: 앱 그룹 권한을 포함한 로컬 서명 빌드로 검증.
+  - 앱 종료 후 큰 위젯 체크 → 앱 화면을 열지 않은 채 SQLite `DayCheck` 완료 1개, 대기열 0개 확인.
+  - 이어서 취소 → 완료 0개, 대기열 0개. 시뮬레이터 shutdown/boot 뒤에도 날짜 기록 1개·체크 1개·완료 0개.
+  - 앱 재실행 화면의 0/1과 일치. 위젯도 100%/체크에서 0%/미완료로 갱신된다(시스템 화면 갱신 지연은 있음).
+  - 휴가 관리 추가·해제, 오늘 휴가 안내, 큰 위젯의 "오늘은 휴가" 표시 확인.
+  - 실제 UNUserNotificationCenter 예약 조회: 60개 → 1년 휴가 등록 후 0개 → 휴가 해제 후 60개 복원.
+- iPad Pro 11-inch (M5) / iPadOS 26.5 시뮬레이터: 휴가 관리 목록, 다일 휴가 캘린더 표시, 기존 완료 체크 유지 확인.
+- macOS 별도 검증 번들(`com.daylog.phase21.verify`)·로컬 저장소: 캘린더에서 하루 휴가 추가 → 휴가·집계할 기록 없음,
+  체크·식사 유지 → 해제 후 달성률 100% 복원 확인. 실사용 앱이나 저장소에는 접근·수정하지 않았다.
+- 미검증: 실제 기기의 알림 전달·앱 그룹 프로비저닝·위젯, iPad 위젯 레이아웃, iOS 17~25 및 iOS 27 런타임,
+  CloudKit Production 기기 간 동기화, macOS 실제 알림 전달. 작은/중간 위젯은 공통 데이터 테스트·빌드 검증이며 이번 실행에서 별도 조작하지 않았다.
+  앞 절의 v1.5 검증 결과는 이전 버전의 증거다. 시뮬레이터 결과를 실기기 검증으로 간주하지 않는다.
 
 ## 배포 (DMG, Developer ID)
 

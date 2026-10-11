@@ -57,6 +57,11 @@ struct RoutineCard: View {
                     }
                 }
 
+                if store.isVacation(on: store.selectedDay) {
+                    Label("휴가 · 체크와 식사는 보존되며 루틴 통계에서 제외돼요.", systemImage: "sun.max")
+                        .font(.callout).foregroundStyle(.secondary)
+                }
+
                 if sections.isEmpty {
                     emptyState
                 } else {
@@ -71,7 +76,7 @@ struct RoutineCard: View {
                     pastDayNotice
                 }
 
-                if store.selectedOutcome.total > 0 {
+                if store.selectedOutcome.ratio != nil {
                     progress
                 }
                 tomorrowTask

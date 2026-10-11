@@ -1,4 +1,5 @@
 import Foundation
+import Darwin
 
 /// 앱과 위젯이 주고받는 파일. 앱 그룹 폴더에 둔다.
 ///
@@ -46,33 +47,63 @@ struct WidgetBridge {
         return true
     }
 
-    // MARK: - 대기 중인 체크 (위젯 → 앱)
+    // MARK: - Durable request journal
 
+    /// Reading never consumes requests. Only a confirmed database save and snapshot publication may acknowledge them.
     func readPending() -> [PendingCheck] {
-        guard let data = try? Data(contentsOf: pendingURL) else { return [] }
-        return (try? JSONDecoder().decode([PendingCheck].self, from: data)) ?? []
+        (try? pendingChecks()) ?? []
     }
 
-    /// 위젯이 체크를 하나 보탠다. 실패하면 던져서 위젯이 상태를 바꾸지 않게 한다.
+    func pendingChecks() throws -> [PendingCheck] {
+        try withQueueLock { try readQueueFiles().checks }
+    }
+
     func appendPending(_ check: PendingCheck) throws {
-        var all = readPending()
-        all.append(check)
-        try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
-        try Self.encoder.encode(all).write(to: pendingURL, options: .atomic)
+        try withQueueLock {
+            let queue = try readQueueFiles()
+            var all = queue.checks
+            var ordered = check
+            // Serialize rapid taps even when the clock moves backwards or returns the same instant.
+            if let previous = all.last { ordered.at = max(ordered.at, previous.at.addingTimeInterval(0.001)) }
+            all.append(ordered)
+            try writeQueue(all, recovered: queue.recovered)
+        }
     }
 
-    /// 앱이 대기 중인 체크를 가져간다. 파일을 먼저 다른 이름으로 옮긴 뒤 읽어서, 그 사이 위젯이 보탠 것을 잃지 않는다.
-    func takePending() -> [PendingCheck] {
-        let fileManager = FileManager.default
-        guard fileManager.fileExists(atPath: pendingURL.path) else { return [] }
-        let taken = directory.appendingPathComponent("widget-pending-\(UUID().uuidString).json")
-        do {
-            try fileManager.moveItem(at: pendingURL, to: taken)
-        } catch {
-            return []
+    /// Remove exactly the requests we saved; concurrent appends remain in the journal.
+    func acknowledge(_ confirmed: [PendingCheck]) throws {
+        try withQueueLock {
+            let queue = try readQueueFiles()
+            try writeQueue(queue.checks.filter { !confirmed.contains($0) }, recovered: queue.recovered)
         }
-        defer { try? fileManager.removeItem(at: taken) }
-        guard let data = try? Data(contentsOf: taken) else { return [] }
-        return ((try? JSONDecoder().decode([PendingCheck].self, from: data)) ?? []).sorted { $0.at < $1.at }
+    }
+
+    private func readQueueFiles() throws -> (checks: [PendingCheck], recovered: [URL]) {
+        // Recover journals left by the old take-before-save implementation after process termination.
+        let recovered = try FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)
+            .filter { $0.lastPathComponent.hasPrefix("widget-pending-") && $0.pathExtension == "json" }
+            .sorted { $0.lastPathComponent < $1.lastPathComponent }
+        let files = recovered + (FileManager.default.fileExists(atPath: pendingURL.path) ? [pendingURL] : [])
+        let checks = try files.flatMap { try JSONDecoder().decode([PendingCheck].self, from: Data(contentsOf: $0)) }
+        // Preserve file order for legacy requests that share a timestamp.
+        return (checks.enumerated().sorted {
+            $0.element.at == $1.element.at ? $0.offset < $1.offset : $0.element.at < $1.element.at
+        }.map(\.element), recovered)
+    }
+
+    private func writeQueue(_ checks: [PendingCheck], recovered: [URL]) throws {
+        try Self.encoder.encode(checks).write(to: pendingURL, options: .atomic)
+        for file in recovered { try FileManager.default.removeItem(at: file) }
+    }
+
+    /// The lock covers only short synchronous file operations, never SwiftData or an await.
+    private func withQueueLock<T>(_ body: () throws -> T) throws -> T {
+        try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        let descriptor = open(directory.appendingPathComponent("widget-pending.lock").path, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR)
+        guard descriptor >= 0 else { throw POSIXError(.EIO) }
+        defer { close(descriptor) }
+        guard flock(descriptor, LOCK_EX) == 0 else { throw POSIXError(.EIO) }
+        defer { flock(descriptor, LOCK_UN) }
+        return try body()
     }
 }

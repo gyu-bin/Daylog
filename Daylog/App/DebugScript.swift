@@ -68,6 +68,21 @@ enum DebugScript {
             await AppRuntime.shared?.notifications.setEnabled(argument == "on")
             await AppRuntime.shared?.refreshNow()
             log("NOTIFY \(AppRuntime.shared?.notifications.permission.title ?? "-") 예약 \(AppRuntime.shared?.notifications.scheduledCount ?? -1)개")
+        case "vacation":
+            // 검증용 날짜 범위. 실제 사용자 앱에서는 요청한 경우에만 실행된다.
+            let dates = argument.split(separator: ",").map(String.init)
+            if dates.count >= 2, let start = Day(key: dates[0]), let end = Day(key: dates[1]) {
+                let saved = store.saveVacation(start: start, end: end, memo: "검증용 휴가")
+                await AppRuntime.shared?.refreshNow()
+                log("VACATION saved=\(saved) today=\(store.stats.today.status) average=\(store.stats.weeklyAverage.map(String.init) ?? "nil")")
+            }
+        case "vacationOff":
+            // 이 스크립트가 만든 검증용 휴가만 해제한다.
+            for period in store.vacationPeriods where period.memo == "검증용 휴가" {
+                store.removeVacation(period)
+            }
+            await AppRuntime.shared?.refreshNow()
+            log("VACATION removed today=\(store.stats.today.status) average=\(store.stats.weeklyAverage.map(String.init) ?? "nil")")
         case "archive", "restore":
             if let routine = store.routines.first(where: { $0.title == argument }) {
                 store.setArchived(routine, name == "archive")
