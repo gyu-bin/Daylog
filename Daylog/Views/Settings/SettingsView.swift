@@ -2,12 +2,13 @@ import SwiftUI
 
 /// 설정의 갈래. 왼쪽 목록(넓은 창)이나 첫 화면(iPhone)에 보이고, 고르면 그 갈래의 설정이 나온다.
 enum SettingsCategory: String, CaseIterable, Identifiable {
-    case general, today, routine, calendar, notifications, vacation, data, about
+    case sync, general, today, routine, calendar, notifications, vacation, data, about
 
     var id: String { rawValue }
 
     var title: String {
         switch self {
+        case .sync: return "iCloud"
         case .general: return "일반"
         case .today: return "오늘 화면"
         case .routine: return "루틴"
@@ -21,6 +22,7 @@ enum SettingsCategory: String, CaseIterable, Identifiable {
 
     var subtitle: String {
         switch self {
+        case .sync: return "계정 상태, 동기화"
         case .general:
             #if os(macOS)
             return "앱 테마, 메뉴 막대"
@@ -32,13 +34,14 @@ enum SettingsCategory: String, CaseIterable, Identifiable {
         case .calendar: return "한 주의 시작 요일"
         case .notifications: return "루틴 알림"
         case .vacation: return "휴가 기간 관리"
-        case .data: return "가져오기, 내보내기, iCloud"
+        case .data: return "가져오기, 내보내기"
         case .about: return "버전, 시작 안내"
         }
     }
 
     var symbol: String {
         switch self {
+        case .sync: return "icloud.fill"
         case .general: return "gearshape.fill"
         case .today: return "square.grid.2x2.fill"
         case .routine: return "checklist"
@@ -52,9 +55,10 @@ enum SettingsCategory: String, CaseIterable, Identifiable {
 
     var color: GroupColor {
         switch self {
-        case .general: return .blue
+        case .sync: return .blue
+        case .general: return .purple
         case .today: return .mint
-        case .routine: return .purple
+        case .routine: return .blue
         case .calendar: return .orange
         case .notifications: return .coral
         case .vacation: return .coral
@@ -69,7 +73,7 @@ struct SettingsView: View {
     @Environment(AppStore.self) private var store
     @Environment(CloudSyncMonitor.self) private var sync
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @State private var selected: SettingsCategory = .general
+    @State private var selected: SettingsCategory = .sync
     /// 좁은 화면에서 들어가 있는 갈래. nil이면 갈래 목록.
     @State private var compactSelection: SettingsCategory?
 
@@ -88,9 +92,9 @@ struct SettingsView: View {
             PageTitle(title: "설정", subtitle: "Daylog를 내 방식에 맞게 바꿔요.")
                 .padding(.horizontal, Theme.pagePadding)
                 .padding(.top, Theme.pagePadding)
-            HStack(alignment: .top, spacing: Theme.spacing) {
+            HStack(alignment: .top, spacing: 24) {
                 ScrollView {
-                    VStack(spacing: 2) {
+                    VStack(spacing: 4) {
                         ForEach(SettingsCategory.allCases) { category in
                             Button {
                                 selected = category
@@ -101,17 +105,39 @@ struct SettingsView: View {
                             .accessibilityAddTraits(selected == category ? [.isButton, .isSelected] : .isButton)
                         }
                     }
-                    .padding(6)
+                    .padding(8)
                     .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous))
                     .overlay(RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous).strokeBorder(Theme.cardBorder, lineWidth: 1))
                 }
                 .scrollBounceBehavior(.basedOnSize)
-                .frame(width: 250)
+                .frame(width: 280)
                 .padding(.leading, Theme.pagePadding)
                 .padding(.bottom, Theme.pagePadding)
 
-                detail(selected)
-                    .frame(maxWidth: 640, alignment: .topLeading)
+                // 고른 갈래의 이름을 크게 적고, 그 아래에 설정을 넉넉한 줄 높이로 둔다.
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack(spacing: 12) {
+                        Image(systemName: selected.symbol)
+                            .font(.system(size: 17, weight: .semibold))
+                            .foregroundStyle(Theme.onAccent)
+                            .frame(width: 40, height: 40)
+                            .background(selected.color.color, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
+                            .accessibilityHidden(true)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(selected.title)
+                                .font(.title3.weight(.semibold))
+                                .accessibilityAddTraits(.isHeader)
+                            Text(selected.subtitle)
+                                .font(.callout)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 6)
+                    detail(selected)
+                        .environment(\.defaultMinListRowHeight, 46)
+                }
+                .frame(maxWidth: 620, alignment: .topLeading)
                 Spacer(minLength: 0)
             }
         }
@@ -185,6 +211,8 @@ struct SettingsView: View {
     private func detail(_ category: SettingsCategory) -> some View {
         Form {
             switch category {
+            case .sync:
+                syncSection
             case .general:
                 AppearanceSection()
                 #if os(macOS)
@@ -210,7 +238,6 @@ struct SettingsView: View {
                 VacationSettingsSection()
             case .data:
                 DataTransferSettingsSection()
-                cloudSection
             case .about:
                 aboutSection
             }
@@ -245,10 +272,47 @@ struct SettingsView: View {
         }
     }
 
-    /// iCloud 상태. 오류와 안내는 한 줄씩.
-    private var cloudSection: some View {
+    /// iCloud 계정과 동기화 상태. 시스템이 알려 주는 것만 보여 준다(계정 이름·사진은 앱이 알 수 없다).
+    private var syncSection: some View {
         Section {
-            LabeledContent("상태", value: sync.account.title)
+            HStack(spacing: 12) {
+                Image(systemName: "icloud.fill")
+                    .font(.system(size: 18))
+                    .foregroundStyle(GroupColor.blue.color)
+                    .frame(width: 44, height: 44)
+                    .background(GroupColor.blue.wash, in: Circle())
+                    .accessibilityHidden(true)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("iCloud")
+                        .font(.headline)
+                    Text(sync.account == .available ? "Apple 계정으로 연결되어 있어요" : sync.account.title)
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer(minLength: 0)
+            }
+            .padding(.vertical, 4)
+            .accessibilityElement(children: .combine)
+
+            // 30초마다 "n분 전"을 다시 계산한다.
+            TimelineView(.periodic(from: .now, by: 30)) { timeline in
+                let summary = SyncSummary.make(
+                    isEnabled: sync.isEnabled, account: sync.account, lastImportAt: sync.lastImportAt,
+                    lastExportAt: sync.lastExportAt, errorMessage: sync.lastErrorMessage, now: timeline.date
+                )
+                LabeledContent("동기화 상태") {
+                    HStack(spacing: 6) {
+                        Circle()
+                            .fill(Self.color(for: summary.tone))
+                            .frame(width: 8, height: 8)
+                            .accessibilityHidden(true)
+                        Text(summary.title)
+                            .fontWeight(.semibold)
+                        Text("· \(summary.detail)")
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
             if sync.isEnabled {
                 if let environment = sync.environmentTitle {
                     LabeledContent("iCloud 환경", value: environment)
@@ -270,12 +334,19 @@ struct SettingsView: View {
                     sync.refreshAccountStatus()
                 }
             }
-        } header: {
-            Text("iCloud 동기화")
         } footer: {
             Text(sync.isEnabled
-                 ? "같은 Apple 계정의 기기끼리 기록을 맞춰요. 인터넷이 없어도 쓸 수 있고, 연결되면 이어서 맞춰요."
+                 ? "같은 Apple 계정의 Mac·iPhone·iPad가 기록을 맞춰요. 인터넷이 없어도 쓸 수 있고, 연결되면 이어서 맞춰요. 계정은 기기의 시스템 설정에서 관리해요."
                  : "기록은 \(Platform.thisDevice)에만 저장돼요.")
+        }
+    }
+
+    private static func color(for tone: SyncSummary.Tone) -> Color {
+        switch tone {
+        case .good: return GroupColor.green.color
+        case .waiting: return GroupColor.yellow.color
+        case .warning: return GroupColor.orange.color
+        case .off: return Color.secondary
         }
     }
 
@@ -414,16 +485,16 @@ struct SettingsCategoryRow: View {
     var showsChevron = true
 
     var body: some View {
-        HStack(spacing: 10) {
+        HStack(spacing: 12) {
             Image(systemName: category.symbol)
-                .font(.system(size: 13, weight: .semibold))
+                .font(.system(size: 14, weight: .semibold))
                 .foregroundStyle(Theme.onAccent)
-                .frame(width: 28, height: 28)
-                .background(category.color.color, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+                .frame(width: 32, height: 32)
+                .background(category.color.color, in: RoundedRectangle(cornerRadius: 9, style: .continuous))
                 .accessibilityHidden(true)
-            VStack(alignment: .leading, spacing: 1) {
+            VStack(alignment: .leading, spacing: 2) {
                 Text(category.title)
-                    .font(.callout.weight(.semibold))
+                    .font(.body.weight(.semibold))
                 Text(category.subtitle)
                     .font(.caption)
                     .foregroundStyle(.secondary)
@@ -436,8 +507,8 @@ struct SettingsCategoryRow: View {
                     .foregroundStyle(.tertiary)
             }
         }
-        .padding(.horizontal, showsChevron ? 10 : 0)
-        .padding(.vertical, showsChevron ? 8 : 2)
+        .padding(.horizontal, showsChevron ? 12 : 0)
+        .padding(.vertical, showsChevron ? 10 : 4)
         .background(isSelected ? category.color.color.opacity(0.14) : .clear, in: RoundedRectangle(cornerRadius: Theme.controlRadius, style: .continuous))
         .contentShape(Rectangle())
         .accessibilityElement(children: .combine)

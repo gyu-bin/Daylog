@@ -202,8 +202,28 @@ struct ProductUXTests {
 
     @Test func settingsCategoriesCoverEveryExistingSetting() {
         // 예전 한 화면의 설정이 모두 어느 갈래엔가 들어 있어야 한다(없앤 설정이 없다).
-        #expect(SettingsCategory.allCases.map(\.title) == ["일반", "오늘 화면", "루틴", "캘린더", "알림", "휴가", "데이터", "정보"])
+        #expect(SettingsCategory.allCases.map(\.title) == ["iCloud", "일반", "오늘 화면", "루틴", "캘린더", "알림", "휴가", "데이터", "정보"])
         #expect(Set(SettingsCategory.allCases.map(\.symbol)).count == SettingsCategory.allCases.count)
         #expect(SettingsCategory.allCases.allSatisfy { !$0.subtitle.isEmpty })
+    }
+
+    @Test func syncSummaryDescribesTheStateInOneLine() {
+        let now = Date(timeIntervalSinceReferenceDate: 800_000_000)
+        func make(enabled: Bool = true, account: CloudSyncMonitor.Account = .available, imported: Date? = nil, exported: Date? = nil, error: String? = nil) -> SyncSummary {
+            SyncSummary.make(isEnabled: enabled, account: account, lastImportAt: imported, lastExportAt: exported, errorMessage: error, now: now)
+        }
+        #expect(make(enabled: false).tone == .off)
+        #expect(make(account: .checking).title == "확인 중")
+        #expect(make(account: .noAccount).tone == .warning)
+        #expect(make().title == "대기 중", "연결은 됐지만 아직 주고받은 것이 없다.")
+        // 가져오기와 보내기 중 더 최근 것을 기준으로 한다.
+        let recent = make(imported: now.addingTimeInterval(-3600), exported: now.addingTimeInterval(-120))
+        #expect(recent == SyncSummary(title: "정상", detail: "마지막 동기화 2분 전", tone: .good))
+        // 오류가 남아 있으면 시각이 있어도 오류다.
+        #expect(make(imported: now, error: "네트워크").title == "오류")
+        #expect(SyncSummary.relative(now.addingTimeInterval(-30), now: now) == "방금 전")
+        #expect(SyncSummary.relative(now.addingTimeInterval(-7200), now: now) == "2시간 전")
+        #expect(SyncSummary.relative(now.addingTimeInterval(-3 * 86400), now: now) == "3일 전")
+        #expect(SyncSummary.relative(now.addingTimeInterval(60), now: now) == "방금 전", "시계가 어긋나 미래여도 음수로 적지 않는다.")
     }
 }

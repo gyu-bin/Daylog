@@ -179,3 +179,44 @@ final class CloudSyncMonitor {
         lastErrorMessage = nil
     }
 }
+
+/// 설정 맨 위에 보여 줄 동기화 요약: 한 낱말의 상태와 한 줄 설명. 시스템이 알려 준 값에서 계산만 한다.
+struct SyncSummary: Equatable {
+    enum Tone: Equatable {
+        case good, waiting, warning, off
+    }
+
+    var title: String
+    var detail: String
+    var tone: Tone
+
+    static func make(
+        isEnabled: Bool, account: CloudSyncMonitor.Account, lastImportAt: Date?, lastExportAt: Date?,
+        errorMessage: String?, now: Date
+    ) -> SyncSummary {
+        guard isEnabled else {
+            return SyncSummary(title: "사용 안 함", detail: "기록을 이 기기에만 저장해요", tone: .off)
+        }
+        switch account {
+        case .available: break
+        case .checking: return SyncSummary(title: "확인 중", detail: "iCloud 계정을 확인하고 있어요", tone: .waiting)
+        default: return SyncSummary(title: "연결 안 됨", detail: account.title, tone: .warning)
+        }
+        if errorMessage != nil {
+            return SyncSummary(title: "오류", detail: "최근 동기화에 실패했어요", tone: .warning)
+        }
+        guard let last = [lastImportAt, lastExportAt].compactMap({ $0 }).max() else {
+            return SyncSummary(title: "대기 중", detail: "아직 주고받은 변경이 없어요", tone: .waiting)
+        }
+        return SyncSummary(title: "정상", detail: "마지막 동기화 \(relative(last, now: now))", tone: .good)
+    }
+
+    /// "방금 전", "5분 전", "3시간 전", "2일 전".
+    static func relative(_ date: Date, now: Date) -> String {
+        let seconds = max(0, Int(now.timeIntervalSince(date)))
+        if seconds < 60 { return "방금 전" }
+        if seconds < 3600 { return "\(seconds / 60)분 전" }
+        if seconds < 86400 { return "\(seconds / 3600)시간 전" }
+        return "\(seconds / 86400)일 전"
+    }
+}
