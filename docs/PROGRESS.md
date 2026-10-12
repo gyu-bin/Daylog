@@ -277,6 +277,9 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 
 [DESIGN_REFINEMENT.md](DESIGN_REFINEMENT.md) 16절. iPhone에서도 대시보드를 직접 편집한다(끌기·메뉴·숨김·복원). 휴가 카드는 iPhone에서 일반 카드이고 새 기본 위치는 맨 아래. iOS 빌드 번호 3.
 
+- 커밋 `ee8b82b`를 Mac 앱에 적용했고, iOS 1.0.0 (3)을 TestFlight에 올렸다(14:08, Delivery UUID `6374b8de-37f2-4620-894d-fcebee2d9734`). 다음에 올릴 때는 빌드 번호 4.
+- 실기기 확인(사용자): 빌드 2에서 iPhone ↔ Mac 동기화가 실행 중에도 정상 동작.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
