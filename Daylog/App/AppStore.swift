@@ -39,6 +39,8 @@ final class AppStore {
     private(set) var monthOutcomes: [Day: DayOutcome] = [:]
     /// 값이 바뀌면 빠른 추가 입력창이 포커스를 가져간다.
     private(set) var quickAddFocusToken = 0
+    /// 설정의 [대시보드 구성 편집]이 켠다. 대시보드가 나타날 때 편집 모드로 들어가고 끈다.
+    var wantsDashboardEditing = false
     /// 동기화 중 서로 다른 내용을 함께 보존한 내역. 최근 것이 앞.
     private(set) var syncNotices: [String] = []
     private static let keptSyncNotices = 5

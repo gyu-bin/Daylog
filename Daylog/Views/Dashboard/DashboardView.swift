@@ -39,6 +39,13 @@ struct DashboardView: View {
             .onExitCommand { isEditing = false }
             #endif
             .onChange(of: store.section) { _, _ in isEditing = false }
+            .onAppear {
+                // 설정의 [대시보드 구성 편집]에서 넘어왔으면 바로 편집 모드로.
+                if store.wantsDashboardEditing {
+                    store.wantsDashboardEditing = false
+                    isEditing = true
+                }
+            }
         }
     }
 }

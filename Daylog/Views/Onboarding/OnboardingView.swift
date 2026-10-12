@@ -3,6 +3,7 @@ import SwiftUI
 struct OnboardingView: View {
     @Environment(AppStore.self) private var store
     @Environment(DevicePreferences.self) private var preferences
+    @Environment(CloudSyncMonitor.self) private var sync
     @Environment(\.dismiss) private var dismiss
     @State private var step = OnboardingStep.introduction
     @State private var draft = OnboardingRoutineDraft()
@@ -14,7 +15,12 @@ struct OnboardingView: View {
                 BrandIcon(size: 40)
                 Text("Daylog 시작하기").font(.headline)
                 Spacer()
-                Button("건너뛰기", action: finish)
+                // 안내 전체를 닫는다. 단계 하나를 넘기는 것은 아래의 단추다.
+                if step != .ready {
+                    Button("안내 닫기", action: finish)
+                        .buttonStyle(.borderless)
+                        .accessibilityHint("남은 안내를 모두 건너뛰고 오늘 화면으로 갑니다.")
+                }
             }
             Text("\(step.rawValue + 1) / 3")
                 .font(.caption.weight(.semibold)).foregroundStyle(.secondary)
@@ -31,18 +37,23 @@ struct OnboardingView: View {
                 .padding(.bottom, 6)
             }
             .scrollDismissesKeyboard(.interactively)
-            HStack {
+            HStack(spacing: 8) {
                 if step != .introduction {
                     Button("이전") { step = OnboardingStep(rawValue: step.rawValue - 1) ?? .introduction }
                 }
                 Spacer()
-                if step == .ready {
+                switch step {
+                case .introduction:
+                    Button("다음") { step = .createRoutine }
+                        .buttonStyle(.borderedProminent)
+                case .createRoutine:
+                    // 루틴을 만들지 않아도 다음 단계(준비 완료)로 간다.
+                    Button(OnboardingFlow.skipRoutineTitle(hasRoutines: !store.activeRoutines.isEmpty)) { step = .ready }
+                    Button("루틴 만들기", action: createRoutineFromDraft)
+                        .buttonStyle(.borderedProminent)
+                        .disabled(draft.validationMessage != nil)
+                case .ready:
                     Button("오늘 시작하기", action: finish).buttonStyle(.borderedProminent)
-                } else {
-                    Button(step == .createRoutine ? (store.activeRoutines.isEmpty ? "나중에 만들기" : "현재 루틴으로 계속") : "다음") {
-                        step = step.next
-                    }
-                    .buttonStyle(.borderedProminent)
                 }
             }
         }
@@ -70,6 +81,10 @@ struct OnboardingView: View {
             if !store.activeRoutines.isEmpty {
                 Text("사용할 수 있는 루틴이 \(store.activeRoutines.count)개 있어요. 그대로 시작하거나 새 루틴을 추가할 수 있어요.")
                     .font(.callout).foregroundStyle(.secondary)
+            } else if sync.isWaitingForFirstImport {
+                // 아직 iCloud에서 받아 오는 중일 수 있다. 다른 기기에서 쓰던 사람에게 새로 만들라고 재촉하지 않는다.
+                Label("iCloud에서 기록을 확인하는 중이에요. 다른 기기에서 쓰던 루틴이 곧 나타날 수 있으니, 지금 만들지 않고 넘어가도 돼요.", systemImage: "icloud.and.arrow.down")
+                    .font(.callout).foregroundStyle(.secondary)
             }
             Picker("그룹", selection: $draft.groupID) {
                 Text("새 그룹 이름 입력").tag(Optional<UUID>.none)
@@ -86,9 +101,6 @@ struct OnboardingView: View {
                 .onSubmit(createRoutineFromDraft)
             Text("매일 반복하는 루틴으로 만들어요. 요일과 시간은 루틴 화면에서 바꿀 수 있어요.")
                 .font(.caption).foregroundStyle(.secondary)
-            Button("입력한 루틴 만들기", action: createRoutineFromDraft)
-                .buttonStyle(.bordered)
-                .disabled(draft.validationMessage != nil)
             if let message = draft.validationMessage, !draft.routineTitle.isEmpty || !draft.groupTitle.isEmpty {
                 Text(message).font(.caption).foregroundStyle(.secondary)
             }
@@ -103,8 +115,8 @@ struct OnboardingView: View {
         VStack(alignment: .leading, spacing: 16) {
             Image(systemName: "checkmark.circle").font(.largeTitle).foregroundStyle(Theme.accent)
             Text(didCreate ? "루틴을 사용할 준비가 됐어요." : "준비됐어요.").font(.title2.bold())
-            Text(store.activeRoutines.isEmpty ? "오늘 화면에서 언제든 루틴을 추가할 수 있어요." : "오늘 화면에서 루틴을 체크하며 시작해 보세요.")
-            Text("설정에서 카드 순서를 바꾸고, 필요 없는 카드를 숨기세요. 오늘 루틴은 항상 남아 있어요.")
+            Text(store.activeRoutines.isEmpty ? "루틴은 루틴 화면에서 언제든 추가할 수 있어요." : "오늘 화면에서 루틴을 체크하며 시작해 보세요.")
+            Text("오늘 화면의 카드는 순서를 바꾸거나 숨길 수 있어요.")
                 .font(.callout).foregroundStyle(.secondary)
         }
     }
@@ -122,5 +134,13 @@ struct OnboardingView: View {
         store.section = .dashboard
         store.goToToday()
         dismiss()
+    }
+}
+
+/// 시작 안내의 단계 이동 규칙. 2단계는 루틴을 만들든 넘기든 3단계(준비 완료)로 간다.
+enum OnboardingFlow {
+    /// 2단계에서 루틴을 만들지 않고 넘어가는 단추의 이름.
+    static func skipRoutineTitle(hasRoutines: Bool) -> String {
+        hasRoutines ? "현재 루틴으로 계속" : "나중에 설정하기"
     }
 }

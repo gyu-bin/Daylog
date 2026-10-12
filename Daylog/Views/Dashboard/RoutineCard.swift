@@ -5,10 +5,13 @@ import SwiftUI
 struct RoutineCard: View {
     @Environment(AppStore.self) var store
     @Environment(CloudSyncMonitor.self) private var sync
+    @Environment(DevicePreferences.self) private var preferences
     /// 접어 둔 그룹의 ID(쉼표로 이어 붙인 문자열). 이 Mac에만 저장된다.
     @Environment(\.accessibilityReduceMotion) var reduceMotion
     @AppStorage("collapsedGroupIDs") var collapsedGroupIDs = ""
     @State var itemDrafts: [UUID: String] = [:]
+    /// 항목 입력칸을 펼쳐 둔 그룹. 평소에는 접어 두어 목록이 체크할 것만 보이게 한다.
+    @State var addingGroupID: UUID?
     @FocusState var focus: Field?
 
     enum Field: Hashable {
@@ -56,9 +59,11 @@ struct RoutineCard: View {
                     }
                 }
 
-                if store.isVacation(on: store.selectedDay) {
-                    Label("휴가 · 체크와 식사는 보존되며 루틴 통계에서 제외돼요.", systemImage: "sun.max")
-                        .font(.callout).foregroundStyle(.secondary)
+                // 휴가 카드가 보이면 거기서 알 수 있다. 숨겨 둔 대시보드에서만 한 줄로 알린다.
+                if store.isVacation(on: store.selectedDay),
+                   store.section == .dashboard, preferences.hiddenCards.contains(.vacation) {
+                    Label("휴가 · 통계에서 제외", systemImage: "sun.max")
+                        .font(.caption).foregroundStyle(.secondary)
                 }
 
                 if sections.isEmpty {
@@ -85,6 +90,11 @@ struct RoutineCard: View {
         }
         .onChange(of: focus) { _, newValue in
             store.setEditing(newValue != nil, source: "routine")
+            // 아무것도 적지 않고 입력칸을 떠나면 다시 접는다.
+            if newValue == nil, let id = addingGroupID,
+               (itemDrafts[id] ?? "").trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                addingGroupID = nil
+            }
         }
     }
 
@@ -125,9 +135,7 @@ struct RoutineCard: View {
             return
         }
         setCollapsed(group.id, false)
-        DispatchQueue.main.async {
-            focus = .item(group.id)
-        }
+        beginAdding(to: group.id)
     }
 
     private var pastDayNotice: some View {

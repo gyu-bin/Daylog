@@ -80,7 +80,7 @@ struct NotificationSettingsSection: View {
         } header: {
             Text("알림")
         } footer: {
-            Text("예정 시간이 있는 루틴을 그 요일·시간에 알려요. 완료한 루틴과 휴가 날짜는 건너뛰어요. 가까운 알림 최대 60개를 미리 예약하고 앱을 열 때 보충하니, 오래 열지 않으면 그 뒤로는 울리지 않을 수 있어요. 알림의 [완료]를 누르면 앱을 열지 않고 체크돼요. \(Platform.thisDevice)에만 적용돼요.")
+            Text("예정 시간이 있는 루틴을 그 시간에 알려요. 완료한 루틴과 휴가 날짜는 건너뛰고, 알림의 [완료]로 바로 체크돼요. 오래 앱을 열지 않으면 멈출 수 있어요.")
         }
         .task {
             await notifications.refreshPermission()

@@ -169,4 +169,19 @@ struct ProductUXTests {
         defaults.set("someday", forKey: DevicePreferences.weekStartKey)
         #expect(DevicePreferences(defaults: defaults, isPhone: false).weekStart == .monday, "모르는 값은 기본값으로.")
     }
+
+    // MARK: - 시작 안내와 설정 요약
+
+    @Test func onboardingStepsAlwaysPassThroughReady() {
+        #expect(OnboardingStep.introduction.next == .createRoutine)
+        #expect(OnboardingStep.createRoutine.next == .ready, "루틴을 만들지 않고 넘겨도 준비 완료 단계로 간다.")
+        #expect(OnboardingStep.ready.next == .ready)
+        #expect(OnboardingFlow.skipRoutineTitle(hasRoutines: false) == "나중에 설정하기")
+        #expect(OnboardingFlow.skipRoutineTitle(hasRoutines: true) == "현재 루틴으로 계속")
+    }
+
+    @Test func dashboardLayoutSummaryCountsCards() {
+        #expect(DevicePreferenceSections.layoutSummary(visible: 7, hidden: 0) == "카드 7개 표시")
+        #expect(DevicePreferenceSections.layoutSummary(visible: 7, hidden: 4) == "카드 7개 표시 · 4개 숨김")
+    }
 }

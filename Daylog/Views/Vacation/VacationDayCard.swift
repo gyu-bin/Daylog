@@ -3,7 +3,7 @@ import SwiftUI
 /// 보고 있는 날짜의 휴가 카드. 등록된 휴가에 따라 세 가지 모습이 된다.
 /// - 휴가 없음: "휴가 설정"과 기간 추가.
 /// - 예정된 휴가: 다음 휴가의 날짜·기간과 D-day.
-/// - 그날이 휴가: "휴가 중"을 강조하고 남은 기간, 통계 제외·알림 쉼 안내.
+/// - 그날이 휴가: "휴가 중"을 강조하고 기간과 남은 날만 보여 준다(통계 제외 안내는 루틴 카드에 한 줄).
 /// 어느 상태에서든 기간을 눌러 고치거나 해제하고, 휴가 관리로 갈 수 있다.
 struct VacationDayCard: View {
     @Environment(AppStore.self) private var store
@@ -30,7 +30,7 @@ struct VacationDayCard: View {
             case .active(let periods, let start, let end, let remainingDays):
                 header(
                     symbol: "sun.max.fill",
-                    title: day == store.today ? "휴가 중" : "\(day.shortTitle)은 휴가",
+                    title: day == store.today ? "휴가 중" : "\(day.shortTitle) 휴가",
                     badge: day == store.today ? VacationStatus.remainingLabel(remainingDays) : nil
                 ) {
                     HeaderLink(title: "휴가 관리") { managing = true }
@@ -45,10 +45,6 @@ struct VacationDayCard: View {
                 ForEach(periods) { period in
                     periodRow(period, action: "수정·해제")
                 }
-                Label("루틴 통계에서 빠지고 알림은 쉬어요. 체크와 식사 기록은 그대로 남아요.", systemImage: "bell.slash")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
                 // 이 휴가가 끝난 뒤의 다음 휴가도 한 줄로 알려 준다.
                 if let next = VacationStatus.nextPeriod(periods: store.vacationPeriods, after: max(end, store.today)) {
                     Button {

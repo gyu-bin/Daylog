@@ -14,6 +14,7 @@ struct DevicePreferenceSections: View {
     @Environment(AppStore.self) private var store
     @Environment(DevicePreferences.self) private var preferences
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @State private var showsCards = false
 
     var body: some View {
         Section {
@@ -21,53 +22,63 @@ struct DevicePreferenceSections: View {
                 get: { preferences.mealsEnabled },
                 set: { store.setMealsEnabled($0, preferences: preferences) }
             ))
-            ForEach(Array(preferences.cardOrder.enumerated()), id: \.element) { index, card in
-                HStack(spacing: 4) {
-                    if card == .routines {
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(card.title)
-                            Text("항상 표시").font(.caption).foregroundStyle(.secondary)
-                        }
-                        Spacer(minLength: 4)
-                    } else {
-                        Toggle(card.title, isOn: Binding(
-                            get: { !preferences.hiddenCards.contains(card) },
-                            set: { preferences.setVisible($0, card: card) }
-                        ))
-                        .toggleStyle(.checkboxOnMac)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+            if horizontalSizeClass == .compact {
+                // iPhone과 좁은 창: 오늘 화면에 편집 모드가 없어서 여기서 순서와 표시를 바꾼다. 평소에는 접어 둔다.
+                DisclosureGroup("카드 순서와 표시", isExpanded: $showsCards) {
+                    cardRows
+                    Button("기본 배치 복원") { preferences.restoreDashboard() }
+                }
+            } else {
+                // 넓은 창: 순서·열·숨김은 오늘 화면의 편집 모드에서 직접 끌어서 바꾼다. 여기서는 그리로 보낸다.
+                LabeledContent {
+                    Button("편집") {
+                        store.wantsDashboardEditing = true
+                        store.section = .dashboard
                     }
-                    if horizontalSizeClass != .compact, !card.spansFullWidth {
-                        columnPicker(card)
+                    .accessibilityLabel("대시보드 구성 편집")
+                } label: {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("대시보드 구성")
+                        Text(Self.layoutSummary(visible: preferences.visibleCards.count, hidden: preferences.hiddenChoices.count))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
                     }
-                    reorderButton(card, offset: -1, disabled: index == 0)
-                    reorderButton(card, offset: 1, disabled: index == preferences.cardOrder.count - 1)
                 }
             }
-            Button("기본 배치 복원") { preferences.restoreDashboard() }
         } header: {
             Text("오늘 화면")
         } footer: {
-            Text(horizontalSizeClass == .compact
-                 ? "이 기기에만 적용돼요. 식사 표시를 끄면 식사 메뉴와 카드가 숨겨지고, 적은 내용은 그대로 보관돼요. 카드는 위에서 아래 순서로 보여요."
-                 : "이 기기에만 적용돼요. 식사 표시를 끄면 식사 메뉴와 카드가 숨겨지고, 적은 내용은 그대로 보관돼요. 넓은 창에서는 두 열, 좁은 창에서는 이 순서대로 한 열로 보이며, 오늘 화면의 편집 단추로 끌어 옮길 수도 있어요.")
+            Text("\(Platform.thisDevice)에만 적용돼요. 식사 표시를 꺼도 적어 둔 내용은 보관돼요.")
         }
     }
 
-    /// 넓은 창의 두 열 중 어디에 둘지.
-    private func columnPicker(_ card: DashboardCard) -> some View {
-        Picker("열", selection: Binding(
-            get: { preferences.column(of: card) },
-            set: { preferences.setColumn($0, for: card) }
-        )) {
-            ForEach(DashboardColumn.allCases, id: \.self) { column in
-                Text(column.title).tag(column)
+    /// "카드 6개 표시 · 4개 숨김".
+    static func layoutSummary(visible: Int, hidden: Int) -> String {
+        hidden == 0 ? "카드 \(visible)개 표시" : "카드 \(visible)개 표시 · \(hidden)개 숨김"
+    }
+
+    @ViewBuilder
+    private var cardRows: some View {
+        ForEach(Array(preferences.cardOrder.enumerated()), id: \.element) { index, card in
+            HStack(spacing: 4) {
+                if card == .routines {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(card.title)
+                        Text("항상 표시").font(.caption).foregroundStyle(.secondary)
+                    }
+                    Spacer(minLength: 4)
+                } else {
+                    Toggle(card.title, isOn: Binding(
+                        get: { !preferences.hiddenCards.contains(card) },
+                        set: { preferences.setVisible($0, card: card) }
+                    ))
+                    .toggleStyle(.checkboxOnMac)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                reorderButton(card, offset: -1, disabled: index == 0)
+                reorderButton(card, offset: 1, disabled: index == preferences.cardOrder.count - 1)
             }
         }
-        .pickerStyle(.segmented)
-        .labelsHidden()
-        .fixedSize()
-        .accessibilityLabel("\(card.title) 카드의 열")
     }
 
     #if os(macOS)

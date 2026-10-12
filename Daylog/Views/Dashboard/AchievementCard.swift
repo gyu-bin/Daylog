@@ -15,7 +15,7 @@ struct AchievementCard: View {
                 )
 
                 if store.isVacation(on: store.selectedDay) {
-                    Label("휴가 · 이날의 체크는 통계에서 제외돼요.", systemImage: "sun.max")
+                    Label("휴가 · 통계에서 제외", systemImage: "sun.max")
                         .font(.callout)
                         .foregroundStyle(.secondary)
                 } else if sections.isEmpty {

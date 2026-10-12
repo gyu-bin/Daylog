@@ -24,7 +24,7 @@ struct SettingsView: View {
             } header: {
                 Text("달성한 날 기준값")
             } footer: {
-                Text("하루 달성률이 이 값 이상이면 달성한 날로 세요. 연속 달성일도 이 기준으로 바로 다시 계산돼요.")
+                Text("하루 달성률이 이 값 이상이면 달성한 날로 세요.")
             }
 
             CalendarSettingsSection()
@@ -94,8 +94,8 @@ struct SettingsView: View {
             Text("iCloud 동기화")
         } footer: {
             Text(sync.isEnabled
-                 ? "기록은 \(Platform.thisDevice)에 저장되고 내 iCloud 개인 데이터베이스로 동기화돼요. 인터넷이 없어도 쓸 수 있고, 연결되면 이어서 맞춰요. 위 시각은 시스템이 알려 준 값이라 모든 기록이 다른 기기에 도착했다는 뜻은 아니에요."
-                 : "기록은 \(Platform.thisDevice)에만 저장돼요. iCloud 권한이 있는 빌드로 실행하면 같은 Apple 계정의 기기끼리 동기화돼요.")
+                 ? "같은 Apple 계정의 기기끼리 기록을 맞춰요. 인터넷이 없어도 쓸 수 있고, 연결되면 이어서 맞춰요."
+                 : "기록은 \(Platform.thisDevice)에만 저장돼요.")
         }
     }
 
@@ -157,7 +157,7 @@ private struct CalendarSettingsSection: View {
         } header: {
             Text("캘린더")
         } footer: {
-            Text("월간 캘린더, 휴가 달력, 활동 히트맵의 요일 순서가 바뀌어요. 통계의 집계 기간은 바뀌지 않아요. \(Platform.thisDevice)에만 적용돼요.")
+            Text("달력과 히트맵의 요일 순서만 바뀌어요. 통계 집계 기간은 그대로예요.")
         }
     }
 }

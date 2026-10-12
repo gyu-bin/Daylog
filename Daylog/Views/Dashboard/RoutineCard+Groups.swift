@@ -8,53 +8,101 @@ extension RoutineCard {
         let color = GroupColor(key: section.group.colorKey)
         let isCollapsed = isCollapsed(section.id)
         return VStack(alignment: .leading, spacing: 0) {
-            Button {
-                // 텍스트를 입력하는 중에는 화면이 움직이지 않게 애니메이션을 끄고, "동작 줄이기" 설정도 따른다.
-                withAnimation(reduceMotion || focus != nil ? nil : .easeInOut(duration: 0.18)) {
-                    toggleCollapsed(section.id)
-                }
-            } label: {
-                HStack(spacing: 8) {
-                    Image(systemName: "chevron.right")
-                        .font(.system(size: 10, weight: .bold))
-                        .foregroundStyle(.secondary)
-                        .rotationEffect(.degrees(isCollapsed ? 0 : 90))
-                    GroupBadge(title: section.group.title, color: color)
-                    Text(section.group.title)
-                        .font(.body.weight(.semibold))
-                        .lineLimit(1)
-                    Spacer(minLength: 8)
-                    if !section.checks.isEmpty, !store.isVacation(on: store.selectedDay) {
-                        Text("\(section.done)/\(section.checks.count)")
-                            .font(.callout.weight(.medium))
-                            .monospacedDigit()
-                        ProgressBar(
-                            ratio: Achievement.ratio(done: section.done, total: section.checks.count) ?? 0,
-                            height: 6, tint: color.color
-                        )
-                        .frame(width: 72)
+            HStack(spacing: 4) {
+                Button {
+                    // 텍스트를 입력하는 중에는 화면이 움직이지 않게 애니메이션을 끄고, "동작 줄이기" 설정도 따른다.
+                    withAnimation(reduceMotion || focus != nil ? nil : .easeInOut(duration: 0.18)) {
+                        toggleCollapsed(section.id)
                     }
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 10, weight: .bold))
+                            .foregroundStyle(.secondary)
+                            .rotationEffect(.degrees(isCollapsed ? 0 : 90))
+                        GroupBadge(title: section.group.title, color: color)
+                        Text(section.group.title)
+                            .font(.body.weight(.semibold))
+                            .lineLimit(1)
+                        Spacer(minLength: 8)
+                        if !section.checks.isEmpty, !store.isVacation(on: store.selectedDay) {
+                            Text("\(section.done)/\(section.checks.count)")
+                                .font(.callout.weight(.medium))
+                                .monospacedDigit()
+                                .foregroundStyle(section.done == section.checks.count ? AnyShapeStyle(color.ink) : AnyShapeStyle(.secondary))
+                            ProgressBar(
+                                ratio: Achievement.ratio(done: section.done, total: section.checks.count) ?? 0,
+                                height: 6, tint: color.color
+                            )
+                            .frame(width: 56)
+                        }
+                    }
+                    .contentShape(Rectangle())
                 }
-                .padding(.horizontal, 10)
-                .padding(.vertical, 7)
-                .background(color.wash, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
-                .contentShape(Rectangle())
+                .buttonStyle(.plain)
+                .accessibilityLabel("\(section.group.title) 그룹, \(section.checks.count)개 중 \(section.done)개 완료")
+                .accessibilityValue(isCollapsed ? "접힘" : "펼침")
+                .accessibilityHint("누르면 접거나 펼칩니다.")
+
+                // 항목 추가는 여기서 연다. 평소에는 입력칸을 접어 두어 목록에 체크할 것만 남긴다.
+                if let target = section.target {
+                    Button {
+                        setCollapsed(section.id, false)
+                        beginAdding(to: target.id)
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.system(size: 11, weight: .bold))
+                            .foregroundStyle(color.ink)
+                            // 터치 화면에서는 누르기 쉽게 넓힌다.
+                            .frame(width: Self.addButtonWidth, height: Self.addButtonHeight)
+                            .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                    .help("\(section.group.title)에 항목 추가")
+                    .accessibilityLabel("\(section.group.title) 그룹에 항목 추가")
+                }
             }
-            .buttonStyle(.plain)
-            .accessibilityLabel("\(section.group.title) 그룹, \(section.checks.count)개 중 \(section.done)개 완료")
-            .accessibilityValue(isCollapsed ? "접힘" : "펼침")
-            .accessibilityHint("누르면 접거나 펼칩니다.")
+            .padding(.leading, 10)
+            .padding(.trailing, section.target == nil ? 10 : 4)
+            .padding(.vertical, 6)
+            .background(color.wash, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
 
             if !isCollapsed {
                 let showsTime = section.checks.contains { !$0.timeLabel.isEmpty }
                 ForEach(section.checks) { check in
                     checkRow(check, tint: color.color, showsTime: showsTime)
-                    Divider().padding(.leading, 40)
+                    if check.id != section.checks.last?.id {
+                        Divider().padding(.leading, 40)
+                    }
                 }
-                if let target = section.target {
+                // 항목이 하나도 없는 그룹은 첫 항목을 넣을 수 있게 입력칸을 늘 보여 준다.
+                if let target = section.target, showsItemField(for: target.id, isEmpty: section.checks.isEmpty) {
+                    if !section.checks.isEmpty { Divider().padding(.leading, 40) }
                     itemField(for: target, tint: color.color)
                 }
             }
+        }
+    }
+
+    #if os(macOS)
+    static let addButtonWidth: CGFloat = 26
+    static let addButtonHeight: CGFloat = 24
+    #else
+    static let addButtonWidth: CGFloat = 44
+    static let addButtonHeight: CGFloat = 34
+    #endif
+
+    /// 입력칸을 보여 줄지: 그룹이 비었거나, [+]로 열었거나, 적던 내용이 남아 있을 때.
+    func showsItemField(for groupID: UUID, isEmpty: Bool) -> Bool {
+        isEmpty || addingGroupID == groupID
+            || !(itemDrafts[groupID] ?? "").trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
+    /// 그 그룹의 입력칸을 열고 포커스를 준다.
+    func beginAdding(to groupID: UUID) {
+        addingGroupID = groupID
+        DispatchQueue.main.async {
+            focus = .item(groupID)
         }
     }
 
