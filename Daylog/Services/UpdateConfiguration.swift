@@ -23,3 +23,42 @@ struct UpdateConfiguration: Equatable {
         return true
     }
 }
+
+/// 마지막 업데이트 확인의 결과. 설정의 앱 정보가 보여 준다. 실제 창(새 버전 안내, 변경 사항, 설치 승인, 오류)은 Sparkle이 띄운다.
+enum UpdateCheckOutcome: Equatable {
+    case upToDate
+    case found(version: String)
+    case failed(message: String)
+
+    /// Sparkle 오류 영역과, 실패가 아닌 코드: 새 버전 없음(1001), 사용자가 설치를 취소함(4007).
+    static let sparkleErrorDomain = "SUSparkleErrorDomain"
+    static let noUpdateCode = 1001
+    static let installationCanceledCode = 4007
+
+    /// 확인 한 번이 끝났을 때의 결과. 알릴 것이 없으면(사용자가 취소했거나 건너뜀) nil.
+    static func resolve(foundVersion: String?, errorDomain: String?, errorCode: Int?, errorMessage: String?) -> UpdateCheckOutcome? {
+        if let errorCode, errorDomain == sparkleErrorDomain {
+            if errorCode == noUpdateCode { return .upToDate }
+            if errorCode == installationCanceledCode { return foundVersion.map { .found(version: $0) } }
+        }
+        if errorCode != nil {
+            return .failed(message: errorMessage ?? "업데이트를 확인하지 못했어요.")
+        }
+        return foundVersion.map { .found(version: $0) }
+    }
+
+    /// 설정에 보여 주는 한 줄.
+    static func statusText(isConfigured: Bool, outcome: UpdateCheckOutcome?, currentVersion: String) -> String {
+        guard isConfigured else {
+            return "앱 안의 업데이트는 아직 준비 중이에요. 새 버전은 GitHub 릴리스에서 받을 수 있어요."
+        }
+        switch outcome {
+        case nil: return "새 버전이 있는지 확인하고, 있으면 변경 사항을 본 뒤 설치할 수 있어요."
+        case .upToDate: return "최신 버전이에요 (\(currentVersion))."
+        case .found(let version): return "새 버전 \(version)이 있어요. [업데이트 확인]에서 설치할 수 있어요."
+        case .failed(let message): return "확인하지 못했어요: \(message)"
+        }
+    }
+
+    static let releasesPage = URL(string: "https://github.com/gyu-bin/Daylog/releases/latest")
+}

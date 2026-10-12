@@ -6,6 +6,27 @@ Sparkle 2.10.0은 macOS 앱 타깃에만 고정 버전으로 연결된다. 메�
 
 예정 feed는 `https://github.com/gyu-bin/Daylog/releases/latest/download/appcast.xml`이다. 아직 게시하지 않았다. Developer ID·CloudKit entitlement·release.sh 서명/공증 흐름을 변경하지 않았다. 전체 업데이트 완료가 아니라 활성화를 기다리는 기반 구현이다.
 
+## 설정 화면 (2026-10-12)
+
+설정 → 정보의 버전 아래에 "업데이트" 줄이 있다. 메뉴의 "업데이트 확인…"과 같은 동작을 부른다.
+
+- 준비 전(지금): "앱 안의 업데이트는 아직 준비 중" 안내와 [릴리스 페이지 열기](`https://github.com/gyu-bin/Daylog/releases/latest`). 메뉴의 준비 중 알림에도 같은 단추가 있다.
+- 준비 후: [업데이트 확인…]. 새 버전·변경 사항·설치 승인·"최신 버전" 안내·오류는 Sparkle 표준 창이 보여 주고, 설정에는 마지막 결과(최신 / 새 버전 x.y.z / 실패 사유)와 확인 시각이 남는다.
+- 결과 판정은 `UpdateCheckOutcome.resolve`: 새 버전 없음(Sparkle 1001)은 실패가 아니고, 사용자가 설치를 취소한 것(4007)도 실패가 아니다. 나머지 오류(내려받기·서명 검증·설치 실패)는 메시지와 함께 실패로 남는다.
+
+꺼져 있는 동안에는 Sparkle이 시작되지 않으므로 "업데이트 없음 / 발견 / 설치 실패"의 실제 흐름은 검증하지 못했다. 판정 규칙만 단위 테스트로 확인했다.
+
+## 버전 정책 (활성화 전에 정할 것)
+
+지금의 배포(`Tools/update.sh`)는 Mac 버전을 1.5.1 (1)로 둔 채 같은 릴리스의 DMG만 바꾼다. Sparkle은 `CFBundleVersion`이 올라가야 새 버전으로 보므로, 켜면 이 방식으로는 업데이트가 전달되지 않는다. 제안:
+
+1. "새 버전 올려" 때마다 Mac의 빌드 번호(`CURRENT_PROJECT_VERSION`)를 1씩 올리고, 버전(`MARKETING_VERSION`)은 패치 자리를 올린다(1.5.2, 1.5.3 …). 릴리스마다 새 태그가 생긴다.
+2. `Tools/release.sh`가 DMG를 만든 뒤 `generate_appcast`로 `appcast.xml`을 만들어 DMG와 함께 올린다. 서명에는 키체인의 Sparkle 개인 키를 쓴다(저장소·로그에 넣지 않는다).
+3. `Tools/update.sh`의 "같은 버전이면 DMG만 교체" 경로는 Sparkle을 켠 뒤에는 쓰지 않는다(같은 버전의 내용이 바뀌면 서명·길이가 appcast와 어긋난다).
+4. 이 Mac은 지금처럼 `update.sh`로 바로 바꾸고, 다른 Mac은 앱 안의 업데이트로 받는다.
+
+승인이 필요한 것: Sparkle 키 생성, 샌드박스 권한(mach-lookup 예외) 추가, `DaylogUpdatesEnabled` 켜기, 위 버전 정책, 첫 appcast 게시.
+
 ## 활성화 승인 후 수행할 작업
 
 1. 배포 담당자가 Sparkle 배포물의 `generate_keys`로 Ed25519 키를 생성한다. 개인 키는 macOS 키체인 또는 보안 CI에 보관하고 파일·소스·로그에 넣지 않는다. 공개 키만 Info.plist의 `SUPublicEDKey`에 넣는다.

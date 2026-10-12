@@ -265,6 +265,9 @@ struct SettingsView: View {
             }
             .padding(.vertical, 2)
             .accessibilityElement(children: .combine)
+            #if os(macOS)
+            UpdateSettingsRow(currentVersion: Self.version)
+            #endif
             OnboardingReplayButton()
         } header: {
             Text("앱 정보")
