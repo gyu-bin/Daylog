@@ -457,6 +457,12 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 - 저장소의 `RemoteConfig/mobile-ui.json`은 `configVersion 2`(값 1.5)가 됐다. 게시하지 않았다(게시된 것은 v1). TestFlight도 올리지 않았다(이 칸은 빌드 6부터 읽는다).
 - 관련 테스트(SplashTests, MobileUIConfigTests)와 iOS 빌드만 확인했다. 설정 방법은 [MOBILE_OTA.md](MOBILE_OTA.md) "스플래시 시간 바꾸기".
 
+## 배포: TestFlight 빌드 6 (2026-10-12)
+
+- iOS 1.0.0 (6)을 TestFlight에 올렸다(커밋 `2277090`). 올린 IPA에서 번들 ID, App Group, iCloud Production, aps production, 빌드 6을 확인했다. 다음에 올릴 때는 빌드 번호 7.
+- 빌드 5 이후 들어간 것: 스플래시 시간 설정(`splash.duration`, 기본 재생 시간 1.5초), 설정 줄의 강조 색 안내 수정.
+- Mac 앱과 모바일 UI 설정(Production v1)은 그대로다. 저장소의 설정 파일 v2는 게시하지 않았다.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
