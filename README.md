@@ -150,6 +150,13 @@ Tools/release.sh            # 테스트 → 서명 → 공증 → DMG → 검증
 Tools/release.sh --publish  # 위와 같이 만든 뒤 GitHub Release에 올리기
 ```
 
+**앱 안의 업데이트(Sparkle)** — 구현과 격리 시험은 끝났고, 배포판에서는 아직 꺼져 있어요. 켜는 절차와 그 뒤의 배포 방법(버전 올리기 → appcast)은 [업데이트 운영](docs/UPDATES.md)에 있어요.
+
+```bash
+Tools/bump-version.sh 1.5.2   # Mac 버전·빌드 번호 올리기 + 릴리스 노트 틀
+Tools/update-test.sh prepare  # 실제 앱과 분리된 업데이트 설치 시험 준비
+```
+
 **알아 둘 점**
 
 - 내려받은 앱(DMG)과 Xcode로 빌드한 앱은 서로 다른 iCloud 환경(Production / Development)을 써서 둘 사이에는 동기화되지 않아요. 어느 쪽인지는 설정의 **iCloud 환경**에 나와요.

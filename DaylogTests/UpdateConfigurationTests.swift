@@ -22,6 +22,28 @@ struct UpdateConfigurationTests {
         }
     }
 
+    @Test func localTestFeedIsAcceptedOnlyByTheVerificationBundle() {
+        var info = valid
+        info["SUFeedURL"] = "http://127.0.0.1:8765/appcast.xml"
+        #expect(UpdateConfiguration(info: info, bundleID: UpdateConfiguration.verificationBundleID).isReady)
+        #expect(UpdateConfiguration(info: info, bundleID: UpdateConfiguration.updateTestBundleID).isReady)
+        // 실제 앱은 이 Mac의 피드를 받아들이지 않는다.
+        #expect(!UpdateConfiguration(info: info, bundleID: "com.mungyubin.daylog").isReady)
+        #expect(!UpdateConfiguration(info: info).isReady)
+        // 검증 번들이라도 다른 주소·경로는 안 된다.
+        for url in ["http://192.168.0.2:8765/appcast.xml", "http://127.0.0.1:8765/other.xml", "http://localhost.example.com/appcast.xml"] {
+            info["SUFeedURL"] = url
+            #expect(!UpdateConfiguration(info: info, bundleID: UpdateConfiguration.verificationBundleID).isReady)
+        }
+        // 검증 번들에서도 서명 키는 있어야 한다.
+        info = valid
+        info["SUFeedURL"] = "http://127.0.0.1:8765/appcast.xml"
+        info["SUPublicEDKey"] = ""
+        #expect(!UpdateConfiguration(info: info, bundleID: UpdateConfiguration.verificationBundleID).isReady)
+        // 배포 피드는 어느 번들에서든 그대로 통한다.
+        #expect(UpdateConfiguration(info: valid, bundleID: "com.mungyubin.daylog").isReady)
+    }
+
     @Test func checkOutcomeSeparatesUpToDateFoundCanceledAndFailed() {
         let domain = UpdateCheckOutcome.sparkleErrorDomain
         // 새 버전 없음은 실패가 아니다.
@@ -42,7 +64,7 @@ struct UpdateConfigurationTests {
 
     @Test func settingsStatusTextCoversEveryState() {
         let notReady = UpdateCheckOutcome.statusText(isConfigured: false, outcome: nil, currentVersion: "1.5.1")
-        #expect(notReady.contains("준비 중") && notReady.contains("GitHub"))
+        #expect(notReady.contains("받을 수 없어요") && notReady.contains("GitHub"))
         #expect(UpdateCheckOutcome.statusText(isConfigured: true, outcome: .upToDate, currentVersion: "1.5.1").contains("최신 버전이에요 (1.5.1)"))
         #expect(UpdateCheckOutcome.statusText(isConfigured: true, outcome: .found(version: "1.6.0"), currentVersion: "1.5.1").contains("1.6.0"))
         #expect(UpdateCheckOutcome.statusText(isConfigured: true, outcome: .failed(message: "네트워크"), currentVersion: "1.5.1").contains("네트워크"))

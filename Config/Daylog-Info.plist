@@ -9,7 +9,9 @@
     <key>SUEnableInstallerLauncherService</key><true/>
     <key>SUEnableDownloaderService</key><true/>
     <key>SUVerifyUpdateBeforeExtraction</key><true/>
-    <key>SUEnableAutomaticChecks</key><false/>
+    <!-- 하루에 한 번쯤 새 버전을 확인한다(설정에서 끌 수 있다). 설치는 늘 사용자가 승인한다. -->
+    <key>SUEnableAutomaticChecks</key><true/>
+    <key>SUScheduledCheckInterval</key><integer>86400</integer>
     <key>SUAutomaticallyUpdate</key><false/>
 </dict>
 </plist>

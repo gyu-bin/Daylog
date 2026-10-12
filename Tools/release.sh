@@ -3,7 +3,8 @@
 #
 #   Tools/release.sh                 DMG를 만들고 검증까지 한다. 게시하지 않는다.
 #   Tools/release.sh --publish       검증을 통과하면 GitHub Release(v<버전>)에 DMG를 올린다.
-#                                    같은 버전의 릴리스가 이미 있으면 DMG만 새것으로 바꾸고, 설명의 체크섬과 빌드 기준 커밋을 고친다.
+#                                    앱 안의 업데이트(Sparkle)가 켜져 있으면 appcast.xml도 만들어 함께 올린다(아래 "앱 안의 업데이트").
+#                                    꺼져 있을 때만, 같은 버전의 릴리스가 이미 있으면 DMG만 새것으로 바꾼다.
 #   Tools/release.sh --skip-tests    전체 테스트를 건너뛴다(방금 돌린 경우).
 #   Tools/release.sh --publish-only  이미 만들어 검증한 DMG(build/release)를 다시 만들지 않고 그대로 올린다.
 #   Tools/release.sh --allow-unsigned-dmg
@@ -16,6 +17,15 @@
 #     1) "Developer ID Application" 인증서: Xcode > Settings > Accounts > Manage Certificates > + 로 만든다.
 #     2) 공증 자격 증명: xcrun notarytool store-credentials daylog-notary --apple-id <Apple ID> --team-id <팀 ID>
 #        (프로파일 이름은 DAYLOG_NOTARY_PROFILE 환경 변수로 바꿀 수 있다.)
+#
+# 앱 안의 업데이트(Sparkle)
+# - Config/Daylog-Info.plist에 DaylogUpdatesEnabled와 공개 키(SUPublicEDKey)가 있으면 켜진 것으로 본다.
+# - 서명은 두 가지이고 서로 별개다: 앱의 Developer ID 서명·공증(위), 그리고 DMG의 Sparkle EdDSA 서명(appcast에 들어간다).
+#   EdDSA 개인 키는 로그인 키체인에 있다(Sparkle의 generate_keys가 넣는다). 저장소에는 공개 키만 있다.
+# - 릴리스마다 버전과 빌드 번호가 올라가야 한다(Tools/bump-version.sh). 이미 게시한 버전은 다시 올리지 않는다.
+# - 릴리스 노트는 docs/releases/v<버전>.md. 앱의 업데이트 창과 GitHub 릴리스에 같은 내용이 나온다.
+# - 게시 순서: 초안 릴리스에 DMG와 appcast.xml을 모두 올린다 → 올라간 것을 확인한다 → 공개한다 → 공개 주소에서 다시 받아 본다.
+#   앱이 보는 피드(…/releases/latest/download/appcast.xml)는 공개하는 순간 새 릴리스를 가리키고, 그때는 DMG도 이미 올라가 있다.
 #
 # 주의: Developer ID로 배포하는 앱은 CloudKit의 Production 환경만 쓸 수 있다(프로비저닝 프로파일이 그렇게 정한다).
 #       Xcode로 직접 빌드한 앱(Development 환경)과는 서로 다른 iCloud 데이터를 본다.
@@ -38,6 +48,12 @@ ICLOUD_CONTAINER="iCloud.$BUNDLE_ID"
 NOTARY_PROFILE="${DAYLOG_NOTARY_PROFILE:-daylog-notary}"
 VERSION=$(sed -n 's/.*MARKETING_VERSION = \(.*\);/\1/p' Daylog.xcodeproj/project.pbxproj | head -1)
 [[ -n "$VERSION" ]] || { echo "버전을 읽지 못했습니다." >&2; exit 1; }
+REPO_URL="https://github.com/gyu-bin/Daylog"
+FEED_URL="$REPO_URL/releases/latest/download/appcast.xml"
+SPARKLE_KEY=$(/usr/libexec/PlistBuddy -c 'Print :SUPublicEDKey' Config/Daylog-Info.plist 2>/dev/null || true)
+SPARKLE_ON=0
+[[ "$(/usr/libexec/PlistBuddy -c 'Print :DaylogUpdatesEnabled' Config/Daylog-Info.plist 2>/dev/null)" == "true" && -n "$SPARKLE_KEY" ]] && SPARKLE_ON=1
+NOTES_FILE="docs/releases/v$VERSION.md"
 
 OUT="build/release"
 ARCHIVE="$OUT/Daylog.xcarchive"
@@ -49,6 +65,39 @@ fail() { echo "✗ $1" >&2; exit 1; }
 
 step "Daylog $VERSION 배포 준비"
 [[ -z "$(git status --porcelain)" ]] || fail "커밋하지 않은 변경이 있습니다. 배포는 커밋된 상태에서만 합니다."
+if [[ $SPARKLE_ON -eq 1 ]]; then
+  echo "앱 안의 업데이트: 켜짐 (appcast를 함께 만듭니다)"
+  [[ -s "$NOTES_FILE" ]] || fail "릴리스 노트($NOTES_FILE)가 없습니다. Tools/bump-version.sh가 만든 틀을 채워 커밋하세요."
+  grep -q "달라진 점을 적어 주세요" "$NOTES_FILE" && fail "릴리스 노트($NOTES_FILE)가 아직 틀 그대로입니다."
+  if [[ $PUBLISH -eq 1 ]]; then
+    # 같은 버전·빌드 번호를 두 번 게시하지 않는다. 만들기 전에 확인해 공증 시간을 버리지 않는다.
+    command -v gh >/dev/null || fail "gh(GitHub CLI)가 없습니다."
+    gh release view "v$VERSION" >/dev/null 2>&1 \
+      && fail "v$VERSION 은 이미 게시됐습니다. 새로 올리려면 Tools/bump-version.sh <새 버전>으로 버전을 올리세요."
+  fi
+else
+  echo "앱 안의 업데이트: 꺼짐 (DMG만 만듭니다)"
+fi
+
+# 지금 공개돼 있는 appcast(과거 항목을 이어 가기 위해). 첫 릴리스에는 없다.
+fetch_previous_appcast() {
+  PREVIOUS_APPCAST="$OUT/previous-appcast.xml"
+  curl -fsSL "$FEED_URL" -o "$PREVIOUS_APPCAST" 2>/dev/null || rm -f "$PREVIOUS_APPCAST"
+  [[ -s "$PREVIOUS_APPCAST" ]] && echo "· 지금 공개된 appcast를 이어 씁니다." || echo "· 공개된 appcast가 아직 없습니다(첫 릴리스)."
+}
+
+make_appcast() {
+  step "Sparkle 서명과 appcast"
+  # 앱에 들어간 공개 키가 키체인의 개인 키와 짝인지 먼저 본다(다르면 설치된 앱이 이 업데이트를 거부한다).
+  local bin keychain_key
+  bin=$(ls -d "$OUT"/derived/SourcePackages/artifacts/sparkle/Sparkle/bin build/*/derived/SourcePackages/artifacts/sparkle/Sparkle/bin 2>/dev/null | head -1)
+  [[ -x "$bin/generate_keys" ]] || fail "Sparkle 도구를 찾지 못했습니다."
+  keychain_key=$("$bin/generate_keys" -p 2>/dev/null) || fail "키체인에서 Sparkle 서명 키를 읽지 못했습니다(docs/UPDATES.md의 키 준비)."
+  [[ "$keychain_key" == "$SPARKLE_KEY" ]] || fail "앱의 공개 키(SUPublicEDKey)가 키체인의 서명 키와 다릅니다. 게시하지 않습니다."
+  fetch_previous_appcast
+  Tools/appcast.sh "$DMG" "$NOTES_FILE" "$OUT/appcast" "$REPO_URL/releases/download/v$VERSION/" "${PREVIOUS_APPCAST:-}"
+  APPCAST="$OUT/appcast/appcast.xml"
+}
 
 build_dmg() {
   rm -rf "$OUT"; mkdir -p "$OUT"
@@ -111,6 +160,19 @@ PLIST
   spctl -a -vv "$APP" 2>&1 | grep -q "source=Notarized Developer ID" || fail "Gatekeeper가 앱을 받아들이지 않습니다."
   [[ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$APP/Contents/Info.plist")" == "$BUNDLE_ID" ]] || fail "번들 ID가 다릅니다."
   echo "✓ Developer ID 서명, Hardened Runtime, CloudKit 권한, 공증 티켓, Gatekeeper 통과"
+  if [[ $SPARKLE_ON -eq 1 ]]; then
+    # 설치 도구와 통신하는 권한, 그리고 Sparkle 안의 도구들이 앱과 같은 팀으로 서명됐는지.
+    echo "$ENTITLEMENTS" | grep -q "\"$BUNDLE_ID-spks\"" || fail "Sparkle 설치 도구와 통신하는 권한(-spks)이 없습니다."
+    echo "$ENTITLEMENTS" | grep -q "\"$BUNDLE_ID-spki\"" || fail "Sparkle 설치 도구와 통신하는 권한(-spki)이 없습니다."
+    TEAM=$(echo "$SIGNATURE" | sed -n 's/^TeamIdentifier=//p')
+    for tool in XPCServices/Installer.xpc XPCServices/Downloader.xpc Autoupdate Updater.app; do
+      codesign -dvv "$APP/Contents/Frameworks/Sparkle.framework/Versions/B/$tool" 2>&1 | grep -q "TeamIdentifier=$TEAM" \
+        || fail "Sparkle의 $tool 이 앱과 같은 팀으로 서명되지 않았습니다."
+    done
+    [[ "$(/usr/libexec/PlistBuddy -c 'Print :SUPublicEDKey' "$APP/Contents/Info.plist")" == "$SPARKLE_KEY" ]] || fail "앱에 들어간 Sparkle 공개 키가 다릅니다."
+    [[ "$(/usr/libexec/PlistBuddy -c 'Print :SUFeedURL' "$APP/Contents/Info.plist")" == "$FEED_URL" ]] || fail "앱의 업데이트 피드 주소가 다릅니다."
+    echo "✓ Sparkle: 공개 키, 피드 주소, 설치 도구 권한과 서명"
+  fi
 
   step "DMG 만들기"
   STAGING="$OUT/dmg"
@@ -161,7 +223,51 @@ echo "✓ $DMG"
 echo "  크기 $(du -h "$DMG" | cut -f1 | tr -d ' '), SHA-256 $(shasum -a 256 "$DMG" | cut -d' ' -f1)"
 echo "  DMG 상태: $DMG_STATE (안의 앱: 공증·스테이플 완료)"
 
-if [[ $PUBLISH -eq 1 ]]; then
+[[ $SPARKLE_ON -eq 1 ]] && make_appcast
+
+# 공개 주소에서 실제로 받아지는지. 앱이 보는 주소 그대로 확인한다.
+verify_public_release() {
+  local tag="$1" size url got attempt
+  size=$(stat -f %z "$DMG")
+  url="$REPO_URL/releases/download/$tag/$(basename "$DMG")"
+  got=$(curl -fsSLI "$url" 2>/dev/null | tr -d '\r' | awk 'tolower($1)=="content-length:"{v=$2} END{print v}')
+  [[ "$got" == "$size" ]] || fail "공개된 DMG의 크기($got)가 만든 것($size)과 다릅니다: $url"
+  for attempt in {1..10}; do
+    curl -fsSL "$FEED_URL" 2>/dev/null | cmp -s - "$APPCAST" && { echo "✓ 공개 주소 확인: DMG $size 바이트, 피드가 새 appcast"; return 0; }
+    sleep 3
+  done
+  fail "피드 주소($FEED_URL)가 아직 새 appcast가 아닙니다. 릴리스가 최신(latest)으로 표시됐는지 확인하세요."
+}
+
+if [[ $PUBLISH -eq 1 && $SPARKLE_ON -eq 1 ]]; then
+  step "GitHub Release 게시 (DMG + appcast)"
+  if [[ "$DMG_STATE" != "서명·공증·스테이플 완료" && $ALLOW_UNSIGNED_DMG -eq 0 ]]; then
+    fail "DMG 자체가 서명·공증되지 않았습니다. 스크립트 위쪽의 준비 사항을 갖추거나 --allow-unsigned-dmg 를 붙이세요."
+  fi
+  TAG="v$VERSION"
+  HEAD_SHA=$(cat "$OUT/build-commit" 2>/dev/null || git rev-parse HEAD)
+  DMG_SHA=$(shasum -a 256 "$DMG" | cut -d' ' -f1)
+  git branch -r --contains "$HEAD_SHA" 2>/dev/null | grep -q . || fail "이 커밋이 GitHub에 없습니다. 먼저 git push 하세요."
+  gh release view "$TAG" >/dev/null 2>&1 && fail "$TAG 은 이미 게시됐습니다. 버전을 올리세요(Tools/bump-version.sh)."
+  BODY=$(mktemp)
+  {
+    cat "$NOTES_FILE"
+    printf '\n### 설치\n- 이미 쓰고 있다면: 설정 → 정보 → **업데이트 확인** (또는 메뉴의 "업데이트 확인…").\n'
+    printf -- '- 처음이거나 1.5.1 이하라면: 아래 **Assets**의 `%s`를 받아 Daylog를 Applications로 끌어다 놓으세요(대치).\n' "$(basename "$DMG")"
+    printf '\nmacOS 14 이상. DMG 안의 앱은 Developer ID로 서명되고 Apple 공증을 받았습니다.\n'
+    printf '\nSHA-256: `%s`\n\n빌드 기준 커밋: %s\n' "$DMG_SHA" "${HEAD_SHA[1,7]}"
+  } > "$BODY"
+  # 초안으로 올린다: 이 동안에는 피드 주소가 아직 이전 릴리스를 가리킨다.
+  gh release create "$TAG" "$DMG" "$APPCAST" --draft --target "$HEAD_SHA" --title "Daylog $VERSION" --notes-file "$BODY" >/dev/null \
+    || fail "초안 릴리스를 만들지 못했습니다."
+  rm -f "$BODY"
+  UPLOADED=$(gh release view "$TAG" --json assets -q '.assets[] | "\(.name) \(.size)"' | sort)
+  EXPECTED=$(printf '%s %s\n%s %s\n' "$(basename "$DMG")" "$(stat -f %z "$DMG")" "appcast.xml" "$(stat -f %z "$APPCAST")" | sort)
+  [[ "$UPLOADED" == "$EXPECTED" ]] || fail "초안에 올라간 파일이 다릅니다. 초안을 지우고 다시 하세요(gh release delete $TAG).\n$UPLOADED"
+  gh release edit "$TAG" --draft=false --latest >/dev/null || fail "릴리스를 공개하지 못했습니다(초안은 남아 있습니다)."
+  verify_public_release "$TAG"
+  echo "✓ 게시 완료: $(gh release view "$TAG" --json url -q .url)"
+elif [[ $PUBLISH -eq 1 ]]; then
   step "GitHub Release 게시"
   if [[ "$DMG_STATE" != "서명·공증·스테이플 완료" && $ALLOW_UNSIGNED_DMG -eq 0 ]]; then
     fail "DMG 자체가 서명·공증되지 않았습니다. 스크립트 위쪽의 준비 사항을 갖추거나 --allow-unsigned-dmg 를 붙이세요."

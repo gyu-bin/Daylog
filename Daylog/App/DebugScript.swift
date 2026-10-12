@@ -106,6 +106,12 @@ enum DebugScript {
         case "weekStart":
             // 달력의 한 주 시작 요일: weekStart:sunday, weekStart:monday. 이 기기 설정만 바꾼다.
             if let value = WeekStart(rawValue: argument) { DevicePreferences.shared.setWeekStart(value) }
+        case "forgetUpdateCheck":
+            // Sparkle이 기억한 마지막 확인 시각을 지운다. 다음 실행 때 바로 다시 확인한다(업데이트 시험용).
+            UserDefaults.standard.removeObject(forKey: "SULastCheckTime")
+        case "onboardingDone":
+            // 시작 안내를 본 것으로 한다. 안내 시트가 떠 있으면 화면 검증과 정상 종료가 막힌다.
+            DevicePreferences.shared.completeOnboarding()
         case "showCard", "hideCard":
             // 대시보드 카드 보이기/숨기기: showCard:summary, hideCard:summary. 이 기기 설정만 바꾼다.
             if let card = DashboardCard(rawValue: argument) {

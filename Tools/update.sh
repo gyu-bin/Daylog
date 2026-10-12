@@ -15,6 +15,8 @@
 # 교체가 끝나면 다른 Mac이 받는 GitHub Release의 DMG도 같은 소스로 맞춘다. 이쪽은 공증이 필요해 몇 분 더 걸린다
 # (Tools/release.sh --skip-tests --publish --allow-unsigned-dmg). 다음 경우에는 올리지 않고 이유를 알려 준다:
 # 커밋하지 않은 변경이 있을 때, 커밋을 아직 push하지 않았을 때, 올라가 있는 DMG 이후로 앱 소스가 바뀌지 않았을 때.
+# 앱 안의 업데이트(Sparkle)가 켜진 뒤에는 새 버전만 올린다(DMG와 appcast.xml). 이미 게시한 버전의 파일은 바꾸지 않으므로,
+# 앱 소스를 바꿨으면 먼저 Tools/bump-version.sh로 버전을 올린다. 다른 Mac은 그 버전을 앱 안의 업데이트로 받는다.
 # 게시가 실패해도 이 Mac의 앱은 이미 바뀐 뒤다. 실패는 숨기지 않고 0이 아닌 값으로 끝낸다.
 set -euo pipefail
 
@@ -79,6 +81,12 @@ check_release() {
   fi
 }
 
+# Config/Daylog-Info.plist에 업데이트 사용과 공개 키가 있으면 앱 안의 업데이트(Sparkle)가 켜진 것이다.
+sparkle_enabled() {
+  [[ "$(/usr/libexec/PlistBuddy -c 'Print :DaylogUpdatesEnabled' Config/Daylog-Info.plist 2>/dev/null)" == "true" \
+    && -n "$(/usr/libexec/PlistBuddy -c 'Print :SUPublicEDKey' Config/Daylog-Info.plist 2>/dev/null)" ]]
+}
+
 # GitHub Release의 DMG를 지금 소스로 맞춘다. 올릴 수 없거나 올릴 필요가 없으면 이유를 말하고 넘어간다.
 publish_release() {
   local version="$1" tag="v$1" built
@@ -100,6 +108,13 @@ publish_release() {
   if [[ -n "$built" ]] && git cat-file -e "$built^{commit}" 2>/dev/null \
     && git diff --quiet "$built" HEAD -- $APP_SOURCES; then
     echo "✓ $tag 의 DMG($built)가 이미 지금 앱 소스와 같습니다. 다시 올리지 않았습니다."
+    return 0
+  fi
+  # 앱 안의 업데이트(Sparkle)가 켜져 있으면 게시한 버전은 바꾸지 않는다: 설치된 앱들은 빌드 번호가 커져야 새 버전으로 보고,
+  # 같은 버전의 파일을 바꾸면 appcast의 서명·크기와 어긋난다. 새 버전으로 올려야 한다.
+  if sparkle_enabled && gh release view "$tag" >/dev/null 2>&1; then
+    echo "! $tag 은 이미 게시됐고 그 뒤로 앱 소스가 바뀌었습니다. 이 Mac의 앱에만 반영됐습니다."
+    echo "  다른 Mac에 보내려면 버전을 올리세요: Tools/bump-version.sh <새 버전> → 릴리스 노트 작성 → 커밋·push → Tools/update.sh"
     return 0
   fi
   echo "공증을 거쳐 올립니다. 몇 분 걸립니다."

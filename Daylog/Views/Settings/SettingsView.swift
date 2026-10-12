@@ -73,9 +73,18 @@ struct SettingsView: View {
     @Environment(AppStore.self) private var store
     @Environment(CloudSyncMonitor.self) private var sync
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @State private var selected: SettingsCategory = .sync
+    @State private var selected: SettingsCategory = SettingsView.initialCategory
     /// 좁은 화면에서 들어가 있는 갈래. nil이면 갈래 목록.
     @State private var compactSelection: SettingsCategory?
+
+    /// 처음 보여 줄 갈래. 개발 중 화면 검증용으로 `-DaylogDebugSettings about`처럼 바꿀 수 있다.
+    private static var initialCategory: SettingsCategory {
+        #if DEBUG
+        if let name = UserDefaults.standard.string(forKey: "DaylogDebugSettings"),
+           let category = SettingsCategory(rawValue: name) { return category }
+        #endif
+        return .sync
+    }
 
     var body: some View {
         if horizontalSizeClass == .compact {

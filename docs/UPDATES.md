@@ -1,47 +1,128 @@
-# macOS 업데이트 운영
+# macOS 앱 안의 업데이트 (Sparkle 2)
 
-## 현재 상태
+Daylog의 Mac 앱은 GitHub Releases에 올린 DMG로 배포한다. 앱 안의 업데이트는 Sparkle 2.10.0이 맡는다:
+새 버전 확인 → 변경 사항 표시 → 사용자가 [설치] → 내려받기 → 서명 검증 → 앱 종료·교체 → 다시 열기.
+자체 설치기는 만들지 않았다. iPhone·iPad는 App Store·TestFlight로 받는다(이 설정을 보여 주지 않는다).
 
-Sparkle 2.10.0은 macOS 앱 타깃에만 고정 버전으로 연결된다. 메뉴의 업데이트 확인은 구성 전에는 준비 중 안내를 보여 준다. `Config/Daylog-Info.plist`의 `DaylogUpdatesEnabled=false`와 빈 `SUPublicEDKey` 때문에 네트워크 조회·설치가 시작되지 않는다.
+## 지금 상태 (2026-10-12)
 
-예정 feed는 `https://github.com/gyu-bin/Daylog/releases/latest/download/appcast.xml`이다. 아직 게시하지 않았다. Developer ID·CloudKit entitlement·release.sh 서명/공증 흐름을 변경하지 않았다. 전체 업데이트 완료가 아니라 활성화를 기다리는 기반 구현이다.
+| 항목 | 상태 |
+|---|---|
+| 앱 쪽 구현(메뉴, 설정, 자동 확인, 결과 표시, 샌드박스 권한) | 끝남 |
+| appcast 생성·검사, 릴리스 스크립트 | 끝남(`Tools/appcast.sh`, `Tools/release.sh`, `Tools/bump-version.sh`) |
+| 격리 환경에서 실제 설치 | 확인함(아래 "검증") |
+| **배포판에서 켜기** | **아직 꺼져 있음.** `DaylogUpdatesEnabled=false`, `SUPublicEDKey` 비어 있음 |
+| Sparkle 서명 키(배포용) | **없음.** 로그인 키체인에 Sparkle 키가 없다(2026-10-12 확인). 만드는 데 승인이 필요하다 |
+| GitHub의 appcast.xml | 아직 올린 적 없음 |
+| 설치돼 있는 앱 | 1.5.1 (1), 업데이트 꺼진 빌드 → 첫 전환은 수동("첫 업데이트 전환") |
 
-## 설정 화면 (2026-10-12)
+켜려면 "켜는 절차"의 승인 항목이 필요하다.
 
-설정 → 정보의 버전 아래에 "업데이트" 줄이 있다. 메뉴의 "업데이트 확인…"과 같은 동작을 부른다.
+## 구성
 
-- 준비 전(지금): "앱 안의 업데이트는 아직 준비 중" 안내와 [릴리스 페이지 열기](`https://github.com/gyu-bin/Daylog/releases/latest`). 메뉴의 준비 중 알림에도 같은 단추가 있다.
-- 준비 후: [업데이트 확인…]. 새 버전·변경 사항·설치 승인·"최신 버전" 안내·오류는 Sparkle 표준 창이 보여 주고, 설정에는 마지막 결과(최신 / 새 버전 x.y.z / 실패 사유)와 확인 시각이 남는다.
-- 결과 판정은 `UpdateCheckOutcome.resolve`: 새 버전 없음(Sparkle 1001)은 실패가 아니고, 사용자가 설치를 취소한 것(4007)도 실패가 아니다. 나머지 오류(내려받기·서명 검증·설치 실패)는 메시지와 함께 실패로 남는다.
+- 피드: `https://github.com/gyu-bin/Daylog/releases/latest/download/appcast.xml`. 최신 릴리스에 `appcast.xml`을 자산으로 올린다.
+  앱은 이 주소만 받아들인다(`UpdateConfiguration.isReady`). 다른 주소·http·쿼리가 붙은 주소는 거부한다.
+- 내려받는 파일: 같은 릴리스의 `Daylog-v<버전>-macOS.dmg`(소스 ZIP이 아니다). 안의 앱은 Developer ID 서명·공증·스테이플.
+- 서명은 두 가지이고 서로 별개다.
+  1. Apple: 앱의 Developer ID 서명과 공증(`Tools/release.sh`, Xcode 계정의 Cloud Managed 인증서).
+  2. Sparkle: DMG 파일의 EdDSA 서명. appcast의 `sparkle:edSignature`에 들어가고, 앱은 내려받은 파일을 풀기 전에 앱에 든 공개 키(`SUPublicEDKey`)로 검증한다(`SUVerifyUpdateBeforeExtraction=true`).
+  DMG 자체는 Apple 서명이 없으므로 EdDSA 검증이 유일한 통로다. 검증을 건너뛰는 설정은 없다.
+- 샌드박스: 앱에는 네트워크 권한이 없다. 피드와 DMG는 Sparkle의 Downloader XPC가 받고, 설치는 Installer XPC가 샌드박스 밖의 `Autoupdate`를 띄워서 한다.
+  이를 위해 권한 파일에 `com.apple.security.temporary-exception.mach-lookup.global-name`(`<번들 ID>-spks`, `-spki`)을 넣었다. iCloud 권한은 그대로다.
+- 자동 확인: `SUEnableAutomaticChecks=true`, 간격 하루(`SUScheduledCheckInterval=86400`). 앱을 열 때 마지막 확인이 하루를 넘었으면 확인한다.
+  설정에서 끌 수 있다. `SUAutomaticallyUpdate=false`: 설치는 늘 사용자가 눌러야 한다. 사용 정보는 보내지 않는다.
+- 저장소와 설정: 업데이트는 앱 번들만 바꾼다. SwiftData 저장소, 사용자 설정, iCloud 컨테이너·환경(Production)은 번들 ID와 서명이 같아 그대로 이어진다.
 
-꺼져 있는 동안에는 Sparkle이 시작되지 않으므로 "업데이트 없음 / 발견 / 설치 실패"의 실제 흐름은 검증하지 못했다. 판정 규칙만 단위 테스트로 확인했다.
+## 화면
 
-## 버전 정책 (활성화 전에 정할 것)
+- 메뉴: Daylog → "업데이트 확인…".
+- 설정 → 정보: 현재 버전, 상태 한 줄(최신 / 새 버전 x.y.z / 실패 사유)과 마지막 확인 시각, [업데이트 확인…], "자동으로 업데이트 확인" 스위치(`UpdateSettingsRow`).
+  둘 다 `DaylogUpdater.checkForUpdates()`를 부른다. 새 버전 안내·변경 사항·진행·오류 창은 Sparkle 표준 창이다.
+- 업데이트를 받을 수 없는 빌드(키가 없는 1.5.1 이하, 개발 빌드)에서는 그 사실을 알리고 릴리스 페이지를 연다. 켜진 빌드에서는 이 대체 화면이 나오지 않는다.
+- 결과 판정(`UpdateCheckOutcome.resolve`): 새 버전 없음(1001)과 사용자의 설치 취소(4007)는 실패가 아니다. 그 밖의 오류는 메시지와 함께 실패로 남는다.
 
-지금의 배포(`Tools/update.sh`)는 Mac 버전을 1.5.1 (1)로 둔 채 같은 릴리스의 DMG만 바꾼다. Sparkle은 `CFBundleVersion`이 올라가야 새 버전으로 보므로, 켜면 이 방식으로는 업데이트가 전달되지 않는다. 제안:
+캡처: `docs/updates/settings-about-configured.jpg`(켜진 상태의 설정), `docs/updates/update-test-after-install.jpg`(시험 설치 뒤).
 
-1. "새 버전 올려" 때마다 Mac의 빌드 번호(`CURRENT_PROJECT_VERSION`)를 1씩 올리고, 버전(`MARKETING_VERSION`)은 패치 자리를 올린다(1.5.2, 1.5.3 …). 릴리스마다 새 태그가 생긴다.
-2. `Tools/release.sh`가 DMG를 만든 뒤 `generate_appcast`로 `appcast.xml`을 만들어 DMG와 함께 올린다. 서명에는 키체인의 Sparkle 개인 키를 쓴다(저장소·로그에 넣지 않는다).
-3. `Tools/update.sh`의 "같은 버전이면 DMG만 교체" 경로는 Sparkle을 켠 뒤에는 쓰지 않는다(같은 버전의 내용이 바뀌면 서명·길이가 appcast와 어긋난다).
-4. 이 Mac은 지금처럼 `update.sh`로 바로 바꾸고, 다른 Mac은 앱 안의 업데이트로 받는다.
+## 첫 업데이트 전환
 
-승인이 필요한 것: Sparkle 키 생성, 샌드박스 권한(mach-lookup 예외) 추가, `DaylogUpdatesEnabled` 켜기, 위 버전 정책, 첫 appcast 게시.
+지금 설치돼 있는 1.5.1 (1)과 그 이전 버전은 업데이트가 꺼져 있어(공개 키 없음) appcast를 보지 않는다. 강제로 실행할 방법은 없다.
 
-## 활성화 승인 후 수행할 작업
+- 처음 한 번: 업데이트가 켜진 첫 버전(예: 1.5.2)을 GitHub 릴리스에서 DMG로 받아 설치한다. 이 Mac은 `Tools/update.sh`가 바꾼다.
+- 그다음 버전부터: 앱 안에서 받는다.
+- 이미 배포된 앱에는 Sparkle 공개 키가 없으므로 키 교체·이전 문제는 없다. 앞으로 키를 바꾸게 되면, 옛 키로 서명한 릴리스를 한 번 거쳐
+  새 공개 키가 든 앱을 먼저 퍼뜨린 뒤 바꿔야 한다(또는 DMG를 Developer ID로 서명해 Sparkle의 Apple 서명 대체 경로를 쓴다). 그 전에는 키를 바꾸지 않는다.
 
-1. 배포 담당자가 Sparkle 배포물의 `generate_keys`로 Ed25519 키를 생성한다. 개인 키는 macOS 키체인 또는 보안 CI에 보관하고 파일·소스·로그에 넣지 않는다. 공개 키만 Info.plist의 `SUPublicEDKey`에 넣는다.
-2. 샌드박스 통신 권한 변경을 승인받고 macOS entitlement에 현재 bundle ID의 `-spks`, `-spki` mach lookup 예외를 추가한다. Installer/Downloader XPC 설정은 plist에 준비되어 있다. 기존 iCloud 권한은 유지한다.
-3. `DaylogUpdatesEnabled`를 켜고 기존 `Tools/release.sh`의 archive/export Developer ID·공증 DMG 과정을 따른다. 이번 개발 작업에서는 실행하지 않는다. Sparkle 내부 helper 서명도 exported app에서 확인한다.
-4. 검증된 DMG 복사본만 담은 임시 폴더에서 공식 `generate_appcast`를 사용한다. 다운로드 주소는 해당 GitHub release tag의 DMG 자산으로 지정한다. appcast의 build 번호는 CFBundleVersion과 같고 이전보다 높아야 한다. 최소 macOS 버전은 Daylog의 14.0이다.
-5. DMG의 EdDSA 서명·길이·URL 및 appcast XML을 검토한다. `SUVerifyUpdateBeforeExtraction=true`를 유지한다. 임의 서명 생략·검증 완화 코드를 추가하지 않는다.
-6. 릴리스 게시 승인을 받고 **매 릴리스에 DMG와 appcast.xml을 함께** 올린다. latest/download 주소가 항상 최신 feed를 가리키도록 prerelease/draft 상태도 확인한다. 과거 앱이 따라올 수 있게 과거 항목을 보존한다.
-7. 별도 테스트 Mac에서 이전 버전 → 최신 버전 업데이트·취소·네트워크 실패·변조 DMG 거부·잘못된 키 거부를 확인한다. 사용자 데이터와 iCloud 환경이 유지되는지 확인한다.
+## 켜는 절차 (승인 필요)
 
-키 생성·권한 변경·공증·GitHub Releases 게시·실제 설치는 이번 작업의 승인 범위에서 제외되어 있다. 승인 전에는 updater 활성화 플래그를 켜지 않는다. 전체 백업은 복원 기능이 아니므로 업데이트 검증용 데이터 복구 수단으로 오해하지 않는다.
+1. **Sparkle 서명 키 만들기** — `build/update/derived/SourcePackages/artifacts/sparkle/Sparkle/bin/generate_keys`.
+   개인 키가 로그인 키체인에 저장되고(항목 이름 "https://sparkle-project.org"), 공개 키가 출력된다. 키체인이 접근 허용을 묻는다.
+   개인 키는 저장소·로그·문서에 넣지 않는다. 잃어버리면 이미 설치된 앱에 업데이트를 보낼 수 없으므로 `generate_keys -x <파일>`로 내보내 안전한 곳(암호 관리자 등)에 따로 둔다.
+2. `Config/Daylog-Info.plist`에 공개 키(`SUPublicEDKey`)를 넣고 `DaylogUpdatesEnabled`를 `true`로 바꾼다.
+3. `Tools/bump-version.sh 1.5.2` → `docs/releases/v1.5.2.md` 작성 → 커밋·push.
+4. `Tools/update.sh` — 이 Mac의 앱을 바꾸고(업데이트가 켜진 첫 버전), 공증한 DMG와 appcast.xml을 GitHub에 올린다.
+5. 다른 Mac은 그 DMG를 한 번 수동으로 설치한다.
+6. 다음 버전(1.5.3)을 같은 방법으로 올린 뒤, 1.5.2가 깔린 Mac에서 [업데이트 확인] → [설치] → 다시 열림을 확인한다(운영 경로의 첫 실제 검증).
+
+## 새 버전을 배포하는 방법 (켠 뒤)
+
+```bash
+Tools/bump-version.sh 1.5.3        # Mac 버전을 올리고 빌드 번호를 +1, 릴리스 노트 틀을 만든다
+$EDITOR docs/releases/v1.5.3.md    # 달라진 점을 적는다(업데이트 창과 GitHub 릴리스에 그대로 나온다)
+git commit -am "mac: 1.5.3" && git push
+Tools/update.sh                    # 이 Mac 교체 → 공증 → DMG → Sparkle 서명·appcast → GitHub 게시 → 공개 주소 확인
+```
+
+- `Tools/update.sh`는 끝에서 `Tools/release.sh --skip-tests --publish --allow-unsigned-dmg`를 부른다. 이 Mac을 건드리지 않고 게시만 하려면 `Tools/release.sh --publish …`를 직접 쓴다.
+- 같은 버전은 다시 게시하지 않는다. 이미 게시한 버전의 파일도 바꾸지 않는다(appcast의 서명·크기와 어긋난다). 앱 소스를 고쳤으면 버전을 올린다.
+- 게시 순서(`release.sh`): 초안 릴리스에 DMG와 `appcast.xml`을 올림 → 올라간 파일의 이름·크기 확인 → 공개(latest) → 공개 주소에서 DMG 크기와 피드 내용 확인.
+  피드 주소는 공개하는 순간 새 릴리스를 가리키고, 그때 DMG는 이미 올라가 있다.
+- appcast(`Tools/appcast.sh`): 지금 공개된 appcast를 내려받아 과거 항목을 이어 가고, 새 항목의 버전·빌드 번호·URL·파일 크기·EdDSA 서명·릴리스 노트를 DMG와 대조한다. 어긋나면 게시하지 않는다.
+- 게시 전 확인(`release.sh`): 앱에 든 공개 키가 키체인의 서명 키와 짝인지, 피드 주소, 설치 도구 권한, Sparkle 안의 도구들이 앱과 같은 팀으로 서명됐는지.
+- iPhone·iPad(TestFlight)는 전과 같다: iOS 빌드 번호를 올려 따로 올린다.
+
+## 검증
+
+### 격리 환경에서 한 것 (`Tools/update-test.sh`)
+
+실제 앱·기록·GitHub와 분리했다: 번들 ID `com.daylog.updatetest`(iCloud 권한 없음, 자체 컨테이너), 설치 위치 `~/Library/Caches/DaylogUpdateTest`,
+피드 `http://127.0.0.1:8765`(앱은 시험·검증 번들일 때만 이 주소를 받아들인다), 이 시험 전용 EdDSA 키(`build/update-test`, Git에 안 들어감).
+앱과 Sparkle의 도구들은 이 Mac의 개발 인증서로 같은 팀 서명. 빌드는 Release, 샌드박스·Downloader·Installer XPC는 배포판과 같은 구성이다.
+
+| 시나리오 | 결과 |
+|---|---|
+| 옛 버전 9.0.0 (900) 실행 → 피드 확인 | 앱이 스스로 `appcast.xml`을 받음(샌드박스 안에서 Downloader XPC로) |
+| 새 버전 감지 → 내려받기 | DMG를 받음 |
+| Sparkle 서명 검증 | `Autoupdate: OK: EdDSA signature is correct for update` |
+| 앱 종료 → 교체 | 종료 뒤 설치 위치의 앱이 9.0.1 (901), 코드 서명 유효 |
+| 새 버전 실행·기록 보존 | 9.0.1이 열리고, 업데이트 전에 넣은 루틴·체크·식사 기록·통계가 앞뒤로 같음(스크립트 덤프 비교) |
+| 업데이트 없음(같은 버전) | 피드만 받고 내려받지 않음, 다시 설치하지 않음 |
+| 서명 불일치(DMG 한 바이트 변조, 크기 같음) | `EdDSA signature does not match` → 설치 안 됨, 9.0.0 유지 |
+| 잘못된 다운로드 URL(404) | 내려받기 오류 → 설치 안 됨, 9.0.0 유지 |
+| 네트워크 오류(피드 서버 없음) | 확인 실패만 기록, 앱은 정상 동작, 9.0.0 유지 |
+
+위 설치는 "조용한 설치" 변형(`DAYLOG_UPDATE_TEST_SILENT=1`: Sparkle이 내려받아 두었다가 앱 종료 때 설치)으로 했다.
+시험용 앱의 창을 누르는 권한을 받지 못해, 창에서 누르는 흐름은 하지 못했기 때문이다.
+
+### 하지 못한 것
+
+- Sparkle 창에서의 흐름: [업데이트 확인…] → 새 버전·릴리스 노트 창 → [설치] → 진행 → **자동으로 다시 열림**. (조용한 변형은 다시 열지 않는다.)
+- 내려받는 중 취소, 다시 열기 실패.
+- 설정의 상태 줄이 실제 확인 뒤 "최신 / 새 버전 / 실패"로 바뀌는 모습(판정 규칙은 단위 테스트).
+- GitHub의 실제 주소로 받기, `release.sh`의 초안 → 공개 → 공개 주소 확인 구간, 키체인의 배포용 키로 서명하기(키가 아직 없다).
+- Developer ID로 서명·공증한 빌드에서의 설치(시험은 개발 인증서 서명).
+
+직접 해 보려면:
+
+```bash
+Tools/update-test.sh prepare    # 옛/새 시험용 앱, DMG, appcast
+Tools/update-test.sh serve      # 다른 터미널 탭에서
+Tools/update-test.sh launch     # 옛 버전 실행 → 메뉴 Daylog → 업데이트 확인… → 설치
+Tools/update-test.sh status     # 9.0.1 (901)이 됐는지
+Tools/update-test.sh clean
+```
 
 ## 공식 참고
 
-- [Sparkle 배포 및 서명](https://sparkle-project.org/documentation/): HTTPS, 공개 키, EdDSA archive 검증, archive/export 배포.
-- [SwiftUI 프로그램 방식 연동](https://sparkle-project.org/documentation/programmatic-setup/): updater 수명과 메뉴 사용 가능 상태 관찰.
-- [샌드박스 구성](https://sparkle-project.org/documentation/sandboxing/): Installer/Downloader와 필요한 통신 권한.
-- [2.10.0 릴리스](https://github.com/sparkle-project/Sparkle/releases/tag/2.10.0): 사용 버전. 의존성 갱신 시 릴리스 내용을 검토하고 재검증한다.
+- [Sparkle 문서](https://sparkle-project.org/documentation/): 배포, EdDSA 서명, appcast.
+- [샌드박스 구성](https://sparkle-project.org/documentation/sandboxing/): Installer/Downloader와 mach-lookup 권한.
+- [게시](https://sparkle-project.org/documentation/publishing/): `generate_appcast`, `sign_update`.

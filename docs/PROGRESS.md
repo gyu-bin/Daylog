@@ -339,6 +339,18 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 - TestFlight: iOS 1.0.0 (4) 업로드(15:08, Delivery UUID `22ff584f-cb65-41d4-93da-0ba8849b98ba`). 올린 IPA에서 iCloud Production, aps production, `UIBackgroundModes = remote-notification`, 빌드 4 확인. 다음에 올릴 때는 빌드 번호 5.
 - 세 기기가 모두 새 버전이 되기 전에는 구버전에서 휴가를 수정하면 선택한 루틴이 지워진다(전체 휴식이 된다).
 
+## macOS 앱 안의 업데이트(Sparkle) 완성 — 켜기 전 단계 (2026-10-12)
+
+자세한 내용과 절차는 [UPDATES.md](UPDATES.md). **배포판에서는 아직 꺼져 있다**(배포용 서명 키를 만들고 첫 릴리스를 올리는 데 승인이 필요하다). 실제 앱·GitHub 릴리스·키체인은 건드리지 않았다.
+
+- 앱: 설정 → 정보에 [업데이트 확인…], "자동으로 업데이트 확인" 스위치, 상태·마지막 확인 시각. 메뉴와 같은 동작. 하루 간격 자동 확인(`SUEnableAutomaticChecks`), 설치는 늘 사용자 승인.
+- 샌드박스 권한: Sparkle 설치 도구와 통신하는 mach-lookup 예외(`-spks`, `-spki`)를 `Config/Daylog.entitlements`·`Verify.entitlements`에 추가. iCloud 권한은 그대로.
+- `UpdateConfiguration`: 배포 피드(GitHub latest의 appcast)만 받고, 시험·검증 번들에서만 `http://127.0.0.1/appcast.xml`을 허용한다.
+- 스크립트: `Tools/appcast.sh`(appcast 생성과 DMG 대조 검사), `Tools/bump-version.sh`(Mac 버전·빌드 번호), `Tools/release.sh`(Sparkle이 켜져 있으면 appcast 생성, 중복 버전 거부, 초안 → 확인 → 공개 → 공개 주소 확인), `Tools/update.sh`(켜진 뒤에는 게시한 버전을 바꾸지 않음), `Tools/update-test.sh`(격리 설치 시험).
+- 격리 시험(번들 `com.daylog.updatetest`, 이 Mac의 피드, 시험 전용 키): 9.0.0 → 9.0.1 설치, EdDSA 검증 통과, 기록 보존, 그리고 같은 버전·서명 불일치·404·네트워크 없음에서 설치되지 않는 것까지 확인. 화면을 눌러서 하는 흐름(설치 버튼, 자동으로 다시 열림, 내려받는 중 취소)은 하지 못했다.
+- 현재: 설치된 앱 1.5.1 (1)은 업데이트가 꺼진 빌드라 첫 전환은 수동 설치가 필요하다. 로그인 키체인에 Sparkle 키 없음.
+- 검증용 스크립트 명령 추가: `onboardingDone`, `forgetUpdateCheck`, 실행 인자 `-DaylogDebugSettings <갈래>`(Debug 빌드 전용).
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
