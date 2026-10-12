@@ -3,6 +3,11 @@
 #
 #   Tools/update.sh              빌드 → Developer ID 서명 → 실행 중인 Daylog 종료 → 교체 → 실행
 #   Tools/update.sh --no-open    교체만 하고 실행하지 않는다
+#   Tools/update.sh --check-release
+#                                빌드하지 않고, 설치된 앱의 버전과 GitHub Release의 DMG 버전만 비교한다
+#
+# 교체가 끝나면 GitHub Release에 올라가 있는 DMG의 버전도 확인해 알려 준다(다르다고 멈추지는 않는다).
+# 다른 Mac은 그 DMG로 설치하므로, 버전이 뒤처져 있으면 Tools/release.sh로 새 DMG를 올릴 때다.
 #
 # 공증은 다른 Mac에 나눠 줄 때만 필요하다(Tools/release.sh). 이 Mac에서 만든 앱은 격리 표시가 없어 공증 없이 열린다.
 # 서명은 배포판과 같은 Developer ID로 한다: 그래야 iCloud의 Production 환경을 쓰고, 지금 쓰는 기록과 그대로 이어진다.
@@ -19,6 +24,40 @@ APP="$OUT/export/Daylog.app"
 
 step() { echo; echo "▸ $1"; }
 fail() { echo "✗ $1" >&2; exit 1; }
+
+# GitHub Release의 최신 DMG가 이 버전과 같은지 알려 준다. 확인하지 못해도(오프라인, gh 없음) 실패로 치지 않는다.
+check_release() {
+  local version="$1"
+  step "GitHub Release의 DMG 버전 확인"
+  if ! command -v gh >/dev/null; then
+    echo "· gh(GitHub CLI)가 없어 확인하지 못했습니다."
+    return 0
+  fi
+  local latest assets
+  latest=$(gh release view --json tagName -q .tagName 2>/dev/null) || latest=""
+  if [[ -z "$latest" ]]; then
+    echo "· GitHub Release를 읽지 못했습니다(네트워크나 로그인 상태를 확인하세요)."
+    return 0
+  fi
+  assets=$(gh release view "$latest" --json assets -q '.assets[].name' 2>/dev/null | tr '\n' ' ')
+  if [[ "$latest" == "v$version" ]]; then
+    if [[ "$assets" == *"Daylog-v$version-macOS.dmg"* ]]; then
+      echo "✓ GitHub 최신 릴리스도 $latest 입니다 (Daylog-v$version-macOS.dmg)."
+    else
+      echo "! GitHub 최신 릴리스는 $latest 인데 DMG(Daylog-v$version-macOS.dmg)가 없습니다. 올라간 파일: ${assets:-없음}"
+    fi
+    echo "  같은 버전이어도 이 Mac의 앱은 방금 빌드한 최신 소스이고, DMG는 릴리스 당시의 소스입니다."
+  else
+    echo "! GitHub 최신 릴리스는 $latest, 이 Mac의 앱은 v$version 입니다. 다른 Mac은 DMG로 설치하므로 $latest 그대로입니다."
+    echo "  새 DMG를 올리려면: Tools/release.sh (공증 빌드) → Tools/release.sh --publish-only"
+  fi
+}
+
+if [[ "${1:-}" == "--check-release" ]]; then
+  [[ -d "$INSTALLED" ]] || fail "$INSTALLED 가 없습니다."
+  check_release "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$INSTALLED/Contents/Info.plist")"
+  exit 0
+fi
 
 step "Release 아카이브"
 rm -rf "$ARCHIVE" "$OUT/export"
@@ -78,7 +117,10 @@ ditto "$APP" "$INSTALLED"
 codesign --verify --deep --strict "$INSTALLED" || fail "설치한 앱의 서명이 깨졌습니다. 되돌리려면: mv $OUT/previous.app $INSTALLED"
 echo "✓ Daylog $VERSION 설치 완료 (직전 앱: $OUT/previous.app)"
 
-[[ "${1:-}" == "--no-open" ]] && exit 0
+if [[ "${1:-}" == "--no-open" ]]; then
+  check_release "$VERSION"
+  exit 0
+fi
 
 step "실행"
 open "$INSTALLED"
@@ -87,3 +129,5 @@ sleep 5
 pgrep -f "^$INSTALLED/Contents/MacOS/Daylog" >/dev/null \
   || fail "Daylog가 실행되지 않았습니다. 되돌리려면: rm -rf $INSTALLED && mv $OUT/previous.app $INSTALLED (또는 Tools/release.sh로 공증 빌드)"
 echo "✓ 실행 중"
+
+check_release "$VERSION"
