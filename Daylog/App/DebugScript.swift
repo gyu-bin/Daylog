@@ -49,6 +49,15 @@ enum DebugScript {
             } else {
                 log("NOT_FOUND check \(argument)")
             }
+        case "day":
+            // 지난 날짜를 본다(오늘 화면의 날짜 이동과 같다).
+            if let day = Day(key: argument) { store.select(day) } else { log("BAD_DAY \(argument)") }
+        case "skip", "unskip":
+            if let check = store.checks.first(where: { $0.title == argument }) {
+                store.setSkipped(routineID: check.routineID, name == "skip")
+            } else {
+                log("NOT_FOUND check \(argument)")
+            }
         case "text":
             if pair.count == 2, let field = DayTextField(rawValue: pair[0]) {
                 store.setText(pair[1], at: field.keyPath)
@@ -205,7 +214,9 @@ enum DebugScript {
         var state: [String: Any] = [
             "today": key,
             "routines": store.routines.map { "\($0.title)\($0.isArchived ? " (보관)" : "")" },
-            "checks": store.checks.map { "\($0.title)=\($0.isDone ? "완료" : "미완료")" },
+            "checks": store.checkSections.flatMap(\.checks).map {
+                "\($0.title)=\($0.isDone ? "완료" : $0.isSkipped ? "건너뜀" : "미완료")"
+            },
             "recordsForToday": physicalRecords.count,
             "physicalChecksForToday": physicalRecords.map { $0.physicalChecks.count }.reduce(0, +),
             "totalRecords": (try? context.fetchCount(FetchDescriptor<DayRecord>())) ?? -1,

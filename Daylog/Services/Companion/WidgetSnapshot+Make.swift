@@ -11,7 +11,10 @@ extension WidgetSnapshot {
                         WidgetGroup(
                             id: section.group.id, title: section.group.title, colorKey: section.group.colorKey,
                             items: section.checks.map {
-                                WidgetItem(routineID: $0.id, title: $0.title, timeLabel: $0.timeLabel, isDone: $0.isDone)
+                                WidgetItem(
+                                    routineID: $0.id, title: $0.title, timeLabel: $0.timeLabel, isDone: $0.isDone,
+                                    isSkipped: $0.isSkipped ? true : nil
+                                )
                             }
                         )
                     },

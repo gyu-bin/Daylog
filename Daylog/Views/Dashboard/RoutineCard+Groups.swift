@@ -107,34 +107,11 @@ extension RoutineCard {
     }
 
     func checkRow(_ check: CheckValue, tint: Color, showsTime: Bool) -> some View {
-        Toggle(isOn: Binding(
-            get: { check.isDone },
-            set: { store.setDone(routineID: check.id, $0) }
-        )) {
-            HStack(alignment: .firstTextBaseline, spacing: 10) {
-                VStack(alignment: .leading, spacing: 1) {
-                    Text(check.title)
-                        .lineLimit(2)
-                    if !check.note.isEmpty {
-                        Text(check.note)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                            .lineLimit(1)
-                    }
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                if showsTime {
-                    Text(check.timeLabel)
-                        .font(.callout)
-                        .monospacedDigit()
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
-                }
-            }
-        }
-        .toggleStyle(RoutineCheckStyle(tint: tint, routineTitle: check.title))
-        .padding(.horizontal, 10)
-        .padding(.vertical, 6)
+        RoutineCheckRow(
+            check: check, tint: tint, showsTime: showsTime, isToday: store.isViewingToday,
+            setDone: { store.setDone(routineID: check.id, $0) },
+            setSkipped: { store.setSkipped(routineID: check.id, $0) }
+        )
     }
 
     func itemField(for group: RoutineGroup, tint: Color) -> some View {

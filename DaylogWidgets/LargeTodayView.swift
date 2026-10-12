@@ -93,16 +93,23 @@ struct LargeTodayView: View {
     private func itemRow(_ item: WidgetItem, tint: Color) -> some View {
         Button(intent: ToggleRoutineIntent(routineID: item.routineID, dateKey: day.dateKey, isDone: !item.requestedIsDone)) {
             HStack(spacing: 8) {
-                Image(systemName: item.isDone ? "checkmark.square.fill" : "square")
-                    .font(.body)
-                    .foregroundStyle(item.isDone ? AnyShapeStyle(tint) : AnyShapeStyle(.secondary))
+                if item.isSkipped == true, !item.isDone {
+                    SkipMark(size: 17)
+                } else {
+                    Image(systemName: item.isDone ? "checkmark.square.fill" : "square")
+                        .font(.body)
+                        .foregroundStyle(item.isDone ? AnyShapeStyle(tint) : AnyShapeStyle(.secondary))
+                }
                 Text(item.title)
                     .font(.callout)
-                    .foregroundStyle(item.isDone ? .secondary : .primary)
+                    .foregroundStyle(item.isSettled ? .secondary : .primary)
                     .lineLimit(1)
                 Spacer(minLength: 6)
                 if let pending = item.pendingIsDone {
                     Text(pending ? "완료 대기" : "취소 대기")
+                        .font(.caption2).foregroundStyle(.secondary)
+                } else if item.isSkipped == true, !item.isDone {
+                    Text(SkipStyle.label)
                         .font(.caption2).foregroundStyle(.secondary)
                 }
                 if let minutes = TimeLabel.minutes(item.timeLabel) {
@@ -116,7 +123,7 @@ struct LargeTodayView: View {
         }
         .buttonStyle(.plain)
         .accessibilityLabel(item.title)
-        .accessibilityValue(item.pendingIsDone.map { $0 ? "완료 저장 대기" : "취소 저장 대기" } ?? (item.isDone ? "완료" : "미완료"))
+        .accessibilityValue(item.pendingIsDone.map { $0 ? "완료 저장 대기" : "취소 저장 대기" } ?? (item.isDone ? "완료" : item.isSkipped == true ? "건너뜀" : "미완료"))
         .accessibilityHint(item.requestedIsDone ? "누르면 완료를 취소합니다." : "누르면 완료로 표시합니다.")
     }
 }

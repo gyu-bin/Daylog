@@ -67,6 +67,11 @@ struct DayRecordService {
         try context.save()
     }
 
+    /// 건너뛰기는 완료 표시 없이 남는다(상태 자체는 편집 기록에 있다). 사용자가 정한 것이므로 그날은 기록한 날이 된다.
+    func setStatus(_ check: DayCheck, _ status: CheckStatus, now: Date = .now) throws {
+        try setDone(check, status == .done, now: now)
+    }
+
     /// 텍스트 입력을 모델에 반영한다. 디스크 저장은 호출한 쪽에서 묶어서 한다.
     func setText(
         _ value: String,

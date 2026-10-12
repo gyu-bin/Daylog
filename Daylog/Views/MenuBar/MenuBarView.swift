@@ -155,6 +155,11 @@ struct MenuBarView: View {
                         Text(check.title)
                             .lineLimit(1)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                        if check.isSkipped {
+                            Text(SkipStyle.label)
+                                .font(.caption2.weight(.medium))
+                                .foregroundStyle(SkipStyle.ink)
+                        }
                         if !check.timeLabel.isEmpty {
                             Text(check.timeLabel)
                                 .font(.caption)
@@ -163,9 +168,15 @@ struct MenuBarView: View {
                         }
                     }
                 }
-                .toggleStyle(RoutineCheckStyle(tint: color.color, routineTitle: check.title))
+                .toggleStyle(RoutineCheckStyle(tint: color.color, routineTitle: check.title, isSkipped: check.isSkipped))
                 .padding(.horizontal, 8)
                 .frame(height: Self.rowHeight)
+                .contentShape(Rectangle())
+                .contextMenu {
+                    CheckSkipActions(check: check, isToday: true) {
+                        store.setSkipped(routineID: check.id, on: store.today, $0)
+                    }
+                }
             }
         }
     }

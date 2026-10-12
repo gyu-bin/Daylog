@@ -19,6 +19,13 @@ extension AppStore {
         return stats
     }
 
+    /// 지금 쓰는 루틴들의 최근 수행 기록(완료·건너뛰기·기록 없음).
+    func routineHistories() -> [RoutineHistory] {
+        var histories: [RoutineHistory] = []
+        perform { histories = try StatsService(context: context).routineHistories(today: today) }
+        return histories
+    }
+
     /// 그 달에 식사 내용이 있는 날짜들. 식사 기록 캘린더가 쓴다.
     func mealDays(inMonth month: Day) -> Set<Day> {
         var days: Set<Day> = []

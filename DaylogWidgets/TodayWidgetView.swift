@@ -146,6 +146,12 @@ struct SmallTodayView: View {
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(GroupColor.mint.ink)
                 .lineLimit(1)
+        } else if day.remaining == 0 {
+            // 남은 것을 모두 건너뛰었다. 달성률은 그대로이고, 더 챙길 것이 없다는 것만 알린다.
+            Label("남은 루틴 없음", systemImage: SkipStyle.symbol)
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(.secondary)
+                .lineLimit(1)
         } else if let item = day.nextToShow(nowMinutes: nowMinutes) {
             VStack(alignment: .leading, spacing: 0) {
                 Text(TimeLabel.minutes(item.timeLabel) == nil ? "남은 루틴" : "다음 루틴")

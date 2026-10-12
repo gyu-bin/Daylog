@@ -5,24 +5,33 @@ struct RoutineCheckStyle: ToggleStyle {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     var tint: Color = Theme.accent
     var routineTitle: String
+    /// 오늘 쉬기로 한 항목. 체크 칸 자리에 건너뛰기 표시를 그린다. 누르면 여느 미완료 항목처럼 완료가 된다.
+    var isSkipped = false
 
     func makeBody(configuration: Configuration) -> some View {
         Button {
             configuration.isOn.toggle()
         } label: {
             HStack(alignment: .firstTextBaseline, spacing: 10) {
-                Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
-                    .font(.system(size: 19))
-                    .symbolRenderingMode(.palette)
-                    .foregroundStyle(
-                        configuration.isOn ? Theme.onAccent : Color.secondary,
-                        configuration.isOn ? tint : Color.secondary
-                    )
-                    .scaleEffect(reduceMotion || configuration.isOn ? 1 : 0.94)
-                    .animation(reduceMotion ? nil : .easeOut(duration: 0.16), value: configuration.isOn)
-                    .alignmentGuide(.firstTextBaseline) { $0[.bottom] - 4 }
-                    .accessibilityHidden(true)
+                Group {
+                    if isSkipped, !configuration.isOn {
+                        SkipMark(size: 19)
+                    } else {
+                        Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
+                            .font(.system(size: 19))
+                            .symbolRenderingMode(.palette)
+                            .foregroundStyle(
+                                configuration.isOn ? Theme.onAccent : Color.secondary,
+                                configuration.isOn ? tint : Color.secondary
+                            )
+                            .scaleEffect(reduceMotion || configuration.isOn ? 1 : 0.94)
+                            .animation(reduceMotion ? nil : .easeOut(duration: 0.16), value: configuration.isOn)
+                    }
+                }
+                .alignmentGuide(.firstTextBaseline) { $0[.bottom] - 4 }
+                .accessibilityHidden(true)
                 configuration.label
+                    .foregroundStyle(isSkipped && !configuration.isOn ? AnyShapeStyle(.secondary) : AnyShapeStyle(.primary))
             }
             .contentShape(Rectangle())
         }
@@ -37,7 +46,7 @@ struct RoutineCheckStyle: ToggleStyle {
             Toggle(isOn: configuration.$isOn) {
                 Text(routineTitle)
             }
-            .accessibilityValue(configuration.isOn ? "완료" : "미완료")
+            .accessibilityValue(configuration.isOn ? "완료" : isSkipped ? "건너뜀" : "미완료")
             .accessibilityHint(configuration.isOn ? "활성화하면 완료를 취소합니다." : "활성화하면 완료로 기록합니다.")
             #if os(macOS)
             .toggleStyle(.checkbox)

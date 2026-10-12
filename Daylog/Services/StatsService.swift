@@ -83,13 +83,16 @@ struct StatsService {
         )
     }
 
-    private func loadSource(from: Day, to: Day) throws -> StatsSource {
+    func loadSource(from: Day, to: Day) throws -> StatsSource {
         var summaries: [Day: StatsSource.RecordSummary] = [:]
+        // 건너뛰기는 체크의 편집 기록에 있다. 기기 식별자는 읽는 데 쓰이지 않는다.
+        let skipped = try FieldEditService(context: context, deviceID: "").skippedRoutines(from: from.key, to: to.key)
         for record in try DayRecordService(context: context).records(from: from, to: to) {
             guard let day = Day(key: record.dateKey) else { continue }
             summaries[day] = StatsSource.RecordSummary(
                 isRecorded: record.isRecorded,
-                checks: record.checkList.map { (routineID: $0.routineID, isDone: $0.isDone, group: $0.group) }
+                checks: record.checkList.map { (routineID: $0.routineID, isDone: $0.isDone, group: $0.group) },
+                skipped: skipped[record.dateKey] ?? []
             )
         }
         return StatsSource(

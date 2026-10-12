@@ -55,7 +55,8 @@ enum RoutineNotificationPlanner {
         // 휴가인 날은 알리지 않는다. 고른 루틴을 이어 가는 휴가만 예외이고, 그날의 목록에는 그 루틴만 들어 있다.
         for day in days.prefix(horizonDays) where !day.isVacation || day.keepsRoutines {
             for section in day.sections {
-                for check in section.checks where !check.isDone && !muted.contains(check.id.uuidString) {
+                // 완료했거나 건너뛴 루틴은 알리지 않는다.
+                for check in section.checks where !check.isSettled && !muted.contains(check.id.uuidString) {
                     // 시간이 없거나 시각으로 읽히지 않는 루틴은 알리지 않는다.
                     guard let minutes = TimeLabel.minutes(check.timeLabel) else { continue }
                     let notification = PlannedNotification(

@@ -116,7 +116,10 @@ struct TodayProgressCard: View {
         // 첫 루틴을 만들기 전의 날짜는 쉬는 날이 아니라 "시작 전"이다.
         let hasStarted = store.hasRoutines && (store.stats.firstDay.map { store.selectedDay >= $0 } ?? true)
         let headline = Self.headline(outcome, hasStarted: hasStarted)
-        let detail = Self.detail(outcome, isToday: store.isViewingToday, hasStarted: hasStarted)
+        let detail = Self.detail(
+            outcome, isToday: store.isViewingToday, hasStarted: hasStarted,
+            skipped: store.checkSections.reduce(0) { $0 + $1.skipped }
+        )
         Button {
             store.section = .statistics
         } label: {
@@ -171,7 +174,8 @@ struct TodayProgressCard: View {
     }
 
     /// 쉬는 날(예정된 루틴 없음)과 미기록(예정은 있었는데 체크 없음)을 다르게 말한다.
-    static func detail(_ outcome: DayOutcome, isToday: Bool, hasStarted: Bool) -> String {
+    /// - Parameter skipped: 그날 건너뛴 항목 수. 남은 개수에서 빼고 따로 적는다(달성률은 그대로다).
+    static func detail(_ outcome: DayOutcome, isToday: Bool, hasStarted: Bool, skipped: Int = 0) -> String {
         if outcome.status == .vacation {
             return outcome.total > 0
                 ? "유지 루틴 \(outcome.total)개 중 \(outcome.done)개 완료 · 달성률 통계는 쉬어요."
@@ -184,6 +188,12 @@ struct TodayProgressCard: View {
             return isToday ? "오늘은 예정된 루틴이 없어요." : "예정된 루틴이 없던 날이에요."
         }
         if outcome.done == outcome.total { return "\(outcome.total)개를 모두 완료했어요." }
+        if skipped > 0 {
+            let remaining = max(outcome.total - outcome.done - skipped, 0)
+            return remaining == 0
+                ? "\(outcome.total)개 중 \(outcome.done)개 완료, \(skipped)개는 건너뛰었어요."
+                : "\(outcome.total)개 중 \(outcome.done)개 완료, \(remaining)개 남았어요 · 건너뜀 \(skipped)"
+        }
         if outcome.done == 0 {
             return isToday ? "\(outcome.total)개가 기다리고 있어요." : "미기록 · 체크한 항목이 없어요."
         }

@@ -10,6 +10,8 @@ struct RoutineStatisticsView: View {
     @State private var stats = PeriodStats.empty(.month)
     /// 항목 표를 이 그룹의 항목으로 좁힌다. nil이면 전체.
     @State private var selectedGroupID: UUID?
+    /// 루틴별 최근 수행 기록. 기간 선택과 무관하게 가장 최근 것을 보여 준다.
+    @State private var histories: [RoutineHistory] = []
 
     var body: some View {
         VStack(alignment: .leading, spacing: Theme.spacing) {
@@ -22,6 +24,7 @@ struct RoutineStatisticsView: View {
                     chartHeight: 200, isInteractive: true
                 )
                 ActivityHeatmapCard(outcomes: stats.heatmap, threshold: stats.threshold)
+                RoutineHistoryCard(histories: histories, isWide: isWide)
                 rates
             } else {
                 Card(fillsHeight: false) {
@@ -46,6 +49,7 @@ struct RoutineStatisticsView: View {
 
     private func reload() {
         stats = store.periodStats(store.statsPeriod)
+        histories = store.routineHistories()
         // 고른 그룹이 이 기간에 없으면 선택을 푼다.
         if let selectedGroupID, !stats.groupRates.contains(where: { $0.groupID == selectedGroupID }) {
             self.selectedGroupID = nil

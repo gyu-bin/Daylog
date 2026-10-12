@@ -84,9 +84,9 @@ final class RoutineNotifications {
                 failedIDs.insert(notification.id)
             }
         }
-        // 오늘 이미 완료한 루틴의 알림이 알림 센터에 남아 있으면 치운다.
+        // 오늘 이미 완료했거나 건너뛴 루틴의 알림이 알림 센터에 남아 있으면 치운다.
         if let today = days.first {
-            let doneIDs = today.sections.flatMap(\.checks).filter(\.isDone)
+            let doneIDs = today.sections.flatMap(\.checks).filter(\.isSettled)
                 .map { PlannedNotification.id(routineID: $0.id, dateKey: today.day.key) }
             client.removeDelivered(ids: doneIDs)
         }

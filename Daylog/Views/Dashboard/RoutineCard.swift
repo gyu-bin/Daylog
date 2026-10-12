@@ -201,14 +201,26 @@ struct RoutineCard: View {
 
     private var progress: some View {
         let outcome = store.selectedOutcome
+        // 건너뛴 항목은 달성률에서 미완료와 같다. 몇 개를 쉬었는지만 옆에 적는다.
+        let skipped = store.checkSections.reduce(0) { $0 + $1.skipped }
         return HStack(spacing: 12) {
             ProgressBar(ratio: outcome.ratio ?? 0, height: 10)
             Text("\(outcome.percentLabel) (\(outcome.done)/\(outcome.total))")
                 .font(.callout.weight(.semibold))
                 .monospacedDigit()
                 .fixedSize()
+            if skipped > 0 {
+                Label("\(SkipStyle.label) \(skipped)", systemImage: SkipStyle.symbol)
+                    .font(.caption.weight(.medium))
+                    .monospacedDigit()
+                    .foregroundStyle(SkipStyle.ink)
+                    .fixedSize()
+            }
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("전체 달성률 \(outcome.percentLabel), \(outcome.total)개 중 \(outcome.done)개 완료")
+        .accessibilityLabel(
+            "전체 달성률 \(outcome.percentLabel), \(outcome.total)개 중 \(outcome.done)개 완료"
+                + (skipped > 0 ? ", \(skipped)개 건너뜀" : "")
+        )
     }
 }

@@ -25,6 +25,8 @@ struct WidgetDay: Codable, Equatable {
     var items: [WidgetItem] { groups.flatMap(\.items) }
     var total: Int { items.count }
     var done: Int { items.filter(\.isDone).count }
+    /// 완료하지도 건너뛰지도 않은 항목 수.
+    var remaining: Int { items.filter { !$0.isSettled }.count }
     var percent: Int? { isVacation == true ? nil : Achievement.percent(done: done, total: total) }
     var ratio: Double? { isVacation == true ? nil : Achievement.ratio(done: done, total: total) }
 
@@ -41,14 +43,14 @@ struct WidgetDay: Codable, Equatable {
     func nextTimed(nowMinutes: Int) -> (item: WidgetItem, isOverdue: Bool)? {
         let all = items
         guard let pick = NextRoutine.pick(
-            timeLabels: all.map(\.timeLabel), isDone: all.map(\.isDone), nowMinutes: nowMinutes
+            timeLabels: all.map(\.timeLabel), isDone: all.map(\.isSettled), nowMinutes: nowMinutes
         ) else { return nil }
         return (all[pick.index], pick.isOverdue)
     }
 
     /// 작은 위젯의 아래 줄에 보여 줄 항목: 다음 예정 루틴, 없으면 아직 안 한 첫 항목.
     func nextToShow(nowMinutes: Int) -> WidgetItem? {
-        nextTimed(nowMinutes: nowMinutes)?.item ?? items.first { !$0.isDone }
+        nextTimed(nowMinutes: nowMinutes)?.item ?? items.first { !$0.isSettled }
     }
 
     /// Pending targets are separate from confirmed values; progress always uses the saved snapshot.
@@ -87,8 +89,12 @@ struct WidgetItem: Codable, Equatable, Identifiable {
     var timeLabel: String
     var isDone: Bool
     var pendingIsDone: Bool? = nil
+    /// 오늘 쉬기로 한 항목. 평소에는 칸을 쓰지 않아 이전에 적어 둔 파일과 모양이 같다.
+    var isSkipped: Bool? = nil
 
     var requestedIsDone: Bool { pendingIsDone ?? isDone }
+    /// 완료했거나 건너뛰어서 "다음 루틴"으로 고르지 않는다.
+    var isSettled: Bool { isDone || isSkipped == true }
     var id: UUID { routineID }
 }
 

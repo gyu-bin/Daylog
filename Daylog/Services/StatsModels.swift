@@ -73,6 +73,8 @@ struct StatsSource: Sendable {
     struct RecordSummary: Sendable {
         let isRecorded: Bool
         let checks: [(routineID: UUID, isDone: Bool, group: GroupSnapshot)]
+        /// 그날 건너뛴 루틴. 달성률에서는 미완료와 같고(분모에만 들어간다), 루틴별 기록에서만 따로 구분한다.
+        var skipped: Set<UUID> = []
     }
 
     /// 그룹별 집계. `latest`는 기간 안에서 마지막으로 본 그룹 모습(그룹 레코드가 없을 때의 표시용).

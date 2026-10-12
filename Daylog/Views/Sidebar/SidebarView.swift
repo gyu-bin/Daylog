@@ -129,15 +129,12 @@ private struct SidebarRow: View {
         return isHovered ? Theme.track : .clear
     }
 
-    /// 고르지 않은 메뉴의 아이콘.
-    /// macOS: 선 아이콘을 회색으로 차분하게 둔다(고른 메뉴만 색).
-    /// iPad: 아래 탭과 맞춰 메뉴 색을 남기되 한 단계 옅게 한다.
+    /// 고르지 않은 메뉴의 아이콘 농도. 메뉴 색은 남기되 고른 메뉴(채운 아이콘·바탕)보다 한 단계 물러나 보이게 한다.
+    static let unselectedIconOpacity = 0.8
+
+    /// 고르지 않은 메뉴의 아이콘: 메뉴마다의 파스텔 색(macOS·iPad 공통). 글자는 색을 입히지 않아 그대로 읽힌다.
     static func unselectedIconStyle(_ section: AppStore.Section) -> AnyShapeStyle {
-        #if os(macOS)
-        AnyShapeStyle(.secondary)
-        #else
-        AnyShapeStyle(section.navigationTint.opacity(TabIcon.unselectedOpacity + 0.2))
-        #endif
+        AnyShapeStyle(section.navigationTint.opacity(unselectedIconOpacity))
     }
 }
 
@@ -168,32 +165,31 @@ extension AppStore.Section {
         }
     }
 
-    /// 내비게이션(사이드바·아래 탭)에서 쓰는 메뉴 색.
-    /// macOS는 화면 안의 색과 같다(`tint`). iPhone·iPad는 식사를 코랄, 설정을 중립 회색으로 둔다.
+    /// 내비게이션(macOS·iPad 사이드바, iPhone 아래 탭)에서 쓰는 메뉴 색. 세 곳이 같은 색을 쓴다.
+    /// 오늘 민트 / 루틴 블루 / 식사 코랄 / 통계 퍼플 / 캘린더 오렌지 / 휴가 청록 / 설정 중립 회색.
+    /// 화면 안의 색(`tint`: 식사 주황, 휴가 코랄)과는 따로다.
     var navigationTint: Color {
-        #if os(macOS)
-        tint
-        #else
         switch self {
         case .meals: return GroupColor.coral.color
+        case .vacation: return Self.tealTint
         case .settings: return Self.neutralTint
         default: return tint
         }
-        #endif
     }
 
-    /// 고른 메뉴의 글자색(내비게이션용).
+    /// 고른 메뉴의 글자색(내비게이션용). 메뉴 색을 한 단계 진하게 써서 밝은 바탕에서도 읽힌다.
     var navigationInk: Color {
-        #if os(macOS)
-        selectedInk
-        #else
         switch self {
         case .meals: return GroupColor.coral.ink
+        case .vacation: return Self.tealInk
         case .settings: return Self.neutralInk
         default: return selectedInk
         }
-        #endif
     }
+
+    /// 휴가 메뉴의 청록. 오늘(민트)·루틴(블루)과 구분되게 둘 사이의 물빛으로 잡았다.
+    static let tealTint = Color.adaptive(name: "DaylogNavTeal", light: (0.22, 0.69, 0.78), dark: (0.38, 0.80, 0.88))
+    static let tealInk = Color.adaptive(name: "DaylogNavTealInk", light: (0.13, 0.47, 0.55), dark: (0.38, 0.80, 0.88))
 
     /// 설정 메뉴의 중립 회색(아이콘)과 그보다 진한 글자색. 라이트·다크에서 바탕과 구분된다.
     static let neutralTint = Color.adaptive(name: "DaylogNavNeutral", light: (0.50, 0.53, 0.57), dark: (0.66, 0.68, 0.72))
