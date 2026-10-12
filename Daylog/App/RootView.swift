@@ -12,6 +12,10 @@ struct RootView: View {
     #if !os(macOS)
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @AppStorage(AppearanceMode.storageKey) private var appearance: AppearanceMode = .system
+    /// 앱을 연 뒤 첫 화면에서만 스플래시를 튼다(백그라운드에서 돌아올 때는 틀지 않는다).
+    @State private var showsSplash = SplashPolicy.claim()
+    /// 스플래시가 걷히기 시작했다. 이때부터 시작 안내가 올라올 수 있다.
+    @State private var splashIsLeaving = false
     #endif
 
     var body: some View {
@@ -68,6 +72,12 @@ struct RootView: View {
         .preferredColorScheme(Self.debugColorScheme ?? appearance.colorScheme)
         .keyboardDoneBar()
         .clearingWindowControls()
+        // 실제 화면은 밑에서 이미 준비돼 있다. 스플래시는 그 위를 덮었다가 걷힌다.
+        .overlay {
+            if showsSplash {
+                SplashView(onLeaving: { splashIsLeaving = true }) { showsSplash = false }
+            }
+        }
         #endif
     }
 
@@ -86,9 +96,18 @@ struct RootView: View {
     }
     #endif
 
+    /// 스플래시가 떠 있는 동안에는 시작 안내를 올리지 않는다(시트는 스플래시 위에 뜬다). 걷히기 시작할 때 이어서 올라온다.
+    private var isSplashShowing: Bool {
+        #if os(macOS)
+        false
+        #else
+        showsSplash && !splashIsLeaving
+        #endif
+    }
+
     private var onboardingPresented: Binding<Bool> {
         Binding(
-            get: { !preferences.onboardingCompleted && !RuntimeEnvironment.isRunningTests },
+            get: { !preferences.onboardingCompleted && !RuntimeEnvironment.isRunningTests && !isSplashShowing },
             set: { if !$0 { preferences.completeOnboarding() } }
         )
     }

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <!-- Daylog 스플래시의 잎사귀. 메뉴 막대 아이콘과 같은 실루엣(오른쪽 위를 향한 잎)에 민트→그린 그러데이션을 입혔다.
+       시스템 Launch Screen과 앱 안의 SplashView가 같은 그림을 쓴다(첫 장면이 어긋나지 않게). -->
+  <defs>
+    <linearGradient id="leaf" x1="54" y1="10" x2="10" y2="55" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7BDCB8"/>
+      <stop offset="1" stop-color="#2F9C79"/>
+    </linearGradient>
+  </defs>
+  <!-- 잎자루 -->
+  <path d="M11.5 52.5 L5.5 58.5" fill="none" stroke="#2A8C6C" stroke-width="2.8" stroke-linecap="round"/>
+  <!-- 잎 -->
+  <path fill="url(#leaf)" d="M9 55.2 C6.9 32.8 19.9 11 54.5 9.7 C55.6 39.6 38.6 56.9 9 55.2 Z"/>
+  <!-- 잎맥 -->
+  <path d="M12.5 51.8 C24 42 36 30 46.5 17.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="1.7" stroke-linecap="round"/>
+</svg>

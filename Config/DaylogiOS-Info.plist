@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<!-- 정적인 Launch Screen: 스플래시와 같은 배경색에, 같은 잎사귀를 화면 한가운데에 둔다.
+	     앱 안의 SplashView가 이 장면에서 이어서 움직인다(Daylog/Views/Splash). 애니메이션은 여기에 넣지 않는다. -->
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>SplashBackground</string>
+		<key>UIImageName</key>
+		<string>SplashLeaf</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<false/>
+	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
