@@ -330,6 +330,15 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 - 화면(시뮬레이터·검증 번들): iPhone 17 Pro에서 휴가 등록 → 전체 휴식(루틴 숨김) → 시트에서 루틴 선택 → 저장 → 선택 루틴만 표시 → 체크 → 위젯 스냅샷 파일 확인 → 해제 후 평소 목록·달성률 복원. macOS 검증 번들에서 전체 휴식·선택 유지·휴가 메뉴·설정의 업데이트 줄. iPad 사이드바 색. iPhone SE(375pt)·iPhone 17 Pro·가장 큰 기본 글자 크기·다크에서 지표 카드.
 - 하지 못한 것: 실기기, 실제 알림 도착과 위젯 그림(예약 계획과 스냅샷 파일까지만 확인), macOS 메뉴 막대 팝오버 화면, 기기 간 동기화로 선택이 넘어가는지(같은 `FieldEdit` 경로라는 것까지만), 구버전 앱에서 새 휴가를 실제로 열어 보는 것(형식 호환은 테스트), Sparkle의 실제 확인·설치·실패(꺼져 있어 실행되지 않음), [릴리스 페이지 열기] 누르기, iPad 다크·좁은 창, 손쉬운 사용 글자 크기(AX1 이상).
 
+## 배포: Mac 갱신, TestFlight 빌드 4, GitHub DMG 교체 (2026-10-12)
+
+커밋 `3c48d20`(휴가 중 루틴, 설정의 업데이트 줄, iOS 메뉴 색, 주요 지표 카드, iOS 빌드 번호 4)을 세 곳에 올렸다.
+
+- Mac: `Tools/update.sh`로 `/Applications/Daylog.app` 교체(1.5.1, Developer ID, iCloud Production), 실행 확인.
+- GitHub: 같은 실행에서 공증한 DMG로 `v1.5.1` 릴리스의 파일을 교체(SHA-256 `93752d1b…e31cf`, 빌드 기준 커밋 `3c48d20`). "교체 → 공증 → DMG 교체"가 한 번에 이어진 첫 실행이다. 릴리스 설명에 휴가 중 루틴과 설정의 업데이트 줄을 더했다.
+- TestFlight: iOS 1.0.0 (4) 업로드(15:08, Delivery UUID `22ff584f-cb65-41d4-93da-0ba8849b98ba`). 올린 IPA에서 iCloud Production, aps production, `UIBackgroundModes = remote-notification`, 빌드 4 확인. 다음에 올릴 때는 빌드 번호 5.
+- 세 기기가 모두 새 버전이 되기 전에는 구버전에서 휴가를 수정하면 선택한 루틴이 지워진다(전체 휴식이 된다).
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
