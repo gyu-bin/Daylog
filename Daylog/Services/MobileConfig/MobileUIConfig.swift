@@ -14,6 +14,11 @@ struct MobileUIConfig: Decodable, Equatable {
     var appearance: Appearance?
     var content: Content?
     var features: [String: Bool]?
+    var splash: Splash?
+
+    struct Splash: Decodable, Equatable {
+        var duration: Double?
+    }
 
     struct Dashboard: Decodable, Equatable {
         var defaultCardOrder: [String]?
@@ -81,6 +86,10 @@ struct MobileUISettings: Equatable, Sendable {
     // 문구(키 → 글). 없는 키는 내장 문구.
     var text: [TextKey: String] = [:]
 
+    // 스플래시
+    /// 스플래시가 재생되는 시간(초). 앱을 켤 때의 값으로 정해진다.
+    var splashDuration: Double = Self.builtInSplashDuration
+
     // 기능 표시
     var showsGreetingIcon = true
     var showsOnboardingNotificationGuide = true
@@ -88,6 +97,8 @@ struct MobileUISettings: Equatable, Sendable {
     static let builtIn = MobileUISettings()
     static let builtInSpacing: Double = 16
     static let builtInPadding: Double = 18
+    static let builtInSplashDuration: Double = 1.5
+    static let splashDurationRange: ClosedRange<Double> = 0.5...2.0
 
     enum CardStyle: String, CaseIterable, Sendable {
         /// 옅은 테두리, 그림자 없음(지금의 모습).
@@ -219,6 +230,11 @@ extension MobileUIConfig {
                 else { continue }
                 settings.text[key] = clean
             }
+        }
+
+        // 범위 밖이면 기본값을 그대로 둔다.
+        if let duration = splash?.duration, MobileUISettings.splashDurationRange.contains(duration) {
+            settings.splashDuration = duration
         }
 
         if let features {

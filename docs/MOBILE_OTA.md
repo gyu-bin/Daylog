@@ -13,6 +13,7 @@
 | 앱 | iOS 1.0.0 (5)부터 들어 있다. TestFlight에 올림(2026-10-12 21:02) |
 | Production | **configVersion 1 게시됨**(2026-10-12 21:03). 내용은 앱의 내장 기본값과 같다(화면이 달라지지 않는다) |
 | Development | 아직 게시하지 않음(Debug 빌드는 내장 기본값) |
+| 저장소의 파일 | `configVersion 2`(스플래시 시간 칸 추가, 값은 기본값 1.5초). **아직 게시하지 않았다** — 게시된 것은 v1 |
 | 관리 스크립트 | `Tools/mobile-config.sh` |
 
 ### 게시 기록
@@ -81,6 +82,7 @@ Debug 빌드에서만 `-DaylogDebugConfigURL http://127.0.0.1:<포트>/mobile-ui
     "cardPadding": 18
   },
   "appearance": { "accent": "mint", "cardStyle": "bordered" },
+  "splash": { "duration": 1.5 },
   "content": {
     "onboarding": { "introTitle": "…", "notificationTitle": "…", "notificationBody": "…" },
     "dashboard": { "greeting": "…" },
@@ -105,6 +107,7 @@ Debug 빌드에서만 `-DaylogDebugConfigURL http://127.0.0.1:<포트>/mobile-ui
 | `dashboard.cardPadding` | 카드 안쪽 여백(여백을 따로 정하지 않은 카드) | 10~24 |
 | `appearance.accent` | 강조 색 | `mint`, `green`, `blue`, `purple`, `coral`, `orange` |
 | `appearance.cardStyle` | 카드 스타일 | `bordered`(옅은 테두리), `soft`(옅은 그림자), `flat`(평평) |
+| `splash.duration` | 스플래시 재생 시간(초). 적지 않으면 1.5 | 0.5~2.0 |
 | `content.*` | 문구. 한 줄, 줄바꿈·제어 문자 없음 | 제목류 24자, 설명류 40자 |
 | `features.greetingIcon` | 오늘 화면 인사말 옆의 해 아이콘 | `true`/`false` |
 | `features.onboardingNotificationGuide` | 시작 안내 3단계의 알림 안내 | `true`/`false` |
@@ -119,6 +122,19 @@ Debug 빌드에서만 `-DaylogDebugConfigURL http://127.0.0.1:<포트>/mobile-ui
 - 카드 스타일: `Card`로 그린 카드와 다음 루틴 카드, 휴가 카드(휴가 중이 아닐 때).
 - 간격·여백: 대시보드의 카드 사이 간격, 그리고 여백을 따로 정하지 않은 카드의 안쪽 여백.
 - 기본 카드 순서는 iPhone(한 열)에만, 숨김 기본값은 iPhone·iPad에 쓴다.
+
+### 스플래시 시간 바꾸기
+
+앱을 열 때 나오는 스플래시의 길이를 `splash.duration`(초)으로 정한다. iOS 빌드 6부터 읽는다(빌드 5는 이 칸을 무시하고 약 1.1초로 재생한다).
+
+```json
+"splash": { "duration": 1.2 }
+```
+
+- 기본값은 1.5초, 허용 범위는 0.5~2.0초다. 칸이 없거나 범위를 벗어나면 1.5초로 재생한다.
+- 장면의 순서와 비율은 그대로 두고 전체 길이만 늘이거나 줄인다(`SplashTimeline.make(reduceMotion:duration:)`). 동작 줄이기에서는 같은 비율로 더 짧다.
+- 스플래시는 앱이 켜지는 순간에 재생되므로, 그때 **이미 받아 둔 설정**(캐시)의 값을 쓴다. 새로 게시한 값은 앱이 한 번 받아 둔 뒤 **그다음 실행부터** 적용된다.
+- 바꾸는 절차는 다른 칸과 같다: 값을 고치고 `configVersion`을 올린 뒤 `validate` → `preview` → 커밋·push → (승인 뒤) `publish`.
 
 ## 우선순위
 

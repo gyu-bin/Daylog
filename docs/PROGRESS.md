@@ -450,6 +450,13 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 - App Store Connect의 처리 상태는 API 키가 없어 확인하지 못했다(TestFlight 앱에서 빌드 5가 보이는지 확인 필요).
 - 게시 뒤 고친 것(다음 빌드부터): 설정 줄의 "강조 색은 앱을 다시 열면 바뀌어요"가 색이 바뀌지 않았을 때도 나왔다 → 색이 실제로 달라졌을 때만 보이게 했다.
 
+## 스플래시 시간을 원격 UI 설정으로 (2026-10-12)
+
+- `splash.duration`(초, 기본 1.5, 0.5~2.0)을 원격 UI 설정에 추가했다. 스플래시는 앱을 켤 때 받아 둔 설정의 값으로 재생하므로 바뀐 값은 다음 실행부터 적용된다. 값이 없거나 범위를 벗어나면 1.5초.
+- 기본 재생 시간이 약 1.1초에서 1.5초로 바뀌었다(장면 비율은 그대로).
+- 저장소의 `RemoteConfig/mobile-ui.json`은 `configVersion 2`(값 1.5)가 됐다. 게시하지 않았다(게시된 것은 v1). TestFlight도 올리지 않았다(이 칸은 빌드 6부터 읽는다).
+- 관련 테스트(SplashTests, MobileUIConfigTests)와 iOS 빌드만 확인했다. 설정 방법은 [MOBILE_OTA.md](MOBILE_OTA.md) "스플래시 시간 바꾸기".
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.

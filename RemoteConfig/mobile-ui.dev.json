@@ -1,16 +1,36 @@
 {
   "schemaVersion": 1,
-  "configVersion": 1,
+  "configVersion": 2,
   "minimumSupportedAppBuild": 4,
-  "updatedAt": "2026-10-12T12:00:00Z",
+  "updatedAt": "2026-10-12T13:00:00Z",
   "dashboard": {
-    "defaultCardOrder": ["achievement", "nextRoutine", "routines", "meals", "recentDays", "tomorrow", "vacation", "summary", "calendar", "trend", "routineRates"],
-    "defaultHiddenCards": ["summary", "calendar", "trend", "routineRates"],
+    "defaultCardOrder": [
+      "achievement",
+      "nextRoutine",
+      "routines",
+      "meals",
+      "recentDays",
+      "tomorrow",
+      "vacation",
+      "summary",
+      "calendar",
+      "trend",
+      "routineRates"
+    ],
+    "defaultHiddenCards": [
+      "summary",
+      "calendar",
+      "trend",
+      "routineRates"
+    ],
     "layoutStyle": "standard"
   },
   "appearance": {
     "accent": "mint",
     "cardStyle": "bordered"
+  },
+  "splash": {
+    "duration": 1.5
   },
   "content": {
     "onboarding": {

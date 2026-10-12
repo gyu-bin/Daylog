@@ -18,6 +18,8 @@ struct SplashView: View {
     @State private var stage: SplashTimeline.Stage = .start
     @State private var hasStarted = false
     @State private var hasFinished = false
+    /// 이번 실행의 시간표. 재생 시간은 앱을 켤 때의 원격 UI 설정(저장해 둔 것)에서 온다.
+    @State private var timeline = SplashTimeline.standard
     /// Launch Screen을 그린 시스템의 모드. 앱의 테마 설정과 다를 수 있다.
     @State private var isDark = UIScreen.main.traitCollection.userInterfaceStyle == .dark
 
@@ -108,8 +110,8 @@ struct SplashView: View {
     private func titles(_ metrics: Metrics) -> some View {
         let shown = stage >= .logo
         // 잎사귀가 위로 비켜난 뒤에 나타난다(올라가는 잎사귀와 겹치지 않게). 문구는 이름보다 한 박자 늦다.
-        let nameAnimation: Animation? = shown ? .easeOut(duration: 0.20).delay(reduceMotion ? 0 : SplashTimeline.titleDelay) : nil
-        let taglineAnimation: Animation? = shown ? .easeOut(duration: 0.20).delay(reduceMotion ? 0.06 : SplashTimeline.titleDelay + 0.08) : nil
+        let nameAnimation: Animation? = shown ? .easeOut(duration: timeline.titleFadeDuration).delay(timeline.nameDelay) : nil
+        let taglineAnimation: Animation? = shown ? .easeOut(duration: timeline.titleFadeDuration).delay(timeline.taglineDelay) : nil
         return VStack(spacing: 6 * metrics.scale) {
             Text("Daylog")
                 .font(.system(size: 36 * metrics.scale, weight: .semibold, design: .rounded))
@@ -149,7 +151,9 @@ struct SplashView: View {
             return
         }
         #endif
-        let timeline = SplashTimeline.make(reduceMotion: reduceMotion)
+        // 받아 둔 설정의 재생 시간을 쓴다. 실행 중에 새로 받은 값은 다음 실행부터다.
+        let timeline = SplashTimeline.make(reduceMotion: reduceMotion, duration: MobileUIConfigCache.atLaunch.splashDuration)
+        self.timeline = timeline
         Task { @MainActor in
             var elapsed = 0.0
             for step in timeline.steps {

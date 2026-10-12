@@ -77,6 +77,19 @@ struct MobileUIConfigTests {
         })
     }
 
+    @Test func splashDurationIsTakenOnlyWithinItsRange() throws {
+        // 적지 않으면 기본값(1.5초).
+        #expect(try MobileUIConfig.decode(json(), appBuild: 5).resolved().splashDuration == 1.5)
+        for (value, expected) in [(0.5, 0.5), (1.2, 1.2), (2.0, 2.0), (0.4, 1.5), (2.5, 1.5), (-1, 1.5), (600, 1.5)] {
+            let settings = try MobileUIConfig.decode(json(["splash": ["duration": value]]), appBuild: 5).resolved()
+            #expect(settings.splashDuration == expected)
+        }
+        // 숫자가 아니면 파일을 읽지 못한 것으로 보고 쓰던 설정을 둔다(게시 전 검사가 막는다).
+        #expect(throws: MobileUIConfigError.notJSON) { try MobileUIConfig.decode(json(["splash": ["duration": "fast"]]), appBuild: 5) }
+        // 모르는 칸은 무시한다.
+        #expect(try MobileUIConfig.decode(json(["splash": ["sound": true]]), appBuild: 5).resolved().splashDuration == 1.5)
+    }
+
     @Test func textIsOneCleanLineWithinTheLimit() {
         #expect(MobileUIConfig.cleanText("  안녕하세요  ", limit: 10) == "안녕하세요")
         #expect(MobileUIConfig.cleanText("", limit: 10) == nil)

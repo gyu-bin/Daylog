@@ -27,8 +27,36 @@ struct SplashTests {
         #expect(timeline.total < SplashTimeline.standard.total)
         let leaving = timeline.steps.first { $0.stage == .leaving }?.at ?? 0
         #expect(leaving - timeline.logoVisibleAt >= 1.0)
-        #expect(SplashTimeline.make(reduceMotion: true) == .reduced)
-        #expect(SplashTimeline.make(reduceMotion: false) == .standard)
+        #expect(SplashTimeline.make(reduceMotion: true).steps.map(\.stage) == SplashTimeline.reduced.steps.map(\.stage))
+        #expect(SplashTimeline.make(reduceMotion: false).steps.map(\.stage) == SplashTimeline.standard.steps.map(\.stage))
+    }
+
+    @Test func durationComesFromTheSettingAndKeepsTheSceneProportions() {
+        // 기본값은 1.5초.
+        let standard = SplashTimeline.make(reduceMotion: false)
+        #expect(abs(standard.total - 1.5) < 0.0001)
+        #expect(MobileUISettings.builtInSplashDuration == 1.5)
+        // 설정한 시간만큼 재생한다(0.5~2초).
+        for seconds in [0.5, 0.8, 1.5, 2.0] {
+            let timeline = SplashTimeline.make(reduceMotion: false, duration: seconds)
+            #expect(abs(timeline.total - seconds) < 0.0001)
+            // 장면의 순서와 비율은 그대로다.
+            #expect(timeline.steps.map(\.stage) == SplashTimeline.standard.steps.map(\.stage))
+            let ratio = timeline.total / SplashTimeline.standard.total
+            for (scaled, base) in zip(timeline.steps, SplashTimeline.standard.steps) {
+                #expect(abs(scaled.at - base.at * ratio) < 0.0001)
+            }
+            // 이름과 문구가 다 나타난 뒤에 걷히기 시작한다.
+            #expect(timeline.logoVisibleAt < (timeline.steps.last?.at ?? 0))
+        }
+        // 범위를 벗어난 값은 기본값으로 재생한다.
+        for bad in [0, 0.49, 2.01, 30, -1, Double.nan, Double.infinity] {
+            #expect(abs(SplashTimeline.make(reduceMotion: false, duration: bad).total - 1.5) < 0.0001)
+        }
+        // 동작 줄이기에서는 같은 비율로 더 짧다.
+        let reduced = SplashTimeline.make(reduceMotion: true, duration: 2.0)
+        #expect(reduced.total < 2.0 && reduced.reducesMotion)
+        #expect(abs(reduced.total - SplashTimeline.reduced.total * 2.0 / SplashTimeline.standard.total) < 0.0001)
     }
 
     @Test func unstartedSplashDoesNotLingerLongerThanTheGracePeriod() {

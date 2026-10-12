@@ -71,7 +71,7 @@ def only(obj, allowed, where):
     for key in obj:
         if key not in allowed: errors.append("%s: 모르는 칸 '%s'" % (where, key))
 
-only(cfg, ["schemaVersion", "configVersion", "minimumSupportedAppBuild", "updatedAt", "dashboard", "appearance", "content", "features"], "최상위")
+only(cfg, ["schemaVersion", "configVersion", "minimumSupportedAppBuild", "updatedAt", "dashboard", "appearance", "content", "features", "splash"], "최상위")
 def integer(key, minimum=1):
     value = cfg.get(key)
     if type(value) is not int or value < minimum: errors.append("%s: %d 이상의 정수여야 합니다" % (key, minimum))
@@ -129,6 +129,14 @@ for group, keys in TEXT.items():
         if text != text.strip(): errors.append("%s: 앞뒤 공백을 빼 주세요" % where)
         if len(text) > limit: errors.append("%s: %d자를 넘습니다(%d자)" % (where, limit, len(text)))
         if any(unicodedata.category(ch) in ("Cc", "Cf", "Zl", "Zp") for ch in text): errors.append("%s: 줄바꿈·제어 문자를 쓸 수 없습니다" % where)
+
+splash = cfg.get("splash", {})
+if not isinstance(splash, dict): errors.append("splash: 객체여야 합니다"); splash = {}
+only(splash, ["duration"], "splash")
+if "duration" in splash:
+    value = splash["duration"]
+    if type(value) not in (int, float) or not (0.5 <= value <= 2.0):
+        errors.append("splash.duration: 0.5~2.0 사이의 숫자(초)여야 합니다")
 
 features = cfg.get("features", {})
 if not isinstance(features, dict): errors.append("features: 객체여야 합니다"); features = {}

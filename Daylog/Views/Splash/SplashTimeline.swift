@@ -31,6 +31,8 @@ struct SplashTimeline: Equatable {
     let steps: [Step]
     /// 동작 줄이기: 커지거나 움직이지 않고, 글자만 나타났다가 화면째로 걷힌다.
     let reducesMotion: Bool
+    /// 기준 시간표(1.08초)에 견준 빠르기. 글자가 나타나는 간격 같은 세부 시간에도 같이 곱한다.
+    var pace: Double = 1
 
     static let standard = SplashTimeline(
         steps: [
@@ -52,16 +54,38 @@ struct SplashTimeline: Equatable {
         reducesMotion: true
     )
 
-    static func make(reduceMotion: Bool) -> SplashTimeline { reduceMotion ? reduced : standard }
+    /// 재생 시간에 맞춘 시간표. 기준 시간표의 장면 비율은 그대로 두고 전체 길이만 늘이거나 줄인다.
+    /// `duration`은 원격 UI 설정의 값이고(기본 1.5초, 0.5~2초), 범위를 벗어나면 기본값을 쓴다.
+    /// 동작 줄이기에서는 같은 비율로 짧다.
+    static func make(reduceMotion: Bool, duration: Double = MobileUISettings.builtInSplashDuration) -> SplashTimeline {
+        let seconds = MobileUISettings.splashDurationRange.contains(duration) ? duration : MobileUISettings.builtInSplashDuration
+        return (reduceMotion ? reduced : standard).paced(seconds / standard.total)
+    }
+
+    /// 모든 장면의 시작 시각과 길이에 같은 값을 곱한 시간표.
+    func paced(_ factor: Double) -> SplashTimeline {
+        SplashTimeline(
+            steps: steps.map { Step(stage: $0.stage, at: $0.at * factor, duration: $0.duration * factor) },
+            reducesMotion: reducesMotion, pace: pace * factor
+        )
+    }
 
     /// 스플래시가 완전히 걷히는 시각(초).
     var total: Double { steps.last.map { $0.at + $0.duration } ?? 0 }
-    /// 잎사귀가 올라가기 시작한 뒤 이름이 나타나기 시작할 때까지의 간격.
+    /// 잎사귀가 올라가기 시작한 뒤 이름이 나타나기 시작할 때까지의 간격(기준 시간표에서).
     static let titleDelay: Double = 0.12
+    /// 이름·문구가 나타나는 데 걸리는 시간(기준 시간표에서).
+    static let titleFade: Double = 0.20
+
+    /// 이름이 나타나기 시작할 때까지의 간격.
+    var nameDelay: Double { (reducesMotion ? 0 : Self.titleDelay) * pace }
+    /// 문구가 나타나기 시작할 때까지의 간격(이름보다 한 박자 늦다).
+    var taglineDelay: Double { (reducesMotion ? 0.06 : Self.titleDelay + 0.08) * pace }
+    var titleFadeDuration: Double { Self.titleFade * pace }
     /// 이름과 문구가 다 나타나 읽을 수 있는 시각.
     var logoVisibleAt: Double {
         guard let logo = steps.first(where: { $0.stage == .logo }) else { return 0 }
-        return logo.at + (reducesMotion ? 0.06 : Self.titleDelay + 0.08) + 0.20
+        return logo.at + taglineDelay + titleFadeDuration
     }
 
     /// 화면이 보이지 않아(백그라운드) 시작하지 못한 스플래시를 기다려 주는 시간. 이 뒤에는 애니메이션 없이 걷는다
