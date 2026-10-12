@@ -4,54 +4,84 @@ import SwiftUI
 /// 넓은 화면과 같은 카드 순서·표시 설정을 한 열로 보여 준다.
 struct TodayCompactView: View {
     @Environment(AppStore.self) private var store
+    @Environment(DevicePreferences.self) private var preferences
+    /// 대시보드 편집 중: 카드를 끌어 옮기고 숨긴다. 그동안 카드 안의 체크·입력은 눌리지 않는다.
+    @State private var isEditing = false
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: Theme.spacing) {
                 header
-                if !store.stats.hasStarted {
+                if isEditing {
+                    DashboardEditBar(isEditing: $isEditing)
+                } else if !store.stats.hasStarted {
                     StartHint()
                 }
-                DashboardCards(compact: true, wide: false)
+                DashboardCards(compact: true, wide: false, isEditing: isEditing)
             }
-            .padding(Theme.compactPagePadding)
+            .padding(.horizontal, Theme.compactPagePadding)
+            .padding(.top, 8)
+            .padding(.bottom, Theme.compactPagePadding)
+            .animation(.easeInOut(duration: 0.2), value: preferences.cardOrder)
+            .animation(.easeInOut(duration: 0.2), value: preferences.hiddenCards)
         }
         .scrollDismissesKeyboard(.interactively)
+        .onChange(of: store.section) { _, _ in isEditing = false }
     }
 
-    /// 위: 앱 이름과 캘린더·추가 단추. 아래: 날짜와 인사말, 날짜 이동.
+    /// 위: 앱 이름(휴가 중이면 작은 배지), 대시보드 편집과 루틴 추가. 아래: 날짜와 인사말, 날짜 이동.
     private var header: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 10) {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 8) {
                 Text("Daylog")
                     .font(.title2.weight(.bold))
                     .accessibilityAddTraits(.isHeader)
+                if store.isVacation(on: store.today) {
+                    // 휴가 카드가 아래쪽에 있어도 오늘이 휴가라는 것은 위에서 알 수 있게 한다.
+                    Label("휴가 중", systemImage: "beach.umbrella.fill")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(GroupColor.coral.ink)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 3)
+                        .background(Theme.vacationTint.opacity(0.16), in: Capsule())
+                }
                 Spacer(minLength: 8)
                 Button {
-                    store.section = .calendar
+                    isEditing.toggle()
                 } label: {
-                    Image(systemName: "calendar")
-                        .font(.system(size: 17, weight: .medium))
-                        .frame(width: 40, height: 40)
+                    Image(systemName: isEditing ? "checkmark" : "square.grid.2x2")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(isEditing ? AnyShapeStyle(Theme.onAccent) : AnyShapeStyle(.primary))
+                        .frame(width: 38, height: 36)
+                        .background(
+                            isEditing ? AnyShapeStyle(Theme.accent) : AnyShapeStyle(Theme.cardBackground),
+                            in: RoundedRectangle(cornerRadius: 10, style: .continuous)
+                        )
+                        .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).strokeBorder(Theme.cardBorder, lineWidth: isEditing ? 0 : 1))
+                        .frame(minWidth: 44, minHeight: 44)
                         .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
-                .accessibilityLabel("캘린더 열기")
+                .accessibilityLabel(isEditing ? "대시보드 편집 완료" : "대시보드 편집")
+                .accessibilityHint("카드의 순서를 바꾸거나 숨깁니다.")
                 Button {
+                    isEditing = false
                     store.requestQuickAddFocus()
                 } label: {
                     Image(systemName: "plus")
-                        .font(.system(size: 16, weight: .bold))
+                        .font(.system(size: 15, weight: .bold))
                         .foregroundStyle(.white)
-                        .frame(width: 40, height: 40)
-                        .background(GroupColor.blue.color, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
+                        .frame(width: 38, height: 36)
+                        .background(GroupColor.blue.color, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                        .frame(minWidth: 44, minHeight: 44)
                         .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel("루틴 추가")
+                .accessibilityHint("오늘의 루틴에 새 항목을 적습니다.")
             }
             HStack(alignment: .bottom, spacing: 8) {
-                VStack(alignment: .leading, spacing: 2) {
+                VStack(alignment: .leading, spacing: 1) {
                     Text(store.selectedDay.longTitle)
                         .font(.subheadline)
                         .monospacedDigit()

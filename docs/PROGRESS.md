@@ -273,6 +273,10 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 - 실기기에서 확인할 것: 앱을 끄지 않아도 다른 기기의 변경이 들어오는지, iPad의 백그라운드 앱 새로 고침 목록에 Daylog가 나오는지, 설정 → iCloud의 기기 목록에 세 기기가 보이는지.
 - 다음에 올릴 때는 빌드 번호 3.
 
+## 디자인 정리 7차: iPhone 홈 편집·머리말·휴가 위치 (2026-10-12)
+
+[DESIGN_REFINEMENT.md](DESIGN_REFINEMENT.md) 16절. iPhone에서도 대시보드를 직접 편집한다(끌기·메뉴·숨김·복원). 휴가 카드는 iPhone에서 일반 카드이고 새 기본 위치는 맨 아래. iOS 빌드 번호 3.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.

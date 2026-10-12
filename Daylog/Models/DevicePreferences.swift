@@ -186,8 +186,8 @@ enum DashboardCard: String, CaseIterable, Identifiable {
 
     /// iPhone의 기본 순서: 오늘의 진행률이 맨 위(예전 iPhone 오늘 화면과 같다). 나머지는 같다.
     static func defaultOrder(phone: Bool) -> [DashboardCard] {
-        // iPhone: 달성 현황 → 휴가 → 루틴 → 식사를 먼저, 나머지는 그 아래.
-        let phoneFirst: [DashboardCard] = [.achievement, .vacation, .routines, .meals]
+        // iPhone: 달성 현황 → 다음 루틴 → 루틴 → 식사 → 최근 7일 → 내일 할 일 → 휴가. 휴가는 가끔 보는 카드라 아래에 둔다.
+        let phoneFirst: [DashboardCard] = [.achievement, .nextRoutine, .routines, .meals, .recentDays, .tomorrow, .vacation]
         return phone ? phoneFirst + allCases.filter { !phoneFirst.contains($0) } : defaultOrder
     }
     /// 통계 화면에 있는 카드와 지표 띠는 처음에는 숨긴다. 시안의 구성(휴가·루틴 | 식사·달성 현황·7일·내일)을 따른다.

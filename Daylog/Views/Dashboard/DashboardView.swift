@@ -57,18 +57,20 @@ struct DashboardEditBar: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            HStack(alignment: .firstTextBaseline, spacing: 12) {
-                Label("카드를 손잡이로 끌어 옮기세요. 카드의 ⋯ 메뉴로도 옮기거나 숨길 수 있어요.", systemImage: "hand.draw")
-                    .font(.callout)
-                    .foregroundStyle(.secondary)
-                Spacer(minLength: 8)
-                Button("기본 배치 복원") { preferences.restoreDashboard() }
-                    .controlSize(.small)
-                Button("완료") { isEditing = false }
-                    .buttonStyle(.borderedProminent)
-                    .tint(Theme.accent)
-                    .controlSize(.small)
-                    .keyboardShortcut(.defaultAction)
+            // 넓으면 한 줄, 좁으면(iPhone) 안내와 단추를 두 줄로.
+            ViewThatFits(in: .horizontal) {
+                HStack(alignment: .firstTextBaseline, spacing: 12) {
+                    hint
+                    Spacer(minLength: 8)
+                    buttons
+                }
+                VStack(alignment: .leading, spacing: 8) {
+                    hint
+                    HStack(spacing: 8) {
+                        Spacer(minLength: 0)
+                        buttons
+                    }
+                }
             }
             if !preferences.hiddenChoices.isEmpty {
                 HStack(spacing: 8) {
@@ -95,6 +97,24 @@ struct DashboardEditBar: View {
         .padding(.vertical, 10)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Theme.accentWash, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+    }
+
+    private var hint: some View {
+        Label("손잡이를 길게 눌러 끌거나 ⋯ 메뉴로 옮기고 숨겨요.", systemImage: "hand.draw")
+            .font(.callout)
+            .foregroundStyle(.secondary)
+            .fixedSize(horizontal: false, vertical: true)
+    }
+
+    @ViewBuilder
+    private var buttons: some View {
+        Button("기본 배치 복원") { preferences.restoreDashboard() }
+            .controlSize(.small)
+        Button("완료") { isEditing = false }
+            .buttonStyle(.borderedProminent)
+            .tint(Theme.accent)
+            .controlSize(.small)
+            .keyboardShortcut(.defaultAction)
     }
 }
 

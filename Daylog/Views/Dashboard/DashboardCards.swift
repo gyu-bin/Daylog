@@ -24,7 +24,8 @@ struct DashboardCards: View {
                 return store.isViewingToday && !store.isVacation(on: store.today)
                     && NextCheck.pick(from: store.checkSections, nowMinutes: 0) != nil
             case .vacation:
-                return vacationStatus.showsOnDashboard
+                // iPhone에서는 여느 카드처럼 늘 보이고(기본 위치는 아래쪽), 넓은 화면에서는 휴가 중이거나 임박했을 때만.
+                return compact || vacationStatus.showsOnDashboard
             default:
                 return true
             }
@@ -53,7 +54,8 @@ struct DashboardCards: View {
             let column = cards.filter { !$0.spansFullWidth }
             VStack(alignment: .leading, spacing: Theme.spacing) {
                 ForEach(cards) { card in
-                    slot(card, column: preferences.column(of: card), siblings: card.spansFullWidth ? [card] : column)
+                    // 한 열뿐인 iPhone에서는 "다른 열로 이동"을 보여 주지 않는다.
+                    slot(card, column: compact ? nil : preferences.column(of: card), siblings: card.spansFullWidth ? [card] : column)
                 }
                 if isEditing {
                     DropTail(column: preferences.column(of: column.last ?? .routines))
@@ -102,7 +104,9 @@ struct DashboardCards: View {
                 NextRoutineCard()
             }
         case .vacation:
-            if vacationStatus.isActive {
+            if compact {
+                VacationDayCard(day: store.selectedDay)
+            } else if vacationStatus.isActive {
                 VacationBanner(day: store.selectedDay)
             } else if isEditing, !vacationStatus.showsOnDashboard {
                 EditingPlaceholder(card: card, note: "휴가 중이거나 휴가가 \(VacationStatus.soonDays)일 안으로 다가왔을 때만 보여요.")
@@ -163,6 +167,13 @@ private struct EditableCard<Content: View>: View {
 
     @State private var isTargeted = false
 
+    /// 손잡이와 메뉴 단추의 크기. 터치 화면에서는 누르기 쉽게 키운다.
+    #if os(macOS)
+    private static var controlSize: CGFloat { 28 }
+    #else
+    private static var controlSize: CGFloat { 40 }
+    #endif
+
     private var isMovable: Bool { !card.spansFullWidth }
     private var index: Int { siblings.firstIndex(of: card) ?? 0 }
 
@@ -202,7 +213,7 @@ private struct EditableCard<Content: View>: View {
                 Image(systemName: "line.3.horizontal")
                     .font(.system(size: 13, weight: .semibold))
                     .foregroundStyle(.secondary)
-                    .frame(width: 28, height: 28)
+                    .frame(width: Self.controlSize, height: Self.controlSize)
                     .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
                     .overlay(RoundedRectangle(cornerRadius: 8, style: .continuous).strokeBorder(Theme.cardBorder, lineWidth: 1))
                     .contentShape(Rectangle())
@@ -239,7 +250,7 @@ private struct EditableCard<Content: View>: View {
                 Image(systemName: "ellipsis.circle.fill")
                     .font(.system(size: 18))
                     .foregroundStyle(.secondary)
-                    .frame(width: 28, height: 28)
+                    .frame(width: Self.controlSize, height: Self.controlSize)
                     .contentShape(Rectangle())
             }
             .menuStyle(.borderlessButton)
