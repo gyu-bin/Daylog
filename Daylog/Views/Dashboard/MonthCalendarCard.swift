@@ -19,7 +19,8 @@ struct MonthCalendarCard: View {
                 }
 
                 LazyVGrid(columns: columns, spacing: 2) {
-                    ForEach(preferences.weekStart.orderedWeekdays, id: \.self) { weekday in
+                    ForEach(preferences.weekStart.orderedWeekdays.map { GridSlot(kind: "weekday", index: $0) }) { slot in
+                        let weekday = slot.index
                         Text(Weekdays.symbol(weekday))
                             .font(.caption)
                             .foregroundStyle(.secondary)
@@ -29,7 +30,7 @@ struct MonthCalendarCard: View {
                     .accessibilityHidden(true)
 
                     // 1일이 시작하는 요일까지 빈칸.
-                    ForEach(0..<preferences.weekStart.column(of: month), id: \.self) { _ in
+                    ForEach((0..<preferences.weekStart.column(of: month)).map { GridSlot(kind: "leading", index: $0) }) { _ in
                         Color.clear.frame(height: 1)
                     }
 

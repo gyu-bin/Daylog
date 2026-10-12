@@ -43,6 +43,14 @@ struct DayRangeSelection: Equatable {
     }
 }
 
+/// 달력 격자에서 날짜가 아닌 칸(요일 머리글, 앞뒤 빈칸)의 식별자.
+/// 한 격자 안에 숫자 ID를 쓰는 묶음이 여럿이면 ID가 겹쳐 배치가 정의되지 않는다(SwiftUI가 오류로 알린다).
+struct GridSlot: Identifiable, Hashable {
+    let kind: String
+    let index: Int
+    var id: String { "\(kind)-\(index)" }
+}
+
 /// 한 달의 격자. 한 주의 시작 요일에 맞춰 1일 앞의 빈칸 수를 함께 준다.
 struct MonthGrid: Equatable {
     let month: Day
@@ -93,7 +101,8 @@ struct DayRangeCalendar: View {
         VStack(spacing: 8) {
             header
             LazyVGrid(columns: columns, spacing: 2) {
-                ForEach(weekStart.orderedWeekdays, id: \.self) { weekday in
+                ForEach(weekStart.orderedWeekdays.map { GridSlot(kind: "weekday", index: $0) }) { slot in
+                    let weekday = slot.index
                     Text(Weekdays.symbol(weekday))
                         .font(.caption.weight(.medium))
                         .foregroundStyle(weekday >= 6 ? AnyShapeStyle(.tertiary) : AnyShapeStyle(.secondary))
@@ -102,13 +111,13 @@ struct DayRangeCalendar: View {
                 }
                 .accessibilityHidden(true)
 
-                ForEach(0..<grid.leadingBlanks, id: \.self) { _ in
+                ForEach((0..<grid.leadingBlanks).map { GridSlot(kind: "leading", index: $0) }) { _ in
                     Color.clear.frame(height: Self.cellHeight)
                 }
                 ForEach(grid.days, id: \.self) { day in
                     cell(day)
                 }
-                ForEach(0..<grid.trailingBlanks, id: \.self) { _ in
+                ForEach((0..<grid.trailingBlanks).map { GridSlot(kind: "trailing", index: $0) }) { _ in
                     Color.clear.frame(height: Self.cellHeight)
                 }
             }
