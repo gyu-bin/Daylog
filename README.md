@@ -124,6 +124,12 @@ Tools/release.sh                 # 테스트 → 서명 → 공증 → DMG → �
 Tools/release.sh --publish-only  # 방금 만든 DMG를 GitHub Release에 올리기
 ```
 
+**내 Mac의 앱만 바로 바꾸기** (공증·DMG 없이, 배포판과 같은 서명)
+
+```bash
+Tools/update.sh
+```
+
 **알아 둘 점**
 
 - 내려받은 앱(DMG)과 Xcode로 빌드한 앱은 서로 다른 iCloud 환경(Production / Development)을 써서 둘 사이에는 동기화되지 않아요. 어느 쪽인지는 설정의 **iCloud 환경**에 나와요.
