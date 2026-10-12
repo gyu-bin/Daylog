@@ -166,7 +166,9 @@ PLIST
     echo "$ENTITLEMENTS" | grep -q "\"$BUNDLE_ID-spki\"" || fail "Sparkle 설치 도구와 통신하는 권한(-spki)이 없습니다."
     TEAM=$(echo "$SIGNATURE" | sed -n 's/^TeamIdentifier=//p')
     for tool in XPCServices/Installer.xpc XPCServices/Downloader.xpc Autoupdate Updater.app; do
-      codesign -dvv "$APP/Contents/Frameworks/Sparkle.framework/Versions/B/$tool" 2>&1 | grep -q "TeamIdentifier=$TEAM" \
+      # 출력을 먼저 받아 둔다(pipefail에서 grep -q가 먼저 끝나면 codesign이 실패한 것처럼 보인다).
+      TOOL_SIGNATURE=$(codesign -dvv "$APP/Contents/Frameworks/Sparkle.framework/Versions/B/$tool" 2>&1 || true)
+      echo "$TOOL_SIGNATURE" | grep -q "^TeamIdentifier=$TEAM\$" \
         || fail "Sparkle의 $tool 이 앱과 같은 팀으로 서명되지 않았습니다."
     done
     [[ "$(/usr/libexec/PlistBuddy -c 'Print :SUPublicEDKey' "$APP/Contents/Info.plist")" == "$SPARKLE_KEY" ]] || fail "앱에 들어간 Sparkle 공개 키가 다릅니다."
