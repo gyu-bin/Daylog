@@ -240,6 +240,14 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
   -exportOptionsPlist build/testflight/ExportOptions.plist -allowProvisioningUpdates
 ```
 
+## iOS 동기화가 앱을 다시 켜야만 되던 문제 (2026-10-12)
+
+- 증상(실기기, TestFlight 1.0.0 빌드 1): iPhone·iPad에서 다른 기기의 변경이 실행 중에는 들어오지 않고, 앱을 종료했다 켜면 들어온다. iPad의 "백그라운드 앱 새로 고침" 목록에 Daylog가 없다.
+- 원인: 올라간 앱의 Info.plist에 `UIBackgroundModes`가 없었다. 프로젝트에는 `INFOPLIST_KEY_UIBackgroundModes = remote-notification`이 있었지만, Xcode가 만들어 주는 Info.plist는 이 키를 넣지 않는다. 그래서 CloudKit의 조용한 푸시로 가져오기가 시작되지 않았다(Mac은 이 선언이 필요 없어 정상이었다).
+- 수정: `Config/DaylogiOS-Info.plist`에 `UIBackgroundModes = [remote-notification]`을 직접 적고 iOS 타깃의 `INFOPLIST_FILE`로 지정. 빌드 번호 2. 아카이브한 앱의 Info.plist에서 값이 들어간 것을 확인했다.
+- 실기기에서 실제로 고쳐졌는지는 빌드 2를 TestFlight로 설치해 확인해야 한다. Mac에서 식사를 지워도 iPad에 반영되지 않던 것도 같은 원인으로 보지만, 빌드 2에서 다시 확인한다.
+- 교훈: 빌드 설정을 믿지 말고 만들어진 앱의 Info.plist를 본다.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
