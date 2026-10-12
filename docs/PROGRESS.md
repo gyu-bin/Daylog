@@ -221,6 +221,22 @@
 - 새 창마다 첫 입력칸의 전체 선택 포커스를 푼다. 캘린더에 "앞으로의 날짜를 누르면 휴가 등록" 안내를 넣었다.
 - 미검증: 메뉴 막대·알림·위젯 흐름, iPad, 창을 다시 열 때의 포커스.
 
+## TestFlight 준비 (2026-10-12)
+
+- iOS 앱에 수출 규정 선언(`ITSAppUsesNonExemptEncryption = NO`)을 넣었다. 자체 암호화 코드가 없다.
+- Xcode 자동 서명(`-allowProvisioningUpdates`, 사용자 승인)으로 App ID `com.mungyubin.daylog.ios`·`.widgets`, App Group, 프로파일을 받아 기기용 Release 아카이브와 App Store 배포 서명 IPA를 만들었다(업로드 안 함).
+- IPA 확인: Apple Distribution 서명, iCloud 컨테이너 `iCloud.com.mungyubin.daylog` / 환경 Production, aps-environment production, App Group 포함(위젯도). 버전 1.5.1 (1).
+- 남은 것: App Store Connect에 앱 레코드를 만든 뒤 업로드. 실기기의 iCloud 동기화·알림·위젯은 TestFlight 설치 후 검증한다.
+
+```bash
+# 아카이브
+xcodebuild -project Daylog.xcodeproj -scheme DaylogiOS -configuration Release -derivedDataPath build/testflight/derived \
+  -destination 'generic/platform=iOS' -archivePath build/testflight/DaylogiOS.xcarchive -allowProvisioningUpdates archive
+# 업로드: ExportOptions의 method = app-store-connect, destination = upload
+xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exportPath build/testflight/upload \
+  -exportOptionsPlist build/testflight/ExportOptions.plist -allowProvisioningUpdates
+```
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
