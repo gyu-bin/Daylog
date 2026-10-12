@@ -1,5 +1,7 @@
 #if DEBUG
+import CoreGraphics
 import Foundation
+import ImageIO
 import SwiftData
 
 /// 동기화 검증용 스크립트 실행기. Debug 빌드에만 들어가고, 실행 인자를 주지 않으면 아무 일도 하지 않는다.
@@ -147,6 +149,32 @@ enum DebugScript {
             if let card = DashboardCard(rawValue: argument) {
                 DevicePreferences.shared.setVisible(name == "showCard", card: card)
             }
+        case "addCard":
+            // 꾸미기 카드 추가(검증용): addCard:text=제목|내용, addCard:section=제목, addCard:divider,
+            // addCard:image=<사진 경로>|<문구>. 사진 선택 창은 배경에서 조작할 수 없어서 경로로 받는다.
+            addCustomCard(pair, store: store)
+        case "cardSize":
+            // 맨 위 꾸미기 카드의 크기: cardSize:small|regular|large
+            if let size = CustomCardSize(rawValue: argument),
+               let id = DevicePreferences.shared.cardOrder.first(where: \.isCustom)?.customID {
+                DashboardDecor.shared.setSize(size, for: id)
+            }
+        case "headerImage":
+            // 상단 배경: headerImage:<사진 경로>, headerImage:off
+            if argument == "off" {
+                DashboardDecor.shared.removeHeaderImage()
+            } else if let image = processedImage(argument) {
+                do { try DashboardDecor.shared.setHeaderImage(image) } catch { log("HEADER_FAILED \(error.localizedDescription)") }
+            }
+        case "removeCards":
+            // 이 기기의 꾸미기 카드와 상단 배경을 모두 지운다(검증 뒤 정리).
+            for card in DevicePreferences.shared.cardOrder where card.isCustom {
+                guard let id = card.customID else { continue }
+                if card.customKind == .text { store.removeDashboardText(id: id) }
+                DevicePreferences.shared.removeCustom(card)
+                DashboardDecor.shared.remove(id)
+            }
+            DashboardDecor.shared.removeHeaderImage()
         case "transfer":
             // 가져오기 시트를 열고 파일 미리보기를 만든다: transfer:<CSV·JSON 경로>. 파일 선택 창은 배경에서 조작할 수 없어서 둔다.
             pendingTransferFile = URL(fileURLWithPath: argument)
@@ -206,6 +234,82 @@ enum DebugScript {
             + "customized=\(preferences.isLayoutCustomized) visible=\(preferences.visibleCards.map(\.rawValue).joined(separator: ","))")
     }
     #endif
+
+    /// `sample`·`sample-large`·`sample-tall`은 앱이 직접 그린 시험용 그림이다(샌드박스 밖의 파일은 읽을 수 없어서).
+    private static func processedImage(_ path: String) -> ProcessedDashboardImage? {
+        do {
+            switch path {
+            case "sample": return try DashboardImageStore.process(sampleImage(width: 1_800, height: 1_000))
+            case "sample-large": return try DashboardImageStore.process(sampleImage(width: 6_000, height: 4_000))
+            case "sample-tall": return try DashboardImageStore.process(sampleImage(width: 900, height: 2_400))
+            default: return try DashboardImageStore.process(Data(contentsOf: URL(fileURLWithPath: path)))
+            }
+        } catch {
+            log("IMAGE_FAILED \(path) \(error.localizedDescription)")
+            return nil
+        }
+    }
+
+    /// 하늘·언덕·해를 그린 시험용 그림(PNG).
+    private static func sampleImage(width: Int, height: Int) -> Data {
+        guard let context = CGContext(
+            data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0,
+            space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue
+        ) else { return Data() }
+        let w = CGFloat(width), h = CGFloat(height)
+        let sky = [CGColor(red: 0.98, green: 0.78, blue: 0.55, alpha: 1), CGColor(red: 0.42, green: 0.66, blue: 0.93, alpha: 1)]
+        if let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: sky as CFArray, locations: [0, 1]) {
+            context.drawLinearGradient(gradient, start: CGPoint(x: 0, y: 0), end: CGPoint(x: 0, y: h), options: [])
+        }
+        context.setFillColor(CGColor(red: 1, green: 0.95, blue: 0.75, alpha: 1))
+        context.fillEllipse(in: CGRect(x: w * 0.68, y: h * 0.5, width: min(w, h) * 0.22, height: min(w, h) * 0.22))
+        for (index, shade) in [0.55, 0.42, 0.3].enumerated() {
+            context.setFillColor(CGColor(red: 0.16, green: shade, blue: 0.36, alpha: 1))
+            let base = h * (0.38 - CGFloat(index) * 0.11)
+            context.move(to: CGPoint(x: 0, y: 0))
+            context.addLine(to: CGPoint(x: 0, y: base))
+            context.addCurve(
+                to: CGPoint(x: w, y: base * 0.8),
+                control1: CGPoint(x: w * 0.3, y: base * (1.5 - CGFloat(index) * 0.2)), control2: CGPoint(x: w * 0.65, y: base * 0.4)
+            )
+            context.addLine(to: CGPoint(x: w, y: 0))
+            context.closePath()
+            context.fillPath()
+        }
+        let data = NSMutableData()
+        guard let image = context.makeImage(),
+              let destination = CGImageDestinationCreateWithData(data, "public.png" as CFString, 1, nil) else { return Data() }
+        CGImageDestinationAddImage(destination, image, nil)
+        CGImageDestinationFinalize(destination)
+        return data as Data
+    }
+
+    private static func addCustomCard(_ pair: [String], store: AppStore) {
+        let value = pair.count > 1 ? pair[1] : ""
+        let parts = value.split(separator: "|", maxSplits: 1, omittingEmptySubsequences: false).map(String.init)
+        let id = UUID()
+        let decor = DashboardDecor.shared
+        switch pair.first {
+        case "text":
+            guard store.saveDashboardText(id: id, title: parts.first ?? "", body: parts.count > 1 ? parts[1] : "") else { return }
+            decor.setSize(.regular, for: id)
+            DevicePreferences.shared.addCustom(.custom(.text, id))
+        case "section":
+            decor.setTitle(value, for: id)
+            DevicePreferences.shared.addCustom(.custom(.sectionTitle, id))
+        case "divider":
+            decor.setSize(.regular, for: id)
+            DevicePreferences.shared.addCustom(.custom(.divider, id))
+        case "image":
+            decor.setTitle(parts.count > 1 ? parts[1] : "", for: id)
+            if let image = processedImage(parts.first ?? "") {
+                do { try decor.setImage(image, for: id) } catch { log("IMAGE_SAVE_FAILED \(error.localizedDescription)") }
+            }
+            DevicePreferences.shared.addCustom(.custom(.image, id))
+        default:
+            log("BAD_CARD \(pair.first ?? "")")
+        }
+    }
 
     private static func dump(label: String, store: AppStore, sync: CloudSyncMonitor, container: ModelContainer) {
         let context = container.mainContext

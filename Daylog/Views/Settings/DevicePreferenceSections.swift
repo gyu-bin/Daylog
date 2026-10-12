@@ -13,8 +13,14 @@ struct OnboardingReplayButton: View {
 struct DevicePreferenceSections: View {
     @Environment(AppStore.self) private var store
     @Environment(DevicePreferences.self) private var preferences
+    @Environment(DashboardDecor.self) private var decor
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var showsCards = false
+
+    /// 목록에 보여 줄 카드. 내용이 사라진 꾸미기 카드(다른 기기에서 지운 텍스트 카드 등)는 뺀다.
+    private var listedCards: [DashboardCard] {
+        preferences.cardOrder.filter { decor.isAvailable($0, texts: store.dashboardTexts) }
+    }
 
     var body: some View {
         Section {
@@ -59,7 +65,7 @@ struct DevicePreferenceSections: View {
 
     @ViewBuilder
     private var cardRows: some View {
-        ForEach(Array(preferences.cardOrder.enumerated()), id: \.element) { index, card in
+        ForEach(Array(listedCards.enumerated()), id: \.element) { index, card in
             HStack(spacing: 4) {
                 if card == .routines {
                     VStack(alignment: .leading, spacing: 2) {

@@ -23,6 +23,7 @@ struct DashboardView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: Theme.spacing) {
                     DashboardHeader(isEditing: $isEditing)
+                        .dashboardHeaderBackdrop()
                     if isEditing {
                         DashboardEditBar(isEditing: $isEditing)
                     } else if !store.stats.hasStarted {
@@ -47,74 +48,6 @@ struct DashboardView: View {
                 }
             }
         }
-    }
-}
-
-/// 편집 모드의 안내와 도구: 숨긴 카드 되살리기, 기본 배치 복원, 완료.
-struct DashboardEditBar: View {
-    @Environment(DevicePreferences.self) private var preferences
-    @Binding var isEditing: Bool
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            // 넓으면 한 줄, 좁으면(iPhone) 안내와 단추를 두 줄로.
-            ViewThatFits(in: .horizontal) {
-                HStack(alignment: .firstTextBaseline, spacing: 12) {
-                    hint
-                    Spacer(minLength: 8)
-                    buttons
-                }
-                VStack(alignment: .leading, spacing: 8) {
-                    hint
-                    HStack(spacing: 8) {
-                        Spacer(minLength: 0)
-                        buttons
-                    }
-                }
-            }
-            if !preferences.hiddenChoices.isEmpty {
-                HStack(spacing: 8) {
-                    Text("숨긴 카드")
-                        .font(.caption.weight(.medium))
-                        .foregroundStyle(.secondary)
-                    FlowLayout(spacing: 6) {
-                        ForEach(preferences.hiddenChoices) { card in
-                            Button {
-                                preferences.setVisible(true, card: card)
-                            } label: {
-                                Label(card.title, systemImage: "plus")
-                                    .font(.caption)
-                            }
-                            .buttonStyle(.bordered)
-                            .controlSize(.small)
-                            .accessibilityLabel("\(card.title) 카드 다시 보이기")
-                        }
-                    }
-                }
-            }
-        }
-        .padding(.horizontal, 14)
-        .padding(.vertical, 10)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Theme.accentWash, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-    }
-
-    private var hint: some View {
-        Label("손잡이를 길게 눌러 끌거나 ⋯ 메뉴로 옮기고 숨겨요.", systemImage: "hand.draw")
-            .font(.callout)
-            .foregroundStyle(.secondary)
-            .fixedSize(horizontal: false, vertical: true)
-    }
-
-    @ViewBuilder
-    private var buttons: some View {
-        Button("기본 배치 복원") { preferences.restoreDashboard() }
-            .controlSize(.small)
-        Button("완료") { isEditing = false }
-            .buttonStyle(.borderedProminent)
-            .tint(Theme.accent)
-            .controlSize(.small)
-            .keyboardShortcut(.defaultAction)
     }
 }
 

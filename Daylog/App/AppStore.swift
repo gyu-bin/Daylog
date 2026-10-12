@@ -31,6 +31,8 @@ final class AppStore {
     /// 저장된 내용이 바뀔 때마다 올라간다. 식사 기록 탭처럼 따로 조회하는 화면이 이 값을 보고 다시 읽는다.
     private(set) var dataVersion = 0
     private(set) var vacationPeriods: [VacationPeriod] = []
+    /// 대시보드 텍스트 카드의 내용. 같은 iCloud 계정의 기기들이 함께 본다(배치와 크기는 기기마다 따로다).
+    private(set) var dashboardTexts: [UUID: DashboardText] = [:]
     /// 같은 iCloud 계정으로 Daylog를 쓰는 기기들(이 기기 포함).
     var devices: [DeviceInfo] = []
     /// 이 기기의 정보를 기기 목록에 적을지. 실제 앱이 시작할 때 켠다.
@@ -274,6 +276,8 @@ final class AppStore {
         perform {
             let periods = try VacationService(context: context, deviceID: deviceID).periods()
             if periods != vacationPeriods { vacationPeriods = periods }
+            let texts = try DashboardTextService(context: context, deviceID: deviceID).texts()
+            if texts != dashboardTexts { dashboardTexts = texts }
         }
         refreshChecks()
         let updatedToday = isViewingToday ? checkSections : makeTodaySections()

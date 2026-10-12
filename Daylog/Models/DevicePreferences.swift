@@ -84,7 +84,9 @@ final class DevicePreferences {
         remoteDefaultOrder = order.map(DashboardCard.normalizedOrder)
         remoteDefaultHidden = hidden.map { Set($0.compactMap(DashboardCard.init(rawValue:))).subtracting([.routines]) }
         guard !isLayoutCustomized else { return }
-        let order = defaultOrder, hidden = defaultHidden
+        // 기본 배치는 기본 카드만 정한다. 꾸미기 카드는 그 뒤에 그대로 둔다.
+        let order = defaultOrder + cardOrder.filter(\.isCustom)
+        let hidden = defaultHidden.union(hiddenCards.filter(\.isCustom))
         guard order != cardOrder || hidden != hiddenCards else { return }
         cardOrder = order
         hiddenCards = hidden
@@ -188,11 +190,32 @@ final class DevicePreferences {
     }
 
     /// 기본 배치로 되돌린다. 이후로는 다시 기본 배치(원격 설정이 바꾸면 그것)를 따른다.
+    /// 꾸미기 카드는 지우지 않는다: 기본 카드 뒤(각자 있던 열의 아래쪽)로 보내고 다시 보이게 한다.
     func restoreDashboard() {
-        cardOrder = defaultOrder
+        let custom = cardOrder.filter(\.isCustom)
+        cardOrder = defaultOrder + custom
         hiddenCards = defaultHidden
-        leftCards = DashboardCard.defaultLeft
+        leftCards = DashboardCard.defaultLeft.union(leftCards.filter(\.isCustom))
         isLayoutCustomized = false
+        saveLayout()
+    }
+
+    /// 꾸미기 카드를 맨 위에 더한다. 두 열 화면에서는 오른쪽 열의 맨 위라서, 왼쪽 열의 오늘 루틴은 밀리지 않는다.
+    func addCustom(_ card: DashboardCard, column: DashboardColumn = .right) {
+        guard card.isCustom, !cardOrder.contains(card) else { return }
+        cardOrder.insert(card, at: 0)
+        if column == .left { leftCards.insert(card) }
+        markCustomized()
+        saveLayout()
+    }
+
+    /// 꾸미기 카드를 배치에서 뺀다. 내용을 지우는 일은 부른 쪽이 한다.
+    func removeCustom(_ card: DashboardCard) {
+        guard card.isCustom else { return }
+        cardOrder.removeAll { $0 == card }
+        hiddenCards.remove(card)
+        leftCards.remove(card)
+        markCustomized()
         saveLayout()
     }
 
@@ -237,10 +260,18 @@ struct DashboardLayout: Equatable {
     }
 }
 
-/// 대시보드 카드. 선언 순서가 기본 순서다.
-enum DashboardCard: String, CaseIterable, Identifiable {
+/// 대시보드 카드. 기본 카드는 선언 순서가 기본 순서다.
+enum DashboardCard: Hashable, Identifiable, RawRepresentable, CaseIterable {
     case summary, nextRoutine, vacation, routines, meals, achievement, recentDays, tomorrow, calendar, trend, routineRates
+    /// 사용자가 더한 꾸미기 카드(이미지·텍스트·섹션 제목·구분선). 내용은 `DashboardDecor`와 `AppStore.dashboardTexts`에 있다.
+    case custom(CustomCardKind, UUID)
+
     var id: String { rawValue }
+
+    /// 앱이 제공하는 기본 카드. 꾸미기 카드는 들어 있지 않다(원격 설정의 허용 목록도 이 값을 쓴다).
+    static let allCases: [DashboardCard] = [
+        .summary, .nextRoutine, .vacation, .routines, .meals, .achievement, .recentDays, .tomorrow, .calendar, .trend, .routineRates
+    ]
 
     static let defaultOrder: [DashboardCard] = allCases
 
@@ -267,6 +298,7 @@ enum DashboardCard: String, CaseIterable, Identifiable {
         case .calendar: return "월간 캘린더"
         case .trend: return "달성률 추이"
         case .routineRates: return "루틴별 달성률"
+        case .custom(let kind, _): return kind.title
         }
     }
 
