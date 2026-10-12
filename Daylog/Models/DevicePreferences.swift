@@ -12,6 +12,7 @@ final class DevicePreferences {
     static let leftKey = "device.dashboard.left"
     static let layoutVersionKey = "device.dashboard.layoutVersion"
     static let onboardingKey = "device.onboardingCompleted"
+    static let weekStartKey = "device.weekStart"
     /// 대시보드 배치의 형식 번호. 2 = 두 열 배치(휴가·달성 현황·내일 할 일 카드가 생김).
     /// 이보다 낮은(또는 없는) 저장값은 예전 한 열 배치라 기본 배치로 되돌린다.
     static let layoutVersion = 2
@@ -26,12 +27,15 @@ final class DevicePreferences {
     /// 두 열 배치에서 왼쪽 열에 두는 카드. 나머지는 오른쪽.
     private(set) var leftCards: Set<DashboardCard>
     private(set) var onboardingCompleted: Bool
+    /// 달력의 한 주가 시작하는 요일. 기본은 월요일.
+    private(set) var weekStart: WeekStart
 
     init(defaults: UserDefaults = .standard, isPhone: Bool = Platform.isPhone) {
         self.defaults = defaults
         self.isPhone = isPhone
         mealsEnabled = defaults.object(forKey: Self.mealsKey) as? Bool ?? true
         onboardingCompleted = defaults.object(forKey: Self.onboardingKey) as? Bool ?? false
+        weekStart = defaults.string(forKey: Self.weekStartKey).flatMap(WeekStart.init(rawValue:)) ?? .monday
         if defaults.integer(forKey: Self.layoutVersionKey) >= Self.layoutVersion {
             cardOrder = DashboardCard.normalizedOrder(defaults.stringArray(forKey: Self.orderKey) ?? [])
             hiddenCards = Set((defaults.stringArray(forKey: Self.hiddenKey) ?? []).compactMap(DashboardCard.init(rawValue:)))
@@ -79,6 +83,11 @@ final class DevicePreferences {
     func setMealsEnabled(_ enabled: Bool) {
         mealsEnabled = enabled
         defaults.set(enabled, forKey: Self.mealsKey)
+    }
+
+    func setWeekStart(_ value: WeekStart) {
+        weekStart = value
+        defaults.set(value.rawValue, forKey: Self.weekStartKey)
     }
 
     func setVisible(_ visible: Bool, card: DashboardCard) {

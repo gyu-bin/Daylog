@@ -3,6 +3,7 @@ import SwiftUI
 /// 월간 캘린더. 월요일 시작. 날짜를 누르면 그 날짜의 기록으로 이동한다.
 struct MonthCalendarCard: View {
     @Environment(AppStore.self) private var store
+    @Environment(DevicePreferences.self) private var preferences
     /// 날짜를 누르면 대시보드로 옮겨 그 날짜를 연다. 꺼 두면 지금 화면에서 날짜만 바꾼다.
     var opensDashboard = false
     @State private var vacationDay: VacationEditorTarget?
@@ -18,7 +19,7 @@ struct MonthCalendarCard: View {
                 }
 
                 LazyVGrid(columns: columns, spacing: 2) {
-                    ForEach(Weekdays.all, id: \.self) { weekday in
+                    ForEach(preferences.weekStart.orderedWeekdays, id: \.self) { weekday in
                         Text(Weekdays.symbol(weekday))
                             .font(.caption)
                             .foregroundStyle(.secondary)
@@ -28,7 +29,7 @@ struct MonthCalendarCard: View {
                     .accessibilityHidden(true)
 
                     // 1일이 시작하는 요일까지 빈칸.
-                    ForEach(0..<(month.weekday - 1), id: \.self) { _ in
+                    ForEach(0..<preferences.weekStart.column(of: month), id: \.self) { _ in
                         Color.clear.frame(height: 1)
                     }
 
@@ -53,6 +54,11 @@ struct MonthCalendarCard: View {
 
                 Spacer(minLength: 0)
                 legend
+                // 앞으로의 날짜는 기록할 것이 없어서, 누르면 휴가를 등록하거나 고친다. 눌러 보기 전에는 알 수 없어 적어 둔다.
+                Text("앞으로의 날짜를 누르면 휴가를 등록하거나 고칠 수 있어요.")
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
+                    .fixedSize(horizontal: false, vertical: true)
             }
         }
         .sheet(item: $vacationDay) { target in

@@ -27,6 +27,7 @@ struct SettingsView: View {
                 Text("하루 달성률이 이 값 이상이면 달성한 날로 세요. 연속 달성일도 이 기준으로 바로 다시 계산돼요.")
             }
 
+            CalendarSettingsSection()
             VacationSettingsSection()
             NotificationSettingsSection()
             #if os(macOS)
@@ -134,6 +135,29 @@ private struct AppearanceSection: View {
             Text("외관")
         } footer: {
             Text("라이트·다크를 고르면 Daylog만 그 모드로 보여요. \(Platform.thisDevice)에만 적용돼요.")
+        }
+    }
+}
+
+/// 달력의 한 주 시작 요일. 이 기기에만 저장하고, 고르는 즉시 모든 달력에 적용된다.
+private struct CalendarSettingsSection: View {
+    @Environment(DevicePreferences.self) private var preferences
+
+    var body: some View {
+        Section {
+            Picker("한 주의 시작", selection: Binding(
+                get: { preferences.weekStart },
+                set: { preferences.setWeekStart($0) }
+            )) {
+                ForEach(WeekStart.allCases) { start in
+                    Text(start.title).tag(start)
+                }
+            }
+            .pickerStyle(.segmented)
+        } header: {
+            Text("캘린더")
+        } footer: {
+            Text("월간 캘린더, 휴가 달력, 활동 히트맵의 요일 순서가 바뀌어요. 통계의 집계 기간은 바뀌지 않아요. \(Platform.thisDevice)에만 적용돼요.")
         }
     }
 }

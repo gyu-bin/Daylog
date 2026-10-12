@@ -18,6 +18,8 @@ enum Theme {
     static let streakTint = GroupColor.coral.color
     static let longestTint = GroupColor.yellow.color
     static let mealTint = GroupColor.coral.color
+    /// 휴가를 나타내는 색(카드, 달력의 선택 범위).
+    static let vacationTint = GroupColor.blue.color
 
     static let windowBackground = Color.platformWindowBackground
     static let cardBackground = Color.platformCardBackground

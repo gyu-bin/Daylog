@@ -45,11 +45,15 @@ struct RootView: View {
     private var navigation: some View {
         #if os(macOS)
         SidebarNavigation()
-            .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification).first()) { notification in
-                // 실행 직후 첫 입력 칸이 전체 선택된 채 포커스를 받으면 실수로 덮어쓰기 쉽다.
-                let window = notification.object as? NSWindow
+            .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification)) { notification in
+                // 창이 처음 앞에 올 때 첫 입력 칸이 전체 선택된 채 포커스를 받으면 실수로 덮어쓰기 쉽다.
+                // 창을 닫았다가 메뉴 막대에서 다시 열면 새 창이라, 창마다 한 번씩 푼다. 시트와 메뉴 막대 창은 건드리지 않는다.
+                guard let window = notification.object as? NSWindow,
+                      window.styleMask.contains(.titled), !window.isSheet,
+                      FirstKeyWindows.markSeen(window)
+                else { return }
                 DispatchQueue.main.async {
-                    window?.makeFirstResponder(nil)
+                    window.makeFirstResponder(nil)
                 }
             }
         #else
@@ -168,6 +172,19 @@ struct TabNavigation: View {
             get: { preferences.safeSelection(store.section == .calendar ? .statistics : store.section) },
             set: { store.section = $0 }
         )
+    }
+}
+#endif
+
+#if os(macOS)
+/// 처음 앞에 온 적이 있는 창을 기억한다(창 번호 기준).
+@MainActor
+enum FirstKeyWindows {
+    private static var seen: Set<Int> = []
+
+    /// 이 창을 처음 보면 true.
+    static func markSeen(_ window: NSWindow) -> Bool {
+        seen.insert(window.windowNumber).inserted
     }
 }
 #endif

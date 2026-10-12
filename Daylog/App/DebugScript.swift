@@ -101,6 +101,9 @@ enum DebugScript {
             await waitForEvent(named: "export", timeout: Double(argument) ?? 60) { sync.lastExportAt }
         case "refresh":
             store.handleExternalChanges()
+        case "weekStart":
+            // 달력의 한 주 시작 요일: weekStart:sunday, weekStart:monday. 이 기기 설정만 바꾼다.
+            if let value = WeekStart(rawValue: argument) { DevicePreferences.shared.setWeekStart(value) }
         case "transfer":
             // 가져오기 시트를 열고 파일 미리보기를 만든다: transfer:<CSV·JSON 경로>. 파일 선택 창은 배경에서 조작할 수 없어서 둔다.
             pendingTransferFile = URL(fileURLWithPath: argument)

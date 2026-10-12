@@ -1,8 +1,9 @@
 import SwiftUI
 
-/// 활동 히트맵: 열은 주, 행은 월~일. 최근 날짜가 오른쪽이다. 칸을 누르면 그 날짜의 기록을 연다.
+/// 활동 히트맵: 열은 주, 행은 요일(한 주의 시작 요일부터). 최근 날짜가 오른쪽이다. 칸을 누르면 그 날짜의 기록을 연다.
 struct ActivityHeatmapCard: View {
     @Environment(AppStore.self) private var store
+    @Environment(DevicePreferences.self) private var preferences
     let outcomes: [DayOutcome]
     let threshold: Int
 
@@ -13,7 +14,7 @@ struct ActivityHeatmapCard: View {
     private let monthRowHeight: CGFloat = 14
 
     var body: some View {
-        let weeks = HeatmapLayout.weeks(outcomes)
+        let weeks = HeatmapLayout.weeks(outcomes, weekStart: preferences.weekStart)
         let months = HeatmapLayout.monthLabels(weeks)
         Card(fillsHeight: false) {
             VStack(alignment: .leading, spacing: 10) {
@@ -76,9 +77,9 @@ struct ActivityHeatmapCard: View {
     private var weekdayLabels: some View {
         VStack(alignment: .trailing, spacing: gap) {
             Color.clear.frame(width: 1, height: monthRowHeight)
-            ForEach(Weekdays.all, id: \.self) { weekday in
+            ForEach(Array(preferences.weekStart.orderedWeekdays.enumerated()), id: \.element) { index, weekday in
                 // 칸이 작아 한 줄 걸러 요일을 적는다.
-                Text(weekday % 2 == 1 ? Weekdays.symbol(weekday) : "")
+                Text(index % 2 == 0 ? Weekdays.symbol(weekday) : "")
                     .font(.system(size: 9))
                     .foregroundStyle(.secondary)
                     .frame(height: cell)

@@ -3,6 +3,7 @@ import SwiftUI
 /// 식사 기록 캘린더. 식사를 적은 날에 표시가 붙고, 날짜를 누르면 그 날짜의 기록을 연다.
 struct MealCalendarCard: View {
     @Environment(AppStore.self) private var store
+    @Environment(DevicePreferences.self) private var preferences
     let onOpen: (Day) -> Void
     /// 보고 있는 달의 1일. nil이면 이번 달.
     @State private var shownMonth: Day?
@@ -22,7 +23,7 @@ struct MealCalendarCard: View {
                 }
 
                 LazyVGrid(columns: columns, spacing: 2) {
-                    ForEach(Weekdays.all, id: \.self) { weekday in
+                    ForEach(preferences.weekStart.orderedWeekdays, id: \.self) { weekday in
                         Text(Weekdays.symbol(weekday))
                             .font(.caption)
                             .foregroundStyle(.secondary)
@@ -32,7 +33,7 @@ struct MealCalendarCard: View {
                     .accessibilityHidden(true)
 
                     // 1일이 시작하는 요일까지 빈칸.
-                    ForEach(0..<(month.weekday - 1), id: \.self) { _ in
+                    ForEach(0..<preferences.weekStart.column(of: month), id: \.self) { _ in
                         Color.clear.frame(height: 1)
                     }
 

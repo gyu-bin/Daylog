@@ -43,15 +43,17 @@ struct DayRangeSelection: Equatable {
     }
 }
 
-/// 한 달의 격자. 월요일 시작이고, 1일 앞의 빈칸 수를 함께 준다.
+/// 한 달의 격자. 한 주의 시작 요일에 맞춰 1일 앞의 빈칸 수를 함께 준다.
 struct MonthGrid: Equatable {
     let month: Day
+    let weekStart: WeekStart
     let leadingBlanks: Int
     let days: [Day]
 
-    init(containing day: Day) {
+    init(containing day: Day, weekStart: WeekStart = .monday) {
         month = day.firstOfMonth
-        leadingBlanks = month.weekday - 1
+        self.weekStart = weekStart
+        leadingBlanks = weekStart.column(of: month)
         days = Day.range(from: month, to: month.adding(days: month.daysInMonth - 1))
     }
 
@@ -65,6 +67,7 @@ struct MonthGrid: Equatable {
 struct DayRangeCalendar: View {
     @Binding var selection: DayRangeSelection
     let today: Day
+    var weekStart: WeekStart = .monday
     var tint: Color = Theme.accent
     /// 보여 줄 달. 처음에는 시작일이 든 달.
     @State private var month: Day
@@ -76,20 +79,21 @@ struct DayRangeCalendar: View {
     /// 가로 간격은 0: 범위 띠가 칸 사이에서 끊기지 않게 한다.
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
 
-    init(selection: Binding<DayRangeSelection>, today: Day, tint: Color = Theme.accent) {
+    init(selection: Binding<DayRangeSelection>, today: Day, weekStart: WeekStart = .monday, tint: Color = Theme.accent) {
         _selection = selection
         self.today = today
+        self.weekStart = weekStart
         self.tint = tint
         _month = State(initialValue: selection.wrappedValue.start.firstOfMonth)
         _cursor = State(initialValue: selection.wrappedValue.start)
     }
 
     var body: some View {
-        let grid = MonthGrid(containing: month)
+        let grid = MonthGrid(containing: month, weekStart: weekStart)
         VStack(spacing: 8) {
             header
             LazyVGrid(columns: columns, spacing: 2) {
-                ForEach(Weekdays.all, id: \.self) { weekday in
+                ForEach(weekStart.orderedWeekdays, id: \.self) { weekday in
                     Text(Weekdays.symbol(weekday))
                         .font(.caption.weight(.medium))
                         .foregroundStyle(weekday >= 6 ? AnyShapeStyle(.tertiary) : AnyShapeStyle(.secondary))

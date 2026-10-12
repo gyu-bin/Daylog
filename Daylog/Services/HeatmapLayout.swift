@@ -47,14 +47,14 @@ enum HeatLevel: Equatable, Sendable {
     }
 }
 
-/// 날짜들을 "주(열) × 요일(행, 월~일)" 격자로 배치한다. 최근 날짜가 오른쪽이다.
+/// 날짜들을 "주(열) × 요일(행)" 격자로 배치한다. 최근 날짜가 오른쪽이다.
 enum HeatmapLayout {
-    /// 각 열은 월요일부터 일요일까지 7칸. 범위 밖의 칸은 nil.
-    static func weeks(_ outcomes: [DayOutcome]) -> [[DayOutcome?]] {
+    /// 각 열은 한 주의 시작 요일부터 7칸. 범위 밖의 칸은 nil.
+    static func weeks(_ outcomes: [DayOutcome], weekStart: WeekStart = .monday) -> [[DayOutcome?]] {
         guard let first = outcomes.first, let last = outcomes.last else { return [] }
         let byDay = Dictionary(uniqueKeysWithValues: outcomes.map { ($0.day, $0) })
-        let gridStart = first.day.adding(days: -(first.day.weekday - 1))
-        let gridEnd = last.day.adding(days: 7 - last.day.weekday)
+        let gridStart = weekStart.weekStart(containing: first.day)
+        let gridEnd = weekStart.weekEnd(containing: last.day)
         let days = Day.range(from: gridStart, to: gridEnd)
         return stride(from: 0, to: days.count, by: 7).map { offset in
             days[offset..<min(offset + 7, days.count)].map { byDay[$0] }

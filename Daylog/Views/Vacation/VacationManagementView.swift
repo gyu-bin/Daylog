@@ -6,8 +6,6 @@ struct VacationEditorTarget: Identifiable {
     var period: VacationPeriod?
 }
 
-private let vacationTint = GroupColor.blue.color
-
 struct VacationSettingsSection: View {
     @Environment(AppStore.self) private var store
     @State private var showing = false
@@ -15,7 +13,8 @@ struct VacationSettingsSection: View {
     var body: some View {
         Section {
             Button { showing = true } label: {
-                LabeledContent("휴가 관리", value: store.vacationPeriods.isEmpty ? "없음" : "\(store.vacationPeriods.count)개 기간")
+                // 대시보드의 휴가 카드와 같은 규칙으로 지금 상태를 요약한다.
+                LabeledContent("휴가 관리", value: VacationStatus.summary(periods: store.vacationPeriods, today: store.today))
             }
         } header: {
             Text("휴가")
@@ -46,10 +45,10 @@ struct VacationManagementView: View {
                         .font(.callout.weight(.semibold))
                 }
                 .buttonStyle(.bordered)
-                .tint(vacationTint)
+                .tint(Theme.vacationTint)
 
                 if store.vacationPeriods.isEmpty {
-                    EmptyHint(symbol: "sun.max", message: "등록된 휴가가 없어요.", tint: vacationTint)
+                    EmptyHint(symbol: "sun.max", message: "등록된 휴가가 없어요.", tint: Theme.vacationTint)
                 } else {
                     periodList
                 }
@@ -91,6 +90,8 @@ struct VacationManagementView: View {
 /// 휴가 기간 한 줄: 해 아이콘, 날짜 범위와 날 수, 메모.
 struct VacationPeriodLabel: View {
     let period: VacationPeriod
+    /// 카드 머리말에 이미 해 아이콘이 있을 때는 줄마다 반복하지 않는다.
+    var showsIcon = true
 
     static func rangeTitle(_ period: VacationPeriod) -> String {
         period.start == period.end
@@ -100,12 +101,14 @@ struct VacationPeriodLabel: View {
 
     var body: some View {
         HStack(spacing: 10) {
-            Image(systemName: "sun.max.fill")
-                .font(.system(size: 12, weight: .semibold))
-                .foregroundStyle(vacationTint)
-                .frame(width: 26, height: 26)
-                .background(vacationTint.opacity(0.14), in: RoundedRectangle(cornerRadius: 7, style: .continuous))
-                .accessibilityHidden(true)
+            if showsIcon {
+                Image(systemName: "sun.max.fill")
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundStyle(Theme.vacationTint)
+                    .frame(width: 26, height: 26)
+                    .background(Theme.vacationTint.opacity(0.14), in: RoundedRectangle(cornerRadius: 7, style: .continuous))
+                    .accessibilityHidden(true)
+            }
             VStack(alignment: .leading, spacing: 2) {
                 HStack(spacing: 6) {
                     Text(Self.rangeTitle(period))
@@ -129,56 +132,10 @@ struct VacationPeriodLabel: View {
     }
 }
 
-/// 보고 있는 날짜의 휴가 카드. 휴가가 아니면 추가 단추만, 휴가면 그 기간을 보여 준다.
-struct VacationDayCard: View {
-    @Environment(AppStore.self) private var store
-    let day: Day
-    @State private var editing: VacationEditorTarget?
-
-    var body: some View {
-        let periods = store.vacations(on: day)
-        Card(fillsHeight: false, padding: 14) {
-            VStack(alignment: .leading, spacing: 8) {
-                HStack(spacing: 8) {
-                    Image(systemName: periods.isEmpty ? "sun.max" : "sun.max.fill")
-                        .font(.system(size: 12, weight: .semibold))
-                        .foregroundStyle(vacationTint)
-                        .frame(width: 24, height: 24)
-                        .background(vacationTint.opacity(0.14), in: RoundedRectangle(cornerRadius: 7, style: .continuous))
-                        .accessibilityHidden(true)
-                    Text(periods.isEmpty ? "휴가 설정" : "휴가 · 통계 제외")
-                        .font(.headline)
-                    Spacer(minLength: 8)
-                    HeaderLink(title: periods.isEmpty ? "기간 추가" : "추가") { editing = VacationEditorTarget(day: day) }
-                }
-                ForEach(periods) { period in
-                    Button {
-                        editing = VacationEditorTarget(day: day, period: period)
-                    } label: {
-                        HStack(spacing: 8) {
-                            VacationPeriodLabel(period: period)
-                            Spacer(minLength: 8)
-                            Text("수정·해제")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 7)
-                        .background(Theme.inset, in: RoundedRectangle(cornerRadius: Theme.controlRadius, style: .continuous))
-                        .contentShape(Rectangle())
-                    }
-                    .buttonStyle(.plain)
-                    .accessibilityHint("누르면 고치거나 해제합니다.")
-                }
-            }
-        }
-        .sheet(item: $editing) { VacationEditorSheet(target: $0) }
-    }
-}
-
 /// 휴가 추가·수정. 달력에서 시작일과 종료일을 고르고, 메모를 적는다. 수정할 때는 해제도 할 수 있다.
 struct VacationEditorSheet: View {
     @Environment(AppStore.self) private var store
+    @Environment(DevicePreferences.self) private var preferences
     @Environment(\.dismiss) private var dismiss
     let target: VacationEditorTarget
     @State private var selection: DayRangeSelection
@@ -210,7 +167,7 @@ struct VacationEditorSheet: View {
         } content: {
             VStack(alignment: .leading, spacing: 16) {
                 rangeSummary
-                DayRangeCalendar(selection: $selection, today: store.today, tint: vacationTint)
+                DayRangeCalendar(selection: $selection, today: store.today, weekStart: preferences.weekStart, tint: Theme.vacationTint)
                 SheetField(label: "메모 (선택)") {
                     TextField("메모", text: $memo, prompt: Text("예: 제주 여행"), axis: .vertical)
                         .lineLimit(1...3)
@@ -245,7 +202,7 @@ struct VacationEditorSheet: View {
             Text(selection.dayCount == 1 ? "하루" : "\(selection.dayCount)일")
                 .font(.callout.weight(.semibold))
                 .monospacedDigit()
-                .foregroundStyle(vacationTint)
+                .foregroundStyle(Theme.vacationTint)
                 .accessibilityLabel("총 \(selection.dayCount)일")
         }
     }
@@ -258,16 +215,16 @@ struct VacationEditorSheet: View {
             VStack(alignment: .leading, spacing: 1) {
                 Text(label)
                     .font(.caption2.weight(.medium))
-                    .foregroundStyle(isActive ? vacationTint : .secondary)
+                    .foregroundStyle(isActive ? Theme.vacationTint : .secondary)
                 Text("\(day.shortTitle) (\(day.weekdaySymbol))")
                     .font(.callout.weight(.semibold))
                     .monospacedDigit()
             }
             .padding(.horizontal, 10)
             .padding(.vertical, 6)
-            .background(isActive ? vacationTint.opacity(0.14) : Theme.inset, in: RoundedRectangle(cornerRadius: Theme.controlRadius, style: .continuous))
+            .background(isActive ? Theme.vacationTint.opacity(0.14) : Theme.inset, in: RoundedRectangle(cornerRadius: Theme.controlRadius, style: .continuous))
             .overlay(RoundedRectangle(cornerRadius: Theme.controlRadius, style: .continuous)
-                .strokeBorder(isActive ? vacationTint : .clear, lineWidth: 1.5))
+                .strokeBorder(isActive ? Theme.vacationTint : .clear, lineWidth: 1.5))
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
