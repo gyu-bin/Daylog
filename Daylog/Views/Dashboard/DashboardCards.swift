@@ -9,6 +9,8 @@ struct DashboardCards: View {
     let compact: Bool
     let wide: Bool
     var isEditing = false
+    /// 카드 사이 간격 같은 표시 값(iPhone·iPad에서는 원격 UI 설정을 따른다).
+    @Environment(\.mobileUI) private var ui
 
     private var vacationStatus: VacationStatus {
         VacationStatus.resolve(periods: store.vacationPeriods, on: store.selectedDay, today: store.today)
@@ -39,21 +41,21 @@ struct DashboardCards: View {
         let cards = hoistsVacation ? self.cards.filter { $0 != .vacation } : self.cards
         if wide {
             let layout = preferences.layout(of: cards)
-            VStack(alignment: .leading, spacing: Theme.spacing) {
+            VStack(alignment: .leading, spacing: ui.cardSpacing) {
                 if hoistsVacation {
                     VacationBanner(day: store.selectedDay)
                 }
                 ForEach(layout.band) { card in
                     slot(card, column: nil, siblings: layout.band)
                 }
-                HStack(alignment: .top, spacing: Theme.spacing) {
+                HStack(alignment: .top, spacing: ui.cardSpacing) {
                     column(.left, layout)
                     column(.right, layout)
                 }
             }
         } else {
             let column = cards.filter { !$0.spansFullWidth }
-            VStack(alignment: .leading, spacing: Theme.spacing) {
+            VStack(alignment: .leading, spacing: ui.cardSpacing) {
                 ForEach(cards) { card in
                     // 한 열뿐인 iPhone에서는 "다른 열로 이동"을 보여 주지 않는다.
                     slot(card, column: compact ? nil : preferences.column(of: card), siblings: card.spansFullWidth ? [card] : column)
@@ -67,7 +69,7 @@ struct DashboardCards: View {
 
     private func column(_ side: DashboardColumn, _ layout: DashboardLayout) -> some View {
         let cards = layout.cards(in: side)
-        return VStack(alignment: .leading, spacing: Theme.spacing) {
+        return VStack(alignment: .leading, spacing: ui.cardSpacing) {
             ForEach(cards) { card in
                 slot(card, column: side, siblings: cards)
             }

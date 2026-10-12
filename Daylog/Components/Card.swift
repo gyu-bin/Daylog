@@ -4,8 +4,10 @@ import SwiftUI
 struct Card<Content: View>: View {
     /// 옆 카드와 높이를 맞춰 늘어날지 여부. false면 내용만큼만 차지한다.
     var fillsHeight = true
-    var padding: CGFloat = Theme.cardPadding
+    /// 안쪽 여백. 정하지 않으면 기본 여백(iPhone·iPad에서는 원격 UI 설정의 값)을 쓴다.
+    var padding: CGFloat?
     @ViewBuilder var content: () -> Content
+    @Environment(\.mobileUI) private var ui
 
     private var shape: RoundedRectangle {
         RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
@@ -13,10 +15,9 @@ struct Card<Content: View>: View {
 
     var body: some View {
         content()
-            .padding(padding)
+            .padding(padding ?? ui.cardPadding)
             .frame(maxWidth: .infinity, maxHeight: fillsHeight ? .infinity : nil, alignment: .topLeading)
-            .background(Theme.cardBackground, in: shape)
-            .overlay(shape.strokeBorder(Theme.cardBorder, lineWidth: 1))
+            .cardChrome(shape)
     }
 }
 

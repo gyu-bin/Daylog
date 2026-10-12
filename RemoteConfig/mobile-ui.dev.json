@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "configVersion": 1,
+  "minimumSupportedAppBuild": 4,
+  "updatedAt": "2026-10-12T12:00:00Z",
+  "dashboard": {
+    "defaultCardOrder": ["achievement", "nextRoutine", "routines", "meals", "recentDays", "tomorrow", "vacation", "summary", "calendar", "trend", "routineRates"],
+    "defaultHiddenCards": ["summary", "calendar", "trend", "routineRates"],
+    "layoutStyle": "standard"
+  },
+  "appearance": {
+    "accent": "mint",
+    "cardStyle": "bordered"
+  },
+  "content": {
+    "onboarding": {
+      "introTitle": "작은 루틴부터, 나만의 하루를.",
+      "notificationTitle": "루틴 시간을 놓치지 마세요",
+      "notificationBody": "설정한 시간에 Daylog가 알려드려요."
+    },
+    "dashboard": {
+      "greeting": "오늘도 좋은 하루예요"
+    },
+    "emptyStates": {
+      "noRoutinesToday": "오늘은 예정된 루틴이 없어요.",
+      "noRoutinesYet": "아직 등록된 루틴이 없어요."
+    }
+  },
+  "features": {
+    "greetingIcon": true,
+    "onboardingNotificationGuide": true
+  }
+}

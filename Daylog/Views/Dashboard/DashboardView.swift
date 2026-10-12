@@ -148,6 +148,7 @@ struct StartHint: View {
 /// 제목과 날짜 이동을 한 줄에 둔다. 좁으면 두 줄로 내려간다.
 struct DashboardHeader: View {
     @Environment(AppStore.self) private var store
+    @Environment(\.mobileUI) private var ui
     @Binding var isEditing: Bool
 
     var body: some View {
@@ -219,9 +220,9 @@ struct DashboardHeader: View {
                 .monospacedDigit()
                 .foregroundStyle(.secondary)
             HStack(spacing: 6) {
-                Text(store.isViewingToday ? "오늘도 좋은 하루예요" : "\(store.selectedDay.shortTitle)의 기록")
+                Text(verbatim: store.isViewingToday ? ui.string(.dashboardGreeting) : "\(store.selectedDay.shortTitle)의 기록")
                     .font(.system(size: 24, weight: .bold))
-                if store.isViewingToday {
+                if store.isViewingToday, ui.showsGreetingIcon {
                     Image(systemName: "sun.max.fill")
                         .font(.system(size: 18))
                         .foregroundStyle(GroupColor.yellow.color)

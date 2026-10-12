@@ -13,6 +13,8 @@ final class DevicePreferences {
     static let layoutVersionKey = "device.dashboard.layoutVersion"
     static let onboardingKey = "device.onboardingCompleted"
     static let weekStartKey = "device.weekStart"
+    /// 사용자가 대시보드 배치(순서·숨김·열)를 직접 바꿨는지. 바꿨으면 원격 기본값이 덮어쓰지 않는다.
+    static let customizedKey = "device.dashboard.customized"
     /// 대시보드 배치의 형식 번호. 2 = 두 열 배치(휴가·달성 현황·내일 할 일 카드가 생김).
     /// 이보다 낮은(또는 없는) 저장값은 예전 한 열 배치라 기본 배치로 되돌린다.
     static let layoutVersion = 2
@@ -27,6 +29,11 @@ final class DevicePreferences {
     /// 두 열 배치에서 왼쪽 열에 두는 카드. 나머지는 오른쪽.
     private(set) var leftCards: Set<DashboardCard>
     private(set) var onboardingCompleted: Bool
+    /// 사용자가 배치를 직접 바꾼 적이 있다. 이 값이 false인 동안에만 기본 배치(내장·원격)가 그대로 따라온다.
+    private(set) var isLayoutCustomized: Bool
+    /// 원격 설정이 준 기본 배치(iPhone·iPad). 없으면 내장 기본값을 쓴다.
+    @ObservationIgnored private var remoteDefaultOrder: [DashboardCard]?
+    @ObservationIgnored private var remoteDefaultHidden: Set<DashboardCard>?
     /// 달력의 한 주가 시작하는 요일. 기본은 월요일.
     private(set) var weekStart: WeekStart
 
@@ -36,6 +43,7 @@ final class DevicePreferences {
         mealsEnabled = defaults.object(forKey: Self.mealsKey) as? Bool ?? true
         onboardingCompleted = defaults.object(forKey: Self.onboardingKey) as? Bool ?? false
         weekStart = defaults.string(forKey: Self.weekStartKey).flatMap(WeekStart.init(rawValue:)) ?? .monday
+        isLayoutCustomized = false
         if defaults.integer(forKey: Self.layoutVersionKey) >= Self.layoutVersion {
             cardOrder = DashboardCard.normalizedOrder(defaults.stringArray(forKey: Self.orderKey) ?? [])
             hiddenCards = Set((defaults.stringArray(forKey: Self.hiddenKey) ?? []).compactMap(DashboardCard.init(rawValue:)))
@@ -46,7 +54,36 @@ final class DevicePreferences {
             hiddenCards = DashboardCard.defaultHidden
             leftCards = DashboardCard.defaultLeft
             saveLayout()
+            return
         }
+        if let stored = defaults.object(forKey: Self.customizedKey) as? Bool {
+            isLayoutCustomized = stored
+        } else {
+            // 이 표시가 생기기 전에 저장된 배치: 내장 기본 배치와 다르면 사용자가 바꾼 것으로 본다.
+            isLayoutCustomized = cardOrder != DashboardCard.defaultOrder(phone: isPhone)
+                || hiddenCards != DashboardCard.defaultHidden || leftCards != DashboardCard.defaultLeft
+            defaults.set(isLayoutCustomized, forKey: Self.customizedKey)
+        }
+    }
+
+    /// 기본 배치: 원격 설정이 준 것이 있으면 그것, 없으면 내장값. 순서는 iPhone(한 열)에서만 원격 값을 따른다.
+    private var defaultOrder: [DashboardCard] {
+        isPhone ? (remoteDefaultOrder ?? DashboardCard.defaultOrder(phone: true)) : DashboardCard.defaultOrder(phone: false)
+    }
+
+    private var defaultHidden: Set<DashboardCard> { remoteDefaultHidden ?? DashboardCard.defaultHidden }
+
+    /// 원격 설정의 기본 배치를 받는다. 사용자가 배치를 바꾼 적이 없을 때만 지금 배치에 반영한다.
+    /// 사용자가 바꾼 배치는 건드리지 않고, [기본 배치 복원]을 누를 때 쓸 기본값으로만 기억한다.
+    func applyRemoteDefaults(order: [String]?, hidden: [String]?) {
+        remoteDefaultOrder = order.map(DashboardCard.normalizedOrder)
+        remoteDefaultHidden = hidden.map { Set($0.compactMap(DashboardCard.init(rawValue:))).subtracting([.routines]) }
+        guard !isLayoutCustomized else { return }
+        let order = defaultOrder, hidden = defaultHidden
+        guard order != cardOrder || hidden != hiddenCards else { return }
+        cardOrder = order
+        hiddenCards = hidden
+        saveLayout()
     }
 
     var visibleCards: [DashboardCard] {
@@ -93,6 +130,7 @@ final class DevicePreferences {
     func setVisible(_ visible: Bool, card: DashboardCard) {
         guard card != .routines else { return }
         if visible { hiddenCards.remove(card) } else { hiddenCards.insert(card) }
+        markCustomized()
         saveLayout()
     }
 
@@ -100,12 +138,14 @@ final class DevicePreferences {
     func move(_ card: DashboardCard, by offset: Int) {
         guard let index = cardOrder.firstIndex(of: card), cardOrder.indices.contains(index + offset) else { return }
         cardOrder.swapAt(index, index + offset)
+        markCustomized()
         saveLayout()
     }
 
     func setColumn(_ column: DashboardColumn, for card: DashboardCard) {
         guard !card.spansFullWidth else { return }
         if column == .left { leftCards.insert(card) } else { leftCards.remove(card) }
+        markCustomized()
         saveLayout()
     }
 
@@ -117,6 +157,7 @@ final class DevicePreferences {
         order.insert(card, at: index)
         cardOrder = order
         if leftCards.contains(target) { leftCards.insert(card) } else { leftCards.remove(card) }
+        markCustomized()
         saveLayout()
     }
 
@@ -125,6 +166,7 @@ final class DevicePreferences {
         guard !card.spansFullWidth else { return }
         cardOrder = cardOrder.filter { $0 != card } + [card]
         if column == .left { leftCards.insert(card) } else { leftCards.remove(card) }
+        markCustomized()
         saveLayout()
     }
 
@@ -140,11 +182,17 @@ final class DevicePreferences {
         place(column[index + 1], before: card)
     }
 
+    /// 기본 배치로 되돌린다. 이후로는 다시 기본 배치(원격 설정이 바꾸면 그것)를 따른다.
     func restoreDashboard() {
-        cardOrder = DashboardCard.defaultOrder(phone: isPhone)
-        hiddenCards = DashboardCard.defaultHidden
+        cardOrder = defaultOrder
+        hiddenCards = defaultHidden
         leftCards = DashboardCard.defaultLeft
+        isLayoutCustomized = false
         saveLayout()
+    }
+
+    private func markCustomized() {
+        isLayoutCustomized = true
     }
 
     func completeOnboarding() {
@@ -157,6 +205,7 @@ final class DevicePreferences {
         defaults.set(hiddenCards.map(\.rawValue).sorted(), forKey: Self.hiddenKey)
         defaults.set(leftCards.map(\.rawValue).sorted(), forKey: Self.leftKey)
         defaults.set(Self.layoutVersion, forKey: Self.layoutVersionKey)
+        defaults.set(isLayoutCustomized, forKey: Self.customizedKey)
     }
 }
 

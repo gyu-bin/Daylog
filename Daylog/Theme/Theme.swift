@@ -6,7 +6,8 @@ import SwiftUI
 /// 루틴 그룹 = 사용자가 고른 색. 일반 버튼과 본문 글자에는 색을 입히지 않는다.
 enum Theme {
     /// 앱의 기본 포인트 컬러(민트). 선택 상태와 주요 동작에만 쓴다.
-    static let accent = GroupColor.mint.color
+    /// iPhone·iPad에서는 원격 UI 설정이 허용된 색 가운데 하나로 바꿀 수 있고, 앱을 켤 때의 값으로 정해진다.
+    static let accent = MobileUIConfigCache.atLaunch.accent.color
     /// 포인트 컬러 위에 올리는 글자·기호. 다크 모드의 밝은 색 위에서는 어두운 색이어야 읽힌다.
     static let onAccent = GroupColor.onAccent
     /// 기준 미만인 날처럼 한 단계 약한 강조.

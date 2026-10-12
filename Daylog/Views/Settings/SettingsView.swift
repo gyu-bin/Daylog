@@ -75,24 +75,47 @@ struct SettingsView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @State private var selected: SettingsCategory = SettingsView.initialCategory
     /// 좁은 화면에서 들어가 있는 갈래. nil이면 갈래 목록.
-    @State private var compactSelection: SettingsCategory?
+    @State private var compactSelection: SettingsCategory? = SettingsView.debugCategory
+    #if os(iOS)
+    @State private var availableWidth: CGFloat = 0
+    #endif
 
     /// 처음 보여 줄 갈래. 개발 중 화면 검증용으로 `-DaylogDebugSettings about`처럼 바꿀 수 있다.
-    private static var initialCategory: SettingsCategory {
+    private static var initialCategory: SettingsCategory { debugCategory ?? .sync }
+
+    private static var debugCategory: SettingsCategory? {
         #if DEBUG
-        if let name = UserDefaults.standard.string(forKey: "DaylogDebugSettings"),
-           let category = SettingsCategory(rawValue: name) { return category }
+        if let name = UserDefaults.standard.string(forKey: "DaylogDebugSettings") { return SettingsCategory(rawValue: name) }
         #endif
-        return .sync
+        return nil
     }
 
     var body: some View {
-        if horizontalSizeClass == .compact {
-            compactSettings
-        } else {
-            wideSettings
+        Group {
+            if usesListThenDetail {
+                compactSettings
+            } else {
+                wideSettings
+            }
         }
+        #if os(iOS)
+        .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { availableWidth = $0 }
+        #endif
     }
+
+    /// 목록에서 들어가는 방식을 쓸지. iPhone과 좁은 창은 늘 그렇고, iPad도 두 칸을 나란히 놓기에 좁으면(세로 방향,
+    /// 작게 줄인 창) 그렇게 한다. 그러지 않으면 오른쪽 칸이 너무 좁아 글자가 세로로 쪼개진다. macOS는 늘 두 칸이다.
+    private var usesListThenDetail: Bool {
+        if horizontalSizeClass == .compact { return true }
+        #if os(iOS)
+        return availableWidth > 0 && availableWidth < Self.twoPaneMinimumWidth
+        #else
+        return false
+        #endif
+    }
+
+    /// 갈래 목록(280)과 상세(최소 360), 사이와 바깥 여백을 합친 너비.
+    static let twoPaneMinimumWidth: CGFloat = 700
 
     // MARK: - 넓은 창
 
@@ -276,6 +299,8 @@ struct SettingsView: View {
             .accessibilityElement(children: .combine)
             #if os(macOS)
             UpdateSettingsRow(currentVersion: Self.version)
+            #else
+            MobileUIConfigRow()
             #endif
             OnboardingReplayButton()
         } header: {

@@ -426,6 +426,19 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 - macOS 검증 번들: 사이드바·대시보드 그대로.
 - 하지 못한 것: 실기기, iPad에서 [알림 켜기] 뒤의 시스템 창, 이미 거부된 상태에서 시작 안내를 다시 여는 화면(규칙은 단위 테스트), 큰 글씨에서의 3단계 화면, 실제 알림 도착.
 
+## 모바일 OTA: iPhone·iPad 원격 UI 설정 (2026-10-12)
+
+자세한 내용은 [MOBILE_OTA.md](MOBILE_OTA.md). **아무것도 게시하지 않았다**(Production·Development 주소 모두 비어 있고, 앱은 내장 기본값을 쓴다). TestFlight도 올리지 않았다. macOS는 그대로다.
+
+- 원격 JSON(`RemoteConfig/mobile-ui.json`)으로 미리 만들어 둔 표시 설정만 바꾼다: 대시보드 기본 카드 배치·간격·여백, 허용된 강조 색, 카드 스타일 세 가지, 문구 여섯 개, 표시 두 가지. 코드·기록·동기화·개인 설정은 바꿀 수 없다.
+- 주소: GitHub 릴리스 자산(Production `mobile-config`, Development `mobile-config-dev`). push만으로는 적용되지 않고 `Tools/mobile-config.sh publish --confirm <버전>`을 실행해야 바뀐다(승인 필요).
+- 앱: `MobileUIConfigStore`가 실행·복귀 때(1시간 간격)와 [UI 설정 새로고침] 때 ETag로 확인한다. 크기·형식·앱 빌드·허용값을 검사하고, 마지막 유효 설정을 캐시에 둔다. 스스로 받은 설정은 다음 실행 때, 직접 새로고침한 설정은 바로 적용한다. 강조 색은 다시 열 때 바뀐다.
+- 사용자 우선: 카드 배치를 직접 바꾼 기기는 원격 기본 배치가 건드리지 않는다(`DevicePreferences.isLayoutCustomized`, 새 키 `device.dashboard.customized`). 이전에 저장된 배치는 내장 기본값과 다르면 사용자 것으로 본다.
+- 함께 고친 것: iPad 설정 화면에서 두 칸을 놓기에 좁으면(세로 방향, 줄인 창) 오른쪽 칸의 글자가 세로로 쪼개졌다 → 그 폭에서는 목록에서 들어가는 방식으로 바꿨다(macOS는 그대로 두 칸).
+- 공용 코드의 변화: `Card`의 기본 안쪽 여백과 테두리를 환경값(`mobileUI`)에서 읽는다. macOS에서는 늘 내장값(18, 옅은 테두리)이라 모습이 같다.
+- 검증: 단위 테스트 16개 추가(전체 395개 통과). 이 Mac의 시험 서버와 iPhone 17 Pro·iPad 시뮬레이터로 변경 → 즉시 반영 → 재실행 유지 → 오프라인 → 잘못된 파일 거부 → 되돌리기 → 사용자 배치 우선 → 다음 실행 때 적용을 확인했다. 캡처는 `docs/mobile-ota/`.
+- 하지 못한 것: 실제 주소로 받기와 `publish`·`rollback` 실행(게시 전), 실기기, Release 빌드에서의 동작.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.

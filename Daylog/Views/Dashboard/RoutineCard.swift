@@ -5,6 +5,7 @@ import SwiftUI
 struct RoutineCard: View {
     @Environment(AppStore.self) var store
     @Environment(CloudSyncMonitor.self) private var sync
+    @Environment(\.mobileUI) private var ui
     /// 접어 둔 그룹의 ID(쉼표로 이어 붙인 문자열). 이 Mac에만 저장된다.
     @Environment(\.accessibilityReduceMotion) var reduceMotion
     @AppStorage("collapsedGroupIDs") var collapsedGroupIDs = ""
@@ -159,13 +160,13 @@ struct RoutineCard: View {
         } else if store.isViewingToday, !store.hasRoutines {
             // 그룹이나 루틴이 아직 없다. 만드는 곳(루틴 관리)으로 안내한다.
             EmptyHint(
-                symbol: "checklist", message: "아직 등록된 루틴이 없어요.", tint: Theme.accent,
+                symbol: "checklist", message: ui.string(.emptyNoRoutinesYet), tint: Theme.accent,
                 actionTitle: "루틴 관리에서 추가하기"
             ) {
                 store.section = .routines
             }
         } else if store.isViewingToday {
-            EmptyHint(symbol: "cup.and.saucer", message: "오늘은 예정된 루틴이 없어요.")
+            EmptyHint(symbol: "cup.and.saucer", message: ui.string(.emptyNoRoutinesToday))
         } else {
             EmptyHint(symbol: "calendar", message: "이 날짜에는 예정된 루틴이 없었어요.")
         }

@@ -7,10 +7,11 @@ struct TodayCompactView: View {
     @Environment(DevicePreferences.self) private var preferences
     /// 대시보드 편집 중: 카드를 끌어 옮기고 숨긴다. 그동안 카드 안의 체크·입력은 눌리지 않는다.
     @State private var isEditing = false
+    @Environment(\.mobileUI) private var ui
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: Theme.spacing) {
+            VStack(alignment: .leading, spacing: ui.cardSpacing) {
                 header
                 if isEditing {
                     DashboardEditBar(isEditing: $isEditing)
@@ -87,11 +88,11 @@ struct TodayCompactView: View {
                         .monospacedDigit()
                         .foregroundStyle(.secondary)
                     HStack(spacing: 6) {
-                        Text(store.isViewingToday ? "오늘도 좋은 하루예요" : "\(store.selectedDay.shortTitle)의 기록")
+                        Text(verbatim: store.isViewingToday ? ui.string(.dashboardGreeting) : "\(store.selectedDay.shortTitle)의 기록")
                             .font(.title3.weight(.bold))
                             .lineLimit(1)
                             .minimumScaleFactor(0.8)
-                        if store.isViewingToday {
+                        if store.isViewingToday, ui.showsGreetingIcon {
                             Image(systemName: "sun.max.fill")
                                 .foregroundStyle(GroupColor.yellow.color)
                                 .accessibilityHidden(true)
@@ -239,11 +240,7 @@ struct NextRoutineCard: View {
         }
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous))
-        .overlay(
-            RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
-                .strokeBorder(Theme.cardBorder, lineWidth: 1)
-        )
+        .cardChrome(RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous))
     }
 }
 

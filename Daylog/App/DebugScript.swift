@@ -109,6 +109,24 @@ enum DebugScript {
         case "forgetUpdateCheck":
             // Sparkle이 기억한 마지막 확인 시각을 지운다. 다음 실행 때 바로 다시 확인한다(업데이트 시험용).
             UserDefaults.standard.removeObject(forKey: "SULastCheckTime")
+        #if os(iOS)
+        case "refreshUIConfig":
+            // 원격 UI 설정을 지금 받아 적용한다([UI 설정 새로고침]과 같다).
+            await MobileUIConfigStore.shared.refreshNow()
+            logUIConfig()
+        case "activateUIConfig":
+            // 앱을 열었을 때와 같은 확인(받은 설정은 다음 실행 때 적용된다).
+            await MobileUIConfigStore.shared.activate()
+            logUIConfig()
+        case "forgetUIConfigCheck":
+            // 마지막 확인 시각을 잊는다(다음 activate가 1시간 간격과 상관없이 확인한다).
+            MobileUIConfigStore.shared.forgetLastCheckForTesting()
+        case "dumpUIConfig":
+            logUIConfig()
+        #endif
+        case "restoreDashboard":
+            // 대시보드를 기본 배치로 되돌린다(이후 기본 배치를 따른다).
+            DevicePreferences.shared.restoreDashboard()
         case "onboardingDone":
             // 시작 안내를 본 것으로 한다. 안내 시트가 떠 있으면 화면 검증과 정상 종료가 막힌다.
             DevicePreferences.shared.completeOnboarding()
@@ -164,6 +182,18 @@ enum DebugScript {
         }
         log("TIMEOUT \(name) \(Int(timeout))s")
     }
+
+    #if os(iOS)
+    /// 원격 UI 설정의 상태 한 줄: 적용된 버전, 대기 중인 버전, 마지막 결과, 지금의 카드 배치.
+    private static func logUIConfig() {
+        let config = MobileUIConfigStore.shared
+        let preferences = DevicePreferences.shared
+        log("UICONFIG applied=\(config.settings.configVersion) pending=\(config.pending.map { String($0.configVersion) } ?? "-") "
+            + "outcome=\(config.lastOutcome.map { "\($0)" } ?? "-") spacing=\(config.settings.cardSpacing) padding=\(config.settings.cardPadding) "
+            + "style=\(config.settings.cardStyle.rawValue) accent=\(config.settings.accent.rawValue) greeting=\(config.settings.string(.dashboardGreeting)) "
+            + "customized=\(preferences.isLayoutCustomized) visible=\(preferences.visibleCards.map(\.rawValue).joined(separator: ","))")
+    }
+    #endif
 
     private static func dump(label: String, store: AppStore, sync: CloudSyncMonitor, container: ModelContainer) {
         let context = container.mainContext

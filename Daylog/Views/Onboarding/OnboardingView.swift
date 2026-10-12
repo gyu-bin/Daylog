@@ -8,6 +8,7 @@ struct OnboardingView: View {
     @State private var step = OnboardingStep.introduction
     @State private var draft = OnboardingRoutineDraft()
     @State private var didCreate = false
+    @Environment(\.mobileUI) private var ui
     #if os(iOS)
     @Environment(RoutineNotifications.self) private var notifications
     /// [알림 켜기]를 누른 뒤의 결과. 누르기 전에는 nil.
@@ -78,7 +79,7 @@ struct OnboardingView: View {
     @ViewBuilder
     private var readyButtons: some View {
         #if os(iOS)
-        if notificationOffer == .ask, notificationResult == nil {
+        if showsNotificationGuide, notificationOffer == .ask, notificationResult == nil {
             Button("나중에", action: finish)
                 .disabled(isRequestingNotifications)
                 .accessibilityHint("알림 권한을 묻지 않고 오늘 화면으로 갑니다. 설정에서 나중에 켤 수 있어요.")
@@ -95,7 +96,7 @@ struct OnboardingView: View {
 
     private var introduction: some View {
         VStack(alignment: .leading, spacing: 18) {
-            Text("작은 루틴부터, 나만의 하루를.").font(.title2.bold())
+            Text(verbatim: ui.string(.onboardingIntroTitle)).font(.title2.bold())
             Label("그룹으로 루틴을 정리하고 매일 체크해요.", systemImage: "checklist")
             Label("휴가는 통계에서 제외하고 기록은 보관해요.", systemImage: "sun.max")
             Label("식사 표시와 오늘 화면은 설정에서 바꿀 수 있어요.", systemImage: "slider.horizontal.3")
@@ -158,6 +159,11 @@ struct OnboardingView: View {
         OnboardingNotificationOffer.resolve(permission: notifications.permission, isEnabled: notifications.isEnabled)
     }
 
+    /// 알림 안내를 보여 줄지: 권한 상태를 알고 있고, 원격 UI 설정에서 꺼 두지 않았을 때.
+    private var showsNotificationGuide: Bool {
+        ui.showsOnboardingNotificationGuide && notificationOffer != .unavailable
+    }
+
     /// 예정 시간이 시각으로 적혀 있어 알림이 울릴 수 있는 루틴의 수.
     private var timedRoutineCount: Int {
         store.activeRoutines.filter { TimeLabel.minutes($0.timeLabel) != nil }.count
@@ -166,11 +172,15 @@ struct OnboardingView: View {
     /// 알림 안내. 권한 상태를 아직 모르면 아무것도 보여 주지 않는다.
     @ViewBuilder
     private var notificationGuide: some View {
-        if notificationOffer != .unavailable {
+        if showsNotificationGuide {
             VStack(alignment: .leading, spacing: 6) {
-                Label("루틴 시간을 놓치지 마세요", systemImage: "bell.badge")
-                    .font(.headline)
-                Text("설정한 시간에 Daylog가 알려드려요.")
+                Label {
+                    Text(verbatim: ui.string(.onboardingNotificationTitle))
+                } icon: {
+                    Image(systemName: "bell.badge")
+                }
+                .font(.headline)
+                Text(verbatim: ui.string(.onboardingNotificationBody))
                     .font(.callout)
                     .foregroundStyle(.secondary)
                 if let notificationResult {

@@ -67,10 +67,7 @@ struct VacationDayCard: View {
         }
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .topLeading)
-        .background(Theme.cardBackground, in: shape)
-        // 휴가인 날은 카드 전체를 옅은 휴가 색으로 덮어 한눈에 알아보게 한다.
-        .background(status.isActive ? tint.opacity(0.13) : .clear, in: shape)
-        .overlay(shape.strokeBorder(status.isActive ? tint.opacity(0.45) : Theme.cardBorder, lineWidth: 1))
+        .modifier(VacationCardSurface(isActive: status.isActive, tint: tint, shape: shape))
         .sheet(item: $editing) { VacationEditorSheet(target: $0) }
         .sheet(isPresented: $managing) { VacationManagementView() }
         .accessibilityElement(children: .contain)
@@ -127,6 +124,24 @@ struct VacationDayCard: View {
         }
         .buttonStyle(.plain)
         .accessibilityHint("누르면 기간을 고치거나 해제합니다.")
+    }
+}
+
+/// 휴가 카드의 바탕. 휴가인 날은 옅은 휴가 색과 테두리로 한눈에 알아보게 하고, 그 밖에는 여느 카드와 같다.
+private struct VacationCardSurface: ViewModifier {
+    let isActive: Bool
+    let tint: Color
+    let shape: RoundedRectangle
+
+    func body(content: Content) -> some View {
+        if isActive {
+            content
+                .background(Theme.cardBackground, in: shape)
+                .background(tint.opacity(0.13), in: shape)
+                .overlay(shape.strokeBorder(tint.opacity(0.45), lineWidth: 1))
+        } else {
+            content.cardChrome(shape)
+        }
     }
 }
 

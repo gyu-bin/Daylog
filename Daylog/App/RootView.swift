@@ -16,6 +16,9 @@ struct RootView: View {
     @State private var showsSplash = SplashPolicy.claim()
     /// 스플래시가 걷히기 시작했다. 이때부터 시작 안내가 올라올 수 있다.
     @State private var splashIsLeaving = false
+    /// 원격 UI 설정(iPhone·iPad 전용). 화면 값은 환경으로 내려보낸다.
+    @State private var uiConfig = MobileUIConfigStore.shared
+    @Environment(\.scenePhase) private var scenePhase
     #endif
 
     var body: some View {
@@ -41,6 +44,16 @@ struct RootView: View {
             // 위젯을 눌러 들어온 링크.
             .onOpenURL { url in
                 AppRuntime.shared?.open(url)
+            }
+            // 원격 UI 설정: 화면 값은 환경으로 내려보내고, 앱을 열거나 돌아올 때 받아 둔 설정을 적용한 뒤 새로 확인한다.
+            .environment(\.mobileUI, uiConfig.settings)
+            .environment(uiConfig)
+            .onChange(of: scenePhase, initial: true) { _, phase in
+                if phase == .active { Task { await uiConfig.activate() } }
+            }
+            // 기본 카드 배치는 사용자가 배치를 바꾼 적이 없을 때만 따라간다(DevicePreferences가 판단한다).
+            .onChange(of: RemoteLayoutDefaults(uiConfig.settings), initial: true) { _, defaults in
+                preferences.applyRemoteDefaults(order: defaults.order, hidden: defaults.hidden)
             }
             #endif
     }
@@ -120,6 +133,19 @@ struct RootView: View {
     }
 }
 
+#if os(iOS)
+/// 원격 설정의 기본 카드 배치만 떼어 낸 값(이 부분이 바뀔 때만 반영하려고).
+private struct RemoteLayoutDefaults: Equatable {
+    let order: [String]?
+    let hidden: [String]?
+
+    init(_ settings: MobileUISettings) {
+        order = settings.defaultCardOrder
+        hidden = settings.defaultHiddenCards
+    }
+}
+#endif
+
 /// 메뉴 하나에 해당하는 화면.
 struct SectionContent: View {
     @Environment(DevicePreferences.self) private var preferences
@@ -183,7 +209,7 @@ struct TabNavigation: View {
             ForEach(preferences.navigationSections(phone: true)) { section in
                 SectionContent(section: section)
                     // 탭 막대에 건 메뉴 색이 화면 안의 단추·스위치까지 물들이지 않게, 내용에는 앱의 강조색을 되돌려 둔다.
-                    .tint(Color("AccentColor"))
+                    .tint(Theme.accent)
                     .tabItem {
                         // 사이드바와 같은 메뉴 색. 고른 탭은 채운 아이콘과 진한 색, 나머지는 선 아이콘과 한 단계 옅은 색.
                         Label {

@@ -158,6 +158,13 @@ Tools/update.sh               # 내 Mac 교체 → 공증 → DMG + appcast 게�
 Tools/update-test.sh prepare  # 실제 앱과 분리된 업데이트 설치 시험 준비
 ```
 
+**iPhone·iPad의 화면 설정(원격)** — 카드 기본 배치, 간격, 문구 같은 표시 설정을 앱 재설치 없이 바꾸는 장치예요. 파일은 `RemoteConfig/mobile-ui.json`, 게시는 따로 실행해야 해요. [모바일 UI 설정](docs/MOBILE_OTA.md)
+
+```bash
+Tools/mobile-config.sh validate   # 검사
+Tools/mobile-config.sh preview    # 게시된 설정과의 차이
+```
+
 **알아 둘 점**
 
 - 내려받은 앱(DMG)과 Xcode로 빌드한 앱은 서로 다른 iCloud 환경(Production / Development)을 써서 둘 사이에는 동기화되지 않아요. 어느 쪽인지는 설정의 **iCloud 환경**에 나와요.
