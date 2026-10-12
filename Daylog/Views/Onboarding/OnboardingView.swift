@@ -8,6 +8,12 @@ struct OnboardingView: View {
     @State private var step = OnboardingStep.introduction
     @State private var draft = OnboardingRoutineDraft()
     @State private var didCreate = false
+    #if os(iOS)
+    @Environment(RoutineNotifications.self) private var notifications
+    /// [알림 켜기]를 누른 뒤의 결과. 누르기 전에는 nil.
+    @State private var notificationResult: OnboardingNotificationResult?
+    @State private var isRequestingNotifications = false
+    #endif
 
     var body: some View {
         VStack(alignment: .leading, spacing: 22) {
@@ -53,7 +59,7 @@ struct OnboardingView: View {
                         .buttonStyle(.borderedProminent)
                         .disabled(draft.validationMessage != nil)
                 case .ready:
-                    Button("오늘 시작하기", action: finish).buttonStyle(.borderedProminent)
+                    readyButtons
                 }
             }
         }
@@ -62,6 +68,29 @@ struct OnboardingView: View {
         .frame(idealWidth: 520, maxWidth: 600, minHeight: 400, idealHeight: 460)
         .interactiveDismissDisabled()
         .keyboardDoneBar()
+        #if os(iOS)
+        // 안내를 보여 주기 위해 지금 상태만 읽는다. 권한은 [알림 켜기]를 눌렀을 때만 묻는다.
+        .task { await notifications.refreshPermission() }
+        #endif
+    }
+
+    /// 3단계의 아래 단추. 알림을 켤 수 있는 상태면 [나중에] [알림 켜기], 그 밖에는 [오늘 시작하기].
+    @ViewBuilder
+    private var readyButtons: some View {
+        #if os(iOS)
+        if notificationOffer == .ask, notificationResult == nil {
+            Button("나중에", action: finish)
+                .disabled(isRequestingNotifications)
+                .accessibilityHint("알림 권한을 묻지 않고 오늘 화면으로 갑니다. 설정에서 나중에 켤 수 있어요.")
+            Button("알림 켜기", action: enableNotifications)
+                .buttonStyle(.borderedProminent)
+                .disabled(isRequestingNotifications)
+        } else {
+            Button("오늘 시작하기", action: finish).buttonStyle(.borderedProminent)
+        }
+        #else
+        Button("오늘 시작하기", action: finish).buttonStyle(.borderedProminent)
+        #endif
     }
 
     private var introduction: some View {
@@ -118,8 +147,76 @@ struct OnboardingView: View {
             Text(store.activeRoutines.isEmpty ? "루틴은 루틴 화면에서 언제든 추가할 수 있어요." : "오늘 화면에서 루틴을 체크하며 시작해 보세요.")
             Text("오늘 화면의 카드는 순서를 바꾸거나 숨길 수 있어요.")
                 .font(.callout).foregroundStyle(.secondary)
+            #if os(iOS)
+            notificationGuide
+            #endif
         }
     }
+
+    #if os(iOS)
+    private var notificationOffer: OnboardingNotificationOffer {
+        OnboardingNotificationOffer.resolve(permission: notifications.permission, isEnabled: notifications.isEnabled)
+    }
+
+    /// 예정 시간이 시각으로 적혀 있어 알림이 울릴 수 있는 루틴의 수.
+    private var timedRoutineCount: Int {
+        store.activeRoutines.filter { TimeLabel.minutes($0.timeLabel) != nil }.count
+    }
+
+    /// 알림 안내. 권한 상태를 아직 모르면 아무것도 보여 주지 않는다.
+    @ViewBuilder
+    private var notificationGuide: some View {
+        if notificationOffer != .unavailable {
+            VStack(alignment: .leading, spacing: 6) {
+                Label("루틴 시간을 놓치지 마세요", systemImage: "bell.badge")
+                    .font(.headline)
+                Text("설정한 시간에 Daylog가 알려드려요.")
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
+                if let notificationResult {
+                    Label(notificationResult.message, systemImage: notificationResult.symbol)
+                        .font(.callout)
+                        .foregroundStyle(notificationResult == .denied ? AnyShapeStyle(.orange) : AnyShapeStyle(Theme.accent))
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(.top, 2)
+                } else {
+                    switch notificationOffer {
+                    case .ask:
+                        Text("시간을 정한 루틴만 알려요. 지금 켜지 않아도 설정 → 알림에서 언제든 켤 수 있어요.")
+                            .font(.caption).foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    case .alreadyOn:
+                        Label("이 기기에서 루틴 알림이 켜져 있어요.", systemImage: "checkmark.circle")
+                            .font(.callout).foregroundStyle(Theme.accent)
+                    case .blocked:
+                        Text("지금은 \(Platform.thisDevice)의 설정에서 Daylog의 알림이 꺼져 있어요. 설정 앱에서 허용하면 설정 → 알림에서 켤 수 있어요.")
+                            .font(.caption).foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    case .unavailable:
+                        EmptyView()
+                    }
+                }
+            }
+            .padding(14)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Theme.inset, in: RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous))
+            .accessibilityElement(children: .combine)
+        }
+    }
+
+    /// [알림 켜기]: 여기서만 시스템 권한을 묻는다. 허용되면 이 기기의 루틴 알림을 켜고 예약을 맞춘다.
+    /// 루틴별 알림 끄기 설정은 건드리지 않는다. 결과를 보여 주고, [오늘 시작하기]로 오늘 화면에 간다.
+    private func enableNotifications() {
+        guard !isRequestingNotifications else { return }
+        isRequestingNotifications = true
+        Task {
+            await notifications.setEnabled(true)
+            AppRuntime.shared?.scheduleRefresh()
+            notificationResult = .resolve(permission: notifications.permission, timedRoutines: timedRoutineCount)
+            isRequestingNotifications = false
+        }
+    }
+    #endif
 
     private func createRoutineFromDraft() {
         guard draft.validationMessage == nil else { return }

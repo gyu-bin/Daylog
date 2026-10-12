@@ -182,6 +182,8 @@ struct TabNavigation: View {
         TabView(selection: selection) {
             ForEach(preferences.navigationSections(phone: true)) { section in
                 SectionContent(section: section)
+                    // 탭 막대에 건 메뉴 색이 화면 안의 단추·스위치까지 물들이지 않게, 내용에는 앱의 강조색을 되돌려 둔다.
+                    .tint(Color("AccentColor"))
                     .tabItem {
                         // 사이드바와 같은 메뉴 색. 고른 탭은 채운 아이콘과 진한 색, 나머지는 선 아이콘과 한 단계 옅은 색.
                         Label {
@@ -195,7 +197,7 @@ struct TabNavigation: View {
             }
         }
         // 고른 탭의 글자색(아이콘은 위에서 직접 칠한다).
-        .tint(current.selectedInk)
+        .tint(current.navigationInk)
     }
 
     private var selection: Binding<AppStore.Section> {
@@ -233,7 +235,7 @@ enum TabIcon {
     static func color(_ section: AppStore.Section, isSelected: Bool, isDark: Bool) -> UIColor {
         let traits = UITraitCollection(userInterfaceStyle: isDark ? .dark : .light)
         // 고른 탭은 글자와 같은 진한 색, 나머지는 메뉴 색을 옅게.
-        let base = UIColor(isSelected ? section.selectedInk : section.tint).resolvedColor(with: traits)
+        let base = UIColor(isSelected ? section.navigationInk : section.navigationTint).resolvedColor(with: traits)
         return isSelected ? base : base.withAlphaComponent(unselectedOpacity)
     }
 

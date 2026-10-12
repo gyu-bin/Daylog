@@ -104,11 +104,11 @@ private struct SidebarRow: View {
             HStack(spacing: 10) {
                 Image(systemName: isSelected ? section.filledSymbol : section.symbol)
                     .font(.system(size: 14, weight: isSelected ? .semibold : .regular))
-                    .foregroundStyle(isSelected ? AnyShapeStyle(section.tint) : Self.unselectedIconStyle(section))
+                    .foregroundStyle(isSelected ? AnyShapeStyle(section.navigationTint) : Self.unselectedIconStyle(section))
                     .frame(width: 22)
                 Text(section.title)
                     .font(.system(size: 14, weight: isSelected ? .semibold : .regular))
-                    .foregroundStyle(isSelected ? AnyShapeStyle(section.selectedInk) : AnyShapeStyle(.primary))
+                    .foregroundStyle(isSelected ? AnyShapeStyle(section.navigationInk) : AnyShapeStyle(.primary))
                     .lineLimit(1)
                 Spacer(minLength: 0)
             }
@@ -125,7 +125,7 @@ private struct SidebarRow: View {
     }
 
     private var rowBackground: Color {
-        if isSelected { return section.tint.opacity(0.16) }
+        if isSelected { return section.navigationTint.opacity(0.16) }
         return isHovered ? Theme.track : .clear
     }
 
@@ -136,7 +136,7 @@ private struct SidebarRow: View {
         #if os(macOS)
         AnyShapeStyle(.secondary)
         #else
-        AnyShapeStyle(section.tint.opacity(TabIcon.unselectedOpacity + 0.2))
+        AnyShapeStyle(section.navigationTint.opacity(TabIcon.unselectedOpacity + 0.2))
         #endif
     }
 }
@@ -167,6 +167,37 @@ extension AppStore.Section {
         case .settings: return GroupColor.blue.ink
         }
     }
+
+    /// 내비게이션(사이드바·아래 탭)에서 쓰는 메뉴 색.
+    /// macOS는 화면 안의 색과 같다(`tint`). iPhone·iPad는 식사를 코랄, 설정을 중립 회색으로 둔다.
+    var navigationTint: Color {
+        #if os(macOS)
+        tint
+        #else
+        switch self {
+        case .meals: return GroupColor.coral.color
+        case .settings: return Self.neutralTint
+        default: return tint
+        }
+        #endif
+    }
+
+    /// 고른 메뉴의 글자색(내비게이션용).
+    var navigationInk: Color {
+        #if os(macOS)
+        selectedInk
+        #else
+        switch self {
+        case .meals: return GroupColor.coral.ink
+        case .settings: return Self.neutralInk
+        default: return selectedInk
+        }
+        #endif
+    }
+
+    /// 설정 메뉴의 중립 회색(아이콘)과 그보다 진한 글자색. 라이트·다크에서 바탕과 구분된다.
+    static let neutralTint = Color.adaptive(name: "DaylogNavNeutral", light: (0.50, 0.53, 0.57), dark: (0.66, 0.68, 0.72))
+    static let neutralInk = Color.adaptive(name: "DaylogNavNeutralInk", light: (0.30, 0.32, 0.36), dark: (0.84, 0.86, 0.89))
 
     var filledSymbol: String {
         switch self {
