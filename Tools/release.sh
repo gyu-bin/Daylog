@@ -82,7 +82,11 @@ fi
 # 지금 공개돼 있는 appcast(과거 항목을 이어 가기 위해). 첫 릴리스에는 없다.
 fetch_previous_appcast() {
   PREVIOUS_APPCAST="$OUT/previous-appcast.xml"
-  curl -fsSL "$FEED_URL" -o "$PREVIOUS_APPCAST" 2>/dev/null || rm -f "$PREVIOUS_APPCAST"
+  # 피드 주소(…/latest/download/…)로 받지 않는다: GitHub가 그 주소의 응답을 2분쯤 기억해서,
+  # 게시 직전에 받아 두면 게시한 뒤에도 한동안 이전 릴리스를 가리킨다(1.5.2를 올릴 때 겪었다). 최신 릴리스의 자산을 직접 받는다.
+  rm -rf "$OUT/previous"; mkdir -p "$OUT/previous"
+  gh release download --pattern appcast.xml --dir "$OUT/previous" >/dev/null 2>&1 || true
+  if [[ -s "$OUT/previous/appcast.xml" ]]; then mv "$OUT/previous/appcast.xml" "$PREVIOUS_APPCAST"; else rm -f "$PREVIOUS_APPCAST"; fi
   [[ -s "$PREVIOUS_APPCAST" ]] && echo "· 지금 공개된 appcast를 이어 씁니다." || echo "· 공개된 appcast가 아직 없습니다(첫 릴리스)."
 }
 
@@ -234,11 +238,15 @@ verify_public_release() {
   url="$REPO_URL/releases/download/$tag/$(basename "$DMG")"
   got=$(curl -fsSLI "$url" 2>/dev/null | tr -d '\r' | awk 'tolower($1)=="content-length:"{v=$2} END{print v}')
   [[ "$got" == "$size" ]] || fail "공개된 DMG의 크기($got)가 만든 것($size)과 다릅니다: $url"
-  for attempt in {1..10}; do
+  # 릴리스 주소로 바로 받은 appcast가 먼저 맞아야 한다.
+  curl -fsSL "$REPO_URL/releases/download/$tag/appcast.xml" 2>/dev/null | cmp -s - "$APPCAST" \
+    || fail "공개된 appcast가 만든 것과 다릅니다: $REPO_URL/releases/download/$tag/appcast.xml"
+  # 앱이 보는 피드 주소(…/latest/download/…)는 새 릴리스로 넘어오는 데 몇 분 걸릴 수 있다.
+  for attempt in {1..40}; do
     curl -fsSL "$FEED_URL" 2>/dev/null | cmp -s - "$APPCAST" && { echo "✓ 공개 주소 확인: DMG $size 바이트, 피드가 새 appcast"; return 0; }
-    sleep 3
+    sleep 8
   done
-  fail "피드 주소($FEED_URL)가 아직 새 appcast가 아닙니다. 릴리스가 최신(latest)으로 표시됐는지 확인하세요."
+  fail "릴리스는 공개됐지만 피드 주소($FEED_URL)가 아직 새 appcast가 아닙니다. 몇 분 뒤 다시 확인하세요(gh release list에서 Latest 표시도)."
 }
 
 if [[ $PUBLISH -eq 1 && $SPARKLE_ON -eq 1 ]]; then
