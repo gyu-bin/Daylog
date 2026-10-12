@@ -351,6 +351,21 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 - 현재: 설치된 앱 1.5.1 (1)은 업데이트가 꺼진 빌드라 첫 전환은 수동 설치가 필요하다. 로그인 키체인에 Sparkle 키 없음.
 - 검증용 스크립트 명령 추가: `onboardingDone`, `forgetUpdateCheck`, 실행 인자 `-DaylogDebugSettings <갈래>`(Debug 빌드 전용).
 
+## Mac 1.5.2 (2): 앱 안의 업데이트 활성화와 첫 appcast 게시 (2026-10-12)
+
+사용자 승인(키 생성, 활성화, 버전 올리기, 게시, 이 Mac 교체)에 따라 진행했다. iPhone·iPad(TestFlight 1.0.0 (4))는 건드리지 않았다.
+
+- 서명 키: Sparkle EdDSA 키를 로그인 키체인에 만들었다. 공개 키만 `Config/Daylog-Info.plist`에 넣었다. 로컬 백업은 저장소 밖 `~/Library/Application Support/DaylogRelease/`(600)에 있고 키체인의 키와 같은 서명을 낸다. **기기 밖 백업은 아직 없다**(사용자가 옮겨야 한다). 방법과 복구는 [UPDATES.md](UPDATES.md) "서명 키".
+- 버전: Mac 1.5.2 (2), 커밋 `a7d3377`. 릴리스 노트 `docs/releases/v1.5.2.md`.
+- 빌드: 커밋 `23b540b`에서 Developer ID 서명 → 공증·스테이플 → Gatekeeper 통과. Sparkle 안의 도구들(Installer·Downloader·Autoupdate·Updater)도 같은 팀 서명. iCloud Production, 번들 ID·팀 그대로.
+- GitHub: `v1.5.2`를 새로 게시(DMG `Daylog-v1.5.2-macOS.dmg`, SHA-256 `e0f45129…8d1244`, 그리고 `appcast.xml`). `v1.5.1`의 자산은 그대로다.
+- 공개 주소 확인: 내려받은 DMG의 체크섬·크기가 같고, appcast의 EdDSA 서명이 그 DMG에 맞고, 안의 앱이 공증 통과·1.5.2 (2). 피드 주소(`…/releases/latest/download/appcast.xml`)가 새 appcast와 같다.
+- 이 Mac: `Tools/update.sh`로 `/Applications/Daylog.app`을 1.5.2 (2)로 교체, 실행·서명·iCloud Production 확인. 직전 앱은 `build/update/previous.app`, 교체 전 사본은 `build/update/backup-1.5.1-before-sparkle.app`.
+- 겪은 문제 둘(모두 스크립트, 고침):
+  1. 게시 전 검사에서 Sparkle 도구의 서명을 `codesign | grep -q`로 봐서 정상인데도 실패로 판정했다(pipefail). 출력을 받아 두고 보게 고쳤다. 첫 공증 빌드는 게시 전에 멈췄고 다시 빌드했다.
+  2. 게시 직후 피드 주소가 2분쯤 이전 릴리스(404)를 가리켰다. 게시 직전에 그 주소로 이전 appcast를 받아 본 것이 GitHub에 잠깐 기억됐기 때문이다. 이전 appcast는 `gh release download`로 받고, 피드 확인은 더 오래 기다리게 고쳤다. 릴리스 자체는 정상 게시됐다.
+- 남은 확인: 운영 경로의 [업데이트 확인] → [설치] → 자동으로 다시 열림은 1.5.3을 올릴 때 한다. 다른 Mac은 1.5.2를 한 번 수동 설치해야 한다.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
