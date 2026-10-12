@@ -227,7 +227,8 @@
 - Xcode 자동 서명(`-allowProvisioningUpdates`, 사용자 승인)으로 App ID `com.mungyubin.daylog.ios`·`.widgets`, App Group, 프로파일을 받아 기기용 Release 아카이브와 App Store 배포 서명 IPA를 만들었다(업로드 안 함).
 - IPA 확인: Apple Distribution 서명, iCloud 컨테이너 `iCloud.com.mungyubin.daylog` / 환경 Production, aps-environment production, App Group 포함(위젯도). 버전 1.5.1 (1).
 - 2026-10-12 12:01 App Store Connect에 1.5.1 (1) 업로드 성공(Delivery UUID `760df8ac-527d-4ac5-bebe-8b6ac5a1aa4b`). 처리 상태와 내부 테스트 그룹 설정은 App Store Connect에서 확인한다(이 Mac에는 API 키가 없어 명령으로 조회하지 못한다).
-- 다음 업로드부터는 빌드 번호(`CURRENT_PROJECT_VERSION`)를 올려야 한다. 같은 버전·빌드 번호는 거절된다.
+- iOS 앱과 위젯의 버전을 Mac과 따로 둔다: iOS **1.0.0**, Mac 1.5.1(`MARKETING_VERSION`을 타깃별로). 2026-10-12 12:07에 iOS 1.0.0 (1)을 다시 올렸다(Delivery UUID `35a3f70b-1869-40ff-91ef-ceae20b44d63`). 먼저 올린 1.5.1 (1)은 쓰지 않으며 App Store Connect에서 만료 처리한다.
+- 같은 버전에서 다시 올릴 때는 빌드 번호(`CURRENT_PROJECT_VERSION`)를 올려야 한다. 같은 버전·빌드 번호는 거절된다. 이 값은 지금 프로젝트 전체가 함께 쓴다.
 - 실기기의 iCloud 동기화·알림·위젯은 TestFlight 설치 후 검증한다.
 
 ```bash
