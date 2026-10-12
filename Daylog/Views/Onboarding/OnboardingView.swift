@@ -47,7 +47,8 @@ struct OnboardingView: View {
             }
         }
         .padding(24)
-        .frame(idealWidth: 520, maxWidth: 600, minHeight: 440, idealHeight: 540)
+        // 세 단계 중 가장 긴 단계(루틴 만들기)에 맞춘 높이. 더 크게 잡으면 소개 단계의 아래가 빈다.
+        .frame(idealWidth: 520, maxWidth: 600, minHeight: 400, idealHeight: 460)
         .interactiveDismissDisabled()
         .keyboardDoneBar()
     }

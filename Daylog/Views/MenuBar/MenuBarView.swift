@@ -16,8 +16,7 @@ struct MenuBarView: View {
         VStack(alignment: .leading, spacing: 0) {
             header(done: done, total: total)
                 .padding(.horizontal, 14)
-                .padding(.top, 12)
-                .padding(.bottom, 10)
+                .padding(.vertical, 12)
             Divider()
 
             if sections.isEmpty {
@@ -35,7 +34,7 @@ struct MenuBarView: View {
                             groupView(section)
                         }
                     }
-                    .padding(.horizontal, 10)
+                    .padding(.horizontal, 12)
                     .padding(.vertical, Self.listPadding)
                 }
                 .frame(height: min(Self.listHeight(sections), Self.maxListHeight))
@@ -43,10 +42,10 @@ struct MenuBarView: View {
 
             Divider()
             footer
-                .padding(.horizontal, 10)
-                .padding(.vertical, 8)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 10)
         }
-        .frame(width: 300)
+        .frame(width: 304)
         .onAppear {
             // 창을 닫아 둔 채 자정을 넘겼어도 열 때의 오늘을 보여 준다.
             store.refreshToday()
@@ -54,7 +53,7 @@ struct MenuBarView: View {
     }
 
     private static let groupSpacing: CGFloat = 10
-    private static let listPadding: CGFloat = 10
+    private static let listPadding: CGFloat = 12
     private static let groupHeaderHeight: CGFloat = 30
     private static let rowHeight: CGFloat = 30
     private static let maxListHeight: CGFloat = 380

@@ -30,8 +30,12 @@ enum Theme {
 
     static let cardRadius: CGFloat = 14
     static let cardPadding: CGFloat = 18
+    /// 카드 안의 입력칸·행·단추처럼 작은 면의 모서리.
+    static let controlRadius: CGFloat = 9
     static let spacing: CGFloat = 16
     static let pagePadding: CGFloat = 22
+    /// macOS 시트의 바깥 여백.
+    static let sheetPadding: CGFloat = 22
     /// 좁은 화면(iPhone, 좁은 iPad 창)의 화면 가장자리 여백.
     static let compactPagePadding: CGFloat = 16
     static let statCardHeight: CGFloat = 122

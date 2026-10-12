@@ -78,7 +78,8 @@ struct DataTransferView: View {
             } message: { Text("기존 루틴과 지난 기록은 그대로 유지해요. 같은 루틴은 건너뛰어요.") }
         }
         #if os(macOS)
-        .frame(minWidth: 540, idealWidth: 640, minHeight: 580)
+        // 미리보기가 없을 때는 내용이 짧아, 높이를 내용에 가깝게 둔다(미리보기가 생기면 폼이 스크롤된다).
+        .frame(minWidth: 540, idealWidth: 600, minHeight: 440, idealHeight: preview == nil ? 500 : 640)
         #endif
     }
 

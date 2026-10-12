@@ -35,8 +35,30 @@ struct RoutineEditSheet: View {
         GroupColor(key: store.groups.first { $0.id == draft.groupID }?.colorKey ?? "").color
     }
 
+    #if os(macOS)
+    private static let daySize: CGFloat = 32
+    #else
+    private static let daySize: CGFloat = 40
+    #endif
+
     var body: some View {
-        chrome
+        SheetScaffold(
+            title: "루틴 편집", subtitle: Self.subtitle, width: 480, cancel: close,
+            primary: SheetAction(title: "저장", isDisabled: draft.validationMessage != nil, action: save)
+        ) {
+            deleteButton
+        } content: {
+            VStack(alignment: .leading, spacing: 16) {
+                fields(daySize: Self.daySize)
+                if let message = draft.validationMessage {
+                    validation(message)
+                }
+            }
+        }
+            #if os(iOS)
+            // 아래로 쓸어 닫으면 취소와 같다(초안은 버려진다).
+            .presentationDetents([.large])
+            #endif
             .onAppear {
                 store.setEditing(true, source: "routine-sheet")
                 #if os(macOS)
@@ -57,99 +79,11 @@ struct RoutineEditSheet: View {
             }
     }
 
-    // MARK: - 플랫폼별 틀
-
-    #if os(macOS)
-    private var chrome: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 3) {
-                    Text("루틴 편집")
-                        .font(.title3.weight(.semibold))
-                        .accessibilityAddTraits(.isHeader)
-                    Text(Self.subtitle)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
-                Spacer(minLength: 12)
-                Button(action: close) {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 11, weight: .bold))
-                        .foregroundStyle(.secondary)
-                        .frame(width: 24, height: 24)
-                        .background(Theme.track, in: Circle())
-                        .contentShape(Circle())
-                }
-                .buttonStyle(.plain)
-                .accessibilityLabel("닫기")
-                .help("저장하지 않고 닫기")
-            }
-            .padding(.bottom, 18)
-
-            fields(daySize: 32)
-
-            if let message = draft.validationMessage {
-                validation(message).padding(.top, 14)
-            }
-
-            HStack(spacing: 8) {
-                deleteButton
-                Spacer()
-                Button("취소", action: close)
-                    .keyboardShortcut(.cancelAction)
-                Button("저장", action: save)
-                    .keyboardShortcut(.defaultAction)
-                    .disabled(draft.validationMessage != nil)
-            }
-            .padding(.top, 20)
-        }
-        .padding(22)
-        .frame(width: 480)
-    }
-    #else
-    private var chrome: some View {
-        NavigationStack {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 18) {
-                    Text(Self.subtitle)
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                    fields(daySize: 40)
-                    if let message = draft.validationMessage {
-                        validation(message)
-                    }
-                    Divider()
-                    deleteButton
-                }
-                .padding(20)
-                .frame(maxWidth: 560, alignment: .leading)
-                .frame(maxWidth: .infinity)
-            }
-            .scrollDismissesKeyboard(.interactively)
-            .keyboardDoneBar()
-            .background(Theme.windowBackground)
-            .navigationTitle("루틴 편집")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("취소", action: close)
-                }
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("저장", action: save)
-                        .disabled(draft.validationMessage != nil)
-                }
-            }
-        }
-        // 아래로 쓸어 닫으면 취소와 같다(초안은 버려진다).
-        .presentationDetents([.large])
-    }
-    #endif
-
     // MARK: - 입력 칸
 
     private func fields(daySize: CGFloat) -> some View {
         VStack(alignment: .leading, spacing: 16) {
-            field("이름") {
+            SheetField(label: "이름") {
                 TextField("이름", text: $draft.title, prompt: Text("예: 물 한 잔 마시기"))
                     .textFieldStyle(.roundedBorder)
                     .accessibilityLabel("이름")
@@ -157,7 +91,7 @@ struct RoutineEditSheet: View {
                     .onSubmit(save)
             }
 
-            field("그룹") {
+            SheetField(label: "그룹") {
                 Picker("그룹", selection: $draft.groupID) {
                     ForEach(groupChoices) { group in
                         Text(group.isArchived ? "\(group.title) (보관됨)" : group.title).tag(group.id)
@@ -168,15 +102,15 @@ struct RoutineEditSheet: View {
                 .accessibilityLabel("그룹")
             }
 
-            field("반복 요일") {
+            SheetField(label: "반복 요일") {
                 WeekdaySelector(selection: $draft.weekdays, tint: tint, daySize: daySize)
             }
 
-            field("예정 시간 (선택)") {
+            SheetField(label: "예정 시간 (선택)") {
                 timeRow
             }
 
-            field("메모 (선택)") {
+            SheetField(label: "메모 (선택)") {
                 TextField("메모", text: $draft.note, prompt: Text("기억해 둘 내용"), axis: .vertical)
                     .lineLimit(2...4)
                     .textFieldStyle(.roundedBorder)
@@ -242,16 +176,6 @@ struct RoutineEditSheet: View {
                 rememberedTime = draft.timeLabel
             }
         )
-    }
-
-    private func field(_ label: String, @ViewBuilder content: () -> some View) -> some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(label)
-                .font(.caption.weight(.medium))
-                .foregroundStyle(.secondary)
-                .accessibilityHidden(true)
-            content()
-        }
     }
 
     private func validation(_ message: String) -> some View {
