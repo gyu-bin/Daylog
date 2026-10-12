@@ -102,10 +102,9 @@ private struct SidebarRow: View {
     var body: some View {
         Button(action: action) {
             HStack(spacing: 10) {
-                // 고른 메뉴만 그 메뉴의 색으로 칠하고, 나머지는 선 아이콘으로 차분하게 둔다.
                 Image(systemName: isSelected ? section.filledSymbol : section.symbol)
                     .font(.system(size: 14, weight: isSelected ? .semibold : .regular))
-                    .foregroundStyle(isSelected ? AnyShapeStyle(section.tint) : AnyShapeStyle(.secondary))
+                    .foregroundStyle(isSelected ? AnyShapeStyle(section.tint) : Self.unselectedIconStyle(section))
                     .frame(width: 22)
                 Text(section.title)
                     .font(.system(size: 14, weight: isSelected ? .semibold : .regular))
@@ -128,6 +127,17 @@ private struct SidebarRow: View {
     private var rowBackground: Color {
         if isSelected { return section.tint.opacity(0.16) }
         return isHovered ? Theme.track : .clear
+    }
+
+    /// 고르지 않은 메뉴의 아이콘.
+    /// macOS: 선 아이콘을 회색으로 차분하게 둔다(고른 메뉴만 색).
+    /// iPad: 아래 탭과 맞춰 메뉴 색을 남기되 한 단계 옅게 한다.
+    static func unselectedIconStyle(_ section: AppStore.Section) -> AnyShapeStyle {
+        #if os(macOS)
+        AnyShapeStyle(.secondary)
+        #else
+        AnyShapeStyle(section.tint.opacity(TabIcon.unselectedOpacity + 0.2))
+        #endif
     }
 }
 

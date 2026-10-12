@@ -156,16 +156,27 @@ struct TabNavigation: View {
     @Environment(AppStore.self) private var store
     @Environment(DevicePreferences.self) private var preferences
 
+    @Environment(\.colorScheme) private var colorScheme
+
     var body: some View {
+        let current = selection.wrappedValue
         TabView(selection: selection) {
             ForEach(preferences.navigationSections(phone: true)) { section in
                 SectionContent(section: section)
                     .tabItem {
-                        Label(section == .meals ? "식사" : section.title, systemImage: section.symbol)
+                        // 사이드바와 같은 메뉴 색. 고른 탭은 채운 아이콘과 진한 색, 나머지는 선 아이콘과 한 단계 옅은 색.
+                        Label {
+                            Text(section == .meals ? "식사" : section.title)
+                        } icon: {
+                            Image(uiImage: TabIcon.image(section, isSelected: section == current, isDark: colorScheme == .dark))
+                                .renderingMode(.original)
+                        }
                     }
                     .tag(section)
             }
         }
+        // 고른 탭의 글자색(아이콘은 위에서 직접 칠한다).
+        .tint(current.selectedInk)
     }
 
     private var selection: Binding<AppStore.Section> {
@@ -186,6 +197,30 @@ extension TabNavigation {
         case .vacation: return .dashboard
         default: return section
         }
+    }
+}
+#endif
+
+#if !os(macOS)
+/// 아래 탭의 아이콘. 시스템 탭 막대는 고른 탭 하나의 색만 정할 수 있어서, 메뉴별 색을 입힌 그림을 직접 넘긴다.
+enum TabIcon {
+    /// 고르지 않은 탭의 색 농도. 색은 남기되 고른 탭보다 물러나 보이게 한다.
+    static let unselectedOpacity = 0.6
+
+    static func symbolName(_ section: AppStore.Section, isSelected: Bool) -> String {
+        isSelected ? section.filledSymbol : section.symbol
+    }
+
+    static func color(_ section: AppStore.Section, isSelected: Bool, isDark: Bool) -> UIColor {
+        let traits = UITraitCollection(userInterfaceStyle: isDark ? .dark : .light)
+        // 고른 탭은 글자와 같은 진한 색, 나머지는 메뉴 색을 옅게.
+        let base = UIColor(isSelected ? section.selectedInk : section.tint).resolvedColor(with: traits)
+        return isSelected ? base : base.withAlphaComponent(unselectedOpacity)
+    }
+
+    static func image(_ section: AppStore.Section, isSelected: Bool, isDark: Bool) -> UIImage {
+        let symbol = UIImage(systemName: symbolName(section, isSelected: isSelected)) ?? UIImage()
+        return symbol.withTintColor(color(section, isSelected: isSelected, isDark: isDark), renderingMode: .alwaysOriginal)
     }
 }
 #endif
