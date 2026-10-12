@@ -265,6 +265,14 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 
 [DESIGN_REFINEMENT.md](DESIGN_REFINEMENT.md) 14~15절. 기기 목록은 `DeviceService`가 `FieldEdit`의 `device:` 칸에 적는다(스키마 변경 없음, 실제 앱에서만 켠다 — `AppStore.tracksDevice`). 전체 기록 JSON 내보내기에는 이 줄도 들어간다. iOS TestFlight 빌드 2는 아직 올리지 않았다.
 
+## Mac 앱 갱신과 TestFlight 빌드 2 (2026-10-12)
+
+- 커밋 `b83c1e4`를 Mac 앱에 적용(`Tools/update.sh`)하고, iOS 1.0.0 (2)를 TestFlight에 올렸다(13:50, Delivery UUID `f6478cb3-261c-4dcc-9288-5dee09cc638c`).
+- 빌드 2에 들어간 것: 원격 알림 백그라운드 모드 선언(실행 중 동기화), 설정 2단·iCloud 상태·기기 목록, 휴가 메뉴와 조건부 휴가 띠, iPhone 홈 개편, 캘린더 격자 ID 수정.
+- 올린 IPA에서 확인: `UIBackgroundModes = remote-notification`, iCloud Production, aps production, App Group.
+- 실기기에서 확인할 것: 앱을 끄지 않아도 다른 기기의 변경이 들어오는지, iPad의 백그라운드 앱 새로 고침 목록에 Daylog가 나오는지, 설정 → iCloud의 기기 목록에 세 기기가 보이는지.
+- 다음에 올릴 때는 빌드 번호 3.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
