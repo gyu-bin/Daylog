@@ -73,7 +73,8 @@ struct DayRangeCalendar: View {
     @FocusState private var isFocused: Bool
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
-    private let columns = Array(repeating: GridItem(.flexible(), spacing: 2), count: 7)
+    /// 가로 간격은 0: 범위 띠가 칸 사이에서 끊기지 않게 한다.
+    private let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
 
     init(selection: Binding<DayRangeSelection>, today: Day, tint: Color = Theme.accent) {
         _selection = selection
