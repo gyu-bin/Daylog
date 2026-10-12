@@ -48,7 +48,7 @@ struct VacationManagementView: View {
                 .tint(Theme.vacationTint)
 
                 if store.vacationPeriods.isEmpty {
-                    EmptyHint(symbol: "sun.max", message: "등록된 휴가가 없어요.", tint: Theme.vacationTint)
+                    EmptyHint(symbol: "beach.umbrella", message: "등록된 휴가가 없어요.", tint: Theme.vacationTint)
                 } else {
                     periodList
                 }
@@ -102,7 +102,7 @@ struct VacationPeriodLabel: View {
     var body: some View {
         HStack(spacing: 10) {
             if showsIcon {
-                Image(systemName: "sun.max.fill")
+                Image(systemName: "beach.umbrella.fill")
                     .font(.system(size: 12, weight: .semibold))
                     .foregroundStyle(Theme.vacationTint)
                     .frame(width: 26, height: 26)

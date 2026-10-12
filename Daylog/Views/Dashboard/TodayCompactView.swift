@@ -26,11 +26,11 @@ struct TodayCompactView: View {
             BrandIcon(size: 34)
                 .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 1) {
-                Text("좋은 하루예요.")
-                    .font(.title3.weight(.bold))
-                Text("완벽한 하루보다, 꾸준한 하루.")
-                    .font(.footnote)
+                Text("Daylog")
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(.secondary)
+                Text(store.isViewingToday ? "오늘도 좋은 하루예요" : "\(store.selectedDay.shortTitle)의 기록")
+                    .font(.title3.weight(.bold))
             }
             .accessibilityElement(children: .combine)
             .accessibilityAddTraits(.isHeader)

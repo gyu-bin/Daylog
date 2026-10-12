@@ -2,7 +2,7 @@ import SwiftUI
 
 /// Modern Colorful Minimal. 바탕은 시스템 색, 색은 의미를 구분하는 곳에만 제한적으로 쓴다.
 ///
-/// 색의 의미: 오늘 달성률 = 민트, 최근 7일 = 파랑, 연속 달성 = 코랄, 최장 연속 = 노랑, 식사 = 코랄,
+/// 색의 의미: 오늘 달성률 = 민트, 최근 7일 = 파랑, 연속 달성 = 코랄, 최장 연속 = 노랑, 식사 = 주황, 휴가 = 코랄,
 /// 루틴 그룹 = 사용자가 고른 색. 일반 버튼과 본문 글자에는 색을 입히지 않는다.
 enum Theme {
     /// 앱의 기본 포인트 컬러(민트). 선택 상태와 주요 동작에만 쓴다.
@@ -17,9 +17,9 @@ enum Theme {
     static let weekTint = GroupColor.blue.color
     static let streakTint = GroupColor.coral.color
     static let longestTint = GroupColor.yellow.color
-    static let mealTint = GroupColor.coral.color
+    static let mealTint = GroupColor.orange.color
     /// 휴가를 나타내는 색(카드, 달력의 선택 범위).
-    static let vacationTint = GroupColor.blue.color
+    static let vacationTint = GroupColor.coral.color
 
     static let windowBackground = Color.platformWindowBackground
     static let cardBackground = Color.platformCardBackground

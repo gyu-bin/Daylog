@@ -1,9 +1,9 @@
 import Foundation
 
 extension AppStore {
-    /// 앱의 메뉴. macOS와 iPad는 사이드바에 모두 보이고, iPhone은 캘린더를 뺀 다섯 개를 아래 탭에 둔다.
+    /// 앱의 메뉴. macOS와 iPad는 사이드바에 모두 보이고, iPhone은 캘린더와 휴가를 뺀 다섯 개를 아래 탭에 둔다.
     enum Section: String, CaseIterable, Identifiable {
-        case dashboard, routines, meals, statistics, calendar, settings
+        case dashboard, routines, meals, statistics, calendar, vacation, settings
 
         var id: String { rawValue }
 
@@ -15,22 +15,24 @@ extension AppStore {
             case .meals: return "식사 기록"
             case .statistics: return "통계"
             case .calendar: return "캘린더"
+            case .vacation: return "휴가"
             case .settings: return "설정"
             }
         }
 
         var symbol: String {
             switch self {
-            case .dashboard: return "house"
+            case .dashboard: return "square.grid.2x2"
             case .routines: return "checklist"
             case .meals: return "fork.knife"
             case .statistics: return "chart.bar"
             case .calendar: return "calendar"
+            case .vacation: return "beach.umbrella"
             case .settings: return "gearshape"
             }
         }
 
-        /// iPhone의 아래 탭에 두는 메뉴. 캘린더는 통계 화면과 날짜 이동에서 들어간다.
+        /// iPhone의 아래 탭에 두는 메뉴. 캘린더는 통계 화면에서, 휴가는 오늘 화면의 휴가 카드와 설정에서 들어간다.
         static let phoneTabs: [Section] = [.dashboard, .routines, .meals, .statistics, .settings]
     }
 }

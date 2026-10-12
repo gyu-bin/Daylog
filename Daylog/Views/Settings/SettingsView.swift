@@ -1,71 +1,251 @@
 import SwiftUI
 
+/// 설정의 갈래. 왼쪽 목록(넓은 창)이나 첫 화면(iPhone)에 보이고, 고르면 그 갈래의 설정이 나온다.
+enum SettingsCategory: String, CaseIterable, Identifiable {
+    case general, today, routine, calendar, notifications, vacation, data, about
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .general: return "일반"
+        case .today: return "오늘 화면"
+        case .routine: return "루틴"
+        case .calendar: return "캘린더"
+        case .notifications: return "알림"
+        case .vacation: return "휴가"
+        case .data: return "데이터"
+        case .about: return "정보"
+        }
+    }
+
+    var subtitle: String {
+        switch self {
+        case .general:
+            #if os(macOS)
+            return "앱 테마, 메뉴 막대"
+            #else
+            return "앱 테마, 위젯"
+            #endif
+        case .today: return "식사 표시, 카드 구성"
+        case .routine: return "달성한 날 기준값"
+        case .calendar: return "한 주의 시작 요일"
+        case .notifications: return "루틴 알림"
+        case .vacation: return "휴가 기간 관리"
+        case .data: return "가져오기, 내보내기, iCloud"
+        case .about: return "버전, 시작 안내"
+        }
+    }
+
+    var symbol: String {
+        switch self {
+        case .general: return "gearshape.fill"
+        case .today: return "square.grid.2x2.fill"
+        case .routine: return "checklist"
+        case .calendar: return "calendar"
+        case .notifications: return "bell.fill"
+        case .vacation: return "beach.umbrella.fill"
+        case .data: return "externaldrive.fill"
+        case .about: return "info.circle.fill"
+        }
+    }
+
+    var color: GroupColor {
+        switch self {
+        case .general: return .blue
+        case .today: return .mint
+        case .routine: return .purple
+        case .calendar: return .orange
+        case .notifications: return .coral
+        case .vacation: return .coral
+        case .data: return .green
+        case .about: return .yellow
+        }
+    }
+}
+
+/// 설정. 넓은 창(macOS, iPad)은 왼쪽에 갈래 목록, 오른쪽에 고른 갈래의 설정. 좁은 화면(iPhone)은 목록에서 들어간다.
 struct SettingsView: View {
     @Environment(AppStore.self) private var store
     @Environment(CloudSyncMonitor.self) private var sync
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @State private var selected: SettingsCategory = .general
+    /// 좁은 화면에서 들어가 있는 갈래. nil이면 갈래 목록.
+    @State private var compactSelection: SettingsCategory?
 
     var body: some View {
-        // 폼을 창 너비 전체에 두고 내용만 가운데 640pt로 모은다.
-        // 폼 자체를 좁히면 제목 표시줄 아래의 스크롤 가장자리 효과가 폼 너비만큼만 생겨 띠처럼 보인다(다크 모드에서 두드러진다).
-        GeometryReader { proxy in
-            form
-                .contentMargins(.horizontal, max(20, (proxy.size.width - 640) / 2), for: .scrollContent)
+        if horizontalSizeClass == .compact {
+            compactSettings
+        } else {
+            wideSettings
         }
     }
 
-    /// 위에서 아래로: 보이는 것(외관·오늘 화면) → 루틴 규칙(기준값·휴가·알림) → 이 기기(메뉴 막대·위젯) → 데이터(파일·iCloud) → 앱 정보.
-    private var form: some View {
-        Form {
-            AppearanceSection()
-            DevicePreferenceSections()
+    // MARK: - 넓은 창
 
-            Section {
-                ThresholdControl()
-            } header: {
-                Text("달성한 날 기준값")
-            } footer: {
-                Text("하루 달성률이 이 값 이상이면 달성한 날로 세요.")
-            }
-
-            CalendarSettingsSection()
-            VacationSettingsSection()
-            NotificationSettingsSection()
-            #if os(macOS)
-            MenuBarSettingsSection()
-            #else
-            WidgetGuideSection()
-            #endif
-
-            DataTransferSettingsSection()
-            cloudSection
-
-            Section {
-                HStack(spacing: 12) {
-                    BrandIcon(size: 44)
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("Daylog")
-                            .font(.headline)
-                        Text("버전 \(Self.version)")
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
-                            .monospacedDigit()
+    private var wideSettings: some View {
+        VStack(alignment: .leading, spacing: Theme.spacing) {
+            PageTitle(title: "설정", subtitle: "Daylog를 내 방식에 맞게 바꿔요.")
+                .padding(.horizontal, Theme.pagePadding)
+                .padding(.top, Theme.pagePadding)
+            HStack(alignment: .top, spacing: Theme.spacing) {
+                ScrollView {
+                    VStack(spacing: 2) {
+                        ForEach(SettingsCategory.allCases) { category in
+                            Button {
+                                selected = category
+                            } label: {
+                                SettingsCategoryRow(category: category, isSelected: selected == category)
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityAddTraits(selected == category ? [.isButton, .isSelected] : .isButton)
+                        }
                     }
-                    Spacer(minLength: 0)
+                    .padding(6)
+                    .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous))
+                    .overlay(RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous).strokeBorder(Theme.cardBorder, lineWidth: 1))
                 }
-                .padding(.vertical, 2)
-                .accessibilityElement(children: .combine)
-                OnboardingReplayButton()
-            } header: {
-                Text("앱 정보")
-            } footer: {
-                Text("별도 계정이나 자체 서버를 쓰지 않고, 사용 정보도 수집하지 않아요.")
+                .scrollBounceBehavior(.basedOnSize)
+                .frame(width: 250)
+                .padding(.leading, Theme.pagePadding)
+                .padding(.bottom, Theme.pagePadding)
+
+                detail(selected)
+                    .frame(maxWidth: 640, alignment: .topLeading)
+                Spacer(minLength: 0)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+    }
+
+    // MARK: - 좁은 화면
+
+    /// iPhone과 좁은 창: 갈래 목록에서 하나를 고르면 그 갈래의 설정으로 들어가고, 위의 [설정]으로 돌아온다.
+    /// 탭 안에 NavigationStack을 두면 탭 전체가 빈 화면이 되어(iOS 26 시뮬레이터에서 확인), 직접 오가게 했다.
+    @ViewBuilder
+    private var compactSettings: some View {
+        if let category = compactSelection {
+            detail(category)
+                .safeAreaInset(edge: .top, spacing: 0) {
+                    ZStack {
+                        Text(category.title)
+                            .font(.headline)
+                            .accessibilityAddTraits(.isHeader)
+                        HStack {
+                            Button {
+                                compactSelection = nil
+                            } label: {
+                                Label("설정", systemImage: "chevron.left")
+                                    .font(.body.weight(.medium))
+                                    .frame(minHeight: 44)
+                                    .contentShape(Rectangle())
+                            }
+                            .accessibilityLabel("설정 목록으로 돌아가기")
+                            Spacer()
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                    .background(Theme.windowBackground)
+                }
+        } else {
+            Form {
+                Section {
+                    ForEach(SettingsCategory.allCases) { category in
+                        Button {
+                            compactSelection = category
+                        } label: {
+                            HStack(spacing: 8) {
+                                SettingsCategoryRow(category: category, isSelected: false, showsChevron: false)
+                                Image(systemName: "chevron.right")
+                                    .font(.footnote.weight(.semibold))
+                                    .foregroundStyle(.tertiary)
+                            }
+                            .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+            }
+            .formStyle(.grouped)
+            .safeAreaInset(edge: .top, spacing: 0) {
+                Text("설정")
+                    .font(.largeTitle.bold())
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 20)
+                    .padding(.top, 8)
+                    .padding(.bottom, 4)
+                    .background(Theme.windowBackground)
+                    .accessibilityAddTraits(.isHeader)
+            }
+        }
+    }
+
+    // MARK: - 갈래별 설정
+
+    private func detail(_ category: SettingsCategory) -> some View {
+        Form {
+            switch category {
+            case .general:
+                AppearanceSection()
+                #if os(macOS)
+                MenuBarSettingsSection()
+                #else
+                WidgetGuideSection()
+                #endif
+            case .today:
+                DevicePreferenceSections()
+            case .routine:
+                Section {
+                    ThresholdControl()
+                } header: {
+                    Text("달성한 날 기준값")
+                } footer: {
+                    Text("하루 달성률이 이 값 이상이면 달성한 날로 세요.")
+                }
+            case .calendar:
+                CalendarSettingsSection()
+            case .notifications:
+                NotificationSettingsSection()
+            case .vacation:
+                VacationSettingsSection()
+            case .data:
+                DataTransferSettingsSection()
+                cloudSection
+            case .about:
+                aboutSection
             }
         }
         .formStyle(.grouped)
+        #if os(macOS)
         .scrollContentBackground(.hidden)
+        #endif
     }
 
-    /// iCloud 상태와 저장 위치. 오류와 안내는 한 줄씩.
+    private var aboutSection: some View {
+        Section {
+            HStack(spacing: 12) {
+                BrandIcon(size: 44)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Daylog")
+                        .font(.headline)
+                    Text("버전 \(Self.version)")
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                        .monospacedDigit()
+                }
+                Spacer(minLength: 0)
+            }
+            .padding(.vertical, 2)
+            .accessibilityElement(children: .combine)
+            OnboardingReplayButton()
+        } header: {
+            Text("앱 정보")
+        } footer: {
+            Text("별도 계정이나 자체 서버를 쓰지 않고, 사용 정보도 수집하지 않아요.")
+        }
+    }
+
+    /// iCloud 상태. 오류와 안내는 한 줄씩.
     private var cloudSection: some View {
         Section {
             LabeledContent("상태", value: sync.account.title)
@@ -224,5 +404,42 @@ struct ThresholdControl: View {
             .accessibilityValue("\(store.threshold)%")
         }
         .fixedSize()
+    }
+}
+
+/// 설정 갈래 한 줄: 색 있는 아이콘, 이름, 한 줄 요약.
+struct SettingsCategoryRow: View {
+    let category: SettingsCategory
+    let isSelected: Bool
+    var showsChevron = true
+
+    var body: some View {
+        HStack(spacing: 10) {
+            Image(systemName: category.symbol)
+                .font(.system(size: 13, weight: .semibold))
+                .foregroundStyle(Theme.onAccent)
+                .frame(width: 28, height: 28)
+                .background(category.color.color, in: RoundedRectangle(cornerRadius: 8, style: .continuous))
+                .accessibilityHidden(true)
+            VStack(alignment: .leading, spacing: 1) {
+                Text(category.title)
+                    .font(.callout.weight(.semibold))
+                Text(category.subtitle)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+            }
+            Spacer(minLength: 4)
+            if showsChevron {
+                Image(systemName: "chevron.right")
+                    .font(.caption2.weight(.semibold))
+                    .foregroundStyle(.tertiary)
+            }
+        }
+        .padding(.horizontal, showsChevron ? 10 : 0)
+        .padding(.vertical, showsChevron ? 8 : 2)
+        .background(isSelected ? category.color.color.opacity(0.14) : .clear, in: RoundedRectangle(cornerRadius: Theme.controlRadius, style: .continuous))
+        .contentShape(Rectangle())
+        .accessibilityElement(children: .combine)
     }
 }

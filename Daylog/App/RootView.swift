@@ -115,6 +115,7 @@ struct SectionContent: View {
                 if preferences.mealsEnabled { MealsView() } else { DashboardView() }
             case .statistics: StatisticsView()
             case .calendar: CalendarView()
+            case .vacation: VacationView()
             case .settings: SettingsView()
             }
         }
@@ -169,9 +170,22 @@ struct TabNavigation: View {
 
     private var selection: Binding<AppStore.Section> {
         Binding(
-            get: { preferences.safeSelection(store.section == .calendar ? .statistics : store.section) },
+            get: { preferences.safeSelection(Self.tab(for: store.section)) },
             set: { store.section = $0 }
         )
+    }
+}
+#endif
+
+#if !os(macOS)
+extension TabNavigation {
+    /// 아래 탭에 없는 메뉴는 그 내용이 들어 있는 탭으로 보낸다: 캘린더 → 통계, 휴가 → 오늘(휴가 카드).
+    static func tab(for section: AppStore.Section) -> AppStore.Section {
+        switch section {
+        case .calendar: return .statistics
+        case .vacation: return .dashboard
+        default: return section
+        }
     }
 }
 #endif

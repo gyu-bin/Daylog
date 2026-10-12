@@ -155,7 +155,7 @@ private struct StatusMarker: View {
             case .unrecorded:
                 Circle().strokeBorder(Color.secondary, lineWidth: 1)
             case .vacation:
-                Image(systemName: "sun.max.fill").foregroundStyle(.blue)
+                Image(systemName: "sun.max.fill").foregroundStyle(Theme.vacationTint)
             case .rest:
                 Capsule().fill(Color.secondary.opacity(0.5)).frame(height: 2)
             }
@@ -238,7 +238,7 @@ private struct DayCell: View {
                 .foregroundStyle(.tertiary)
                 .fixedSize()
             case .vacation:
-                Text("휴가").font(.system(size: 9.5)).foregroundStyle(.blue)
+                Text("휴가").font(.system(size: 9.5)).foregroundStyle(Theme.vacationTint)
             case .rest:
                 StatusMarker(kind: .rest, size: 8)
             case .preStart, .future:

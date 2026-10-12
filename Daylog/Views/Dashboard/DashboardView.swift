@@ -127,6 +127,7 @@ struct StartHint: View {
 
 /// 제목과 날짜 이동을 한 줄에 둔다. 좁으면 두 줄로 내려간다.
 struct DashboardHeader: View {
+    @Environment(AppStore.self) private var store
     @Binding var isEditing: Bool
 
     var body: some View {
@@ -145,10 +146,29 @@ struct DashboardHeader: View {
 
     private var controls: some View {
         HStack(spacing: 8) {
-            DateNavigator()
+            // 날짜는 제목 위에 적으므로 여기서는 앞뒤 이동만 둔다.
+            DateNavigator(showsDate: false)
             editButton
+            addButton
         }
         .fixedSize()
+    }
+
+    /// 루틴 빠른 추가(⌘N과 같다): 마지막으로 쓴 그룹의 입력칸을 연다.
+    private var addButton: some View {
+        Button {
+            store.requestQuickAddFocus()
+        } label: {
+            Image(systemName: "plus")
+                .font(.system(size: 14, weight: .bold))
+                .foregroundStyle(.white)
+                .frame(width: 34, height: 32)
+                .background(GroupColor.blue.color, in: RoundedRectangle(cornerRadius: 9, style: .continuous))
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .help("루틴 추가 (⌘N)")
+        .accessibilityLabel("루틴 추가")
     }
 
     /// 대시보드 편집 켜기/끄기.
@@ -173,12 +193,21 @@ struct DashboardHeader: View {
     }
 
     private var titles: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text("좋은 하루예요.")
-                .font(.system(size: 24, weight: .bold))
-            Text("완벽한 하루보다, 꾸준한 하루.")
-                .font(.callout)
+        VStack(alignment: .leading, spacing: 3) {
+            Text(store.selectedDay.longTitle)
+                .font(.subheadline)
+                .monospacedDigit()
                 .foregroundStyle(.secondary)
+            HStack(spacing: 6) {
+                Text(store.isViewingToday ? "오늘도 좋은 하루예요" : "\(store.selectedDay.shortTitle)의 기록")
+                    .font(.system(size: 24, weight: .bold))
+                if store.isViewingToday {
+                    Image(systemName: "sun.max.fill")
+                        .font(.system(size: 18))
+                        .foregroundStyle(GroupColor.yellow.color)
+                        .accessibilityHidden(true)
+                }
+            }
         }
         .fixedSize()
         .accessibilityElement(children: .combine)
@@ -188,6 +217,8 @@ struct DashboardHeader: View {
 
 struct DateNavigator: View {
     @Environment(AppStore.self) private var store
+    /// 가운데에 날짜를 적을지. 대시보드 머리말처럼 날짜가 따로 있으면 끈다.
+    var showsDate = true
 
     var body: some View {
         HStack(spacing: 8) {
@@ -195,11 +226,15 @@ struct DateNavigator: View {
                 stepButton(symbol: "chevron.left", label: "이전 날짜", help: "이전 날짜 (⌘[)") {
                     store.goToPreviousDay()
                 }
-                Text(store.selectedDay.longTitle)
-                    .font(.callout.weight(.semibold))
-                    .monospacedDigit()
-                    .frame(minWidth: 160)
-                    .accessibilityLabel("선택한 날짜 \(store.selectedDay.longTitle)")
+                if showsDate {
+                    Text(store.selectedDay.longTitle)
+                        .font(.callout.weight(.semibold))
+                        .monospacedDigit()
+                        .frame(minWidth: 160)
+                        .accessibilityLabel("선택한 날짜 \(store.selectedDay.longTitle)")
+                } else {
+                    Divider().frame(height: 16)
+                }
                 stepButton(symbol: "chevron.right", label: "다음 날짜", help: "다음 날짜 (⌘])") {
                     store.goToNextDay()
                 }

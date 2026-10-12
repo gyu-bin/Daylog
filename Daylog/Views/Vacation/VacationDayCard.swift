@@ -19,21 +19,22 @@ struct VacationDayCard: View {
         VStack(alignment: .leading, spacing: 10) {
             switch status {
             case .none:
-                header(symbol: "sun.max", title: "휴가 설정", badge: nil) {
+                header(symbol: "beach.umbrella", title: "휴가 설정", badge: nil, isActive: false) {
                     HeaderLink(title: "기간 추가") { editing = VacationEditorTarget(day: day) }
                 }
             case .upcoming(let period, let daysUntil):
-                header(symbol: "sun.max", title: "다음 휴가", badge: VacationStatus.dDayLabel(daysUntil)) {
-                    HeaderLink(title: "휴가 관리") { managing = true }
+                header(symbol: "beach.umbrella", title: "다음 휴가", badge: VacationStatus.dDayLabel(daysUntil), isActive: false) {
+                    if store.section != .vacation { HeaderLink(title: "휴가 관리") { managing = true } }
                 }
                 periodRow(period, action: "수정")
             case .active(let periods, let start, let end, let remainingDays):
                 header(
-                    symbol: "sun.max.fill",
+                    symbol: "beach.umbrella.fill",
                     title: day == store.today ? "휴가 중" : "\(day.shortTitle) 휴가",
-                    badge: day == store.today ? VacationStatus.remainingLabel(remainingDays) : nil
+                    badge: day == store.today ? VacationStatus.remainingLabel(remainingDays) : nil,
+                    isActive: true
                 ) {
-                    HeaderLink(title: "휴가 관리") { managing = true }
+                    if store.section != .vacation { HeaderLink(title: "휴가 관리") { managing = true } }
                 }
                 // 겹치거나 이어진 기간이 여럿이면 이어진 전체 구간을 먼저 알려 준다.
                 if periods.count > 1 || periods.first.map({ $0.start != start || $0.end != end }) == true {
@@ -68,7 +69,7 @@ struct VacationDayCard: View {
         .frame(maxWidth: .infinity, alignment: .topLeading)
         .background(Theme.cardBackground, in: shape)
         // 휴가인 날은 카드 전체를 옅은 휴가 색으로 덮어 한눈에 알아보게 한다.
-        .background(status.isActive ? tint.opacity(0.10) : .clear, in: shape)
+        .background(status.isActive ? tint.opacity(0.13) : .clear, in: shape)
         .overlay(shape.strokeBorder(status.isActive ? tint.opacity(0.45) : Theme.cardBorder, lineWidth: 1))
         .sheet(item: $editing) { VacationEditorSheet(target: $0) }
         .sheet(isPresented: $managing) { VacationManagementView() }
@@ -76,7 +77,7 @@ struct VacationDayCard: View {
     }
 
     private func header<Trailing: View>(
-        symbol: String, title: String, badge: String?, @ViewBuilder trailing: () -> Trailing
+        symbol: String, title: String, badge: String?, isActive: Bool, @ViewBuilder trailing: () -> Trailing
     ) -> some View {
         HStack(spacing: 8) {
             Image(systemName: symbol)
@@ -87,13 +88,15 @@ struct VacationDayCard: View {
                 .accessibilityHidden(true)
             Text(title)
                 .font(.headline)
+                // 휴가 중에는 제목도 휴가 색으로 써서 상태가 먼저 읽히게 한다.
+                .foregroundStyle(isActive ? AnyShapeStyle(GroupColor.coral.ink) : AnyShapeStyle(.primary))
                 .lineLimit(1)
                 .accessibilityAddTraits(.isHeader)
             if let badge {
                 Text(badge)
                     .font(.caption.weight(.semibold))
                     .monospacedDigit()
-                    .foregroundStyle(GroupColor.blue.ink)
+                    .foregroundStyle(GroupColor.coral.ink)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 3)
                     .background(tint.opacity(0.18), in: Capsule())

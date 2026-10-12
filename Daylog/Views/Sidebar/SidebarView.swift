@@ -102,12 +102,14 @@ private struct SidebarRow: View {
     var body: some View {
         Button(action: action) {
             HStack(spacing: 10) {
-                Image(systemName: section.filledSymbol)
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundStyle(section.tint)
+                // 고른 메뉴만 그 메뉴의 색으로 칠하고, 나머지는 선 아이콘으로 차분하게 둔다.
+                Image(systemName: isSelected ? section.filledSymbol : section.symbol)
+                    .font(.system(size: 14, weight: isSelected ? .semibold : .regular))
+                    .foregroundStyle(isSelected ? AnyShapeStyle(section.tint) : AnyShapeStyle(.secondary))
                     .frame(width: 22)
                 Text(section.title)
                     .font(.system(size: 14, weight: isSelected ? .semibold : .regular))
+                    .foregroundStyle(isSelected ? AnyShapeStyle(section.selectedInk) : AnyShapeStyle(.primary))
                     .lineLimit(1)
                 Spacer(minLength: 0)
             }
@@ -124,7 +126,7 @@ private struct SidebarRow: View {
     }
 
     private var rowBackground: Color {
-        if isSelected { return section.tint.opacity(0.18) }
+        if isSelected { return section.tint.opacity(0.16) }
         return isHovered ? Theme.track : .clear
     }
 }
@@ -135,20 +137,35 @@ extension AppStore.Section {
         switch self {
         case .dashboard: return GroupColor.mint.color
         case .routines: return GroupColor.blue.color
-        case .meals: return GroupColor.coral.color
+        case .meals: return Theme.mealTint
         case .statistics: return GroupColor.purple.color
         case .calendar: return GroupColor.orange.color
-        case .settings: return Color.secondary
+        case .vacation: return Theme.vacationTint
+        case .settings: return GroupColor.blue.color
+        }
+    }
+
+    /// 고른 메뉴의 글자색. 메뉴 색을 한 단계 진하게 써서 밝은 바탕에서도 읽힌다.
+    var selectedInk: Color {
+        switch self {
+        case .dashboard: return GroupColor.mint.ink
+        case .routines: return GroupColor.blue.ink
+        case .meals: return GroupColor.orange.ink
+        case .statistics: return GroupColor.purple.ink
+        case .calendar: return GroupColor.orange.ink
+        case .vacation: return GroupColor.coral.ink
+        case .settings: return GroupColor.blue.ink
         }
     }
 
     var filledSymbol: String {
         switch self {
-        case .dashboard: return "house.fill"
+        case .dashboard: return "square.grid.2x2.fill"
         case .routines: return "checklist"
         case .meals: return "fork.knife"
         case .statistics: return "chart.bar.fill"
         case .calendar: return "calendar"
+        case .vacation: return "beach.umbrella.fill"
         case .settings: return "gearshape.fill"
         }
     }

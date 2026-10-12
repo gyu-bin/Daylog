@@ -161,7 +161,7 @@ private struct HeatCell: View {
 
     private var fill: Color {
         switch level {
-        case .vacation: return .blue.opacity(0.25)
+        case .vacation: return Theme.vacationTint.opacity(0.3)
         case .none, .rest: return .clear
         case .unrecorded: return Theme.track
         case .low: return Theme.accent.opacity(0.32)
