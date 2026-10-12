@@ -101,6 +101,11 @@ enum DebugScript {
             await waitForEvent(named: "export", timeout: Double(argument) ?? 60) { sync.lastExportAt }
         case "refresh":
             store.handleExternalChanges()
+        case "transfer":
+            // 가져오기 시트를 열고 파일 미리보기를 만든다: transfer:<CSV·JSON 경로>. 파일 선택 창은 배경에서 조작할 수 없어서 둔다.
+            pendingTransferFile = URL(fileURLWithPath: argument)
+            presentsTransfer = true
+            store.section = .settings
         case "section":
             // 화면 전환: section:routines 처럼 메뉴 이름(dashboard, routines, meals, statistics, calendar, settings).
             if let section = AppStore.Section.allCases.first(where: { "\($0)" == argument }) {
@@ -252,6 +257,10 @@ enum DebugScript {
         }
         log("PURGE \(name)")
     }
+
+    /// `transfer:` 명령이 남긴 상태. 설정 화면의 가져오기 단추와 시트가 읽는다.
+    static var pendingTransferFile: URL?
+    static var presentsTransfer = false
 
     private static func log(_ message: String) {
         print("DAYLOG_SCRIPT \(message)")

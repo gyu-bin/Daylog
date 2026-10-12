@@ -88,6 +88,9 @@ struct SheetScaffold<Content: View, Leading: View>: View {
         .frame(width: width)
     }
     #else
+    /// 내용의 높이. 내용이 짧은 시트는 그만큼만 올라오게 디텐트를 정한다.
+    @State private var contentHeight: CGFloat = 0
+
     private var touchSheet: some View {
         NavigationStack {
             ScrollView {
@@ -103,7 +106,10 @@ struct SheetScaffold<Content: View, Leading: View>: View {
                 .padding(20)
                 .frame(maxWidth: 560, alignment: .leading)
                 .frame(maxWidth: .infinity)
+                .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { contentHeight = $0 }
             }
+            // 시트 안은 iPad에서도 compact 폭이라 size class로는 구분할 수 없다. 기기 종류로 가른다.
+            .modifier(TouchSheetSizing(contentHeight: contentHeight, isPhone: Platform.isPhone))
             .scrollDismissesKeyboard(.interactively)
             .keyboardDoneBar()
             .background(Theme.windowBackground)
@@ -123,6 +129,43 @@ struct SheetScaffold<Content: View, Leading: View>: View {
         }
     }
     #endif
+}
+
+#if os(iOS)
+/// iPhone에서는 내용 높이의 디텐트, iPad에서는 가운데 뜨는 폼 시트(iOS 18+; 그 전에는 기본 페이지 시트).
+private struct TouchSheetSizing: ViewModifier {
+    let contentHeight: CGFloat
+    let isPhone: Bool
+
+    func body(content: Content) -> some View {
+        if isPhone {
+            content.presentationDetents(SheetDetents.detents(contentHeight: contentHeight, screenHeight: UIScreen.main.bounds.height))
+        } else if #available(iOS 18.0, *) {
+            content.presentationSizing(.form)
+        } else {
+            content
+        }
+    }
+}
+
+#endif
+
+/// iPhone·iPad 시트의 높이 규칙.
+/// 내용이 짧으면 내용 높이 + 탐색 막대·아래 안전 영역만큼만 올라오고, 길면 전체 높이에서 스크롤한다.
+/// 어느 쪽이든 끌어올리면 전체 높이가 되므로 키보드가 올라와도 아래 입력칸에 닿을 수 있다.
+enum SheetDetents {
+    /// 탐색 막대와 아래 안전 영역, 손잡이 여유.
+    static let chrome: CGFloat = 120
+
+    static func fitsContent(contentHeight: CGFloat, screenHeight: CGFloat) -> Bool {
+        contentHeight > 0 && contentHeight + chrome <= screenHeight * 0.85
+    }
+
+    static func detents(contentHeight: CGFloat, screenHeight: CGFloat) -> Set<PresentationDetent> {
+        fitsContent(contentHeight: contentHeight, screenHeight: screenHeight)
+            ? [.height(contentHeight + chrome), .large]
+            : [.large]
+    }
 }
 
 extension SheetScaffold where Leading == EmptyView {

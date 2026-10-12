@@ -55,10 +55,7 @@ struct RoutineEditSheet: View {
                 }
             }
         }
-            #if os(iOS)
-            // 아래로 쓸어 닫으면 취소와 같다(초안은 버려진다).
-            .presentationDetents([.large])
-            #endif
+            // iPhone에서 아래로 쓸어 닫으면 취소와 같다(초안은 버려진다). 높이는 공통 틀이 내용에 맞춘다.
             .onAppear {
                 store.setEditing(true, source: "routine-sheet")
                 #if os(macOS)

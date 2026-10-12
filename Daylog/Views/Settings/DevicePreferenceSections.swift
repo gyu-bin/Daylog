@@ -1,10 +1,19 @@
 import SwiftUI
 
+/// 시작 안내를 다시 여는 단추(앱 정보 섹션).
+struct OnboardingReplayButton: View {
+    @State private var showsOnboarding = false
+
+    var body: some View {
+        Button("시작 안내 다시 보기") { showsOnboarding = true }
+            .sheet(isPresented: $showsOnboarding) { OnboardingView() }
+    }
+}
+
 struct DevicePreferenceSections: View {
     @Environment(AppStore.self) private var store
     @Environment(DevicePreferences.self) private var preferences
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @State private var showsOnboarding = false
 
     var body: some View {
         Section {
@@ -12,13 +21,6 @@ struct DevicePreferenceSections: View {
                 get: { preferences.mealsEnabled },
                 set: { store.setMealsEnabled($0, preferences: preferences) }
             ))
-        } header: {
-            Text("기록 화면")
-        } footer: {
-            Text("이 기기에만 적용돼요. 끄면 식사 메뉴와 카드가 숨겨지며, 입력한 내용과 기존 기록은 보관돼요. 다시 켜면 그대로 볼 수 있어요.")
-        }
-
-        Section {
             ForEach(Array(preferences.cardOrder.enumerated()), id: \.element) { index, card in
                 HStack(spacing: 4) {
                     if card == .routines {
@@ -44,19 +46,12 @@ struct DevicePreferenceSections: View {
             }
             Button("기본 배치 복원") { preferences.restoreDashboard() }
         } header: {
-            Text("오늘 화면 구성")
+            Text("오늘 화면")
         } footer: {
             Text(horizontalSizeClass == .compact
-                 ? "위에서 아래 순서로 표시돼요. 식사 표시가 꺼져 있으면 식사 카드도 숨겨지지만 카드 선택은 유지돼요."
-                 : "넓은 창에서는 두 열로, 좁은 창에서는 이 순서대로 한 열로 보여요. 오늘 화면의 편집 단추로 카드를 끌어 옮길 수도 있어요. 식사 표시가 꺼져 있으면 식사 카드도 숨겨지지만 카드 선택은 유지돼요.")
+                 ? "이 기기에만 적용돼요. 식사 표시를 끄면 식사 메뉴와 카드가 숨겨지고, 적은 내용은 그대로 보관돼요. 카드는 위에서 아래 순서로 보여요."
+                 : "이 기기에만 적용돼요. 식사 표시를 끄면 식사 메뉴와 카드가 숨겨지고, 적은 내용은 그대로 보관돼요. 넓은 창에서는 두 열, 좁은 창에서는 이 순서대로 한 열로 보이며, 오늘 화면의 편집 단추로 끌어 옮길 수도 있어요.")
         }
-
-        Section {
-            Button("시작 안내 다시 보기") { showsOnboarding = true }
-        } header: {
-            Text("사용 안내")
-        }
-        .sheet(isPresented: $showsOnboarding) { OnboardingView() }
     }
 
     /// 넓은 창의 두 열 중 어디에 둘지.
@@ -75,11 +70,18 @@ struct DevicePreferenceSections: View {
         .accessibilityLabel("\(card.title) 카드의 열")
     }
 
+    #if os(macOS)
+    private static let reorderButtonSize: CGFloat = 28
+    #else
+    private static let reorderButtonSize: CGFloat = 44
+    #endif
+
     private func reorderButton(_ card: DashboardCard, offset: Int, disabled: Bool) -> some View {
         Button { preferences.move(card, by: offset) } label: {
             Image(systemName: offset < 0 ? "arrow.up" : "arrow.down")
                 .font(.callout)
-                .frame(width: 44, height: 44)
+                // 터치 화면은 44pt, 마우스는 줄이 길어지지 않게 28pt.
+                .frame(width: Self.reorderButtonSize, height: Self.reorderButtonSize)
                 .contentShape(Rectangle())
         }
         .buttonStyle(.borderless)

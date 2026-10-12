@@ -200,11 +200,12 @@ struct DayRangeCalendar: View {
         }
         .buttonStyle(.plain)
         .animation(reduceMotion ? nil : .easeOut(duration: 0.12), value: inRange)
-        .accessibilityLabel(spokenLabel(day, isStart: isStart, isEnd: isEnd, inRange: inRange))
+        .accessibilityLabel(Self.spokenLabel(day, today: today, isStart: isStart, isEnd: isEnd, inRange: inRange))
         .accessibilityAddTraits(isEdge ? [.isButton, .isSelected] : .isButton)
     }
 
-    private func spokenLabel(_ day: Day, isStart: Bool, isEnd: Bool, inRange: Bool) -> String {
+    /// VoiceOver가 읽는 날짜 한 칸: 날짜·요일, 오늘, 시작일·종료일·기간 안.
+    static func spokenLabel(_ day: Day, today: Day, isStart: Bool, isEnd: Bool, inRange: Bool) -> String {
         var parts = ["\(day.shortTitle) \(day.weekdaySymbol)요일"]
         if day == today { parts.append("오늘") }
         if isStart, isEnd { parts.append("하루 휴가") }

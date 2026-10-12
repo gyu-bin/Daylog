@@ -13,18 +13,18 @@ struct SettingsView: View {
         }
     }
 
+    /// 위에서 아래로: 보이는 것(외관·오늘 화면) → 루틴 규칙(기준값·휴가·알림) → 이 기기(메뉴 막대·위젯) → 데이터(파일·iCloud) → 앱 정보.
     private var form: some View {
         Form {
             AppearanceSection()
             DevicePreferenceSections()
-            DataTransferSettingsSection()
 
             Section {
                 ThresholdControl()
             } header: {
                 Text("달성한 날 기준값")
             } footer: {
-                Text("하루 달성률이 이 값 이상이면 달성한 날로 세요. 바꾸면 연속 달성일과 최장 연속 달성일이 바로 다시 계산됩니다.")
+                Text("하루 달성률이 이 값 이상이면 달성한 날로 세요. 연속 달성일도 이 기준으로 바로 다시 계산돼요.")
             }
 
             VacationSettingsSection()
@@ -35,48 +35,10 @@ struct SettingsView: View {
             WidgetGuideSection()
             #endif
 
+            DataTransferSettingsSection()
+            cloudSection
+
             Section {
-                LabeledContent("상태", value: sync.account.title)
-                if sync.isEnabled {
-                    if let environment = sync.environmentTitle {
-                        LabeledContent("iCloud 환경", value: environment)
-                    }
-                    if let lastImportAt = sync.lastImportAt {
-                        LabeledContent("\(Platform.thisDevice)이 마지막으로 변경을 가져온 시각", value: Self.timestamp(lastImportAt))
-                    }
-                    if let lastExportAt = sync.lastExportAt {
-                        LabeledContent("\(Platform.thisDevice)이 마지막으로 변경을 보낸 시각", value: Self.timestamp(lastExportAt))
-                    }
-                    if let error = sync.lastErrorMessage {
-                        Label("최근 동기화 오류: \(error)", systemImage: "exclamationmark.triangle")
-                            .foregroundStyle(.orange)
-                    }
-                    ForEach(store.syncNotices, id: \.self) { notice in
-                        Label(notice, systemImage: "arrow.triangle.merge")
-                    }
-                    Button("상태 새로고침") {
-                        sync.refreshAccountStatus()
-                    }
-                }
-            } header: {
-                Text("iCloud 동기화")
-            } footer: {
-                Text(sync.isEnabled
-                     ? "같은 Apple 계정이고 iCloud 환경이 같은 기기끼리 자동으로 동기화돼요. iCloud는 변경을 즉시 반영한다고 보장하지 않습니다. 위 시각은 시스템이 알려 준 값이며, 모든 기록이 다른 기기에 도착했다는 뜻은 아니에요. 새로고침은 계정 상태만 다시 확인합니다."
-                     : "iCloud 권한이 있는 빌드로 실행하면 같은 Apple 계정의 기기끼리 자동으로 동기화돼요.")
-            }
-
-            Section("데이터") {
-                Label(sync.isEnabled ? "기록은 \(Platform.thisDevice)에 저장되고, 내 iCloud 개인 데이터베이스로 동기화됩니다."
-                                     : "기록은 \(Platform.thisDevice)에만 저장됩니다.",
-                      systemImage: "internaldrive")
-                if sync.isEnabled {
-                    Label("인터넷이 없어도 그대로 쓸 수 있고, 연결되면 이어서 동기화돼요.", systemImage: "wifi.slash")
-                }
-                Label("별도 계정·자체 서버를 쓰지 않고, 사용 정보도 수집하지 않아요.", systemImage: "lock.shield")
-            }
-
-            Section("앱 정보") {
                 HStack(spacing: 12) {
                     BrandIcon(size: 44)
                     VStack(alignment: .leading, spacing: 2) {
@@ -91,10 +53,49 @@ struct SettingsView: View {
                 }
                 .padding(.vertical, 2)
                 .accessibilityElement(children: .combine)
+                OnboardingReplayButton()
+            } header: {
+                Text("앱 정보")
+            } footer: {
+                Text("별도 계정이나 자체 서버를 쓰지 않고, 사용 정보도 수집하지 않아요.")
             }
         }
         .formStyle(.grouped)
         .scrollContentBackground(.hidden)
+    }
+
+    /// iCloud 상태와 저장 위치. 오류와 안내는 한 줄씩.
+    private var cloudSection: some View {
+        Section {
+            LabeledContent("상태", value: sync.account.title)
+            if sync.isEnabled {
+                if let environment = sync.environmentTitle {
+                    LabeledContent("iCloud 환경", value: environment)
+                }
+                if let lastImportAt = sync.lastImportAt {
+                    LabeledContent("마지막으로 가져온 시각", value: Self.timestamp(lastImportAt))
+                }
+                if let lastExportAt = sync.lastExportAt {
+                    LabeledContent("마지막으로 보낸 시각", value: Self.timestamp(lastExportAt))
+                }
+                if let error = sync.lastErrorMessage {
+                    Label("최근 동기화 오류: \(error)", systemImage: "exclamationmark.triangle")
+                        .foregroundStyle(.orange)
+                }
+                ForEach(store.syncNotices, id: \.self) { notice in
+                    Label(notice, systemImage: "arrow.triangle.merge")
+                }
+                Button("상태 새로고침") {
+                    sync.refreshAccountStatus()
+                }
+            }
+        } header: {
+            Text("iCloud 동기화")
+        } footer: {
+            Text(sync.isEnabled
+                 ? "기록은 \(Platform.thisDevice)에 저장되고 내 iCloud 개인 데이터베이스로 동기화돼요. 인터넷이 없어도 쓸 수 있고, 연결되면 이어서 맞춰요. 위 시각은 시스템이 알려 준 값이라 모든 기록이 다른 기기에 도착했다는 뜻은 아니에요."
+                 : "기록은 \(Platform.thisDevice)에만 저장돼요. iCloud 권한이 있는 빌드로 실행하면 같은 Apple 계정의 기기끼리 동기화돼요.")
+        }
     }
 
     private static func timestamp(_ date: Date) -> String {
@@ -132,7 +133,7 @@ private struct AppearanceSection: View {
         } header: {
             Text("외관")
         } footer: {
-            Text("\"시스템 설정\"은 기기의 외관 설정을 따라요. 라이트·다크를 고르면 Daylog만 그 모드로 보여요. \(Platform.thisDevice)에만 적용되고 다른 기기와 동기화하지 않아요.")
+            Text("라이트·다크를 고르면 Daylog만 그 모드로 보여요. \(Platform.thisDevice)에만 적용돼요.")
         }
     }
 }
