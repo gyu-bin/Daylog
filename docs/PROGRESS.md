@@ -261,6 +261,10 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 
 [DESIGN_REFINEMENT.md](DESIGN_REFINEMENT.md) 12~13절. 휴가 메뉴(`AppStore.Section.vacation`, `VacationView`)가 생겼고, 설정은 갈래 목록 + 상세(`SettingsCategory`)가 됐다. iPhone 설정은 탭 안에서 `NavigationStack`을 쓰면 화면이 비어 직접 전환한다. iOS TestFlight 빌드 2는 아직 올리지 않았다.
 
+## 디자인 정리 5~6차: 설정의 iCloud·기기 목록, 조건부 휴가, iPhone 홈 (2026-10-12)
+
+[DESIGN_REFINEMENT.md](DESIGN_REFINEMENT.md) 14~15절. 기기 목록은 `DeviceService`가 `FieldEdit`의 `device:` 칸에 적는다(스키마 변경 없음, 실제 앱에서만 켠다 — `AppStore.tracksDevice`). 전체 기록 JSON 내보내기에는 이 줄도 들어간다. iOS TestFlight 빌드 2는 아직 올리지 않았다.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.

@@ -7,6 +7,12 @@ import UIKit
 
 /// macOS와 iOS·iPadOS에서 이름이 다른 것들을 한곳에 모은다. 화면과 서비스는 이 이름만 쓴다.
 enum Platform {
+    /// "1.5.1 (1)" 같은 앱 버전.
+    static var appVersion: String {
+        let info = Bundle.main.infoDictionary
+        return "\(info?["CFBundleShortVersionString"] as? String ?? "—") (\(info?["CFBundleVersion"] as? String ?? "—"))"
+    }
+
     #if os(macOS)
     static let didBecomeActive = NSApplication.didBecomeActiveNotification
     static let willResignActive = NSApplication.willResignActiveNotification
@@ -17,6 +23,9 @@ enum Platform {
     }
     static let thisDevice = "이 Mac"
     static let isPhone = false
+    /// iCloud 기기 목록에 적는 이름과 종류.
+    static var deviceName: String { Host.current().localizedName ?? "Mac" }
+    static let deviceKind = DeviceInfo.Kind.mac
 
     /// 시스템 설정의 알림 화면을 연다.
     @MainActor
@@ -36,6 +45,9 @@ enum Platform {
         UIDevice.current.userInterfaceIdiom == .pad ? "이 iPad" : "이 iPhone"
     }
     static var isPhone: Bool { UIDevice.current.userInterfaceIdiom == .phone }
+    /// iCloud 기기 목록에 적는 이름과 종류. iOS는 사용자가 지은 기기 이름을 앱에 주지 않아 "iPhone"·"iPad"로 나온다.
+    static var deviceName: String { UIDevice.current.name }
+    static var deviceKind: DeviceInfo.Kind { UIDevice.current.userInterfaceIdiom == .pad ? .pad : .phone }
 
     /// 설정 앱에서 Daylog의 알림 화면을 연다.
     @MainActor

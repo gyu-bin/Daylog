@@ -9,8 +9,6 @@ struct TodayCompactView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: Theme.spacing) {
                 header
-                DateNavigator()
-                    .frame(maxWidth: .infinity)
                 if !store.stats.hasStarted {
                     StartHint()
                 }
@@ -21,19 +19,59 @@ struct TodayCompactView: View {
         .scrollDismissesKeyboard(.interactively)
     }
 
+    /// 위: 앱 이름과 캘린더·추가 단추. 아래: 날짜와 인사말, 날짜 이동.
     private var header: some View {
-        HStack(spacing: 10) {
-            BrandIcon(size: 34)
-                .accessibilityHidden(true)
-            VStack(alignment: .leading, spacing: 1) {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 10) {
                 Text("Daylog")
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(.secondary)
-                Text(store.isViewingToday ? "오늘도 좋은 하루예요" : "\(store.selectedDay.shortTitle)의 기록")
-                    .font(.title3.weight(.bold))
+                    .font(.title2.weight(.bold))
+                    .accessibilityAddTraits(.isHeader)
+                Spacer(minLength: 8)
+                Button {
+                    store.section = .calendar
+                } label: {
+                    Image(systemName: "calendar")
+                        .font(.system(size: 17, weight: .medium))
+                        .frame(width: 40, height: 40)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("캘린더 열기")
+                Button {
+                    store.requestQuickAddFocus()
+                } label: {
+                    Image(systemName: "plus")
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundStyle(.white)
+                        .frame(width: 40, height: 40)
+                        .background(GroupColor.blue.color, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("루틴 추가")
             }
-            .accessibilityElement(children: .combine)
-            .accessibilityAddTraits(.isHeader)
+            HStack(alignment: .bottom, spacing: 8) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(store.selectedDay.longTitle)
+                        .font(.subheadline)
+                        .monospacedDigit()
+                        .foregroundStyle(.secondary)
+                    HStack(spacing: 6) {
+                        Text(store.isViewingToday ? "오늘도 좋은 하루예요" : "\(store.selectedDay.shortTitle)의 기록")
+                            .font(.title3.weight(.bold))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
+                        if store.isViewingToday {
+                            Image(systemName: "sun.max.fill")
+                                .foregroundStyle(GroupColor.yellow.color)
+                                .accessibilityHidden(true)
+                        }
+                    }
+                }
+                .accessibilityElement(children: .combine)
+                Spacer(minLength: 4)
+                DateNavigator(showsDate: false)
+            }
         }
     }
 }
@@ -48,43 +86,49 @@ struct TodayProgressCard: View {
         let hasStarted = store.hasRoutines && (store.stats.firstDay.map { store.selectedDay >= $0 } ?? true)
         let headline = Self.headline(outcome, hasStarted: hasStarted)
         let detail = Self.detail(outcome, isToday: store.isViewingToday, hasStarted: hasStarted)
-        Card(fillsHeight: false) {
-            HStack(spacing: 18) {
-                ZStack {
-                    ProgressRing(ratio: outcome.ratio, lineWidth: 10)
-                    if outcome.status == .vacation {
-                        Image(systemName: "sun.max").foregroundStyle(Theme.accent)
-                    } else if outcome.total > 0 {
-                        Text("\(outcome.done)/\(outcome.total)")
-                            .font(.title3.weight(.bold))
-                            .monospacedDigit()
-                            .minimumScaleFactor(0.6)
-                            .lineLimit(1)
-                            .padding(.horizontal, 14)
-                    } else {
-                        Image(systemName: hasStarted ? "cup.and.saucer" : "plus")
-                            .font(.title3)
-                            .foregroundStyle(.secondary)
+        Button {
+            store.section = .statistics
+        } label: {
+            Card(fillsHeight: false, padding: 14) {
+                HStack(spacing: 14) {
+                    ZStack {
+                        ProgressRing(ratio: outcome.ratio, lineWidth: 8)
+                        if outcome.status == .vacation {
+                            Image(systemName: "beach.umbrella.fill").foregroundStyle(Theme.vacationTint)
+                        } else if outcome.total > 0 {
+                            Text(outcome.percentLabel)
+                                .font(.system(size: 17, weight: .bold))
+                                .monospacedDigit()
+                                .minimumScaleFactor(0.6)
+                                .lineLimit(1)
+                                .padding(.horizontal, 10)
+                        } else {
+                            Image(systemName: hasStarted ? "cup.and.saucer" : "plus")
+                                .foregroundStyle(.secondary)
+                        }
                     }
-                }
-                .frame(width: 92, height: 92)
-                .accessibilityHidden(true)
+                    .frame(width: 68, height: 68)
+                    .accessibilityHidden(true)
 
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(store.isViewingToday ? "오늘의 진행률" : "\(store.selectedDay.shortTitle)의 진행률")
-                        .font(.footnote.weight(.medium))
-                        .foregroundStyle(.secondary)
-                    Text(headline)
-                        .font(.title2.weight(.bold))
-                        .monospacedDigit()
-                    Text(detail)
-                        .font(.callout)
-                        .foregroundStyle(.secondary)
-                        .fixedSize(horizontal: false, vertical: true)
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text(outcome.total > 0 && outcome.status != .vacation ? "\(outcome.done) / \(outcome.total) 완료" : headline)
+                            .font(.headline)
+                            .monospacedDigit()
+                        Text(detail)
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    Spacer(minLength: 4)
+                    Image(systemName: "chevron.right")
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(.tertiary)
                 }
-                Spacer(minLength: 0)
             }
         }
+        .buttonStyle(.plain)
+        .accessibilityHint("통계를 엽니다.")
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(store.isViewingToday ? "오늘" : store.selectedDay.shortTitle)의 진행률, \(headline). \(detail)")
     }
@@ -185,7 +229,7 @@ struct MealSummaryCard: View {
                         store.section = .meals
                     }
                 }
-                VStack(spacing: 8) {
+                HStack(alignment: .top, spacing: 6) {
                     ForEach(MealKind.allCases) { kind in
                         row(kind)
                     }
@@ -194,22 +238,31 @@ struct MealSummaryCard: View {
         }
     }
 
+    /// 식사 한 칸: 이름과 적은 내용(없으면 줄표). 누르면 식사 탭에서 적는다.
     private func row(_ kind: MealKind) -> some View {
         let text = store.text(kind.field.keyPath).trimmingCharacters(in: .whitespacesAndNewlines)
-        return HStack(alignment: .firstTextBaseline, spacing: 10) {
-            Label {
-                Text(kind.title).font(.callout.weight(.semibold))
-            } icon: {
-                Image(systemName: kind.symbol).foregroundStyle(kind.tint)
+        return Button {
+            store.section = .meals
+        } label: {
+            VStack(spacing: 4) {
+                Text(kind.title)
+                    .font(.footnote.weight(.semibold))
+                    .foregroundStyle(kind.tint)
+                Text(text.isEmpty ? "–" : text)
+                    .font(.caption)
+                    .foregroundStyle(text.isEmpty ? .tertiary : .secondary)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.center)
             }
-            .frame(width: 70, alignment: .leading)
-            Text(text.isEmpty ? "아직 안 적었어요" : text)
-                .font(.callout)
-                .foregroundStyle(text.isEmpty ? .tertiary : .primary)
-                .lineLimit(2)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, minHeight: 56)
+            .padding(.horizontal, 4)
+            .padding(.vertical, 6)
+            .background(Theme.inset, in: RoundedRectangle(cornerRadius: Theme.controlRadius, style: .continuous))
+            .contentShape(Rectangle())
         }
+        .buttonStyle(.plain)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(kind.title), \(text.isEmpty ? "기록 없음" : text)")
+        .accessibilityHint("식사 탭에서 적습니다.")
     }
 }

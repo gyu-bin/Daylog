@@ -23,6 +23,23 @@ enum VacationStatus: Equatable {
         return .upcoming(period: next, daysUntil: today.days(until: next.start))
     }
 
+    /// 오늘 화면에 휴가를 알릴 만한가: 휴가 중이거나, 시작이 `soonDays`일 안으로 다가왔을 때만.
+    /// 그 밖에는 매일 보는 화면에서 자리를 차지하지 않는다(등록·관리는 휴가 메뉴에서).
+    static let soonDays = 7
+
+    var showsOnDashboard: Bool {
+        switch self {
+        case .none: return false
+        case .upcoming(_, let daysUntil): return daysUntil <= Self.soonDays
+        case .active: return true
+        }
+    }
+
+    var isActive: Bool {
+        if case .active = self { return true }
+        return false
+    }
+
     /// `day` 뒤에 시작하는 휴가 가운데 가장 가까운 것.
     static func nextPeriod(periods: [VacationPeriod], after day: Day) -> VacationPeriod? {
         periods.filter { $0.start > day }.min { ($0.start, $0.end) < ($1.start, $1.end) }

@@ -31,6 +31,10 @@ final class AppStore {
     /// 저장된 내용이 바뀔 때마다 올라간다. 식사 기록 탭처럼 따로 조회하는 화면이 이 값을 보고 다시 읽는다.
     private(set) var dataVersion = 0
     private(set) var vacationPeriods: [VacationPeriod] = []
+    /// 같은 iCloud 계정으로 Daylog를 쓰는 기기들(이 기기 포함).
+    var devices: [DeviceInfo] = []
+    /// 이 기기의 정보를 기기 목록에 적을지. 실제 앱이 시작할 때 켠다.
+    var tracksDevice = false
     /// 마지막으로 항목을 추가한 그룹. ⌘N과 추천 칩이 이 그룹을 대상으로 한다.
     var lastUsedGroupID: UUID?
     private(set) var stats: DashboardStats
@@ -82,6 +86,7 @@ final class AppStore {
             record = try DayRecordService(context: context).fetchOrCreate(day: today, today: today)
         }
         reload()
+        touchDevice()
     }
 
     /// 다른 기기의 변경이 저장소에 들어왔을 때(그리고 앱이 다시 활성화될 때) 호출한다.
@@ -96,6 +101,8 @@ final class AppStore {
             }
         }
         reload()
+        // 다른 기기의 정보가 들어왔을 수 있고, 이 기기의 마지막 활동도 가끔 다시 적는다.
+        touchDevice()
     }
 
     private func reconcile() {

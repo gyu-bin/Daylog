@@ -130,9 +130,70 @@ struct VacationDayCard: View {
     }
 }
 
-private extension VacationStatus {
-    var isActive: Bool {
-        if case .active = self { return true }
-        return false
+/// 휴가인 날의 얇은 띠: 상태, 남은 날, 기간만. 누르면 그 기간을 고치거나 해제한다(여러 기간이면 휴가 관리).
+struct VacationBanner: View {
+    @Environment(AppStore.self) private var store
+    let day: Day
+    @State private var editing: VacationEditorTarget?
+    @State private var managing = false
+
+    var body: some View {
+        if case .active(let periods, let start, let end, let remainingDays) =
+            VacationStatus.resolve(periods: store.vacationPeriods, on: day, today: store.today) {
+            let tint = Theme.vacationTint
+            let shape = RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous)
+            Button {
+                if periods.count == 1, let period = periods.first {
+                    editing = VacationEditorTarget(day: period.start, period: period)
+                } else {
+                    managing = true
+                }
+            } label: {
+                HStack(spacing: 12) {
+                    Image(systemName: "beach.umbrella.fill")
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(tint)
+                        .frame(width: 32, height: 32)
+                        .background(tint.opacity(0.16), in: RoundedRectangle(cornerRadius: 9, style: .continuous))
+                        .accessibilityHidden(true)
+                    VStack(alignment: .leading, spacing: 2) {
+                        HStack(spacing: 8) {
+                            Text(day == store.today ? "휴가 중" : "\(day.shortTitle) 휴가")
+                                .font(.headline)
+                                .foregroundStyle(GroupColor.coral.ink)
+                            if day == store.today {
+                                Text(VacationStatus.remainingLabel(remainingDays))
+                                    .font(.caption.weight(.semibold))
+                                    .monospacedDigit()
+                                    .foregroundStyle(GroupColor.coral.ink)
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 3)
+                                    .background(tint.opacity(0.18), in: Capsule())
+                            }
+                        }
+                        Text(VacationStatus.rangeTitle(start: start, end: end))
+                            .font(.caption)
+                            .monospacedDigit()
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                    }
+                    Spacer(minLength: 8)
+                    Image(systemName: "chevron.right")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.tertiary)
+                }
+                .padding(.horizontal, 14)
+                .padding(.vertical, 10)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Theme.cardBackground, in: shape)
+                .background(tint.opacity(0.13), in: shape)
+                .overlay(shape.strokeBorder(tint.opacity(0.45), lineWidth: 1))
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityHint("누르면 휴가 기간을 고치거나 해제합니다.")
+            .sheet(item: $editing) { VacationEditorSheet(target: $0) }
+            .sheet(isPresented: $managing) { VacationManagementView() }
+        }
     }
 }

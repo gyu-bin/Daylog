@@ -226,4 +226,57 @@ struct ProductUXTests {
         #expect(SyncSummary.relative(now.addingTimeInterval(-3 * 86400), now: now) == "3일 전")
         #expect(SyncSummary.relative(now.addingTimeInterval(60), now: now) == "방금 전", "시계가 어긋나 미래여도 음수로 적지 않는다.")
     }
+
+    // MARK: - 오늘 화면의 휴가, 기기 목록
+
+    @Test func vacationShowsOnTodayOnlyWhenActiveOrSoon() {
+        let today = day(10, 12)
+        func status(_ periods: [VacationPeriod]) -> VacationStatus {
+            VacationStatus.resolve(periods: periods, on: today, today: today)
+        }
+        #expect(!status([]).showsOnDashboard)
+        #expect(status([period(day(10, 11), day(10, 13))]).showsOnDashboard, "휴가 중")
+        #expect(status([period(day(10, 19), day(10, 20))]).showsOnDashboard, "7일 뒤 시작")
+        #expect(!status([period(day(10, 20), day(10, 21))]).showsOnDashboard, "8일 뒤 시작은 아직 알리지 않는다.")
+        #expect(!status([period(day(10, 1), day(10, 3))]).showsOnDashboard, "지난 휴가")
+        #expect(status([period(day(10, 11), day(10, 13))]).isActive)
+    }
+
+    @Test func deviceInfoIsRewrittenOnlyWhenNeeded() {
+        let now = Date(timeIntervalSinceReferenceDate: 800_000_000)
+        let payload = DeviceEdit.Payload(name: "Mac", kind: .mac, appVersion: "1.5.1 (1)")
+        #expect(DeviceEdit.needsWrite(existing: nil, payload: payload, now: now, interval: 21600), "처음")
+        #expect(!DeviceEdit.needsWrite(existing: (payload, now.addingTimeInterval(-3600)), payload: payload, now: now, interval: 21600), "한 시간 전에 적었으면 다시 적지 않는다.")
+        #expect(DeviceEdit.needsWrite(existing: (payload, now.addingTimeInterval(-7 * 3600)), payload: payload, now: now, interval: 21600), "6시간이 지났다.")
+        var updated = payload; updated.appVersion = "1.5.2 (1)"
+        #expect(DeviceEdit.needsWrite(existing: (payload, now), payload: updated, now: now, interval: 21600), "버전이 바뀌었다.")
+        // 적은 값은 그대로 읽힌다.
+        #expect(DeviceEdit.decode(DeviceEdit.encode(payload)) == payload)
+        #expect(DeviceEdit.decode("{}") == nil)
+        #expect(DeviceEdit.fieldName("abc") == "device:abc")
+    }
+
+    @Test func deviceListKeepsOneRowPerDeviceAndHidesRemovedOnes() throws {
+        let env = try TestEnv()
+        let now = Date(timeIntervalSinceReferenceDate: 800_000_000)
+        let mine = DeviceService(context: env.context, deviceID: "device-a")
+        let other = DeviceService(context: env.context, deviceID: "device-b")
+        #expect(try mine.touch(name: "Mac", kind: .mac, appVersion: "1.5.1 (1)", now: now))
+        #expect(try other.touch(name: "iPhone", kind: .phone, appVersion: "1.0.0 (2)", now: now.addingTimeInterval(-600)))
+        #expect(try !mine.touch(name: "Mac", kind: .mac, appVersion: "1.5.1 (1)", now: now.addingTimeInterval(60)), "같은 내용을 바로 다시 적지 않는다.")
+        try env.context.save()
+        #expect(try mine.devices().map(\.name) == ["Mac", "iPhone"], "최근에 쓴 기기부터.")
+        #expect(try mine.devices().count == 2)
+
+        // 다른 기기를 목록에서 지워도 기록(다른 편집)은 건드리지 않고, 그 기기가 다시 쓰면 돌아온다.
+        try mine.remove("device-b")
+        #expect(try mine.devices().map(\.id) == ["device-a"])
+        #expect(try other.touch(name: "iPhone", kind: .phone, appVersion: "1.0.0 (2)", now: now.addingTimeInterval(120)))
+        #expect(try mine.devices().count == 2)
+
+        // 기기 줄은 텍스트·체크·휴가의 편집으로 취급되지 않는다.
+        #expect(try FieldEditService(context: env.context, deviceID: "device-a").groups().isEmpty)
+        #expect(try FieldEditService(context: env.context, deviceID: "device-a").checkGroups().isEmpty)
+        #expect(try VacationService(context: env.context, deviceID: "device-a").periods().isEmpty)
+    }
 }

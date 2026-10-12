@@ -87,7 +87,7 @@ struct DevicePreferencesTests {
     /// iPhone은 진행률이 맨 위에 오는 순서로 시작하고, 기본 배치 복원도 그 순서로 돌아간다.
     @Test func phoneStartsWithProgressOnTop() {
         let preferences = DevicePreferences(defaults: testDefaults(), isPhone: true)
-        #expect(preferences.visibleCards == [.achievement, .nextRoutine, .vacation, .routines, .meals, .recentDays, .tomorrow])
+        #expect(preferences.visibleCards == [.achievement, .vacation, .routines, .meals, .nextRoutine, .recentDays, .tomorrow])
         preferences.move(.achievement, by: 1)
         preferences.restoreDashboard()
         #expect(preferences.visibleCards.first == .achievement)

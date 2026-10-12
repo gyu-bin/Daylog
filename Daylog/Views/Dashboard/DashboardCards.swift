@@ -10,19 +10,37 @@ struct DashboardCards: View {
     let wide: Bool
     var isEditing = false
 
-    /// 편집 중에는 보이지 않는 조건의 카드(다음 루틴)도 자리를 보여 준다. 평소에는 내용이 있을 때만 그린다.
+    private var vacationStatus: VacationStatus {
+        VacationStatus.resolve(periods: store.vacationPeriods, on: store.selectedDay, today: store.today)
+    }
+
+    /// 편집 중에는 보이지 않는 조건의 카드(다음 루틴, 휴가)도 자리를 보여 준다. 평소에는 보여 줄 것이 있을 때만 그린다.
+    /// 휴가는 휴가 중이거나 시작이 며칠 안으로 다가왔을 때만 나온다.
     private var cards: [DashboardCard] {
         preferences.visibleCards.filter { card in
-            isEditing || card != .nextRoutine || (store.isViewingToday && !store.isVacation(on: store.today)
-                && NextCheck.pick(from: store.checkSections, nowMinutes: 0) != nil)
+            if isEditing { return true }
+            switch card {
+            case .nextRoutine:
+                return store.isViewingToday && !store.isVacation(on: store.today)
+                    && NextCheck.pick(from: store.checkSections, nowMinutes: 0) != nil
+            case .vacation:
+                return vacationStatus.showsOnDashboard
+            default:
+                return true
+            }
         }
     }
 
     var body: some View {
-        let cards = cards
+        // 넓은 화면에서 휴가 중이면 카드 자리 대신 맨 위에 얇은 띠로 올린다(오늘 달성률이 왜 비는지 먼저 보이게).
+        let hoistsVacation = wide && !isEditing && vacationStatus.isActive && self.cards.contains(.vacation)
+        let cards = hoistsVacation ? self.cards.filter { $0 != .vacation } : self.cards
         if wide {
             let layout = preferences.layout(of: cards)
             VStack(alignment: .leading, spacing: Theme.spacing) {
+                if hoistsVacation {
+                    VacationBanner(day: store.selectedDay)
+                }
                 ForEach(layout.band) { card in
                     slot(card, column: nil, siblings: layout.band)
                 }
@@ -83,7 +101,14 @@ struct DashboardCards: View {
             } else {
                 NextRoutineCard()
             }
-        case .vacation: VacationDayCard(day: store.selectedDay)
+        case .vacation:
+            if vacationStatus.isActive {
+                VacationBanner(day: store.selectedDay)
+            } else if isEditing, !vacationStatus.showsOnDashboard {
+                EditingPlaceholder(card: card, note: "휴가 중이거나 휴가가 \(VacationStatus.soonDays)일 안으로 다가왔을 때만 보여요.")
+            } else {
+                VacationDayCard(day: store.selectedDay)
+            }
         case .routines: RoutineCard()
         case .meals:
             if compact { MealSummaryCard() } else { MealCard() }

@@ -213,6 +213,7 @@ struct SettingsView: View {
             switch category {
             case .sync:
                 syncSection
+                devicesSection
             case .general:
                 AppearanceSection()
                 #if os(macOS)
@@ -338,6 +339,49 @@ struct SettingsView: View {
             Text(sync.isEnabled
                  ? "같은 Apple 계정의 Mac·iPhone·iPad가 기록을 맞춰요. 인터넷이 없어도 쓸 수 있고, 연결되면 이어서 맞춰요. 계정은 기기의 시스템 설정에서 관리해요."
                  : "기록은 \(Platform.thisDevice)에만 저장돼요.")
+        }
+    }
+
+    /// 같은 계정으로 Daylog를 쓰는 기기들. "지금 연결됨"이 아니라 각 기기가 마지막으로 앱을 쓴 때를 보여 준다.
+    @ViewBuilder
+    private var devicesSection: some View {
+        if !store.devices.isEmpty {
+            Section {
+                TimelineView(.periodic(from: .now, by: 30)) { timeline in
+                    ForEach(store.devices) { device in
+                        let isThis = device.id == store.deviceID
+                        let isStale = timeline.date.timeIntervalSince(device.lastActive) >= DeviceService.staleInterval
+                        HStack(spacing: 12) {
+                            Image(systemName: device.kind.symbol)
+                                .font(.system(size: 17))
+                                .foregroundStyle(isStale ? AnyShapeStyle(.tertiary) : AnyShapeStyle(GroupColor.blue.color))
+                                .frame(width: 30)
+                                .accessibilityHidden(true)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(isThis ? "\(device.name) · 이 기기" : device.name)
+                                    .foregroundStyle(isStale ? .secondary : .primary)
+                                    .lineLimit(1)
+                                Text("버전 \(device.appVersion) · \(isThis ? "지금 사용 중" : SyncSummary.relative(device.lastActive, now: timeline.date))")
+                                    .font(.caption)
+                                    .monospacedDigit()
+                                    .foregroundStyle(.secondary)
+                            }
+                            Spacer(minLength: 8)
+                            // 오래 쓰지 않은 다른 기기만 목록에서 지울 수 있다. 기록은 지워지지 않는다.
+                            if !isThis, isStale {
+                                Button("목록에서 지우기") { store.removeDevice(device) }
+                                    .controlSize(.small)
+                            }
+                        }
+                        .padding(.vertical, 2)
+                        .accessibilityElement(children: .combine)
+                    }
+                }
+            } header: {
+                Text("이 계정으로 쓰는 기기")
+            } footer: {
+                Text("각 기기가 마지막으로 Daylog를 쓴 때예요. 이 기능이 들어간 버전으로 업데이트한 기기만 나와요.")
+            }
         }
     }
 

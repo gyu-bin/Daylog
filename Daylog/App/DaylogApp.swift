@@ -193,6 +193,7 @@ enum AppLaunch {
                 deviceID: DaylogStore.deviceID(for: RuntimeEnvironment.storeLocation),
                 clock: RuntimeEnvironment.clock
             )
+            store.tracksDevice = !RuntimeEnvironment.isRunningTests
             store.start()
             let sync = CloudSyncMonitor(containerIdentifier: cloudContainerID, environment: RuntimeEnvironment.cloudKitEnvironment)
             sync.start()
