@@ -1,18 +1,21 @@
 #!/bin/zsh
-# 지금 소스를 빌드해 이 Mac의 /Applications/Daylog.app을 바로 바꾼다. 공증과 DMG는 건너뛴다.
+# 지금 소스를 빌드해 이 Mac의 /Applications/Daylog.app을 바로 바꾸고, GitHub Release의 DMG도 맞춘다.
 #
-#   Tools/update.sh              빌드 → Developer ID 서명 → 실행 중인 Daylog 종료 → 교체 → 실행
+#   Tools/update.sh              빌드 → Developer ID 서명 → 실행 중인 Daylog 종료 → 교체 → 실행 → GitHub DMG 게시
 #   Tools/update.sh --no-open    교체만 하고 실행하지 않는다
+#   Tools/update.sh --no-publish GitHub에는 올리지 않고, 올라가 있는 DMG의 버전만 확인한다
 #   Tools/update.sh --check-release
 #                                빌드하지 않고, 설치된 앱의 버전과 GitHub Release의 DMG 버전만 비교한다
 #
-# 교체가 끝나면 GitHub Release에 올라가 있는 DMG의 버전도 확인해 알려 준다(다르다고 멈추지는 않는다).
-# 다른 Mac은 그 DMG로 설치하므로, 버전이 뒤처져 있으면 Tools/release.sh로 새 DMG를 올릴 때다.
-#
-# 공증은 다른 Mac에 나눠 줄 때만 필요하다(Tools/release.sh). 이 Mac에서 만든 앱은 격리 표시가 없어 공증 없이 열린다.
+# 이 Mac의 앱은 공증 없이 바로 바꾼다(1~2분). 이 Mac에서 만든 앱은 격리 표시가 없어 공증 없이 열린다.
 # 서명은 배포판과 같은 Developer ID로 한다: 그래야 iCloud의 Production 환경을 쓰고, 지금 쓰는 기록과 그대로 이어진다.
 # (Tools/install.sh의 개발 서명은 Development 환경이라, 배포판으로 쓰던 저장소는 섞이지 않게 열리지 않는다.)
 # 빌드 결과를 build/update에 남겨 두므로 두 번째부터는 바뀐 파일만 다시 컴파일한다.
+#
+# 교체가 끝나면 다른 Mac이 받는 GitHub Release의 DMG도 같은 소스로 맞춘다. 이쪽은 공증이 필요해 몇 분 더 걸린다
+# (Tools/release.sh --skip-tests --publish --allow-unsigned-dmg). 다음 경우에는 올리지 않고 이유를 알려 준다:
+# 커밋하지 않은 변경이 있을 때, 커밋을 아직 push하지 않았을 때, 올라가 있는 DMG 이후로 앱 소스가 바뀌지 않았을 때.
+# 게시가 실패해도 이 Mac의 앱은 이미 바뀐 뒤다. 실패는 숨기지 않고 0이 아닌 값으로 끝낸다.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
@@ -21,6 +24,19 @@ INSTALLED="${DAYLOG_INSTALL_DIR:-/Applications}/Daylog.app"
 OUT="build/update"
 ARCHIVE="$OUT/Daylog.xcarchive"
 APP="$OUT/export/Daylog.app"
+
+# 앱에 들어가는 소스. 여기가 바뀌지 않았으면 DMG를 다시 올리지 않는다.
+APP_SOURCES=(Daylog DaylogShared DaylogWidgets Config Daylog.xcodeproj)
+
+OPEN=1; PUBLISH=1; CHECK_ONLY=0
+for arg in "$@"; do
+  case "$arg" in
+    --no-open) OPEN=0 ;;
+    --no-publish) PUBLISH=0 ;;
+    --check-release) CHECK_ONLY=1 ;;
+    *) echo "알 수 없는 옵션: $arg" >&2; exit 2 ;;
+  esac
+done
 
 step() { echo; echo "▸ $1"; }
 fail() { echo "✗ $1" >&2; exit 1; }
@@ -46,14 +62,55 @@ check_release() {
     else
       echo "! GitHub 최신 릴리스는 $latest 인데 DMG(Daylog-v$version-macOS.dmg)가 없습니다. 올라간 파일: ${assets:-없음}"
     fi
-    echo "  같은 버전이어도 이 Mac의 앱은 방금 빌드한 최신 소스이고, DMG는 릴리스 당시의 소스입니다."
+    local built
+    built=$(gh release view "$latest" --json body -q .body 2>/dev/null | sed -n 's/^빌드 기준 커밋: \([0-9a-f]*\).*/\1/p' | tail -1) || built=""
+    if [[ -n "$built" ]] && git cat-file -e "$built^{commit}" 2>/dev/null; then
+      if git diff --quiet "$built" HEAD -- $APP_SOURCES && [[ -z "$(git status --porcelain -- $APP_SOURCES)" ]]; then
+        echo "  DMG는 $built 에서 만들었고, 그 뒤로 앱 소스는 바뀌지 않았습니다."
+      else
+        echo "! DMG는 $built 에서 만들었고, 그 뒤로 앱 소스가 바뀌었습니다. 다른 Mac은 이전 소스의 앱을 받습니다."
+      fi
+    else
+      echo "  DMG를 어느 커밋으로 만들었는지 릴리스 설명에 없어, 지금 소스와 같은지는 확인하지 못했습니다."
+    fi
   else
     echo "! GitHub 최신 릴리스는 $latest, 이 Mac의 앱은 v$version 입니다. 다른 Mac은 DMG로 설치하므로 $latest 그대로입니다."
-    echo "  새 DMG를 올리려면: Tools/release.sh (공증 빌드) → Tools/release.sh --publish-only"
+    echo "  새 DMG를 올리려면: Tools/update.sh (자동 게시) 또는 Tools/release.sh --publish"
   fi
 }
 
-if [[ "${1:-}" == "--check-release" ]]; then
+# GitHub Release의 DMG를 지금 소스로 맞춘다. 올릴 수 없거나 올릴 필요가 없으면 이유를 말하고 넘어간다.
+publish_release() {
+  local version="$1" tag="v$1" built
+  step "GitHub Release에 DMG 게시"
+  if ! command -v gh >/dev/null; then
+    echo "· gh(GitHub CLI)가 없어 올리지 않았습니다."
+    return 0
+  fi
+  if [[ -n "$(git status --porcelain)" ]]; then
+    echo "· 커밋하지 않은 변경이 있어 올리지 않았습니다. 이 Mac의 앱에만 반영됐습니다. 커밋·push 뒤 다시 실행하면 올라갑니다."
+    return 0
+  fi
+  if ! git branch -r --contains HEAD 2>/dev/null | grep -q .; then
+    echo "· 아직 push하지 않은 커밋이라 올리지 않았습니다. git push 뒤 다시 실행하면 올라갑니다."
+    return 0
+  fi
+  # 올라가 있는 DMG를 만든 커밋 이후로 앱 소스가 그대로면(문서·도구만 바뀜) 다시 올리지 않는다.
+  built=$(gh release view "$tag" --json body -q .body 2>/dev/null | sed -n 's/^빌드 기준 커밋: \([0-9a-f]*\).*/\1/p' | tail -1) || built=""
+  if [[ -n "$built" ]] && git cat-file -e "$built^{commit}" 2>/dev/null \
+    && git diff --quiet "$built" HEAD -- $APP_SOURCES; then
+    echo "✓ $tag 의 DMG($built)가 이미 지금 앱 소스와 같습니다. 다시 올리지 않았습니다."
+    return 0
+  fi
+  echo "공증을 거쳐 올립니다. 몇 분 걸립니다."
+  if Tools/release.sh --skip-tests --publish --allow-unsigned-dmg; then
+    return 0
+  fi
+  echo "✗ GitHub 게시에 실패했습니다. 이 Mac의 앱은 이미 $version 으로 바뀌었고, GitHub의 DMG는 그대로입니다." >&2
+  return 1
+}
+
+if [[ $CHECK_ONLY -eq 1 ]]; then
   [[ -d "$INSTALLED" ]] || fail "$INSTALLED 가 없습니다."
   check_release "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$INSTALLED/Contents/Info.plist")"
   exit 0
@@ -117,17 +174,19 @@ ditto "$APP" "$INSTALLED"
 codesign --verify --deep --strict "$INSTALLED" || fail "설치한 앱의 서명이 깨졌습니다. 되돌리려면: mv $OUT/previous.app $INSTALLED"
 echo "✓ Daylog $VERSION 설치 완료 (직전 앱: $OUT/previous.app)"
 
-if [[ "${1:-}" == "--no-open" ]]; then
-  check_release "$VERSION"
-  exit 0
+if [[ $OPEN -eq 1 ]]; then
+  step "실행"
+  open "$INSTALLED"
+  # 공증하지 않은 앱이라, 실제로 떠서 살아 있는지 확인한다.
+  sleep 5
+  pgrep -f "^$INSTALLED/Contents/MacOS/Daylog" >/dev/null \
+    || fail "Daylog가 실행되지 않았습니다. 되돌리려면: rm -rf $INSTALLED && mv $OUT/previous.app $INSTALLED (또는 Tools/release.sh로 공증 빌드)"
+  echo "✓ 실행 중"
 fi
 
-step "실행"
-open "$INSTALLED"
-# 공증하지 않은 앱이라, 실제로 떠서 살아 있는지 확인한다.
-sleep 5
-pgrep -f "^$INSTALLED/Contents/MacOS/Daylog" >/dev/null \
-  || fail "Daylog가 실행되지 않았습니다. 되돌리려면: rm -rf $INSTALLED && mv $OUT/previous.app $INSTALLED (또는 Tools/release.sh로 공증 빌드)"
-echo "✓ 실행 중"
-
+PUBLISH_FAILED=0
+if [[ $PUBLISH -eq 1 ]]; then
+  publish_release "$VERSION" || PUBLISH_FAILED=1
+fi
 check_release "$VERSION"
+[[ $PUBLISH_FAILED -eq 0 ]] || exit 3

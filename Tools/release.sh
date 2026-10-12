@@ -3,6 +3,7 @@
 #
 #   Tools/release.sh                 DMG를 만들고 검증까지 한다. 게시하지 않는다.
 #   Tools/release.sh --publish       검증을 통과하면 GitHub Release(v<버전>)에 DMG를 올린다.
+#                                    같은 버전의 릴리스가 이미 있으면 DMG만 새것으로 바꾸고, 설명의 체크섬과 빌드 기준 커밋을 고친다.
 #   Tools/release.sh --skip-tests    전체 테스트를 건너뛴다(방금 돌린 경우).
 #   Tools/release.sh --publish-only  이미 만들어 검증한 DMG(build/release)를 다시 만들지 않고 그대로 올린다.
 #   Tools/release.sh --allow-unsigned-dmg
@@ -51,6 +52,8 @@ step "Daylog $VERSION 배포 준비"
 
 build_dmg() {
   rm -rf "$OUT"; mkdir -p "$OUT"
+  # 어느 커밋으로 만든 DMG인지 남긴다(--publish-only로 나중에 올려도 맞게 적히도록).
+  git rev-parse HEAD > "$OUT/build-commit"
 
   if [[ $SKIP_TESTS -eq 0 ]]; then
     step "전체 테스트"
@@ -165,12 +168,35 @@ if [[ $PUBLISH -eq 1 ]]; then
   fi
   command -v gh >/dev/null || fail "gh(GitHub CLI)가 없습니다."
   TAG="v$VERSION"
-  gh release view "$TAG" >/dev/null 2>&1 && fail "$TAG 릴리스가 이미 있습니다."
-  gh release create "$TAG" "$DMG" --target "$(git rev-parse HEAD)" --title "Daylog $VERSION" \
-    --notes "macOS 14 이상. DMG를 열어 Daylog를 Applications로 끌어다 놓으세요.
+  HEAD_SHA=$(cat "$OUT/build-commit" 2>/dev/null || git rev-parse HEAD)
+  DMG_SHA=$(shasum -a 256 "$DMG" | cut -d' ' -f1)
+  # Tools/update.sh가 이 줄을 읽어, 그 뒤로 앱 소스가 바뀌었을 때만 DMG를 다시 올린다.
+  BUILD_LINE="빌드 기준 커밋: ${HEAD_SHA[1,7]}"
+  # 릴리스의 태그와 설명이 가리키는 커밋은 GitHub에 있어야 한다.
+  git branch -r --contains "$HEAD_SHA" 2>/dev/null | grep -q . || fail "이 커밋이 GitHub에 없습니다. 먼저 git push 하세요."
+  if gh release view "$TAG" >/dev/null 2>&1; then
+    # 같은 버전: 태그는 옮기지 않고 DMG만 바꾼다. 어느 커밋으로 만든 DMG인지는 설명에 적는다.
+    gh release upload "$TAG" "$DMG" --clobber || fail "DMG를 바꾸지 못했습니다."
+    # 설명은 그대로 두고 체크섬과 빌드 기준 커밋만 고친다. 읽지 못하면 설명을 덮어쓰지 않는다.
+    BODY=$(gh release view "$TAG" --json body -q .body) || fail "DMG는 바꿨지만 릴리스 설명을 읽지 못했습니다. 체크섬을 직접 고치세요: $DMG_SHA"
+    BODY=$(echo "$BODY" | sed -E "s/[0-9a-f]{64}/$DMG_SHA/g" | grep -v "^빌드 기준 커밋: " || true)
+    [[ "$BODY" == *"$DMG_SHA"* ]] || BODY="$BODY
 
-SHA-256: \`$(shasum -a 256 "$DMG" | cut -d' ' -f1)\`"
-  echo "✓ 게시 완료: $(gh release view "$TAG" --json url -q .url)"
+SHA-256: \`$DMG_SHA\`"
+    NOTES=$(mktemp)
+    printf '%s\n\n%s\n' "$BODY" "$BUILD_LINE" > "$NOTES"
+    gh release edit "$TAG" --notes-file "$NOTES" >/dev/null || fail "DMG는 바꿨지만 릴리스 설명을 고치지 못했습니다. 체크섬을 직접 고치세요: $DMG_SHA"
+    rm -f "$NOTES"
+    echo "✓ $TAG 릴리스의 DMG를 바꿨습니다: $(gh release view "$TAG" --json url -q .url)"
+  else
+    gh release create "$TAG" "$DMG" --target "$HEAD_SHA" --title "Daylog $VERSION" \
+      --notes "macOS 14 이상. DMG를 열어 Daylog를 Applications로 끌어다 놓으세요.
+
+SHA-256: \`$DMG_SHA\`
+
+$BUILD_LINE"
+    echo "✓ 게시 완료: $(gh release view "$TAG" --json url -q .url)"
+  fi
 else
   echo
   echo "게시하지 않았습니다. 올리려면: Tools/release.sh --publish"

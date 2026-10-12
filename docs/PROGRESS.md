@@ -280,6 +280,14 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 - 커밋 `ee8b82b`를 Mac 앱에 적용했고, iOS 1.0.0 (3)을 TestFlight에 올렸다(14:08, Delivery UUID `6374b8de-37f2-4620-894d-fcebee2d9734`). 다음에 올릴 때는 빌드 번호 4.
 - 실기기 확인(사용자): 빌드 2에서 iPhone ↔ Mac 동기화가 실행 중에도 정상 동작.
 
+## Mac 갱신 때 GitHub DMG 자동 게시 (2026-10-12)
+
+- GitHub Release `v1.5.1`을 올렸다(공증한 앱이 든 DMG, DMG 자체는 서명·공증 안 됨).
+- `Tools/update.sh`가 이 Mac의 앱을 바꾼 뒤 `Tools/release.sh --skip-tests --publish --allow-unsigned-dmg`로 DMG까지 올린다. 끄려면 `--no-publish`.
+- 같은 버전의 릴리스가 있으면 태그는 그대로 두고 DMG만 바꾼다. 어느 커밋으로 만든 DMG인지는 릴리스 설명 끝의 "빌드 기준 커밋" 줄에 적고, 체크섬도 함께 고친다.
+- 올리지 않는 경우: 커밋하지 않은 변경, push하지 않은 커밋, 올라가 있는 DMG 이후로 앱 소스(`Daylog`, `DaylogShared`, `DaylogWidgets`, `Config`, `Daylog.xcodeproj`)가 그대로일 때.
+- 자동 게시에서는 전체 테스트를 돌리지 않는다. 버전을 올린 새 릴리스의 설명은 기본 문구라 따로 채운다.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.

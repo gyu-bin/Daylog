@@ -134,17 +134,20 @@ xcodebuild -project Daylog.xcodeproj -scheme DaylogiOS -derivedDataPath build-io
 
 TestFlight에 올리는 명령은 [진행 상태](docs/PROGRESS.md)의 "TestFlight 준비"에 있어요.
 
-**배포판(DMG) 만들기**
+**내 Mac의 앱 바꾸기 + GitHub의 DMG 맞추기**
 
 ```bash
-Tools/release.sh                 # 테스트 → 서명 → 공증 → DMG → 검증
-Tools/release.sh --publish-only  # 방금 만든 DMG를 GitHub Release에 올리기
+Tools/update.sh               # 내 Mac의 앱을 바로 바꾸고(공증 없이), 이어서 공증한 DMG를 GitHub Release에 올리기
+Tools/update.sh --no-publish  # 내 Mac의 앱만 바꾸기
 ```
 
-**내 Mac의 앱만 바로 바꾸기** (공증·DMG 없이, 배포판과 같은 서명)
+같은 버전의 릴리스가 이미 있으면 DMG만 새것으로 바꿔요. 커밋·push하지 않은 변경이 있거나 앱 소스가 그대로면 올리지 않아요.
+
+**배포판(DMG)만 만들기**
 
 ```bash
-Tools/update.sh
+Tools/release.sh            # 테스트 → 서명 → 공증 → DMG → 검증
+Tools/release.sh --publish  # 위와 같이 만든 뒤 GitHub Release에 올리기
 ```
 
 **알아 둘 점**
