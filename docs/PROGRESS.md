@@ -463,6 +463,20 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 - 빌드 5 이후 들어간 것: 스플래시 시간 설정(`splash.duration`, 기본 재생 시간 1.5초), 설정 줄의 강조 색 안내 수정.
 - Mac 앱과 모바일 UI 설정(Production v1)은 그대로다. 저장소의 설정 파일 v2는 게시하지 않았다.
 
+## 알림 안내를 한 번은 보게 (iPhone·iPad, 2026-10-12)
+
+배포하지 않았다(TestFlight·OTA 게시 없음). macOS는 그대로다. SwiftData·CloudKit·루틴별 알림 설정은 건드리지 않았다.
+
+- 문제: 알림 안내가 시작 안내 3단계에만 있어, 시작 안내를 닫아 버린 사람과 이전 버전부터 쓰던 사람은 보지 못했다.
+- 따로 띄우는 안내(`NotificationGuideSheet`)를 추가했다. 3단계와 같은 본문(`NotificationGuideCard`)과 같은 동작(`NotificationGuideActions.enable`)을 쓴다: [알림 켜기]를 눌렀을 때만 권한을 묻고, [나중에]는 아무것도 바꾸지 않는다.
+- 띄우는 규칙(`NotificationGuidePolicy`): 스플래시와 시작 안내가 끝난 뒤, 이 기기에서 안내를 본 적이 없고, 시스템 권한이 아직 미결정이고, Daylog에서 루틴 알림을 직접 켜거나 끈 적이 없을 때만 한 번. 이미 허용·거부했거나 직접 정한 사람은 묻지 않고 끝난 것으로 적는다.
+- 3단계에서 안내를 본 사람에게는 따로 띄우지 않는다(중복 없음). 어떻게 닫든 다시 띄우지 않는다.
+- 기기별 표시: `device.notificationGuideCompleted`(`UserDefaults`). 직접 정했는지는 `RoutineNotifications.hasExplicitChoice`(기존 `routineNotificationsEnabled` 키가 있는지).
+- 이미 거부된 상태의 안내에는 [알림 설정 열기]를 넣었다(다시 물어도 시스템 창이 뜨지 않으므로).
+- 원격 UI 설정의 `features.onboardingNotificationGuide`를 끄면 이 안내도 띄우지 않는다.
+- 검증(시뮬레이터에서 직접 조작): iPhone 17 Pro에서 새로 설치 → "안내 닫기" → 안내 → [나중에] → 시스템 창 없이 홈, 재실행 때 반복 없음. 기존 사용자(안내 표시만 지움) → 스플래시 뒤 안내 → [알림 켜기] → 허용 → 예약 60개, 루틴·식사 기록 그대로. 이미 허용한 상태에서는 안내 생략. 새로 설치 → 안내 → 허용 안 함 → 안내 문구 → 홈, 재실행 때 반복 없음. iPad에서 새로 설치 → 시작 안내 3단계의 안내 → [나중에] → 홈, 따로 뜨는 안내 없음(재실행 포함).
+- 관련 테스트(OnboardingNotificationTests 등)와 iOS 빌드만 확인했다. 하지 못한 것: 실기기, 이미 거부된 상태의 화면과 [알림 설정 열기], iPad에서 따로 뜨는 안내와 시스템 창, 휴가 데이터가 있는 저장소에서의 확인(루틴·식사만 봤다).
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.

@@ -127,6 +127,9 @@ enum DebugScript {
         case "restoreDashboard":
             // 대시보드를 기본 배치로 되돌린다(이후 기본 배치를 따른다).
             DevicePreferences.shared.restoreDashboard()
+        case "resetNotificationGuide":
+            // 알림 안내를 아직 안 본 상태로 되돌린다(다음 실행 때 규칙대로 다시 판단한다).
+            UserDefaults.standard.removeObject(forKey: DevicePreferences.notificationGuideKey)
         case "onboardingDone":
             // 시작 안내를 본 것으로 한다. 안내 시트가 떠 있으면 화면 검증과 정상 종료가 막힌다.
             DevicePreferences.shared.completeOnboarding()

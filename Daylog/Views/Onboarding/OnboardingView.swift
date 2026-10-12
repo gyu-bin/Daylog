@@ -164,65 +164,20 @@ struct OnboardingView: View {
         ui.showsOnboardingNotificationGuide && notificationOffer != .unavailable
     }
 
-    /// 예정 시간이 시각으로 적혀 있어 알림이 울릴 수 있는 루틴의 수.
-    private var timedRoutineCount: Int {
-        store.activeRoutines.filter { TimeLabel.minutes($0.timeLabel) != nil }.count
-    }
-
-    /// 알림 안내. 권한 상태를 아직 모르면 아무것도 보여 주지 않는다.
+    /// 알림 안내. 권한 상태를 아직 모르면 아무것도 보여 주지 않는다. 따로 띄우는 안내와 같은 본문이다.
     @ViewBuilder
     private var notificationGuide: some View {
         if showsNotificationGuide {
-            VStack(alignment: .leading, spacing: 6) {
-                Label {
-                    Text(verbatim: ui.string(.onboardingNotificationTitle))
-                } icon: {
-                    Image(systemName: "bell.badge")
-                }
-                .font(.headline)
-                Text(verbatim: ui.string(.onboardingNotificationBody))
-                    .font(.callout)
-                    .foregroundStyle(.secondary)
-                if let notificationResult {
-                    Label(notificationResult.message, systemImage: notificationResult.symbol)
-                        .font(.callout)
-                        .foregroundStyle(notificationResult == .denied ? AnyShapeStyle(.orange) : AnyShapeStyle(Theme.accent))
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(.top, 2)
-                } else {
-                    switch notificationOffer {
-                    case .ask:
-                        Text("시간을 정한 루틴만 알려요. 지금 켜지 않아도 설정 → 알림에서 언제든 켤 수 있어요.")
-                            .font(.caption).foregroundStyle(.secondary)
-                            .fixedSize(horizontal: false, vertical: true)
-                    case .alreadyOn:
-                        Label("이 기기에서 루틴 알림이 켜져 있어요.", systemImage: "checkmark.circle")
-                            .font(.callout).foregroundStyle(Theme.accent)
-                    case .blocked:
-                        Text("지금은 \(Platform.thisDevice)의 설정에서 Daylog의 알림이 꺼져 있어요. 설정 앱에서 허용하면 설정 → 알림에서 켤 수 있어요.")
-                            .font(.caption).foregroundStyle(.secondary)
-                            .fixedSize(horizontal: false, vertical: true)
-                    case .unavailable:
-                        EmptyView()
-                    }
-                }
-            }
-            .padding(14)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(Theme.inset, in: RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous))
-            .accessibilityElement(children: .combine)
+            NotificationGuideCard(offer: notificationOffer, result: notificationResult)
         }
     }
 
-    /// [알림 켜기]: 여기서만 시스템 권한을 묻는다. 허용되면 이 기기의 루틴 알림을 켜고 예약을 맞춘다.
-    /// 루틴별 알림 끄기 설정은 건드리지 않는다. 결과를 보여 주고, [오늘 시작하기]로 오늘 화면에 간다.
+    /// [알림 켜기]: 결과를 보여 주고, [오늘 시작하기]로 오늘 화면에 간다.
     private func enableNotifications() {
         guard !isRequestingNotifications else { return }
         isRequestingNotifications = true
         Task {
-            await notifications.setEnabled(true)
-            AppRuntime.shared?.scheduleRefresh()
-            notificationResult = .resolve(permission: notifications.permission, timedRoutines: timedRoutineCount)
+            notificationResult = await NotificationGuideActions.enable(notifications: notifications, store: store)
             isRequestingNotifications = false
         }
     }
@@ -237,6 +192,10 @@ struct OnboardingView: View {
     }
 
     private func finish() {
+        #if os(iOS)
+        // 3단계에서 알림 안내를 봤으면 따로 띄우지 않는다. 그 전에 닫았으면 화면의 뿌리가 한 번 띄운다.
+        if step == .ready, showsNotificationGuide { preferences.completeNotificationGuide() }
+        #endif
         preferences.completeOnboarding()
         store.section = .dashboard
         store.goToToday()

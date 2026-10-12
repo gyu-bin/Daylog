@@ -18,6 +18,9 @@ struct RootView: View {
     @State private var splashIsLeaving = false
     /// 원격 UI 설정(iPhone·iPad 전용). 화면 값은 환경으로 내려보낸다.
     @State private var uiConfig = MobileUIConfigStore.shared
+    @Environment(RoutineNotifications.self) private var notifications
+    /// 따로 띄우는 알림 안내(시작 안내를 건너뛴 사람, 이 안내가 생기기 전부터 쓰던 사람에게 한 번).
+    @State private var showsNotificationGuide = false
     @Environment(\.scenePhase) private var scenePhase
     #endif
 
@@ -50,6 +53,18 @@ struct RootView: View {
             .environment(uiConfig)
             .onChange(of: scenePhase, initial: true) { _, phase in
                 if phase == .active { Task { await uiConfig.activate() } }
+            }
+            // 알림 안내: 스플래시와 시작 안내가 끝난 뒤에 필요한 사람에게만 한 번 띄운다.
+            .sheet(isPresented: $showsNotificationGuide) {
+                NotificationGuideSheet()
+                    .environment(preferences)
+                    .environment(\.mobileUI, uiConfig.settings)
+            }
+            .task(id: NotificationGuideTrigger(
+                splash: isSplashShowing, onboarding: preferences.onboardingCompleted,
+                feature: uiConfig.settings.showsOnboardingNotificationGuide
+            )) {
+                await presentNotificationGuideIfNeeded()
             }
             // 기본 카드 배치는 사용자가 배치를 바꾼 적이 없을 때만 따라간다(DevicePreferences가 판단한다).
             .onChange(of: RemoteLayoutDefaults(uiConfig.settings), initial: true) { _, defaults in
@@ -125,6 +140,30 @@ struct RootView: View {
         )
     }
 
+    #if os(iOS)
+    /// 알림 안내를 띄울지 정한다. 시작 안내 3단계에서 본 사람, 이미 알림을 정한 사람에게는 띄우지 않는다.
+    private func presentNotificationGuideIfNeeded() async {
+        guard !isSplashShowing, !preferences.notificationGuideCompleted else { return }
+        await notifications.refreshPermission()
+        let decision = NotificationGuidePolicy.decide(
+            guideCompleted: preferences.notificationGuideCompleted, onboardingCompleted: preferences.onboardingCompleted,
+            permission: notifications.permission, hasExplicitChoice: notifications.hasExplicitChoice,
+            featureEnabled: uiConfig.settings.showsOnboardingNotificationGuide
+        )
+        switch decision {
+        case .present:
+            // 시작 안내 시트가 내려가는 동안에는 새 시트를 올릴 수 없다. 잠깐 기다린다.
+            try? await Task.sleep(for: .milliseconds(700))
+            guard !Task.isCancelled, !preferences.notificationGuideCompleted else { return }
+            showsNotificationGuide = true
+        case .complete:
+            preferences.completeNotificationGuide()
+        case .wait, .done:
+            break
+        }
+    }
+    #endif
+
     private var errorIsPresented: Binding<Bool> {
         Binding(
             get: { store.errorMessage != nil },
@@ -134,6 +173,13 @@ struct RootView: View {
 }
 
 #if os(iOS)
+/// 알림 안내를 다시 판단해야 하는 조건들.
+private struct NotificationGuideTrigger: Equatable {
+    let splash: Bool
+    let onboarding: Bool
+    let feature: Bool
+}
+
 /// 원격 설정의 기본 카드 배치만 떼어 낸 값(이 부분이 바뀔 때만 반영하려고).
 private struct RemoteLayoutDefaults: Equatable {
     let order: [String]?

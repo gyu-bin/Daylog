@@ -50,3 +50,36 @@ enum OnboardingNotificationResult: Equatable {
         }
     }
 }
+
+/// 알림 안내를 따로 한 번 띄울지(iPhone·iPad). 시작 안내 3단계에서 이미 본 사람에게는 다시 띄우지 않는다.
+///
+/// 띄우는 경우: 시작 안내를 건너뛰어 3단계를 보지 못한 사람, 그리고 이 안내가 생기기 전부터 쓰던 사람 가운데
+/// 알림을 아직 정하지 않은 사람. 한 번 보여 주면(또는 보여 줄 필요가 없다고 판단하면) 이 기기에 "끝남"으로 적는다.
+enum NotificationGuidePolicy {
+    enum Decision: Equatable {
+        /// 지금 안내를 띄운다.
+        case present
+        /// 띄울 필요가 없다. "끝남"으로 적어 두고 다시 보지 않는다.
+        case complete
+        /// 아직 판단할 때가 아니다(시작 안내가 떠 있거나 권한 상태를 모른다). 다음에 다시 본다.
+        case wait
+        /// 이미 끝났다.
+        case done
+    }
+
+    /// - Parameters:
+    ///   - guideCompleted: 이 기기에서 안내를 이미 보여 줬거나 생략하기로 했다.
+    ///   - onboardingCompleted: 시작 안내가 끝났다(떠 있는 동안에는 3단계가 안내를 맡는다).
+    ///   - hasExplicitChoice: 사용자가 Daylog에서 루틴 알림을 직접 켜거나 끈 적이 있다.
+    ///   - featureEnabled: 원격 UI 설정에서 이 안내를 꺼 두지 않았다.
+    static func decide(
+        guideCompleted: Bool, onboardingCompleted: Bool, permission: NotificationPermission,
+        hasExplicitChoice: Bool, featureEnabled: Bool
+    ) -> Decision {
+        if guideCompleted { return .done }
+        guard featureEnabled, onboardingCompleted, permission != .unknown else { return .wait }
+        // 이미 허용·거부했거나 앱에서 직접 정한 사람에게는 묻지 않는다.
+        if permission != .notDetermined || hasExplicitChoice { return .complete }
+        return .present
+    }
+}

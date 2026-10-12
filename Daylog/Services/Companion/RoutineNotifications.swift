@@ -30,6 +30,9 @@ final class RoutineNotifications {
         mutedRoutineIDs = Set(defaults.stringArray(forKey: Self.mutedKey) ?? [])
     }
 
+    /// 사용자가 이 기기에서 루틴 알림을 직접 켜거나 끈 적이 있다(설정의 스위치, 안내의 [알림 켜기]).
+    var hasExplicitChoice: Bool { defaults.object(forKey: Self.enabledKey) != nil }
+
     /// 켜져 있고 권한도 있어야 실제로 울린다.
     var isActive: Bool { isEnabled && permission == .authorized }
 

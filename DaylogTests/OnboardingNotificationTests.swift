@@ -33,6 +33,63 @@ struct OnboardingNotificationTests {
         #expect(OnboardingNotificationResult.resolve(permission: .notDetermined, timedRoutines: 1) == .denied)
     }
 
+    // MARK: - 따로 띄우는 안내
+
+    private func decide(
+        completed: Bool = false, onboarding: Bool = true, permission: NotificationPermission = .notDetermined,
+        explicit: Bool = false, feature: Bool = true
+    ) -> NotificationGuidePolicy.Decision {
+        NotificationGuidePolicy.decide(
+            guideCompleted: completed, onboardingCompleted: onboarding, permission: permission,
+            hasExplicitChoice: explicit, featureEnabled: feature
+        )
+    }
+
+    @Test func standaloneGuideAppearsOnlyForUndecidedUsersAfterOnboarding() {
+        // 시작 안내를 건너뛰었거나, 안내가 생기기 전부터 쓰던 사람: 아직 정하지 않았으면 한 번 띄운다.
+        #expect(decide() == .present)
+        // 시작 안내가 떠 있는 동안에는 3단계가 맡는다.
+        #expect(decide(onboarding: false) == .wait)
+        // 권한 상태를 아직 모르면 기다린다(끝남으로 적지 않는다).
+        #expect(decide(permission: .unknown) == .wait)
+        // 이미 허용했거나 거부한 사람에게는 묻지 않고 끝낸다.
+        #expect(decide(permission: .authorized) == .complete)
+        #expect(decide(permission: .denied) == .complete)
+        // 앱에서 직접 켜거나 끈 적이 있는 사람에게도 묻지 않는다.
+        #expect(decide(explicit: true) == .complete)
+        // 한 번 끝난 뒤에는 다시 띄우지 않는다.
+        #expect(decide(completed: true) == .done)
+        #expect(decide(completed: true, permission: .authorized, explicit: true) == .done)
+        // 원격 UI 설정에서 안내를 꺼 두면 띄우지 않고, 끝남으로 적지도 않는다(다시 켜면 그때 보여 준다).
+        #expect(decide(feature: false) == .wait)
+    }
+
+    @Test func guideCompletionIsStoredPerDeviceAndSurvivesRelaunch() {
+        let defaults = testDefaults()
+        let preferences = DevicePreferences(defaults: defaults, isPhone: true)
+        #expect(!preferences.notificationGuideCompleted)
+        preferences.completeNotificationGuide()
+        #expect(preferences.notificationGuideCompleted)
+        #expect(DevicePreferences(defaults: defaults, isPhone: true).notificationGuideCompleted)
+        // 다른 기기(다른 저장 공간)는 따로다.
+        #expect(!DevicePreferences(defaults: testDefaults(), isPhone: true).notificationGuideCompleted)
+    }
+
+    @Test func explicitChoiceIsRememberedOnlyAfterTheUserTouchesTheSwitch() async {
+        let client = FakeNotificationClient()
+        client.status = .notDetermined
+        client.answer = .denied
+        let notifications = RoutineNotifications(client: client, defaults: testDefaults())
+        // 상태를 읽는 것만으로는 "정했다"가 아니다.
+        await notifications.refreshPermission()
+        #expect(!notifications.hasExplicitChoice)
+        // 껐다고 정한 것도 선택이다.
+        await notifications.setEnabled(false)
+        #expect(notifications.hasExplicitChoice)
+        #expect(client.requests == 0)
+        #expect(decide(permission: notifications.permission, explicit: notifications.hasExplicitChoice) == .complete)
+    }
+
     @Test func turningOnFromOnboardingEnablesDeviceNotificationsAndKeepsPerRoutineMutes() async {
         let client = FakeNotificationClient()
         client.status = .notDetermined

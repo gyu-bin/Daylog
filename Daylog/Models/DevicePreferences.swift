@@ -13,6 +13,8 @@ final class DevicePreferences {
     static let layoutVersionKey = "device.dashboard.layoutVersion"
     static let onboardingKey = "device.onboardingCompleted"
     static let weekStartKey = "device.weekStart"
+    /// 알림 안내(iPhone·iPad)를 이 기기에서 이미 보여 줬는지.
+    static let notificationGuideKey = "device.notificationGuideCompleted"
     /// 사용자가 대시보드 배치(순서·숨김·열)를 직접 바꿨는지. 바꿨으면 원격 기본값이 덮어쓰지 않는다.
     static let customizedKey = "device.dashboard.customized"
     /// 대시보드 배치의 형식 번호. 2 = 두 열 배치(휴가·달성 현황·내일 할 일 카드가 생김).
@@ -29,6 +31,8 @@ final class DevicePreferences {
     /// 두 열 배치에서 왼쪽 열에 두는 카드. 나머지는 오른쪽.
     private(set) var leftCards: Set<DashboardCard>
     private(set) var onboardingCompleted: Bool
+    /// 알림 안내를 이미 보여 줬거나 보여 줄 필요가 없다고 정했다. 다시 띄우지 않는다.
+    private(set) var notificationGuideCompleted: Bool
     /// 사용자가 배치를 직접 바꾼 적이 있다. 이 값이 false인 동안에만 기본 배치(내장·원격)가 그대로 따라온다.
     private(set) var isLayoutCustomized: Bool
     /// 원격 설정이 준 기본 배치(iPhone·iPad). 없으면 내장 기본값을 쓴다.
@@ -42,6 +46,7 @@ final class DevicePreferences {
         self.isPhone = isPhone
         mealsEnabled = defaults.object(forKey: Self.mealsKey) as? Bool ?? true
         onboardingCompleted = defaults.object(forKey: Self.onboardingKey) as? Bool ?? false
+        notificationGuideCompleted = defaults.bool(forKey: Self.notificationGuideKey)
         weekStart = defaults.string(forKey: Self.weekStartKey).flatMap(WeekStart.init(rawValue:)) ?? .monday
         isLayoutCustomized = false
         if defaults.integer(forKey: Self.layoutVersionKey) >= Self.layoutVersion {
@@ -193,6 +198,12 @@ final class DevicePreferences {
 
     private func markCustomized() {
         isLayoutCustomized = true
+    }
+
+    func completeNotificationGuide() {
+        guard !notificationGuideCompleted else { return }
+        notificationGuideCompleted = true
+        defaults.set(true, forKey: Self.notificationGuideKey)
     }
 
     func completeOnboarding() {
