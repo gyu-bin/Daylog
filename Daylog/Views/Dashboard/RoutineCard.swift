@@ -5,13 +5,14 @@ import SwiftUI
 struct RoutineCard: View {
     @Environment(AppStore.self) var store
     @Environment(CloudSyncMonitor.self) private var sync
-    @Environment(DevicePreferences.self) private var preferences
     /// 접어 둔 그룹의 ID(쉼표로 이어 붙인 문자열). 이 Mac에만 저장된다.
     @Environment(\.accessibilityReduceMotion) var reduceMotion
     @AppStorage("collapsedGroupIDs") var collapsedGroupIDs = ""
     @State var itemDrafts: [UUID: String] = [:]
     /// 항목 입력칸을 펼쳐 둔 그룹. 평소에는 접어 두어 목록이 체크할 것만 보이게 한다.
     @State var addingGroupID: UUID?
+    /// 휴가 안내에서 여는 휴가 수정 시트.
+    @State private var editingVacation: VacationEditorTarget?
     @FocusState var focus: Field?
 
     enum Field: Hashable {
@@ -31,14 +32,16 @@ struct RoutineCard: View {
 
     private var sections: [Section] {
         let active = store.activeGroups
+        // 휴가인 날에는 보여 주기로 한 체크만 둔다. 새로 넣은 항목은 숨겨지므로 항목 추가도 열지 않는다.
+        let canAdd = store.isViewingToday && !store.isVacation(on: store.selectedDay)
         var result = store.checkSections.map { section in
             Section(
                 group: section.group,
                 checks: section.checks,
-                target: store.isViewingToday ? active.first { $0.id == section.group.id } : nil
+                target: canAdd ? active.first { $0.id == section.group.id } : nil
             )
         }
-        guard store.isViewingToday else { return result }
+        guard canAdd else { return result }
         // 항목이 하나도 없는 그룹은 첫 항목을 넣을 수 있게 보여 준다.
         // 항목은 있는데 오늘 해당하는 것이 없는 그룹은 보여 주지 않는다.
         for group in active where !result.contains(where: { $0.id == group.id })
@@ -50,6 +53,7 @@ struct RoutineCard: View {
 
     var body: some View {
         let sections = sections
+        let policy = store.routinePolicy(on: store.selectedDay)
         Card(fillsHeight: false) {
             VStack(alignment: .leading, spacing: 12) {
                 CardHeader(symbol: "checklist", title: store.isViewingToday ? "오늘의 루틴" : "\(store.selectedDay.shortTitle)의 루틴") {
@@ -59,14 +63,16 @@ struct RoutineCard: View {
                     }
                 }
 
-                // 휴가 카드가 보이면 거기서 알 수 있다. 숨겨 둔 대시보드에서만 한 줄로 알린다.
-                if store.isVacation(on: store.selectedDay),
-                   store.section == .dashboard, preferences.hiddenCards.contains(.vacation) {
-                    Label("휴가 · 통계에서 제외", systemImage: "sun.max")
-                        .font(.caption).foregroundStyle(.secondary)
+                if policy == .fullRest {
+                    // 전체 휴식: 체크리스트를 숨긴다. 기록은 그대로 있고, 휴가가 끝나거나 해제하면 다시 보인다.
+                    vacationRest
+                } else if policy.keepsRoutines {
+                    vacationKeepNote(count: sections.reduce(0) { $0 + $1.checks.count })
                 }
 
-                if sections.isEmpty {
+                if policy == .fullRest {
+                    EmptyView()
+                } else if sections.isEmpty {
                     emptyState
                 } else {
                     VStack(spacing: 10) {
@@ -76,7 +82,7 @@ struct RoutineCard: View {
                     }
                 }
 
-                if !store.isViewingToday {
+                if !store.isViewingToday, !policy.isVacation {
                     pastDayNotice
                 }
 
@@ -85,6 +91,7 @@ struct RoutineCard: View {
                 }
             }
         }
+        .sheet(item: $editingVacation) { VacationEditorSheet(target: $0) }
         .onChange(of: store.quickAddFocusToken) {
             focusQuickAdd()
         }
@@ -96,6 +103,42 @@ struct RoutineCard: View {
                 addingGroupID = nil
             }
         }
+    }
+
+    // MARK: - 휴가
+
+    /// 그날을 포함하는 휴가 기간 가운데 고칠 것(하나면 그것, 여럿이면 먼저 시작한 것).
+    private var vacationToEdit: VacationPeriod? {
+        store.vacations(on: store.selectedDay).min { ($0.start, $0.end) < ($1.start, $1.end) }
+    }
+
+    private var vacationRest: some View {
+        EmptyHint(
+            symbol: "beach.umbrella", message: "휴가 중이라 루틴은 쉬어요.\n기존 기록은 그대로 보관돼요.", tint: Theme.vacationTint,
+            actionTitle: vacationToEdit == nil ? nil : "유지할 루틴 고르기"
+        ) {
+            if let period = vacationToEdit {
+                editingVacation = VacationEditorTarget(day: period.start, period: period)
+            }
+        }
+    }
+
+    private func vacationKeepNote(count: Int) -> some View {
+        Button {
+            if let period = vacationToEdit {
+                editingVacation = VacationEditorTarget(day: period.start, period: period)
+            }
+        } label: {
+            Label(
+                count == 0 ? "휴가 중 · 유지하는 루틴 가운데 이날 예정된 것이 없어요" : "휴가 중 · 고른 루틴 \(count)개만 보여요",
+                systemImage: "beach.umbrella"
+            )
+            .font(.caption)
+            .foregroundStyle(.secondary)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityHint("누르면 유지할 루틴을 바꿉니다.")
     }
 
     // MARK: - 빈 상태와 빠른 추가

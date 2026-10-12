@@ -48,6 +48,9 @@ struct WeekOverviewCard: View {
                             .font(.caption2)
                             .monospacedDigit()
                             .foregroundStyle(.secondary)
+                            // 큰 글씨에서 "10/1 / 0"처럼 줄이 나뉘지 않게, 칸에 맞춰 줄인다.
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.6)
                         DayMark(outcome: outcome, threshold: stats.threshold)
                     }
                     .frame(maxWidth: .infinity)

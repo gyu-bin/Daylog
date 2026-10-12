@@ -19,12 +19,21 @@ struct WidgetDay: Codable, Equatable {
     var dateKey: String
     var groups: [WidgetGroup]
     var isVacation: Bool? = nil
+    /// 휴가이지만 고른 루틴은 이어 가는 날. `groups`에는 그 루틴만 들어 있다. 이전에 적어 둔 파일에는 없다.
+    var keepsRoutines: Bool? = nil
 
     var items: [WidgetItem] { groups.flatMap(\.items) }
     var total: Int { items.count }
     var done: Int { items.filter(\.isDone).count }
     var percent: Int? { isVacation == true ? nil : Achievement.percent(done: done, total: total) }
     var ratio: Double? { isVacation == true ? nil : Achievement.ratio(done: done, total: total) }
+
+    /// 휴가 안내만 보여 줄 날: 전체 휴식이거나, 유지하는 루틴 가운데 오늘 해당하는 것이 없다.
+    var isVacationRest: Bool { isVacation == true && !(keepsRoutines == true && total > 0) }
+    /// 휴가 중에 이어 가는 루틴의 진행(달성률 통계와는 별개다). 그런 날이 아니면 nil.
+    var keptRatio: Double? {
+        isVacation == true && !isVacationRest ? Achievement.ratio(done: done, total: total) : nil
+    }
 
     var hasPending: Bool { items.contains { $0.pendingIsDone != nil } }
 

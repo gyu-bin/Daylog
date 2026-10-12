@@ -15,9 +15,8 @@ struct AchievementCard: View {
                 )
 
                 if store.isVacation(on: store.selectedDay) {
-                    Label("휴가 · 통계에서 제외", systemImage: "sun.max")
-                        .font(.callout)
-                        .foregroundStyle(.secondary)
+                    // 달성률은 0%가 아니라 휴가로 보여 준다. 이어 가는 루틴이 있으면 개수만 함께 알린다.
+                    vacation(done: outcome.done, total: outcome.total)
                 } else if sections.isEmpty {
                     EmptyHint(
                         symbol: "target",
@@ -37,6 +36,35 @@ struct AchievementCard: View {
                 }
             }
         }
+    }
+
+    private func vacation(done: Int, total: Int) -> some View {
+        HStack(spacing: 12) {
+            Image(systemName: "beach.umbrella.fill")
+                .font(.system(size: 18, weight: .semibold))
+                .foregroundStyle(Theme.vacationTint)
+                .frame(width: 44, height: 44)
+                .background(Theme.vacationTint.opacity(0.14), in: Circle())
+                .accessibilityHidden(true)
+            VStack(alignment: .leading, spacing: 2) {
+                Text("휴가")
+                    .font(.title3.weight(.bold))
+                    .foregroundStyle(GroupColor.coral.ink)
+                Text(Self.vacationDetail(done: done, total: total))
+                    .font(.callout)
+                    .monospacedDigit()
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .accessibilityElement(children: .combine)
+    }
+
+    /// 휴가인 날의 설명. 이어 가는 루틴이 있으면 그 개수도 알린다(달성률 통계에는 들어가지 않는다).
+    static func vacationDetail(done: Int, total: Int) -> String {
+        total > 0
+            ? "달성률 통계에서 제외돼요 · 유지 루틴 \(total)개 중 \(done)개 완료"
+            : "달성률 통계에서 제외돼요. 기존 기록은 보관돼요."
     }
 
     private func ring(_ outcome: DayOutcome) -> some View {

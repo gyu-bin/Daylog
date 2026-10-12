@@ -12,6 +12,7 @@ struct MenuBarView: View {
         let sections = store.todaySections
         let total = sections.reduce(0) { $0 + $1.total }
         let done = sections.reduce(0) { $0 + $1.done }
+        let isVacation = store.isVacation(on: store.today)
 
         VStack(alignment: .leading, spacing: 0) {
             header(done: done, total: total)
@@ -20,7 +21,7 @@ struct MenuBarView: View {
             Divider()
 
             if sections.isEmpty {
-                Text(store.hasRoutines ? "오늘은 예정된 루틴이 없어요." : "아직 등록된 루틴이 없어요.")
+                Text(Self.emptyMessage(isVacation: isVacation, hasRoutines: store.hasRoutines))
                     .font(.callout)
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity)
@@ -52,6 +53,12 @@ struct MenuBarView: View {
         }
     }
 
+    /// 목록이 비었을 때의 안내. 휴가라서 숨긴 것과 원래 없는 것을 구분한다.
+    static func emptyMessage(isVacation: Bool, hasRoutines: Bool) -> String {
+        if isVacation { return "휴가 중이라 루틴은 쉬어요." }
+        return hasRoutines ? "오늘은 예정된 루틴이 없어요." : "아직 등록된 루틴이 없어요."
+    }
+
     private static let groupSpacing: CGFloat = 10
     private static let listPadding: CGFloat = 12
     private static let groupHeaderHeight: CGFloat = 30
@@ -80,7 +87,18 @@ struct MenuBarView: View {
                 }
                 Spacer(minLength: 8)
                 if store.isVacation(on: store.today) {
-                    Label("휴가", systemImage: "sun.max").foregroundStyle(.secondary)
+                    VStack(alignment: .trailing, spacing: 1) {
+                        Label("휴가", systemImage: "beach.umbrella")
+                            .font(.callout.weight(.semibold))
+                            .foregroundStyle(GroupColor.coral.ink)
+                        // 이어 가는 루틴이 있으면 개수만 보여 준다(달성률은 쉰다).
+                        if total > 0 {
+                            Text("유지 루틴 \(done)/\(total)")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .monospacedDigit()
+                        }
+                    }
                 } else if let percent = Achievement.percent(done: done, total: total) {
                     VStack(alignment: .trailing, spacing: 1) {
                         Text("\(percent)%")
@@ -99,7 +117,9 @@ struct MenuBarView: View {
         }
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(
-            store.isVacation(on: store.today) ? "Daylog, 휴가, 통계 제외" : total > 0
+            store.isVacation(on: store.today)
+                ? (total > 0 ? "Daylog, 휴가, 유지하는 루틴 \(total)개 중 \(done)개 완료" : "Daylog, 휴가, 통계 제외")
+                : total > 0
                 ? "Daylog, \(store.today.longTitle), 달성률 \(Achievement.percent(done: done, total: total) ?? 0)%, \(total)개 중 \(done)개 완료"
                 : "Daylog, \(store.today.longTitle)"
         )

@@ -270,11 +270,15 @@ final class AppStore {
 
     func reloadStats() {
         dataVersion += 1
+        // 체크 목록이 휴가 정책을 따르므로 휴가부터 읽는다.
+        perform {
+            let periods = try VacationService(context: context, deviceID: deviceID).periods()
+            if periods != vacationPeriods { vacationPeriods = periods }
+        }
         refreshChecks()
         let updatedToday = isViewingToday ? checkSections : makeTodaySections()
         if updatedToday != todaySections { todaySections = updatedToday }
         perform {
-            vacationPeriods = try VacationService(context: context, deviceID: deviceID).periods()
             let updated = try StatsService(context: context).dashboard(today: today)
             if updated != stats { stats = updated }
         }

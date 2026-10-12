@@ -72,7 +72,9 @@ enum DebugScript {
             // 검증용 날짜 범위. 실제 사용자 앱에서는 요청한 경우에만 실행된다.
             let dates = argument.split(separator: ",").map(String.init)
             if dates.count >= 2, let start = Day(key: dates[0]), let end = Day(key: dates[1]) {
-                let saved = store.saveVacation(start: start, end: end, memo: "검증용 휴가")
+                // 날짜 뒤에 루틴 이름을 적으면 그 루틴만 유지하는 휴가가 된다: vacation:<시작>,<끝>,<루틴>,<루틴>
+                let kept = Set(dates.dropFirst(2).compactMap { title in store.activeRoutines.first { $0.title == title }?.id })
+                let saved = store.saveVacation(start: start, end: end, memo: "검증용 휴가", keptRoutineIDs: kept)
                 await AppRuntime.shared?.refreshNow()
                 log("VACATION saved=\(saved) today=\(store.stats.today.status) average=\(store.stats.weeklyAverage.map(String.init) ?? "nil")")
             }
@@ -104,6 +106,11 @@ enum DebugScript {
         case "weekStart":
             // 달력의 한 주 시작 요일: weekStart:sunday, weekStart:monday. 이 기기 설정만 바꾼다.
             if let value = WeekStart(rawValue: argument) { DevicePreferences.shared.setWeekStart(value) }
+        case "showCard", "hideCard":
+            // 대시보드 카드 보이기/숨기기: showCard:summary, hideCard:summary. 이 기기 설정만 바꾼다.
+            if let card = DashboardCard(rawValue: argument) {
+                DevicePreferences.shared.setVisible(name == "showCard", card: card)
+            }
         case "transfer":
             // 가져오기 시트를 열고 파일 미리보기를 만든다: transfer:<CSV·JSON 경로>. 파일 선택 창은 배경에서 조작할 수 없어서 둔다.
             pendingTransferFile = URL(fileURLWithPath: argument)

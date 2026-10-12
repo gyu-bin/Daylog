@@ -171,7 +171,11 @@ struct TodayProgressCard: View {
 
     /// 쉬는 날(예정된 루틴 없음)과 미기록(예정은 있었는데 체크 없음)을 다르게 말한다.
     static func detail(_ outcome: DayOutcome, isToday: Bool, hasStarted: Bool) -> String {
-        if outcome.status == .vacation { return "루틴 통계와 알림은 쉬어 가요. 기존 기록은 보관돼요." }
+        if outcome.status == .vacation {
+            return outcome.total > 0
+                ? "유지 루틴 \(outcome.total)개 중 \(outcome.done)개 완료 · 달성률 통계는 쉬어요."
+                : "루틴 통계와 알림은 쉬어 가요. 기존 기록은 보관돼요."
+        }
         if outcome.total == 0 {
             if !hasStarted {
                 return isToday ? "루틴을 추가하면 여기에 진행률이 보여요." : "루틴을 시작하기 전의 날이에요."

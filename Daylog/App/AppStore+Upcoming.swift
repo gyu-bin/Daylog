@@ -5,12 +5,18 @@ struct PlannedDay: Equatable {
     let day: Day
     let sections: [CheckSection]
     var isVacation: Bool = false
+    /// 휴가이지만 고른 루틴은 이어 가는 날. `sections`에는 그 루틴만 들어 있다.
+    var keepsRoutines: Bool = false
 }
 
 extension AppStore {
     /// 오늘은 저장된 체크(완료 여부 포함), 내일부터는 지금의 루틴 설정으로 본 예정.
     func upcomingDays(count: Int) -> [PlannedDay] {
-        var result = [PlannedDay(day: today, sections: todaySections, isVacation: isVacation(on: today))]
+        let todayPolicy = routinePolicy(on: today)
+        // `todaySections`는 이미 오늘의 정책대로 걸러져 있다.
+        var result = [PlannedDay(
+            day: today, sections: todaySections, isVacation: todayPolicy.isVacation, keepsRoutines: todayPolicy.keepsRoutines
+        )]
         perform {
             let resolver = try ScheduleResolver(context: context)
             for offset in 1..<max(count, 1) {
@@ -27,7 +33,10 @@ extension AppStore {
                         sections.append(CheckSection(group: snapshot.group, checks: [value]))
                     }
                 }
-                result.append(PlannedDay(day: day, sections: sections, isVacation: isVacation(on: day)))
+                let policy = routinePolicy(on: day)
+                result.append(PlannedDay(
+                    day: day, sections: policy.visible(sections), isVacation: policy.isVacation, keepsRoutines: policy.keepsRoutines
+                ))
             }
         }
         return result

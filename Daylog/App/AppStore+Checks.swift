@@ -56,8 +56,9 @@ extension AppStore {
     }
 
     /// 보고 있는 날짜의 체크를 그날의 그룹별로 묶은 값 사본. 그룹 순서 → 항목 순서.
+    /// 휴가인 날은 그날의 정책대로 보여 줄 것만 남긴다(저장된 체크는 그대로다).
     func makeCheckSections() -> [CheckSection] {
-        Self.sections(of: checks)
+        routinePolicy(on: selectedDay).visible(Self.sections(of: checks))
     }
 
     /// 실제 오늘의 체크. 다른 날짜를 보고 있을 때 쓴다(오늘을 보고 있으면 `checkSections`와 같다).
@@ -66,7 +67,7 @@ extension AppStore {
         perform {
             result = Self.sections(of: try DayRecordService(context: context).fetchOrCreate(day: today, today: today).checkList)
         }
-        return result
+        return routinePolicy(on: today).visible(result)
     }
 
     static func sections(of checks: [DayCheck]) -> [CheckSection] {

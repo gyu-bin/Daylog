@@ -19,7 +19,7 @@ struct VacationSettingsSection: View {
         } header: {
             Text("휴가")
         } footer: {
-            Text("휴가 날짜는 루틴 통계와 알림에서 제외돼요. 기존 체크와 식사 기록은 그대로 남습니다.")
+            Text("휴가 날짜는 루틴 통계에서 제외돼요. 휴가마다 모두 쉴지, 고른 루틴만 이어 갈지 정할 수 있어요. 기존 체크와 식사 기록은 그대로 남습니다.")
         }
         .sheet(isPresented: $showing) { VacationManagementView() }
     }
@@ -34,7 +34,7 @@ struct VacationManagementView: View {
     var body: some View {
         SheetScaffold(
             title: "휴가 관리",
-            subtitle: "휴가 날짜는 통계와 알림에서 제외되고, 연속 달성일은 휴가 전후로 이어져요.",
+            subtitle: "휴가 날짜는 통계에서 제외되고, 연속 달성일은 휴가 전후로 이어져요.",
             width: 480, cancelTitle: "닫기", cancel: { dismiss() }
         ) {
             VStack(alignment: .leading, spacing: 12) {
@@ -120,12 +120,13 @@ struct VacationPeriodLabel: View {
                         .monospacedDigit()
                         .foregroundStyle(.secondary)
                 }
-                if !period.memo.isEmpty {
-                    Text(period.memo)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .lineLimit(1)
-                }
+                // 전체 휴식인지, 몇 개를 이어 가는지. 메모가 있으면 뒤에 붙인다.
+                Text(period.memo.isEmpty
+                    ? VacationRoutinePolicy.modeLabel(period)
+                    : "\(VacationRoutinePolicy.modeLabel(period)) · \(period.memo)")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
             }
         }
         .accessibilityElement(children: .combine)
@@ -140,6 +141,8 @@ struct VacationEditorSheet: View {
     let target: VacationEditorTarget
     @State private var selection: DayRangeSelection
     @State private var memo: String
+    @State private var keepsRoutines: Bool
+    @State private var kept: Set<UUID>
     @State private var error: String?
     @State private var confirmsRemoval = false
 
@@ -149,16 +152,23 @@ struct VacationEditorSheet: View {
             start: target.period?.start ?? target.day, end: target.period?.end ?? target.day
         ))
         _memo = State(initialValue: target.period?.memo ?? "")
+        _keepsRoutines = State(initialValue: target.period?.keepsRoutines ?? false)
+        _kept = State(initialValue: target.period?.keptRoutineIDs ?? [])
     }
 
     private var isEditing: Bool { target.period != nil }
 
+    /// 저장할 선택: 전체 휴식이면 비우고, 아니면 지금 있는 루틴 가운데 고른 것만.
+    private var keptToSave: Set<UUID> {
+        keepsRoutines ? kept.intersection(store.activeRoutines.map(\.id)) : []
+    }
+
     var body: some View {
         SheetScaffold(
             title: isEditing ? "휴가 수정" : "휴가 추가",
-            subtitle: "휴가 날짜는 루틴 통계와 알림에서 빠져요. 체크와 식사 기록은 그대로 남아요.",
+            subtitle: "휴가 날짜는 루틴 통계에서 빠져요. 체크와 식사 기록은 그대로 남아요.",
             width: 440, cancel: { dismiss() },
-            primary: SheetAction(title: "저장", action: save)
+            primary: SheetAction(title: "저장", isDisabled: keepsRoutines && keptToSave.isEmpty, action: save)
         ) {
             if isEditing {
                 Button("휴가 해제", role: .destructive) { confirmsRemoval = true }
@@ -168,6 +178,7 @@ struct VacationEditorSheet: View {
             VStack(alignment: .leading, spacing: 16) {
                 rangeSummary
                 DayRangeCalendar(selection: $selection, today: store.today, weekStart: preferences.weekStart, tint: Theme.vacationTint)
+                VacationRoutinePicker(keepsRoutines: $keepsRoutines, kept: $kept)
                 SheetField(label: "메모 (선택)") {
                     TextField("메모", text: $memo, prompt: Text("예: 제주 여행"), axis: .vertical)
                         .lineLimit(1...3)
@@ -234,7 +245,9 @@ struct VacationEditorSheet: View {
     }
 
     private func save() {
-        if store.saveVacation(id: target.period?.id, start: selection.start, end: selection.end, memo: memo) {
+        if store.saveVacation(
+            id: target.period?.id, start: selection.start, end: selection.end, memo: memo, keptRoutineIDs: keptToSave
+        ) {
             dismiss()
         } else {
             error = store.errorMessage ?? "저장하지 못했어요."

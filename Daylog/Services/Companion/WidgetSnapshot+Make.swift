@@ -15,7 +15,9 @@ extension WidgetSnapshot {
                             }
                         )
                     },
-                    isVacation: planned.isVacation
+                    isVacation: planned.isVacation,
+                    // 평소에는 칸을 쓰지 않아 이전 파일과 같은 모양을 유지한다.
+                    keepsRoutines: planned.keepsRoutines ? true : nil
                 )
             },
             hasRoutines: hasRoutines

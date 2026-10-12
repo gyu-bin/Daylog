@@ -16,7 +16,7 @@ struct VacationView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: Theme.spacing) {
                 HStack(alignment: .center, spacing: 12) {
-                    PageTitle(title: "휴가", subtitle: "휴가인 날은 통계와 알림에서 빠지고, 기록은 그대로 남아요.")
+                    PageTitle(title: "휴가", subtitle: "휴가인 날은 통계에서 빠지고, 기록은 그대로 남아요. 이어 갈 루틴은 휴가마다 고를 수 있어요.")
                     Spacer(minLength: 8)
                     Button {
                         editing = VacationEditorTarget(day: today)

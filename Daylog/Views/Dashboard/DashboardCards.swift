@@ -21,7 +21,8 @@ struct DashboardCards: View {
             if isEditing { return true }
             switch card {
             case .nextRoutine:
-                return store.isViewingToday && !store.isVacation(on: store.today)
+                // 휴가인 날은 보여 주기로 한 루틴만 목록에 있다(전체 휴식이면 비어 있다).
+                return store.isViewingToday
                     && NextCheck.pick(from: store.checkSections, nowMinutes: 0) != nil
             case .vacation:
                 // iPhone에서는 여느 카드처럼 늘 보이고(기본 위치는 아래쪽), 넓은 화면에서는 휴가 중이거나 임박했을 때만.
@@ -96,7 +97,7 @@ struct DashboardCards: View {
     private func content(_ card: DashboardCard) -> some View {
         switch card {
         case .summary:
-            if compact { StatCardsGrid(columns: 2) } else { StatCardsGrid(columns: wide ? 4 : 2) }
+            if compact { StatCardsGrid(columns: 2, compact: true) } else { StatCardsGrid(columns: wide ? 4 : 2) }
         case .nextRoutine:
             if isEditing, !(store.isViewingToday && NextCheck.pick(from: store.checkSections, nowMinutes: 0) != nil) {
                 EditingPlaceholder(card: card, note: "시간이 정해진 남은 루틴이 있을 때만 보여요.")

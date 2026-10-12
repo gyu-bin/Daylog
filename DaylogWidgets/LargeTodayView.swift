@@ -40,6 +40,20 @@ struct LargeTodayView: View {
                 .accessibilityLabel("오늘의 달성률 \(percent)%, \(day.total)개 중 \(day.done)개 완료")
                 WidgetBar(ratio: day.ratio ?? 0)
                     .padding(.bottom, 2)
+            } else if let ratio = day.keptRatio {
+                HStack(alignment: .firstTextBaseline, spacing: 6) {
+                    Text("휴가 중")
+                        .font(.title2.weight(.bold))
+                        .foregroundStyle(GroupColor.coral.ink)
+                    Text("유지 루틴 \(day.done)/\(day.total) 완료")
+                        .font(.caption)
+                        .monospacedDigit()
+                        .foregroundStyle(.secondary)
+                }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("휴가 중, 유지하는 루틴 \(day.total)개 중 \(day.done)개 완료")
+                WidgetBar(ratio: ratio, tint: GroupColor.coral.color)
+                    .padding(.bottom, 2)
             } else {
                 Spacer(minLength: 0)
                 Text("오늘은 예정된 루틴이 없어요.")

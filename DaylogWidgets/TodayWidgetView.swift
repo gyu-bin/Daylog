@@ -12,7 +12,7 @@ struct TodayWidgetView: View {
         case .noRoutines:
             WidgetNotice(symbol: "checklist", title: "아직 루틴이 없어요", detail: "Daylog에서 루틴을 추가해 보세요.")
         case .day(let day):
-            if day.isVacation == true {
+            if day.isVacationRest {
                 WidgetNotice(symbol: "sun.horizon.fill", title: "오늘은 휴가", detail: "루틴 통계에서 제외돼요. 기존 기록은 보관돼요.")
             } else {
             switch family {
@@ -115,6 +115,19 @@ struct SmallTodayView: View {
                 WidgetBar(ratio: day.ratio ?? 0)
                     .padding(.vertical, 3)
                 next
+            } else if let ratio = day.keptRatio {
+                // 휴가 중에 이어 가는 루틴. 달성률(통계)은 쉬므로 퍼센트 대신 개수로 보여 준다.
+                Text("휴가 중")
+                    .font(.title3.weight(.bold))
+                    .foregroundStyle(GroupColor.coral.ink)
+                    .lineLimit(1)
+                Text("유지 루틴 \(day.done)/\(day.total)")
+                    .font(.caption)
+                    .monospacedDigit()
+                    .foregroundStyle(.secondary)
+                WidgetBar(ratio: ratio, tint: GroupColor.coral.color)
+                    .padding(.vertical, 3)
+                next
             } else {
                 Text("오늘은 쉬는 날")
                     .font(.callout.weight(.semibold))
@@ -180,6 +193,11 @@ struct MediumTodayView: View {
                         .font(.caption.weight(.semibold))
                         .monospacedDigit()
                         .foregroundStyle(GroupColor.mint.ink)
+                } else if day.keptRatio != nil {
+                    Text("휴가 중 · \(day.done)/\(day.total)")
+                        .font(.caption.weight(.semibold))
+                        .monospacedDigit()
+                        .foregroundStyle(GroupColor.coral.ink)
                 }
             }
             if day.hasPending { Text("저장 대기 · 앱에서 확인").font(.caption2).foregroundStyle(.secondary) }

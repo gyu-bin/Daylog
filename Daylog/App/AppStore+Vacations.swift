@@ -9,12 +9,21 @@ extension AppStore {
         vacationPeriods.contains { $0.contains(day) }
     }
 
+    /// 그날 루틴을 어떻게 보여 줄지(평소 / 전체 휴식 / 고른 루틴만).
+    func routinePolicy(on day: Day) -> VacationRoutinePolicy {
+        VacationRoutinePolicy.resolve(periods: vacationPeriods, on: day)
+    }
+
+    /// `keptRoutineIDs`가 비어 있으면 전체 휴식.
     @discardableResult
-    func saveVacation(id: UUID? = nil, start: Day, end: Day, memo: String = "") -> Bool {
+    func saveVacation(
+        id: UUID? = nil, start: Day, end: Day, memo: String = "", keptRoutineIDs: Set<UUID> = []
+    ) -> Bool {
         flush()
         guard !context.hasChanges else { return false }
         let succeeded = perform {
-            try VacationService(context: context, deviceID: deviceID).save(id: id, start: start, end: end, memo: memo)
+            try VacationService(context: context, deviceID: deviceID)
+                .save(id: id, start: start, end: end, memo: memo, keptRoutineIDs: keptRoutineIDs)
         }
         reloadStats()
         return succeeded

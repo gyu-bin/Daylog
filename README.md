@@ -38,7 +38,7 @@
   <tr><td nowrap>🧩 <b>내 맘대로 대시보드</b></td><td>카드를 끌어서 두 열에 배치하고, 안 쓰는 카드는 숨겨요.</td></tr>
   <tr><td nowrap>🧭 <b>메뉴 막대 · 위젯</b></td><td>Mac은 메뉴 막대에서, iPhone·iPad는 홈 화면 위젯에서 앱을 열지 않고 체크해요.</td></tr>
   <tr><td nowrap>🔔 <b>루틴 알림</b></td><td>정해 둔 시간에 알려 주고, 알림에서 바로 <b>완료</b>를 누를 수 있어요.</td></tr>
-  <tr><td nowrap>🏖 <b>휴가 모드</b></td><td>달력에서 기간을 골라 두면 그날은 통계에서 빠지고, 연속 달성 기록은 그대로 이어져요. 다음 휴가까지 D-day도 보여 줘요.</td></tr>
+  <tr><td nowrap>🏖 <b>휴가 모드</b></td><td>달력에서 기간을 골라 두면 그날은 통계에서 빠지고, 연속 달성 기록은 그대로 이어져요. 휴가 동안 모두 쉴지, 고른 루틴만 이어 갈지도 정할 수 있어요.</td></tr>
   <tr><td nowrap>📦 <b>가져오기 · 내보내기</b></td><td>기록을 CSV·JSON 파일로 내보내고, 루틴을 파일에서 가져와요.</td></tr>
   <tr><td nowrap>☁️ <b>iCloud 동기화</b></td><td>같은 Apple 계정의 Mac·iPhone·iPad가 기록을 맞춰요.</td></tr>
 </table>

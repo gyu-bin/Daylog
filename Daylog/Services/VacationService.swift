@@ -7,8 +7,11 @@ struct VacationPeriod: Identifiable, Equatable, Sendable {
     var start: Day
     var end: Day
     var memo: String = ""
+    /// 휴가 중에도 이어 갈 루틴. 비어 있으면 전체 휴식이다(이전 버전에서 만든 휴가도 그렇다).
+    var keptRoutineIDs: Set<UUID> = []
 
     func contains(_ day: Day) -> Bool { start <= day && day <= end }
+    var keepsRoutines: Bool { !keptRoutineIDs.isEmpty }
 }
 
 /// 기존 FieldEdit의 확장 칸에 전체 기간을 저장한다. 새 CloudKit 유형·속성은 필요하지 않다.
@@ -23,17 +26,22 @@ enum VacationEdit {
         var end: String
         var memo: String
         var isRemoved: Bool
+        /// 휴가 중 유지할 루틴의 ID. 전체 휴식이면 칸 자체를 쓰지 않아, 이전 형식과 글자까지 같다.
+        /// 버전은 올리지 않는다: 이 칸을 모르는 이전 앱도 휴가 자체는 그대로 읽어야 한다(전체 휴식으로 보인다).
+        var kept: [String]?
 
         init(_ period: VacationPeriod, isRemoved: Bool = false) {
             start = period.start.key
             end = period.end.key
             memo = period.memo
             self.isRemoved = isRemoved
+            kept = period.keptRoutineIDs.isEmpty ? nil : period.keptRoutineIDs.map(\.uuidString).sorted()
         }
 
         func period(id: UUID) -> VacationPeriod? {
             guard version == 1, let start = Day(key: start), let end = Day(key: end), start <= end else { return nil }
-            return VacationPeriod(id: id, start: start, end: end, memo: memo)
+            let keptIDs = Set((kept ?? []).compactMap { UUID(uuidString: $0) })
+            return VacationPeriod(id: id, start: start, end: end, memo: memo, keptRoutineIDs: keptIDs)
         }
     }
 
@@ -89,9 +97,14 @@ struct VacationService {
     func covers(_ day: Day) throws -> Bool { try periods().contains { $0.contains(day) } }
 
     @discardableResult
-    func save(id: UUID? = nil, start: Day, end: Day, memo: String = "") throws -> VacationPeriod {
+    func save(
+        id: UUID? = nil, start: Day, end: Day, memo: String = "", keptRoutineIDs: Set<UUID> = []
+    ) throws -> VacationPeriod {
         guard start <= end else { throw VacationError.invalidRange }
-        let period = VacationPeriod(id: id ?? UUID(), start: start, end: end, memo: memo.trimmingCharacters(in: .whitespacesAndNewlines))
+        let period = VacationPeriod(
+            id: id ?? UUID(), start: start, end: end,
+            memo: memo.trimmingCharacters(in: .whitespacesAndNewlines), keptRoutineIDs: keptRoutineIDs
+        )
         try write(period, isRemoved: false)
         return period
     }

@@ -136,12 +136,17 @@ struct StatTile<Accessory: View>: View {
     let value: String?
     var unit: String = ""
     let caption: String
+    /// 좁은 칸(iPhone의 두 열)용. 여백과 숫자를 줄이고, 글자가 칸 너비를 넘기지 않게 줄바꿈·축소를 허용한다.
+    var isCompact = false
     @ViewBuilder var accessory: () -> Accessory
 
+    /// 좁은 칸의 숫자 크기. 큰 글씨 설정을 따라 커진다.
+    @ScaledMetric(relativeTo: .title2) private var compactValueSize: CGFloat = 26
+
     var body: some View {
-        Card(padding: 16) {
+        Card(padding: isCompact ? 12 : 16) {
             VStack(alignment: .leading, spacing: 0) {
-                HStack(spacing: 7) {
+                HStack(alignment: isCompact ? .top : .center, spacing: 7) {
                     Image(systemName: symbol)
                         .font(.system(size: 11, weight: .semibold))
                         .foregroundStyle(color.color)
@@ -151,23 +156,14 @@ struct StatTile<Accessory: View>: View {
                     Text(title)
                         .font(.subheadline.weight(.medium))
                         .foregroundStyle(.secondary)
-                        .lineLimit(1)
+                        // 좁은 칸에서는 긴 제목을 자르지 않고 두 줄까지 쓴다.
+                        .lineLimit(isCompact ? 2 : 1)
+                        .fixedSize(horizontal: false, vertical: isCompact)
                 }
                 Spacer(minLength: 6)
                 if let value {
-                    HStack(alignment: .center, spacing: 10) {
-                        HStack(alignment: .firstTextBaseline, spacing: 2) {
-                            Text(value)
-                                .font(.system(size: 30, weight: .bold, design: .rounded))
-                                .monospacedDigit()
-                            if !unit.isEmpty {
-                                Text(unit).font(.system(size: 16, weight: .semibold))
-                            }
-                        }
-                        // 큰 숫자는 아이콘 색보다 한 단계 진한 색으로 써서 밝은 배경에서도 읽히게 한다.
-                        .foregroundStyle(color.ink)
-                        .lineLimit(1)
-                        .fixedSize()
+                    HStack(alignment: .center, spacing: isCompact ? 8 : 10) {
+                        valueText(value)
                         Spacer(minLength: 0)
                         accessory()
                     }
@@ -177,7 +173,7 @@ struct StatTile<Accessory: View>: View {
                 Text(caption)
                     .font(value == nil ? .callout : .caption)
                     .foregroundStyle(.secondary)
-                    .lineLimit(value == nil ? 2 : 1)
+                    .lineLimit(value == nil || isCompact ? 2 : 1)
                     .minimumScaleFactor(0.85)
                     .fixedSize(horizontal: false, vertical: true)
                 if value == nil {
@@ -185,13 +181,41 @@ struct StatTile<Accessory: View>: View {
                 }
             }
         }
-        .frame(height: Theme.statCardHeight)
+        // 좁은 칸은 글자 크기에 따라 높이가 자란다(같은 줄의 칸끼리는 격자가 높이를 맞춘다).
+        .frame(minHeight: isCompact ? Theme.statCardHeight - 14 : Theme.statCardHeight,
+               maxHeight: isCompact ? nil : Theme.statCardHeight)
         .accessibilityElement(children: .combine)
+    }
+
+    @ViewBuilder
+    private func valueText(_ value: String) -> some View {
+        let text = HStack(alignment: .firstTextBaseline, spacing: 2) {
+            Text(value)
+                .font(.system(size: isCompact ? compactValueSize : 30, weight: .bold, design: .rounded))
+                .monospacedDigit()
+            if !unit.isEmpty {
+                Text(unit).font(.system(size: isCompact ? compactValueSize * 0.55 : 16, weight: .semibold))
+            }
+        }
+        // 큰 숫자는 아이콘 색보다 한 단계 진한 색으로 써서 밝은 배경에서도 읽히게 한다.
+        .foregroundStyle(color.ink)
+        .lineLimit(1)
+        if isCompact {
+            // 칸을 밀어내지 않는다: 자리가 모자라면 숫자를 줄인다(자르지 않는다).
+            text.minimumScaleFactor(0.6).layoutPriority(1)
+        } else {
+            text.fixedSize()
+        }
     }
 }
 
 extension StatTile where Accessory == EmptyView {
-    init(symbol: String, title: String, color: GroupColor, value: String?, unit: String = "", caption: String) {
-        self.init(symbol: symbol, title: title, color: color, value: value, unit: unit, caption: caption, accessory: { EmptyView() })
+    init(
+        symbol: String, title: String, color: GroupColor, value: String?, unit: String = "", caption: String, isCompact: Bool = false
+    ) {
+        self.init(
+            symbol: symbol, title: title, color: color, value: value, unit: unit, caption: caption, isCompact: isCompact,
+            accessory: { EmptyView() }
+        )
     }
 }
