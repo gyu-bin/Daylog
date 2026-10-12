@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D20000000000000000000020 /* DaylogWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D40000000000000000000004 /* DaylogWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D50000000000000000000001 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = D50000000000000000000002 /* Sparkle */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D10000000000000000000012 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -22,11 +27,6 @@
 			remoteInfo = DaylogWidgets;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXBuildFile section */
-		D50000000000000000000001 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = D50000000000000000000002 /* Sparkle */; };
-		D20000000000000000000020 /* DaylogWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D40000000000000000000004 /* DaylogWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-/* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D2000000000000000000001F /* Embed Foundation Extensions */ = {
@@ -77,13 +77,6 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D2000000000000000000000D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D1000000000000000000000D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -93,6 +86,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D10000000000000000000010 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2000000000000000000000D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -146,31 +146,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D2000000000000000000000A /* DaylogiOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D20000000000000000000017 /* Build configuration list for PBXNativeTarget "DaylogiOS" */;
-			buildPhases = (
-				D2000000000000000000000C /* Sources */,
-				D2000000000000000000000D /* Frameworks */,
-				D2000000000000000000000E /* Resources */,
-				D2000000000000000000001F /* Embed Foundation Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D20000000000000000000021 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				D10000000000000000000006 /* Daylog */,
-				D30000000000000000000006 /* DaylogShared */,
-			);
-			name = DaylogiOS;
-			packageProductDependencies = (
-			);
-			productName = DaylogiOS;
-			productReference = D20000000000000000000004 /* Daylog.app (iOS) */;
-			productType = "com.apple.product-type.application";
-		};
 		D1000000000000000000000A /* Daylog */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D10000000000000000000017 /* Build configuration list for PBXNativeTarget "Daylog" */;
@@ -217,6 +192,31 @@
 			productName = DaylogTests;
 			productReference = D10000000000000000000005 /* DaylogTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D2000000000000000000000A /* DaylogiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D20000000000000000000017 /* Build configuration list for PBXNativeTarget "DaylogiOS" */;
+			buildPhases = (
+				D2000000000000000000000C /* Sources */,
+				D2000000000000000000000D /* Frameworks */,
+				D2000000000000000000000E /* Resources */,
+				D2000000000000000000001F /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D20000000000000000000021 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D10000000000000000000006 /* Daylog */,
+				D30000000000000000000006 /* DaylogShared */,
+			);
+			name = DaylogiOS;
+			packageProductDependencies = (
+			);
+			productName = DaylogiOS;
+			productReference = D20000000000000000000004 /* Daylog.app (iOS) */;
+			productType = "com.apple.product-type.application";
 		};
 		D4000000000000000000000A /* DaylogWidgets */ = {
 			isa = PBXNativeTarget;
@@ -274,8 +274,10 @@
 				Base,
 			);
 			mainGroup = D10000000000000000000002;
-			packageReferences = (D50000000000000000000003 /* Sparkle */,);
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D50000000000000000000003 /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D10000000000000000000003 /* Products */;
 			projectDirPath = "";
@@ -289,29 +291,7 @@
 		};
 /* End PBXProject section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		D50000000000000000000003 /* Sparkle */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparkle-project/Sparkle";
-			requirement = {kind = exactVersion; version = 2.10.0;};
-		};
-/* End XCRemoteSwiftPackageReference section */
-/* Begin XCSwiftPackageProductDependency section */
-		D50000000000000000000002 /* Sparkle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D50000000000000000000003 /* Sparkle */;
-			productName = Sparkle;
-		};
-/* End XCSwiftPackageProductDependency section */
-
 /* Begin PBXResourcesBuildPhase section */
-		D2000000000000000000000E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D1000000000000000000000E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -320,6 +300,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D10000000000000000000011 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2000000000000000000000E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -336,13 +323,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D2000000000000000000000C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D1000000000000000000000C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,6 +331,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D1000000000000000000000F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2000000000000000000000C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -423,15 +410,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Config/Daylog.entitlements;
-				INFOPLIST_FILE = "Config/Daylog-Info.plist";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				DEVELOPMENT_TEAM = 6YASPU77L7;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6YASPU77L7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Daylog-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Daylog;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -451,15 +438,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Config/Daylog.entitlements;
-				INFOPLIST_FILE = "Config/Daylog-Info.plist";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				DEVELOPMENT_TEAM = 6YASPU77L7;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6YASPU77L7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Daylog-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Daylog;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -478,9 +465,9 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				DEVELOPMENT_TEAM = 6YASPU77L7;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6YASPU77L7;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.tests;
@@ -495,9 +482,9 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				DEVELOPMENT_TEAM = 6YASPU77L7;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6YASPU77L7;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.5.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.tests;
@@ -514,16 +501,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Config/DaylogiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/DaylogiOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Daylog;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_FILE = "Config/DaylogiOS-Info.plist";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -551,16 +538,16 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Config/DaylogiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/DaylogiOS-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Daylog;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_FILE = "Config/DaylogiOS-Info.plist";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -585,10 +572,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DAYLOG_WIDGET_EXTENSION";
 				CODE_SIGN_ENTITLEMENTS = Config/DaylogWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Config/DaylogWidgets-Info.plist";
@@ -606,6 +592,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DAYLOG_WIDGET_EXTENSION";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -615,10 +602,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DAYLOG_WIDGET_EXTENSION";
 				CODE_SIGN_ENTITLEMENTS = Config/DaylogWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Config/DaylogWidgets-Info.plist";
@@ -636,6 +622,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DAYLOG_WIDGET_EXTENSION";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -690,6 +677,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D50000000000000000000003 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = exactVersion;
+				version = 2.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D50000000000000000000002 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D50000000000000000000003 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D10000000000000000000001 /* Project object */;
 }
