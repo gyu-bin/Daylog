@@ -439,6 +439,17 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 - 검증: 단위 테스트 16개 추가(전체 395개 통과). 이 Mac의 시험 서버와 iPhone 17 Pro·iPad 시뮬레이터로 변경 → 즉시 반영 → 재실행 유지 → 오프라인 → 잘못된 파일 거부 → 되돌리기 → 사용자 배치 우선 → 다음 실행 때 적용을 확인했다. 캡처는 `docs/mobile-ota/`.
 - 하지 못한 것: 실제 주소로 받기와 `publish`·`rollback` 실행(게시 전), 실기기, Release 빌드에서의 동작.
 
+## 배포: TestFlight 빌드 5, 모바일 UI 설정 Production v1 (2026-10-12)
+
+사용자 승인에 따라 진행했다. Mac 앱·GitHub의 앱 릴리스·Sparkle appcast는 건드리지 않았다.
+
+- iOS 1.0.0 (5)를 TestFlight에 올렸다(21:02, Delivery UUID `423b08f1-3cb8-4554-b572-48dc5541988f`, 커밋 `689a020`). 올린 IPA에서 번들 ID `com.mungyubin.daylog.ios`, App Group, iCloud Production, aps production, `UIBackgroundModes`, 정적 Launch Screen을 확인했다. Release 바이너리에는 Production 설정 주소만 들어 있다. 다음에 올릴 때는 빌드 번호 6.
+- 빌드 4 이후로 SwiftData 모델·스키마·동기화 코드·권한 파일은 바뀌지 않았다(`Daylog/Models`에서는 `DevicePreferences`만: 이 기기의 `UserDefaults`에 `device.dashboard.customized`가 추가됨).
+- 빌드 5에 새로 들어간 것: 스플래시, 시작 안내의 알림 안내, 메뉴 색, 달성률 카드 수정, 원격 UI 설정, iPad 설정의 좁은 폭 배치.
+- 모바일 UI 설정 Production `configVersion 1`을 게시했다(릴리스 `mobile-config`, 사전 출시). 내용은 내장 기본값과 같다. 공개 주소의 파일이 저장소 파일과 같고, Release 빌드가 실제 주소에서 받아 적용하며, 적용 전후 화면이 같은 것을 시뮬레이터에서 확인했다. 기록은 [MOBILE_OTA.md](MOBILE_OTA.md) "게시 기록".
+- App Store Connect의 처리 상태는 API 키가 없어 확인하지 못했다(TestFlight 앱에서 빌드 5가 보이는지 확인 필요).
+- 게시 뒤 고친 것(다음 빌드부터): 설정 줄의 "강조 색은 앱을 다시 열면 바뀌어요"가 색이 바뀌지 않았을 때도 나왔다 → 색이 실제로 달라졌을 때만 보이게 했다.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.

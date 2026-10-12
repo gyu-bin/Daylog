@@ -23,6 +23,11 @@ struct MobileUIConfigRow: View {
                     .foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
+            if config.accentChangesOnRelaunch {
+                Text("강조 색은 앱을 다시 열면 바뀌어요.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
             Button {
                 Task { await config.refreshNow() }
             } label: {

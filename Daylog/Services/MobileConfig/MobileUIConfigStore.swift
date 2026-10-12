@@ -236,12 +236,15 @@ final class MobileUIConfigStore {
     static func outcomeText(_ outcome: Outcome) -> String {
         switch outcome {
         case .upToDate: return "지금 쓰는 설정이 최신이에요."
-        case .updated(let version, true): return "버전 \(version)을 받아 적용했어요. 강조 색은 앱을 다시 열면 바뀌어요."
+        case .updated(let version, true): return "버전 \(version)을 받아 적용했어요."
         case .updated(let version, false): return "버전 \(version)을 받았어요. 다음에 앱을 열 때 적용돼요."
         case .rejected(let reason): return "\(reason) 지금 쓰는 설정을 그대로 둡니다."
         case .failed: return "확인하지 못했어요. 지금 쓰는 설정을 그대로 둡니다."
         }
     }
+
+    /// 받은 설정의 강조 색이 지금 화면의 색과 다르다(앱을 다시 열어야 바뀐다).
+    var accentChangesOnRelaunch: Bool { settings.accent != MobileUIConfigCache.atLaunch.accent }
 
     private func markChecked() {
         let date = now()
