@@ -160,10 +160,9 @@ struct MenuBarView: View {
                 openMainWindow(section: .settings)
             }
             Spacer(minLength: 6)
-            Button("종료") {
+            Button("Daylog 종료") {
                 NSApplication.shared.terminate(nil)
             }
-            .accessibilityLabel("Daylog 종료")
         }
         .controlSize(.small)
     }

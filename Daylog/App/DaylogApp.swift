@@ -39,7 +39,9 @@ struct DaylogApp: App {
         MenuBarExtra(isInserted: menuBarInserted) {
             menuBarContent
         } label: {
-            Image(systemName: "checklist")
+            // 잎사귀와 해를 단색으로 그린 전용 템플릿 아이콘(Assets/MenuBarIcon). 메뉴 막대의 밝기에 따라 색이 맞춰진다.
+            Image("MenuBarIcon")
+                .renderingMode(.template)
                 .accessibilityLabel("Daylog 오늘의 루틴")
         }
         .menuBarExtraStyle(.window)
@@ -98,8 +100,29 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         appearanceObservation = NSApplication.shared.observe(\.effectiveAppearance, options: [.initial]) { application, _ in
             MainActor.assumeIsolated { DockIcon.update(for: application) }
         }
+        // 창을 닫아 둔 채(메뉴 막대만 남긴 채) 종료하면, 다음 실행 때 창 복원이 "창 없음"을 복원해 창이 안 뜬다.
+        // 복원이 끝난 뒤에도 창이 없으면 Dock에서 앱을 누른 것처럼 다시 열어 달라고 스스로에게 요청한다.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            guard !RuntimeEnvironment.isRunningTests, !Self.hasMainWindow else { return }
+            Self.requestReopen()
+        }
         guard RuntimeEnvironment.cloudKitContainerID != nil else { return }
         NSApplication.shared.registerForRemoteNotifications()
+    }
+
+    /// 제목 표시줄이 있는 보이는 창(메뉴 막대·팝오버의 창은 제외).
+    static var hasMainWindow: Bool {
+        NSApplication.shared.windows.contains { $0.isVisible && $0.styleMask.contains(.titled) }
+    }
+
+    /// Dock 아이콘을 눌렀을 때와 같은 "다시 열기" 이벤트. SwiftUI가 받아 주 창을 연다.
+    static func requestReopen() {
+        let target = NSAppleEventDescriptor(processIdentifier: ProcessInfo.processInfo.processIdentifier)
+        let event = NSAppleEventDescriptor(
+            eventClass: AEEventClass(kCoreEventClass), eventID: AEEventID(kAEReopenApplication),
+            targetDescriptor: target, returnID: AEReturnID(kAutoGenerateReturnID), transactionID: AETransactionID(kAnyTransactionID)
+        )
+        _ = try? event.sendEvent(options: [.noReply], timeout: 1)
     }
 
     /// 메뉴 막대를 쓰는 동안에는 창을 닫아도 앱이 남는다(메뉴 막대에서 계속 체크할 수 있게).

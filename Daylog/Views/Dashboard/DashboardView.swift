@@ -2,9 +2,12 @@ import SwiftUI
 
 struct DashboardView: View {
     @Environment(AppStore.self) private var store
+    @Environment(DevicePreferences.self) private var preferences
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @State private var isEditing = false
 
-    private static let wideBreakpoint: CGFloat = 880
+    /// 이 너비부터 두 열로 나눈다.
+    static let wideBreakpoint: CGFloat = 880
 
     var body: some View {
         // 좁은 화면(iPhone, 좁은 iPad 창)은 오늘 할 일만 담은 짧은 화면을 쓴다. macOS는 늘 넓은 쪽이다.
@@ -19,13 +22,72 @@ struct DashboardView: View {
         GeometryReader { proxy in
             ScrollView {
                 VStack(alignment: .leading, spacing: Theme.spacing) {
-                    DashboardHeader()
-                    if !store.stats.hasStarted { StartHint() }
-                    DashboardCards(compact: false, wide: proxy.size.width >= Self.wideBreakpoint)
+                    DashboardHeader(isEditing: $isEditing)
+                    if isEditing {
+                        DashboardEditBar(isEditing: $isEditing)
+                    } else if !store.stats.hasStarted {
+                        StartHint()
+                    }
+                    DashboardCards(compact: false, wide: proxy.size.width >= Self.wideBreakpoint, isEditing: isEditing)
                 }
                 .padding(Theme.pagePadding)
+                .animation(.easeInOut(duration: 0.2), value: preferences.cardOrder)
+                .animation(.easeInOut(duration: 0.2), value: preferences.leftCards)
+                .animation(.easeInOut(duration: 0.2), value: preferences.hiddenCards)
+            }
+            #if os(macOS)
+            .onExitCommand { isEditing = false }
+            #endif
+            .onChange(of: store.section) { _, _ in isEditing = false }
+        }
+    }
+}
+
+/// 편집 모드의 안내와 도구: 숨긴 카드 되살리기, 기본 배치 복원, 완료.
+struct DashboardEditBar: View {
+    @Environment(DevicePreferences.self) private var preferences
+    @Binding var isEditing: Bool
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(alignment: .firstTextBaseline, spacing: 12) {
+                Label("카드를 손잡이로 끌어 옮기세요. 카드의 ⋯ 메뉴로도 옮기거나 숨길 수 있어요.", systemImage: "hand.draw")
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
+                Spacer(minLength: 8)
+                Button("기본 배치 복원") { preferences.restoreDashboard() }
+                    .controlSize(.small)
+                Button("완료") { isEditing = false }
+                    .buttonStyle(.borderedProminent)
+                    .tint(Theme.accent)
+                    .controlSize(.small)
+                    .keyboardShortcut(.defaultAction)
+            }
+            if !preferences.hiddenChoices.isEmpty {
+                HStack(spacing: 8) {
+                    Text("숨긴 카드")
+                        .font(.caption.weight(.medium))
+                        .foregroundStyle(.secondary)
+                    FlowLayout(spacing: 6) {
+                        ForEach(preferences.hiddenChoices) { card in
+                            Button {
+                                preferences.setVisible(true, card: card)
+                            } label: {
+                                Label(card.title, systemImage: "plus")
+                                    .font(.caption)
+                            }
+                            .buttonStyle(.bordered)
+                            .controlSize(.small)
+                            .accessibilityLabel("\(card.title) 카드 다시 보이기")
+                        }
+                    }
+                }
             }
         }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 10)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.accentWash, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
     }
 }
 
@@ -58,18 +120,49 @@ struct StartHint: View {
 
 /// 제목과 날짜 이동을 한 줄에 둔다. 좁으면 두 줄로 내려간다.
 struct DashboardHeader: View {
+    @Binding var isEditing: Bool
+
     var body: some View {
         ViewThatFits(in: .horizontal) {
             HStack(alignment: .center, spacing: 16) {
                 titles
                 Spacer(minLength: 16)
-                DateNavigator()
+                controls
             }
             VStack(alignment: .leading, spacing: 10) {
                 titles
-                DateNavigator()
+                controls
             }
         }
+    }
+
+    private var controls: some View {
+        HStack(spacing: 8) {
+            DateNavigator()
+            editButton
+        }
+        .fixedSize()
+    }
+
+    /// 대시보드 편집 켜기/끄기.
+    private var editButton: some View {
+        Button {
+            isEditing.toggle()
+        } label: {
+            Image(systemName: isEditing ? "checkmark" : "square.grid.2x2")
+                .font(.system(size: 13, weight: .semibold))
+                .foregroundStyle(isEditing ? AnyShapeStyle(Theme.onAccent) : AnyShapeStyle(.primary))
+                .frame(width: 34, height: 32)
+                .background(
+                    isEditing ? AnyShapeStyle(Theme.accent) : AnyShapeStyle(Theme.cardBackground),
+                    in: RoundedRectangle(cornerRadius: 9, style: .continuous)
+                )
+                .overlay(RoundedRectangle(cornerRadius: 9, style: .continuous).strokeBorder(Theme.cardBorder, lineWidth: isEditing ? 0 : 1))
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .help(isEditing ? "편집 완료" : "대시보드 편집: 카드 순서·열·표시 바꾸기")
+        .accessibilityLabel(isEditing ? "대시보드 편집 완료" : "대시보드 편집")
     }
 
     private var titles: some View {

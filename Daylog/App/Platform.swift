@@ -16,6 +16,7 @@ enum Platform {
         NSWorkspace.shared.notificationCenter.publisher(for: NSWorkspace.didWakeNotification)
     }
     static let thisDevice = "이 Mac"
+    static let isPhone = false
 
     /// 시스템 설정의 알림 화면을 연다.
     @MainActor
@@ -34,6 +35,7 @@ enum Platform {
     static var thisDevice: String {
         UIDevice.current.userInterfaceIdiom == .pad ? "이 iPad" : "이 iPhone"
     }
+    static var isPhone: Bool { UIDevice.current.userInterfaceIdiom == .phone }
 
     /// 설정 앱에서 Daylog의 알림 화면을 연다.
     @MainActor

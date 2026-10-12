@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 보고 있는 날짜의 루틴 체크(그룹별), 그룹 안의 항목 추가, 내일 오전 할 일.
+/// 보고 있는 날짜의 루틴 체크(그룹별)와 그룹 안의 항목 추가. 내일 오전 할 일은 `TomorrowTaskCard`에 있다.
 /// 그룹을 만들고 지우고 설정하는 일은 루틴 관리 화면이 맡는다. 여기서는 오늘의 체크에 집중한다.
 struct RoutineCard: View {
     @Environment(AppStore.self) var store
@@ -13,7 +13,6 @@ struct RoutineCard: View {
 
     enum Field: Hashable {
         case item(UUID)
-        case tomorrowTask
     }
 
     /// 화면에 그릴 그룹 한 칸. 체크가 있는 그룹은 그날의 스냅샷, 항목이 아직 없는 새 그룹은 현재 모습.
@@ -79,7 +78,6 @@ struct RoutineCard: View {
                 if store.selectedOutcome.ratio != nil {
                     progress
                 }
-                tomorrowTask
             }
         }
         .onChange(of: store.quickAddFocusToken) {
@@ -147,7 +145,7 @@ struct RoutineCard: View {
         .foregroundStyle(.secondary)
     }
 
-    // MARK: - 진행률과 내일 할 일
+    // MARK: - 진행률
 
     private var progress: some View {
         let outcome = store.selectedOutcome
@@ -160,26 +158,5 @@ struct RoutineCard: View {
         }
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("전체 달성률 \(outcome.percentLabel), \(outcome.total)개 중 \(outcome.done)개 완료")
-    }
-
-    private var tomorrowTask: some View {
-        let label = store.isViewingToday ? "내일 오전 할 일" : "다음 날 오전 할 일"
-        return HStack(spacing: 10) {
-            Label(label, systemImage: "lightbulb")
-                .font(.callout.weight(.semibold))
-                .fixedSize()
-            TextField(
-                label,
-                text: Binding(
-                    get: { store.text(\.tomorrowTask) },
-                    set: { store.setText($0, at: \.tomorrowTask) }
-                ),
-                prompt: Text("한 줄로 적어 두세요")
-            )
-            .textFieldStyle(.roundedBorder)
-            .focused($focus, equals: .tomorrowTask)
-            .labelsHidden()
-        }
-        .id(store.selectedDay)
     }
 }

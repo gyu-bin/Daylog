@@ -1,39 +1,43 @@
 import SwiftUI
 
-/// 사이드바: 브랜드 머리말, 메뉴, 아래쪽 한 줄 문구.
+/// 사이드바: 브랜드 머리말, 주요 메뉴, 맨 아래에 고정된 설정.
+/// 창이 낮아지면 메뉴가 스크롤되고 설정은 늘 보인다.
 struct SidebarView: View {
     @Environment(AppStore.self) private var store
     @Environment(DevicePreferences.self) private var preferences
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        let sections = preferences.navigationSections(phone: false)
+        VStack(alignment: .leading, spacing: 0) {
             SidebarBrandHeader()
                 .padding(.horizontal, 8)
                 .padding(.top, 2)
                 .padding(.bottom, 16)
 
-            ForEach(Array(preferences.navigationSections(phone: false).enumerated()), id: \.element) { index, section in
-                SidebarRow(section: section, isSelected: store.section == section, shortcut: index + 1) {
-                    store.section = section
+            ScrollView {
+                VStack(alignment: .leading, spacing: 4) {
+                    ForEach(sections.filter { $0 != .settings }) { section in
+                        row(section, shortcut: sections.firstIndex(of: section).map { $0 + 1 })
+                    }
                 }
             }
-
-            Spacer(minLength: 12)
+            .scrollBounceBehavior(.basedOnSize)
 
             Divider()
                 .padding(.horizontal, 8)
-            Text("오늘도, 더 나은 하루를 위해.")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .lineLimit(1)
-                .minimumScaleFactor(0.8)
-                .padding(.horizontal, 10)
-                .padding(.top, 6)
+                .padding(.vertical, 8)
+            row(.settings, shortcut: sections.firstIndex(of: .settings).map { $0 + 1 })
                 .padding(.bottom, 8)
         }
         .padding(.horizontal, 10)
         .padding(.top, 6)
         .frame(maxHeight: .infinity, alignment: .top)
+    }
+
+    private func row(_ section: AppStore.Section, shortcut: Int?) -> some View {
+        SidebarRow(section: section, isSelected: store.section == section, shortcut: shortcut) {
+            store.section = section
+        }
     }
 }
 
@@ -89,7 +93,8 @@ struct BrandIcon: View {
 private struct SidebarRow: View {
     let section: AppStore.Section
     let isSelected: Bool
-    let shortcut: Int
+    /// ⌘ 단축키 번호(이동 메뉴와 같은 번호). 없으면 도움말에 적지 않는다.
+    let shortcut: Int?
     let action: () -> Void
 
     @State private var isHovered = false
@@ -113,7 +118,7 @@ private struct SidebarRow: View {
         }
         .buttonStyle(.plain)
         .onHover { isHovered = $0 }
-        .help("\(section.title) (⌘\(shortcut))")
+        .help(shortcut.map { "\(section.title) (⌘\($0))" } ?? section.title)
         .accessibilityLabel(section.title)
         .accessibilityAddTraits(isSelected ? [.isButton, .isSelected] : .isButton)
     }

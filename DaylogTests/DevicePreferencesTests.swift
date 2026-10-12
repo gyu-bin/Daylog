@@ -22,6 +22,7 @@ struct DevicePreferencesTests {
 
     @Test func malformedLayoutRepairsMissingDuplicateAndMandatoryCards() {
         let defaults = testDefaults()
+        defaults.set(DevicePreferences.layoutVersion, forKey: DevicePreferences.layoutVersionKey)
         defaults.set(["meals", "routines", "unknown", "routines"], forKey: DevicePreferences.orderKey)
         defaults.set(["routines", "trend", "unknown"], forKey: DevicePreferences.hiddenKey)
         defaults.set("invalid", forKey: DevicePreferences.mealsKey)
@@ -40,16 +41,94 @@ struct DevicePreferencesTests {
         let defaults = testDefaults()
         let preferences = DevicePreferences(defaults: defaults)
         preferences.move(.meals, by: -1)
-        preferences.setVisible(false, card: .trend)
+        preferences.setVisible(false, card: .recentDays)
+        preferences.setColumn(.right, for: .vacation)
         let reopened = DevicePreferences(defaults: defaults)
         #expect(reopened.cardOrder == preferences.cardOrder)
-        #expect(reopened.hiddenCards == [.trend])
+        // 처음부터 숨겨 둔 카드에 방금 숨긴 카드가 더해진다.
+        #expect(reopened.hiddenCards == DashboardCard.defaultHidden.union([.recentDays]))
+        #expect(reopened.leftCards == [.nextRoutine, .routines])
         preferences.setMealsEnabled(false)
         preferences.restoreDashboard()
-        #expect(preferences.cardOrder == DashboardCard.allCases)
-        #expect(preferences.hiddenCards.isEmpty)
+        #expect(preferences.cardOrder == DashboardCard.defaultOrder)
+        #expect(preferences.hiddenCards == DashboardCard.defaultHidden)
+        #expect(preferences.leftCards == DashboardCard.defaultLeft)
         #expect(!preferences.mealsEnabled)
         #expect(!preferences.visibleCards.contains(.meals))
+    }
+
+    /// 예전 한 열 배치(형식 번호 없음)는 새 기본 배치로 바뀐다. 식사 표시·안내 완료 같은 다른 설정은 그대로다.
+    @Test func legacyLayoutIsReplacedByTheTwoColumnDefault() {
+        let defaults = testDefaults()
+        defaults.set(["trend", "routines", "meals"], forKey: DevicePreferences.orderKey)
+        defaults.set(["calendar"], forKey: DevicePreferences.hiddenKey)
+        defaults.set(false, forKey: DevicePreferences.mealsKey)
+        let preferences = DevicePreferences(defaults: defaults)
+        #expect(preferences.cardOrder == DashboardCard.defaultOrder)
+        #expect(preferences.hiddenCards == DashboardCard.defaultHidden)
+        #expect(!preferences.mealsEnabled)
+        #expect(defaults.integer(forKey: DevicePreferences.layoutVersionKey) == DevicePreferences.layoutVersion)
+        // 한 번 바뀐 뒤에는 저장된 배치를 그대로 읽는다.
+        preferences.place(.tomorrow, atEndOf: .left)
+        #expect(DevicePreferences(defaults: defaults).leftCards.contains(.tomorrow))
+    }
+
+    /// 시안의 기본 배치: 왼쪽은 휴가·루틴, 오른쪽은 식사·달성 현황·7일·내일 할 일. 지표 띠와 통계 카드는 숨긴다.
+    @Test func defaultLayoutFollowsTheDesign() {
+        let preferences = DevicePreferences(defaults: testDefaults())
+        let layout = preferences.layout(of: preferences.visibleCards)
+        #expect(layout.band.isEmpty)
+        #expect(layout.left == [.nextRoutine, .vacation, .routines])
+        #expect(layout.right == [.meals, .achievement, .recentDays, .tomorrow])
+        preferences.setVisible(true, card: .summary)
+        #expect(preferences.layout(of: preferences.visibleCards).band == [.summary])
+    }
+
+    /// iPhone은 진행률이 맨 위에 오는 순서로 시작하고, 기본 배치 복원도 그 순서로 돌아간다.
+    @Test func phoneStartsWithProgressOnTop() {
+        let preferences = DevicePreferences(defaults: testDefaults(), isPhone: true)
+        #expect(preferences.visibleCards == [.achievement, .nextRoutine, .vacation, .routines, .meals, .recentDays, .tomorrow])
+        preferences.move(.achievement, by: 1)
+        preferences.restoreDashboard()
+        #expect(preferences.visibleCards.first == .achievement)
+        #expect(Set(preferences.cardOrder) == Set(DashboardCard.allCases))
+    }
+
+    /// 끌어 놓기: 다른 카드 앞에 놓으면 그 열로 옮겨지고, 한 열 순서도 같이 바뀐다.
+    @Test func droppingBeforeACardMovesItIntoThatColumn() {
+        let preferences = DevicePreferences(defaults: testDefaults())
+        preferences.place(.tomorrow, before: .routines)
+        var layout = preferences.layout(of: preferences.visibleCards)
+        #expect(layout.left == [.nextRoutine, .vacation, .tomorrow, .routines])
+        #expect(layout.right == [.meals, .achievement, .recentDays])
+        #expect(preferences.visibleCards.firstIndex(of: .tomorrow)! < preferences.visibleCards.firstIndex(of: .routines)!)
+
+        preferences.place(.vacation, atEndOf: .right)
+        layout = preferences.layout(of: preferences.visibleCards)
+        #expect(layout.left == [.nextRoutine, .tomorrow, .routines])
+        #expect(layout.right == [.meals, .achievement, .recentDays, .vacation])
+        #expect(preferences.visibleCards.last == .vacation)
+
+        // 자기 자신 앞이나 띠 카드 앞에는 놓을 수 없다.
+        let before = preferences.cardOrder
+        preferences.place(.routines, before: .routines)
+        preferences.place(.routines, before: .summary)
+        preferences.place(.summary, before: .routines)
+        #expect(preferences.cardOrder == before)
+    }
+
+    /// 메뉴·키보드로 한 칸씩: 같은 열 안에서만 움직이고 열 끝에서는 멈춘다.
+    @Test func stepMovesStayWithinTheColumn() {
+        let preferences = DevicePreferences(defaults: testDefaults())
+        let right = preferences.layout(of: preferences.visibleCards).right
+        preferences.moveDown(.meals, in: right)
+        #expect(preferences.layout(of: preferences.visibleCards).right == [.achievement, .meals, .recentDays, .tomorrow])
+        preferences.moveUp(.achievement, in: preferences.layout(of: preferences.visibleCards).right)
+        #expect(preferences.layout(of: preferences.visibleCards).right == [.achievement, .meals, .recentDays, .tomorrow])
+        preferences.moveDown(.tomorrow, in: preferences.layout(of: preferences.visibleCards).right)
+        #expect(preferences.layout(of: preferences.visibleCards).right.last == .tomorrow)
+        preferences.setColumn(.left, for: .tomorrow)
+        #expect(preferences.layout(of: preferences.visibleCards).left.last == .tomorrow)
     }
 
     @Test func mealSuppressionDoesNotErasePersonalCardChoice() {
@@ -65,12 +144,17 @@ struct DevicePreferencesTests {
         #expect(preferences.visibleCards.contains(.meals))
     }
 
+    /// 한 열(좁은 창·iPhone)은 전체 순서 그대로, 두 열은 그 순서를 열별로 나눈 것이라 어느 쪽에서도 순서가 바뀌지 않는다.
     @Test func narrowAndWideLayoutsPreserveSameOrder() {
-        let cards: [DashboardCard] = [.meals, .routines, .summary, .trend, .calendar, .nextRoutine, .routineRates]
-        #expect(DashboardCard.rows(cards, wide: false).flatMap { $0 } == cards)
-        #expect(DashboardCard.rows(cards, wide: true).flatMap { $0 } == cards)
-        #expect(DashboardCard.rows(cards, wide: true).contains([.summary]))
-        #expect(DashboardCard.rows(cards, wide: true).contains([.nextRoutine]))
+        let preferences = DevicePreferences(defaults: testDefaults())
+        preferences.setVisible(true, card: .trend)
+        preferences.setColumn(.left, for: .trend)
+        let cards = preferences.visibleCards
+        let layout = preferences.layout(of: cards)
+        #expect(layout.band + layout.left + layout.right == cards.filter(\.spansFullWidth) + cards.filter { !$0.spansFullWidth && preferences.leftCards.contains($0) } + cards.filter { !$0.spansFullWidth && !preferences.leftCards.contains($0) })
+        for column in [layout.left, layout.right] {
+            #expect(column == cards.filter(column.contains))
+        }
     }
 
     @Test func disablingMealsSavesDraftAndSafelyLeavesMealMenu() throws {
