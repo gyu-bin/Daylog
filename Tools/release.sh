@@ -92,7 +92,7 @@ make_appcast() {
   local bin keychain_key
   bin=$(ls -d "$OUT"/derived/SourcePackages/artifacts/sparkle/Sparkle/bin build/*/derived/SourcePackages/artifacts/sparkle/Sparkle/bin 2>/dev/null | head -1)
   [[ -x "$bin/generate_keys" ]] || fail "Sparkle 도구를 찾지 못했습니다."
-  keychain_key=$("$bin/generate_keys" -p 2>/dev/null) || fail "키체인에서 Sparkle 서명 키를 읽지 못했습니다(docs/UPDATES.md의 키 준비)."
+  keychain_key=$("$bin/generate_keys" -p </dev/null 2>/dev/null) || fail "키체인에서 Sparkle 서명 키를 읽지 못했습니다(docs/UPDATES.md의 키 준비)."
   [[ "$keychain_key" == "$SPARKLE_KEY" ]] || fail "앱의 공개 키(SUPublicEDKey)가 키체인의 서명 키와 다릅니다. 게시하지 않습니다."
   fetch_previous_appcast
   Tools/appcast.sh "$DMG" "$NOTES_FILE" "$OUT/appcast" "$REPO_URL/releases/download/v$VERSION/" "${PREVIOUS_APPCAST:-}"

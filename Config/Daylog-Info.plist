@@ -2,10 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <!-- Activation requires the release approval checklist in docs/UPDATES.md. -->
-    <key>DaylogUpdatesEnabled</key><false/>
+    <!-- 앱 안의 업데이트(Sparkle). 공개 키는 로그인 키체인의 배포용 서명 키와 짝이다(개인 키는 저장소에 없다). docs/UPDATES.md -->
+    <key>DaylogUpdatesEnabled</key><true/>
     <key>SUFeedURL</key><string>https://github.com/gyu-bin/Daylog/releases/latest/download/appcast.xml</string>
-    <key>SUPublicEDKey</key><string></string>
+    <key>SUPublicEDKey</key><string>rKafcD0rs6p4xr+T3+dW+Sz88gg2sQUO7MKmL/+xTQs=</string>
     <key>SUEnableInstallerLauncherService</key><true/>
     <key>SUEnableDownloaderService</key><true/>
     <key>SUVerifyUpdateBeforeExtraction</key><true/>

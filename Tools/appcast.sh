@@ -39,7 +39,7 @@ cp "$NOTES" "$OUT/${NAME%.dmg}.md"
 
 # 델타는 만들지 않는다(이전 DMG를 두지 않는다). 과거 항목은 넉넉히 남긴다.
 "$BIN/generate_appcast" "${KEY_ARGS[@]}" --download-url-prefix "$PREFIX" --embed-release-notes \
-  --link "https://github.com/gyu-bin/Daylog/releases" --maximum-versions 10 --maximum-deltas 0 "$OUT" \
+  --link "https://github.com/gyu-bin/Daylog/releases" --maximum-versions 10 --maximum-deltas 0 "$OUT" </dev/null \
   || fail "appcast를 만들지 못했습니다(Sparkle 서명 키를 확인하세요)."
 [[ -s "$OUT/appcast.xml" ]] || fail "appcast.xml이 만들어지지 않았습니다."
 
@@ -82,7 +82,8 @@ PY
 ) || fail "appcast 검사 실패: 위 내용을 확인하세요."
 
 # 서명이 실제로 이 DMG의 것인지 Sparkle 도구로 다시 확인한다.
-"$BIN/sign_update" "${KEY_ARGS[@]}" --verify "$OUT/$NAME" "$SIGNATURE" >/dev/null 2>&1 \
+# 입력을 닫아 둔다: 키체인의 키로 검증할 때 표준 입력을 기다리며 멈추는 일이 있었다.
+"$BIN/sign_update" "${KEY_ARGS[@]}" --verify "$OUT/$NAME" "$SIGNATURE" </dev/null >/dev/null 2>&1 \
   || fail "appcast의 EdDSA 서명이 DMG와 맞지 않습니다."
 
 echo "✓ appcast: Daylog $VERSION ($BUILD) → $PREFIX$NAME"

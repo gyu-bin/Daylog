@@ -8,15 +8,39 @@ Daylog의 Mac 앱은 GitHub Releases에 올린 DMG로 배포한다. 앱 안의 �
 
 | 항목 | 상태 |
 |---|---|
-| 앱 쪽 구현(메뉴, 설정, 자동 확인, 결과 표시, 샌드박스 권한) | 끝남 |
-| appcast 생성·검사, 릴리스 스크립트 | 끝남(`Tools/appcast.sh`, `Tools/release.sh`, `Tools/bump-version.sh`) |
-| 격리 환경에서 실제 설치 | 확인함(아래 "검증") |
-| **배포판에서 켜기** | **아직 꺼져 있음.** `DaylogUpdatesEnabled=false`, `SUPublicEDKey` 비어 있음 |
-| Sparkle 서명 키(배포용) | **없음.** 로그인 키체인에 Sparkle 키가 없다(2026-10-12 확인). 만드는 데 승인이 필요하다 |
-| GitHub의 appcast.xml | 아직 올린 적 없음 |
-| 설치돼 있는 앱 | 1.5.1 (1), 업데이트 꺼진 빌드 → 첫 전환은 수동("첫 업데이트 전환") |
+| 배포판에서 켜기 | **켜짐** — 1.5.2 (2)부터. `DaylogUpdatesEnabled=true`, 공개 키 등록 |
+| Sparkle 서명 키(배포용) | 로그인 키체인에 있음(2026-10-12 생성). 백업은 아래 "서명 키" |
+| 첫 전환 | 1.5.1 이하는 1.5.2를 한 번 수동 설치. 그다음(1.5.3)부터 앱 안에서 받는다 |
+| 운영 경로의 설치·자동 재실행 | 1.5.3을 올릴 때 처음 확인한다(아래 "검증") |
 
-켜려면 "켜는 절차"의 승인 항목이 필요하다.
+## 서명 키 (Sparkle EdDSA)
+
+- 개인 키: 이 Mac의 로그인 키체인. 항목 이름(서비스) `https://sparkle-project.org`, 계정 `ed25519`. Sparkle의 `generate_keys`가 만들었다.
+- 공개 키: `Config/Daylog-Info.plist`의 `SUPublicEDKey`. 공개해도 되는 값이고 저장소에는 이것만 있다.
+- **개인 키는 저장소·문서·로그 어디에도 넣지 않는다.** 화면에 출력하지도 않는다.
+- 이 키를 잃으면 이미 설치된 앱(1.5.2 이후)에 업데이트를 보낼 수 없다. 키를 새로 만들면 그 앱들은 새 서명을 거부한다.
+
+### 백업
+
+- 로컬 사본: `~/Library/Application Support/DaylogRelease/sparkle-ed25519-private-key.txt` (폴더 700, 파일 600, 저장소 밖).
+  `generate_keys -x`로 내보낸 것이고, 키체인의 키와 같은 서명을 내는 것을 확인했다.
+- 이 사본은 같은 Mac에 있어 디스크를 잃으면 함께 사라진다. **기기 밖의 안전한 곳(암호 관리자의 보안 메모, 암호화한 외장 저장소)에 옮겨 두고**,
+  옮긴 뒤에는 로컬 사본을 지워도 된다. 메일·메신저·클라우드 폴더에 평문으로 두지 않는다.
+
+### 복구 (새 Mac, 키체인 초기화 뒤)
+
+```bash
+BIN=build/update/derived/SourcePackages/artifacts/sparkle/Sparkle/bin   # 한 번 빌드하면 생긴다
+$BIN/generate_keys -f <백업 파일>     # 개인 키를 로그인 키체인에 넣는다
+$BIN/generate_keys -p                 # 출력된 공개 키가 Config/Daylog-Info.plist의 SUPublicEDKey와 같아야 한다
+```
+
+`Tools/release.sh`는 게시 전에 이 둘이 같은지 확인하고, 다르면 게시하지 않는다.
+
+### 키를 바꿔야 할 때
+
+바로 바꾸지 않는다. 설치된 앱은 옛 공개 키만 믿는다. 옛 키로 서명한 릴리스에 새 공개 키를 넣어 먼저 퍼뜨린 뒤, 그다음 릴리스부터 새 키로 서명한다.
+옛 키를 잃어 그럴 수 없으면 사용자가 새 DMG를 한 번 수동으로 설치해야 한다.
 
 ## 구성
 
@@ -45,25 +69,13 @@ Daylog의 Mac 앱은 GitHub Releases에 올린 DMG로 배포한다. 앱 안의 �
 
 ## 첫 업데이트 전환
 
-지금 설치돼 있는 1.5.1 (1)과 그 이전 버전은 업데이트가 꺼져 있어(공개 키 없음) appcast를 보지 않는다. 강제로 실행할 방법은 없다.
+1.5.1 (1)과 그 이전 버전은 업데이트가 꺼져 있어(공개 키 없음) appcast를 보지 않는다. 강제로 실행할 방법은 없다.
 
-- 처음 한 번: 업데이트가 켜진 첫 버전(예: 1.5.2)을 GitHub 릴리스에서 DMG로 받아 설치한다. 이 Mac은 `Tools/update.sh`가 바꾼다.
-- 그다음 버전부터: 앱 안에서 받는다.
-- 이미 배포된 앱에는 Sparkle 공개 키가 없으므로 키 교체·이전 문제는 없다. 앞으로 키를 바꾸게 되면, 옛 키로 서명한 릴리스를 한 번 거쳐
-  새 공개 키가 든 앱을 먼저 퍼뜨린 뒤 바꿔야 한다(또는 DMG를 Developer ID로 서명해 Sparkle의 Apple 서명 대체 경로를 쓴다). 그 전에는 키를 바꾸지 않는다.
+- 처음 한 번: 1.5.2를 GitHub 릴리스에서 DMG로 받아 설치한다(이 Mac은 `Tools/update.sh`가 바꿨다).
+- 1.5.3부터: 앱 안에서 받는다.
+- 1.5.1 이하에 든 Sparkle 공개 키가 없으므로 키 호환 문제는 없다.
 
-## 켜는 절차 (승인 필요)
-
-1. **Sparkle 서명 키 만들기** — `build/update/derived/SourcePackages/artifacts/sparkle/Sparkle/bin/generate_keys`.
-   개인 키가 로그인 키체인에 저장되고(항목 이름 "https://sparkle-project.org"), 공개 키가 출력된다. 키체인이 접근 허용을 묻는다.
-   개인 키는 저장소·로그·문서에 넣지 않는다. 잃어버리면 이미 설치된 앱에 업데이트를 보낼 수 없으므로 `generate_keys -x <파일>`로 내보내 안전한 곳(암호 관리자 등)에 따로 둔다.
-2. `Config/Daylog-Info.plist`에 공개 키(`SUPublicEDKey`)를 넣고 `DaylogUpdatesEnabled`를 `true`로 바꾼다.
-3. `Tools/bump-version.sh 1.5.2` → `docs/releases/v1.5.2.md` 작성 → 커밋·push.
-4. `Tools/update.sh` — 이 Mac의 앱을 바꾸고(업데이트가 켜진 첫 버전), 공증한 DMG와 appcast.xml을 GitHub에 올린다.
-5. 다른 Mac은 그 DMG를 한 번 수동으로 설치한다.
-6. 다음 버전(1.5.3)을 같은 방법으로 올린 뒤, 1.5.2가 깔린 Mac에서 [업데이트 확인] → [설치] → 다시 열림을 확인한다(운영 경로의 첫 실제 검증).
-
-## 새 버전을 배포하는 방법 (켠 뒤)
+## 새 버전을 배포하는 방법
 
 ```bash
 Tools/bump-version.sh 1.5.3        # Mac 버전을 올리고 빌드 번호를 +1, 릴리스 노트 틀을 만든다
