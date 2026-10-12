@@ -37,7 +37,8 @@ struct SplashTimeline: Equatable {
             Step(stage: .grown, at: 0.02, duration: 0.26),
             Step(stage: .logo, at: 0.24, duration: 0.34),
             Step(stage: .settled, at: 0.58, duration: 0.20),
-            Step(stage: .leaving, at: 0.86, duration: 0.22)
+            // 이름과 문구가 다 보인 뒤(약 0.64초) 1.5초 더 두고 걷힌다.
+            Step(stage: .leaving, at: 2.14, duration: 0.28)
         ],
         reducesMotion: false
     )
@@ -45,7 +46,8 @@ struct SplashTimeline: Equatable {
     static let reduced = SplashTimeline(
         steps: [
             Step(stage: .logo, at: 0.04, duration: 0.20),
-            Step(stage: .leaving, at: 0.50, duration: 0.22)
+            // 움직임은 없지만, 글자는 1초 넘게 읽고 걷힌다.
+            Step(stage: .leaving, at: 1.50, duration: 0.22)
         ],
         reducesMotion: true
     )

@@ -5,17 +5,17 @@ import Testing
 /// 스플래시의 시간표와 "언제 트는가" 규칙. 화면 자체는 시뮬레이터 녹화로 확인한다(docs/splash).
 @MainActor
 struct SplashTests {
-    @Test func standardTimelineRunsEveryStageInOrderInAboutOneSecond() {
+    @Test func standardTimelineHoldsTheFinishedSplashForAboutOneAndAHalfSeconds() {
         let timeline = SplashTimeline.standard
         #expect(timeline.steps.map(\.stage) == [.grown, .logo, .settled, .leaving])
         // 장면은 시간 순서대로 시작한다.
         #expect(timeline.steps.map(\.at) == timeline.steps.map(\.at).sorted())
-        // 전체는 약 1초(0.9~1.2초).
-        #expect(timeline.total >= 0.9 && timeline.total <= 1.2)
-        // 이름과 문구가 다 나타난 뒤에 걷히기 시작하고, 읽을 틈이 조금은 있다.
+        // 들어왔다가 걷히기까지 2초대. 완성된 장면(이름·문구)은 1~2초 머문다.
+        #expect(timeline.total >= 2.0 && timeline.total <= 2.6)
         let leaving = timeline.steps.first { $0.stage == .leaving }?.at ?? 0
+        let readable = leaving - timeline.logoVisibleAt
         #expect(timeline.logoVisibleAt < leaving)
-        #expect(leaving - timeline.logoVisibleAt >= 0.15)
+        #expect(readable >= 1.0 && readable <= 2.0)
         #expect(!timeline.reducesMotion)
     }
 
@@ -25,7 +25,8 @@ struct SplashTests {
         #expect(timeline.steps.map(\.stage) == [.logo, .leaving])
         #expect(timeline.reducesMotion)
         #expect(timeline.total < SplashTimeline.standard.total)
-        #expect(timeline.total <= 0.8)
+        let leaving = timeline.steps.first { $0.stage == .leaving }?.at ?? 0
+        #expect(leaving - timeline.logoVisibleAt >= 1.0)
         #expect(SplashTimeline.make(reduceMotion: true) == .reduced)
         #expect(SplashTimeline.make(reduceMotion: false) == .standard)
     }
