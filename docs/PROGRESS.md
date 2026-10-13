@@ -892,7 +892,7 @@ E. 외부 테스터 배포·App Store 출시는 계획에 없다.
 
 ## Phase 6-D: 전체 기능 점검과 실제 조작 QA (2026-10-13)
 
-기준 커밋 `dfd53e6`. 결과 문서는 `docs/FULL_APP_QA.md`. 배포는 하지 않았다(TestFlight·GitHub Release·설치된 앱 교체 없음).
+기준 커밋 `dfd53e6`, 수정 커밋 `486d1a7`. 결과 문서는 `docs/FULL_APP_QA.md`. 배포는 하지 않았다(TestFlight·GitHub Release·설치된 앱 교체 없음).
 SwiftData·CloudKit 스키마 변경 없음. 운영 저장소와 운영 iCloud는 열지 않았다.
 
 ### 한 일
