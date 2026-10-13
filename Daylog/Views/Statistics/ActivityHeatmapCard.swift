@@ -9,9 +9,13 @@ struct ActivityHeatmapCard: View {
 
     @State private var hovered: DayOutcome?
 
-    private let cell: CGFloat = 13
+    /// 칸과 요일·달 이름은 글자 크기를 따라 커진다(기본 크기에서는 13pt 칸, 9pt 글자 그대로).
+    /// 다 들어가지 않으면 격자가 가로로 스크롤되므로 화면을 밀어내지 않는다.
+    @ScaledMetric(relativeTo: .caption2) private var scaledCell: CGFloat = 13
+    private var cell: CGFloat { min(scaledCell, HeatmapMetrics.maxCell) }
+    private var labelSize: CGFloat { cell * 9 / 13 }
+    private var monthRowHeight: CGFloat { cell + 1 }
     private let gap: CGFloat = 3
-    private let monthRowHeight: CGFloat = 14
 
     var body: some View {
         let weeks = HeatmapLayout.weeks(outcomes, weekStart: preferences.weekStart)
@@ -80,7 +84,7 @@ struct ActivityHeatmapCard: View {
             ForEach(Array(preferences.weekStart.orderedWeekdays.enumerated()), id: \.element) { index, weekday in
                 // 칸이 작아 한 줄 걸러 요일을 적는다.
                 Text(index % 2 == 0 ? Weekdays.symbol(weekday) : "")
-                    .font(.system(size: 9))
+                    .font(.system(size: labelSize))
                     .foregroundStyle(.secondary)
                     .frame(height: cell)
             }
@@ -94,7 +98,7 @@ struct ActivityHeatmapCard: View {
             .overlay(alignment: .leading) {
                 if let label {
                     Text(label)
-                        .font(.system(size: 9))
+                        .font(.system(size: labelSize))
                         .foregroundStyle(.secondary)
                         .fixedSize()
                 }
@@ -191,4 +195,9 @@ private struct HeatCell: View {
             .frame(width: size, height: size)
             .contentShape(Rectangle())
     }
+}
+
+enum HeatmapMetrics {
+    /// 히트맵 한 칸의 한계. 이보다 키우면 iPhone에서 한 화면에 몇 주밖에 보이지 않는다.
+    static let maxCell: CGFloat = 22
 }

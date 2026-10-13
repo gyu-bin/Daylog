@@ -9,6 +9,7 @@ struct TodayCompactView: View {
     @State private var isEditing = false
     @Environment(\.mobileUI) private var ui
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         ScrollView {
@@ -26,8 +27,8 @@ struct TodayCompactView: View {
             .padding(.horizontal, Theme.compactPagePadding)
             .padding(.top, 8)
             .padding(.bottom, Theme.compactPagePadding)
-            .animation(.easeInOut(duration: 0.2), value: preferences.cardOrder)
-            .animation(.easeInOut(duration: 0.2), value: preferences.hiddenCards)
+            .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: preferences.cardOrder)
+            .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: preferences.hiddenCards)
         }
         .scrollDismissesKeyboard(.interactively)
         .onChange(of: store.section) { _, _ in isEditing = false }

@@ -16,9 +16,12 @@ struct NotificationGuideCard: View {
                 Image(systemName: "bell.badge")
             }
             .font(.headline)
+            // 자리가 모자라도 제목과 설명을 "…"로 줄이지 않는다(큰 글자 크기에서 내용이 사라졌다).
+            .fixedSize(horizontal: false, vertical: true)
             Text(verbatim: ui.string(.onboardingNotificationBody))
                 .font(.callout)
                 .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
             if let result {
                 Label(result.message, systemImage: result.symbol)
                     .font(.callout)
@@ -73,6 +76,7 @@ struct NotificationGuideSheet: View {
     @Environment(DevicePreferences.self) private var preferences
     @Environment(RoutineNotifications.self) private var notifications
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var result: OnboardingNotificationResult?
     @State private var isRequesting = false
 
@@ -86,8 +90,11 @@ struct NotificationGuideSheet: View {
                 BrandIcon(size: 36)
                 Text("알림").font(.headline)
             }
-            NotificationGuideCard(offer: offer, result: result)
-            Spacer(minLength: 0)
+            // 안내가 시트 높이를 넘으면 스크롤해서 끝까지 읽을 수 있다.
+            ScrollView {
+                NotificationGuideCard(offer: offer, result: result)
+            }
+            .scrollBounceBehavior(.basedOnSize)
             HStack(spacing: 8) {
                 Spacer()
                 if offer == .ask, result == nil {
@@ -110,7 +117,8 @@ struct NotificationGuideSheet: View {
             }
         }
         .padding(24)
-        .presentationDetents([.height(300), .medium])
+        // 큰 글자 크기에서는 300pt에 안내와 단추가 다 들어가지 않는다.
+        .presentationDetents(dynamicTypeSize.isAccessibilitySize ? [.large] : [.height(300), .medium])
         // 한 번 보여 줬으면 끝난 것이다(쓸어내려 닫아도 "나중에"와 같다).
         .onAppear { preferences.completeNotificationGuide() }
     }

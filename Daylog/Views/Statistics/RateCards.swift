@@ -95,9 +95,46 @@ struct ItemRatesCard: View {
                         symbol: "list.bullet",
                         message: group == nil ? "이 기간에 예정된 루틴이 없었어요." : "이 그룹에 지금 속한 항목이 없어요."
                     )
+                } else if dynamicTypeSize.isAccessibilitySize {
+                    stackedRows
                 } else {
                     table
                 }
+            }
+        }
+    }
+
+    /// 큰 글자 크기: 표의 네 칸이 한 줄에 들어가지 않는다. 이름을 한 줄 전체에 쓰고 숫자는 아랫줄에 둔다.
+    private var stackedRows: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            ForEach(rates) { rate in
+                let color = GroupColor(key: rate.colorKey).color
+                let groupTitle = rate.groupTitle.isEmpty ? RoutineGroup.defaultTitle : rate.groupTitle
+                VStack(alignment: .leading, spacing: 3) {
+                    HStack(spacing: 6) {
+                        Circle().fill(color).frame(width: 7, height: 7)
+                        Text(rate.title)
+                            .foregroundStyle(rate.isArchived || rate.isRemoved ? .secondary : .primary)
+                            .lineLimit(3)
+                        RateStateBadge(isArchived: rate.isArchived, isRemoved: rate.isRemoved)
+                    }
+                    HStack(alignment: .firstTextBaseline, spacing: 8) {
+                        Text("완료 \(rate.done)일 · 예정 \(rate.scheduled)일")
+                            .foregroundStyle(.secondary)
+                            .monospacedDigit()
+                        Spacer(minLength: 4)
+                        Text("\(rate.percent)%")
+                            .fontWeight(.semibold)
+                            .monospacedDigit()
+                            .lineLimit(1)
+                            .fixedSize()
+                    }
+                }
+                .font(.callout)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("\(rate.title)\(rate.isRemoved ? ", 삭제됨" : rate.isArchived ? ", 보관됨" : ""), \(groupTitle) 그룹")
+                .accessibilityValue("달성률 \(rate.percent)%, 예정 \(rate.scheduled)일 중 \(rate.done)일 완료")
             }
         }
     }
@@ -129,7 +166,7 @@ struct ItemRatesCard: View {
                         }
                         Text(rate.title)
                             .foregroundStyle(rate.isArchived || rate.isRemoved ? .secondary : .primary)
-                            .lineLimit(dynamicTypeSize.isAccessibilitySize ? 3 : isCompact ? 2 : 1)
+                            .lineLimit(isCompact ? 2 : 1)
                             .help(rate.title)
                         RateStateBadge(isArchived: rate.isArchived, isRemoved: rate.isRemoved)
                     }
@@ -148,11 +185,8 @@ struct ItemRatesCard: View {
                     Text("\(rate.done)일").monospacedDigit().fixedSize()
                     Text("\(rate.scheduled)일").monospacedDigit().foregroundStyle(.secondary).fixedSize()
                     HStack(spacing: 8) {
-                        // 큰 글자 크기에서는 숫자만 남겨 항목 이름 자리를 확보한다.
-                        if !dynamicTypeSize.isAccessibilitySize {
-                            ProgressBar(ratio: rate.ratio, height: 7, tint: color)
-                                .frame(width: isCompact ? 36 : 56)
-                        }
+                        ProgressBar(ratio: rate.ratio, height: 7, tint: color)
+                            .frame(width: isCompact ? 36 : 56)
                         // 글자 크기를 키워도 "100%"가 줄바꿈되지 않게 너비를 고정하지 않는다.
                         Text("\(rate.percent)%")
                             .font(.callout.weight(.semibold))

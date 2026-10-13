@@ -153,9 +153,24 @@ private struct StatusMarker: View {
 
     let kind: Kind
     var size: CGFloat = 7
+    /// 글자 크기를 따라 표시도 커진다(범례). 날짜 칸 안의 표시는 칸에 맞춘 크기를 그대로 받는다.
+    var scalesWithText = true
+
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    @ScaledMetric(relativeTo: .caption) private var textScale: CGFloat = 1
 
     var body: some View {
-        Group {
+        if kind == .vacation, scalesWithText, dynamicTypeSize.isAccessibilitySize {
+            // 해 아이콘은 글자 크기만큼 커진다. 작은 칸에 가두면 옆 글자와 겹치므로 제 크기대로 둔다.
+            Image(systemName: "sun.max.fill").foregroundStyle(Theme.vacationTint)
+        } else {
+            marker
+        }
+    }
+
+    private var marker: some View {
+        let side = scalesWithText ? size * textScale : size
+        return Group {
             switch kind {
             case .achieved:
                 Circle().fill(Theme.accent)
@@ -169,7 +184,7 @@ private struct StatusMarker: View {
                 Capsule().fill(Color.secondary.opacity(0.5)).frame(height: 2)
             }
         }
-        .frame(width: size, height: size)
+        .frame(width: side, height: side)
     }
 }
 
@@ -183,6 +198,9 @@ private struct DayCell: View {
 
     /// 날짜 숫자 칸. 글자 크기를 따라 커지되 한 주 일곱 칸의 너비를 넘지 않는다.
     @ScaledMetric(relativeTo: .callout) private var numberSize: CGFloat = 26
+    /// 날짜 아래 달성률 글자. 글자 크기를 따라 커지되 "100%"가 가장 좁은 칸에 들어가는 크기까지만.
+    @ScaledMetric(relativeTo: .caption2) private var scaledStatusSize: CGFloat = 9.5
+    private var statusSize: CGFloat { min(scaledStatusSize, CalendarMetrics.maxStatusSize) }
 
     private var isFuture: Bool { outcome?.status == .future }
 
@@ -201,7 +219,7 @@ private struct DayCell: View {
                         if isToday { Circle().fill(Theme.accent) }
                     }
                 statusLine
-                    .frame(height: 12)
+                    .frame(height: statusSize + 2.5)
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, 3)
@@ -235,27 +253,27 @@ private struct DayCell: View {
             case .recorded:
                 let achieved = outcome.isAchieved(threshold: threshold)
                 HStack(spacing: 2) {
-                    StatusMarker(kind: achieved ? .achieved : .below, size: 5)
+                    StatusMarker(kind: achieved ? .achieved : .below, size: statusSize * 5 / 9.5, scalesWithText: false)
                     Text(outcome.percentLabel)
                         .fontWeight(achieved ? .semibold : .regular)
                         .foregroundStyle(achieved ? AnyShapeStyle(Theme.accent) : AnyShapeStyle(.secondary))
                 }
-                .font(.system(size: 9.5))
+                .font(.system(size: statusSize))
                 .monospacedDigit()
                 .fixedSize()
             case .unrecorded:
                 HStack(spacing: 2) {
-                    StatusMarker(kind: .unrecorded, size: 5)
+                    StatusMarker(kind: .unrecorded, size: statusSize * 5 / 9.5, scalesWithText: false)
                     Text("0%")
                 }
-                .font(.system(size: 9.5))
+                .font(.system(size: statusSize))
                 .monospacedDigit()
                 .foregroundStyle(.tertiary)
                 .fixedSize()
             case .vacation:
-                Text("휴가").font(.system(size: 9.5)).foregroundStyle(Theme.vacationTint)
+                Text("휴가").font(.system(size: statusSize)).foregroundStyle(Theme.vacationTint)
             case .rest:
-                StatusMarker(kind: .rest, size: 8)
+                StatusMarker(kind: .rest, size: statusSize * 8 / 9.5, scalesWithText: false)
             case .preStart, .future:
                 Color.clear
             }
@@ -274,4 +292,6 @@ private struct DayCell: View {
 /// 달력 칸의 한계. 가장 좁은 iPhone에서도 일곱 칸이 한 줄에 들어가는 크기다.
 enum CalendarMetrics {
     static let maxDaySize: CGFloat = 36
+    /// 날짜 아래 달성률 글자의 한계. 이보다 크면 "100%"와 점이 36pt 칸을 넘는다.
+    static let maxStatusSize: CGFloat = 12
 }

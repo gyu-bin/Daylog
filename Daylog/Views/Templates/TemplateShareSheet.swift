@@ -7,6 +7,7 @@ import SwiftUI
 struct TemplateShareSheet: View {
     @Environment(AppStore.self) private var store
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     @State private var sources: [TemplatePublishing.GroupSource] = []
     /// 고른 루틴.
@@ -82,13 +83,22 @@ struct TemplateShareSheet: View {
             ForEach(sources) { source in
                 VStack(alignment: .leading, spacing: 0) {
                     Toggle(isOn: groupBinding(source)) {
+                        // 큰 글자 크기: 이름이 몇 글자로 잘리면 무엇을 고르는지 알 수 없다. 이름을 여러 줄로 쓰고 부가 정보는 아랫줄에 둔다.
+                        let count = Text("\(source.routines.filter { selected.contains($0.id) }.count)/\(source.routines.count)")
+                            .font(.caption)
+                            .monospacedDigit()
+                            .foregroundStyle(.secondary)
                         HStack(spacing: 8) {
                             GroupBadge(title: source.title, color: GroupColor(key: source.colorKey), size: 20)
-                            Text(source.title).font(.callout.weight(.semibold)).lineLimit(1)
-                            Text("\(source.routines.filter { selected.contains($0.id) }.count)/\(source.routines.count)")
-                                .font(.caption)
-                                .monospacedDigit()
-                                .foregroundStyle(.secondary)
+                            if dynamicTypeSize.isAccessibilitySize {
+                                VStack(alignment: .leading, spacing: 1) {
+                                    Text(source.title).font(.callout.weight(.semibold)).lineLimit(3)
+                                    count
+                                }
+                            } else {
+                                Text(source.title).font(.callout.weight(.semibold)).lineLimit(1)
+                                count
+                            }
                         }
                     }
                     .padding(.horizontal, 12)
@@ -100,13 +110,21 @@ struct TemplateShareSheet: View {
                             get: { selected.contains(routine.id) },
                             set: { if $0 { selected.insert(routine.id) } else { selected.remove(routine.id) } }
                         )) {
-                            HStack(spacing: 8) {
-                                Text(routine.title).font(.callout).lineLimit(1)
-                                Spacer(minLength: 6)
-                                Text(Weekdays.summary(routine.weekdays) + (routine.timeLabel.isEmpty ? "" : " · \(routine.timeLabel)"))
-                                    .font(.caption)
-                                    .monospacedDigit()
-                                    .foregroundStyle(.secondary)
+                            let schedule = Text(Weekdays.summary(routine.weekdays) + (routine.timeLabel.isEmpty ? "" : " · \(routine.timeLabel)"))
+                                .font(.caption)
+                                .monospacedDigit()
+                                .foregroundStyle(.secondary)
+                            if dynamicTypeSize.isAccessibilitySize {
+                                VStack(alignment: .leading, spacing: 1) {
+                                    Text(routine.title).font(.callout).lineLimit(3)
+                                    schedule
+                                }
+                            } else {
+                                HStack(spacing: 8) {
+                                    Text(routine.title).font(.callout).lineLimit(1)
+                                    Spacer(minLength: 6)
+                                    schedule
+                                }
                             }
                         }
                         .padding(.leading, 24)

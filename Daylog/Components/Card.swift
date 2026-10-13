@@ -173,6 +173,11 @@ struct StatTile<Accessory: View>: View {
 
     /// 좁은 칸의 숫자 크기. 큰 글씨 설정을 따라 커진다.
     @ScaledMetric(relativeTo: .title2) private var compactValueSize: CGFloat = 26
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
+    /// 글자에 맞춰 높이가 자라는 칸. 큰 글자 크기에서는 넓은 칸도 고정 높이에 가두지 않는다
+    /// (가두면 내용이 칸 밖으로 나와 아래 칸과 겹친다).
+    private var growsWithText: Bool { isCompact || dynamicTypeSize.isAccessibilitySize }
 
     var body: some View {
         Card(padding: isCompact ? 12 : 16) {
@@ -188,8 +193,8 @@ struct StatTile<Accessory: View>: View {
                         .font(.subheadline.weight(.medium))
                         .foregroundStyle(.secondary)
                         // 좁은 칸에서는 긴 제목을 자르지 않고 두 줄까지 쓴다.
-                        .lineLimit(isCompact ? 2 : 1)
-                        .fixedSize(horizontal: false, vertical: isCompact)
+                        .lineLimit(growsWithText ? 2 : 1)
+                        .fixedSize(horizontal: false, vertical: growsWithText)
                 }
                 Spacer(minLength: 6)
                 if let value {
@@ -204,7 +209,7 @@ struct StatTile<Accessory: View>: View {
                 Text(caption)
                     .font(value == nil ? .callout : .caption)
                     .foregroundStyle(.secondary)
-                    .lineLimit(value == nil || isCompact ? 2 : 1)
+                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? 3 : value == nil || isCompact ? 2 : 1)
                     .minimumScaleFactor(0.85)
                     .fixedSize(horizontal: false, vertical: true)
                 if value == nil {
@@ -214,7 +219,7 @@ struct StatTile<Accessory: View>: View {
         }
         // 좁은 칸은 글자 크기에 따라 높이가 자란다(같은 줄의 칸끼리는 격자가 높이를 맞춘다).
         .frame(minHeight: isCompact ? Theme.statCardHeight - 14 : Theme.statCardHeight,
-               maxHeight: isCompact ? nil : Theme.statCardHeight)
+               maxHeight: growsWithText ? nil : Theme.statCardHeight)
         .accessibilityElement(children: .combine)
     }
 

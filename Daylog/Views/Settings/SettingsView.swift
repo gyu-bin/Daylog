@@ -73,6 +73,7 @@ struct SettingsView: View {
     @Environment(AppStore.self) private var store
     @Environment(CloudSyncMonitor.self) private var sync
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var selected: SettingsCategory = SettingsView.initialCategory
     /// 좁은 화면에서 들어가 있는 갈래. nil이면 갈래 목록.
     @State private var compactSelection: SettingsCategory? = SettingsView.debugCategory
@@ -338,16 +339,34 @@ struct SettingsView: View {
                     isEnabled: sync.isEnabled, account: sync.account, lastImportAt: sync.lastImportAt,
                     lastExportAt: sync.lastExportAt, errorMessage: sync.lastErrorMessage, now: timeline.date
                 )
-                LabeledContent("동기화 상태") {
-                    HStack(spacing: 6) {
-                        Circle()
-                            .fill(Self.color(for: summary.tone))
-                            .frame(width: 8, height: 8)
-                            .accessibilityHidden(true)
-                        Text(summary.title)
-                            .fontWeight(.semibold)
-                        Text("· \(summary.detail)")
+                if dynamicTypeSize.isAccessibilitySize {
+                    // 큰 글자 크기: 한 줄에 나란히 두면 설명이 서너 글자 폭으로 눌린다. 세로로 쌓는다.
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("동기화 상태")
+                        HStack(spacing: 6) {
+                            Circle()
+                                .fill(Self.color(for: summary.tone))
+                                .frame(width: 8, height: 8)
+                                .accessibilityHidden(true)
+                            Text(summary.title)
+                                .fontWeight(.semibold)
+                        }
+                        Text(summary.detail)
                             .foregroundStyle(.secondary)
+                    }
+                    .accessibilityElement(children: .combine)
+                } else {
+                    LabeledContent("동기화 상태") {
+                        HStack(spacing: 6) {
+                            Circle()
+                                .fill(Self.color(for: summary.tone))
+                                .frame(width: 8, height: 8)
+                                .accessibilityHidden(true)
+                            Text(summary.title)
+                                .fontWeight(.semibold)
+                            Text("· \(summary.detail)")
+                                .foregroundStyle(.secondary)
+                        }
                     }
                 }
             }
@@ -397,7 +416,7 @@ struct SettingsView: View {
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(isThis ? "\(device.name) · 이 기기" : device.name)
                                     .foregroundStyle(isStale ? .secondary : .primary)
-                                    .lineLimit(1)
+                                    .lineLimit(2)
                                 Text("버전 \(device.appVersion) · \(isThis ? "지금 사용 중" : SyncSummary.relative(device.lastActive, now: timeline.date))")
                                     .font(.caption)
                                     .monospacedDigit()
@@ -500,6 +519,7 @@ struct ThresholdControl: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
     private var range: ClosedRange<Int> { SettingsService.thresholdRange }
+    @ScaledMetric(relativeTo: .body) private var valueWidth: CGFloat = 48
 
     var body: some View {
         // 좁은 화면(iPhone, 좁은 iPad 창)에서는 슬라이더가 눌리지 않게 값과 단추를 아래 줄로 내린다.
@@ -542,7 +562,9 @@ struct ThresholdControl: View {
             Text("\(store.threshold)%")
                 .font(.body.weight(.semibold))
                 .monospacedDigit()
-                .frame(width: 48, alignment: .trailing)
+                .lineLimit(1)
+                // 값이 바뀌어도 단추가 움직이지 않게 너비를 정해 두되, 글자 크기를 따라 넓힌다(좁으면 "80"과 "%"가 두 줄로 갈린다).
+                .frame(width: valueWidth, alignment: .trailing)
                 .accessibilityHidden(true)
             Stepper(
                 "달성한 날 기준값",

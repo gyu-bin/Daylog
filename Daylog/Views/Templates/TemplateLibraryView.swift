@@ -268,6 +268,7 @@ struct TemplateThumbnailView: View {
 struct TemplateCard: View {
     let template: RoutineTemplate
     let action: () -> Void
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     /// "공식", "받은 파일" 또는 게시자 이름.
     static func sourceLabel(_ template: RoutineTemplate) -> String {
@@ -280,31 +281,44 @@ struct TemplateCard: View {
 
     var body: some View {
         let color = GroupColor(key: template.thumbnail.colorKey)
+        // 큰 글자 크기: 제목·설명·출처가 "…"로 잘리지 않게 줄 수를 늘리고, 분류와 출처를 두 줄로 나눈다.
+        let isLargeText = dynamicTypeSize.isAccessibilitySize
+        let meta = Text("루틴 \(template.routineCount)개 · \(TemplateCard.sourceLabel(template))")
+            .font(.caption)
+            .monospacedDigit()
+            .foregroundStyle(.secondary)
+        let chevron = Image(systemName: "chevron.right")
+            .font(.caption.weight(.semibold))
+            .foregroundStyle(.tertiary)
+            .accessibilityHidden(true)
         Button(action: action) {
             HStack(alignment: .top, spacing: 12) {
                 TemplateThumbnailView(thumbnail: template.thumbnail)
                 VStack(alignment: .leading, spacing: 5) {
                     Text(template.title)
                         .font(.headline)
-                        .lineLimit(1)
+                        .lineLimit(isLargeText ? 2 : 1)
+                        .multilineTextAlignment(.leading)
                     Text(template.summary)
                         .font(.callout)
                         .foregroundStyle(.secondary)
-                        .lineLimit(2)
+                        .lineLimit(isLargeText ? 4 : 2)
                         .multilineTextAlignment(.leading)
                         .frame(maxWidth: .infinity, minHeight: 36, alignment: .topLeading)
-                    HStack(spacing: 6) {
+                    if isLargeText {
                         StatusBadge(text: template.category.title, tint: color.ink)
-                        Text("루틴 \(template.routineCount)개 · \(TemplateCard.sourceLabel(template))")
-                            .font(.caption)
-                            .monospacedDigit()
-                            .foregroundStyle(.secondary)
-                            .lineLimit(1)
-                        Spacer(minLength: 0)
-                        Image(systemName: "chevron.right")
-                            .font(.caption.weight(.semibold))
-                            .foregroundStyle(.tertiary)
-                            .accessibilityHidden(true)
+                        HStack(spacing: 6) {
+                            meta.lineLimit(2)
+                            Spacer(minLength: 0)
+                            chevron
+                        }
+                    } else {
+                        HStack(spacing: 6) {
+                            StatusBadge(text: template.category.title, tint: color.ink)
+                            meta.lineLimit(1)
+                            Spacer(minLength: 0)
+                            chevron
+                        }
                     }
                 }
             }

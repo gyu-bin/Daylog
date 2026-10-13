@@ -78,6 +78,19 @@ struct RoutineEditSheet: View {
 
     // MARK: - 입력 칸
 
+    private var groupPicker: some View {
+        Picker("그룹", selection: $draft.groupID) {
+            ForEach(groupChoices) { group in
+                Text(groupLabel(group)).tag(group.id)
+            }
+        }
+    }
+
+    private func groupLabel(_ group: RoutineGroup?) -> String {
+        guard let group else { return RoutineGroup.defaultTitle }
+        return group.isArchived ? "\(group.title) (보관됨)" : group.title
+    }
+
     private func fields(daySize: CGFloat) -> some View {
         VStack(alignment: .leading, spacing: 16) {
             SheetField(label: "이름") {
@@ -89,14 +102,29 @@ struct RoutineEditSheet: View {
             }
 
             SheetField(label: "그룹") {
-                Picker("그룹", selection: $draft.groupID) {
-                    ForEach(groupChoices) { group in
-                        Text(group.isArchived ? "\(group.title) (보관됨)" : group.title).tag(group.id)
+                #if os(macOS)
+                groupPicker
+                    .labelsHidden()
+                    .fixedSize()
+                    .accessibilityLabel("그룹")
+                #else
+                // 기본 메뉴 단추는 이름을 제 너비로 고정한다. 긴 그룹 이름이나 큰 글자 크기에서 화면보다 넓어져
+                // 시트 전체가 옆으로 밀렸다. 이름이 화면 너비 안에서 줄을 바꾸는 단추로 감싼다.
+                Menu {
+                    groupPicker
+                } label: {
+                    HStack(spacing: 5) {
+                        Text(groupLabel(groupChoices.first { $0.id == draft.groupID }))
+                            .multilineTextAlignment(.leading)
+                        Image(systemName: "chevron.up.chevron.down")
+                            .imageScale(.small)
+                            .accessibilityHidden(true)
                     }
+                    .contentShape(Rectangle())
                 }
-                .labelsHidden()
-                .fixedSize()
                 .accessibilityLabel("그룹")
+                .accessibilityValue(groupLabel(groupChoices.first { $0.id == draft.groupID }))
+                #endif
             }
 
             SheetField(label: "반복 요일") {

@@ -92,6 +92,7 @@ struct VacationPeriodLabel: View {
     let period: VacationPeriod
     /// 카드 머리말에 이미 해 아이콘이 있을 때는 줄마다 반복하지 않는다.
     var showsIcon = true
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     static func rangeTitle(_ period: VacationPeriod) -> String {
         period.start == period.end
@@ -110,15 +111,23 @@ struct VacationPeriodLabel: View {
                     .accessibilityHidden(true)
             }
             VStack(alignment: .leading, spacing: 2) {
-                HStack(spacing: 6) {
-                    Text(Self.rangeTitle(period))
-                        .font(.callout.weight(.semibold))
-                        .monospacedDigit()
-                        .lineLimit(1)
-                    Text("\(period.start.days(until: period.end) + 1)일")
-                        .font(.caption.weight(.medium))
-                        .monospacedDigit()
-                        .foregroundStyle(.secondary)
+                let isLargeText = dynamicTypeSize.isAccessibilitySize
+                let range = Text(Self.rangeTitle(period))
+                    .font(.callout.weight(.semibold))
+                    .monospacedDigit()
+                let dayCount = Text("\(period.start.days(until: period.end) + 1)일")
+                    .font(.caption.weight(.medium))
+                    .monospacedDigit()
+                    .foregroundStyle(.secondary)
+                if isLargeText {
+                    // 큰 글자 크기: 한 줄로 두면 끝나는 날짜가 "…"로 사라진다. 기간을 여러 줄로 쓰고 날 수는 아랫줄에 둔다.
+                    range.lineLimit(3).multilineTextAlignment(.leading)
+                    dayCount
+                } else {
+                    HStack(spacing: 6) {
+                        range.lineLimit(1)
+                        dayCount
+                    }
                 }
                 // 전체 휴식인지, 몇 개를 이어 가는지. 메모가 있으면 뒤에 붙인다.
                 Text(period.memo.isEmpty
@@ -126,7 +135,8 @@ struct VacationPeriodLabel: View {
                     : "\(VacationRoutinePolicy.modeLabel(period)) · \(period.memo)")
                     .font(.caption)
                     .foregroundStyle(.secondary)
-                    .lineLimit(1)
+                    .lineLimit(isLargeText ? 3 : 1)
+                    .multilineTextAlignment(.leading)
             }
         }
         .accessibilityElement(children: .combine)

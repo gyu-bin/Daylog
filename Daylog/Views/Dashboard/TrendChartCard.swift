@@ -11,6 +11,7 @@ struct TrendChartCard: View {
     /// 가리킨 날짜의 값을 보여 주고, 누르면 그 날짜의 기록을 연다.
     var isInteractive = false
 
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var hoveredIndex: Int?
 
     private struct Point: Identifiable {
@@ -83,8 +84,7 @@ struct TrendChartCard: View {
     private func chart(trend: [DayOutcome], points: [Point]) -> some View {
         let lastIndex = max(trend.count - 1, 1)
         // 눈금은 오늘부터 거꾸로 4~5개. 더 촘촘하면 좁은 카드에서 마지막 눈금(오늘)과 겹친다.
-        let step = lastIndex <= 7 ? 1 : Int((Double(lastIndex) / 3.5).rounded(.up))
-        let ticks = Array(stride(from: lastIndex, through: 0, by: -step).reversed())
+        let ticks = TrendAxis.ticks(lastIndex: lastIndex, isLargeText: dynamicTypeSize.isAccessibilitySize)
         let hovered = hoveredIndex.flatMap { trend.indices.contains($0) ? trend[$0] : nil }
 
         return Chart {
@@ -240,5 +240,19 @@ struct TrendChartCard: View {
         let achieved = trend.filter { $0.isAchieved(threshold: store.threshold) }.count
         let unrecorded = trend.filter { $0.status == .unrecorded }.count
         return "\(average), 기준 \(store.threshold)% 이상 \(achieved)일, 미기록 \(unrecorded)일은 마름모로 구분하며 평균에는 0%로 포함"
+    }
+}
+
+/// 추이 차트의 날짜 눈금 자리.
+enum TrendAxis {
+    /// 오늘(마지막 날)부터 거꾸로 센다. 큰 글자 크기에서는 날짜 글자가 넓어 두 개만 둔다(더 두면 서로 겹친다).
+    static func ticks(lastIndex: Int, isLargeText: Bool) -> [Int] {
+        let step: Int
+        if isLargeText {
+            step = max(Int((Double(lastIndex) / 1.5).rounded(.up)), 1)
+        } else {
+            step = lastIndex <= 7 ? 1 : Int((Double(lastIndex) / 3.5).rounded(.up))
+        }
+        return Array(stride(from: lastIndex, through: 0, by: -step).reversed())
     }
 }

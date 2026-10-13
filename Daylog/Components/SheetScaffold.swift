@@ -90,11 +90,21 @@ struct SheetScaffold<Content: View, Leading: View>: View {
     #else
     /// 내용의 높이. 내용이 짧은 시트는 그만큼만 올라오게 디텐트를 정한다.
     @State private var contentHeight: CGFloat = 0
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
+    /// 큰 글자 크기에서는 탐색 막대의 제목이 좌우 단추 사이에서 "미라클…"처럼 잘린다. 내용 맨 위에 온전히 적는다.
+    private var showsTitleInContent: Bool { dynamicTypeSize.isAccessibilitySize }
 
     private var touchSheet: some View {
         NavigationStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
+                    if showsTitleInContent {
+                        Text(title)
+                            .font(.title3.weight(.semibold))
+                            .fixedSize(horizontal: false, vertical: true)
+                            .accessibilityAddTraits(.isHeader)
+                    }
                     if let subtitle {
                         Text(subtitle)
                             .font(.footnote)
@@ -113,7 +123,7 @@ struct SheetScaffold<Content: View, Leading: View>: View {
             .scrollDismissesKeyboard(.interactively)
             .keyboardDoneBar()
             .background(Theme.windowBackground)
-            .navigationTitle(title)
+            .navigationTitle(showsTitleInContent ? "" : title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {

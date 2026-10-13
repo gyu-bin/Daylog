@@ -22,13 +22,15 @@ struct WeekdaySelector: View {
     ]
 
     var body: some View {
+        // 한 줄에 다 들어가면 전과 같고, 큰 글자 크기처럼 들어가지 않을 때는 다음 줄로 넘긴다
+        // (한 줄로 고정하면 시트 내용 전체가 화면보다 넓어져 양쪽이 잘린다).
         VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 6) {
+            FlowLayout(spacing: 6) {
                 ForEach(Self.presets) { preset in
                     presetButton(preset)
                 }
             }
-            HStack(spacing: 6) {
+            FlowLayout(spacing: 6) {
                 ForEach(Weekdays.all, id: \.self) { weekday in
                     dayButton(weekday)
                 }

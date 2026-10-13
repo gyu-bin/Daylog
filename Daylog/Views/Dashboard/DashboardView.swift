@@ -4,6 +4,7 @@ struct DashboardView: View {
     @Environment(AppStore.self) private var store
     @Environment(DevicePreferences.self) private var preferences
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var isEditing = false
 
     /// 이 너비부터 두 열로 나눈다.
@@ -32,9 +33,10 @@ struct DashboardView: View {
                     DashboardCards(compact: false, wide: proxy.size.width >= Self.wideBreakpoint, isEditing: isEditing)
                 }
                 .padding(Theme.pagePadding)
-                .animation(.easeInOut(duration: 0.2), value: preferences.cardOrder)
-                .animation(.easeInOut(duration: 0.2), value: preferences.leftCards)
-                .animation(.easeInOut(duration: 0.2), value: preferences.hiddenCards)
+                // 카드가 자리를 옮기는 움직임. "동작 줄이기"를 켠 사람에게는 바로 바꿔 보여 준다.
+                .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: preferences.cardOrder)
+                .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: preferences.leftCards)
+                .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: preferences.hiddenCards)
             }
             #if os(macOS)
             .onExitCommand { isEditing = false }

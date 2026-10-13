@@ -11,6 +11,7 @@ struct RoutineGroupCard: View {
     /// 접어 둔 그룹의 ID(쉼표로 이어 붙인 문자열). 이 기기에만 저장된다.
     @AppStorage("collapsedRoutineGroupIDs") private var collapsedGroupIDs = ""
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var itemDraft = ""
     @State private var showsArchivedItems = false
     @State private var isDropTarget = false
@@ -129,20 +130,16 @@ struct RoutineGroupCard: View {
                 .presentationCompactAdaptation(.popover)
             }
 
-            Text(group.title)
-                .font(.headline)
-                .lineLimit(1)
-                .accessibilityAddTraits(.isHeader)
-                // 그룹 이름을 끌어서 순서를 바꾼다. 키보드로는 더 보기 메뉴의 위/아래 이동을 쓴다.
-                .draggable(DragPayload.group(group.id).string) {
-                    Label(group.title, systemImage: "square.stack")
-                        .padding(8)
-                        .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: 6))
+            if dynamicTypeSize.isAccessibilitySize {
+                // 큰 글자 크기: 이름이 한두 글자로 잘리지 않게 두 줄까지 쓰고, 항목 수는 아랫줄에 둔다.
+                VStack(alignment: .leading, spacing: 1) {
+                    title(lineLimit: 2)
+                    itemCountLabel(itemCount)
                 }
-            Text("항목 \(itemCount)개")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .monospacedDigit()
+            } else {
+                title(lineLimit: 1)
+                itemCountLabel(itemCount)
+            }
 
             Spacer(minLength: 8)
 
@@ -167,6 +164,27 @@ struct RoutineGroupCard: View {
         .padding(.vertical, 8)
         .background(color.wash)
         .contextMenu { groupMenu }
+    }
+
+    private func title(lineLimit: Int) -> some View {
+        Text(group.title)
+            .font(.headline)
+            .lineLimit(lineLimit)
+            .multilineTextAlignment(.leading)
+            .accessibilityAddTraits(.isHeader)
+            // 그룹 이름을 끌어서 순서를 바꾼다. 키보드로는 더 보기 메뉴의 위/아래 이동을 쓴다.
+            .draggable(DragPayload.group(group.id).string) {
+                Label(group.title, systemImage: "square.stack")
+                    .padding(8)
+                    .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: 6))
+            }
+    }
+
+    private func itemCountLabel(_ itemCount: Int) -> some View {
+        Text("항목 \(itemCount)개")
+            .font(.caption)
+            .foregroundStyle(.secondary)
+            .monospacedDigit()
     }
 
     private var recolorBinding: Binding<Bool> {
