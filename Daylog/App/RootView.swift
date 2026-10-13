@@ -10,6 +10,8 @@ struct RootView: View {
     @Environment(AppStore.self) private var store
     @State private var preferences = DevicePreferences.shared
     @State private var templateInbox = TemplateInbox.shared
+    /// 새 기기의 첫 동기화 안내. 떠 있는 동안에는 시작 안내와 알림 안내를 올리지 않는다.
+    @State private var firstSync = FirstSyncGate.shared
     #if !os(macOS)
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @AppStorage(AppearanceMode.storageKey) private var appearance: AppearanceMode = .system
@@ -110,7 +112,7 @@ struct RootView: View {
             }
             .task(id: NotificationGuideTrigger(
                 splash: isSplashShowing, onboarding: preferences.onboardingCompleted,
-                feature: uiConfig.settings.showsOnboardingNotificationGuide
+                feature: uiConfig.settings.showsOnboardingNotificationGuide, firstSync: firstSync.isActive
             )) {
                 await presentNotificationGuideIfNeeded()
             }
@@ -125,6 +127,11 @@ struct RootView: View {
     private var navigation: some View {
         #if os(macOS)
         SidebarNavigation()
+            // 안내에 가려진 화면은 누르거나 입력할 수 없게 한다(Tab으로 입력 칸에 들어가 루틴을 만드는 일을 막는다).
+            .disabled(firstSync.isActive)
+            .accessibilityHidden(firstSync.isActive)
+            .overlay { firstSyncOverlay }
+            .animation(.easeOut(duration: 0.3), value: firstSync.isActive)
             .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification)) { notification in
                 // 창이 처음 앞에 올 때 첫 입력 칸이 전체 선택된 채 포커스를 받으면 실수로 덮어쓰기 쉽다.
                 // 창을 닫았다가 메뉴 막대에서 다시 열면 새 창이라, 창마다 한 번씩 푼다. 시트와 메뉴 막대 창은 건드리지 않는다.
@@ -145,6 +152,12 @@ struct RootView: View {
                 SidebarNavigation()
             }
         }
+        // 안내에 가려진 화면은 누르거나 입력할 수 없게 한다(외장 키보드로 입력 칸에 들어가 루틴을 만드는 일을 막는다).
+        .disabled(firstSync.isActive)
+        .accessibilityHidden(firstSync.isActive)
+        // 첫 동기화 안내는 화면 위, 스플래시 아래에 둔다.
+        .overlay { firstSyncOverlay }
+        .animation(.easeOut(duration: 0.3), value: firstSync.isActive)
         .preferredColorScheme(Self.debugColorScheme ?? appearance.colorScheme)
         .keyboardDoneBar()
         .clearingWindowControls()
@@ -155,6 +168,14 @@ struct RootView: View {
             }
         }
         #endif
+    }
+
+    @ViewBuilder
+    private var firstSyncOverlay: some View {
+        if firstSync.isActive {
+            FirstSyncView(gate: firstSync)
+                .transition(.opacity)
+        }
     }
 
     #if !os(macOS)
@@ -173,6 +194,7 @@ struct RootView: View {
     #endif
 
     /// 스플래시가 떠 있는 동안에는 시작 안내를 올리지 않는다(시트는 스플래시 위에 뜬다). 걷히기 시작할 때 이어서 올라온다.
+    /// 첫 동기화 안내가 떠 있는 동안에도 올리지 않는다. 그 안내가 기록을 찾으면 시작 안내는 아예 건너뛴다.
     private var isSplashShowing: Bool {
         #if os(macOS)
         false
@@ -183,7 +205,10 @@ struct RootView: View {
 
     private var onboardingPresented: Binding<Bool> {
         Binding(
-            get: { !preferences.onboardingCompleted && !RuntimeEnvironment.isRunningTests && !isSplashShowing },
+            get: {
+                !preferences.onboardingCompleted && !RuntimeEnvironment.isRunningTests && !isSplashShowing
+                    && !firstSync.isActive
+            },
             set: { if !$0 { preferences.completeOnboarding() } }
         )
     }
@@ -191,7 +216,7 @@ struct RootView: View {
     #if os(iOS)
     /// 알림 안내를 띄울지 정한다. 시작 안내 3단계에서 본 사람, 이미 알림을 정한 사람에게는 띄우지 않는다.
     private func presentNotificationGuideIfNeeded() async {
-        guard !isSplashShowing, !preferences.notificationGuideCompleted else { return }
+        guard !isSplashShowing, !firstSync.isActive, !preferences.notificationGuideCompleted else { return }
         await notifications.refreshPermission()
         let decision = NotificationGuidePolicy.decide(
             guideCompleted: preferences.notificationGuideCompleted, onboardingCompleted: preferences.onboardingCompleted,
@@ -226,6 +251,7 @@ private struct NotificationGuideTrigger: Equatable {
     let splash: Bool
     let onboarding: Bool
     let feature: Bool
+    let firstSync: Bool
 }
 
 /// 원격 설정의 기본 카드 배치만 떼어 낸 값(이 부분이 바뀔 때만 반영하려고).

@@ -1,0 +1,174 @@
+import SwiftUI
+
+/// 새 기기에서 처음 열었을 때, 다른 기기의 기록이 iCloud에서 오는지 확인하는 동안 화면을 덮는 안내.
+///
+/// 빈 화면을 보고 새로 시작하는 것으로 오해하지 않게, 기록을 받는 동안에는 루틴을 만들라고 권하지 않는다.
+/// 기록이 오면 시작 안내 없이 오늘 화면으로 가고, 오지 않으면 시작 안내로 넘어간다. 얼마나 받았는지는 알 수 없어서
+/// 진행률은 보여 주지 않는다. 무엇을 보여 줄지는 `FirstSyncPolicy`가 정한다.
+struct FirstSyncView: View {
+    @Environment(AppStore.self) private var store
+    @Environment(CloudSyncMonitor.self) private var sync
+    @Environment(DevicePreferences.self) private var preferences
+    let gate: FirstSyncGate
+    /// [다시 확인]을 누른 직후. 상태가 그대로여도 눌렸다는 것을 보여 준다.
+    @State private var isRechecking = false
+
+    private var phase: FirstSyncPhase {
+        FirstSyncPolicy.phase(
+            hasRecords: store.hasUserRecords, account: sync.account, isImporting: sync.isImporting,
+            lastImportAt: sync.lastImportAt, errorMessage: sync.lastErrorMessage,
+            waitingSince: gate.waitingSince, now: gate.now
+        )
+    }
+
+    var body: some View {
+        let phase = phase
+        GeometryReader { proxy in
+            // 글자를 크게 쓰면 한 화면을 넘을 수 있다. 넘치면 스크롤하고, 아니면 가운데에 둔다.
+            ScrollView {
+                content(phase)
+                    .frame(maxWidth: 420)
+                    .padding(.horizontal, 28)
+                    .padding(.vertical, 32)
+                    .frame(maxWidth: .infinity, minHeight: proxy.size.height)
+            }
+            .scrollBounceBehavior(.basedOnSize)
+        }
+        .background {
+            ZStack {
+                Theme.windowBackground
+                LinearGradient(colors: [Theme.accentWash, .clear], startPoint: .top, endPoint: .center)
+            }
+            .ignoresSafeArea()
+        }
+        .accessibilityAddTraits(.isModal)
+        .task {
+            // 경과 시간으로 "오래 걸린다"와 "더 올 것이 없다"를 가리므로 1초마다 다시 본다.
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(1))
+                gate.tick()
+            }
+        }
+        .onChange(of: phase, initial: true) { _, phase in
+            resolve(phase)
+        }
+    }
+
+    @ViewBuilder
+    private func content(_ phase: FirstSyncPhase) -> some View {
+        switch phase {
+        case .waiting, .found, .empty:
+            // 기록을 찾았거나 없다고 본 순간에는 곧 이 화면이 걷힌다. 그 사이에 문구를 바꿔 깜빡이지 않게 한다.
+            message(
+                symbol: "icloud.and.arrow.down", tint: Theme.accent,
+                title: "iCloud 기록을 확인하고 있어요",
+                detail: "다른 기기에서 사용하던 루틴과 기록을 불러오고 있어요. 잠시만 기다려 주세요."
+            ) {
+                HStack(spacing: 10) {
+                    ProgressView()
+                    Text("동기화 중...")
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                }
+                .accessibilityElement(children: .combine)
+            }
+        case .unavailable(let account):
+            message(
+                symbol: "icloud.slash", tint: .secondary,
+                title: account.title,
+                detail: account == .restricted
+                    ? "스크린 타임이나 기기 관리 설정에서 iCloud 사용이 막혀 있어요. 다른 기기의 기록은 불러올 수 없지만, \(Platform.thisDevice)에만 기록하며 사용할 수 있어요."
+                    : "다른 기기의 기록을 불러오려면 기기의 설정에서 iCloud에 로그인해 주세요. 로그인하지 않아도 \(Platform.thisDevice)에만 기록하며 사용할 수 있어요."
+            ) {
+                choices(continueTitle: "\(Platform.thisDevice)에서만 사용")
+            }
+        case .stalled(let note):
+            message(
+                symbol: "exclamationmark.icloud", tint: Theme.streakTint,
+                title: "동기화가 오래 걸리고 있어요",
+                detail: "네트워크 연결을 확인해 주세요. 기다리지 않고 먼저 사용해도 돼요. 다른 기기의 기록은 도착하는 대로 나타나고, 그사이 적은 내용도 그대로 남아요."
+            ) {
+                if let note {
+                    Text(note)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                choices(continueTitle: "계속 사용")
+            }
+        }
+    }
+
+    private func message(
+        symbol: String, tint: Color, title: String, detail: String, @ViewBuilder footer: () -> some View
+    ) -> some View {
+        VStack(spacing: 18) {
+            Image(systemName: symbol)
+                .font(.system(size: 34, weight: .medium))
+                .foregroundStyle(tint)
+                .frame(width: 84, height: 84)
+                .background(tint.opacity(0.14), in: Circle())
+                .accessibilityHidden(true)
+            VStack(spacing: 8) {
+                Text(title)
+                    .font(.title2.bold())
+                    .accessibilityAddTraits(.isHeader)
+                Text(detail)
+                    .font(.body)
+                    .foregroundStyle(.secondary)
+            }
+            .multilineTextAlignment(.center)
+            .fixedSize(horizontal: false, vertical: true)
+            VStack(spacing: 12) {
+                footer()
+            }
+            .padding(.top, 6)
+        }
+    }
+
+    /// 기다리지 않아도 되는 두 가지 길. 어느 쪽도 기록을 지우거나 바꾸지 않는다.
+    private func choices(continueTitle: String) -> some View {
+        VStack(spacing: 10) {
+            Button(action: gate.finish) {
+                Text(continueTitle).frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .accessibilityHint("시작 안내로 넘어갑니다. 다른 기기의 기록이 나중에 오면 그대로 합쳐져요.")
+            Button(action: recheck) {
+                Text(isRechecking ? "확인 중…" : "다시 확인").frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+            .disabled(isRechecking)
+        }
+        .controlSize(.large)
+        .frame(maxWidth: 300)
+    }
+
+    /// 계정 상태를 다시 묻고 처음부터 다시 기다린다. 동기화를 강제로 돌리는 공식 방법은 없다.
+    private func recheck() {
+        isRechecking = true
+        sync.refreshAccountStatus()
+        gate.retry()
+        Task {
+            try? await Task.sleep(for: .seconds(1.2))
+            isRechecking = false
+        }
+    }
+
+    private func resolve(_ phase: FirstSyncPhase) {
+        switch phase {
+        case .found:
+            // 다른 기기에서 쓰던 사람이다. 시작 안내를 다시 보여 주지 않고 오늘 화면으로 간다.
+            preferences.completeOnboarding()
+            store.section = .dashboard
+            store.goToToday()
+            gate.finish()
+        case .empty:
+            // 시작 안내가 이어서 올라온다.
+            gate.finish()
+        case .waiting, .unavailable, .stalled:
+            break
+        }
+    }
+}

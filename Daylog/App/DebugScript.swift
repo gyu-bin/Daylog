@@ -19,6 +19,7 @@ import UIKit
 ///       archive, restore, archiveGroup, threshold,
 ///       wait:<초>, waitImport:<최대 초>, waitExport:<최대 초>, refresh, dump:<이름>,
 ///       section:<메뉴>(dashboard, routines, meals, statistics, calendar, settings), newWindow(iPad),
+///       sync:<상태>(첫 동기화 안내를 흉내 낸다. `-DaylogDebugFirstSync <상태>`로 켠 실행에서만 뜻이 있다),
 ///       counts(개수만 출력), compareBackup:<백업 이름 일부>, verifyBackup:<백업 이름 일부>,
 ///       purgeLocalStore, quit
 ///
@@ -218,6 +219,9 @@ enum DebugScript {
             }
             log("WINDOWS \(argument) section=\(store.section) sheetWindows=\(Platform.sheetWindowsAmongSeveral) any=\(Platform.isShowingSheet) | " + windows.joined(separator: " | "))
             #endif
+        case "sync":
+            // 첫 동기화 안내 검증용: sync:noAccount, sync:imported, sync:error=내용 …(`CloudSyncMonitor.simulate`).
+            sync.simulate(argument)
         case "section":
             // 화면 전환: section:routines 처럼 메뉴 이름(dashboard, routines, meals, statistics, calendar, settings).
             if let section = AppStore.Section.allCases.first(where: { "\($0)" == argument }) {

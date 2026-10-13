@@ -217,6 +217,17 @@ enum AppLaunch {
             store.start()
             let sync = CloudSyncMonitor(containerIdentifier: cloudContainerID, environment: RuntimeEnvironment.cloudKitEnvironment)
             sync.start()
+            #if DEBUG
+            // 화면 검증용: `-DaylogDebugFirstSync checking`처럼 주면 iCloud 없이 첫 동기화 상태를 흉내 낸다.
+            if let step = UserDefaults.standard.string(forKey: "DaylogDebugFirstSync"), !step.isEmpty {
+                sync.simulate(step)
+            }
+            #endif
+            // 새 기기에서 처음 열었고 iCloud를 쓰면, 시작 안내보다 먼저 기록이 오는지 확인하는 단계를 켠다.
+            FirstSyncGate.shared.arm(
+                onboardingCompleted: DevicePreferences.shared.onboardingCompleted,
+                hasRecords: store.hasUserRecords, syncEnabled: sync.isEnabled
+            )
             // 단위 테스트의 호스트로 떠 있을 때는 실제 알림 센터를 건드리지 않는다.
             let isTesting = RuntimeEnvironment.isRunningTests
             let runtime = AppRuntime(

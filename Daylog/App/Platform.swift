@@ -27,10 +27,11 @@ enum Platform {
     static var deviceName: String { Host.current().localizedName ?? "Mac" }
     static let deviceKind = DeviceInfo.Kind.mac
 
-    /// 창에 시트(편집 시트, 확인 창)가 붙어 있는가.
+    /// 창에 시트(편집 시트, 확인 창)가 붙어 있는가. 화면을 덮는 첫 동기화 안내도 같게 본다
+    /// (메뉴 명령이 가려진 화면을 옮기거나 입력 칸을 잡지 않게).
     @MainActor
     static var isShowingSheet: Bool {
-        NSApp.windows.contains { $0.attachedSheet != nil }
+        FirstSyncGate.shared.isActive || NSApp.windows.contains { $0.attachedSheet != nil }
     }
 
     /// 시스템 설정의 알림 화면을 연다.
@@ -56,10 +57,11 @@ enum Platform {
     static var deviceKind: DeviceInfo.Kind { UIDevice.current.userInterfaceIdiom == .pad ? .pad : .phone }
 
     /// 어느 창에든 시트가 떠 있는가. iPad는 창을 여러 개 열 수 있고 모든 창이 같은 화면 선택을 따르므로,
-    /// 누른 창이 아니라 다른 창의 시트도 본다.
+    /// 누른 창이 아니라 다른 창의 시트도 본다. 화면을 덮는 첫 동기화 안내도 같게 본다(키보드 명령이 가려진 화면을 옮기지 않게).
     @MainActor
     static var isShowingSheet: Bool {
-        UIApplication.shared.connectedScenes
+        if FirstSyncGate.shared.isActive { return true }
+        return UIApplication.shared.connectedScenes
             .compactMap { $0 as? UIWindowScene }
             .flatMap(\.windows)
             .contains { $0.rootViewController?.presentedViewController != nil }

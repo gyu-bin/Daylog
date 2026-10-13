@@ -94,10 +94,17 @@ final class CloudSyncMonitor {
     private(set) var lastExportAt: Date?
     private(set) var lastErrorMessage: String?
     private(set) var checkedAt: Date?
+    /// 지금 가져오기가 돌고 있다(시작은 알렸고 끝은 아직). 끝난 가져오기만 보고 "다 받았다"고 넘겨짚지 않으려고 둔다.
+    private(set) var isImporting = false
 
     @ObservationIgnored private var observers: [NSObjectProtocol] = []
 
-    var isEnabled: Bool { containerIdentifier != nil }
+    var isEnabled: Bool {
+        #if DEBUG
+        if isSimulated { return true }
+        #endif
+        return containerIdentifier != nil
+    }
 
     /// iCloud를 쓰는데 이번 실행에서 아직 한 번도 가져오기를 마치지 않았다.
     /// 이때 화면이 비어 있으면 "기록이 없다"가 아니라 "아직 받는 중일 수 있다"로 안내한다.
@@ -129,8 +136,15 @@ final class CloudSyncMonitor {
         ) { [weak self] notification in
             let event = notification.userInfo?[NSPersistentCloudKitContainer.eventNotificationUserInfoKey]
                 as? NSPersistentCloudKitContainer.Event
-            guard let event, let endDate = event.endDate else { return }
+            guard let event else { return }
             let type = event.type
+            // 끝난 시각이 없으면 이제 시작했다는 알림이다.
+            guard let endDate = event.endDate else {
+                MainActor.assumeIsolated {
+                    if type == .import { self?.isImporting = true }
+                }
+                return
+            }
             let failure = event.succeeded ? nil : (event.error?.localizedDescription ?? "알 수 없는 오류")
             MainActor.assumeIsolated {
                 self?.record(type: type, endDate: endDate, failure: failure)
@@ -166,6 +180,7 @@ final class CloudSyncMonitor {
     }
 
     private func record(type: NSPersistentCloudKitContainer.EventType, endDate: Date, failure: String?) {
+        if type == .import { isImporting = false }
         if let failure {
             lastErrorMessage = failure
             return
@@ -178,6 +193,28 @@ final class CloudSyncMonitor {
         }
         lastErrorMessage = nil
     }
+
+    #if DEBUG
+    /// 화면 검증용: iCloud가 없는 검증 빌드에서 계정·가져오기 상태를 흉내 낸다. 실제 동기화는 일어나지 않는다.
+    private(set) var isSimulated = false
+
+    /// `checking`, `available`, `noAccount`, `restricted`, `unavailable`, `importing`, `imported`, `error=<내용>`.
+    func simulate(_ step: String) {
+        isSimulated = true
+        let parts = step.split(separator: "=", maxSplits: 1).map(String.init)
+        switch parts.first {
+        case "checking": account = .checking
+        case "available": account = .available
+        case "noAccount": account = .noAccount
+        case "restricted": account = .restricted
+        case "unavailable": account = .temporarilyUnavailable
+        case "importing": account = .available; isImporting = true
+        case "imported": account = .available; isImporting = false; lastImportAt = .now; lastErrorMessage = nil
+        case "error": lastErrorMessage = parts.count > 1 ? parts[1] : "네트워크에 연결할 수 없어요"
+        default: break
+        }
+    }
+    #endif
 }
 
 /// 설정 맨 위에 보여 줄 동기화 요약: 한 낱말의 상태와 한 줄 설명. 시스템이 알려 준 값에서 계산만 한다.
