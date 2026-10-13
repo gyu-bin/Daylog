@@ -6,6 +6,7 @@ struct MonthCalendarCard: View {
     @Environment(DevicePreferences.self) private var preferences
     /// 날짜를 누르면 대시보드로 옮겨 그 날짜를 연다. 꺼 두면 지금 화면에서 날짜만 바꾼다.
     var opensDashboard = false
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var vacationDay: VacationEditorTarget?
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
@@ -99,12 +100,19 @@ struct MonthCalendarCard: View {
     }
 
     private var legend: some View {
-        ViewThatFits(in: .horizontal) {
-            HStack(spacing: 12) { legendItems }
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(spacing: 12) { legendItems }
-                    .fixedSize()
-                    .scaleEffect(0.9, anchor: .leading)
+        Group {
+            if dynamicTypeSize.isAccessibilitySize {
+                // 큰 글자 크기에서는 한 줄로 고정하면 화면 너비를 넘긴다. 들어가는 만큼씩 줄을 바꾼다.
+                FlowLayout(spacing: 10) { legendItems }
+            } else {
+                ViewThatFits(in: .horizontal) {
+                    HStack(spacing: 12) { legendItems }
+                    VStack(alignment: .leading, spacing: 4) {
+                        HStack(spacing: 12) { legendItems }
+                            .fixedSize()
+                            .scaleEffect(0.9, anchor: .leading)
+                    }
+                }
             }
         }
         .font(.caption)
@@ -173,6 +181,9 @@ private struct DayCell: View {
     let threshold: Int
     let action: () -> Void
 
+    /// 날짜 숫자 칸. 글자 크기를 따라 커지되 한 주 일곱 칸의 너비를 넘지 않는다.
+    @ScaledMetric(relativeTo: .callout) private var numberSize: CGFloat = 26
+
     private var isFuture: Bool { outcome?.status == .future }
 
     var body: some View {
@@ -182,7 +193,10 @@ private struct DayCell: View {
                     .font(.callout.weight(isToday ? .bold : .regular))
                     .monospacedDigit()
                     .foregroundStyle(isToday ? AnyShapeStyle(Theme.onAccent) : AnyShapeStyle(isFuture ? .tertiary : .primary))
-                    .frame(width: 26, height: 26)
+                    // 두 자리 날짜가 "…"로 잘리지 않게, 칸에 맞춰 줄인다.
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.5)
+                    .frame(width: min(numberSize, CalendarMetrics.maxDaySize), height: min(numberSize, CalendarMetrics.maxDaySize))
                     .background {
                         if isToday { Circle().fill(Theme.accent) }
                     }
@@ -255,4 +269,9 @@ private struct DayCell: View {
         if isToday { parts.append("오늘") }
         return parts.joined(separator: ", ")
     }
+}
+
+/// 달력 칸의 한계. 가장 좁은 iPhone에서도 일곱 칸이 한 줄에 들어가는 크기다.
+enum CalendarMetrics {
+    static let maxDaySize: CGFloat = 36
 }

@@ -33,36 +33,30 @@ struct RoutineCheckRow: View {
     let setDone: (Bool) -> Void
     let setSkipped: (Bool) -> Void
 
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var isHovered = false
 
     var body: some View {
         HStack(spacing: 2) {
             Toggle(isOn: Binding(get: { check.isDone }, set: setDone)) {
-                HStack(alignment: .firstTextBaseline, spacing: 10) {
-                    VStack(alignment: .leading, spacing: 1) {
-                        Text(check.title)
-                            .lineLimit(2)
-                        if !check.note.isEmpty {
-                            Text(check.note)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                                .lineLimit(1)
+                if dynamicTypeSize.isAccessibilitySize {
+                    // 큰 글자 크기: 이름이 찌그러지지 않게 건너뜀 표시와 시간을 아랫줄로 내린다.
+                    VStack(alignment: .leading, spacing: 2) {
+                        titles(lineLimit: 4)
+                        if check.isSkipped || !check.timeLabel.isEmpty {
+                            HStack(spacing: 8) {
+                                if check.isSkipped { skipLabel }
+                                if !check.timeLabel.isEmpty { timeLabel }
+                            }
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    if check.isSkipped {
-                        Text(SkipStyle.label)
-                            .font(.caption.weight(.medium))
-                            .foregroundStyle(SkipStyle.ink)
-                            .lineLimit(1)
-                            .fixedSize()
-                    }
-                    if showsTime {
-                        Text(check.timeLabel)
-                            .font(.callout)
-                            .monospacedDigit()
-                            .foregroundStyle(.secondary)
-                            .lineLimit(1)
+                } else {
+                    HStack(alignment: .firstTextBaseline, spacing: 10) {
+                        titles(lineLimit: 2)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        if check.isSkipped { skipLabel }
+                        if showsTime { timeLabel }
                     }
                 }
             }
@@ -100,6 +94,35 @@ struct RoutineCheckRow: View {
 
     private var actions: some View {
         CheckSkipActions(check: check, isToday: isToday, setSkipped: setSkipped)
+    }
+
+    private func titles(lineLimit: Int) -> some View {
+        VStack(alignment: .leading, spacing: 1) {
+            Text(check.title)
+                .lineLimit(lineLimit)
+            if !check.note.isEmpty {
+                Text(check.note)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+            }
+        }
+    }
+
+    private var skipLabel: some View {
+        Text(SkipStyle.label)
+            .font(.caption.weight(.medium))
+            .foregroundStyle(SkipStyle.ink)
+            .lineLimit(1)
+            .fixedSize()
+    }
+
+    private var timeLabel: some View {
+        Text(check.timeLabel)
+            .font(.callout)
+            .monospacedDigit()
+            .foregroundStyle(.secondary)
+            .lineLimit(1)
     }
 
     #if os(macOS)

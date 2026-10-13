@@ -7,6 +7,8 @@ import AppKit
 struct MealCard: View {
     @Environment(AppStore.self) private var store
     @FocusState private var focus: DayTextField?
+    /// 아이콘과 식사 이름("아침")의 너비. 글자 크기를 키우면 같이 넓어져서 이름이 잘리지 않는다.
+    @ScaledMetric(relativeTo: .callout) private var labelWidth: CGFloat = 66
 
     /// Enter를 눌렀을 때 이동할 칸.
     private func next(after field: DayTextField) -> DayTextField {
@@ -65,7 +67,7 @@ struct MealCard: View {
             } icon: {
                 Image(systemName: kind.symbol).foregroundStyle(kind.tint)
             }
-            .frame(width: 66, alignment: .leading)
+            .frame(width: labelWidth, alignment: .leading)
             .accessibilityHidden(true)
 
             TextField(kind.title, text: binding(field), prompt: Text("무엇을 드셨나요?"), axis: .vertical)

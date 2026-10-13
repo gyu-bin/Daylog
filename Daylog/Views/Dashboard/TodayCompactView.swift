@@ -8,6 +8,7 @@ struct TodayCompactView: View {
     /// 대시보드 편집 중: 카드를 끌어 옮기고 숨긴다. 그동안 카드 안의 체크·입력은 눌리지 않는다.
     @State private var isEditing = false
     @Environment(\.mobileUI) private var ui
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         ScrollView {
@@ -83,7 +84,10 @@ struct TodayCompactView: View {
                 .accessibilityLabel("루틴 추가")
                 .accessibilityHint("오늘의 루틴에 새 항목을 적습니다.")
             }
-            HStack(alignment: .bottom, spacing: 8) {
+            // 큰 글자 크기에서는 날짜 이동을 아랫줄로 내려 인사말이 잘리지 않게 한다.
+            let layout = dynamicTypeSize.isAccessibilitySize
+                ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(alignment: .bottom, spacing: 8))
+            layout {
                 VStack(alignment: .leading, spacing: 1) {
                     Text(store.selectedDay.longTitle)
                         .font(.subheadline)
@@ -92,7 +96,7 @@ struct TodayCompactView: View {
                     HStack(spacing: 6) {
                         Text(verbatim: store.isViewingToday ? ui.string(.dashboardGreeting) : "\(store.selectedDay.shortTitle)의 기록")
                             .font(.title3.weight(.bold))
-                            .lineLimit(1)
+                            .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
                             .minimumScaleFactor(0.8)
                         if store.isViewingToday, ui.showsGreetingIcon {
                             Image(systemName: "sun.max.fill")
@@ -206,6 +210,7 @@ struct TodayProgressCard: View {
 /// 시간이 정해진 루틴 가운데 다음 차례. 없으면 아무것도 그리지 않는다. 표시만 하고 알림은 없다.
 struct NextRoutineCard: View {
     @Environment(AppStore.self) private var store
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         // 분이 바뀔 때마다 다시 고른다.
@@ -234,12 +239,12 @@ struct NextRoutineCard: View {
                     .foregroundStyle(.secondary)
                 Text(next.check.title)
                     .font(.body.weight(.semibold))
-                    .lineLimit(1)
+                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? 3 : 1)
                 Text("\(TimeLabel.label(minutes: next.minutes)) · \(next.group.title)")
                     .font(.footnote)
                     .monospacedDigit()
                     .foregroundStyle(.secondary)
-                    .lineLimit(1)
+                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
             }
             Spacer(minLength: 8)
             Button("완료") {

@@ -5,6 +5,7 @@ import SwiftUI
 struct RoutineStatisticsView: View {
     @Environment(AppStore.self) private var store
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     let isWide: Bool
 
     @State private var stats = PeriodStats.empty(.month)
@@ -63,12 +64,12 @@ struct RoutineStatisticsView: View {
         ViewThatFits(in: .horizontal) {
             HStack(spacing: 12) {
                 periodPicker
-                periodRange
+                periodRange(wraps: false)
                 Spacer(minLength: 0)
             }
             VStack(alignment: .leading, spacing: 8) {
                 periodPicker
-                periodRange
+                periodRange(wraps: true)
             }
         }
     }
@@ -86,15 +87,17 @@ struct RoutineStatisticsView: View {
         .accessibilityLabel("통계 기간")
     }
 
+    /// - Parameter wraps: 아래 줄로 내린 배치. 큰 글자 크기에서 화면 너비를 넘기지 않게 줄을 바꾼다
+    ///   (한 줄로 고정하면 화면 전체가 옆으로 밀려 오른쪽이 잘린다).
     @ViewBuilder
-    private var periodRange: some View {
+    private func periodRange(wraps: Bool) -> some View {
         if let first = stats.outcomes.first, let last = stats.outcomes.last {
             Text("\(first.day.shortTitle) ~ \(last.day.shortTitle) · \(stats.outcomes.count)일")
                 .font(.callout)
                 .foregroundStyle(.secondary)
                 .monospacedDigit()
-                .lineLimit(1)
-                .fixedSize()
+                .lineLimit(wraps ? 2 : 1)
+                .fixedSize(horizontal: !wraps, vertical: true)
         }
     }
 
@@ -109,6 +112,12 @@ struct RoutineStatisticsView: View {
                     streakTile
                     longestTile
                 }
+            } else if stacksTiles {
+                // 큰 글자 크기: 두 칸으로 나누면 제목과 설명이 잘린다. 한 줄에 하나씩 둔다.
+                GridRow { averageTile }
+                GridRow { achievedTile }
+                GridRow { streakTile }
+                GridRow { longestTile }
             } else {
                 GridRow {
                     averageTile
@@ -122,12 +131,15 @@ struct RoutineStatisticsView: View {
         }
     }
 
+    private var stacksTiles: Bool { !isWide && dynamicTypeSize.isAccessibilitySize }
+
     private var averageTile: some View {
         StatTile(
             symbol: "chart.bar.fill", title: "기간 평균 달성률", color: .blue,
             value: stats.averagePercent.map { "\($0)%" },
             caption: stats.averagePercent == nil ? "이 기간에 집계할 날이 없어요."
-                : "집계 \(stats.countedDays)일 · 미기록 \(stats.unrecordedDays)일 포함"
+                : "집계 \(stats.countedDays)일 · 미기록 \(stats.unrecordedDays)일 포함",
+            isCompact: stacksTiles
         )
     }
 
@@ -168,7 +180,8 @@ struct RoutineStatisticsView: View {
             value: stats.countedDays > 0 ? "\(stats.achievedDays)" : nil, unit: "일",
             caption: stats.countedDays > 0
                 ? "유효한 \(stats.countedDays)일 중 · 기준 \(stats.threshold)% 이상"
-                : "이 기간에 집계할 날이 없어요."
+                : "이 기간에 집계할 날이 없어요.",
+            isCompact: stacksTiles
         )
     }
 
@@ -177,7 +190,8 @@ struct RoutineStatisticsView: View {
         return StatTile(
             symbol: "flame.fill", title: "현재 연속 달성", color: .coral,
             value: streak > 0 ? "\(streak)" : nil, unit: "일",
-            caption: streak > 0 ? "오늘 기준 · 기간과 무관" : "기준을 달성한 날부터 다시 세요."
+            caption: streak > 0 ? "오늘 기준 · 기간과 무관" : "기준을 달성한 날부터 다시 세요.",
+            isCompact: stacksTiles
         )
     }
 
@@ -186,7 +200,8 @@ struct RoutineStatisticsView: View {
         return StatTile(
             symbol: "trophy.fill", title: "최장 연속 달성", color: .yellow,
             value: longest > 0 ? "\(longest)" : nil, unit: "일",
-            caption: longest > 0 ? "전체 이력 기준" : "첫 루틴을 완료하면 표시돼요."
+            caption: longest > 0 ? "전체 이력 기준" : "첫 루틴을 완료하면 표시돼요.",
+            isCompact: stacksTiles
         )
     }
 

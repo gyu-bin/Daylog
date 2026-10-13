@@ -116,6 +116,8 @@ struct TemplateShareFile: Transferable {
     static var transferRepresentation: some TransferRepresentation {
         FileRepresentation(exportedContentType: .daylogTemplate) { file in
             let directory = FileManager.default.temporaryDirectory.appendingPathComponent("TemplateShare", isDirectory: true)
+            // 전에 공유하느라 만든 임시 파일을 치우고 새로 만든다(임시 폴더에 쌓이지 않게).
+            try? FileManager.default.removeItem(at: directory)
             try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
             let url = directory.appendingPathComponent(TemplateFile.fileName(for: file.template)).appendingPathExtension(TemplateFile.fileExtension)
             try TemplateFile.encode(file.template).write(to: url, options: .atomic)
@@ -144,9 +146,29 @@ final class TemplateInbox {
 
     var incoming: RoutineTemplate?
     var error: String?
+    /// iOS가 넘겨받은 파일의 사본을 넣어 두는 폴더(앱의 Documents/Inbox). 이 폴더 안의 파일만 읽은 뒤 지운다.
+    /// macOS에는 그런 사본이 없다: 사용자의 파일을 그 자리에서 읽으므로 아무것도 지우지 않는다.
+    @ObservationIgnored private let inboxDirectory: URL?
+    /// 같은 파일이 두 경로(앱 델리게이트와 화면)로 연달아 들어오는 것을 한 번으로 본다.
+    @ObservationIgnored private var lastOpened: (path: String, at: Date)?
+
+    init(inboxDirectory: URL? = TemplateInbox.systemInbox) {
+        self.inboxDirectory = inboxDirectory
+    }
+
+    nonisolated static var systemInbox: URL? {
+        #if os(iOS)
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Inbox", isDirectory: true)
+        #else
+        nil
+        #endif
+    }
 
     /// 파일을 읽어 미리보기에 올린다. 저장소는 건드리지 않는다(추가는 사용자가 미리보기에서 확인한 뒤에만).
-    func open(_ url: URL) {
+    func open(_ url: URL, now: Date = .now) {
+        let path = url.standardizedFileURL.path
+        if let lastOpened, lastOpened.path == path, now.timeIntervalSince(lastOpened.at) < 2 { return }
+        lastOpened = (path, now)
         do {
             incoming = try TemplateFile.read(url)
             error = nil
@@ -154,7 +176,15 @@ final class TemplateInbox {
             incoming = nil
             self.error = error.localizedDescription
         }
-        // iOS는 넘겨받은 파일의 사본을 앱의 Inbox에 둔다. 읽은 뒤에는 필요 없다.
-        if url.path.contains("/Inbox/") { try? FileManager.default.removeItem(at: url) }
+        removeInboxCopy(url)
+    }
+
+    /// 앱의 Inbox에 들어온 사본만 지운다. 그 밖의 위치에 있는 파일은 사용자의 것이라 손대지 않는다.
+    private func removeInboxCopy(_ url: URL) {
+        guard let inboxDirectory else { return }
+        let inbox = inboxDirectory.standardizedFileURL.resolvingSymlinksInPath().path
+        let parent = url.standardizedFileURL.resolvingSymlinksInPath().deletingLastPathComponent().path
+        guard parent == inbox else { return }
+        try? FileManager.default.removeItem(at: url)
     }
 }

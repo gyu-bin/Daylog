@@ -184,7 +184,10 @@ struct DateNavigator: View {
                     Text(store.selectedDay.longTitle)
                         .font(.callout.weight(.semibold))
                         .monospacedDigit()
-                        .frame(minWidth: 160)
+                        // 글자 크기를 키워도 화면 너비를 넘기지 않게, 자리가 모자라면 날짜 글자를 줄인다.
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.5)
+                        .frame(minWidth: 120, idealWidth: 160)
                         .accessibilityLabel("선택한 날짜 \(store.selectedDay.longTitle)")
                 } else {
                     Divider().frame(height: 16)
@@ -218,7 +221,8 @@ struct DateNavigator: View {
             .help("오늘로 이동 (⌘T)")
             .accessibilityLabel("오늘로 이동")
         }
-        .fixedSize()
+        // 날짜를 함께 보여 줄 때는 가로로 줄어들 수 있어야 한다(큰 글자 크기에서 화면 밖으로 밀려나지 않게).
+        .fixedSize(horizontal: !showsDate, vertical: true)
     }
 
     private func stepButton(symbol: String, label: String, help: String, action: @escaping () -> Void) -> some View {

@@ -29,31 +29,61 @@ struct CardHeader<Trailing: View>: View {
     var tint: Color = Theme.accent
     @ViewBuilder var trailing: () -> Trailing
 
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
     var body: some View {
-        HStack(alignment: .center, spacing: 8) {
-            Image(systemName: symbol)
-                .font(.system(size: 12, weight: .semibold))
-                .foregroundStyle(tint)
-                .frame(width: 24, height: 24)
-                .background(tint.opacity(0.14), in: RoundedRectangle(cornerRadius: 7, style: .continuous))
-                .accessibilityHidden(true)
-            // 좁아지면 부제부터 줄이고, 제목과 오른쪽 컨트롤은 온전히 남긴다.
-            Text(title)
-                .font(.headline)
-                .lineLimit(1)
-                .layoutPriority(2)
-            if let subtitle {
-                Text(subtitle)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .lineLimit(1)
+        Group {
+            if dynamicTypeSize.isAccessibilitySize {
+                // 큰 글자 크기: 제목이 한두 글자로 잘리지 않게 오른쪽 컨트롤을 아랫줄로 내린다.
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack(alignment: .top, spacing: 8) {
+                        icon
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text(title)
+                                .font(.headline)
+                                .lineLimit(2)
+                            if let subtitle {
+                                Text(subtitle)
+                                    .font(.subheadline)
+                                    .foregroundStyle(.secondary)
+                                    .lineLimit(2)
+                            }
+                        }
+                        Spacer(minLength: 0)
+                    }
+                    trailing()
+                }
+            } else {
+                HStack(alignment: .center, spacing: 8) {
+                    icon
+                    // 좁아지면 부제부터 줄이고, 제목과 오른쪽 컨트롤은 온전히 남긴다.
+                    Text(title)
+                        .font(.headline)
+                        .lineLimit(1)
+                        .layoutPriority(2)
+                    if let subtitle {
+                        Text(subtitle)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                    }
+                    Spacer(minLength: 4)
+                    trailing()
+                        .fixedSize()
+                        .layoutPriority(1)
+                }
             }
-            Spacer(minLength: 4)
-            trailing()
-                .fixedSize()
-                .layoutPriority(1)
         }
         .accessibilityElement(children: .contain)
+    }
+
+    private var icon: some View {
+        Image(systemName: symbol)
+            .font(.system(size: 12, weight: .semibold))
+            .foregroundStyle(tint)
+            .frame(width: 24, height: 24)
+            .background(tint.opacity(0.14), in: RoundedRectangle(cornerRadius: 7, style: .continuous))
+            .accessibilityHidden(true)
     }
 }
 

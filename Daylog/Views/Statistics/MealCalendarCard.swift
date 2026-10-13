@@ -8,6 +8,8 @@ struct MealCalendarCard: View {
     /// 보고 있는 달의 1일. nil이면 이번 달.
     @State private var shownMonth: Day?
     @State private var mealDays: Set<Day> = []
+    /// 날짜 숫자 칸. 글자 크기를 따라 커지되 한 주 일곱 칸의 너비를 넘지 않는다.
+    @ScaledMetric(relativeTo: .callout) private var daySize: CGFloat = 28
 
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 0), count: 7)
 
@@ -104,7 +106,9 @@ struct MealCalendarCard: View {
                 .font(.callout.weight(hasMeal || isToday ? .semibold : .regular))
                 .monospacedDigit()
                 .foregroundStyle(isFuture ? AnyShapeStyle(.tertiary) : AnyShapeStyle(.primary))
-                .frame(width: 28, height: 28)
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
+                .frame(width: min(daySize, CalendarMetrics.maxDaySize), height: min(daySize, CalendarMetrics.maxDaySize))
                 .background(hasMeal ? Theme.mealTint.opacity(0.22) : .clear, in: Circle())
                 .overlay(Circle().strokeBorder(isToday ? Theme.mealTint : .clear, lineWidth: 1.5))
                 .overlay(alignment: .bottom) {

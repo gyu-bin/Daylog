@@ -68,6 +68,7 @@ struct GroupRatesCard: View {
 /// 항목별 달성률 표: 항목, 그룹, 완료한 날, 예정된 날, 달성률.
 struct ItemRatesCard: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     let rates: [RoutineRate]
     let periodLabel: String
     /// 이 그룹의 항목만 보고 있다. nil이면 전체.
@@ -128,7 +129,7 @@ struct ItemRatesCard: View {
                         }
                         Text(rate.title)
                             .foregroundStyle(rate.isArchived || rate.isRemoved ? .secondary : .primary)
-                            .lineLimit(isCompact ? 2 : 1)
+                            .lineLimit(dynamicTypeSize.isAccessibilitySize ? 3 : isCompact ? 2 : 1)
                             .help(rate.title)
                         RateStateBadge(isArchived: rate.isArchived, isRemoved: rate.isRemoved)
                     }
@@ -147,8 +148,11 @@ struct ItemRatesCard: View {
                     Text("\(rate.done)일").monospacedDigit().fixedSize()
                     Text("\(rate.scheduled)일").monospacedDigit().foregroundStyle(.secondary).fixedSize()
                     HStack(spacing: 8) {
-                        ProgressBar(ratio: rate.ratio, height: 7, tint: color)
-                            .frame(width: isCompact ? 36 : 56)
+                        // 큰 글자 크기에서는 숫자만 남겨 항목 이름 자리를 확보한다.
+                        if !dynamicTypeSize.isAccessibilitySize {
+                            ProgressBar(ratio: rate.ratio, height: 7, tint: color)
+                                .frame(width: isCompact ? 36 : 56)
+                        }
                         // 글자 크기를 키워도 "100%"가 줄바꿈되지 않게 너비를 고정하지 않는다.
                         Text("\(rate.percent)%")
                             .font(.callout.weight(.semibold))

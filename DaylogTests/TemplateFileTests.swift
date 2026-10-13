@@ -219,9 +219,9 @@ struct TemplateFileTests {
     }
 
     @Test func filesFromOtherAppsOpenAsAPreviewAndBadFilesShowAnError() throws {
-        let inbox = TemplateInbox()
         let directory = FileManager.default.temporaryDirectory.appendingPathComponent("daylog-tests-\(UUID().uuidString)/Inbox", isDirectory: true)
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        let inbox = TemplateInbox(inboxDirectory: directory)
         let good = directory.appendingPathComponent("받은 파일.daylogtemplate"), bad = directory.appendingPathComponent("깨진 파일.daylogtemplate")
         try TemplateFile.encode(sample()).write(to: good)
         try Data("{".utf8).write(to: bad)
@@ -235,6 +235,50 @@ struct TemplateFileTests {
         #expect(inbox.incoming == nil && inbox.error == TemplateFileError.unreadable.errorDescription)
         inbox.open(directory.appendingPathComponent("없는 파일.daylogtemplate"))
         #expect(inbox.incoming == nil && inbox.error != nil)
+    }
+
+    /// 사용자의 파일은 지우지 않는다: 폴더 이름이 Inbox여도, 앱이 넘겨받은 사본을 두는 폴더가 아니면 그대로 둔다.
+    @Test func openingAUsersOwnFileNeverDeletesIt() throws {
+        let root = FileManager.default.temporaryDirectory.appendingPathComponent("daylog-tests-\(UUID().uuidString)", isDirectory: true)
+        let appInbox = root.appendingPathComponent("App/Documents/Inbox", isDirectory: true)
+        let userFolder = root.appendingPathComponent("User/Inbox", isDirectory: true)
+        let nested = appInbox.appendingPathComponent("보관", isDirectory: true)
+        for folder in [appInbox, userFolder, nested] { try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true) }
+        let mine = userFolder.appendingPathComponent("내 템플릿.daylogtemplate"), deep = nested.appendingPathComponent("깊은 파일.daylogtemplate")
+        try TemplateFile.encode(sample()).write(to: mine)
+        try TemplateFile.encode(sample()).write(to: deep)
+
+        // iOS처럼 사본 폴더가 정해져 있어도, 그 폴더 바로 안의 파일이 아니면 지우지 않는다.
+        let phone = TemplateInbox(inboxDirectory: appInbox)
+        phone.open(mine)
+        phone.open(deep)
+        #expect(phone.incoming != nil)
+        #expect(FileManager.default.fileExists(atPath: mine.path) && FileManager.default.fileExists(atPath: deep.path))
+
+        // macOS에는 사본 폴더가 없다: 무엇도 지우지 않는다.
+        let mac = TemplateInbox(inboxDirectory: nil)
+        mac.open(mine)
+        #expect(mac.incoming?.title == "아침 시작" && FileManager.default.fileExists(atPath: mine.path))
+        #if os(macOS)
+        #expect(TemplateInbox.systemInbox == nil)
+        #endif
+    }
+
+    /// 같은 파일이 두 경로로 연달아 들어와도 한 번만 처리한다. 사용자가 닫은 미리보기가 다시 뜨지 않는다.
+    @Test func theSameFileArrivingTwiceInARowIsHandledOnce() throws {
+        let url = FileManager.default.temporaryDirectory.appendingPathComponent("\(UUID().uuidString).daylogtemplate")
+        try TemplateFile.encode(sample()).write(to: url)
+        defer { try? FileManager.default.removeItem(at: url) }
+        let inbox = TemplateInbox(inboxDirectory: nil)
+        let start = Date()
+        inbox.open(url, now: start)
+        #expect(inbox.incoming != nil)
+        inbox.incoming = nil
+        inbox.open(url, now: start.addingTimeInterval(0.3))
+        #expect(inbox.incoming == nil)
+        // 조금 뒤에 다시 열면 다시 보여 준다.
+        inbox.open(url, now: start.addingTimeInterval(5))
+        #expect(inbox.incoming != nil)
     }
 
     /// 공유 기능이 더해져도 공식 템플릿과 꺼 둔 서버 기능은 그대로다.

@@ -23,18 +23,23 @@ extension RoutineCard {
                         GroupBadge(title: section.group.title, color: color)
                         Text(section.group.title)
                             .font(.body.weight(.semibold))
-                            .lineLimit(1)
+                            .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
+                            .multilineTextAlignment(.leading)
                         Spacer(minLength: 8)
                         if !section.checks.isEmpty {
                             Text("\(section.done)/\(section.checks.count)")
                                 .font(.callout.weight(.medium))
                                 .monospacedDigit()
                                 .foregroundStyle(section.done == section.checks.count ? AnyShapeStyle(color.ink) : AnyShapeStyle(.secondary))
-                            ProgressBar(
-                                ratio: Achievement.ratio(done: section.done, total: section.checks.count) ?? 0,
-                                height: 6, tint: color.color
-                            )
-                            .frame(width: 56)
+                                .fixedSize()
+                            // 큰 글자 크기에서는 작은 막대를 빼고 그 자리를 그룹 이름에 준다(숫자가 같은 내용을 말해 준다).
+                            if !dynamicTypeSize.isAccessibilitySize {
+                                ProgressBar(
+                                    ratio: Achievement.ratio(done: section.done, total: section.checks.count) ?? 0,
+                                    height: 6, tint: color.color
+                                )
+                                .frame(width: 56)
+                            }
                         }
                     }
                     .contentShape(Rectangle())

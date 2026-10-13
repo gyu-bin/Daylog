@@ -45,7 +45,10 @@ struct DevicePreferenceSections: View {
                 } label: {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("대시보드 구성")
-                        Text(Self.layoutSummary(visible: preferences.visibleCards.count, hidden: preferences.hiddenChoices.count))
+                        Text(Self.layoutSummary(
+                            visible: listedCards.filter { preferences.visibleCards.contains($0) }.count,
+                            hidden: listedCards.filter { preferences.hiddenChoices.contains($0) }.count
+                        ))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }

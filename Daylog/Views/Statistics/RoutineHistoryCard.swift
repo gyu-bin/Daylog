@@ -39,10 +39,10 @@ struct RoutineHistoryCard: View {
                             ForEach(histories) { history in
                                 let marks = history.recent(count)
                                 VStack(alignment: .leading, spacing: 5) {
-                                    title(history)
+                                    title(history, lineLimit: 2)
                                     // 한 줄씩 따로 놓이므로 앞을 비우지 않고 왼쪽부터 채운다.
                                     RoutineMarkStrip(marks: marks, slots: marks.count, colorKey: history.colorKey, size: 20)
-                                    summary(marks)
+                                    summary(marks, wraps: true)
                                 }
                                 .accessibilityElement(children: .ignore)
                                 .accessibilityLabel(accessibilityLabel(history, marks))
@@ -56,24 +56,25 @@ struct RoutineHistoryCard: View {
         }
     }
 
-    private func title(_ history: RoutineHistory) -> some View {
+    private func title(_ history: RoutineHistory, lineLimit: Int = 1) -> some View {
         HStack(spacing: 6) {
             Circle().fill(GroupColor(key: history.colorKey).color).frame(width: 7, height: 7)
             Text(history.title)
                 .font(.callout)
-                .lineLimit(1)
+                .lineLimit(lineLimit)
                 .help("\(history.title) · \(history.groupTitle)")
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
-    private func summary(_ marks: [RoutineMark]) -> some View {
+    /// - Parameter wraps: 좁은 배치. 한 줄로 고정하지 않고 화면 너비 안에서 줄을 바꾼다.
+    private func summary(_ marks: [RoutineMark], wraps: Bool = false) -> some View {
         Text(RoutineHistory.Summary(marks).text)
             .font(.caption)
             .monospacedDigit()
             .foregroundStyle(.secondary)
-            .lineLimit(1)
-            .fixedSize()
+            .lineLimit(wraps ? 3 : 1)
+            .fixedSize(horizontal: !wraps, vertical: true)
     }
 
     private func accessibilityLabel(_ history: RoutineHistory, _ marks: [RoutineMark]) -> String {
@@ -89,6 +90,8 @@ struct RoutineHistoryCard: View {
                     HStack(spacing: 14) { legendItem(.done); legendItem(.skipped); legendItem(.missed) }
                     HStack(spacing: 14) { legendItem(.pending); legendItem(.vacation) }
                 }
+                // 큰 글자 크기: 세 개도 한 줄에 들어가지 않으면 들어가는 만큼씩 줄을 바꾼다.
+                FlowLayout(spacing: 10) { legendItems }
             }
             Text("예정된 날만 한 번으로 세요. 건너뛰기는 달성률에서 미달성이고, 휴가는 통계에서 빠져요.")
                 .font(.caption)

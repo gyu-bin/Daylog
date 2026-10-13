@@ -70,7 +70,7 @@ struct ActivityHeatmapCard: View {
             .font(.caption)
             .foregroundStyle(.secondary)
             .monospacedDigit()
-            .lineLimit(1)
+            .lineLimit(2)
             .accessibilityHidden(true)
     }
 
@@ -136,7 +136,8 @@ struct ActivityHeatmapCard: View {
     }
 
     private var legend: some View {
-        HStack(spacing: 10) {
+        // 한 줄에 다 들어가지 않으면 다음 줄로 넘긴다(큰 글자 크기에서 화면 너비를 밀어내지 않게).
+        FlowLayout(spacing: 10) {
             ForEach([HeatLevel.vacation, .rest, .unrecorded, .low, .mid, .achieved], id: \.label) { level in
                 HStack(spacing: 4) {
                     HeatCell(level: level, size: 10, isToday: false, isHovered: false)

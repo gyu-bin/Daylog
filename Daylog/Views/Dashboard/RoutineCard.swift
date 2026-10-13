@@ -8,6 +8,7 @@ struct RoutineCard: View {
     @Environment(\.mobileUI) private var ui
     /// 접어 둔 그룹의 ID(쉼표로 이어 붙인 문자열). 이 Mac에만 저장된다.
     @Environment(\.accessibilityReduceMotion) var reduceMotion
+    @Environment(\.dynamicTypeSize) var dynamicTypeSize
     @AppStorage("collapsedGroupIDs") var collapsedGroupIDs = ""
     @State var itemDrafts: [UUID: String] = [:]
     /// 항목 입력칸을 펼쳐 둔 그룹. 평소에는 접어 두어 목록이 체크할 것만 보이게 한다.
@@ -203,18 +204,23 @@ struct RoutineCard: View {
         let outcome = store.selectedOutcome
         // 건너뛴 항목은 달성률에서 미완료와 같다. 몇 개를 쉬었는지만 옆에 적는다.
         let skipped = store.checkSections.reduce(0) { $0 + $1.skipped }
-        return HStack(spacing: 12) {
+        // 큰 글자 크기에서는 숫자가 막대를 밀어내 점만 남는다. 막대를 윗줄에 따로 둔다.
+        let layout = dynamicTypeSize.isAccessibilitySize
+            ? AnyLayout(VStackLayout(alignment: .leading, spacing: 6)) : AnyLayout(HStackLayout(spacing: 12))
+        return layout {
             ProgressBar(ratio: outcome.ratio ?? 0, height: 10)
-            Text("\(outcome.percentLabel) (\(outcome.done)/\(outcome.total))")
-                .font(.callout.weight(.semibold))
-                .monospacedDigit()
-                .fixedSize()
-            if skipped > 0 {
-                Label("\(SkipStyle.label) \(skipped)", systemImage: SkipStyle.symbol)
-                    .font(.caption.weight(.medium))
+            HStack(spacing: 12) {
+                Text("\(outcome.percentLabel) (\(outcome.done)/\(outcome.total))")
+                    .font(.callout.weight(.semibold))
                     .monospacedDigit()
-                    .foregroundStyle(SkipStyle.ink)
                     .fixedSize()
+                if skipped > 0 {
+                    Label("\(SkipStyle.label) \(skipped)", systemImage: SkipStyle.symbol)
+                        .font(.caption.weight(.medium))
+                        .monospacedDigit()
+                        .foregroundStyle(SkipStyle.ink)
+                        .fixedSize()
+                }
             }
         }
         .accessibilityElement(children: .ignore)

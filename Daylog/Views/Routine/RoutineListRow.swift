@@ -12,6 +12,8 @@ struct RoutineListRow: View {
     /// 속한 그룹의 색.
     let tint: Color
 
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var isHovered = false
     @State private var isDropTarget = false
 
@@ -35,38 +37,29 @@ struct RoutineListRow: View {
             Button {
                 editor.editing = routine
             } label: {
-                HStack(spacing: 10) {
-                    VStack(alignment: .leading, spacing: 1) {
-                        Text(routine.title)
-                            .lineLimit(1)
-                        if !routine.note.isEmpty {
-                            Text(routine.note)
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                                .lineLimit(1)
+                Group {
+                    if isStacked {
+                        // 좁은 화면(iPhone)과 큰 글자 크기: 이름을 온전히 보여 주고, 요일과 시간은 아랫줄에 둔다.
+                        VStack(alignment: .leading, spacing: 4) {
+                            titles(lineLimit: 3)
+                            HStack(spacing: 8) {
+                                weekdayChip
+                                if !routine.timeLabel.isEmpty { timeLabel }
+                            }
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    } else {
+                        HStack(spacing: 10) {
+                            titles(lineLimit: 1)
+                            Spacer(minLength: 8)
+                            // 요일 → 시간 순서로, 줄마다 같은 자리에 오도록 시간 칸의 너비를 고정한다.
+                            weekdayChip
+                            Group {
+                                if routine.timeLabel.isEmpty { Color.clear } else { timeLabel }
+                            }
+                            .frame(width: 74, alignment: .leading)
                         }
                     }
-                    Spacer(minLength: 8)
-                    // 요일 → 시간 순서로, 줄마다 같은 자리에 오도록 시간 칸의 너비를 고정한다.
-                    Text(Weekdays.summary(routine.weekdays))
-                        .font(.caption.weight(.medium))
-                        .foregroundStyle(.secondary)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 3)
-                        .background(Theme.track, in: Capsule())
-                        .fixedSize()
-                    Group {
-                        if routine.timeLabel.isEmpty {
-                            Color.clear
-                        } else {
-                            Label(routine.timeLabel, systemImage: "clock")
-                                .font(.callout)
-                                .monospacedDigit()
-                                .foregroundStyle(.secondary)
-                                .lineLimit(1)
-                        }
-                    }
-                    .frame(width: 74, alignment: .leading)
                 }
                 .contentShape(Rectangle())
             }
@@ -103,6 +96,43 @@ struct RoutineListRow: View {
         } isTargeted: {
             isDropTarget = $0
         }
+    }
+
+    /// 이름과 요일·시간을 두 줄로 쌓을지.
+    private var isStacked: Bool {
+        horizontalSizeClass == .compact || dynamicTypeSize.isAccessibilitySize
+    }
+
+    private func titles(lineLimit: Int) -> some View {
+        VStack(alignment: .leading, spacing: 1) {
+            Text(routine.title)
+                .lineLimit(lineLimit)
+                .multilineTextAlignment(.leading)
+            if !routine.note.isEmpty {
+                Text(routine.note)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+            }
+        }
+    }
+
+    private var weekdayChip: some View {
+        Text(Weekdays.summary(routine.weekdays))
+            .font(.caption.weight(.medium))
+            .foregroundStyle(.secondary)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 3)
+            .background(Theme.track, in: Capsule())
+            .fixedSize()
+    }
+
+    private var timeLabel: some View {
+        Label(routine.timeLabel, systemImage: "clock")
+            .font(.callout)
+            .monospacedDigit()
+            .foregroundStyle(.secondary)
+            .lineLimit(1)
     }
 
     private var rowBackground: Color {
