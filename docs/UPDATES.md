@@ -14,7 +14,7 @@ Daylog의 Mac 앱은 GitHub Releases에 올린 DMG로 배포한다. 앱 안의 �
 | 운영 경로의 설치·자동 재실행 | 1.5.3을 올릴 때 처음 확인한다(아래 "검증") |
 | GitHub | `v1.5.2`에 DMG와 `appcast.xml` 게시(2026-10-12). 피드 주소가 이 appcast를 가리키는 것을 확인 |
 | 기기 밖 키 백업 | **아직 없음** — 로컬 사본만 있다. "서명 키 → 백업" |
-| 다음 릴리스 | 1.5.3 (3) 준비됨(2026-10-13): 릴리스 노트 초안 `docs/releases/v1.5.3.md`. 게시는 승인 대기. 번호는 아래 절차의 `bump-version.sh`에서 올린다 |
+| 다음 릴리스 | 1.5.3 (3) 산출물 준비·검증 끝(2026-10-13, `build/release`). 게시는 승인 대기: `Tools/release.sh --publish-only --allow-unsigned-dmg` |
 
 ## 서명 키 (Sparkle EdDSA)
 
@@ -92,6 +92,9 @@ Tools/update.sh                    # 이 Mac 교체 → 공증 → DMG → Spark
 - 게시 순서(`release.sh`): 초안 릴리스에 DMG와 `appcast.xml`을 올림 → 올라간 파일의 이름·크기 확인 → 공개(latest) → 공개 주소에서 DMG 크기와 피드 내용 확인.
   피드 주소는 공개하는 순간 새 릴리스를 가리키고, 그때 DMG는 이미 올라가 있다.
 - appcast(`Tools/appcast.sh`): 지금 공개된 appcast를 내려받아 과거 항목을 이어 가고, 새 항목의 버전·빌드 번호·URL·파일 크기·EdDSA 서명·릴리스 노트를 DMG와 대조한다. 어긋나면 게시하지 않는다.
+  공개된 피드의 항목이 하나라도 빠지거나 바뀌면 실패한다. 공개된 피드가 있는데 받지 못하면 만들지 않는다(과거 항목이 빠진 피드를 올리지 않기 위해).
+- 만들어 둔 것을 나중에 올릴 때(`release.sh --publish-only`)는 appcast를 **다시 만들지 않는다.** 이미 만들어 확인한 파일을 DMG·공개 피드와 다시 대조만 하고(`appcast.sh --check`) 그대로 올린다.
+  다시 만들면 게시 시각이 달라져 확인한 파일과 다른 것이 올라간다.
 - 게시 전 확인(`release.sh`): 앱에 든 공개 키가 키체인의 서명 키와 짝인지, 피드 주소, 설치 도구 권한, Sparkle 안의 도구들이 앱과 같은 팀으로 서명됐는지.
 - iPhone·iPad(TestFlight)는 전과 같다: iOS 빌드 번호를 올려 따로 올린다.
 
