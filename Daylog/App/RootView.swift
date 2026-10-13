@@ -28,6 +28,7 @@ struct RootView: View {
         navigation
             .environment(preferences)
             .environment(DashboardDecor.shared)
+            .environment(CommunityStore.shared)
             .sheet(isPresented: onboardingPresented) {
                 OnboardingView().environment(preferences)
             }

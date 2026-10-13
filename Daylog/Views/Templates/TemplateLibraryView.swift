@@ -4,7 +4,9 @@ import SwiftUI
 /// macOS·iPad는 사이드바의 메뉴로, iPhone은 루틴 탭의 [템플릿] 단추가 띄우는 시트로 들어온다.
 struct TemplateLibraryView: View {
     @Environment(AppStore.self) private var store
-    var catalog = TemplateCatalog.official
+    @Environment(CommunityStore.self) private var community
+    /// 앱에 든 공식 템플릿. 서버와 무관하게 늘 있다.
+    var official = TemplateCatalog.official
     /// 시트로 띄웠을 때 닫는 동작. 메뉴로 들어왔으면 nil.
     var onClose: (() -> Void)? = nil
 
@@ -12,6 +14,13 @@ struct TemplateLibraryView: View {
     /// 고른 분류. nil이면 전체.
     @State private var category: TemplateCategory?
     @State private var selected: RoutineTemplate?
+    @State private var publishes = false
+    @State private var managesMine = false
+
+    /// 공식 템플릿 뒤에 공개 템플릿을 잇는다. 공개 템플릿을 받지 못해도 공식 템플릿은 그대로 나온다.
+    private var catalog: TemplateCatalog {
+        TemplateCatalog(templates: official.templates + community.catalogTemplates)
+    }
 
     private var results: [RoutineTemplate] { catalog.filtered(category: category, query: query) }
 
@@ -20,7 +29,12 @@ struct TemplateLibraryView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
                 HStack(alignment: .top, spacing: 12) {
-                    PageTitle(title: "템플릿", subtitle: "공식 루틴 템플릿을 미리 보고, 필요한 것만 내 Daylog에 추가해요.")
+                    PageTitle(
+                        title: "템플릿",
+                        subtitle: community.isAvailable
+                            ? "공식 템플릿과 다른 사람이 올린 템플릿을 미리 보고, 필요한 것만 내 Daylog에 추가해요."
+                            : "공식 루틴 템플릿을 미리 보고, 필요한 것만 내 Daylog에 추가해요."
+                    )
                     Spacer(minLength: 8)
                     if let onClose {
                         Button("닫기", action: onClose)
@@ -28,6 +42,7 @@ struct TemplateLibraryView: View {
                             .fixedSize()
                     }
                 }
+                if community.isAvailable { communityBar }
                 searchField
                 categoryBar
 
@@ -59,11 +74,58 @@ struct TemplateLibraryView: View {
         }
         .scrollDismissesKeyboard(.interactively)
         .background(Theme.windowBackground)
+        .task { await community.refreshIfNeeded() }
+        .sheet(isPresented: $publishes) { TemplatePublishSheet(editing: nil) }
+        .sheet(isPresented: $managesMine) { MyTemplatesSheet() }
         .sheet(item: $selected) { template in
             TemplateDetailSheet(template: template) {
                 // 가져온 루틴을 보러 간다: 시트로 떠 있었으면 닫고(루틴 탭 위에 떠 있다), 메뉴였으면 루틴 메뉴로.
                 selected = nil
                 if let onClose { onClose() } else { store.section = .routines }
+            }
+        }
+    }
+
+    /// 공유 관련 단추와 공개 템플릿을 받아 온 상태. 서버 설정이 있을 때만 나온다.
+    private var communityBar: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            FlowLayout(spacing: 8) {
+                Button {
+                    publishes = true
+                } label: {
+                    Label("내 템플릿 올리기", systemImage: "square.and.arrow.up")
+                        .font(.callout.weight(.semibold))
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(Theme.accent)
+                Button {
+                    managesMine = true
+                } label: {
+                    Label("내 템플릿", systemImage: "person.crop.rectangle.stack")
+                        .font(.callout.weight(.semibold))
+                }
+                .buttonStyle(.bordered)
+                if community.isMock {
+                    StatusBadge(text: "시험용 서버", tint: GroupColor.orange.ink)
+                }
+            }
+            switch community.loadState {
+            case .failed(let message):
+                HStack(alignment: .firstTextBaseline, spacing: 8) {
+                    Label("공개 템플릿을 불러오지 못했어요. \(message)", systemImage: "wifi.exclamationmark")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Button("다시 시도") { Task { await community.refresh() } }
+                        .controlSize(.small)
+                }
+            case .loading where community.publicTemplates.isEmpty:
+                HStack(spacing: 6) {
+                    ProgressView().controlSize(.small)
+                    Text("공개 템플릿을 불러오는 중…").font(.caption).foregroundStyle(.secondary)
+                }
+            default:
+                EmptyView()
             }
         }
     }
@@ -154,9 +216,14 @@ struct TemplateThumbnailView: View {
 }
 
 /// 목록의 템플릿 한 장: 작은 그림, 제목, 한 줄 설명, 분류와 루틴 수.
-private struct TemplateCard: View {
+struct TemplateCard: View {
     let template: RoutineTemplate
     let action: () -> Void
+
+    /// "공식" 또는 게시자 이름.
+    static func sourceLabel(_ template: RoutineTemplate) -> String {
+        template.source == .official ? "공식" : (template.author ?? "익명")
+    }
 
     var body: some View {
         let color = GroupColor(key: template.thumbnail.colorKey)
@@ -175,10 +242,11 @@ private struct TemplateCard: View {
                         .frame(maxWidth: .infinity, minHeight: 36, alignment: .topLeading)
                     HStack(spacing: 6) {
                         StatusBadge(text: template.category.title, tint: color.ink)
-                        Text("루틴 \(template.routineCount)개")
+                        Text("루틴 \(template.routineCount)개 · \(TemplateCard.sourceLabel(template))")
                             .font(.caption)
                             .monospacedDigit()
                             .foregroundStyle(.secondary)
+                            .lineLimit(1)
                         Spacer(minLength: 0)
                         Image(systemName: "chevron.right")
                             .font(.caption.weight(.semibold))
@@ -194,7 +262,7 @@ private struct TemplateCard: View {
         }
         .buttonStyle(.plain)
         // 버튼에 직접 이름을 붙인다(요소를 새로 만들면 누르기 동작이 사라진다).
-        .accessibilityLabel("\(template.title), \(template.category.title), 루틴 \(template.routineCount)개")
+        .accessibilityLabel("\(template.title), \(template.category.title), 루틴 \(template.routineCount)개, \(Self.sourceLabel(template))")
         .accessibilityValue(template.summary)
         .accessibilityHint("눌러서 포함된 루틴을 미리 봅니다.")
     }

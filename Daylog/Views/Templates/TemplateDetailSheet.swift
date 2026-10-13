@@ -4,8 +4,11 @@ import SwiftUI
 /// 저장은 파일 가져오기와 같은 서비스(`RoutineTransferService`)가 한다: 기존 루틴·기록은 고치지 않고, 오늘부터 적용된다.
 struct TemplateDetailSheet: View {
     @Environment(AppStore.self) private var store
+    @Environment(CommunityStore.self) private var community
     @Environment(\.dismiss) private var dismiss
     let template: RoutineTemplate
+    @State private var reporting: CommunityTemplate?
+    @State private var blocking: CommunityTemplate?
     /// 가져온 뒤 [루틴 보기]를 눌렀을 때.
     let showRoutines: () -> Void
 
@@ -43,6 +46,8 @@ struct TemplateDetailSheet: View {
                     }
                 }
 
+                if let shared = community.communityTemplate(for: template) { authorRow(shared) }
+
                 if let result {
                     resultBox(result)
                 } else if let preview {
@@ -55,12 +60,55 @@ struct TemplateDetailSheet: View {
                         .fixedSize(horizontal: false, vertical: true)
                 }
 
-                ForEach(Array(sections.enumerated()), id: \.offset) { _, section in
-                    groupView(section)
+                SheetScrollArea(maxHeight: 320) {
+                    VStack(alignment: .leading, spacing: 12) {
+                        ForEach(Array(sections.enumerated()), id: \.offset) { _, section in
+                            groupView(section)
+                        }
+                    }
                 }
             }
         }
         .onAppear(perform: refresh)
+        .sheet(item: $reporting) { TemplateReportSheet(template: $0) }
+        .alert("이 게시자를 차단할까요?", isPresented: Binding(get: { blocking != nil }, set: { if !$0 { blocking = nil } })) {
+            Button("차단", role: .destructive) {
+                guard let target = blocking else { return }
+                Task {
+                    do {
+                        try await community.block(target.authorID)
+                        dismiss()
+                    } catch {
+                        self.error = CommunityStore.message(error)
+                    }
+                }
+            }
+            Button("취소", role: .cancel) {}
+        } message: {
+            Text("이 게시자가 올린 템플릿이 목록에서 보이지 않아요. 내 템플릿 화면에서 해제할 수 있어요.")
+        }
+    }
+
+    /// 다른 사람이 올린 템플릿: 게시자와 신고·차단. 내 것이면 안내만 보여 준다.
+    private func authorRow(_ shared: CommunityTemplate) -> some View {
+        HStack(spacing: 8) {
+            Label("게시자 \(shared.displayAuthor)", systemImage: "person.crop.circle")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+                .lineLimit(1)
+            Spacer(minLength: 8)
+            if community.isMine(shared) {
+                StatusBadge(text: "내가 올린 템플릿")
+            } else {
+                Button("신고") { reporting = shared }
+                    .accessibilityLabel("이 템플릿 신고")
+                Button("게시자 차단") {
+                    if community.isSignedIn { blocking = shared } else { error = CommunityError.signInRequired.errorDescription }
+                }
+                .accessibilityLabel("이 게시자 차단")
+            }
+        }
+        .controlSize(.small)
     }
 
     // MARK: - 그룹과 루틴

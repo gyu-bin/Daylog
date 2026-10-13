@@ -51,7 +51,15 @@ struct RoutineTemplate: Codable, Equatable, Identifiable, Sendable {
 
     struct Group: Codable, Equatable, Sendable {
         var title: String
+        /// 그룹 색(`GroupColor`의 이름). 사용자가 올린 템플릿에만 있고, 미리보기에서 그룹을 구분하는 데 쓴다.
+        var colorKey: String?
         var routines: [Routine]
+
+        init(title: String, colorKey: String? = nil, routines: [Routine]) {
+            self.title = title
+            self.colorKey = colorKey
+            self.routines = routines
+        }
     }
 
     /// 출처 안에서 겹치지 않는 이름(예: "official.morning-light"). 공개 템플릿은 서버가 준 ID를 쓴다.

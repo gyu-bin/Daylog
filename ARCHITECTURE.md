@@ -968,3 +968,17 @@ iPhone의 시트는 내용 높이만큼만 올라오고 iPad는 폼 시트를 �
   [내 Daylog에 추가]를 누르면 결과("루틴 n개를 추가했어요 · m개는 이미 있어 건너뛰었어요")를 보여 주고 [루틴 보기]로 간다.
 - 들어가는 길: macOS·iPad는 사이드바의 템플릿 메뉴와 루틴 화면의 [템플릿] 단추, iPhone(아래 탭)은 루틴 탭의 [템플릿] 단추가 띄우는 시트. 아래 탭은 다섯 개 그대로다.
 - 내비게이션 색은 노랑(`GroupColor.yellow`), 아이콘은 `rectangle.stack`.
+
+## 공개 템플릿의 기반 (Phase 5-D1, 2026-10-13)
+
+사용자가 올린 템플릿을 주고받는 구조. 서버 설계·권한·켜는 방법·승인이 필요한 일은 [docs/COMMUNITY.md](docs/COMMUNITY.md)에 있다.
+**실제 서버에는 연결되어 있지 않다.** 앱 설정에 서버 주소가 없어서 기본 빌드에서는 공유와 관련된 화면이 나오지 않고, 템플릿 메뉴는 Phase 5-C와 같다.
+
+- **개인 기록과 분리**: `CommunityStore`(공유)와 `AppStore`(개인 기록)는 서로 모른다. 공유 기능은 SwiftData·CloudKit에 아무것도 쓰지 않는다(스키마 변경 없음).
+  로그인 정보는 키체인에만 둔다. 로그아웃·계정 삭제·네트워크 오류가 루틴·체크·식사·휴가를 바꾸지 않는다.
+- **서버 인터페이스**: `CommunityBackend` 하나를 실제 구현(`SupabaseCommunityBackend`, SDK 없이 HTTPS)과 시험용 구현(`MockCommunityBackend`, Debug 빌드)이 따른다.
+  권한은 서버가 정한다. 앱은 게시자 ID를 보내지 않고, 서버가 거절하면 그 오류를 보여 준다.
+- **게시 내용**: `TemplatePublishing`이 그룹 이름·색과 루틴의 이름·요일·시각(고르면 설명)만으로 `TemplateDraft`를 만든다. 게시 전 화면이 서버로 가는 JSON과 같은 내용을 보여 준다.
+- **탐색 연결**: `TemplateLibraryView`가 공식 템플릿 뒤에 공개 템플릿(`CommunityStore.catalogTemplates`)을 이어 같은 검색·분류·미리보기·가져오기를 쓴다. 공개 템플릿의 ID는 `community.<UUID>`다.
+- **서버 쪽**: `supabase/migrations/`의 SQL(표 4개, 행 수준 보안, 열 권한, 내용 검사, 신고 집계, 관리자 함수)과 `supabase/tests/community_rls_test.sql`. 둘 다 아직 실행하지 못했다.
+- Debug 실행 인자 `-DaylogDebugCommunity mock|mock-signed-in|mock-offline`: 메모리 안의 시험용 서버로 화면을 본다.
