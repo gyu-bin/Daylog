@@ -28,6 +28,25 @@ struct RoutineTransferTests {
         #expect(throws: RoutineTransferError.self) { try RoutineTransferFormat.decode(Data([0xFF]), isJSON: false) }
     }
 
+    /// 앱이 내보낸 전체 기록 JSON(`routines`가 없다)을 가져오기로 고르면, 자료형 오류가 아니라 복원할 수 없다고 알려 준다.
+    @Test func fullBackupFileIsRejectedWithARestoreMessage() throws {
+        let backup = "{\"format\":\"daylog.backup\",\"version\":1,\"schemaVersion\":4,\"entities\":{},\"vacations\":[]}"
+        do {
+            _ = try RoutineTransferFormat.decode(Data(backup.utf8), isJSON: true)
+            Issue.record("전체 기록 JSON이 거부되지 않았다")
+        } catch {
+            #expect(error.localizedDescription.contains("전체 백업 JSON은 복원할 수 없어요"))
+        }
+        // 형식이 맞는데 자료형이 틀린 루틴 JSON은 전처럼 자료형을 확인하라고 한다.
+        let wrongType = "{\"format\":\"daylog.routines\",\"version\":1,\"routines\":\"x\"}"
+        do {
+            _ = try RoutineTransferFormat.decode(Data(wrongType.utf8), isJSON: true)
+            Issue.record("자료형이 틀린 루틴 JSON이 거부되지 않았다")
+        } catch {
+            #expect(error.localizedDescription.contains("자료형"))
+        }
+    }
+
     @Test func fieldValidationDoesNotTruncateOrRepair() throws {
         var invalid = row()
         invalid.title = String(repeating: "가", count: 61)

@@ -83,6 +83,7 @@ struct StartHint: View {
 /// 제목과 날짜 이동을 한 줄에 둔다. 좁으면 두 줄로 내려간다.
 struct DashboardHeader: View {
     @Environment(AppStore.self) private var store
+    @Environment(DevicePreferences.self) private var preferences
     @Environment(\.mobileUI) private var ui
     @Binding var isEditing: Bool
 
@@ -113,7 +114,10 @@ struct DashboardHeader: View {
     /// 루틴 빠른 추가(⌘N과 같다): 마지막으로 쓴 그룹의 입력칸을 연다.
     private var addButton: some View {
         Button {
-            store.requestQuickAddFocus()
+            store.requestQuickAddFocus(
+                dashboardShowsRoutines: !preferences.hiddenCards.contains(.routines),
+                isShowingSheet: Platform.isShowingSheet
+            )
         } label: {
             Image(systemName: "plus")
                 .font(.system(size: 14, weight: .bold))

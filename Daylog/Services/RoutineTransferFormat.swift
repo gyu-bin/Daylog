@@ -34,15 +34,21 @@ enum RoutineTransferFormat {
     static let maximumRows = 1_000
     static let headers = ["group", "title", "weekdays", "time", "note"]
 
+    private struct Header: Decodable { var format: String? }
+
     static func decode(_ data: Data, isJSON: Bool) throws -> [TransferRoutine] {
         guard data.count <= maximumBytes else { throw RoutineTransferError.invalid("파일은 5MB 이하만 가져올 수 있어요.") }
         let rows: [TransferRoutine]
         if isJSON {
+            let unsupported = RoutineTransferError.invalid("지원하지 않는 JSON 형식 또는 버전이에요. 전체 백업 JSON은 복원할 수 없어요.")
+            // 형식부터 본다: 전체 기록 JSON에는 `routines`가 없어서, 통째로 풀면 자료형 오류로만 보인다.
+            if let header = try? JSONDecoder().decode(Header.self, from: data),
+               let format = header.format, format != "daylog.routines" {
+                throw unsupported
+            }
             do {
                 let document = try JSONDecoder().decode(RoutineTransferDocument.self, from: data)
-                guard document.format == "daylog.routines", document.version == 1 else {
-                    throw RoutineTransferError.invalid("지원하지 않는 JSON 형식 또는 버전이에요. 전체 백업 JSON은 복원할 수 없어요.")
-                }
+                guard document.format == "daylog.routines", document.version == 1 else { throw unsupported }
                 rows = document.routines
             } catch let error as RoutineTransferError { throw error }
             catch { throw RoutineTransferError.invalid("루틴 JSON의 필드와 자료형을 확인해 주세요. version은 정수, weekdays는 정수 배열이어야 해요.") }

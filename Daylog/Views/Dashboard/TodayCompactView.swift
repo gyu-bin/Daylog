@@ -71,7 +71,10 @@ struct TodayCompactView: View {
                 .accessibilityHint("카드의 순서를 바꾸거나 숨깁니다.")
                 Button {
                     isEditing = false
-                    store.requestQuickAddFocus()
+                    store.requestQuickAddFocus(
+                        dashboardShowsRoutines: !preferences.hiddenCards.contains(.routines),
+                        isShowingSheet: Platform.isShowingSheet
+                    )
                 } label: {
                     Image(systemName: "plus")
                         .font(.system(size: 15, weight: .bold))

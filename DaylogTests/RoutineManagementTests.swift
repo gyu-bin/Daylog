@@ -31,6 +31,84 @@ struct RoutineManagementTests {
         #expect(store.quickAddFocusToken == token + 2)
     }
 
+    /// 편집 시트가 떠 있을 때는 메뉴 명령(⌘N, ⌘1…)이 화면을 바꾸지 않는다(시트가 닫히며 적던 내용이 사라지지 않게).
+    @Test func menuCommandsDoNotSwitchScreensUnderASheet() throws {
+        let env = try TestEnv()
+        let store = makeStore(env, today: monday)
+        store.addGroup(title: "아침")
+        let group = try #require(store.activeGroups.first { $0.title == "아침" })
+        #expect(store.addRoutine(title: "물", in: group))
+        #expect(store.saveVacation(start: monday, end: monday, memo: "", keptRoutineIDs: []))
+        store.section = .dashboard
+        let token = store.quickAddFocusToken
+
+        store.requestQuickAddFocus(isShowingSheet: true)
+        store.go(to: .statistics, isShowingSheet: true)
+        #expect(store.section == .dashboard)
+        #expect(store.quickAddFocusToken == token)
+        #expect(store.pendingQuickAddGroupID == nil)
+
+        store.go(to: .statistics, isShowingSheet: false)
+        #expect(store.section == .statistics)
+        // 시트가 없으면 휴가인 날의 빠른 추가는 루틴 관리로 간다.
+        store.requestQuickAddFocus(isShowingSheet: false)
+        #expect(store.section == .routines)
+        #expect(store.pendingQuickAddGroupID == group.id)
+    }
+
+    /// 오늘 화면에 그 그룹의 입력칸이 없으면(오늘 해당하는 항목이 없는 그룹, 휴가인 날, 루틴 카드를 숨긴 경우)
+    /// 빠른 추가가 아무 일도 하지 않던 문제: 루틴 관리 화면의 그 그룹으로 보낸다.
+    @Test func quickAddGoesToRoutineManagementWhenTheDashboardHasNoField() throws {
+        let env = try TestEnv()
+        let store = makeStore(env, today: monday)
+        store.addGroup(title: "주말 정리")
+        let weekend = try #require(store.activeGroups.first { $0.title == "주말 정리" })
+        #expect(store.addRoutine(title: "방 청소", in: weekend))
+        let routine = try #require(store.activeRoutines.first { $0.title == "방 청소" })
+        store.updateRoutine(routine, weekdays: Weekdays.weekend)
+        #expect(store.quickAddGroup?.id == weekend.id, "방금 쓴 그룹이 빠른 추가의 대상이다.")
+        #expect(!store.dashboardCanAdd(to: weekend), "월요일에는 이 그룹이 오늘 화면에 나오지 않는다.")
+
+        // 오늘 해당하는 항목이 없는 그룹: 루틴 관리 화면으로 가고, 그 그룹의 입력칸을 열라고 넘긴다.
+        store.section = .statistics
+        store.requestQuickAddFocus()
+        #expect(store.section == .routines)
+        #expect(store.pendingQuickAddGroupID == weekend.id)
+
+        // 오늘 해당하는 항목이 있는 그룹은 전처럼 오늘 화면에서 받는다.
+        store.pendingQuickAddGroupID = nil
+        store.addGroup(title: "매일")
+        let daily = try #require(store.activeGroups.first { $0.title == "매일" })
+        #expect(store.addRoutine(title: "매일 하는 일", in: daily))
+        #expect(store.dashboardCanAdd(to: daily))
+        store.section = .statistics
+        store.requestQuickAddFocus()
+        #expect(store.section == .dashboard && store.pendingQuickAddGroupID == nil)
+
+        // 다른 화면에서 오늘 화면으로 왔으면, 새로 뜨는 루틴 카드가 입력칸을 열도록 요청을 남긴다.
+        #expect(store.pendingDashboardQuickAdd)
+        // 오늘 화면에 있을 때는 남기지 않는다(카드가 이미 떠 있어 바로 받는다). 오늘 화면을 떠나면 버린다.
+        store.requestQuickAddFocus()
+        #expect(!store.pendingDashboardQuickAdd)
+        store.section = .statistics
+        store.requestQuickAddFocus()
+        store.section = .calendar
+        #expect(!store.pendingDashboardQuickAdd)
+
+        // 루틴 카드를 숨겨 둔 기기: 오늘 화면에 입력칸이 없으니 루틴 관리 화면으로.
+        store.section = .statistics
+        store.requestQuickAddFocus(dashboardShowsRoutines: false)
+        #expect(store.section == .routines && store.pendingQuickAddGroupID == daily.id)
+
+        // 휴가인 날: 오늘 화면은 항목 추가를 열지 않는다.
+        store.pendingQuickAddGroupID = nil
+        #expect(store.saveVacation(start: monday, end: monday, memo: "", keptRoutineIDs: []))
+        #expect(!store.dashboardCanAdd(to: daily))
+        store.section = .dashboard
+        store.requestQuickAddFocus()
+        #expect(store.section == .routines && store.pendingQuickAddGroupID == daily.id)
+    }
+
     /// 빠른 추가는 마지막으로 쓴 그룹으로 간다. 그 그룹을 삭제하면 남은 첫 그룹으로 돌아간다.
     @Test func quickAddTargetsTheLastUsedGroup() throws {
         let env = try TestEnv()

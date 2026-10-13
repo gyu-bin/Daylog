@@ -81,7 +81,15 @@ struct RoutineGroupCard: View {
             if store.quickAddGroup?.id == group.id {
                 if isCollapsed { toggleCollapsed() }
                 isAddFocused = true
+                store.pendingQuickAddGroupID = nil
             }
+        }
+        .onAppear {
+            // 다른 화면에서 넘어온 빠른 추가: 이 화면이 뜨기 전에 요청이 왔으므로 뜨면서 받는다.
+            guard store.pendingQuickAddGroupID == group.id else { return }
+            store.pendingQuickAddGroupID = nil
+            if isCollapsed { toggleCollapsed() }
+            isAddFocused = true
         }
         .onChange(of: isAddFocused) { _, isFocused in
             store.setEditing(isFocused, source: editingSource)

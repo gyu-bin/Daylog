@@ -14,7 +14,10 @@ struct DaylogCommands: Commands {
         // 마지막으로 쓴 그룹(없으면 첫 그룹)의 항목 입력칸으로 가고, 그룹이 없으면 그룹 이름 입력칸으로 간다.
         CommandGroup(replacing: .newItem) {
             Button("새 루틴 항목") {
-                store?.requestQuickAddFocus()
+                store?.requestQuickAddFocus(
+                    dashboardShowsRoutines: !DevicePreferences.shared.hiddenCards.contains(.routines),
+                    isShowingSheet: Platform.isShowingSheet
+                )
             }
             .keyboardShortcut("n")
             .disabled(store == nil)
@@ -30,7 +33,7 @@ struct DaylogCommands: Commands {
                 .keyboardShortcut("t")
             Divider()
             ForEach(Array(DevicePreferences.shared.navigationSections(phone: false).enumerated()), id: \.element) { index, section in
-                Button(section.title) { store?.section = section }
+                Button(section.title) { store?.go(to: section, isShowingSheet: Platform.isShowingSheet) }
                     .keyboardShortcut(KeyEquivalent(Character("\(index + 1)")))
             }
         }

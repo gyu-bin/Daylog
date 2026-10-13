@@ -27,6 +27,12 @@ enum Platform {
     static var deviceName: String { Host.current().localizedName ?? "Mac" }
     static let deviceKind = DeviceInfo.Kind.mac
 
+    /// 창에 시트(편집 시트, 확인 창)가 붙어 있는가.
+    @MainActor
+    static var isShowingSheet: Bool {
+        NSApp.windows.contains { $0.attachedSheet != nil }
+    }
+
     /// 시스템 설정의 알림 화면을 연다.
     @MainActor
     static func openNotificationSettings() {
@@ -48,6 +54,16 @@ enum Platform {
     /// iCloud 기기 목록에 적는 이름과 종류. iOS는 사용자가 지은 기기 이름을 앱에 주지 않아 "iPhone"·"iPad"로 나온다.
     static var deviceName: String { UIDevice.current.name }
     static var deviceKind: DeviceInfo.Kind { UIDevice.current.userInterfaceIdiom == .pad ? .pad : .phone }
+
+    /// 어느 창에든 시트가 떠 있는가. iPad는 창을 여러 개 열 수 있고 모든 창이 같은 화면 선택을 따르므로,
+    /// 누른 창이 아니라 다른 창의 시트도 본다.
+    @MainActor
+    static var isShowingSheet: Bool {
+        UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap(\.windows)
+            .contains { $0.rootViewController?.presentedViewController != nil }
+    }
 
     /// 설정 앱에서 Daylog의 알림 화면을 연다.
     @MainActor

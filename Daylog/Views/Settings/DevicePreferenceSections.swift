@@ -85,7 +85,7 @@ struct DevicePreferenceSections: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 reorderButton(card, offset: -1, disabled: index == 0)
-                reorderButton(card, offset: 1, disabled: index == preferences.cardOrder.count - 1)
+                reorderButton(card, offset: 1, disabled: index == listedCards.count - 1)
             }
         }
     }
@@ -97,7 +97,7 @@ struct DevicePreferenceSections: View {
     #endif
 
     private func reorderButton(_ card: DashboardCard, offset: Int, disabled: Bool) -> some View {
-        Button { preferences.move(card, by: offset) } label: {
+        Button { preferences.move(card, by: offset, among: listedCards) } label: {
             Image(systemName: offset < 0 ? "arrow.up" : "arrow.down")
                 .font(.callout)
                 // 터치 화면은 44pt, 마우스는 줄이 길어지지 않게 28pt.

@@ -37,6 +37,27 @@ struct DevicePreferencesTests {
         #expect(preferences.visibleCards.contains(.routines))
     }
 
+    /// 설정의 카드 목록은 이 기기에 내용이 있는 카드만 보여 준다. 위·아래 버튼은 그 보이는 카드끼리 자리를 바꾼다
+    /// (순서에만 남은 카드와 바꾸면 눌러도 아무 일도 없는 것처럼 보인다).
+    @Test func movingAmongListedCardsSkipsCardsThatAreNotListed() {
+        let preferences = DevicePreferences(defaults: testDefaults())
+        let ghost = DashboardCard.custom(.text, UUID()), top = DashboardCard.custom(.divider, UUID())
+        preferences.addCustom(ghost)
+        preferences.addCustom(top)
+        // 순서: top, ghost(목록에 없음), 기본 카드들…
+        let listed = preferences.cardOrder.filter { $0 != ghost }
+        let second = listed[1]
+        #expect(preferences.cardOrder.prefix(3) == [top, ghost, second])
+
+        preferences.move(top, by: 1, among: listed)
+        #expect(preferences.cardOrder.filter { $0 != ghost }.prefix(2) == [second, top])
+        // 목록의 끝에서는 더 내려가지 않는다.
+        let relisted = preferences.cardOrder.filter { $0 != ghost }
+        let order = preferences.cardOrder
+        preferences.move(relisted[relisted.count - 1], by: 1, among: relisted)
+        #expect(preferences.cardOrder == order)
+    }
+
     @Test func orderAndVisibilityPersistAndRestoreKeepsMealPreference() {
         let defaults = testDefaults()
         let preferences = DevicePreferences(defaults: defaults)

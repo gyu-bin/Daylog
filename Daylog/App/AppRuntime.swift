@@ -199,15 +199,25 @@ extension AppRuntime: UNUserNotificationCenterDelegate {
         [.banner, .list, .sound]
     }
 
+    /// `async` 꼴로 받지 않는다: 그 꼴은 시스템의 완료 블록을 메인 스레드 밖에서 부르고,
+    /// 앱이 뒤에 있을 때 알림의 [완료]를 누르면 UIKit이 그 자리에서 앱을 끝낸다.
     nonisolated func userNotificationCenter(
-        _ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse
-    ) async {
+        _ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void
+    ) {
         let info = response.notification.request.content.userInfo
         let routineID = (info[RoutineNotificationAction.routineIDKey] as? String).flatMap(UUID.init(uuidString:))
         let dateKey = info[RoutineNotificationAction.dateKeyKey] as? String
-        let action = response.actionIdentifier
-        await MainActor.run {
-            handleNotification(action: action, routineID: routineID, dateKey: dateKey)
+        respond(action: response.actionIdentifier, routineID: routineID, dateKey: dateKey, completion: completionHandler)
+    }
+
+    /// 어느 스레드에서 불려도 처리와 완료 블록을 메인 스레드에서 한다.
+    nonisolated func respond(action: String, routineID: UUID?, dateKey: String?, completion: @escaping () -> Void) {
+        DispatchQueue.main.async {
+            MainActor.assumeIsolated {
+                self.handleNotification(action: action, routineID: routineID, dateKey: dateKey)
+            }
+            completion()
         }
     }
 }

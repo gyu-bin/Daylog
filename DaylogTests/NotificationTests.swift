@@ -410,6 +410,26 @@ struct NotificationActionTests {
         #expect(env.store.todaySections.flatMap(\.checks).allSatisfy { $0.isDone })
     }
 
+    /// 시스템은 알림 응답을 메인 스레드 밖에서도 넘긴다. 그래도 처리와 완료 블록은 메인 스레드에서 한다
+    /// (앱이 뒤에 있을 때 완료 블록을 다른 스레드에서 부르면 UIKit이 앱을 끝낸다).
+    @Test func respondingOffTheMainThreadFinishesOnTheMainThread() async throws {
+        let env = try CompanionEnv()
+        let routine = env.addRoutine("운동", time: "07:30")
+        let runtime = runtime(env)
+        let routineID = routine.id
+        let dateKey = monday.key
+
+        let finishedOnMain = await withCheckedContinuation { (continuation: CheckedContinuation<Bool, Never>) in
+            DispatchQueue.global().async {
+                runtime.respond(action: RoutineNotificationAction.complete, routineID: routineID, dateKey: dateKey) {
+                    continuation.resume(returning: Thread.isMainThread)
+                }
+            }
+        }
+        #expect(finishedOnMain)
+        #expect(env.store.todaySections.flatMap(\.checks).filter(\.isDone).map(\.title) == ["운동"])
+    }
+
     /// [나중에]는 아무것도 바꾸지 않는다.
     @Test func laterChangesNothing() throws {
         let env = try CompanionEnv()

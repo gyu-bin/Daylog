@@ -6,7 +6,10 @@ import SwiftData
 @MainActor
 @Observable
 final class AppStore {
-    var section: Section = .dashboard
+    var section: Section = .dashboard {
+        // 오늘 화면을 떠나면 그 화면에 남겨 둔 빠른 추가 요청도 버린다(나중에 돌아왔을 때 입력칸이 저절로 열리지 않게).
+        didSet { if section != .dashboard { pendingDashboardQuickAdd = false } }
+    }
     var errorMessage: String?
     // 통계 화면의 탭·필터·검색어. 다른 메뉴에 다녀와도 그대로 남는다.
     var mealPeriod: MealPeriod = .month
@@ -45,6 +48,11 @@ final class AppStore {
     private(set) var monthOutcomes: [Day: DayOutcome] = [:]
     /// 값이 바뀌면 빠른 추가 입력창이 포커스를 가져간다.
     private(set) var quickAddFocusToken = 0
+    /// 루틴 관리 화면에서 입력칸을 열 그룹. 오늘 화면에 그 그룹의 입력칸이 없을 때 넘긴다. 그룹 카드가 가져가면서 비운다.
+    var pendingQuickAddGroupID: UUID?
+    /// 다른 화면에서 빠른 추가로 오늘 화면에 왔을 때. 오늘 화면은 그때 새로 만들어져 `quickAddFocusToken`의
+    /// 변화를 보지 못하므로, 루틴 카드가 나타나면서 이 값을 보고 입력칸을 연다.
+    var pendingDashboardQuickAdd = false
     /// 설정의 [대시보드 구성 편집]이 켠다. 대시보드가 나타날 때 편집 모드로 들어가고 끈다.
     var wantsDashboardEditing = false
     /// 동기화 중 서로 다른 내용을 함께 보존한 내역. 최근 것이 앞.
@@ -236,12 +244,38 @@ final class AppStore {
     // MARK: - 루틴
 
     /// ⌘N. 루틴 관리 화면에서는 그 화면의 입력칸으로, 다른 화면에서는 오늘의 대시보드로 간다.
-    func requestQuickAddFocus() {
+    /// 오늘 화면에 그 그룹의 입력칸이 없으면(휴가인 날, 오늘 해당하는 항목이 없는 그룹, 루틴 카드를 숨긴 경우)
+    /// 눌러도 아무 일도 일어나지 않으므로, 입력칸이 늘 있는 루틴 관리 화면의 그 그룹으로 보낸다.
+    /// - Parameters:
+    ///   - dashboardShowsRoutines: 오늘 화면에 루틴 카드가 보이는지(이 기기의 카드 표시 설정).
+    ///   - isShowingSheet: 편집 시트가 떠 있는지. 떠 있으면 아무것도 하지 않는다(메뉴 명령은 시트 위에서도 눌린다).
+    func requestQuickAddFocus(dashboardShowsRoutines: Bool = true, isShowingSheet: Bool = false) {
+        guard !isShowingSheet else { return }
         if section != .routines {
-            section = .dashboard
             goToToday()
+            if let group = quickAddGroup, !(dashboardShowsRoutines && dashboardCanAdd(to: group)) {
+                pendingQuickAddGroupID = group.id
+                section = .routines
+            } else {
+                let comesFromAnotherScreen = section != .dashboard
+                section = .dashboard
+                pendingDashboardQuickAdd = comesFromAnotherScreen
+            }
         }
         quickAddFocusToken += 1
+    }
+
+    /// 메뉴 명령(⌘1…)으로 화면을 바꾼다. 편집 시트가 떠 있으면 바꾸지 않는다:
+    /// 시트를 띄운 화면이 사라지면 시트도 닫히고, 저장하지 않은 내용이 없어진다.
+    func go(to section: Section, isShowingSheet: Bool) {
+        guard !isShowingSheet else { return }
+        self.section = section
+    }
+
+    /// 오늘 화면의 루틴 카드에 그 그룹의 입력칸이 있는지. 오늘을 보고 있을 때의 값이다.
+    func dashboardCanAdd(to group: RoutineGroup) -> Bool {
+        guard !isVacation(on: today) else { return false }
+        return checkSections.contains { $0.group.id == group.id } || activeRoutines(inGroup: group.id).isEmpty
     }
 
     /// 루틴 변경의 공통 경로: 대기 중인 입력을 저장하고, 변경하고, 화면의 값을 다시 계산한다.

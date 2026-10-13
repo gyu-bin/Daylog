@@ -149,6 +149,17 @@ final class DevicePreferences {
         saveLayout()
     }
 
+    /// 목록에 보이는 카드끼리 한 칸 옮긴다. 이 기기에 내용이 없는 카드(다른 기기에서 지운 텍스트 카드 등)는
+    /// 순서에는 남아 있어도 목록에 없으므로, 그 카드와 자리를 바꾸면 눌러도 아무 일도 없는 것처럼 보인다.
+    func move(_ card: DashboardCard, by offset: Int, among listed: [DashboardCard]) {
+        guard let index = listed.firstIndex(of: card), listed.indices.contains(index + offset),
+              let from = cardOrder.firstIndex(of: card),
+              let to = cardOrder.firstIndex(of: listed[index + offset]) else { return }
+        cardOrder.swapAt(from, to)
+        markCustomized()
+        saveLayout()
+    }
+
     func setColumn(_ column: DashboardColumn, for card: DashboardCard) {
         guard !card.spansFullWidth else { return }
         if column == .left { leftCards.insert(card) } else { leftCards.remove(card) }

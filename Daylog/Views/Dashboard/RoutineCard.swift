@@ -95,6 +95,13 @@ struct RoutineCard: View {
         }
         .sheet(item: $editingVacation) { VacationEditorSheet(target: $0) }
         .onChange(of: store.quickAddFocusToken) {
+            store.pendingDashboardQuickAdd = false
+            focusQuickAdd()
+        }
+        .onAppear {
+            // 다른 화면에서 넘어온 빠른 추가: 이 카드가 뜨기 전에 요청이 왔으므로 뜨면서 받는다.
+            guard store.pendingDashboardQuickAdd else { return }
+            store.pendingDashboardQuickAdd = false
             focusQuickAdd()
         }
         .onChange(of: focus) { _, newValue in
