@@ -89,11 +89,11 @@ builds = [text(i, "version") for i in items]
 if len(set(builds)) != len(builds): problems.append("같은 빌드 번호가 두 번 들어 있습니다")
 if any(b.isdigit() and int(b) > int(build) for b in builds if b != build): problems.append("이보다 높은 빌드 번호가 이미 있습니다")
 # 지금 공개된 피드의 항목은 하나도 빠지거나 바뀌면 안 된다(과거 버전의 앱이 보는 항목이다).
+# 항목 전체를 비교한다: 태그, 속성, 글자, 자식의 순서까지. 줄바꿈·들여쓰기 같은 서식만 무시한다.
+# (URL·크기·서명만 보면 최소 macOS 버전이나 릴리스 노트가 바뀐 것을 놓친다.)
 if previous and os.path.getsize(previous) > 0:
-    def key(i):
-        e = i.find("enclosure")
-        return (text(i, "shortVersionString"), e.get("url") if e is not None else "", e.get("length") if e is not None else "",
-                (e.get(S + "edSignature") or "") if e is not None else "")
+    def key(node):
+        return (node.tag, tuple(sorted(node.attrib.items())), (node.text or "").strip(), tuple(key(child) for child in node))
     now = {text(i, "version"): key(i) for i in items}
     for old in ET.parse(previous).getroot().findall("./channel/item"):
         old_build = text(old, "version")

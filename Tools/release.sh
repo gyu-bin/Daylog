@@ -92,8 +92,10 @@ fetch_previous_appcast() {
     || { [[ -z "$(gh release list --limit 1 2>/dev/null)" ]] && gh release list --limit 1 >/dev/null 2>&1 \
          || fail "GitHub에서 최신 릴리스를 읽지 못했습니다. 네트워크와 gh 로그인을 확인하세요."; latest_assets=""; }
   if echo "$latest_assets" | grep -qx "appcast.xml"; then
-    gh release download --pattern appcast.xml --dir "$OUT/previous" >/dev/null 2>&1 || true
-    [[ -s "$OUT/previous/appcast.xml" ]] || fail "지금 공개된 appcast를 받지 못했습니다. 과거 항목 없이 만들지 않습니다. 다시 시도하세요."
+    # 명령이 실패했으면 파일이 남아 있더라도 믿지 않는다(받다 만 것일 수 있다).
+    gh release download --pattern appcast.xml --dir "$OUT/previous" >/dev/null 2>&1 \
+      || fail "지금 공개된 appcast를 받지 못했습니다. 과거 항목 없이 만들지 않습니다. 다시 시도하세요."
+    [[ -s "$OUT/previous/appcast.xml" ]] || fail "받은 appcast가 비어 있습니다. 다시 시도하세요."
     mv "$OUT/previous/appcast.xml" "$PREVIOUS_APPCAST"
     echo "· 지금 공개된 appcast를 이어 씁니다."
   else
@@ -279,7 +281,10 @@ if [[ $PUBLISH -eq 1 && $SPARKLE_ON -eq 1 ]]; then
   git branch -r --contains "$HEAD_SHA" 2>/dev/null | grep -q . || fail "이 커밋이 GitHub에 없습니다. 먼저 git push 하세요."
   gh release view "$TAG" >/dev/null 2>&1 && fail "$TAG 은 이미 게시됐습니다. 버전을 올리세요(Tools/bump-version.sh)."
   # 같은 이름의 태그가 이미 다른 커밋에 있으면 릴리스가 그 커밋을 가리키게 된다.
-  REMOTE_TAG=$(git ls-remote --tags origin "refs/tags/$TAG" 2>/dev/null | cut -f1)
+  # 설명이 붙은 태그는 태그 자체의 번호가 따로 있다. 그 태그가 가리키는 커밋("^{}")이 있으면 그것으로 비교한다.
+  REMOTE_TAGS=$(git ls-remote --tags origin "refs/tags/$TAG" "refs/tags/$TAG^{}" 2>/dev/null) || fail "GitHub의 태그를 읽지 못했습니다."
+  REMOTE_TAG=$(echo "$REMOTE_TAGS" | awk '$2 ~ /\^\{\}$/ {print $1}')
+  [[ -n "$REMOTE_TAG" ]] || REMOTE_TAG=$(echo "$REMOTE_TAGS" | awk 'NF {print $1; exit}')
   [[ -z "$REMOTE_TAG" || "$REMOTE_TAG" == "$HEAD_SHA" ]] || fail "$TAG 태그가 이미 다른 커밋(${REMOTE_TAG[1,7]})에 있습니다. 태그를 확인하세요."
   BODY=$(mktemp)
   {
