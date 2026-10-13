@@ -5,7 +5,9 @@ import Foundation
 enum TemplatePublishing {
     /// 게시 화면에서 고르는 그룹 하나.
     struct GroupSource: Identifiable, Equatable {
-        struct RoutineSource: Equatable {
+        struct RoutineSource: Identifiable, Equatable {
+            /// 화면에서 고르는 데만 쓴다. 공유 내용에는 들어가지 않는다.
+            var id = UUID()
             var title: String
             var weekdays: [Int]
             var timeLabel: String
@@ -25,8 +27,17 @@ enum TemplatePublishing {
         groups.filter { !$0.isArchived && !$0.isRemoved }.compactMap { group in
             let items = routines
                 .filter { $0.effectiveGroupID == group.id && !$0.isArchived && !$0.isRemoved }
-                .map { GroupSource.RoutineSource(title: $0.title, weekdays: $0.weekdays, timeLabel: $0.timeLabel, note: $0.note) }
+                .map { GroupSource.RoutineSource(id: $0.id, title: $0.title, weekdays: $0.weekdays, timeLabel: $0.timeLabel, note: $0.note) }
             return items.isEmpty ? nil : GroupSource(id: group.id, title: group.title, colorKey: group.colorKey, routines: items)
+        }
+    }
+
+    /// 고른 루틴만 남긴다. 루틴이 하나도 남지 않은 그룹은 뺀다.
+    static func selected(_ sources: [GroupSource], routineIDs: Set<UUID>) -> [GroupSource] {
+        sources.compactMap { source in
+            var copy = source
+            copy.routines = source.routines.filter { routineIDs.contains($0.id) }
+            return copy.routines.isEmpty ? nil : copy
         }
     }
 

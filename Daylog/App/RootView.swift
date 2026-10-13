@@ -9,6 +9,7 @@ import UIKit
 struct RootView: View {
     @Environment(AppStore.self) private var store
     @State private var preferences = DevicePreferences.shared
+    @State private var templateInbox = TemplateInbox.shared
     #if !os(macOS)
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @AppStorage(AppearanceMode.storageKey) private var appearance: AppearanceMode = .system
@@ -45,10 +46,55 @@ struct RootView: View {
                 Text(store.errorMessage ?? "")
             }
             // 날짜 변경·외부 변경·저장 시점은 창이 없어도 돌아야 해서 화면이 아니라 `AppRuntime`이 맡는다.
-            #if os(iOS)
-            // 위젯을 눌러 들어온 링크.
+            // 다른 앱(파일 앱, Finder, 메신저)이 넘겨준 템플릿 파일: 읽어서 미리보기를 띄운다. 추가는 사용자가 확인한 뒤에만 한다.
+            #if os(macOS)
+            // macOS의 시트는 이미 떠 있는 시트 뒤에 줄을 서므로, 창에 그대로 건다.
+            .sheet(item: $templateInbox.incoming) { template in
+                TemplateDetailSheet(template: template) {
+                    templateInbox.incoming = nil
+                    store.section = .routines
+                }
+                .environment(preferences)
+                .environment(CommunityStore.shared)
+            }
+            .alert("템플릿 파일을 열 수 없어요", isPresented: Binding(
+                get: { templateInbox.error != nil }, set: { if !$0 { templateInbox.error = nil } }
+            )) {
+                Button("확인", role: .cancel) {}
+            } message: {
+                Text(templateInbox.error ?? "")
+            }
             .onOpenURL { url in
-                AppRuntime.shared?.open(url)
+                if url.isFileURL { templateInbox.open(url) }
+            }
+            #endif
+            #if os(iOS)
+            // 템플릿 파일, 또는 위젯을 눌러 들어온 링크.
+            .onOpenURL { url in
+                if url.isFileURL { templateInbox.open(url) } else { AppRuntime.shared?.open(url) }
+            }
+            // iOS에서는 다른 시트가 떠 있으면 뿌리 화면의 시트가 뜨지 못한다. 그래서 맨 위에 떠 있는 화면 위에 직접 올린다.
+            .onChange(of: templateInbox.incoming) { _, template in
+                guard let template else { return }
+                templateInbox.incoming = nil
+                TopPresenter.present {
+                    TemplateDetailSheet(template: template) {
+                        TopPresenter.dismissAll()
+                        store.section = .routines
+                    }
+                    .environment(store)
+                    .environment(preferences)
+                    .environment(DashboardDecor.shared)
+                    .environment(CommunityStore.shared)
+                    .environment(\.mobileUI, uiConfig.settings)
+                    .tint(Theme.accent)
+                    .preferredColorScheme(appearance.colorScheme)
+                }
+            }
+            .onChange(of: templateInbox.error) { _, message in
+                guard let message else { return }
+                templateInbox.error = nil
+                TopPresenter.alert(title: "템플릿 파일을 열 수 없어요", message: message)
             }
             // 원격 UI 설정: 화면 값은 환경으로 내려보내고, 앱을 열거나 돌아올 때 받아 둔 설정을 적용한 뒤 새로 확인한다.
             .environment(\.mobileUI, uiConfig.settings)

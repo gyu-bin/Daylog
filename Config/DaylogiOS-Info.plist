@@ -17,5 +17,34 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
+    <!-- Daylog 루틴 템플릿 파일(.daylogtemplate, 내용은 JSON). 파일을 열면 Daylog가 미리보기를 띄운다. -->
+    <key>UTExportedTypeDeclarations</key>
+    <array>
+        <dict>
+            <key>UTTypeIdentifier</key><string>com.mungyubin.daylog.template</string>
+            <key>UTTypeDescription</key><string>Daylog 루틴 템플릿</string>
+            <key>UTTypeConformsTo</key>
+            <array><string>public.json</string></array>
+            <key>UTTypeTagSpecification</key>
+            <dict>
+                <key>public.filename-extension</key>
+                <array><string>daylogtemplate</string></array>
+                <key>public.mime-type</key>
+                <array><string>application/vnd.daylog.template+json</string></array>
+            </dict>
+        </dict>
+    </array>
+    <key>CFBundleDocumentTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeName</key><string>Daylog 루틴 템플릿</string>
+            <key>CFBundleTypeRole</key><string>Viewer</string>
+            <key>LSHandlerRank</key><string>Owner</string>
+            <key>LSItemContentTypes</key>
+            <array><string>com.mungyubin.daylog.template</string></array>
+        </dict>
+    </array>
+    <!-- 넘겨받은 파일은 앱의 Inbox에 사본으로 들어온다(원본을 제자리에서 열지 않는다). -->
+    <key>LSSupportsOpeningDocumentsInPlace</key><false/>
 </dict>
 </plist>

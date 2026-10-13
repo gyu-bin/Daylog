@@ -176,6 +176,17 @@ enum DebugScript {
                 DashboardDecor.shared.remove(id)
             }
             DashboardDecor.shared.removeHeaderImage()
+        case "exportTemplate":
+            // 첫 그룹의 루틴 전부로 템플릿 파일을 만들어 그 내용을 표준 출력에 적는다: exportTemplate:<제목>.
+            // 저장 창과 공유 시트는 배경에서 조작할 수 없어서, 만들어지는 파일의 내용을 이렇게 확인한다.
+            let sources = TemplatePublishing.sources(groups: store.groups, routines: store.routines)
+            let template = TemplateFile.make(
+                title: argument, summary: "검증용으로 만든 파일", category: .morning, tags: ["검증"],
+                groups: TemplatePublishing.groups(from: Array(sources.prefix(1)), includesNotes: false)
+            )
+            let json = (try? TemplateFile.encode(template)).map { String(decoding: $0, as: UTF8.self) } ?? "ENCODE_FAILED"
+            print("DAYLOG_TEMPLATE_BEGIN\n\(json)\nDAYLOG_TEMPLATE_END")
+            fflush(stdout)
         case "transfer":
             // 가져오기 시트를 열고 파일 미리보기를 만든다: transfer:<CSV·JSON 경로>. 파일 선택 창은 배경에서 조작할 수 없어서 둔다.
             pendingTransferFile = URL(fileURLWithPath: argument)

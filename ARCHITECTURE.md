@@ -982,3 +982,19 @@ iPhone의 시트는 내용 높이만큼만 올라오고 iPad는 폼 시트를 �
 - **탐색 연결**: `TemplateLibraryView`가 공식 템플릿 뒤에 공개 템플릿(`CommunityStore.catalogTemplates`)을 이어 같은 검색·분류·미리보기·가져오기를 쓴다. 공개 템플릿의 ID는 `community.<UUID>`다.
 - **서버 쪽**: `supabase/migrations/`의 SQL(표 4개, 행 수준 보안, 열 권한, 내용 검사, 신고 집계, 관리자 함수)과 `supabase/tests/community_rls_test.sql`. 둘 다 아직 실행하지 못했다.
 - Debug 실행 인자 `-DaylogDebugCommunity mock|mock-signed-in|mock-offline`: 메모리 안의 시험용 서버로 화면을 본다.
+
+## 템플릿 파일 공유 (Phase 5-D, 2026-10-13)
+
+사용자끼리 루틴 템플릿을 주고받는 방식은 **파일**로 정했다. 서버·로그인이 없다. Phase 5-D1의 Supabase 코드는 그대로 두되 꺼져 있다(설정이 없으면 화면에 나오지 않는다).
+
+- **파일**(`Services/TemplateFile.swift`): 확장자 `.daylogtemplate`, 내용은 JSON. 공식 템플릿 목록과 같은 문서(`{"format": "daylog.templates", "version": 1, "templates": [하나]}`)다.
+  유형은 앱이 내보내는 `com.mungyubin.daylog.template`(`public.json`을 따름)이고 두 Info.plist에 선언돼 있다. 그래서 Finder·파일 앱·메신저에서 Daylog로 열 수 있다.
+- **만들기**: `TemplatePublishing`이 고른 루틴에서 그룹 이름·색과 루틴의 이름·요일·시각(켜면 메모)만 꺼내고, `TemplateFile.make`가 임의의 새 ID(`file.<UUID>`)를 붙인다.
+  내 그룹·루틴의 ID, 체크·식사·휴가 같은 기록은 모델에 칸이 없어 실리지 않는다. 파일을 만드는 일은 저장소를 읽기만 한다.
+- **보내기**: `TemplateShareSheet`의 [파일로 공유]는 `ShareLink`(시스템 공유: AirDrop·메시지·메신저 등), [파일로 저장]은 `fileExporter`다. 특정 메신저의 SDK는 쓰지 않는다.
+- **받기**: 템플릿 화면의 [파일에서 가져오기](`fileImporter`, `.daylogtemplate`와 `.json`)와, 다른 앱이 Daylog로 넘겨준 파일(`TemplateInbox`).
+  `TemplateFile.decode`가 크기(256KB) → JSON → 형식 이름 → 버전 → 템플릿 개수(하나) → 내용 검사(`RoutineTemplate.validationError`)를 차례로 보고, 어긋나면 까닭과 함께 거절한다.
+  받은 파일은 출처를 `file`로 고정하고 그림 이름을 지운다(받은 파일이 공식 템플릿이나 앱의 그림을 자처하지 못한다).
+- **가져오기**: 공식 템플릿과 같은 `TemplateDetailSheet` → `RoutineTransferService`(겹치는 줄은 건너뛰고 기존 루틴은 고치지 않는다, 오늘부터 적용, 실패하면 아무것도 남지 않는다).
+- **넘겨받은 파일의 표시**: macOS는 창의 시트로 띄운다(이미 떠 있는 시트 뒤에 줄을 선다). iPhone·iPad는 다른 시트가 떠 있으면 뿌리 화면의 시트가 뜨지 못해서,
+  `TopPresenter`가 지금 맨 위에 떠 있는 화면 위에 직접 올린다. iOS가 앱의 Inbox에 넣어 준 사본은 읽은 뒤 지운다.

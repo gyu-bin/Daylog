@@ -47,6 +47,12 @@ struct TemplateDetailSheet: View {
                 }
 
                 if let shared = community.communityTemplate(for: template) { authorRow(shared) }
+                if template.source == .file {
+                    Label("받은 파일이에요. 아래 루틴을 확인한 뒤 추가하세요. 추가하기 전에는 아무것도 바뀌지 않아요.", systemImage: "doc")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
 
                 if let result {
                     resultBox(result)

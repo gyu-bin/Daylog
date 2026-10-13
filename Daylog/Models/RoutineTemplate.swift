@@ -1,9 +1,16 @@
 import Foundation
 
-/// 템플릿의 출처. 지금은 앱에 든 공식 템플릿뿐이고, 사용자가 올린 템플릿(Phase 5-D)이 같은 모델을 쓴다.
+/// 템플릿의 출처: 앱에 든 공식 템플릿, 다른 사람에게 받은 파일, (보류 중인) 서버의 공개 템플릿.
 enum TemplateSource: String, Codable, Sendable {
     case official
     case community
+    /// 파일로 주고받은 템플릿(Phase 5-D).
+    case file
+
+    /// 모르는 출처는 받은 파일로 본다(나중 버전의 파일도 읽을 수 있게).
+    init(from decoder: Decoder) throws {
+        self = TemplateSource(rawValue: try decoder.singleValueContainer().decode(String.self)) ?? .file
+    }
 }
 
 enum TemplateCategory: String, Codable, CaseIterable, Identifiable, Sendable {

@@ -125,6 +125,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         _ = try? event.sendEvent(options: [.noReply], timeout: 1)
     }
 
+    /// Finder나 다른 앱에서 템플릿 파일을 Daylog로 열었을 때. 미리보기만 띄우고, 추가는 사용자가 확인한 뒤에 한다.
+    func application(_ application: NSApplication, open urls: [URL]) {
+        guard let url = urls.first(where: \.isFileURL) else { return }
+        Task { @MainActor in TemplateInbox.shared.open(url) }
+    }
+
     /// 메뉴 막대를 쓰는 동안에는 창을 닫아도 앱이 남는다(메뉴 막대에서 계속 체크할 수 있게).
     /// 메뉴 막대를 껐으면 예전처럼 창을 닫을 때 끝난다.
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {

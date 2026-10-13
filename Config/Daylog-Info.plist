@@ -13,5 +13,32 @@
     <key>SUEnableAutomaticChecks</key><true/>
     <key>SUScheduledCheckInterval</key><integer>86400</integer>
     <key>SUAutomaticallyUpdate</key><false/>
+    <!-- Daylog 루틴 템플릿 파일(.daylogtemplate, 내용은 JSON). 파일을 열면 Daylog가 미리보기를 띄운다. -->
+    <key>UTExportedTypeDeclarations</key>
+    <array>
+        <dict>
+            <key>UTTypeIdentifier</key><string>com.mungyubin.daylog.template</string>
+            <key>UTTypeDescription</key><string>Daylog 루틴 템플릿</string>
+            <key>UTTypeConformsTo</key>
+            <array><string>public.json</string></array>
+            <key>UTTypeTagSpecification</key>
+            <dict>
+                <key>public.filename-extension</key>
+                <array><string>daylogtemplate</string></array>
+                <key>public.mime-type</key>
+                <array><string>application/vnd.daylog.template+json</string></array>
+            </dict>
+        </dict>
+    </array>
+    <key>CFBundleDocumentTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeName</key><string>Daylog 루틴 템플릿</string>
+            <key>CFBundleTypeRole</key><string>Viewer</string>
+            <key>LSHandlerRank</key><string>Owner</string>
+            <key>LSItemContentTypes</key>
+            <array><string>com.mungyubin.daylog.template</string></array>
+        </dict>
+    </array>
 </dict>
 </plist>

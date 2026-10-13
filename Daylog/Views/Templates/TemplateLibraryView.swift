@@ -16,6 +16,11 @@ struct TemplateLibraryView: View {
     @State private var selected: RoutineTemplate?
     @State private var publishes = false
     @State private var managesMine = false
+    @State private var shares = false
+    @State private var importsFile = false
+    /// 파일에서 읽은 템플릿(미리보기로 띄운다)과 읽지 못한 까닭.
+    @State private var fileTemplate: RoutineTemplate?
+    @State private var fileError: String?
 
     /// 공식 템플릿 뒤에 공개 템플릿을 잇는다. 공개 템플릿을 받지 못해도 공식 템플릿은 그대로 나온다.
     private var catalog: TemplateCatalog {
@@ -42,6 +47,7 @@ struct TemplateLibraryView: View {
                             .fixedSize()
                     }
                 }
+                fileBar
                 if community.isAvailable { communityBar }
                 searchField
                 categoryBar
@@ -75,6 +81,26 @@ struct TemplateLibraryView: View {
         .scrollDismissesKeyboard(.interactively)
         .background(Theme.windowBackground)
         .task { await community.refreshIfNeeded() }
+        .sheet(isPresented: $shares) { TemplateShareSheet() }
+        .sheet(item: $fileTemplate) { template in
+            TemplateDetailSheet(template: template) {
+                fileTemplate = nil
+                if let onClose { onClose() } else { store.section = .routines }
+            }
+        }
+        .fileImporter(isPresented: $importsFile, allowedContentTypes: [.daylogTemplate, .json]) { result in
+            do {
+                fileTemplate = try TemplateFile.read(try result.get())
+                fileError = nil
+            } catch {
+                fileError = error.localizedDescription
+            }
+        }
+        .alert("템플릿 파일을 열 수 없어요", isPresented: Binding(get: { fileError != nil }, set: { if !$0 { fileError = nil } })) {
+            Button("확인", role: .cancel) {}
+        } message: {
+            Text(fileError ?? "")
+        }
         .sheet(isPresented: $publishes) { TemplatePublishSheet(editing: nil) }
         .sheet(isPresented: $managesMine) { MyTemplatesSheet() }
         .sheet(item: $selected) { template in
@@ -83,6 +109,29 @@ struct TemplateLibraryView: View {
                 selected = nil
                 if let onClose { onClose() } else { store.section = .routines }
             }
+        }
+    }
+
+    /// 파일로 주고받기: 내 루틴을 템플릿 파일로 만들어 보내고, 받은 파일을 연다. 서버나 로그인이 필요 없다.
+    private var fileBar: some View {
+        FlowLayout(spacing: 8) {
+            Button {
+                shares = true
+            } label: {
+                Label("내 루틴 공유하기", systemImage: "square.and.arrow.up")
+                    .font(.callout.weight(.semibold))
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(Theme.accent)
+            .accessibilityHint("고른 루틴을 템플릿 파일로 만들어 공유합니다.")
+            Button {
+                importsFile = true
+            } label: {
+                Label("파일에서 가져오기", systemImage: "square.and.arrow.down")
+                    .font(.callout.weight(.semibold))
+            }
+            .buttonStyle(.bordered)
+            .accessibilityHint("받은 템플릿 파일을 열어 미리 봅니다.")
         }
     }
 
@@ -220,9 +269,13 @@ struct TemplateCard: View {
     let template: RoutineTemplate
     let action: () -> Void
 
-    /// "공식" 또는 게시자 이름.
+    /// "공식", "받은 파일" 또는 게시자 이름.
     static func sourceLabel(_ template: RoutineTemplate) -> String {
-        template.source == .official ? "공식" : (template.author ?? "익명")
+        switch template.source {
+        case .official: return "공식"
+        case .file: return "받은 파일"
+        case .community: return template.author ?? "익명"
+        }
     }
 
     var body: some View {
