@@ -148,7 +148,7 @@ struct RoutineActionButtons: View {
                 help: isDone ? "완료 취소" : "완료", action: toggleDone
             )
             segment(
-                symbol: Self.skipSymbol, isOn: isShowingSkip, fill: Self.skipFill, ink: Theme.onAccent,
+                symbol: Self.skipSymbol, isOn: isShowingSkip, fill: Self.skipFill, ink: Self.skipInk,
                 label: "\(title) 건너뛰기", hint: isShowingSkip ? "누르면 건너뛰기를 취소합니다." : "누르면 건너뜀으로 기록합니다.",
                 help: skipTitle, action: toggleSkipped
             )
@@ -189,8 +189,10 @@ struct RoutineActionButtons: View {
 
     /// "»". 건너뛴 상태를 나타내는 표시(회색 "—", `SkipStyle.symbol`)와 달리, 누르는 단추에는 "넘기기" 기호를 쓴다.
     static let skipSymbol = "chevron.right.2"
-    /// 건너뛰기가 켜졌을 때의 진한 회색. 밝은 화면과 어두운 화면에서 각각 바탕과 구분되게 고른다.
-    static let skipFill = Color.adaptive(name: "DaylogSkipFill", light: (0.45, 0.48, 0.54), dark: (0.66, 0.68, 0.73))
+    /// 건너뛰기가 켜졌을 때의 밝은 노랑(`SkipStyle.color`). 회색은 꺼진 단추와 잘 구분되지 않았다.
+    /// 노랑 위의 흰 기호는 읽기 어려워서 기호는 짙은 갈색으로 한다.
+    static let skipFill = SkipStyle.color
+    static let skipInk = Color.adaptive(name: "DaylogSkipButtonInk", light: (0.36, 0.25, 0.02), dark: (0.24, 0.17, 0.0))
     static let maxScale: CGFloat = 1.2
     static let radius: CGFloat = 7
     #if os(macOS)
