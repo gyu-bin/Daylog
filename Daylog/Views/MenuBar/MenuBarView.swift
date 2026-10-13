@@ -146,30 +146,32 @@ struct MenuBarView: View {
             .accessibilityLabel("\(section.group.title) 그룹, \(section.total)개 중 \(section.done)개 완료")
             .accessibilityAddTraits(.isHeader)
 
+            // 오늘 화면의 줄과 같은 [✓ | »] 단추. 메뉴 막대에서도 건너뛰기를 바로 누를 수 있다(오른쪽 클릭 메뉴도 그대로 둔다).
             ForEach(section.checks) { check in
-                Toggle(isOn: Binding(
-                    get: { check.isDone },
-                    set: { store.setDone(routineID: check.id, on: store.today, $0) }
-                )) {
-                    HStack(spacing: 8) {
-                        Text(check.title)
-                            .lineLimit(1)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        if check.isSkipped {
-                            Text(SkipStyle.label)
-                                .font(.caption2.weight(.medium))
-                                .foregroundStyle(SkipStyle.ink)
-                        }
-                        if !check.timeLabel.isEmpty {
-                            Text(check.timeLabel)
-                                .font(.caption)
-                                .monospacedDigit()
-                                .foregroundStyle(.secondary)
-                        }
+                HStack(spacing: 8) {
+                    Text(check.title)
+                        .lineLimit(1)
+                        .foregroundStyle(check.isSkipped && !check.isDone ? AnyShapeStyle(.secondary) : AnyShapeStyle(.primary))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    if !check.timeLabel.isEmpty {
+                        Text(check.timeLabel)
+                            .font(.caption)
+                            .monospacedDigit()
+                            .foregroundStyle(.secondary)
                     }
+                    RoutineActionButtons(
+                        title: check.title, isDone: check.isDone, isSkipped: check.isSkipped,
+                        skipTitle: CheckSkipActions.title(isSkipped: check.isSkipped, isToday: true),
+                        toggleDone: {
+                            RoutineActionButtons.toggleDone(check) { store.setDone(routineID: check.id, on: store.today, $0) }
+                        },
+                        toggleSkipped: {
+                            RoutineActionButtons.toggleSkipped(check) { store.setSkipped(routineID: check.id, on: store.today, $0) }
+                        }
+                    )
                 }
-                .toggleStyle(RoutineCheckStyle(tint: color.color, routineTitle: check.title, isSkipped: check.isSkipped))
-                .padding(.horizontal, 8)
+                .padding(.leading, 8)
+                .padding(.trailing, 4)
                 .frame(height: Self.rowHeight)
                 .contentShape(Rectangle())
                 .contextMenu {
