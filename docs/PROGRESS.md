@@ -1050,6 +1050,26 @@ SwiftData 스키마·CloudKit 구조·내보내기 파일 형식 변경 없음. 
 - 메뉴 막대 목록의 화면은 조작으로 확인하지 못했다(실제 앱과 검증 앱의 아이콘이 구분되지 않음). 사용자 확인 필요.
 - 1.5.5 산출물은 `build/release-1.5.5`. 다음 번호: Mac 1.5.7 (7), iOS 빌드 10.
 
+## App Store 출시 준비 (2026-10-13)
+
+iPhone·iPad App Store 제출 자료를 만들고 App Store Connect에 올렸다. **심사 제출은 하지 않았다.** 스키마·CloudKit 구조 변경 없음, 실제 앱·실제 기록은 건드리지 않았다.
+
+- **스크린샷**: iPhone 6장, iPad 5장. 시험 데이터만 넣은 시뮬레이터(Daylog Store iPhone 17 Pro Max, Daylog Store iPad Pro 13)의 실제 캡처 위에
+  `AppStore/tools/compose.swift`로 배경·문구·기기 테두리를 얹었다. 결과는 `AppStore/screenshots/{iphone-6.9,iphone-6.3,ipad-13}`, 원본은 `AppStore/raw/`
+  (둘 다 용량 때문에 저장소에는 넣지 않는다). 크기는 Apple 문서 기준 1320×2868, 1206×2622, 2064×2752, 알파 없음. 전부 실제 크기로 열어 확인했다.
+- **등록 문구**: `AppStore/metadata/ko.md`(이름·부제·홍보 문구·설명·키워드·카테고리·심사 메모·URL·등록 상태). 처리방침 초안은 `docs/PRIVACY.md`.
+- **고친 것**: iPhone 통계 탭의 식사 요약이 "0일"로 나오던 문제(`c3f85c0`), 설정 → 정보의 개인정보 처리방침 링크(`995df49`),
+  iOS에서 `DaylogReuploadAll`을 읽지 않게 함. iOS 빌드 번호 10.
+- **Release 빌드**: `995df49`로 아카이브·App Store용 내보내기 성공. IPA 확인: 1.0.0 (10), iPhone·iPad, production 알림, iCloud Production,
+  get-task-allow 없음, 서명 검증, 개인정보 매니페스트 포함. **TestFlight·App Store Connect에는 올리지 않았다**(`build/testflight/ipa-995df49`).
+- **Codex 검토 1회**(gpt-6-astra, medium, 읽기 전용): 판정 NOT READY. 차단 1건(앱 안에 처리방침 링크 없음)은 고쳤고,
+  높음 1건(처리방침이 초안)은 사용자 승인 대기. 낮음 항목은 반영. 고친 뒤 다시 검토받지 않았다.
+- **App Store Connect**: 스크린샷 11장, 홍보 문구·설명·키워드·지원 URL·부제·카테고리·심사 메모 저장, 로그인 필요 해제, 수동 출시 선택.
+  설명의 ✓ 기호는 "유효하지 않은 문자"로 거절돼 뺐다. 남은 것(처리방침 URL, 개인정보 답변, 연령 등급, 저작권, 연락처, 가격·국가, 빌드 선택)은 `ko.md`의 표에 있다.
+- **앱 미리보기 영상**: 만들지 않았다. 시뮬레이터 조작이 도구로 한 번씩 누르는 방식이라 장면이 끊겨 찍히고, 15~30초 규격 편집과 자막 합성까지 이번 범위에서 하면
+  스크린샷보다 품질이 낮아진다. 명세대로 스크린샷을 먼저 끝내고 생략했다.
+- 다음 번호: Mac 1.5.7 (7), iOS는 빌드 10을 그대로 올리면 된다(아직 안 올림).
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
