@@ -281,6 +281,63 @@ struct TemplateFileTests {
         #expect(inbox.incoming != nil)
     }
 
+    /// 지울지는 그 항목이 놓인 폴더로 정한다. 사본 폴더 밖에 있는 바로가기는 사본을 가리키더라도 지우지 않는다.
+    @Test func linksAreJudgedByWhereTheyLiveNotWhereTheyPoint() throws {
+        let root = FileManager.default.temporaryDirectory.appendingPathComponent("daylog-tests-\(UUID().uuidString)", isDirectory: true)
+        defer { try? FileManager.default.removeItem(at: root) }
+        let appInbox = root.appendingPathComponent("App/Documents/Inbox", isDirectory: true)
+        let userFolder = root.appendingPathComponent("User", isDirectory: true)
+        for folder in [appInbox, userFolder] { try FileManager.default.createDirectory(at: folder, withIntermediateDirectories: true) }
+        let copy = appInbox.appendingPathComponent("받은 파일.daylogtemplate")
+        let mine = userFolder.appendingPathComponent("내 파일.daylogtemplate")
+        try TemplateFile.encode(sample()).write(to: copy)
+        try TemplateFile.encode(sample()).write(to: mine)
+        let outsideLink = userFolder.appendingPathComponent("바로가기.daylogtemplate")
+        let insideLink = appInbox.appendingPathComponent("밖을 가리킴.daylogtemplate")
+        try FileManager.default.createSymbolicLink(at: outsideLink, withDestinationURL: copy)
+        try FileManager.default.createSymbolicLink(at: insideLink, withDestinationURL: mine)
+        func exists(_ url: URL) -> Bool { (try? FileManager.default.attributesOfItem(atPath: url.path)) != nil }
+
+        // 밖에 있는 바로가기: 읽기만 하고, 바로가기도 그것이 가리키는 사본도 그대로 둔다.
+        let inbox = TemplateInbox(inboxDirectory: appInbox)
+        inbox.open(outsideLink)
+        #expect(inbox.incoming != nil)
+        #expect(exists(outsideLink) && exists(copy))
+
+        // 사본 폴더 안의 바로가기: 바로가기만 지우고, 그것이 가리키는 사용자의 파일은 남긴다.
+        inbox.open(insideLink)
+        #expect(inbox.incoming != nil)
+        #expect(!exists(insideLink) && exists(mine))
+    }
+
+    /// 같은 이름의 다른 파일이 곧바로 들어오면 새 파일로 다룬다(앞의 사본은 이미 지워졌다).
+    @Test func aDifferentFileAtTheSamePathRightAfterIsANewFile() throws {
+        let appInbox = FileManager.default.temporaryDirectory.appendingPathComponent("daylog-tests-\(UUID().uuidString)/Inbox", isDirectory: true)
+        try FileManager.default.createDirectory(at: appInbox, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: appInbox.deletingLastPathComponent()) }
+        let url = appInbox.appendingPathComponent("템플릿.daylogtemplate")
+        let inbox = TemplateInbox(inboxDirectory: appInbox)
+        let start = Date()
+
+        try TemplateFile.encode(sample()).write(to: url)
+        inbox.open(url, now: start)
+        #expect(inbox.incoming?.title == "아침 시작")
+        #expect(!FileManager.default.fileExists(atPath: url.path), "읽은 사본은 지운다.")
+
+        // 같은 알림이 한 번 더 온다(파일은 이미 없다): 오류를 띄우지 않고 넘어간다.
+        inbox.incoming = nil
+        inbox.open(url, now: start.addingTimeInterval(0.2))
+        #expect(inbox.incoming == nil && inbox.error == nil)
+
+        // 같은 이름으로 다른 파일이 바로 들어온다: 새 파일로 미리보기에 올리고, 그 사본도 지운다.
+        var other = sample()
+        other.title = "저녁 마무리"
+        try TemplateFile.encode(other).write(to: url)
+        inbox.open(url, now: start.addingTimeInterval(0.6))
+        #expect(inbox.incoming?.title == "저녁 마무리")
+        #expect(!FileManager.default.fileExists(atPath: url.path))
+    }
+
     /// 공유 기능이 더해져도 공식 템플릿과 꺼 둔 서버 기능은 그대로다.
     @Test func officialTemplatesStayAndTheCommunityServerStaysOff() {
         #expect(TemplateCatalog.official.templates.count == 11)

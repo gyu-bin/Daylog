@@ -150,7 +150,8 @@ final class TemplateInbox {
     /// macOS에는 그런 사본이 없다: 사용자의 파일을 그 자리에서 읽으므로 아무것도 지우지 않는다.
     @ObservationIgnored private let inboxDirectory: URL?
     /// 같은 파일이 두 경로(앱 델리게이트와 화면)로 연달아 들어오는 것을 한 번으로 본다.
-    @ObservationIgnored private var lastOpened: (path: String, at: Date)?
+    /// 경로만 보지 않고 그때의 파일(번호·크기·고친 시각)도 함께 기억한다: 같은 이름의 다른 파일이 곧바로 들어오면 새 파일로 다룬다.
+    @ObservationIgnored private var lastOpened: (path: String, identity: String?, at: Date)?
 
     init(inboxDirectory: URL? = TemplateInbox.systemInbox) {
         self.inboxDirectory = inboxDirectory
@@ -167,8 +168,13 @@ final class TemplateInbox {
     /// 파일을 읽어 미리보기에 올린다. 저장소는 건드리지 않는다(추가는 사용자가 미리보기에서 확인한 뒤에만).
     func open(_ url: URL, now: Date = .now) {
         let path = url.standardizedFileURL.path
-        if let lastOpened, lastOpened.path == path, now.timeIntervalSince(lastOpened.at) < 2 { return }
-        lastOpened = (path, now)
+        let identity = Self.fileIdentity(path)
+        if let lastOpened, lastOpened.path == path, now.timeIntervalSince(lastOpened.at) < 2,
+           // 파일이 이미 없으면(읽고 지운 Inbox 사본을 다시 알려 온 것) 같은 알림이고, 있으면 같은 파일일 때만 같은 알림이다.
+           identity == nil || identity == lastOpened.identity {
+            return
+        }
+        lastOpened = (path, identity, now)
         do {
             incoming = try TemplateFile.read(url)
             error = nil
@@ -183,8 +189,19 @@ final class TemplateInbox {
     private func removeInboxCopy(_ url: URL) {
         guard let inboxDirectory else { return }
         let inbox = inboxDirectory.standardizedFileURL.resolvingSymlinksInPath().path
-        let parent = url.standardizedFileURL.resolvingSymlinksInPath().deletingLastPathComponent().path
+        // 지울 항목이 놓인 폴더를 본다(마지막 이름은 풀지 않는다). 풀어 버리면 Inbox 밖에 있는 바로가기가
+        // Inbox 안의 파일을 가리킬 때 "Inbox 안"으로 보여, 밖에 있는 그 바로가기를 지우게 된다.
+        let parent = url.standardizedFileURL.deletingLastPathComponent().resolvingSymlinksInPath().path
         guard parent == inbox else { return }
         try? FileManager.default.removeItem(at: url)
+    }
+
+    /// 지금 그 경로에 있는 파일을 가려내는 값. 파일이 없거나 읽을 수 없으면 nil.
+    private static func fileIdentity(_ path: String) -> String? {
+        guard let attributes = try? FileManager.default.attributesOfItem(atPath: path) else { return nil }
+        let number = (attributes[.systemFileNumber] as? NSNumber)?.stringValue ?? "-"
+        let size = (attributes[.size] as? NSNumber)?.stringValue ?? "-"
+        let modified = (attributes[.modificationDate] as? Date).map { String($0.timeIntervalSinceReferenceDate) } ?? "-"
+        return "\(number)/\(size)/\(modified)"
     }
 }
