@@ -65,6 +65,17 @@ enum Platform {
             .contains { $0.rootViewController?.presentedViewController != nil }
     }
 
+    /// 창이 둘 이상 열려 있을 때, 시트가 떠 있는 창의 수(창이 하나면 0).
+    /// 어느 창이 "지금 쓰는 창"인지는 알 수 없다: 뒤로 간 창도 `isKeyWindow`가 참이다(iPadOS 27 시뮬레이터에서 확인).
+    @MainActor
+    static var sheetWindowsAmongSeveral: Int {
+        let scenes = UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .filter { $0.windows.contains { $0.rootViewController != nil } }
+        guard scenes.count > 1 else { return 0 }
+        return scenes.filter { $0.windows.contains { $0.rootViewController?.presentedViewController != nil } }.count
+    }
+
     /// 설정 앱에서 Daylog의 알림 화면을 연다.
     @MainActor
     static func openNotificationSettings() {

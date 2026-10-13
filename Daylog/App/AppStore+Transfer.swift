@@ -44,7 +44,7 @@ enum DataTransferExportKind: String, CaseIterable, Identifiable {
         case .template: return "CSV 가져오기 양식"
         case .csv: return "활성 루틴 CSV"
         case .routines: return "활성 루틴 JSON"
-        case .backup: return "전체 기록 JSON"
+        case .backup: return "전체 기록 보관용 내보내기"
         }
     }
     var isJSON: Bool { self == .routines || self == .backup }

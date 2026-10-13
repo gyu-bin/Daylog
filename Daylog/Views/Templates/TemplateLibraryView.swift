@@ -85,7 +85,7 @@ struct TemplateLibraryView: View {
         .sheet(item: $fileTemplate) { template in
             TemplateDetailSheet(template: template) {
                 fileTemplate = nil
-                if let onClose { onClose() } else { store.section = .routines }
+                if let onClose { onClose() } else { store.leaveSheet(to: .routines) }
             }
         }
         .fileImporter(isPresented: $importsFile, allowedContentTypes: [.daylogTemplate, .json]) { result in
@@ -107,7 +107,7 @@ struct TemplateLibraryView: View {
             TemplateDetailSheet(template: template) {
                 // 가져온 루틴을 보러 간다: 시트로 떠 있었으면 닫고(루틴 탭 위에 떠 있다), 메뉴였으면 루틴 메뉴로.
                 selected = nil
-                if let onClose { onClose() } else { store.section = .routines }
+                if let onClose { onClose() } else { store.leaveSheet(to: .routines) }
             }
         }
     }

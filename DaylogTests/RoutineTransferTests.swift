@@ -35,7 +35,7 @@ struct RoutineTransferTests {
             _ = try RoutineTransferFormat.decode(Data(backup.utf8), isJSON: true)
             Issue.record("전체 기록 JSON이 거부되지 않았다")
         } catch {
-            #expect(error.localizedDescription.contains("전체 백업 JSON은 복원할 수 없어요"))
+            #expect(error.localizedDescription.contains("전체 기록 보관용 파일은 현재 버전에서 복원할 수 없어요"))
         }
         // 형식이 맞는데 자료형이 틀린 루틴 JSON은 전처럼 자료형을 확인하라고 한다.
         let wrongType = "{\"format\":\"daylog.routines\",\"version\":1,\"routines\":\"x\"}"

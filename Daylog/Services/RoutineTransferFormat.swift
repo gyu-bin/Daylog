@@ -40,8 +40,8 @@ enum RoutineTransferFormat {
         guard data.count <= maximumBytes else { throw RoutineTransferError.invalid("파일은 5MB 이하만 가져올 수 있어요.") }
         let rows: [TransferRoutine]
         if isJSON {
-            let unsupported = RoutineTransferError.invalid("지원하지 않는 JSON 형식 또는 버전이에요. 전체 백업 JSON은 복원할 수 없어요.")
-            // 형식부터 본다: 전체 기록 JSON에는 `routines`가 없어서, 통째로 풀면 자료형 오류로만 보인다.
+            let unsupported = RoutineTransferError.invalid("지원하지 않는 JSON 형식 또는 버전이에요. 전체 기록 보관용 파일은 현재 버전에서 복원할 수 없어요.")
+            // 형식부터 본다: 전체 기록 보관용 파일에는 `routines`가 없어서, 통째로 풀면 자료형 오류로만 보인다.
             if let header = try? JSONDecoder().decode(Header.self, from: data),
                let format = header.format, format != "daylog.routines" {
                 throw unsupported

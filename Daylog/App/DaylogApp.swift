@@ -200,6 +200,10 @@ enum AppLaunch {
                 clock: RuntimeEnvironment.clock
             )
             store.tracksDevice = !RuntimeEnvironment.isRunningTests
+            #if os(iOS)
+            // iPad는 창을 여러 개 열 수 있고 모든 창이 같은 화면 선택을 따른다. 어느 창에서 편집 중이면 화면을 바꾸지 않게 한다.
+            store.sheetWindowsAmongSeveral = { Platform.sheetWindowsAmongSeveral }
+            #endif
             store.start()
             let sync = CloudSyncMonitor(containerIdentifier: cloudContainerID, environment: RuntimeEnvironment.cloudKitEnvironment)
             sync.start()

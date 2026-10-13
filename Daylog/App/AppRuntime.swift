@@ -17,7 +17,7 @@ final class AppRuntime: NSObject {
     private let bridge: WidgetBridge?
     private var cancellables = Set<AnyCancellable>()
     private var refreshTask: Task<Void, Never>?
-    private var isRefreshing = false
+    private var refreshWorker: Task<Void, Never>?
     private var needsRefresh = false
 
     init(
@@ -97,17 +97,27 @@ final class AppRuntime: NSObject {
         }
     }
 
+    /// 위젯 데이터와 알림 예약을 지금 상태에 맞춘다. 돌아왔을 때는 부른 시점의 변경까지 반영돼 있다:
+    /// 이미 도는 갱신이 있으면 한 바퀴 더 돌게 하고, 그 갱신이 끝날 때까지 함께 기다린다
+    /// (알림의 [완료]처럼 "맞춘 뒤에 끝났다고 알려야 하는" 쪽이 먼저 돌아가 버리지 않게).
     func refreshNow() async {
         needsRefresh = true
-        guard !isRefreshing else { return }
-        isRefreshing = true
-        defer { isRefreshing = false }
-        repeat {
-            needsRefresh = false
-            let days = store.upcomingDays(count: RoutineNotificationPlanner.horizonDays)
-            store.perform { try publishWidgetSnapshot(days) }
-            await notifications.reschedule(days: days)
-        } while needsRefresh
+        if let refreshWorker {
+            await refreshWorker.value
+            return
+        }
+        let worker = Task { @MainActor [weak self] in
+            guard let self else { return }
+            repeat {
+                needsRefresh = false
+                let days = store.upcomingDays(count: RoutineNotificationPlanner.horizonDays)
+                store.perform { try self.publishWidgetSnapshot(days) }
+                await notifications.reschedule(days: days)
+            } while needsRefresh
+            refreshWorker = nil
+        }
+        refreshWorker = worker
+        await worker.value
     }
 
     private func publishWidgetSnapshot(_ days: [PlannedDay]) throws {
@@ -212,11 +222,13 @@ extension AppRuntime: UNUserNotificationCenterDelegate {
     }
 
     /// 어느 스레드에서 불려도 처리와 완료 블록을 메인 스레드에서 한다.
+    ///
+    /// 완료 블록을 부르면 시스템이 뒤에 있던 앱을 곧 다시 재운다. 모아서 하는 갱신(`scheduleRefresh`)은 0.4초 뒤에 돌아서
+    /// 그 전에 잠들면 위젯에는 미완료로 남고 알림 예약도 앱을 다시 열 때까지 그대로다. 그래서 여기서 바로 맞춘 뒤에 끝낸다.
     nonisolated func respond(action: String, routineID: UUID?, dateKey: String?, completion: @escaping () -> Void) {
-        DispatchQueue.main.async {
-            MainActor.assumeIsolated {
-                self.handleNotification(action: action, routineID: routineID, dateKey: dateKey)
-            }
+        Task { @MainActor in
+            handleNotification(action: action, routineID: routineID, dateKey: dateKey)
+            await refreshNow()
             completion()
         }
     }

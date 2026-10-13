@@ -14,7 +14,7 @@ struct DataExportService {
             let group = groups[routine.effectiveGroupID]
             guard !routine.isArchived, !(group?.isArchived ?? false) else { return nil }
             guard group != nil || routine.effectiveGroupID == RoutineGroup.defaultID else {
-                throw RoutineTransferError.invalid("아직 그룹 정보가 도착하지 않은 루틴이 있어요. 동기화 후 다시 시도하거나 전체 기록 JSON을 저장해 주세요.")
+                throw RoutineTransferError.invalid("아직 그룹 정보가 도착하지 않은 루틴이 있어요. 동기화 후 다시 시도하거나 [전체 기록 보관용 내보내기]로 저장해 주세요.")
             }
             return TransferRoutine(group: group?.title ?? RoutineGroup.defaultTitle, title: routine.title,
                                    weekdays: routine.weekdays, time: routine.timeLabel, note: routine.note)
@@ -26,7 +26,7 @@ struct DataExportService {
 
     private func checkedSize(_ data: Data) throws -> Data {
         guard data.count <= RoutineTransferFormat.maximumBytes else {
-            throw RoutineTransferError.invalid("루틴 파일이 가져오기 한도 5MB를 넘어요. 전체 기록 JSON으로 보관해 주세요.")
+            throw RoutineTransferError.invalid("루틴 파일이 가져오기 한도 5MB를 넘어요. [전체 기록 보관용 내보내기]로 보관해 주세요.")
         }
         return data
     }
@@ -41,21 +41,21 @@ struct DataExportService {
             activeGroupIDs[group?.title ?? RoutineGroup.defaultTitle, default: []].insert(routine.effectiveGroupID)
         }
         guard activeGroupIDs.values.allSatisfy({ $0.count == 1 }) else {
-            throw RoutineTransferError.invalid("활성 루틴이 속한 서로 다른 그룹의 이름이 같아요. 그룹명을 구별하거나 전체 기록 JSON을 저장해 주세요.")
+            throw RoutineTransferError.invalid("활성 루틴이 속한 서로 다른 그룹의 이름이 같아요. 그룹명을 구별하거나 [전체 기록 보관용 내보내기]로 저장해 주세요.")
         }
         let rows = try activeRoutines()
         guard !rows.isEmpty, rows.count <= RoutineTransferFormat.maximumRows else {
-            throw RoutineTransferError.invalid("재가져오기 파일은 활성 루틴 1~1,000개를 지원해요. 전체 기록 JSON은 개수 제한 없이 저장할 수 있어요.")
+            throw RoutineTransferError.invalid("재가져오기 파일은 활성 루틴 1~1,000개를 지원해요. [전체 기록 보관용 내보내기]는 개수 제한 없이 저장할 수 있어요.")
         }
         struct Name: Hashable { let group: String; let title: String }
         var seen: Set<Name> = []
         for row in rows {
             if let error = RoutineTransferFormat.validation(row) {
-                throw RoutineTransferError.invalid("\(row.title): \(error) 전체 기록 JSON에는 원본을 그대로 보관할 수 있어요.")
+                throw RoutineTransferError.invalid("\(row.title): \(error) [전체 기록 보관용 내보내기]에는 원본을 그대로 보관할 수 있어요.")
             }
             let key = Name(group: row.group, title: row.title)
             if !seen.insert(key).inserted {
-                throw RoutineTransferError.invalid("같은 그룹에 이름이 같은 루틴이 여러 개 있어요. 다시 가져올 때 하나로 합쳐지지 않도록 이름을 구별하거나 전체 기록 JSON을 저장해 주세요.")
+                throw RoutineTransferError.invalid("같은 그룹에 이름이 같은 루틴이 여러 개 있어요. 다시 가져올 때 하나로 합쳐지지 않도록 이름을 구별하거나 [전체 기록 보관용 내보내기]로 저장해 주세요.")
             }
         }
         return rows

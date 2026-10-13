@@ -6,9 +6,31 @@ import SwiftData
 @MainActor
 @Observable
 final class AppStore {
-    var section: Section = .dashboard {
+    /// 지금 보고 있는 화면. iPad에서 창을 여러 개 열어도 모든 창이 이 값을 함께 따른다.
+    ///
+    /// 그래서 창이 둘 이상일 때 어느 창에든 시트가 떠 있으면 바꾸지 않는다: 한 창에서 화면을 옮기면 다른 창의 화면도
+    /// 함께 바뀌고, 시트를 띄운 화면이 사라지면서 시트가 닫혀 저장하지 않은 내용이 없어진다.
+    /// 시트 안의 단추가 시트를 닫으며 화면을 옮길 때는 `leaveSheet(to:)`를 쓴다.
+    var section: Section {
+        get { currentSection }
+        set { setSection(newValue, allowedSheetWindows: 0) }
+    }
+    private var currentSection: Section = .dashboard
+    /// 창이 둘 이상 열려 있을 때, 시트가 떠 있는 창의 수. 앱이 시작할 때 플랫폼 확인을 넣어 준다(iPad).
+    /// 창이 하나뿐인 곳(Mac, iPhone, 창 하나짜리 iPad)과 테스트에서는 늘 0이다.
+    @ObservationIgnored var sheetWindowsAmongSeveral: () -> Int = { 0 }
+
+    /// 시트 안에서 시트를 닫으며 화면을 옮긴다(시작 안내를 마침, 템플릿을 추가하고 [루틴 보기]).
+    /// 자기 시트가 떠 있는 것은 막을 이유가 아니므로 한 창까지는 허용하고, 다른 창에도 시트가 있으면 옮기지 않는다.
+    func leaveSheet(to section: Section) {
+        setSection(section, allowedSheetWindows: 1)
+    }
+
+    private func setSection(_ newValue: Section, allowedSheetWindows: Int) {
+        guard newValue != currentSection, sheetWindowsAmongSeveral() <= allowedSheetWindows else { return }
+        currentSection = newValue
         // 오늘 화면을 떠나면 그 화면에 남겨 둔 빠른 추가 요청도 버린다(나중에 돌아왔을 때 입력칸이 저절로 열리지 않게).
-        didSet { if section != .dashboard { pendingDashboardQuickAdd = false } }
+        if newValue != .dashboard { pendingDashboardQuickAdd = false }
     }
     var errorMessage: String?
     // 통계 화면의 탭·필터·검색어. 다른 메뉴에 다녀와도 그대로 남는다.
@@ -144,8 +166,10 @@ final class AppStore {
 
     // MARK: - 날짜 이동
 
+    /// 보는 날짜도 모든 창이 함께 따른다. 화면 선택과 같은 이유로, 창이 둘 이상일 때 어느 창에든 시트가 떠 있으면
+    /// 바꾸지 않는다(날짜가 바뀌면 그날의 휴가 카드처럼 시트를 띄운 카드가 사라진다).
     func select(_ day: Day) {
-        guard day <= today, day != selectedDay else { return }
+        guard day <= today, day != selectedDay, sheetWindowsAmongSeveral() == 0 else { return }
         flush()
         show(day)
     }
@@ -253,13 +277,14 @@ final class AppStore {
         guard !isShowingSheet else { return }
         if section != .routines {
             goToToday()
+            // 화면 선택이 실제로 바뀌었을 때만 요청을 남긴다(다른 창에서 편집 중이면 바뀌지 않는다).
             if let group = quickAddGroup, !(dashboardShowsRoutines && dashboardCanAdd(to: group)) {
-                pendingQuickAddGroupID = group.id
                 section = .routines
+                if section == .routines { pendingQuickAddGroupID = group.id }
             } else {
                 let comesFromAnotherScreen = section != .dashboard
                 section = .dashboard
-                pendingDashboardQuickAdd = comesFromAnotherScreen
+                pendingDashboardQuickAdd = comesFromAnotherScreen && section == .dashboard
             }
         }
         quickAddFocusToken += 1

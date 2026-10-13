@@ -430,6 +430,63 @@ struct NotificationActionTests {
         #expect(env.store.todaySections.flatMap(\.checks).filter(\.isDone).map(\.title) == ["운동"])
     }
 
+    /// 완료 블록을 부르기 전에 알림 예약(과 위젯 데이터)을 맞춘다. 부른 뒤에는 시스템이 뒤에 있던 앱을 재우므로,
+    /// 0.4초 뒤로 모아 둔 갱신에 맡기면 앱을 다시 열 때까지 위젯에 미완료로 남는다.
+    @Test func respondingReconcilesBeforeFinishing() async throws {
+        let env = try CompanionEnv()
+        let routine = env.addRoutine("운동", time: "07:30")
+        let client = FakeNotificationClient(status: .authorized)
+        let runtime = AppRuntime(
+            store: env.store, notifications: RoutineNotifications(client: client, defaults: testDefaults()),
+            bridge: nil, defaults: testDefaults()
+        )
+        let routineID = routine.id
+        let dateKey = monday.key
+        let deliveredID = PlannedNotification.id(routineID: routineID, dateKey: dateKey)
+
+        let reconciledFirst = await withCheckedContinuation { (continuation: CheckedContinuation<Bool, Never>) in
+            runtime.respond(action: RoutineNotificationAction.complete, routineID: routineID, dateKey: dateKey) {
+                // 맞추기가 끝났으면, 방금 완료한 루틴의 알림을 알림 센터에서 치우라는 요청이 이미 나가 있다.
+                continuation.resume(returning: MainActor.assumeIsolated { client.removedDelivered.contains(deliveredID) })
+            }
+        }
+        #expect(reconciledFirst)
+    }
+
+    /// 이미 도는 갱신이 있을 때도, 방금 완료한 것까지 맞춘 뒤에야 끝났다고 알린다
+    /// (도는 갱신에 "한 번 더"만 걸어 두고 먼저 돌아가면, 그 한 번이 돌기 전에 앱이 다시 잠든다).
+    @Test func respondingWaitsForARefreshAlreadyRunning() async throws {
+        let env = try CompanionEnv()
+        let routine = env.addRoutine("운동", time: "07:30")
+        let client = GatedNotificationClient()
+        let runtime = AppRuntime(
+            store: env.store, notifications: RoutineNotifications(client: client, defaults: testDefaults()),
+            bridge: nil, defaults: testDefaults()
+        )
+        let routineID = routine.id
+        let dateKey = monday.key
+        let deliveredID = PlannedNotification.id(routineID: routineID, dateKey: dateKey)
+
+        // 먼저 시작한 갱신이 시스템의 예약 목록을 기다리며 멈춰 있다.
+        let running = Task { await runtime.refreshNow() }
+        while !client.isWaiting { await Task.yield() }
+
+        let finished = Flag()
+        runtime.respond(action: RoutineNotificationAction.complete, routineID: routineID, dateKey: dateKey) {
+            finished.value = true
+        }
+        for _ in 0..<50 { await Task.yield() }
+        // 완료 표시는 됐지만, 멈춰 있는 갱신이 끝나기 전에는 알리지 않는다.
+        #expect(env.store.todaySections.flatMap(\.checks).filter(\.isDone).map(\.title) == ["운동"])
+        #expect(!finished.value)
+
+        client.release()
+        await running.value
+        while !finished.value { await Task.yield() }
+        // 끝났다고 알린 시점에는 완료한 루틴까지 반영한 갱신이 돌았다.
+        #expect(client.removedDelivered.contains(deliveredID))
+    }
+
     /// [나중에]는 아무것도 바꾸지 않는다.
     @Test func laterChangesNothing() throws {
         let env = try CompanionEnv()
@@ -452,6 +509,40 @@ struct NotificationActionTests {
         #expect(env.store.section == .dashboard)
         #expect(env.store.selectedDay == monday.adding(days: 1))
     }
+}
+
+/// 시스템의 예약 목록을 한 번 붙잡아 두는 알림 센터: 갱신이 중간에 멈춰 있는 상태를 만든다.
+@MainActor
+private final class GatedNotificationClient: NotificationClient {
+    private var gate: CheckedContinuation<Void, Never>?
+    private var holdsNextPending = true
+    private(set) var isWaiting = false
+    private(set) var removedDelivered: [String] = []
+
+    func permission() async -> NotificationPermission { .authorized }
+    func requestPermission() async -> NotificationPermission { .authorized }
+    func pending() async -> [String: String] {
+        if holdsNextPending {
+            holdsNextPending = false
+            isWaiting = true
+            await withCheckedContinuation { gate = $0 }
+            isWaiting = false
+        }
+        return [:]
+    }
+    func add(_ notification: PlannedNotification) async throws {}
+    func removePending(ids: [String]) {}
+    func removeDelivered(ids: [String]) { removedDelivered += ids }
+
+    func release() {
+        gate?.resume()
+        gate = nil
+    }
+}
+
+@MainActor
+private final class Flag {
+    var value = false
 }
 
 /// 오류를 반환하는 시스템 예약을 재현한다.

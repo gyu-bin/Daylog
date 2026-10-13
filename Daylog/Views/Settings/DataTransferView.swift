@@ -243,13 +243,16 @@ struct DataTransferView: View {
     private var exportSection: some View {
         SheetField(label: "내보내기") {
             VStack(alignment: .leading, spacing: 10) {
+                // 다시 가져올 수 있는 것과 보관만 되는 것을 줄을 나눠 둔다(전체 기록은 복원할 수 없다).
                 HStack(spacing: 8) {
-                    ForEach([DataTransferExportKind.csv, .routines, .backup]) { kind in
+                    ForEach([DataTransferExportKind.csv, .routines]) { kind in
                         Button(kind.title) { prepareExport(kind) }
                     }
                     Spacer(minLength: 0)
                 }
-                SheetNote(symbol: "lock", text: "루틴 CSV·JSON은 다시 가져올 수 있어요. 전체 기록 JSON은 체크·식사·휴가까지 담지만 이 버전에서는 복원할 수 없고, 아직 iCloud에서 내려오지 않은 기록은 빠져요. 파일에는 개인 기록이 담깁니다.")
+                SheetNote(symbol: "arrow.triangle.2.circlepath", text: "루틴 CSV·JSON은 위의 [파일 선택…]으로 다시 가져올 수 있어요.")
+                Button(DataTransferExportKind.backup.title) { prepareExport(.backup) }
+                SheetNote(symbol: "lock", text: "현재 버전에서는 전체 기록 복원을 지원하지 않습니다. 체크·식사·휴가까지 담는 보관용 파일이고, 아직 iCloud에서 내려오지 않은 기록은 빠져요. 파일에는 개인 기록이 담깁니다.")
             }
         }
     }

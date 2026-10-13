@@ -52,7 +52,7 @@ struct RootView: View {
             .sheet(item: $templateInbox.incoming) { template in
                 TemplateDetailSheet(template: template) {
                     templateInbox.incoming = nil
-                    store.section = .routines
+                    store.leaveSheet(to: .routines)
                 }
                 .environment(preferences)
                 .environment(CommunityStore.shared)
@@ -80,7 +80,7 @@ struct RootView: View {
                 TopPresenter.present {
                     TemplateDetailSheet(template: template) {
                         TopPresenter.dismissAll()
-                        store.section = .routines
+                        store.leaveSheet(to: .routines)
                     }
                     .environment(store)
                     .environment(preferences)

@@ -31,6 +31,48 @@ struct RoutineManagementTests {
         #expect(store.quickAddFocusToken == token + 2)
     }
 
+    /// iPad에서 창을 두 개 열면 두 창이 같은 화면 선택을 따른다. 어느 창에든 편집 시트가 떠 있는 동안에는
+    /// 어떤 경로로도 화면 선택이 바뀌지 않는다(그 창의 시트가 닫히며 저장하지 않은 내용이 사라지지 않게).
+    @Test func sectionStaysWhileAWindowAmongSeveralShowsASheet() throws {
+        let env = try TestEnv()
+        let store = makeStore(env, today: monday)
+        store.addGroup(title: "아침")
+        let group = try #require(store.activeGroups.first { $0.title == "아침" })
+        #expect(store.addRoutine(title: "물", in: group))
+        #expect(store.saveVacation(start: monday, end: monday, memo: "", keptRoutineIDs: []))
+        store.section = .vacation
+        var sheetWindows = 1
+        store.sheetWindowsAmongSeveral = { sheetWindows }
+
+        store.section = .statistics
+        store.go(to: .settings, isShowingSheet: false)
+        store.open(store.today)
+        store.requestQuickAddFocus()
+        #expect(store.section == .vacation)
+        #expect(store.pendingQuickAddGroupID == nil && !store.pendingDashboardQuickAdd)
+        // 보는 날짜도 그대로다(날짜가 바뀌면 그날의 휴가 카드가 사라져 거기서 띄운 시트가 닫힌다).
+        let yesterday = monday.adding(days: -1)
+        store.select(yesterday)
+        store.goToPreviousDay()
+        store.open(yesterday)
+        #expect(store.selectedDay == monday && store.section == .vacation)
+
+        // 시트 안의 단추가 자기 시트를 닫으며 옮기는 것은 된다. 다른 창에도 시트가 있으면 안 된다.
+        sheetWindows = 2
+        store.leaveSheet(to: .routines)
+        #expect(store.section == .vacation)
+        sheetWindows = 1
+        store.leaveSheet(to: .routines)
+        #expect(store.section == .routines)
+
+        // 시트가 모두 닫히면 전처럼 움직인다.
+        sheetWindows = 0
+        store.section = .statistics
+        #expect(store.section == .statistics)
+        store.requestQuickAddFocus()
+        #expect(store.section == .routines && store.pendingQuickAddGroupID == group.id)
+    }
+
     /// 편집 시트가 떠 있을 때는 메뉴 명령(⌘N, ⌘1…)이 화면을 바꾸지 않는다(시트가 닫히며 적던 내용이 사라지지 않게).
     @Test func menuCommandsDoNotSwitchScreensUnderASheet() throws {
         let env = try TestEnv()

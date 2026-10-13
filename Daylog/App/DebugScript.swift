@@ -3,6 +3,9 @@ import CoreGraphics
 import Foundation
 import ImageIO
 import SwiftData
+#if os(iOS)
+import UIKit
+#endif
 
 /// 동기화 검증용 스크립트 실행기. Debug 빌드에만 들어가고, 실행 인자를 주지 않으면 아무 일도 하지 않는다.
 ///
@@ -15,7 +18,7 @@ import SwiftData
 /// 명령: group, add(마지막으로 쓴 그룹에), check, uncheck, text:<칸>=<값>, rename:<전>=<후>, time:<루틴>=<HH:mm>, notify:on|off,
 ///       archive, restore, archiveGroup, threshold,
 ///       wait:<초>, waitImport:<최대 초>, waitExport:<최대 초>, refresh, dump:<이름>,
-///       section:<메뉴>(dashboard, routines, meals, statistics, calendar, settings),
+///       section:<메뉴>(dashboard, routines, meals, statistics, calendar, settings), newWindow(iPad),
 ///       counts(개수만 출력), compareBackup:<백업 이름 일부>, verifyBackup:<백업 이름 일부>,
 ///       purgeLocalStore, quit
 ///
@@ -192,6 +195,21 @@ enum DebugScript {
             pendingTransferFile = URL(fileURLWithPath: argument)
             presentsTransfer = true
             store.section = .settings
+        case "newWindow":
+            // iPad에서 창을 하나 더 연다(두 창이 같은 저장소를 볼 때의 동작 검증용). 시뮬레이터 도구로는 새 창을 만들 수 없어서 둔다.
+            #if os(iOS)
+            UIApplication.shared.activateSceneSession(for: UISceneSessionActivationRequest()) { error in
+                print("DAYLOG_SCRIPT NEWWINDOW failed \(error.localizedDescription)")
+            }
+            #endif
+        case "windows":
+            // 창마다 상태를 찍는다: 키 창인지, 장면이 앞에 있는지, 시트가 떠 있는지.
+            #if os(iOS)
+            let windows = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }.flatMap { scene in
+                scene.windows.map { "key=\($0.isKeyWindow) state=\(scene.activationState.rawValue) sheet=\($0.rootViewController?.presentedViewController != nil)" }
+            }
+            log("WINDOWS \(argument) section=\(store.section) sheetWindows=\(Platform.sheetWindowsAmongSeveral) any=\(Platform.isShowingSheet) | " + windows.joined(separator: " | "))
+            #endif
         case "section":
             // 화면 전환: section:routines 처럼 메뉴 이름(dashboard, routines, meals, statistics, calendar, settings).
             if let section = AppStore.Section.allCases.first(where: { "\($0)" == argument }) {

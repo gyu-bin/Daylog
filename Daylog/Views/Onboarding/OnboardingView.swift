@@ -197,7 +197,7 @@ struct OnboardingView: View {
         if step == .ready, showsNotificationGuide { preferences.completeNotificationGuide() }
         #endif
         preferences.completeOnboarding()
-        store.section = .dashboard
+        store.leaveSheet(to: .dashboard)
         store.goToToday()
         dismiss()
     }

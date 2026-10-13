@@ -8,6 +8,10 @@ struct DaylogCommands: Commands {
         CommandGroup(after: .appInfo) {
             CheckForUpdatesButton()
         }
+        // 앱 메뉴의 표준 자리(⌘,). 창을 닫아 두었으면 다시 연다.
+        CommandGroup(replacing: .appSettings) {
+            OpenSettingsButton(store: store)
+        }
         #endif
 
         // 창이 하나뿐인 앱이라 "새 창" 대신 ⌘N을 루틴 빠른 추가에 쓴다.
@@ -24,12 +28,14 @@ struct DaylogCommands: Commands {
         }
 
         CommandMenu("이동") {
-            Button("이전 날짜") { store?.goToPreviousDay() }
+            // 편집 시트가 떠 있으면 날짜도 바꾸지 않는다: 그날의 휴가 카드처럼 시트를 띄운 카드가 사라지면 시트도 닫힌다.
+            Button("이전 날짜") { if !Platform.isShowingSheet { store?.goToPreviousDay() } }
                 .keyboardShortcut("[")
-            Button("다음 날짜") { store?.goToNextDay() }
+            Button("다음 날짜") { if !Platform.isShowingSheet { store?.goToNextDay() } }
                 .keyboardShortcut("]")
                 .disabled(!(store?.canGoToNextDay ?? false))
-            Button("오늘") { store?.goToToday() }
+            // 화면 목록의 "오늘"(⌘1)과 이름이 겹치지 않게 날짜임을 적는다.
+            Button("오늘 날짜") { if !Platform.isShowingSheet { store?.goToToday() } }
                 .keyboardShortcut("t")
             Divider()
             ForEach(Array(DevicePreferences.shared.navigationSections(phone: false).enumerated()), id: \.element) { index, section in
@@ -39,3 +45,21 @@ struct DaylogCommands: Commands {
         }
     }
 }
+
+#if os(macOS)
+/// 앱 메뉴의 "설정…": 설정 화면으로 간다. 편집 시트가 떠 있으면 아무것도 하지 않는다(시트가 닫히지 않게).
+private struct OpenSettingsButton: View {
+    let store: AppStore?
+    @Environment(\.openWindow) private var openWindow
+
+    var body: some View {
+        Button("설정…") {
+            guard let store, !Platform.isShowingSheet else { return }
+            store.go(to: .settings, isShowingSheet: false)
+            openWindow(id: "main")
+        }
+        .keyboardShortcut(",")
+        .disabled(store == nil)
+    }
+}
+#endif
