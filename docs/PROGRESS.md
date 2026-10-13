@@ -1070,6 +1070,20 @@ iPhone·iPad App Store 제출 자료를 만들고 App Store Connect에 올렸다
   스크린샷보다 품질이 낮아진다. 명세대로 스크린샷을 먼저 끝내고 생략했다.
 - 다음 번호: Mac 1.5.7 (7), iOS는 빌드 10을 그대로 올리면 된다(아직 안 올림).
 
+## 소개·지원·처리방침 페이지 게시 (2026-10-13)
+
+사용자가 App Store에 넣을 지원·마케팅·개인정보 처리방침 URL을 요청했고, GitHub Pages 사이트로 만들기로 정했다(처리방침 초안 확정, 문의 이메일 공개도 사용자 결정).
+
+- `site/`(소개 `index.html`, `support/`, `privacy/`, `style.css`, `img/`)를 `.github/workflows/pages.yml`이 https://gyu-bin.github.io/Daylog/ 에 게시한다.
+  저장소의 Pages를 "GitHub Actions"로 켰다. 게시 뒤 세 주소와 그림·스타일이 200으로 열리는 것을 확인했다.
+- 처리방침 원문은 `site/privacy/index.html` 하나로 두고 `docs/PRIVACY.md`는 그 주소를 가리킨다. 시행일 2026-10-13.
+  초안에서 달라진 것: 문의처에 이메일 추가, "문의로 받은 이메일 주소와 내용은 답변하는 데에만 쓴다"는 문장 추가.
+- 앱의 설정 → 정보 → 개인정보 처리방침 주소를 새 주소로 바꿨다(`ffc37eb`). Mac은 다음 버전부터, iOS는 빌드 10부터 들어간다.
+- App Store Connect에 지원·마케팅·처리방침 URL 등록(저장 뒤 서버 값 확인). 심사 제출은 하지 않았다.
+- iOS 1.0.0 (10)을 `ffc37eb`로 다시 아카이브·내보내기해 확인했다(production 알림, iCloud Production, 서명, 매니페스트, 새 처리방침 주소 포함).
+  `build/testflight/ipa-ffc37eb`. **올리지 않았다.**
+- 소개 페이지의 iPhone·iPad 칸은 "App Store 출시 준비 중"이다. 출시되면 App Store 링크로 바꾼다.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
