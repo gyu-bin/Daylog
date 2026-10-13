@@ -283,7 +283,7 @@ struct SettingsView: View {
     }
 
     /// 개인정보 처리방침이 있는 곳. 이미 깔린 앱이 계속 여는 주소이므로 옮기지 않는다(App Store Connect에도 같은 주소를 적는다).
-    static let privacyPolicyURL = URL(string: "https://github.com/gyu-bin/Daylog/blob/main/docs/PRIVACY.md")
+    static let privacyPolicyURL = URL(string: "https://gyu-bin.github.io/Daylog/privacy/")
 
     private var aboutSection: some View {
         Section {
