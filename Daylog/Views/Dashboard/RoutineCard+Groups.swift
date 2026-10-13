@@ -77,12 +77,13 @@ extension RoutineCard {
                 ForEach(section.checks) { check in
                     checkRow(check, tint: color.color, showsTime: showsTime)
                     if check.id != section.checks.last?.id {
-                        Divider().padding(.leading, 40)
+                        // 이름이 시작하는 자리에 맞춘다(체크 칸이 있던 때는 그 너비만큼 더 들어가 있었다).
+                        Divider().padding(.leading, 12)
                     }
                 }
                 // 항목이 하나도 없는 그룹은 첫 항목을 넣을 수 있게 입력칸을 늘 보여 준다.
                 if let target = section.target, showsItemField(for: target.id, isEmpty: section.checks.isEmpty) {
-                    if !section.checks.isEmpty { Divider().padding(.leading, 40) }
+                    if !section.checks.isEmpty { Divider().padding(.leading, 12) }
                     itemField(for: target, tint: color.color)
                 }
             }

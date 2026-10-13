@@ -34,10 +34,17 @@ struct RoutineCheckRow: View {
     let setSkipped: (Bool) -> Void
 
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+
+    /// 이름을 윗줄에 두고 시간과 단추를 아랫줄로 내릴지. 접근성 크기에서는 늘, 좁은 화면(iPhone)에서는 큰 글자부터.
+    /// 한 줄에 두면 단추와 시간이 자리를 차지해 이름이 몇 글자만 남는다(iPhone SE에서 확인).
+    private var stacks: Bool {
+        dynamicTypeSize.isAccessibilitySize || (horizontalSizeClass == .compact && dynamicTypeSize >= .xxLarge)
+    }
 
     var body: some View {
         Group {
-            if dynamicTypeSize.isAccessibilitySize {
+            if stacks {
                 // 큰 글자 크기: 이름이 찌그러지지 않게 시간과 단추를 아랫줄로 내린다.
                 VStack(alignment: .leading, spacing: 6) {
                     titles(lineLimit: 4)
@@ -184,7 +191,7 @@ struct RoutineActionButtons: View {
     static let skipSymbol = "chevron.right.2"
     /// 건너뛰기가 켜졌을 때의 진한 회색. 밝은 화면과 어두운 화면에서 각각 바탕과 구분되게 고른다.
     static let skipFill = Color.adaptive(name: "DaylogSkipFill", light: (0.45, 0.48, 0.54), dark: (0.66, 0.68, 0.73))
-    static let maxScale: CGFloat = 1.35
+    static let maxScale: CGFloat = 1.2
     static let radius: CGFloat = 7
     #if os(macOS)
     static let width: CGFloat = 32

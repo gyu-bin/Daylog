@@ -72,6 +72,11 @@ enum DebugScript {
             if pair.count == 2, let routine = store.routines.first(where: { $0.title == pair[0] }) {
                 store.updateRoutine(routine, title: pair[1])
             }
+        case "note":
+            // 메모 적기: note:<루틴>=<메모>. 줄 배치 검증에 쓴다.
+            if pair.count == 2, let routine = store.routines.first(where: { $0.title == pair[0] }) {
+                store.updateRoutine(routine, note: pair[1])
+            }
         case "time":
             // 예정 시간 정하기: time:<루틴>=<HH:mm>. 알림과 위젯 검증에 쓴다.
             if pair.count == 2, let routine = store.routines.first(where: { $0.title == pair[0] }) {
