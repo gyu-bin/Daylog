@@ -152,6 +152,7 @@ enum DebugScript {
         case "addCard":
             // 꾸미기 카드 추가(검증용): addCard:text=제목|내용, addCard:section=제목, addCard:divider,
             // addCard:image=<사진 경로>|<문구>. 사진 선택 창은 배경에서 조작할 수 없어서 경로로 받는다.
+            // 이미지 카드는 화면에서 새로 만들 수 없다. 이 명령은 예전에 만든 이미지 카드가 계속 보이는지 확인하는 데만 쓴다.
             addCustomCard(pair, store: store)
         case "cardSize":
             // 맨 위 꾸미기 카드의 크기: cardSize:small|regular|large

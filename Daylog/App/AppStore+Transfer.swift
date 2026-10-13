@@ -6,7 +6,13 @@ extension AppStore {
     }
 
     func refreshRoutineImport(_ preview: RoutineImportPreview) throws -> RoutineImportPreview {
-        try RoutineTransferService(context: context).preview(preview.source, today: today)
+        try RoutineTransferService(context: context).preview(preview.source, today: today, policy: preview.policy)
+    }
+
+    /// 템플릿을 가져오면 무엇이 추가되고 무엇을 건너뛰는지. 저장소는 건드리지 않는다.
+    /// 파일 가져오기와 같은 서비스를 쓰되, 이름이 겹치는 줄은 오류로 세우지 않고 건너뛴다.
+    func previewTemplateImport(_ template: RoutineTemplate) throws -> RoutineImportPreview {
+        try RoutineTransferService(context: context).preview(template.transferRoutines, today: today, policy: .skipConflicts)
     }
 
     @discardableResult

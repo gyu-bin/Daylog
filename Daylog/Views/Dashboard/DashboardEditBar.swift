@@ -75,7 +75,7 @@ struct DashboardEditBar: View {
                 .font(.caption.weight(.medium))
                 .foregroundStyle(.secondary)
             FlowLayout(spacing: 6) {
-                ForEach(CustomCardKind.allCases) { kind in
+                ForEach(CustomCardKind.addable) { kind in
                     chip(kind.shortTitle, symbol: "plus", label: "\(kind.title) 추가") { add(kind) }
                 }
                 chip(

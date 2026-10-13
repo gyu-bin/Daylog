@@ -19,7 +19,38 @@ struct RoutineManagementView: View {
     @State private var groupDraft = ""
     @State private var isAddingGroup = false
     @State private var showsArchivedGroups = false
+    /// 좁은 화면(iPhone)에서 템플릿을 시트로 연다. 넓은 화면은 사이드바의 템플릿 메뉴로 간다.
+    @State private var showsTemplates = false
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @FocusState private var newGroupFocused: Bool
+
+    private var pageTitle: some View {
+        PageTitle(title: "루틴 관리", subtitle: "변경한 내용은 오늘부터 적용되고, 지난 기록은 바뀌지 않아요.")
+    }
+
+    @ViewBuilder
+    private var headerButtons: some View {
+        Button(action: openTemplates) {
+            Label("템플릿", systemImage: "rectangle.stack")
+                .font(.callout.weight(.semibold))
+        }
+        .buttonStyle(.bordered)
+        .fixedSize()
+        .accessibilityHint("공식 루틴 템플릿을 둘러보고 가져옵니다.")
+        Button(action: beginAddingGroup) {
+            Label("새 그룹", systemImage: "plus")
+                .font(.callout.weight(.semibold))
+        }
+        .buttonStyle(.borderedProminent)
+        .tint(GroupColor.blue.color)
+        .fixedSize()
+        .accessibilityHint("새 루틴 그룹을 만듭니다.")
+    }
+
+    /// 아래 탭에는 템플릿 메뉴가 없어서 시트로 띄우고, 사이드바가 있는 화면에서는 그 메뉴로 옮긴다.
+    private func openTemplates() {
+        if horizontalSizeClass == .compact { showsTemplates = true } else { store.section = .templates }
+    }
 
     var body: some View {
         let active = store.activeGroups
@@ -27,17 +58,17 @@ struct RoutineManagementView: View {
 
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
-                HStack(alignment: .center, spacing: 12) {
-                    PageTitle(title: "루틴 관리", subtitle: "변경한 내용은 오늘부터 적용되고, 지난 기록은 바뀌지 않아요.")
-                    Spacer(minLength: 8)
-                    Button(action: beginAddingGroup) {
-                        Label("새 그룹", systemImage: "plus")
-                            .font(.callout.weight(.semibold))
+                // 넓으면 제목과 단추를 한 줄에, 좁으면(iPhone) 설명이 여러 줄로 꺾이지 않게 단추를 아래 줄로 내린다.
+                ViewThatFits(in: .horizontal) {
+                    HStack(alignment: .center, spacing: 12) {
+                        pageTitle
+                        Spacer(minLength: 8)
+                        headerButtons
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(GroupColor.blue.color)
-                    .fixedSize()
-                    .accessibilityHint("새 루틴 그룹을 만듭니다.")
+                    VStack(alignment: .leading, spacing: 10) {
+                        pageTitle
+                        HStack(spacing: 8) { headerButtons }
+                    }
                 }
 
                 if active.isEmpty || isAddingGroup {
@@ -75,6 +106,9 @@ struct RoutineManagementView: View {
         .scrollDismissesKeyboard(.interactively)
         .environment(editor)
         .routineEditorDialogs(editor)
+        .sheet(isPresented: $showsTemplates) {
+            TemplateLibraryView(onClose: { showsTemplates = false })
+        }
         .onChange(of: store.quickAddFocusToken) {
             // ⌘N: 그룹이 하나도 없을 때만 여기서 받는다. 그룹이 있으면 해당 그룹 카드가 받는다.
             if store.quickAddGroup == nil { beginAddingGroup() }

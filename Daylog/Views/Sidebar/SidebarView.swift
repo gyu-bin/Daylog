@@ -148,6 +148,7 @@ extension AppStore.Section {
         case .statistics: return GroupColor.purple.color
         case .calendar: return GroupColor.orange.color
         case .vacation: return Theme.vacationTint
+        case .templates: return GroupColor.yellow.color
         case .settings: return GroupColor.blue.color
         }
     }
@@ -161,12 +162,13 @@ extension AppStore.Section {
         case .statistics: return GroupColor.purple.ink
         case .calendar: return GroupColor.orange.ink
         case .vacation: return GroupColor.coral.ink
+        case .templates: return GroupColor.yellow.ink
         case .settings: return GroupColor.blue.ink
         }
     }
 
     /// 내비게이션(macOS·iPad 사이드바, iPhone 아래 탭)에서 쓰는 메뉴 색. 세 곳이 같은 색을 쓴다.
-    /// 오늘 민트 / 루틴 블루 / 식사 코랄 / 통계 퍼플 / 캘린더 오렌지 / 휴가 청록 / 설정 중립 회색.
+    /// 오늘 민트 / 루틴 블루 / 식사 코랄 / 통계 퍼플 / 캘린더 오렌지 / 휴가 청록 / 템플릿 노랑 / 설정 중립 회색.
     /// 화면 안의 색(`tint`: 식사 주황, 휴가 코랄)과는 따로다.
     var navigationTint: Color {
         switch self {
@@ -203,6 +205,7 @@ extension AppStore.Section {
         case .statistics: return "chart.bar.fill"
         case .calendar: return "calendar"
         case .vacation: return "beach.umbrella.fill"
+        case .templates: return "rectangle.stack.fill"
         case .settings: return "gearshape.fill"
         }
     }

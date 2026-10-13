@@ -6,6 +6,10 @@ enum CustomCardKind: String, Codable, CaseIterable, Identifiable, Sendable {
 
     var id: String { rawValue }
 
+    /// 새로 만들 수 있는 종류. 이미지 카드는 새로 만들지 않는다(이미 만든 것은 계속 보이고 고치고 지울 수 있다).
+    /// 사진으로 꾸미는 자리는 상단 배경 하나만 둔다.
+    static let addable: [CustomCardKind] = [.text, .sectionTitle, .divider]
+
     var title: String {
         switch self {
         case .image: return "이미지 카드"

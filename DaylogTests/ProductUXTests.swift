@@ -188,7 +188,7 @@ struct ProductUXTests {
     // MARK: - 메뉴와 설정 갈래
 
     @Test func vacationMenuIsInTheSidebarButNotInPhoneTabs() throws {
-        #expect(AppStore.Section.allCases == [.dashboard, .routines, .meals, .statistics, .calendar, .vacation, .settings])
+        #expect(AppStore.Section.allCases == [.dashboard, .routines, .meals, .statistics, .calendar, .vacation, .templates, .settings])
         #expect(AppStore.Section.phoneTabs == [.dashboard, .routines, .meals, .statistics, .settings], "iPhone 탭은 다섯 개 그대로.")
         let suite = "daylog.tests.sections.\(UUID().uuidString)"
         let defaults = try #require(UserDefaults(suiteName: suite))

@@ -201,7 +201,7 @@ struct DataTransferView: View {
     private func rowSymbol(_ action: RoutineImportPreview.Action) -> String {
         switch action {
         case .create: return "plus.circle.fill"
-        case .duplicate: return "equal.circle"
+        case .duplicate, .conflict: return "equal.circle"
         case .error: return "exclamationmark.circle.fill"
         }
     }
@@ -209,7 +209,7 @@ struct DataTransferView: View {
     private func rowTint(_ action: RoutineImportPreview.Action) -> Color {
         switch action {
         case .create: return Theme.accent
-        case .duplicate: return .secondary
+        case .duplicate, .conflict: return .secondary
         case .error: return GroupColor.coral.color
         }
     }

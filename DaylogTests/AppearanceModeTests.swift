@@ -102,10 +102,10 @@ struct BrandIconTests {
         #expect(try backgroundBrightness(of: image, in: .darkAqua, at: 12) < 0.5)
     }
 
-    /// v1.4: 식사 기록과 캘린더가 따로 생겨 여섯 개. 이후 휴가 메뉴가 더해져 일곱 개(설정은 늘 마지막).
+    /// v1.4: 식사 기록과 캘린더가 따로 생겨 여섯 개. 이후 휴가, 템플릿(Phase 5-C)이 더해져 여덟 개(설정은 늘 마지막).
     @Test func sidebarMenuHasSevenSections() {
-        #expect(AppStore.Section.allCases.map(\.title) == ["오늘", "루틴", "식사 기록", "통계", "캘린더", "휴가", "설정"])
-        #expect(Set(AppStore.Section.allCases.map(\.filledSymbol)).count == 7)
+        #expect(AppStore.Section.allCases.map(\.title) == ["오늘", "루틴", "식사 기록", "통계", "캘린더", "휴가", "템플릿", "설정"])
+        #expect(Set(AppStore.Section.allCases.map(\.filledSymbol)).count == 8)
     }
 
     /// 아래 탭(iPhone, 좁은 iPad 창)은 다섯 개. 캘린더는 통계 화면 안에서 연다.

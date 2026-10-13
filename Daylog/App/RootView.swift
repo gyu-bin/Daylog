@@ -208,6 +208,7 @@ struct SectionContent: View {
             case .statistics: StatisticsView()
             case .calendar: CalendarView()
             case .vacation: VacationView()
+            case .templates: TemplateLibraryView()
             case .settings: SettingsView()
             }
         }
@@ -284,11 +285,12 @@ struct TabNavigation: View {
 
 #if !os(macOS)
 extension TabNavigation {
-    /// 아래 탭에 없는 메뉴는 그 내용이 들어 있는 탭으로 보낸다: 캘린더 → 통계, 휴가 → 오늘(휴가 카드).
+    /// 아래 탭에 없는 메뉴는 그 내용이 들어 있는 탭으로 보낸다: 캘린더 → 통계, 휴가 → 오늘(휴가 카드), 템플릿 → 루틴([템플릿] 단추).
     static func tab(for section: AppStore.Section) -> AppStore.Section {
         switch section {
         case .calendar: return .statistics
         case .vacation: return .dashboard
+        case .templates: return .routines
         default: return section
         }
     }

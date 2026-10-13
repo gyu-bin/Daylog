@@ -72,6 +72,30 @@ struct DashboardCustomizationTests {
         #expect(!DashboardCard.allCases.contains { $0.isCustom })
     }
 
+    /// Phase 5-B 정리: 이미지 카드는 새로 만들지 않는다. 이미 만든 것은 배치에 남고 계속 보인다.
+    @Test func imageCardsAreNoLongerAddableButExistingOnesStay() throws {
+        #expect(CustomCardKind.addable == [.text, .sectionTitle, .divider])
+        #expect(!CustomCardKind.addable.contains(.image))
+
+        let defaults = testDefaults(), images = temporaryImages()
+        let decor = DashboardDecor(defaults: defaults, images: images)
+        let id = UUID(), card = DashboardCard.custom(.image, id)
+        try decor.setImage(try DashboardImageStore.process(try imageData(width: 400, height: 300)), for: id)
+        let preferences = DevicePreferences(defaults: defaults, isPhone: false)
+        preferences.addCustom(card)
+
+        // 다시 켜도 예전 이미지 카드는 그대로 읽히고, 고치고(크기) 지울 수 있다.
+        let reopened = DevicePreferences(defaults: defaults, isPhone: false)
+        let reopenedDecor = DashboardDecor(defaults: defaults, images: images)
+        #expect(reopened.visibleCards.contains(card))
+        #expect(reopenedDecor.isAvailable(card, texts: [:]) && reopenedDecor.image(for: id) != nil)
+        reopenedDecor.setSize(.small, for: id)
+        #expect(reopenedDecor.entry(id).size == .small)
+        reopened.removeCustom(card)
+        reopenedDecor.remove(id)
+        #expect(!reopened.cardOrder.contains(card) && files(in: images).isEmpty)
+    }
+
     @Test func addingACardPutsItOnTopAndSurvivesARelaunch() {
         let defaults = testDefaults()
         let preferences = DevicePreferences(defaults: defaults, isPhone: false)
