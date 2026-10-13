@@ -371,6 +371,34 @@ struct RoutineSkipTests {
         #expect(env.store.checkSections.flatMap(\.checks).map(\.status) == [.done])
     }
 
+    /// 줄의 [✓ | »] 단추: 미완료에서 ✓는 완료·»는 건너뜀, 완료에서 ✓는 취소·»는 건너뜀으로,
+    /// 건너뜀에서 »는 취소·✓는 완료로. 둘이 함께 켜지는 일은 없다.
+    @Test func rowButtonsMoveBetweenTheThreeStates() throws {
+        let env = try TestEnv()
+        let routines = try env.addRoutines(1, today: monday)
+        let (store, _) = makeStore(env, today: monday)
+        let id = routines[0].id
+        func check() -> CheckValue { store.checkSections.flatMap(\.checks)[0] }
+        func tapDone() { RoutineActionButtons.toggleDone(check()) { store.setDone(routineID: id, $0) } }
+        func tapSkip() { RoutineActionButtons.toggleSkipped(check()) { store.setSkipped(routineID: id, $0) } }
+
+        #expect(check().status == .pending)
+        tapDone()
+        #expect(check().status == .done)
+        tapDone()
+        #expect(check().status == .pending)
+        tapSkip()
+        #expect(check().status == .skipped)
+        tapSkip()
+        #expect(check().status == .pending)
+        // 완료 → » → 건너뜀, 건너뜀 → ✓ → 완료.
+        tapDone()
+        tapSkip()
+        #expect(check().status == .skipped && !check().isDone)
+        tapDone()
+        #expect(check().status == .done && !check().isSkipped)
+    }
+
     /// 건너뛴 줄은 회색 "—"와 "건너뜀" 글자로 보이고, ⋯ 메뉴는 미완료면 건너뛰기를, 건너뛴 뒤에는 취소를 준다.
     @Test func skipMarkAndMenuTitles() {
         #expect(SkipStyle.symbol == "minus")
