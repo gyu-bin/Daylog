@@ -170,6 +170,16 @@ enum AppLaunch {
         return nil
     }
 
+    /// `-DaylogReuploadAll YES`: Mac의 저장소를 지금 환경의 iCloud에 다시 올리는 운영 도구(아래 설명).
+    /// 실행 인자를 줄 수 있는 Mac에서만 받는다. iPhone·iPad 앱에서는 켜지지 않는다.
+    private static var requestsReuploadAll: Bool {
+        #if os(macOS)
+        UserDefaults.standard.bool(forKey: "DaylogReuploadAll")
+        #else
+        false
+        #endif
+    }
+
     static func make() -> AppLaunch {
         #if os(macOS)
         // 설정에서 고른 외관을 창이 뜨기 전에 적용한다. (iOS·iPadOS는 화면 뿌리에서 색 구성으로 건다.)
@@ -192,7 +202,7 @@ enum AppLaunch {
                 cloudKitEnvironment: RuntimeEnvironment.cloudKitEnvironment,
                 // `--args -DaylogReuploadAll YES`로 한 번 실행하면, 이 Mac의 기존 기록을 지금 환경의 iCloud에 다시 올린다
                 // (다른 환경과 동기화하던 저장소를 옮길 때). 백업을 만들고, 같은 환경에는 한 번만 한다.
-                reuploadAll: UserDefaults.standard.bool(forKey: "DaylogReuploadAll")
+                reuploadAll: Self.requestsReuploadAll
             )
             let store = AppStore(
                 container: container,

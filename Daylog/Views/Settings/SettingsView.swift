@@ -282,6 +282,9 @@ struct SettingsView: View {
         #endif
     }
 
+    /// 개인정보 처리방침이 있는 곳. 이미 깔린 앱이 계속 여는 주소이므로 옮기지 않는다(App Store Connect에도 같은 주소를 적는다).
+    static let privacyPolicyURL = URL(string: "https://github.com/gyu-bin/Daylog/blob/main/docs/PRIVACY.md")
+
     private var aboutSection: some View {
         Section {
             HStack(spacing: 12) {
@@ -304,6 +307,21 @@ struct SettingsView: View {
             MobileUIConfigRow()
             #endif
             OnboardingReplayButton()
+            // App Store 심사 지침 5.1.1: 개인정보 처리방침을 앱 안에서도 쉽게 열 수 있어야 한다.
+            if let url = Self.privacyPolicyURL {
+                Link(destination: url) {
+                    HStack {
+                        Text("개인정보 처리방침")
+                        Spacer(minLength: 8)
+                        Image(systemName: "arrow.up.right")
+                            .font(.footnote.weight(.semibold))
+                            .foregroundStyle(.secondary)
+                            .accessibilityHidden(true)
+                    }
+                    .contentShape(Rectangle())
+                }
+                .accessibilityHint("브라우저에서 엽니다.")
+            }
         } header: {
             Text("앱 정보")
         } footer: {
