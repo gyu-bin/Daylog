@@ -1058,7 +1058,8 @@ iPhone·iPad App Store 제출 자료를 만들고 App Store Connect에 올렸다
   `AppStore/tools/compose.swift`로 배경·문구·기기 테두리를 얹었다. 결과는 `AppStore/screenshots/{iphone-6.9,iphone-6.3,ipad-13}`, 원본은 `AppStore/raw/`
   (둘 다 용량 때문에 저장소에는 넣지 않는다). 크기는 Apple 문서 기준 1320×2868, 1206×2622, 2064×2752, 알파 없음. 전부 실제 크기로 열어 확인했다.
 - **등록 문구**: `AppStore/metadata/ko.md`(이름·부제·홍보 문구·설명·키워드·카테고리·심사 메모·URL·등록 상태). 처리방침 초안은 `docs/PRIVACY.md`.
-- **고친 것**: iPhone 통계 탭의 식사 요약이 "0일"로 나오던 문제(`c3f85c0`), 설정 → 정보의 개인정보 처리방침 링크(`995df49`),
+- **고친 것**: iPhone 통계 탭의 식사 요약이 "0일"로 나오던 문제(`c3f85c0`. 시뮬레이터에서 스크립트로 통계 탭을 바로 띄웠을 때만 봤다.
+  사용자의 실기기 빌드 9에서는 제대로 나온다고 확인받았으므로, 평소 사용에서 생기는 문제로 볼 근거는 없다), 설정 → 정보의 개인정보 처리방침 링크(`995df49`),
   iOS에서 `DaylogReuploadAll`을 읽지 않게 함. iOS 빌드 번호 10.
 - **Release 빌드**: `995df49`로 아카이브·App Store용 내보내기 성공. IPA 확인: 1.0.0 (10), iPhone·iPad, production 알림, iCloud Production,
   get-task-allow 없음, 서명 검증, 개인정보 매니페스트 포함. **TestFlight·App Store Connect에는 올리지 않았다**(`build/testflight/ipa-995df49`).
