@@ -1025,6 +1025,21 @@ SwiftData 스키마·CloudKit 구조·내보내기 파일 형식 변경 없음. 
 - 저장·통계·알림·위젯·메뉴 막대의 계산은 그대로다(기존 `setDone`·`setSkipped`만 부른다). 배포하지 않았다(1.5.4에는 없다).
 - 확인: `RoutineSkipTests` 23개, macOS·iOS 시뮬레이터 Debug 빌드, Mac 검증 앱에서 여섯 가지 전환을 눌러 확인, 어두운 모드와 iPad Air 화면 한 번.
 
+## Mac 1.5.5 게시, TestFlight 빌드 9 업로드 (2026-10-13)
+
+사용자 지시 "새버전 올려줘"로 세 곳에 올렸다. 커밋 `de4bf9d`(Mac 1.5.5 (5), iOS 1.0.0 (9)). 스키마·CloudKit 구조 변경 없음.
+들어간 것: 오늘 화면 루틴 줄의 [✓ | »] 단추, iPhone 큰 글자 배치, 건너뜀 노란색(`SkipStyle`, 위젯·통계·메뉴 막대 공통).
+
+- 올리기 전 전체 테스트 511개 / 62개 묶음 통과.
+- **이 Mac**: `Tools/update.sh`로 `/Applications/Daylog.app`을 1.5.5 (5)로 교체(PID 종료 확인 뒤 교체, 직전 앱 `build/update/previous.app`).
+  교체 뒤 실행 중이고 iCloud 가져오기·내보내기 완료 로그 확인. 화면은 열어 보지 않았다.
+- **GitHub Release** [v1.5.5](https://github.com/gyu-bin/Daylog/releases/tag/v1.5.5): 공개 주소에서 다시 받아 DMG·appcast가 만든 파일과 같음을 확인
+  (DMG SHA-256 `c6611cf622772754b1b529ec9d6b78d30f09ea05c1c2b989c4ac444a7624116e`, 7,559,461바이트). 피드에 1.5.5·1.5.4·1.5.3·1.5.2 네 항목, 최신 항목의 EdDSA 서명 검증.
+- **TestFlight** iOS 1.0.0 (9): IPA 확인(버전·빌드, production·iCloud Production, 서명, 개인정보 매니페스트) 뒤 "UPLOAD SUCCEEDED with no errors".
+  테스트할 내용은 `docs/releases/testflight-1.0.0-9.md`.
+- 화면 확인 범위: iPad Air 시뮬레이터에서 터치로 전환 전부, iPhone SE 시뮬레이터는 화면(밝은·어두운·큰 글자)과 사용자가 직접 누른 확인, Mac 검증 앱.
+- 1.5.4 산출물은 `build/release-1.5.4`. 다음 번호: Mac 1.5.6 (6), iOS 빌드 10.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
