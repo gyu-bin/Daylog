@@ -1085,6 +1085,15 @@ iPhone·iPad App Store 제출 자료를 만들고 App Store Connect에 올렸다
   `build/testflight/ipa-ffc37eb`. **올리지 않았다.**
 - 소개 페이지의 iPhone·iPad 칸은 "App Store 출시 준비 중"이다. 출시되면 App Store 링크로 바꾼다.
 
+## TestFlight 빌드 10 업로드, App Store 심사 제출 상태 (2026-10-13)
+
+- 사용자가 App Store Connect에서 iOS 1.0.0을 **빌드 9로 직접 심사에 제출**했다(21:30쯤, "심사 대기 중", 수동 출시). 심사 메모도 사용자가 새로 썼다.
+- 빌드 9에는 앱 안의 개인정보 처리방침 링크가 없다(심사 지침 5.1.1). 사용자 지시 "테플 빌드 해줘"로 iOS 1.0.0 (10)을 올렸다.
+  `ffc37eb`의 아카이브(그 뒤 커밋은 문서만 바뀜)를 그대로 올렸고 "UPLOAD SUCCEEDED with no errors". Mac·GitHub Release는 올리지 않았다.
+  테스트할 내용은 `docs/releases/testflight-1.0.0-10.md`.
+- 심사 중인 빌드를 10으로 바꾸려면 심사에서 버전을 내리고 빌드를 다시 골라 제출해야 한다. 이 일은 사용자 결정으로 남겼다.
+- 다음 번호: Mac 1.5.7 (7), iOS 빌드 11.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
