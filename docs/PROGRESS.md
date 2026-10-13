@@ -930,7 +930,7 @@ SwiftData·CloudKit 스키마 변경 없음. 운영 저장소와 운영 iCloud�
 
 ## Phase 6-E: 6-D에서 남은 문제 수정과 재검증 (2026-10-13)
 
-기준 커밋 `65ece4d`. 자세한 결과는 `docs/FULL_APP_QA.md` §13. 배포하지 않았다(GitHub Release·appcast·설치된 앱 교체·TestFlight·심사 제출 없음).
+기준 커밋 `65ece4d`, 수정 커밋 `bd43dc8`. 자세한 결과는 `docs/FULL_APP_QA.md` §13. 배포하지 않았다(GitHub Release·appcast·설치된 앱 교체·TestFlight·심사 제출 없음).
 SwiftData 스키마·CloudKit 구조·내보내기 파일 형식 변경 없음. 운영 저장소는 열지 않았다.
 
 ### 고친 것
