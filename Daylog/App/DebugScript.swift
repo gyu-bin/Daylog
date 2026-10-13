@@ -93,10 +93,13 @@ enum DebugScript {
             if dates.count >= 2, let start = Day(key: dates[0]), let end = Day(key: dates[1]) {
                 // 날짜 뒤에 루틴 이름을 적으면 그 루틴만 유지하는 휴가가 된다: vacation:<시작>,<끝>,<루틴>,<루틴>
                 let kept = Set(dates.dropFirst(2).compactMap { title in store.activeRoutines.first { $0.title == title }?.id })
-                let saved = store.saveVacation(start: start, end: end, memo: "검증용 휴가", keptRoutineIDs: kept)
+                let saved = store.saveVacation(start: start, end: end, memo: vacationMemo, keptRoutineIDs: kept)
                 await AppRuntime.shared?.refreshNow()
                 log("VACATION saved=\(saved) today=\(store.stats.today.status) average=\(store.stats.weeklyAverage.map(String.init) ?? "nil")")
             }
+        case "vacationMemo":
+            // 다음 `vacation` 명령이 쓸 메모(화면 촬영용 예시 데이터). 기본값은 "검증용 휴가"이고, `vacationOff`는 기본값으로 만든 것만 지운다.
+            vacationMemo = argument
         case "vacationOff":
             // 이 스크립트가 만든 검증용 휴가만 해제한다.
             for period in store.vacationPeriods where period.memo == "검증용 휴가" {
@@ -318,6 +321,8 @@ enum DebugScript {
         CGImageDestinationFinalize(destination)
         return data as Data
     }
+
+    private static var vacationMemo = "검증용 휴가"
 
     private static func addCustomCard(_ pair: [String], store: AppStore) {
         let value = pair.count > 1 ? pair[1] : ""

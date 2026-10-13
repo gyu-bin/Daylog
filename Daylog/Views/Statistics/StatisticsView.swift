@@ -6,11 +6,13 @@ struct StatisticsView: View {
     @Environment(AppStore.self) private var store
     @Environment(DevicePreferences.self) private var preferences
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @State private var mealSummary = MealSummary()
 
     var body: some View {
         GeometryReader { proxy in
             let isWide = proxy.size.width >= 880
+            // 식사 요약은 그릴 때 바로 읽는다. 전에는 화면이 나타날 때 `@State`에 넣었는데, iPhone의 탭 화면에서는
+            // 그 값이 화면에 반영되지 않아 "0일"로 남았다(식사 탭에는 제대로 나오는데 통계 탭만 0일).
+            let mealSummary = mealSummary(version: store.dataVersion)
             ScrollView {
                 VStack(alignment: .leading, spacing: Theme.spacing) {
                     PageTitle(title: "통계", subtitle: "오늘(\(store.today.longTitle)) 기준")
@@ -31,14 +33,11 @@ struct StatisticsView: View {
                 .pagePadding()
             }
         }
-        .onAppear(perform: reload)
-        .onChange(of: store.dataVersion) { reload() }
-        .onChange(of: preferences.mealsEnabled) { reload() }
     }
 
-    private func reload() {
-        guard preferences.mealsEnabled else { return }
-        mealSummary = store.mealSummary(period: .month)
+    /// `version`은 값에 쓰이지 않는다. 기록이 바뀌면(`dataVersion`) 이 화면을 다시 그리게 하려고 받는다.
+    private func mealSummary(version: Int) -> MealSummary {
+        preferences.mealsEnabled ? store.mealSummary(period: .month) : MealSummary()
     }
 }
 
