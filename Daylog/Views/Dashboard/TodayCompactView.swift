@@ -34,86 +34,131 @@ struct TodayCompactView: View {
         .onChange(of: store.section) { _, _ in isEditing = false }
     }
 
-    /// 위: 앱 이름(휴가 중이면 작은 배지), 대시보드 편집과 루틴 추가. 아래: 날짜와 인사말, 날짜 이동.
+    /// 위: 앱 이름(휴가 중이면 작은 배지), 대시보드 편집과 루틴 추가. 아래: 날짜와 인사말, 새싹이, 날짜 이동.
+    @ViewBuilder
     private var header: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            HStack(spacing: 8) {
-                Text("Daylog")
-                    .font(.title2.weight(.bold))
-                    .accessibilityAddTraits(.isHeader)
-                if store.isVacation(on: store.today) {
-                    // 휴가 카드가 아래쪽에 있어도 오늘이 휴가라는 것은 위에서 알 수 있게 한다.
-                    Label("휴가 중", systemImage: "beach.umbrella.fill")
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(GroupColor.coral.ink)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 3)
-                        .background(Theme.vacationTint.opacity(0.16), in: Capsule())
-                }
-                Spacer(minLength: 8)
-                Button {
-                    isEditing.toggle()
-                } label: {
-                    Image(systemName: isEditing ? "checkmark" : "square.grid.2x2")
-                        .font(.system(size: 15, weight: .semibold))
-                        .foregroundStyle(isEditing ? AnyShapeStyle(Theme.onAccent) : AnyShapeStyle(.primary))
-                        .frame(width: 38, height: 36)
-                        .background(
-                            isEditing ? AnyShapeStyle(Theme.accent) : AnyShapeStyle(Theme.cardBackground),
-                            in: RoundedRectangle(cornerRadius: 10, style: .continuous)
-                        )
-                        .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).strokeBorder(Theme.cardBorder, lineWidth: isEditing ? 0 : 1))
-                        .frame(minWidth: 44, minHeight: 44)
-                        .contentShape(Rectangle())
-                }
-                .buttonStyle(.plain)
-                .accessibilityLabel(isEditing ? "대시보드 편집 완료" : "대시보드 편집")
-                .accessibilityHint("카드의 순서를 바꾸거나 숨깁니다.")
-                Button {
-                    isEditing = false
-                    store.requestQuickAddFocus(
-                        dashboardShowsRoutines: !preferences.hiddenCards.contains(.routines),
-                        isShowingSheet: Platform.isShowingSheet
-                    )
-                } label: {
-                    Image(systemName: "plus")
-                        .font(.system(size: 15, weight: .bold))
-                        .foregroundStyle(.white)
-                        .frame(width: 38, height: 36)
-                        .background(GroupColor.blue.color, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                        .frame(minWidth: 44, minHeight: 44)
-                        .contentShape(Rectangle())
-                }
-                .buttonStyle(.plain)
-                .accessibilityLabel("루틴 추가")
-                .accessibilityHint("오늘의 루틴에 새 항목을 적습니다.")
-            }
+        if dynamicTypeSize.isAccessibilitySize {
             // 큰 글자 크기에서는 날짜 이동을 아랫줄로 내려 인사말이 잘리지 않게 한다.
-            let layout = dynamicTypeSize.isAccessibilitySize
-                ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8)) : AnyLayout(HStackLayout(alignment: .bottom, spacing: 8))
-            layout {
-                VStack(alignment: .leading, spacing: 1) {
-                    Text(store.selectedDay.longTitle)
-                        .font(.subheadline)
-                        .monospacedDigit()
-                        .foregroundStyle(.secondary)
-                    HStack(spacing: 6) {
-                        Text(verbatim: store.isViewingToday ? ui.string(.dashboardGreeting) : "\(store.selectedDay.shortTitle)의 기록")
-                            .font(.title3.weight(.bold))
-                            .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
-                            .minimumScaleFactor(0.8)
-                        if store.isViewingToday, ui.showsGreetingIcon {
-                            Image(systemName: "sun.max.fill")
-                                .foregroundStyle(GroupColor.yellow.color)
-                                .accessibilityHidden(true)
-                        }
+            VStack(alignment: .leading, spacing: 6) {
+                topRow(showsSaessagi: false)
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack(alignment: .bottom, spacing: 8) {
+                        greeting(showsIcon: true)
+                        TodaySaessagi(size: 44)
                     }
+                    DateNavigator(showsDate: false)
                 }
-                .accessibilityElement(children: .combine)
-                Spacer(minLength: 4)
-                DateNavigator(showsDate: false)
+            }
+        } else {
+            // 새싹이는 인사말 옆에 둔다. 날짜와 인사말 두 줄의 높이 안에 들어가 아래 카드를 밀지 않는다.
+            // 화면이 좁아 다 들어가지 않으면 해 아이콘을 빼고, 그래도 안 되면(iPhone SE) 윗줄의 앱 이름 옆으로 옮긴다.
+            // 인사말을 줄이거나 자르면서까지 끼워 넣지 않는다.
+            ViewThatFits(in: .horizontal) {
+                VStack(alignment: .leading, spacing: 6) {
+                    topRow(showsSaessagi: false)
+                    greetingRow(showsIcon: true, saessagi: 44)
+                }
+                VStack(alignment: .leading, spacing: 6) {
+                    topRow(showsSaessagi: false)
+                    greetingRow(showsIcon: false, saessagi: 40)
+                }
+                VStack(alignment: .leading, spacing: 6) {
+                    topRow(showsSaessagi: true)
+                    greetingRow(showsIcon: true, saessagi: nil)
+                }
             }
         }
+    }
+
+    private func topRow(showsSaessagi: Bool) -> some View {
+        HStack(spacing: 8) {
+            Text("Daylog")
+                .font(.title2.weight(.bold))
+                .accessibilityAddTraits(.isHeader)
+            if showsSaessagi {
+                // 단추 높이(44) 안에 들어가는 크기.
+                TodaySaessagi(size: 36)
+            }
+            if store.isVacation(on: store.today) {
+                // 휴가 카드가 아래쪽에 있어도 오늘이 휴가라는 것은 위에서 알 수 있게 한다.
+                Label("휴가 중", systemImage: "beach.umbrella.fill")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(GroupColor.coral.ink)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 3)
+                    .background(Theme.vacationTint.opacity(0.16), in: Capsule())
+            }
+            Spacer(minLength: 8)
+            Button {
+                isEditing.toggle()
+            } label: {
+                Image(systemName: isEditing ? "checkmark" : "square.grid.2x2")
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(isEditing ? AnyShapeStyle(Theme.onAccent) : AnyShapeStyle(.primary))
+                    .frame(width: 38, height: 36)
+                    .background(
+                        isEditing ? AnyShapeStyle(Theme.accent) : AnyShapeStyle(Theme.cardBackground),
+                        in: RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    )
+                    .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).strokeBorder(Theme.cardBorder, lineWidth: isEditing ? 0 : 1))
+                    .frame(minWidth: 44, minHeight: 44)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(isEditing ? "대시보드 편집 완료" : "대시보드 편집")
+            .accessibilityHint("카드의 순서를 바꾸거나 숨깁니다.")
+            Button {
+                isEditing = false
+                store.requestQuickAddFocus(
+                    dashboardShowsRoutines: !preferences.hiddenCards.contains(.routines),
+                    isShowingSheet: Platform.isShowingSheet
+                )
+            } label: {
+                Image(systemName: "plus")
+                    .font(.system(size: 15, weight: .bold))
+                    .foregroundStyle(.white)
+                    .frame(width: 38, height: 36)
+                    .background(GroupColor.blue.color, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                    .frame(minWidth: 44, minHeight: 44)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel("루틴 추가")
+            .accessibilityHint("오늘의 루틴에 새 항목을 적습니다.")
+        }
+    }
+
+    private func greetingRow(showsIcon: Bool, saessagi: CGFloat?) -> some View {
+        HStack(alignment: .bottom, spacing: 8) {
+            greeting(showsIcon: showsIcon)
+            if let saessagi {
+                TodaySaessagi(size: saessagi)
+            }
+            Spacer(minLength: 4)
+            DateNavigator(showsDate: false)
+        }
+    }
+
+    /// 날짜와 인사말(지난 날짜를 볼 때는 "…의 기록").
+    private func greeting(showsIcon: Bool) -> some View {
+        VStack(alignment: .leading, spacing: 1) {
+            Text(store.selectedDay.longTitle)
+                .font(.subheadline)
+                .monospacedDigit()
+                .foregroundStyle(.secondary)
+            HStack(spacing: 6) {
+                Text(verbatim: store.isViewingToday ? ui.string(.dashboardGreeting) : "\(store.selectedDay.shortTitle)의 기록")
+                    .font(.title3.weight(.bold))
+                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
+                    .minimumScaleFactor(0.8)
+                if showsIcon, store.isViewingToday, ui.showsGreetingIcon {
+                    Image(systemName: "sun.max.fill")
+                        .foregroundStyle(GroupColor.yellow.color)
+                        .accessibilityHidden(true)
+                }
+            }
+        }
+        .accessibilityElement(children: .combine)
     }
 }
 

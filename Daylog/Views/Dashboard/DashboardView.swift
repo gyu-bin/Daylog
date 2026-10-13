@@ -153,25 +153,29 @@ struct DashboardHeader: View {
     }
 
     private var titles: some View {
-        VStack(alignment: .leading, spacing: 3) {
-            Text(store.selectedDay.longTitle)
-                .font(.subheadline)
-                .monospacedDigit()
-                .foregroundStyle(.secondary)
-            HStack(spacing: 6) {
-                Text(verbatim: store.isViewingToday ? ui.string(.dashboardGreeting) : "\(store.selectedDay.shortTitle)의 기록")
-                    .font(.system(size: 24, weight: .bold))
-                if store.isViewingToday, ui.showsGreetingIcon {
-                    Image(systemName: "sun.max.fill")
-                        .font(.system(size: 18))
-                        .foregroundStyle(GroupColor.yellow.color)
-                        .accessibilityHidden(true)
+        HStack(alignment: .bottom, spacing: 10) {
+            VStack(alignment: .leading, spacing: 3) {
+                Text(store.selectedDay.longTitle)
+                    .font(.subheadline)
+                    .monospacedDigit()
+                    .foregroundStyle(.secondary)
+                HStack(spacing: 6) {
+                    Text(verbatim: store.isViewingToday ? ui.string(.dashboardGreeting) : "\(store.selectedDay.shortTitle)의 기록")
+                        .font(.system(size: 24, weight: .bold))
+                    if store.isViewingToday, ui.showsGreetingIcon {
+                        Image(systemName: "sun.max.fill")
+                            .font(.system(size: 18))
+                            .foregroundStyle(GroupColor.yellow.color)
+                            .accessibilityHidden(true)
+                    }
                 }
             }
+            .accessibilityElement(children: .combine)
+            .accessibilityAddTraits(.isHeader)
+            // 인사말 옆의 새싹이. 날짜와 인사말 두 줄의 높이 안에 들어가 머리말이 높아지지 않는다.
+            TodaySaessagi(size: 48)
         }
         .fixedSize()
-        .accessibilityElement(children: .combine)
-        .accessibilityAddTraits(.isHeader)
     }
 }
 

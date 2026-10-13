@@ -1109,6 +1109,16 @@ iPhone·iPad App Store 제출 자료를 만들고 App Store Connect에 올렸다
 - Codex 1회(gpt-6-astra, medium, 읽기 전용): HIGH 없음, MEDIUM 2건(실패한 가져오기 뒤 "없음" 판단, 안내 뒤의 키보드 명령) 모두 확인 후 수정.
 - **미검증**: 실제 iCloud가 붙은 새 기기에서의 동작(가져오기 알림의 실제 순서와 걸리는 시간, 6초·30초 기준이 맞는지), VoiceOver, 창을 여러 개 연 iPad.
 
+## Phase 7-0 — 새싹이 캐릭터 적용 (2026-10-14)
+
+- 받은 투명 PNG 6장(`daylog_saessagi_6_assets.zip`, 512×512)을 손대지 않고 `Assets.xcassets/Saessagi`에 넣었다(idle, happy, cheer, rest, sleep, welcome).
+- `Daylog/Components/Saessagi.swift`: `SaessagiView`(한 장 그리기. 모습마다 다른 캔버스 안 위치를 맞춘다), `SaessagiMood`(규칙), `TodaySaessagi`(오늘 화면용).
+  오늘 화면 인사말 옆에 두고, 완료가 늘면 기쁨(한 번 통통), 건너뜀이 늘면 휴식으로 잠깐 바뀐다. 휴가인 날은 휴식. 저장하는 상태는 없다.
+- 좁은 화면: 인사말 옆에 다 들어가지 않으면 해 아이콘을 빼고, 그래도 안 되면(iPhone SE) 윗줄 앱 이름 옆에 둔다.
+- 에셋 품질(다시 그리지 않고 그대로 씀): rest는 오른쪽 잎이 세로로 잘려 있고 뒤에 옅은 흰 자국이 있어 다크 모드에서 보인다.
+  sleep·welcome은 발밑에 흰 그림자 자국, welcome은 잎 윗부분이 잘려 있다. 전체적으로 외곽선이 거칠다(작게 쓸 때는 눈에 덜 띈다).
+- 확인: Mac(라이트·다크, 완료·건너뛰기·휴가), iPhone Pro Max·iPad(다크)·iPhone SE(기본·큰 글자). 미확인: 폭 393pt iPhone, Reduce Motion 화면, 실기기.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
