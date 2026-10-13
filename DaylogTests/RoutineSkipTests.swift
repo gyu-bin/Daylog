@@ -370,4 +370,13 @@ struct RoutineSkipTests {
         env.store.reloadStats()
         #expect(env.store.checkSections.flatMap(\.checks).map(\.status) == [.done])
     }
+
+    /// 건너뛴 줄은 회색 "—"와 "건너뜀" 글자로 보이고, ⋯ 메뉴는 미완료면 건너뛰기를, 건너뛴 뒤에는 취소를 준다.
+    @Test func skipMarkAndMenuTitles() {
+        #expect(SkipStyle.symbol == "minus")
+        #expect(SkipStyle.label == "건너뜀")
+        #expect(CheckSkipActions.title(isSkipped: false, isToday: true) == "오늘 건너뛰기")
+        #expect(CheckSkipActions.title(isSkipped: false, isToday: false) == "이날 건너뛰기")
+        #expect(CheckSkipActions.title(isSkipped: true, isToday: true) == "건너뛰기 취소")
+    }
 }

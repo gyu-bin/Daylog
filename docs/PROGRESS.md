@@ -968,6 +968,39 @@ SwiftData 스키마·CloudKit 구조·내보내기 파일 형식 변경 없음. 
 - 실기기 확인 없음(잠금 화면 알림, 위젯 작게·중간, iPad 두 창 나란히, 동기화). 메뉴 막대 아이콘 목록은 조작하지 않았다(실제 앱 아이콘과 구분 불가).
 - 결정 필요: 위 MEDIUM 3건의 근본 해결(시트를 창에 붙이고, 밖에서 온 화면 이동을 시트가 닫힐 때까지 미루기), iPad 창마다 화면 선택 분리, 막힌 탭의 안내.
 
+## 중복 앱 방지와 건너뛰기 표시 (2026-10-13)
+
+기준 커밋 `a0772c2`. 배포하지 않았다. 스키마·CloudKit·통계·알림·위젯 정책 변경 없음. 기존 앱 묶음은 하나도 지우지 않았다.
+
+### "Daylog"가 여러 개로 보이던 원인
+
+- 실제 파일이었다(캐시가 아니다). Spotlight가 보는 Daylog.app이 35개였고, 그중 33개가 저장소의 `build`·`build-verify`·`build-ios` 폴더에 있었다:
+  릴리스마다 남는 아카이브·제출본·공증본, 되돌리기용 사본(`build/rollback/Daylog-<버전>.app`), 업데이트 시험용 앱(9.0.0·9.0.1),
+  `Tools/install.sh`·`release.sh`·`update.sh`의 빌드 결과, 검증 빌드. 나머지는 `/Applications/Daylog.app`과 Xcode의 DerivedData.
+- 따로, 시스템(LaunchServices)에 등록만 남은 경로가 46개 있었다(임시 폴더에서 빌드하고 지운 것들). 저장 공간 목록과는 무관하고 시스템이 정리한다.
+- 원인은 (가) 빌드 결과를 Spotlight가 색인하는 폴더에 둔 것, (나) 검증할 때마다 다른 폴더에 빌드한 것이다.
+
+### 고친 것
+
+- 저장소의 `build`, `build-ios`, `build-verify`를 `<이름>.noindex`로 옮기고 원래 이름은 링크로 남겼다(`Tools/noindex.sh`). 경로는 그대로 쓴다.
+  `install.sh`·`release.sh`·`update.sh`·`update-test.sh`가 시작할 때 이 상태를 맞춘다. 옮긴 뒤 Spotlight가 보는 것은 2개(`/Applications`, Xcode DerivedData).
+- `Tools/dev.sh`: 검증용 Mac 빌드·테스트를 늘 같은 자리(`~/Library/Caches/DaylogDev.noindex/verify`), 같은 식별자(`com.daylog.verify`)로. `apps`는 목록만 보여 준다.
+
+### 정리 후보(지우지 않았다)
+
+- `~/Library/Developer/Xcode/DerivedData/Daylog-…`(Xcode가 만든 Debug 1.5.2, Xcode에서 정리).
+- `build.noindex` 6.1GB: 지난 릴리스 폴더(`release-1.3.4`, `release-1.5.0`, `release-1.5.1-old`, `release-1.5.2`, `release-published-…`, `release-unpublished-…`),
+  `rollback`(되돌리기용 1.3.4~1.5.2), `update-test`, `install`, `update`. 지금 릴리스(`release`, 1.5.3)와 직전 되돌리기용만 남겨도 된다.
+- `build-verify.noindex` 855MB(예전 검증 빌드, 지금은 `Tools/dev.sh` 자리를 쓴다).
+
+### 건너뛰기 표시
+
+- 오늘 화면의 루틴 줄에 ⋯ 메뉴를 Mac에서도 늘 보여 준다(전에는 마우스를 올린 줄에만 보였다). iPhone·iPad는 전과 같다.
+- 건너뛴 줄: 회색 "—" 칸과 회색 "건너뜀"(전에는 노란 "다음으로 넘기기" 기호). 통계의 최근 기록·메뉴 막대·위젯도 같은 모양을 쓴다.
+- 메뉴 항목은 그대로: 미완료·완료 줄에는 "오늘 건너뛰기"(지난 날짜는 "이날 건너뛰기"), 건너뛴 줄에는 "건너뛰기 취소". 체크 칸 동작 그대로.
+- 확인: Mac 검증 앱과 iPad Air 시뮬레이터에서 화면 확인(⋯ 표시, 건너뛴 줄 모양). 메뉴를 실제로 펼쳐 누르는 것은 이번에 하지 않았다(동작 코드는 바뀌지 않음).
+- 테스트: `RoutineSkipTests` 22개 통과(1개 추가). iOS 시뮬레이터 Debug 빌드, macOS Debug 빌드 성공. 전체 회귀는 돌리지 않았다.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.

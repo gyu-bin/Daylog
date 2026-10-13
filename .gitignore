@@ -1,5 +1,8 @@
-build/
-build-verify/
+# 빌드 결과. 실제 폴더는 Spotlight가 보지 않는 *.noindex이고, 원래 이름은 그 폴더를 가리키는 링크다(Tools/noindex.sh).
+build
+build-verify
+*.noindex/
 xcuserdata/
 .DS_Store
-build-ios/
+build-ios
+build-ios-device

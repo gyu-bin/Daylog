@@ -24,7 +24,8 @@ struct CheckSkipActions: View {
 }
 
 /// 오늘 화면의 체크 한 줄: 체크 칸과 이름, 시간, 그리고 ⋯ 메뉴.
-/// 목록이 체크할 것만 보이도록, macOS에서는 ⋯를 마우스를 올린 줄에만 보여 준다(오른쪽 클릭으로도 같은 메뉴가 열린다).
+/// ⋯는 Mac·iPhone·iPad 모두 늘 보여 준다. 마우스를 올린 줄에만 보이게 했더니 건너뛰기가 있는 줄 모르고 지나쳤다
+/// (오른쪽 클릭으로도 같은 메뉴가 열린다). 작고 옅게 그려 체크할 것이 먼저 보이게 한다.
 struct RoutineCheckRow: View {
     let check: CheckValue
     let tint: Color
@@ -34,7 +35,6 @@ struct RoutineCheckRow: View {
     let setSkipped: (Bool) -> Void
 
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
-    @State private var isHovered = false
 
     var body: some View {
         HStack(spacing: 2) {
@@ -81,7 +81,6 @@ struct RoutineCheckRow: View {
             // 메뉴 단추가 강조색을 입지 않게 한다. 목록에서는 눈에 덜 띄어야 한다.
             .tint(.secondary)
             .fixedSize()
-            .opacity(showsMenu ? 1 : 0)
             .accessibilityLabel("\(check.title) 더 보기")
         }
         .padding(.leading, 10)
@@ -89,7 +88,6 @@ struct RoutineCheckRow: View {
         .padding(.vertical, 6)
         .contentShape(Rectangle())
         .contextMenu { actions }
-        .onHover { isHovered = $0 }
     }
 
     private var actions: some View {
@@ -126,13 +124,11 @@ struct RoutineCheckRow: View {
     }
 
     #if os(macOS)
-    private var showsMenu: Bool { isHovered }
     static let menuWidth: CGFloat = 22
     static let menuHeight: CGFloat = 20
     static let trailingPadding: CGFloat = 6
     #else
-    // 터치 화면에는 마우스를 올리는 동작이 없어 늘 보여 준다. 누르기 쉽게 넓힌다.
-    private var showsMenu: Bool { true }
+    // 터치 화면에서는 누르기 쉽게 넓힌다.
     static let menuWidth: CGFloat = 36
     static let menuHeight: CGFloat = 30
     static let trailingPadding: CGFloat = 2

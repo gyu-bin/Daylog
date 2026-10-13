@@ -668,18 +668,27 @@ xcodebuild -exportArchive -archivePath build/testflight/DaylogiOS.xcarchive -exp
 ## 검증 전용 빌드
 
 실제 앱·실제 기록·iCloud와 완전히 분리된 빌드. 번들 ID가 달라 컨테이너도 따로이고, iCloud 권한이 없다.
+**늘 `Tools/dev.sh`로 만든다.** 자리와 식별자가 고정이라, 빌드할 때마다 Daylog.app이 새로 생기지 않는다.
 
 ```bash
-ARGS=(-project Daylog.xcodeproj -scheme Daylog -derivedDataPath build-verify PRODUCT_BUNDLE_IDENTIFIER=com.daylog.verify \
-      CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= PROVISIONING_PROFILE_SPECIFIER= CODE_SIGN_ENTITLEMENTS=Config/Verify.entitlements)
-TEST_RUNNER_DAYLOG_SEED=2026-10-10 xcodebuild "${ARGS[@]}" test -only-testing:DaylogTests/VerificationSeed   # 45일치 검증 데이터
-open -n build-verify/Build/Products/Debug/Daylog.app --args -DaylogStoreName verify -DaylogDebugToday 2026-10-10 -DaylogDebugAppearance dark
+Tools/dev.sh build                  # 검증용 Mac 앱(com.daylog.verify) → ~/Library/Caches/DaylogDev.noindex/verify
+Tools/dev.sh test -only-testing:DaylogTests/RoutineSkipTests      # 같은 자리에서 테스트
+TEST_RUNNER_DAYLOG_SEED=2026-10-10 Tools/dev.sh test -only-testing:DaylogTests/VerificationSeed   # 45일치 검증 데이터
+open -n "$(Tools/dev.sh path)" --args -DaylogStoreName verify -DaylogDebugToday 2026-10-10 -DaylogDebugAppearance dark
+Tools/dev.sh ios                    # iPhone·iPad 시뮬레이터용 앱 → build-ios
+Tools/dev.sh apps                   # 이 Mac의 Daylog 앱 묶음과 시스템에 등록된 경로(읽기만)
 ```
 
+- **빌드 폴더를 임의로 늘리지 않는다.** Xcode는 빌드한 앱을 시스템(LaunchServices)에 등록하고, Spotlight가 보는 곳에 있는 Daylog.app은
+  macOS의 저장 공간 목록에 버전별로 따로 나온다. 2026-10-13에 세어 보니 저장소의 `build*` 폴더에만 33개가 있었다
+  (릴리스마다 아카이브·제출본·공증본 3개, 되돌리기용 사본, 업데이트 시험용 9.0.x, 검증 빌드).
+- 그래서 저장소의 `build`, `build-ios`, `build-verify`는 Spotlight가 보지 않는 `<이름>.noindex` 폴더를 가리키는 링크다(`Tools/noindex.sh`).
+  경로는 전과 같이 쓴다. 배포·설치 스크립트가 시작할 때 이 상태를 맞춘다. 폴더를 옮길 뿐 안의 파일은 지우지 않는다.
+- 세션마다 다른 `-derivedDataPath`(임시 폴더 등)를 쓰지 않는다. 검증용 Mac 빌드는 위의 한 자리만 쓴다.
 - 컨테이너가 `~/Library/Containers/com.daylog.verify`로 따로 생긴다. `Config/Verify.entitlements`에는 iCloud가 없고, 샌드박스·파일 선택·Sparkle 통신 권한만 있다.
 - **`xcodebuild test`를 이 번들로 돌릴 때는 `-derivedDataPath`를 `~/Desktop` 밖에 둔다.** 프로젝트가 Desktop 아래라서, 프로젝트 안의 `build-verify`로 돌리면
   샌드박스된 테스트 호스트가 Desktop 접근 확인(TCC)을 기다리며 시작 단계에서 멈춘다("The test runner hung before establishing connection").
-  `open`으로 띄우는 화면 검증은 `build-verify`로도 된다.
+  `Tools/dev.sh`가 `~/Library/Caches` 아래를 쓰는 이유다.
 - 이 빌드는 iCloud가 없어 "저장소 변경 알림 → 외부 변경 처리(`handleExternalChanges`)"가 저절로 돌지 않는다. 그 경로를 타는 화면 갱신을 볼 때는
   `-DaylogDebugScript "wait:3;refresh"`로 한 번 돌린 뒤 조작한다(v1.3.2의 체크 해제 오류를 이 빌드에서 놓쳤던 이유다).
 - iPhone·iPad는 시뮬레이터가 같은 역할을 한다. 시뮬레이터 빌드는 iCloud에 연결하지 않는다(`CloudSyncConfiguration`).

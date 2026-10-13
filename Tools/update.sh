@@ -21,6 +21,9 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
+# 빌드 폴더를 Spotlight가 보지 않게 한다(안의 Daylog.app이 저장 공간 목록에 따로 나오지 않게).
+source Tools/noindex.sh
+daylog_noindex_dir build
 BUNDLE_ID="com.mungyubin.daylog"
 INSTALLED="${DAYLOG_INSTALL_DIR:-/Applications}/Daylog.app"
 OUT="build/update"
