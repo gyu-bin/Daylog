@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Daylog는 추적하지 않고, 개발자가 수집하는 데이터도 없다(기록은 사용자의 기기와 개인 iCloud에만 있다). -->
+	<key>NSPrivacyTracking</key>
+	<false/>
+	<key>NSPrivacyTrackingDomains</key>
+	<array/>
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array/>
+	<!-- 사유를 밝혀야 하는 API. 쓰는 곳이 바뀌면 여기도 고친다(docs/PROGRESS.md "Phase 6-B"). -->
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<!-- UserDefaults.standard: 이 기기의 화면 설정(카드 배치, 테마, 알림 안내 여부 등). 앱 자신의 값만 읽고 쓴다. -->
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>CA92.1</string>
+			</array>
+		</dict>
+		<!-- 파일 시각: 앱 컨테이너 안의 저장소 백업을 오래된 순으로 정리(StoreBackup), 넘겨받은 템플릿 파일이 같은 파일인지 가리기(TemplateInbox).
+		     C617.1 = 앱 컨테이너 안의 파일, 3B52.1 = 사용자가 직접 열어 준 파일. -->
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>C617.1</string>
+				<string>3B52.1</string>
+			</array>
+		</dict>
+		<!-- 시스템 가동 시간: 시작 화면이 떠 있던 시간을 재는 데만 쓴다(SplashTimeline). 기기 밖으로 나가지 않는다. -->
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategorySystemBootTime</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>35F9.1</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

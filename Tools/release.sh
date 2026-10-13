@@ -85,9 +85,21 @@ fetch_previous_appcast() {
   # 피드 주소(…/latest/download/…)로 받지 않는다: GitHub가 그 주소의 응답을 2분쯤 기억해서,
   # 게시 직전에 받아 두면 게시한 뒤에도 한동안 이전 릴리스를 가리킨다(1.5.2를 올릴 때 겪었다). 최신 릴리스의 자산을 직접 받는다.
   rm -rf "$OUT/previous"; mkdir -p "$OUT/previous"
-  gh release download --pattern appcast.xml --dir "$OUT/previous" >/dev/null 2>&1 || true
-  if [[ -s "$OUT/previous/appcast.xml" ]]; then mv "$OUT/previous/appcast.xml" "$PREVIOUS_APPCAST"; else rm -f "$PREVIOUS_APPCAST"; fi
-  [[ -s "$PREVIOUS_APPCAST" ]] && echo "· 지금 공개된 appcast를 이어 씁니다." || echo "· 공개된 appcast가 아직 없습니다(첫 릴리스)."
+  # 공개된 appcast가 있는데 받지 못한 것과, 아직 없는 것(첫 릴리스)을 가른다.
+  # 받지 못한 채로 넘어가면 과거 항목이 빠진 피드를 만들어 올리게 된다.
+  local latest_assets
+  latest_assets=$(gh release view --json assets -q '.assets[].name' 2>/dev/null) \
+    || { [[ -z "$(gh release list --limit 1 2>/dev/null)" ]] && gh release list --limit 1 >/dev/null 2>&1 \
+         || fail "GitHub에서 최신 릴리스를 읽지 못했습니다. 네트워크와 gh 로그인을 확인하세요."; latest_assets=""; }
+  if echo "$latest_assets" | grep -qx "appcast.xml"; then
+    gh release download --pattern appcast.xml --dir "$OUT/previous" >/dev/null 2>&1 || true
+    [[ -s "$OUT/previous/appcast.xml" ]] || fail "지금 공개된 appcast를 받지 못했습니다. 과거 항목 없이 만들지 않습니다. 다시 시도하세요."
+    mv "$OUT/previous/appcast.xml" "$PREVIOUS_APPCAST"
+    echo "· 지금 공개된 appcast를 이어 씁니다."
+  else
+    rm -f "$PREVIOUS_APPCAST"
+    echo "· 공개된 appcast가 아직 없습니다(첫 릴리스)."
+  fi
 }
 
 make_appcast() {
@@ -99,7 +111,14 @@ make_appcast() {
   keychain_key=$("$bin/generate_keys" -p </dev/null 2>/dev/null) || fail "키체인에서 Sparkle 서명 키를 읽지 못했습니다(docs/UPDATES.md의 키 준비)."
   [[ "$keychain_key" == "$SPARKLE_KEY" ]] || fail "앱의 공개 키(SUPublicEDKey)가 키체인의 서명 키와 다릅니다. 게시하지 않습니다."
   fetch_previous_appcast
-  Tools/appcast.sh "$DMG" "$NOTES_FILE" "$OUT/appcast" "$REPO_URL/releases/download/v$VERSION/" "${PREVIOUS_APPCAST:-}"
+  [[ -s "$PREVIOUS_APPCAST" ]] || PREVIOUS_APPCAST=""
+  if [[ $PUBLISH_ONLY -eq 1 && -s "$OUT/appcast/appcast.xml" ]]; then
+    # 이미 만들어 확인한 appcast를 그대로 올린다. 다시 만들면 확인한 파일과 달라진다(게시 시각, 그때 받은 이전 피드).
+    echo "· 만들어 둔 appcast를 다시 만들지 않고 검사만 합니다."
+    Tools/appcast.sh --check "$DMG" "$NOTES_FILE" "$OUT/appcast" "$REPO_URL/releases/download/v$VERSION/" "$PREVIOUS_APPCAST"
+  else
+    Tools/appcast.sh "$DMG" "$NOTES_FILE" "$OUT/appcast" "$REPO_URL/releases/download/v$VERSION/" "$PREVIOUS_APPCAST"
+  fi
   APPCAST="$OUT/appcast/appcast.xml"
 }
 
@@ -259,6 +278,9 @@ if [[ $PUBLISH -eq 1 && $SPARKLE_ON -eq 1 ]]; then
   DMG_SHA=$(shasum -a 256 "$DMG" | cut -d' ' -f1)
   git branch -r --contains "$HEAD_SHA" 2>/dev/null | grep -q . || fail "이 커밋이 GitHub에 없습니다. 먼저 git push 하세요."
   gh release view "$TAG" >/dev/null 2>&1 && fail "$TAG 은 이미 게시됐습니다. 버전을 올리세요(Tools/bump-version.sh)."
+  # 같은 이름의 태그가 이미 다른 커밋에 있으면 릴리스가 그 커밋을 가리키게 된다.
+  REMOTE_TAG=$(git ls-remote --tags origin "refs/tags/$TAG" 2>/dev/null | cut -f1)
+  [[ -z "$REMOTE_TAG" || "$REMOTE_TAG" == "$HEAD_SHA" ]] || fail "$TAG 태그가 이미 다른 커밋(${REMOTE_TAG[1,7]})에 있습니다. 태그를 확인하세요."
   BODY=$(mktemp)
   {
     cat "$NOTES_FILE"
