@@ -1001,6 +1001,23 @@ SwiftData 스키마·CloudKit 구조·내보내기 파일 형식 변경 없음. 
 - 확인: Mac 검증 앱과 iPad Air 시뮬레이터에서 화면 확인(⋯ 표시, 건너뛴 줄 모양). 메뉴를 실제로 펼쳐 누르는 것은 이번에 하지 않았다(동작 코드는 바뀌지 않음).
 - 테스트: `RoutineSkipTests` 22개 통과(1개 추가). iOS 시뮬레이터 Debug 빌드, macOS Debug 빌드 성공. 전체 회귀는 돌리지 않았다.
 
+## Mac 1.5.4 게시, TestFlight 빌드 8 업로드 (2026-10-13)
+
+사용자 지시 "새 버전 올려"로 세 곳에 올렸다. 커밋 `fabc7b1`(Mac 1.5.4 (4), iOS 1.0.0 (8)). 스키마·CloudKit 구조 변경 없음.
+들어간 것: Phase 6-D·6-E의 수정(알림 [완료] 충돌과 위젯 갱신, 빠른 추가, 시트 보호, 메뉴, 내보내기 안내)과 건너뛰기 표시.
+
+- 올리기 전 전체 테스트 510개 / 62개 묶음 통과.
+- **이 Mac**: `Tools/update.sh`로 `/Applications/Daylog.app`을 1.5.4 (4)로 교체(Developer ID 서명, iCloud Production). 실행 중이던 앱은 PID로 종료 확인 뒤 교체,
+  직전 앱은 `build/update/previous.app`. 교체 뒤 실행 중이고 iCloud 가져오기·내보내기 완료 로그 확인. 화면은 열어 보지 않았다.
+- **GitHub Release** [v1.5.4](https://github.com/gyu-bin/Daylog/releases/tag/v1.5.4): 공증된 앱이 든 DMG와 appcast. 공개 주소에서 다시 받아 확인:
+  DMG가 로컬본과 같음(SHA-256 `eb333e095ee03a605cc6c260b53cbfe17840c2ff9aca501ea1413e6e12a99937`, 7,555,518바이트), appcast에 1.5.4 (4)·1.5.3 (3)·1.5.2 (2) 세 항목,
+  최신 항목의 EdDSA 서명을 설치된 앱의 공개 키로 검증. DMG 자체는 서명·공증하지 않았다(전과 같음, 안의 앱은 공증됨).
+- **TestFlight** iOS 1.0.0 (8): 업로드 전 IPA 확인(버전·빌드, `aps-environment` production, iCloud Production, 배경 모드, 개인정보 매니페스트, 서명),
+  "UPLOAD SUCCEEDED with no errors". 처리 뒤 내부 그룹 "Test"에 자동 제공된다. 테스트할 내용은 `docs/releases/testflight-1.0.0-8.md`.
+- 1.5.3 산출물은 `build/release-1.5.3`으로 옮겨 두었다. iOS 아카이브는 `build/testflight/DaylogiOS-fabc7b1.xcarchive`.
+- 하지 않은 것: 다른 Mac에서 1.5.3 → 1.5.4 앱 안의 업데이트 확인(이 Mac은 바로 교체했다), 실기기 확인, 외부 테스터 공개·심사 제출.
+- 다음 번호: Mac 1.5.5 (5), iOS 빌드 9.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
@@ -1008,7 +1025,7 @@ SwiftData 스키마·CloudKit 구조·내보내기 파일 형식 변경 없음. 
 3. 실기기 iPhone/iPad, 최소 지원 OS, 실제 VoiceOver·Reduce Motion과 다기기 CloudKit를 추가 검증한다. (iOS Files 가져오기·내보내기는 Phase 4-A에서 시뮬레이터로 확인했다.)
 4. 실기기에서 위젯 체크 직후 위젯 그림이 바로 바뀌는지 확인한다(Phase 4-A의 1번 문제). 바뀌지 않으면 표시 방식을 다시 정한다.
 5. 1.5.3·빌드 7 배포 뒤(2026-10-13): 실기기에서 빌드 7의 기록 유지와 동기화, VoiceOver, 큰 글자 크기의 남은 화면을 본다. Apple의 업로드 경고 메일이 있으면 매니페스트를 고친다.
-6. **알림 [완료] 충돌(6-D)과 위젯 갱신 누락(6-E) 수정을 다음 빌드로 내보낸다: iOS 빌드 8, Mac 1.5.4.** 지금 TestFlight 1.0.0 (7)에서는 알림의 [완료]를 누르면 앱이 끝난다. 배포는 승인 뒤에 한다.
+6. (완료, 2026-10-13) 알림 [완료] 충돌과 위젯 갱신 누락 수정은 Mac 1.5.4·iOS 빌드 8로 내보냈다. 실기기에서 잠금 화면의 [완료]와 위젯 갱신을 확인한다.
 
 ## 범위 밖 및 보류
 
