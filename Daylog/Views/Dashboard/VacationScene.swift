@@ -40,8 +40,8 @@ struct VacationSlotKey: PreferenceKey {
 /// 장면의 레이어를 올리고 움직이는 무대. macOS와 iOS가 함께 쓴다.
 ///
 /// 겹치는 순서: 하늘 → 별 → 해 → 구름 → 풍경(산·바다·모래) → 두 야자나무(줄기 → 잎 → 열매)
-/// → 흔들리는 묶음(`swing`: 해먹 뒤쪽 → 새싹이(`character`: 몸 → 잎 → 선글라스 → 잔 → 손과 팔) → 해먹 앞쪽).
-/// 새싹이와 잔은 해먹과 한 묶음으로 흔들리므로 서로 어긋나지 않는다.
+/// → 흔들리는 묶음(`swing` → 숨쉬기 `breather`: 해먹과 누운 새싹이 → 마시는 손 → 고쳐 쓰는 손 → 머리 위 잎).
+/// 손 그림과 잎은 해먹과 한 묶음으로 흔들리므로 서로 어긋나지 않는다.
 @MainActor
 final class VacationSceneStage {
     struct Configuration: Equatable {
@@ -63,16 +63,11 @@ final class VacationSceneStage {
     private let fronds = [VacationArt.PalmSide.left: CALayer(), .right: CALayer()]
     private let coconuts = [VacationArt.PalmSide.left: CALayer(), .right: CALayer()]
     private let swing = CALayer()
-    private let hammockBack = CALayer()
-    private let character = CALayer()
-    private let body = CALayer()
+    private let breather = CALayer()
+    private let hammock = CALayer()
+    private let sipHands = CALayer()
+    private let adjustHands = CALayer()
     private let leaf = CALayer()
-    private let sunglasses = CALayer()
-    private let drink = CALayer()
-    private let handRest = CALayer()
-    private let armSip = CALayer()
-    private let armAdjust = CALayer()
-    private let hammockFront = CALayer()
 
     private var configuration: Configuration?
     /// 지금 올려 둔 그림을 만들 때의 크기. 창 크기를 바꾸는 동안에는 있던 그림을 늘여 쓰다가, 멈추면 다시 만든다.
@@ -97,11 +92,11 @@ final class VacationSceneStage {
             for layer in [trunks[side], fronds[side], coconuts[side]] { rig.addSublayer(layer!) }
         }
         rig.addSublayer(swing)
-        for layer in [hammockBack, character, hammockFront] { swing.addSublayer(layer) }
-        for layer in [body, leaf, sunglasses, drink, handRest, armSip, armAdjust] { character.addSublayer(layer) }
+        swing.addSublayer(breather)
+        for layer in [hammock, sipHands, adjustHands, leaf] { breather.addSublayer(layer) }
         sky.contentsGravity = .resize
-        armSip.opacity = 0
-        armAdjust.opacity = 0
+        sipHands.opacity = 0
+        adjustHands.opacity = 0
     }
 
     func update(_ next: Configuration, isAnimating: Bool) {
@@ -178,21 +173,19 @@ final class VacationSceneStage {
                 place(layer!, layout.rect(VacationArt.palmRect(piece, side: palm)), anchor: piece.anchor, scale: scale)
             }
         }
-        // 흔들리는 묶음은 줄이 묶인 높이를, 새싹이는 해먹에 닿은 자리를 기준으로 삼는다.
+        // 흔들림과 숨쉬기 모두 줄이 묶인 높이를 기준으로 삼는다(기둥의 매듭은 제자리에 있다).
         let full = CGRect(x: 0, y: 0, width: side, height: side)
-        place(swing, full, anchor: CGPoint(x: 0.5, y: VacationArt.hookLine / VacationArt.canvas), scale: scale)
-        place(character, full, anchor: CGPoint(
-            x: VacationArt.breathPivot.x / VacationArt.canvas, y: VacationArt.breathPivot.y / VacationArt.canvas
-        ), scale: scale)
+        let hook = CGPoint(x: 0.5, y: VacationArt.hookLine / VacationArt.canvas)
+        place(swing, full, anchor: hook, scale: scale)
+        place(breather, full, anchor: hook, scale: scale)
         for (layer, piece) in posePieces { place(layer, layout.rect(piece.rect), anchor: piece.anchor, scale: scale) }
         CATransaction.commit()
     }
 
     private var posePieces: [(CALayer, VacationArt.Piece)] {
         [
-            (hammockBack, VacationArt.hammockBack), (hammockFront, VacationArt.hammockFront), (body, VacationArt.body),
-            (leaf, VacationArt.leaf), (sunglasses, VacationArt.sunglasses), (drink, VacationArt.drink),
-            (handRest, VacationArt.handRest), (armSip, VacationArt.armSip), (armAdjust, VacationArt.armAdjust),
+            (hammock, VacationArt.hammock), (sipHands, VacationArt.sipHands), (adjustHands, VacationArt.adjustHands),
+            (leaf, VacationArt.leaf),
         ]
     }
 
@@ -270,8 +263,8 @@ final class VacationSceneStage {
         // 해먹: 줄이 묶인 높이는 그대로 두고 아래로 갈수록 좌우로 더 움직인다(가운데에서 시작한다).
         loop(swing, "transform", from: shear(-VacationHammockMotion.swing), to: shear(VacationHammockMotion.swing),
              halfPeriod: VacationHammockMotion.swingHalfPeriod, offset: VacationHammockMotion.swingHalfPeriod / 2)
-        // 숨쉬기: 해먹에 닿은 쪽은 제자리, 위로만 조금.
-        loop(character, "transform.scale.y", from: 1, to: 1 + VacationHammockMotion.breath, halfPeriod: VacationHammockMotion.breathHalfPeriod)
+        // 숨쉬기: 새싹이가 숨을 쉴 때마다 해먹이 살짝 내려앉았다 오른다(매듭은 제자리).
+        loop(breather, "transform.scale.y", from: 1, to: 1 + VacationHammockMotion.breath, halfPeriod: VacationHammockMotion.breathHalfPeriod)
         // 머리 위의 잎: 줄기 밑동을 중심으로 살랑인다.
         let leafAngle = VacationHammockMotion.leafAngle * .pi / 180
         loop(leaf, "transform.rotation.z", from: -leafAngle, to: leafAngle, halfPeriod: VacationHammockMotion.leafHalfPeriod,
@@ -308,7 +301,7 @@ final class VacationSceneStage {
         isAnimating = false
         actions?.cancel()
         actions = nil
-        for layer in [swing, character, leaf, sunglasses, drink, handRest, armSip, armAdjust] + Array(fronds.values) + cloudLayers {
+        for layer in [swing, breather, leaf, sipHands, adjustHands] + Array(fronds.values) + cloudLayers {
             for key in layer.animationKeys() ?? [] where key.hasPrefix(Self.actionKey) || key.hasPrefix(Self.loopKey) {
                 layer.removeAnimation(forKey: key)
             }
@@ -318,23 +311,12 @@ final class VacationSceneStage {
     // MARK: - 가끔 하는 행동
 
     private func play(_ plan: VacationMotionPlan) {
-        let unit = Double(configuration?.layout.unit ?? 0)
         let degrees = Double.pi / 180
-        add(plan.drinkX, to: drink, "transform.translation.x", scale: unit, plan: plan)
-        add(plan.drinkY, to: drink, "transform.translation.y", scale: unit, plan: plan)
-        add(plan.drinkTilt, to: drink, "transform.rotation.z", scale: degrees, plan: plan)
-        add(plan.handRestX, to: handRest, "transform.translation.x", scale: unit, plan: plan)
-        add(plan.handRestY, to: handRest, "transform.translation.y", scale: unit, plan: plan)
-        add(plan.handRestOpacity, to: handRest, "opacity", plan: plan)
-        add(plan.armSipOpacity, to: armSip, "opacity", plan: plan)
-        add(plan.armAdjustOpacity, to: armAdjust, "opacity", plan: plan)
-        add(plan.armAdjustX, to: armAdjust, "transform.translation.x", scale: unit, plan: plan)
-        add(plan.armAdjustY, to: armAdjust, "transform.translation.y", scale: unit, plan: plan)
-        add(plan.glassesY, to: sunglasses, "transform.translation.y", scale: unit, plan: plan)
-        add(plan.glassesTilt, to: sunglasses, "transform.rotation.z", scale: degrees, plan: plan)
+        add(plan.sipOpacity, to: sipHands, "opacity", plan: plan)
+        add(plan.adjustOpacity, to: adjustHands, "opacity", plan: plan)
         // 잎과 숨쉬기는 늘 도는 움직임 위에 더한다.
         add(plan.leaf, to: leaf, "transform.rotation.z", scale: degrees, plan: plan, additive: true)
-        add(plan.stretch, to: character, "transform.scale.y", plan: plan, additive: true)
+        add(plan.stretch, to: breather, "transform.scale.y", plan: plan, additive: true)
     }
 
     private func add(
@@ -508,11 +490,11 @@ enum VacationHammockMotion {
     static let swing: CGFloat = 0.032
     /// 한쪽 끝에서 반대쪽 끝까지 가는 시간(초).
     static let swingHalfPeriod: Double = 2.6
-    /// 숨쉴 때 늘어나는 키의 비율과, 들이쉬는(내쉬는) 시간.
-    static let breath: CGFloat = 0.028
+    /// 숨쉴 때 해먹이 늘어나는 비율(매듭 아래 길이에 대한)과, 들이쉬는(내쉬는) 시간.
+    static let breath: CGFloat = 0.012
     static let breathHalfPeriod: Double = 1.9
     /// 머리 위 잎이 좌우로 기우는 각도(도)와 한쪽으로 가는 시간.
-    static let leafAngle: Double = 4
+    static let leafAngle: Double = 3
     static let leafHalfPeriod: Double = 1.6
     /// 야자나무 잎이 기우는 각도(도).
     static let frondAngle: Double = 1.6

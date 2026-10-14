@@ -1,8 +1,9 @@
-// 휴가 화면의 해먹·새싹이·야자나무를 움직일 수 있게 레이어로 나눠 에셋으로 만든다.
+// 휴가 화면의 야자나무와 배경(하늘·해·구름·별·풍경)을 움직일 수 있게 레이어로 나눠 에셋으로 만든다.
+// 해먹과 새싹이는 Tools/vacation-hammock-layers.swift가 만든다.
 //
 //   xcrun swift Tools/vacation-layers.swift
 //
-// 읽는 것: Tools/vacation-art/*.svg (받은 벡터 원본. 포즈 세 장은 해먹이 같고 음료·팔만 다르다. 배경은 낮과 밤 두 장)
+// 읽는 것: Tools/vacation-art/*.svg (받은 벡터 원본: 야자나무 좌우, 배경 낮과 밤)
 // 쓰는 것: Daylog/Assets.xcassets/Vacation/<이름>.imageset (투명 PNG, 내용이 있는 자리만 잘라 낸 것)
 //
 // 그림을 새로 그리지 않는다: 원본의 도형을 묶음별로 골라 따로 그릴 뿐이다. 레이어를 원본의 자리에 겹치면 원본 그림이 된다.
@@ -135,25 +136,7 @@ try! FileManager.default.createDirectory(at: catalog, withIntermediateDirectorie
 try! "{\n  \"info\": {\n    \"author\": \"xcode\",\n    \"version\": 1\n  }\n}\n"
     .write(to: catalog.appendingPathComponent("Contents.json"), atomically: true, encoding: .utf8)
 
-// 포즈: 도형의 순서는 세 장이 같고, 뒤쪽의 음료·팔·손만 다르다.
-let relax = Source("vacation_pose_relax.svg"), sip = Source("vacation_pose_sip.svg"), adjust = Source("vacation_pose_adjust.svg")
-precondition(relax.children.count == 25 && sip.children.count == 27 && adjust.children.count == 28, "포즈 원본의 구성이 달라졌습니다")
-precondition(Array(relax.children[0...19]) == Array(sip.children[0...19]) && Array(relax.children[0...19]) == Array(adjust.children[0...19]),
-             "세 포즈의 해먹과 몸이 같지 않습니다")
-let pose = CGSize(width: 1024, height: 1024)
 var report: [(String, CGRect)] = []
-func addPose(_ name: String, _ source: Source, _ indices: [Int]) {
-    report.append((name, export(name, svg: source.svg(indices, canvas: pose), canvas: pose, scale: 2)))
-}
-addPose("vacation_hammock_back", relax, Array(0...7))        // 줄, 고리, 뒤쪽 천, 베개
-addPose("vacation_saessagi_body", relax, Array(8...14))       // 몸, 머리, 발, 볼, 입
-addPose("vacation_saessagi_leaf", relax, Array(15...18))      // 줄기와 잎
-addPose("vacation_saessagi_sunglasses", relax, [19])
-addPose("vacation_drink", relax, [20])                        // 잔, 빨대, 꽃(쉬는 자리)
-addPose("vacation_hand_rest", relax, [21])                    // 쉴 때의 손
-addPose("vacation_arm_sip", sip, [21, 22, 23])                // 마실 때 잔을 받치는 팔
-addPose("vacation_arm_adjust", adjust, [22, 23, 24])          // 선글라스를 고쳐 쓰는 팔
-addPose("vacation_hammock_front", relax, [22, 23, 24])        // 앞쪽 천
 
 // 야자나무: 줄기(와 밑동의 풀), 잎, 열매. 원본은 밑동이 캔버스 아래에서 잘려 있어 아래로 더 그린다.
 let palm = CGSize(width: 1024, height: 1600)

@@ -12,31 +12,37 @@ struct VacationSceneTests {
 
     // MARK: - 자리
 
-    @Test func palmsStandSymmetricallyUnderTheKnotsAndInTheSand() {
+    @Test func palmsStandSymmetricallyBehindThePostsAndInTheSand() {
         // 두 나무는 해먹의 가운데를 두고 대칭이다.
         let left = VacationArt.palmRect(VacationArt.palmTrunk(.left), side: .left)
         let right = VacationArt.palmRect(VacationArt.palmTrunk(.right), side: .right)
         #expect(abs((left.minX + right.maxX) / 2 - VacationArt.canvas / 2) < 0.5)
         #expect(left.minY == right.minY && left.height == right.height)
-        // 나무 꼭대기(잎의 중심)는 줄의 매듭(86, 940) 바로 아래다.
+        // 나무 꼭대기는 해먹 기둥(x 47~110, 914~977)의 바깥쪽에 있다.
         let leftCrown = VacationArt.palmOrigin(.left).x + VacationArt.palmFronds(.left).pivot!.x * VacationArt.palmScale
         let rightCrown = VacationArt.palmOrigin(.right).x + VacationArt.palmFronds(.right).pivot!.x * VacationArt.palmScale
-        #expect(abs(leftCrown - 86) < 8 && abs(rightCrown - 940) < 8)
-        #expect(VacationArt.palmOrigin(.left).y + 390 * VacationArt.palmScale > VacationArt.hookLine)
-        // 밑동은 모래선 아래로 묻힌다.
+        #expect(leftCrown < 47 && rightCrown > 977)
+        // 밑동은 모래선 아래로 묻히고, 해먹은 모래선보다 조금 아래까지 내려온다.
         #expect(left.maxY > VacationArt.sandLine)
+        #expect(VacationArt.slotTop + VacationArt.slotHeight > VacationArt.sandLine)
         // 두 나무의 그림 캔버스까지가 장면의 너비다.
         let width = VacationArt.palmOrigin(.right).x + 1024 * VacationArt.palmScale - VacationArt.palmOrigin(.left).x
         #expect(abs(width - VacationArt.rigWidthRatio * VacationArt.canvas) < 0.5)
     }
 
-    @Test func pivotsLieInsideTheirPieces() {
-        for piece in [VacationArt.leaf, VacationArt.drink, VacationArt.armSip, VacationArt.armAdjust,
-                      VacationArt.palmFronds(.left), VacationArt.palmFronds(.right)] {
+    @Test func pivotsAndOverlaysLieInsideTheHammock() {
+        for piece in [VacationArt.leaf, VacationArt.palmFronds(.left), VacationArt.palmFronds(.right)] {
             let anchor = piece.anchor
             #expect((0...1).contains(anchor.x) && (0...1).contains(anchor.y), "\(piece.asset)")
         }
-        #expect(VacationArt.body.anchor == CGPoint(x: 0.5, y: 0.5))
+        // 손 그림과 잎은 해먹 그림 안에 있고, 손 그림은 잎과 겹치지 않는다(겹치면 멈춘 잎이 하나 더 보인다).
+        for piece in [VacationArt.leaf, VacationArt.sipHands, VacationArt.adjustHands] {
+            #expect(VacationArt.hammock.rect.contains(piece.rect), "\(piece.asset)")
+        }
+        #expect(VacationArt.sipHands.rect.maxX <= VacationArt.leaf.rect.minX + 12)
+        #expect(VacationArt.adjustHands.rect.maxX <= VacationArt.leaf.rect.minX)
+        // 줄이 묶인 높이는 해먹 자리 안에 있다.
+        #expect(VacationArt.hookLine > VacationArt.slotTop && VacationArt.hookLine < VacationArt.sandLine)
     }
 
     @Test func sceneryFollowsTheHammockAndCoversThePane() {
@@ -106,43 +112,40 @@ struct VacationSceneTests {
                 // 모든 값이 행동의 길이만큼 이어져 있어야 키프레임의 시간이 서로 맞는다.
                 #expect(abs(track.end - plan.duration) < 1e-9, "\(action)")
                 #expect(track.times == track.times.sorted())
+                // 끝나면 손 그림은 사라지고 잎과 해먹은 제자리다.
+                #expect(track.last == 0, "\(action)")
             }
-            // 끝나면 잔·손·선글라스·잎·숨이 모두 제자리다.
-            for path in [\VacationMotionPlan.drinkX, \.drinkY, \.drinkTilt, \.handRestX, \.handRestY, \.glassesY, \.glassesTilt, \.leaf, \.stretch] {
-                #expect(plan[keyPath: path].last == 0, "\(action)")
-            }
-            #expect(plan.handRestOpacity.last == 1 && plan.armSipOpacity.last == 0 && plan.armAdjustOpacity.last == 0)
         }
     }
 
-    @Test func sipKeepsAHandOnTheGlassAllTheWay() {
+    @Test func sipShowsTheDrinkThenRestsSatisfied() {
         let plan = VacationMotionPlan.sip()
-        // 잔은 받은 "마시는 자세"의 자리까지 간다.
-        #expect(plan.drinkX.value(at: 0.9) == Double(VacationArt.sipOffset.width))
-        #expect(plan.drinkY.value(at: 0.9) == Double(VacationArt.sipOffset.height))
-        #expect(plan.drinkTilt.value(at: 0.9) == VacationArt.sipTilt)
-        // 어느 순간에도 쉬던 손이나 마시는 팔 가운데 하나는 보인다(잔이 혼자 떠 있지 않다).
-        for step in 0...520 {
-            let time = Double(step) / 100
-            #expect(plan.handRestOpacity.value(at: time) + plan.armSipOpacity.value(at: time) >= 0.999)
-        }
-        // 잔이 입가에 있는 동안에는 마시는 팔만 보이고, 쉬던 손은 그 팔의 손 자리에 가 있다.
-        #expect(plan.armSipOpacity.value(at: 1.5) == 1 && plan.handRestOpacity.value(at: 1.5) == 0)
-        #expect(plan.handRestX.value(at: 1.5) == Double(VacationArt.sipHandOffset.width))
-        // 마신 뒤에는 잔을 내려놓고 나서 한숨 돌린다.
-        #expect(plan.stretch.value(at: 3.4) == 0 && plan.stretch.value(at: 4.1) > 0.03)
-        // 다른 팔과 선글라스는 가만히 있다.
-        #expect(plan.armAdjustOpacity.isConstant && plan.glassesY.isConstant)
+        #expect(plan.sipOpacity.value(at: 0.1) == 0)
+        #expect(plan.sipOpacity.value(at: 1.5) == 1)
+        #expect(plan.sipOpacity.value(at: 3) == 0)
+        // 다 마시고 손을 내린 뒤에 한숨 돌린다(해먹이 조금 더 내려앉는다).
+        #expect(plan.stretch.value(at: 2.6) == 0 && plan.stretch.value(at: 3.6) > 0.01)
+        // 다른 손은 나오지 않는다.
+        #expect(plan.adjustOpacity.isConstant)
     }
 
-    @Test func adjustTouchesTheSunglassesOnlyWhileTheArmIsUp() {
+    @Test func adjustShowsOnlyTheSunglassesHand() {
         let plan = VacationMotionPlan.adjust()
-        #expect(plan.glassesY.value(at: 0.4) == 0)
-        #expect(plan.armAdjustOpacity.value(at: 0.45) == 1)
-        #expect(plan.glassesY.value(at: 0.8) < 0 && plan.glassesTilt.value(at: 0.8) < 0)
-        // 선글라스가 제자리에 온 뒤에 팔이 내려간다.
-        #expect(plan.glassesY.value(at: 1.75) == 0 && plan.armAdjustOpacity.value(at: 1.9) == 1)
-        // 잔은 건드리지 않는다.
-        #expect(plan.drinkX.isConstant && plan.handRestOpacity.isConstant && plan.armSipOpacity.isConstant)
+        #expect(plan.adjustOpacity.value(at: 0.1) == 0)
+        #expect(plan.adjustOpacity.value(at: 1.0) == 1)
+        #expect(plan.adjustOpacity.value(at: 2.4) == 0)
+        #expect(plan.sipOpacity.isConstant && plan.stretch.isConstant)
+    }
+
+    @Test func handsSwapQuicklyAndNeverOverlap() {
+        // 두 손 그림이 한꺼번에 보이는 행동은 없다.
+        for action in VacationAction.allCases {
+            let plan = VacationMotionPlan.make(action)
+            for step in 0...Int(plan.duration * 100) {
+                let time = Double(step) / 100
+                #expect(plan.sipOpacity.value(at: time) == 0 || plan.adjustOpacity.value(at: time) == 0)
+            }
+        }
+        #expect(VacationMotionPlan.swap <= 0.3)
     }
 }

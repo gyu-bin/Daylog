@@ -7,8 +7,9 @@ import AppKit
 import UIKit
 #endif
 
-/// 휴가 화면의 그림 조각과 그 자리. 그림은 `Assets.xcassets/Vacation`에 있고, 받은 벡터 원본(`Tools/vacation-art`)을
-/// `Tools/vacation-layers.swift`가 조각별로 나눠 그린 것이다. 아래의 자리는 그 도구가 출력한 값이다(그림을 바꾸면 함께 고친다).
+/// 휴가 화면의 그림 조각과 그 자리. 그림은 `Assets.xcassets/Vacation`에 있다. 야자나무와 배경은 받은 벡터 원본(`Tools/vacation-art`)을
+/// `Tools/vacation-layers.swift`가, 해먹과 새싹이는 받은 PNG(`Tools/vacation-art/hammock`)를 `Tools/vacation-hammock-layers.swift`가
+/// 조각별로 나눈 것이다. 아래의 자리는 그 도구들이 출력한 값이다(그림을 바꾸면 함께 고친다).
 ///
 /// 단위는 세 가지다: 해먹·새싹이는 1024 정사각형(포즈), 야자나무는 1024×1600, 배경은 2400 정사각형. 모두 위에서 아래로 센다.
 enum VacationArt {
@@ -34,33 +35,21 @@ enum VacationArt {
     // MARK: - 해먹과 새싹이(포즈 단위)
 
     static let canvas: CGFloat = 1024
-    /// 화면에서 자리를 잡아 주는 띠: 포즈 정사각형 가운데 해먹이 있는 높이(고리 끝에서 해먹 바닥까지).
-    static let slotTop: CGFloat = 143
-    static let slotHeight: CGFloat = 676
-    /// 해먹 줄이 나무에 묶인 높이. 해먹은 이 선을 붙잡힌 채로 흔들린다.
-    static let hookLine: CGFloat = 253
-    /// 모래가 시작되는 높이(야자나무의 밑동이 여기에 묻힌다).
+    /// 화면에서 자리를 잡아 주는 띠: 포즈 정사각형 가운데 해먹이 있는 높이(기둥 끝에서 해먹 바닥까지).
+    static let slotTop: CGFloat = 130
+    static let slotHeight: CGFloat = 730
+    /// 해먹 줄이 기둥에 묶인 높이. 해먹은 이 선을 붙잡힌 채로 흔들린다.
+    static let hookLine: CGFloat = 255
+    /// 모래가 시작되는 높이. 해먹 바닥(849)이 모래 위로 조금 내려온다.
     static let sandLine: CGFloat = 742
 
-    static let hammockBack = Piece("vacation_hammock_back", 54, 142, 918, 616)
-    static let hammockFront = Piece("vacation_hammock_front", 92, 272, 842, 544)
-    static let body = Piece("vacation_saessagi_body", 252, 354, 516, 402)
-    /// 잎은 줄기 밑동을 중심으로 흔들린다.
-    static let leaf = Piece("vacation_saessagi_leaf", 480, 172, 370, 224, pivot: CGPoint(x: 630, y: 382))
-    static let sunglasses = Piece("vacation_saessagi_sunglasses", 480, 492, 214, 100)
-    /// 잔은 잔의 입구 가운데(원본에서 잔을 놓은 기준점)를 중심으로 기울인다.
-    static let drink = Piece("vacation_drink", 286, 418, 126, 268, pivot: CGPoint(x: 325, y: 565))
-    static let handRest = Piece("vacation_hand_rest", 352, 588, 122, 86)
-    static let armSip = Piece("vacation_arm_sip", 456, 546, 126, 132, pivot: CGPoint(x: 483, y: 651))
-    static let armAdjust = Piece("vacation_arm_adjust", 656, 502, 134, 166, pivot: CGPoint(x: 755, y: 639))
-    /// 숨쉬기의 기준: 해먹에 닿은 몸의 아래쪽.
-    static let breathPivot = CGPoint(x: 500, y: 750)
-
-    /// 마실 때 잔이 가는 자리: 쉬는 자리에서의 이동(포즈 단위)과 기울기(도). 받은 "sip" 포즈의 값이다.
-    static let sipOffset = CGSize(width: 215, height: -19)
-    static let sipTilt: Double = 9
-    /// 그때 쉬던 손이 잔을 따라가는 거리(쉬는 손의 자리 → 마시는 팔의 손 자리).
-    static let sipHandOffset = CGSize(width: 138, height: -47)
+    /// 해먹과 누운 새싹이(쉬는 그림). 머리 위 잎은 따로 있다.
+    static let hammock = Piece("vacation_hammock_base", 30, 54, 990, 940)
+    /// 머리 위 잎. 줄기 밑동을 중심으로 흔들린다.
+    static let leaf = Piece("vacation_hammock_leaf", 502, 242, 348, 254, pivot: CGPoint(x: 652, y: 447))
+    /// 마시는 그림과 선글라스를 고쳐 쓰는 그림에서 쉬는 그림과 다른 자리(손 언저리). 해먹 위에 겹쳐 서서히 나타낸다.
+    static let sipHands = Piece("vacation_hammock_sip", 294, 344, 220, 340)
+    static let adjustHands = Piece("vacation_hammock_adjust", 254, 290, 220, 310)
 
     // MARK: - 야자나무(1024×1600 단위)
 
@@ -68,13 +57,15 @@ enum VacationArt {
         case left, right
     }
 
-    /// 야자나무 그림이 포즈 단위에서 차지하는 배율: 나무 그림 1이 포즈의 0.39.
-    static let palmScale: CGFloat = 0.39
-    /// 나무 캔버스의 왼쪽 위가 포즈 단위에서 어디인지. 나무 꼭대기가 해먹 줄의 매듭 바로 아래에 오게 잡았다(좌우 대칭).
+    /// 야자나무 그림이 포즈 단위에서 차지하는 배율: 나무 그림 1이 포즈의 0.45.
+    static let palmScale: CGFloat = 0.45
+    /// 나무 캔버스의 왼쪽 위가 포즈 단위에서 어디인지. 해먹 기둥 바깥 뒤쪽에 서고, 밑동이 모래선 아래에 묻힌다(좌우 대칭).
+    /// 좁은 화면에서는 나무가 화면 가장자리에서 잘려 보인다.
+    static let palmInset: CGFloat = 278
     static func palmOrigin(_ side: PalmSide) -> CGPoint {
         switch side {
-        case .left: return CGPoint(x: -118, y: 150)
-        case .right: return CGPoint(x: canvas + 118 - 1024 * palmScale, y: 150)
+        case .left: return CGPoint(x: -palmInset, y: 50)
+        case .right: return CGPoint(x: canvas + palmInset - 1024 * palmScale, y: 50)
         }
     }
 
@@ -103,7 +94,7 @@ enum VacationArt {
     }
 
     /// 두 나무까지 포함한 장면의 너비(포즈 단위의 배수).
-    static let rigWidthRatio: CGFloat = (canvas + 118 * 2) / canvas
+    static let rigWidthRatio: CGFloat = (canvas + palmInset * 2) / canvas
 
     // MARK: - 배경(2400 단위)
 
