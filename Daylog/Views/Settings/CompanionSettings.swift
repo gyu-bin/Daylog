@@ -119,3 +119,68 @@ struct WidgetGuideSection: View {
     }
 }
 #endif
+
+/// 새싹이 복귀 알림 설정. 루틴 알림과 따로 켜고 끄며, 이 기기에만 저장된다(기본은 꺼짐).
+struct ComebackSettingsSection: View {
+    @Environment(ComebackNotifications.self) private var comeback
+
+    private var time: Binding<Date> {
+        Binding(
+            get: { Calendar.current.date(bySettingHour: comeback.minutes / 60, minute: comeback.minutes % 60, second: 0, of: .now) ?? .now },
+            set: { date in
+                let parts = Calendar.current.dateComponents([.hour, .minute], from: date)
+                comeback.setMinutes((parts.hour ?? 19) * 60 + (parts.minute ?? 0))
+                AppRuntime.shared?.scheduleRefresh()
+            }
+        )
+    }
+
+    var body: some View {
+        Section {
+            Toggle(isOn: Binding(
+                get: { comeback.isEnabled },
+                set: { enabled in
+                    Task {
+                        // 켜는 순간에만 시스템 권한을 묻는다(루틴 알림과 같은 흐름). 끄면 예약된 복귀 알림을 모두 지운다.
+                        await comeback.setEnabled(enabled)
+                        AppRuntime.shared?.scheduleRefresh()
+                    }
+                }
+            )) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("새싹이 복귀 알림")
+                    Text("며칠 동안 루틴을 쉬면 새싹이가 알려드려요.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+            if comeback.isEnabled {
+                DatePicker("알림 시각", selection: time, displayedComponents: .hourAndMinute)
+                if comeback.permission == .denied {
+                    Label("시스템 설정에서 Daylog의 알림을 허용해야 울려요.", systemImage: "exclamationmark.triangle")
+                        .font(.callout)
+                        .foregroundStyle(.orange)
+                } else if comeback.isWaitingForSync {
+                    Label("iCloud 기록을 받아 온 뒤에 예약해요.", systemImage: "icloud")
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                } else if let next = comeback.scheduled.first,
+                          let date = Calendar.current.date(from: next.dateComponents) {
+                    LabeledContent("다음 알림") {
+                        Text("\(date.formatted(.dateTime.month().day().hour().minute())) · \(next.stage.rawValue)일째")
+                            .monospacedDigit()
+                    }
+                } else if comeback.isActive {
+                    Text("지금은 예약된 복귀 알림이 없어요.")
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                }
+            }
+        } footer: {
+            Text("마지막으로 루틴을 완료한 날부터 3·7·14·30일째에 한 번씩 알려요. 휴가 중이거나 루틴이 없는 날에는 보내지 않고, 다시 완료하면 처음부터 새로 세요. 이 설정은 \(Platform.thisDevice)에만 적용돼요. 여러 기기를 쓴다면 알림을 받을 기기 하나에서만 켜 두세요. 다른 기기에서 완료한 기록은 이 기기가 iCloud에서 받아 온 뒤에 반영돼요.")
+        }
+        .task {
+            await comeback.refreshPermission()
+        }
+    }
+}

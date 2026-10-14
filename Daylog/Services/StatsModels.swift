@@ -51,6 +51,8 @@ struct DashboardStats: Equatable, Sendable {
     var groupRates: [GroupRate]
     /// 새싹이 성장의 누적 XP: 통계 시작일부터 오늘까지의 날짜별 결과에서 계산한다(`GrowthCalculator`).
     var growthXP = 0
+    /// 마지막으로 루틴을 하나라도 완료한 날(통계 시작일부터 오늘까지). 복귀 알림이 여기서부터 센다.
+    var lastPracticedDay: Day?
 
     var hasStarted: Bool { firstDay != nil }
 

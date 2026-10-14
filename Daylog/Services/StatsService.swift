@@ -42,7 +42,8 @@ struct StatsService {
             routineRates: try routineRates(source: source, days: trend.map(\.day), today: today),
             groupRates: try groupRates(source: source, days: trend.map(\.day), today: today, byRate: false),
             // 통계 시작일부터의 모든 날짜를 이미 계산했으므로 따로 조회하지 않는다.
-            growthXP: GrowthCalculator.totalXP(all)
+            growthXP: GrowthCalculator.totalXP(all),
+            lastPracticedDay: all.last { $0.done > 0 }?.day
         )
     }
 

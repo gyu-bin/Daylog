@@ -268,6 +268,7 @@ struct SettingsView: View {
                 CalendarSettingsSection()
             case .notifications:
                 NotificationSettingsSection()
+                ComebackSettingsSection()
             case .vacation:
                 VacationSettingsSection()
             case .data:

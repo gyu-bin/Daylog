@@ -14,6 +14,12 @@ final class AppRuntime: NSObject {
 
     let store: AppStore
     let notifications: RoutineNotifications
+    /// 새싹이 복귀 알림. 없으면(테스트) 맞추지 않는다.
+    let comeback: ComebackNotifications?
+    /// 설정 화면이 보는 복귀 알림. 복귀 알림이 없는 실행에서는 아무것도 하지 않는 것을 준다.
+    lazy var comebackSettings: ComebackNotifications = comeback ?? ComebackNotifications(client: DisabledNotificationClient())
+    /// 이 기기의 기록이 지금 믿을 만한가(iCloud에서 받아 오기를 마쳤는가). 앱이 시작할 때 동기화 상태를 보고 정한다.
+    var isDataCurrent: () -> Bool = { true }
     private let bridge: WidgetBridge?
     private var cancellables = Set<AnyCancellable>()
     private var refreshTask: Task<Void, Never>?
@@ -21,11 +27,12 @@ final class AppRuntime: NSObject {
     private var needsRefresh = false
 
     init(
-        store: AppStore, notifications: RoutineNotifications,
+        store: AppStore, notifications: RoutineNotifications, comeback: ComebackNotifications? = nil,
         bridge: WidgetBridge? = .shared, defaults: UserDefaults = .standard
     ) {
         self.store = store
         self.notifications = notifications
+        self.comeback = comeback
         self.bridge = bridge
     }
 
@@ -72,6 +79,14 @@ final class AppRuntime: NSObject {
         }
         .store(in: &cancellables)
 
+        // iCloud 가져오기가 시작·끝날 때: 기록이 바뀌지 않았어도 "받아 오기를 마쳤다"가 복귀 알림 예약의 조건이라 다시 맞춘다.
+        center.publisher(for: NSPersistentCloudKitContainer.eventChangedNotification)
+            .debounce(for: .milliseconds(700), scheduler: RunLoop.main)
+            .sink { [weak self] _ in
+                MainActor.assumeIsolated { self?.scheduleRefresh() }
+            }
+            .store(in: &cancellables)
+
         Publishers.Merge(
             center.publisher(for: Platform.willResignActive),
             center.publisher(for: Platform.willTerminate)
@@ -113,6 +128,10 @@ final class AppRuntime: NSObject {
                 let days = store.upcomingDays(count: RoutineNotificationPlanner.horizonDays)
                 store.perform { try self.publishWidgetSnapshot(days) }
                 await notifications.reschedule(days: days)
+                // 복귀 알림도 같은 때에 맞춘다: 완료·취소, iCloud 병합, 휴가·루틴 변경, 앱 활성화, 날짜 변경, 설정 변경.
+                if let comeback {
+                    await comeback.reschedule(store.comebackInput(days: days, dataIsCurrent: isDataCurrent()))
+                }
             } while needsRefresh
             refreshWorker = nil
         }

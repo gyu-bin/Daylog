@@ -63,6 +63,7 @@ struct DaylogApp: App {
                 .environment(store)
                 .environment(sync)
                 .environment(runtime.notifications)
+                .environment(runtime.comebackSettings)
                 .modelContainer(container)
         case .failed(let message):
             StoreFailureView(message: message)
@@ -230,10 +231,20 @@ enum AppLaunch {
             )
             // 단위 테스트의 호스트로 떠 있을 때는 실제 알림 센터를 건드리지 않는다.
             let isTesting = RuntimeEnvironment.isRunningTests
+            let client: NotificationClient & ComebackNotificationClient = isTesting ? DisabledNotificationClient() : SystemNotificationClient()
             let runtime = AppRuntime(
                 store: store,
-                notifications: RoutineNotifications(client: isTesting ? DisabledNotificationClient() : SystemNotificationClient())
+                notifications: RoutineNotifications(client: client),
+                comeback: ComebackNotifications(client: client)
             )
+            // 복귀 알림은 이 기기가 iCloud 기록을 받아 온 뒤에만 예약한다(다른 기기에서 완료한 기록을 모른 채 알리지 않게).
+            runtime.isDataCurrent = { [weak sync] in
+                guard let sync else { return false }
+                return ComebackPlanner.isDataCurrent(
+                    syncEnabled: sync.isEnabled, account: sync.account, lastImportAt: sync.lastImportAt,
+                    isImporting: sync.isImporting, firstSyncActive: FirstSyncGate.shared.isActive
+                )
+            }
             runtime.start(installDelegate: !isTesting)
             #if DEBUG
             DebugScript.runIfRequested(store: store, sync: sync, container: container)
