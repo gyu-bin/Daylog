@@ -4,7 +4,8 @@ import Foundation
 ///
 /// 비중대로 무작위로만 고르면 숨바꼭질이나 긴 산책이 몇 분씩 안 나올 수 있어서, 한 바퀴의 박자(`cycle`)를 정해 두고
 /// 박자 안에서만 무작위로 고른다. 그래서 이동과 제자리 동작이 번갈아 나오고, 한 바퀴(넓은 창에서 약 40~60초)에 한 번은
-/// 꼭 긴 산책과 숨바꼭질을 한다. 자리가 좁으면(iPhone) 이동을 줄이고 제자리에서 뛰고 두리번거리고 잎을 흔든다.
+/// 꼭 긴 산책과 숨바꼭질을 한다. 자리가 좁으면(iPhone) 그 틈 안에서만 끝에서 끝으로 오가고, 사이사이 제자리에서 뛰고
+/// 두리번거리고 잎을 흔든다.
 struct SaessagiDirector: Equatable, Sendable {
     enum Beat: Equatable, Sendable {
         /// 걸을 자리의 70~90%를 가는 긴 산책.
@@ -50,7 +51,8 @@ struct SaessagiDirector: Equatable, Sendable {
     ) -> SaessagiAction {
         let canTravel = size > 0 && range >= SaessagiWalkMotion.travelMinimum * size
         let isNarrow = range < SaessagiWalkMotion.narrowLane * size
-        let canShuffle = range >= Double(SaessagiWalkMotion.minimumSteps - 1) * SaessagiWalkMotion.stepLength * size
+        // 좁은 틈(iPhone)에서도 그 안에서는 끝에서 끝으로 걸어 다닌다.
+        let canShuffle = size > 0 && range >= SaessagiWalkMotion.shuffleMinimum * size
         func flourish() -> SaessagiAction { weighted(flourishes, using: &generator) }
         func jump() -> SaessagiAction {
             // 숨바꼭질에서 뛰어나온 다음에는 연달아 뛴다.
@@ -59,7 +61,7 @@ struct SaessagiDirector: Equatable, Sendable {
         }
         switch beat {
         case .longWalk:
-            return canTravel ? .stroll : flourish()
+            return canShuffle ? .stroll : flourish()
         case .walk:
             // 옮겨 갈 자리가 없을 만큼 좁으면(iPhone) 그 안에서 몇 걸음 종종거린다(걸을 자리가 아예 없으면 제자리 동작).
             guard canTravel else { return canShuffle ? .walk : flourish() }
@@ -71,7 +73,9 @@ struct SaessagiDirector: Equatable, Sendable {
         case .jump:
             return jump()
         case .peek:
-            return canPeek && range >= SaessagiWalkMotion.peekMinimumRange * size ? .peek : jump()
+            if canPeek && range >= SaessagiWalkMotion.peekMinimumRange * size { return .peek }
+            // 숨을 자리가 없을 만큼 좁으면 그 틈 안에서 반대쪽으로 걸어간다.
+            return !canTravel && canShuffle ? .stroll : jump()
         case .rest:
             return Int.random(in: 0..<3, using: &generator) == 0 ? .doze : .stay
         }

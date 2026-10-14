@@ -1,0 +1,23 @@
+[Saessagi 734674.29] frame controls minX=291.7 maxX=424.0 minY=132.0 maxY=164.0
+[Saessagi 734674.29] frame lane minX=215.3 maxX=283.7 minY=120.0 maxY=164.0
+[Saessagi 734674.29] frame title minX=16.0 maxX=207.3 minY=121.0 maxY=164.0
+[Saessagi 734674.30] lane width=68.3 range=24.3 size=44 clips=Y canPeek=Y
+[Saessagi 734677.60] lane width=68.3 range=24.3 size=44 clips=Y canPeek=Y
+[Saessagi 734678.80] action=stroll from=0.0 to=19.1 min=0.0 max=19.1 dur=0.92 steps=3 lane=68.3 range=24.3 body=6.0...57.2 visibleMax=57.2
+[Saessagi 734680.51] action=bigHop from=19.1 to=19.1 min=19.1 max=19.1 dur=0.98 steps=0 lane=68.3 range=24.3 body=25.1...57.2 visibleMax=57.2
+[Saessagi 734682.25] action=walk from=19.1 to=6.8 min=6.8 max=19.1 dur=1.72 steps=5 lane=68.3 range=24.3 body=12.7...57.2 visibleMax=57.2
+[Saessagi 734685.07] action=doubleHop from=6.8 to=6.8 min=6.8 max=6.8 dur=1.56 steps=0 lane=68.3 range=24.3 body=12.7...44.8 visibleMax=44.8
+[Saessagi 734687.27] action=stroll from=6.8 to=24.1 min=6.8 max=24.1 dur=0.92 steps=3 lane=68.3 range=24.3 body=12.7...62.1 visibleMax=62.1
+[Saessagi 734688.77] action=hop from=24.1 to=24.1 min=24.1 max=24.1 dur=1.10 steps=0 lane=68.3 range=24.3 body=30.0...62.1 visibleMax=62.1
+[Saessagi 734691.02] action=stay skipped x=24.1 range=24.3
+[Saessagi 734693.89] action=stroll from=24.1 to=6.8 min=6.8 max=24.1 dur=0.92 steps=3 lane=68.3 range=24.3 body=12.8...62.1 visibleMax=62.1
+[Saessagi 734695.35] action=doubleHop from=6.8 to=6.8 min=6.8 max=6.8 dur=1.56 steps=0 lane=68.3 range=24.3 body=12.8...44.8 visibleMax=44.8
+[Saessagi 734697.75] action=walk from=6.8 to=18.6 min=6.8 max=18.6 dur=1.72 steps=5 lane=68.3 range=24.3 body=12.8...56.7 visibleMax=56.7
+[Saessagi 734700.19] action=leafShake from=18.6 to=18.6 min=18.6 max=18.6 dur=1.14 steps=0 lane=68.3 range=24.3 body=24.6...56.7 visibleMax=56.7
+[Saessagi 734702.30] action=stroll from=18.6 to=0.0 min=0.0 max=18.6 dur=0.92 steps=3 lane=68.3 range=24.3 body=6.0...56.7 visibleMax=56.7
+[Saessagi 734704.00] action=bigHop from=0.0 to=0.0 min=0.0 max=0.0 dur=0.98 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0
+[Saessagi 734706.18] action=stay skipped x=0.0 range=24.3
+[Saessagi 734708.03] action=stroll from=0.0 to=20.6 min=0.0 max=20.6 dur=1.12 steps=4 lane=68.3 range=24.3 body=6.0...58.6 visibleMax=58.6
+[Saessagi 734709.89] action=hop from=20.6 to=20.6 min=20.6 max=20.6 dur=1.10 steps=0 lane=68.3 range=24.3 body=26.6...58.6 visibleMax=58.6
+[Saessagi 734712.25] action=walk from=20.6 to=10.9 min=10.9 max=20.6 dur=1.44 steps=4 lane=68.3 range=24.3 body=16.9...58.6 visibleMax=58.6
+[Saessagi 734714.47] action=lookAround from=10.9 to=10.9 min=10.9 max=10.9 dur=1.85 steps=0 lane=68.3 range=24.3 body=16.9...49.0 visibleMax=49.0

@@ -254,7 +254,11 @@ final class SaessagiStage {
     private var laneWidth: CGFloat = 0
     /// 레이어를 얹은 뷰의 레이어와, 자리 끝에서 잘라 내는 가리개.
     private weak var host: CALayer?
-    private let laneMask = CALayer()
+    private let laneMask = CAGradientLayer()
+    /// 머리말에서 걸을 자리 끝과 첫 단추 사이의 빈칸(HStack 간격 8pt). 숨을 때는 단추 바로 앞(1pt 남김)까지 보이고, 그 끝에서
+    /// `laneFeather`만큼 흐려지며 사라진다: 빈 곳에서 칼로 자른 듯 끊기지 않고 단추 뒤로 들어가는 것처럼 보인다.
+    static let laneEndGap: CGFloat = 7
+    static let laneFeather: CGFloat = 10
     private var clipsLaneEnd = false
     private var maxRange: CGFloat = 0
     /// 지금 서 있는 자리(왼쪽 끝에서 오른쪽으로 떨어진 거리). 걸으면 바뀐다.
@@ -303,11 +307,15 @@ final class SaessagiStage {
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         if clipsLaneEnd, laneWidth > 0 {
-            laneMask.backgroundColor = CGColor(gray: 0, alpha: 1)
-            // 왼쪽(글자 쪽)으로는 가지 않으니 넉넉히 두고, 오른쪽은 자리 끝(그림의 여백까지)에서 자른다.
-            laneMask.frame = CGRect(
-                x: -size * 2, y: -size * 3, width: laneWidth + size * 2 + SaessagiRenderer.padding, height: size * 7
-            )
+            // 왼쪽(글자 쪽)으로는 가지 않으니 넉넉히 두고, 오른쪽은 첫 단추 바로 앞에서 흐려지며 잘라 낸다. 세로로는 자르지 않는다.
+            let left = -size * 2, right = laneWidth + Self.laneEndGap
+            let width = right - left
+            laneMask.frame = CGRect(x: left, y: -size * 3, width: width, height: size * 7)
+            laneMask.colors = [CGColor(gray: 0, alpha: 1), CGColor(gray: 0, alpha: 1), CGColor(gray: 0, alpha: 0)]
+            let fade = Double((width - Self.laneFeather) / width)
+            laneMask.locations = [0, NSNumber(value: fade), 1]
+            laneMask.startPoint = CGPoint(x: 0, y: 0.5)
+            laneMask.endPoint = CGPoint(x: 1, y: 0.5)
             if host.mask !== laneMask { host.mask = laneMask }
         } else if host.mask === laneMask {
             host.mask = nil
@@ -322,6 +330,13 @@ final class SaessagiStage {
         if changed { updateLaneMask() }
         let oldRange = range
         range = min(max(width - size, 0), maxRange)
+        // 숨바꼭질 중에 자리 끝이 옮겨 갔으면(창 크기 변경) 숨을 곳이 사라졌다: 빈 곳에서 숨지 않게 그 자리에서 멈춘다.
+        if abs(range - oldRange) > 0.5, lastAction == .peek, isActing {
+            let now = currentOffset()
+            removeActionAnimations()
+            restingX = min(max(now, 0), range)
+            setModelX(restingX)
+        }
         // 자리가 좁아졌으면(창 크기 변경) 그 안으로 들어온다. 걷던 중이면 걷기를 멈추고 지금 자리에서 들어온다
         // (잘라 내는 가리개가 있어 단추 위로는 그려지지 않지만, 다음 행동은 새 자리 안에서 시작해야 한다).
         if restingX > range + 0.5 {
@@ -672,14 +687,14 @@ final class SaessagiStage {
             Self.write("action=\(action) skipped x=\(String(format: "%.1f", restingX)) range=\(String(format: "%.1f", range))")
             return
         }
-        // 몸(그림의 투명한 여백 제외)이 차지한 가장 왼쪽·오른쪽. 자리 끝 너머는 잘려 보이지 않는다.
+        // 몸(그림의 투명한 여백 제외)이 차지한 가장 왼쪽·오른쪽. 자리 끝 + `laneEndGap` 너머는 잘려 보이지 않는다.
         let pose = configuration?.pose ?? .idle
         let inset = (1 - pose.content.width / pose.fitted) / 2 * size
         let low = plan.moverX.values.min() ?? restingX, high = plan.moverX.values.max() ?? restingX
         Self.write(String(
             format: "action=%@ from=%.1f to=%.1f min=%.1f max=%.1f dur=%.2f steps=%d lane=%.1f range=%.1f body=%.1f...%.1f visibleMax=%.1f",
             "\(action)", restingX, plan.finalX, low, high, plan.duration, plan.steps, laneWidth, range,
-            low + inset, high + size - inset, min(high + size - inset, laneWidth + SaessagiRenderer.padding)
+            low + inset, high + size - inset, min(high + size - inset, laneWidth + Self.laneEndGap)
         ))
         #endif
     }

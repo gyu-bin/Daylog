@@ -266,18 +266,28 @@ struct SaessagiTests {
         #expect(SaessagiBehavior.today.isDirected && !SaessagiBehavior.growing.isDirected)
     }
 
-    @Test func headerDirectorStaysInPlaceOnNarrowLanes() {
+    @Test func headerDirectorWalksOnlyInsideNarrowGaps() throws {
         var generator = SystemRandomNumberGenerator()
         let size = 44.0
-        // 옮겨 갈 자리가 없으면(키의 1.2배 미만) 긴 산책·빠른 걸음·숨바꼭질 대신 제자리에서 뛰고 두리번거리고 잎을 흔들고,
-        // 한 바퀴에 한 번 그 안에서 종종거린다.
+        // 좁은 틈(키의 1.2배 미만, iPhone)에서는 빠른 걸음·숨바꼭질 대신 그 틈 안에서 끝에서 끝으로 오가고(한 바퀴에 세 번),
+        // 사이사이 제자리에서 뛰고 두리번거리고 잎을 흔든다.
         var director = SaessagiDirector()
+        var moves = 0
         for _ in 0..<70 {
             let action = director.next(
                 x: 0, range: 40, size: size, canPeek: true, flourishes: SaessagiBehavior.today.choices, using: &generator
             )
-            #expect(action != .stroll && action != .dash && action != .peek)
+            #expect(action != .dash && action != .peek)
+            if action.travels { moves += 1 }
         }
+        #expect(moves == 30)
+        // 그 틈 안에서만 걷는다.
+        for start in [0.0, 40.0] {
+            let plan = try #require(SaessagiMotionPlan.make(.stroll, at: start, range: 40, size: size, using: &generator))
+            #expect(plan.moverX.values.allSatisfy { $0 >= 0 && $0 <= 40 } && abs(plan.finalX - start) >= 28 - 0.01)
+        }
+        // 세 걸음만큼도 자리가 없으면 걷지 않는다.
+        #expect(SaessagiMotionPlan.make(.stroll, at: 0, range: 8, size: size, using: &generator) == nil)
         // 좁은 자리(iPhone)에서는 숨바꼭질 박자도 뛰기가 되고, 이동 박자의 절반쯤만 걷는다.
         var narrow = SaessagiDirector()
         var travels = 0, total = 0
@@ -453,8 +463,8 @@ struct SaessagiHeaderActionTests {
 
     @Test func longWalksCoverMostOfTheLaneWhateverItsWidth() throws {
         var generator = SystemRandomNumberGenerator()
-        // 좁은 자리(키의 1.2배 미만)에서는 산책하지 않는다.
-        #expect(SaessagiMotionPlan.make(.stroll, at: 0, range: 50, size: size, using: &generator) == nil)
+        // 보통 걸음 세 걸음만큼도 자리가 없으면 산책하지 않는다.
+        #expect(SaessagiMotionPlan.make(.stroll, at: 0, range: 8, size: size, using: &generator) == nil)
         // 거리의 상한을 두지 않는다: 자리가 넓을수록 멀리 간다(창이 넓으면 그만큼).
         for range in [200.0, 600.0, 1_400.0] {
             for start in [0.0, range] {

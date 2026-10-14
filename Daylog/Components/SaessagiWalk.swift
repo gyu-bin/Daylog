@@ -192,8 +192,10 @@ enum SaessagiWalkMotion {
     static let dashShare = 0.4
     /// 성큼성큼 걸을 때 발을 더 높이 들고 몸이 더 통통 뜬다.
     static let briskVigor = 1.25
-    /// 걸을 자리가 키의 이 배수보다 좁으면 옮겨 가지 않고 제자리에서 움직인다.
+    /// 걸을 자리가 키의 이 배수보다 좁으면 빠른 걸음으로 옮겨 가지 않는다(산책은 그 틈 안에서만 짧게 한다).
     static let travelMinimum = 1.2
+    /// 보통 걸음 세 걸음의 거리(키의 배수). 걸을 자리가 이보다 좁으면 걷지 않는다.
+    static var shuffleMinimum: Double { Double(minimumSteps - 1) * stepLength }
     /// 걸을 자리가 키의 이 배수보다 좁으면(iPhone) 이동을 줄이고 제자리 동작을 늘린다.
     static let narrowLane = 3.0
     /// 숨바꼭질: 걸을 자리가 키의 이 배수 이상일 때만 한다. 어디에 있든 끝까지 걸어가서 숨는다.
@@ -308,11 +310,12 @@ struct SaessagiMotionPlan: Equatable, Sendable {
     }
 
     /// 긴 산책할 곳: 더 넓은 쪽으로 걸을 자리의 70~90%만큼(그쪽 끝이 더 가까우면 끝까지). 그래서 넓은 머리말에서는
-    /// 한쪽 끝에서 다른 쪽 끝으로 오간다. 자리가 키의 `travelMinimum`배보다 좁으면 nil.
+    /// 한쪽 끝에서 다른 쪽 끝으로 오가고, 좁은 틈(iPhone)에서는 그 틈의 끝에서 끝으로 몇 걸음 오간다.
+    /// 보통 걸음 세 걸음만큼도 자리가 없으면 nil.
     static func strollTarget(
         from x: Double, range: Double, size: Double, using generator: inout some RandomNumberGenerator
     ) -> Double? {
-        guard size > 0, range >= SaessagiWalkMotion.travelMinimum * size else { return nil }
+        guard size > 0, range >= SaessagiWalkMotion.shuffleMinimum * size else { return nil }
         let x = min(max(x, 0), range)
         let direction: Double = range - x >= x ? 1 : -1
         let distance = Double.random(in: SaessagiWalkMotion.strollShare, using: &generator) * range
