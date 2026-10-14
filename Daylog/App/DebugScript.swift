@@ -228,6 +228,15 @@ enum DebugScript {
             }
             log("WINDOWS \(argument) section=\(store.section) sheetWindows=\(Platform.sheetWindowsAmongSeveral) any=\(Platform.isShowingSheet) | " + windows.joined(separator: " | "))
             #endif
+        case "hide":
+            // 앱을 가린다(⌘H와 같다): 뒤로 간 동안 움직임이 멈추는지 재려고 쓴다. unhide로 다시 보인다.
+            #if os(macOS)
+            NSApp.hide(nil)
+            #endif
+        case "unhide":
+            #if os(macOS)
+            NSApp.unhideWithoutActivation()
+            #endif
         case "window":
             // Mac 창의 크기를 바꾼다: window:1200,800. 왼쪽 위는 그대로 둔다.
             #if os(macOS)

@@ -3,7 +3,8 @@
 #
 #   Tools/dev.sh build [Debug|Release]   검증용 Mac 앱을 빌드한다(번들 ID com.daylog.verify, iCloud 없음)
 #   Tools/dev.sh test [xcodebuild 인자…]  같은 자리에서 단위 테스트를 돌린다(예: -only-testing:DaylogTests/RoutineSkipTests)
-#   Tools/dev.sh path [Debug|Release]    검증용 Mac 앱의 경로를 출력한다
+#   Tools/dev.sh path [Debug|Release|Perf] 검증용 Mac 앱의 경로를 출력한다
+#   Tools/dev.sh perf                    성능 측정용: Release 최적화 그대로에 검증용 실행 인자(DEBUG 조건)만 켠 Mac 앱을 빌드한다
 #   Tools/dev.sh ios [Debug|Release]     iPhone·iPad 시뮬레이터용 앱을 빌드한다(build-ios)
 #   Tools/dev.sh apps                    이 Mac에 있는 Daylog 앱 묶음과 시스템에 등록된 경로를 보여 준다(읽기만 한다)
 #
@@ -20,12 +21,13 @@ source Tools/noindex.sh
 
 DEV_DIR="${DAYLOG_DEV_DIR:-$HOME/Library/Caches/DaylogDev.noindex}"
 VERIFY_DERIVED="$DEV_DIR/verify"
+PERF_DERIVED="$DEV_DIR/verify-perf"
 VERIFY_ID="com.daylog.verify"
 VERIFY_ARGS=(-project Daylog.xcodeproj -scheme Daylog -derivedDataPath "$VERIFY_DERIVED"
   PRODUCT_BUNDLE_IDENTIFIER="$VERIFY_ID" CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=
   PROVISIONING_PROFILE_SPECIFIER= CODE_SIGN_ENTITLEMENTS=Config/Verify.entitlements)
 
-usage() { sed -n '2,9p' "$0" | sed 's/^# \{0,1\}//'; exit "${1:-0}"; }
+usage() { sed -n '2,10p' "$0" | sed 's/^# \{0,1\}//'; exit "${1:-0}"; }
 
 configuration() {
   case "${1:-Debug}" in
@@ -47,7 +49,17 @@ case "${1:-}" in
     xcodebuild "${VERIFY_ARGS[@]}" test "$@"
     ;;
   path)
+    if [[ "${2:-}" == Perf ]]; then echo "$PERF_DERIVED/Build/Products/Release/Daylog.app"; exit 0; fi
     echo "$VERIFY_DERIVED/Build/Products/$(configuration "${2:-}")/Daylog.app"
+    ;;
+  perf)
+    # 순수 Release는 화면 검증용 실행 인자(-DaylogDebug…)가 빠져 측정할 화면을 띄울 수 없다. 최적화(-O, 전체 모듈)는 Release
+    # 그대로 두고 DEBUG 조건만 덧붙인다. 검증 앱과 같은 번들 ID·저장소 규칙을 쓰고, 빌드는 따로 둔다(Release 산출물을 덮지 않는다).
+    mkdir -p "$DEV_DIR"
+    # 임시 서명(adhoc)이라 강화된 런타임의 라이브러리 검증이 Sparkle을 막는다. 실행 속도와 무관해 측정용 빌드에서만 끈다.
+    xcodebuild "${VERIFY_ARGS[@]/$VERIFY_DERIVED/$PERF_DERIVED}" -configuration Release 'OTHER_SWIFT_FLAGS=$(inherited) -DDEBUG' \
+      ENABLE_HARDENED_RUNTIME=NO build
+    echo "$PERF_DERIVED/Build/Products/Release/Daylog.app"
     ;;
   ios)
     config=$(configuration "${2:-}")

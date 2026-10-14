@@ -1310,6 +1310,8 @@ iPhone·iPad App Store 제출 자료를 만들고 App Store Connect에 올렸다
 - 상태 판정·재시도·완료 시 바로 오늘 화면으로 가는 처리는 그대로다. 진행률·완료율은 없다. 미리보기 고르기는 셋으로 줄였다(Debug: `-DaylogDebugSyncSample receiving|ready|trouble|failed|noAccount`).
 - 같은 날 헤더 새싹이: 숨바꼭질 가리개를 첫 단추 바로 앞에서 흐려지게 해 단추 뒤로 숨는 것처럼 보이게 했고, iPhone의 좁은 틈 안에서도 걷게 했다.
 - 검증: `docs/qa/sync-screens-2026-10-14/`.
+- 성능: 처음 `TimelineView`(24fps)는 매 프레임 창 전체를 다시 배치해 앱 CPU 8~14%였다. Core Animation 레이어(`SyncSceneStage`)로 옮겨 0~2%(Release 0~0.8%).
+  측정용 빌드 `Tools/dev.sh perf`(Release 최적화 + 검증용 실행 인자), 검증 스크립트 `hide`/`unhide` 추가.
 
 ## 다음 작업
 

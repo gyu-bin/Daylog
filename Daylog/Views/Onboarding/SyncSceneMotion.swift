@@ -1,3 +1,4 @@
+import CoreGraphics
 import Foundation
 
 /// 첫 동기화 화면의 세 가지 장면. 실제 첫 동기화와 설정의 미리보기가 같은 장면을 쓴다.
@@ -26,13 +27,16 @@ enum SyncSceneKind: String, CaseIterable, Identifiable, Sendable {
 struct SyncSaessagiPose: Equatable, Sendable {
     /// 바닥에서 뜬 높이.
     var lift = 0.0
-    /// 발밑을 기준으로 한 가로·세로 배율.
+    /// 발밑을 기준으로 한 가로·세로 배율(끄덕임·점프의 눌림).
     var squashX = 1.0
     var squashY = 1.0
+    /// 숨쉬기: 발밑을 기준으로 한 세로 배율. 눌림과 주기가 달라 따로 둔다(화면에서는 곱해진다).
+    var breath = 1.0
     /// 몸통(몸·얼굴·잎·수첩)이 다리 사이를 중심으로 기운 각도.
     var tilt = 0.0
-    /// 잎이 더 기운 각도.
+    /// 잎이 더 기운 각도(행동에 따른 흔들림)와 늘 하는 살랑임. 화면에서는 더해진다.
     var leaf = 0.0
+    var leafSway = 0.0
     /// 눈의 세로 배율(1 = 뜬 눈).
     var eyes = 1.0
     /// 눈과 입이 옮겨 간 거리(아래·오른쪽이 양수).
@@ -128,7 +132,8 @@ enum SyncSceneMotion {
                         startX: cardStarts[index % cardStarts.count]
                     ))
                 } else if progress >= 1 {
-                    arrived = max(arrived ?? -1, t - (start + cardFall))
+                    // 가장 최근에 수첩에 닿은 카드.
+                    arrived = min(arrived ?? .infinity, t - (start + cardFall))
                 }
             }
         }
@@ -154,8 +159,8 @@ enum SyncSceneMotion {
         // 가끔 쪽을 넘긴다.
         let flip = (t - 2.2).truncatingRemainder(dividingBy: 4.8)
         frame.pageFlip = t > 2.2 && flip < 0.65 ? smooth(flip / 0.65) : 0
-        pose.leaf += 5 * wave(t, 2.6)
-        pose.squashY *= 1 + 0.012 * wave(t, 3.2)
+        pose.leafSway = 5 * wave(t, 2.6)
+        pose.breath = 1 + 0.012 * wave(t, 3.2)
         pose.eyes = blink(t, period: 3.7, offset: 1.1)
         frame.saessagi = pose
         return frame
@@ -193,16 +198,15 @@ enum SyncSceneMotion {
             // 신나서 눈을 가늘게 뜬다.
             pose.eyes = 0.6
         }
+        pose.leafSway = 4 * wave(t, 2.6)
         if !hopping {
             let after = t - (readyHops[readyHops.count - 1].start + hopDuration)
             if after > 0 {
                 // 마지막 착지 뒤 잎이 잦아들고, 그 뒤로는 잔잔하게 몸을 흔들며 숨 쉰다.
-                pose.leaf = -6 * exp(-after * 3) * cos(after * 9) + 4 * wave(t, 2.6) * min(1, after)
+                pose.leaf = -6 * exp(-after * 3) * cos(after * 9)
                 pose.tilt = 2.5 * wave(t, 3.6) * min(1, after / 1.5)
-                pose.squashY = 1 + 0.012 * wave(t, 3)
+                pose.breath = 1 + 0.012 * wave(t, 3) * min(1, after)
                 pose.eyes = blink(t, period: 3.4, offset: 0.4)
-            } else {
-                pose.leaf = 4 * wave(t, 2.6)
             }
         }
         frame.saessagi = pose
@@ -228,8 +232,9 @@ enum SyncSceneMotion {
         pose.tilt = keys(cycle, [(0, 0), (0.6, -7), (1.8, -7), (2.4, 0), (3.0, 5), (3.9, 5), (4.5, 0)])
         // 잎이 축 처졌다가 톡 원래대로.
         let droop = (t + 4).truncatingRemainder(dividingBy: 5.2)
-        pose.leaf = keys(droop, [(0, 0), (0.5, 17), (1.9, 17), (2.2, -6), (2.45, 3), (2.7, 0)]) + 2 * wave(t, 2.9)
-        pose.squashY = 1 + 0.01 * wave(t, 3.4)
+        pose.leaf = keys(droop, [(0, 0), (0.5, 17), (1.9, 17), (2.2, -6), (2.45, 3), (2.7, 0)])
+        pose.leafSway = 2 * wave(t, 2.9)
+        pose.breath = 1 + 0.01 * wave(t, 3.4)
         pose.eyes = blink(t, period: 3.3, offset: 0.7)
         frame.saessagi = pose
         // 물음표: 머리 위에 톡 나타나 흔들리다 사라진다.
@@ -237,6 +242,145 @@ enum SyncSceneMotion {
         frame.question = t < 0.6 ? 0 : keys(ask, [(0, 0), (0.2, 1.15), (0.32, 1), (1.9, 1), (2.3, 0)])
         frame.questionTilt = ask < 2.3 ? 8 * wave(ask, 0.9) * max(0, 1 - ask / 2.3) : 0
         return frame
+    }
+
+    // MARK: - 되풀이(Core Animation으로 넘길 때)
+
+    /// 장면의 값 하나. 화면은 값마다 레이어 애니메이션 하나(또는 둘)를 건다.
+    enum Property: Hashable, Sendable {
+        case cloudX, cloudY, glow, bookSparkle, pageFlip, check, question, questionTilt
+        /// 기록 카드 한 종류(0…3)의 진행(내려오지 않을 때는 -1), 별 하나의 크기, 빗방울 하나의 진행.
+        case card(Int), star(Int), drop(Int)
+        case lift, squashX, squashY, breath, tilt, leaf, leafSway, eyes, faceX, faceY, bookLift
+    }
+
+    /// 값이 어떻게 되풀이되는가: 처음 `intro`초 뒤로는 `period`초마다 같은 값. `period`가 nil이면 그 뒤로 변하지 않는다.
+    struct Loop: Equatable, Sendable {
+        var intro: Double
+        var period: Double?
+    }
+
+    /// 그 장면에서 움직이는 값들.
+    static func properties(_ kind: SyncSceneKind) -> [Property] {
+        let saessagi: [Property] = [.lift, .squashX, .squashY, .breath, .tilt, .leaf, .leafSway, .eyes, .faceX, .faceY]
+        switch kind {
+        case .receiving:
+            return [.cloudY, .glow, .bookSparkle, .pageFlip, .bookLift] + (0..<4).map(Property.card) + saessagi
+        case .ready:
+            return [.glow, .check] + (0..<6).map(Property.star) + saessagi
+        case .trouble:
+            return [.cloudX, .cloudY, .question, .questionTilt] + (0..<dropCount).map(Property.drop) + saessagi
+        }
+    }
+
+    /// 한 순간의 그 값.
+    static func value(_ property: Property, _ kind: SyncSceneKind, at t: Double) -> Double {
+        if case .card(let index) = property { return cardProgress(index, at: t) ?? -1 }
+        let frame = frame(kind, at: t)
+        let pose = frame.saessagi
+        switch property {
+        case .cloudX: return frame.cloudX
+        case .cloudY: return frame.cloudY
+        case .glow: return frame.glow
+        case .bookSparkle: return frame.bookSparkle
+        case .pageFlip: return frame.pageFlip
+        case .check: return frame.check
+        case .question: return frame.question
+        case .questionTilt: return frame.questionTilt
+        case .card: return -1
+        case .star(let index): return index < frame.stars.count ? frame.stars[index] : 0
+        case .drop(let index): return index < frame.drops.count ? frame.drops[index] : 0
+        case .lift: return pose.lift
+        case .squashX: return pose.squashX
+        case .squashY: return pose.squashY
+        case .breath: return pose.breath
+        case .tilt: return pose.tilt
+        case .leaf: return pose.leaf
+        case .leafSway: return pose.leafSway
+        case .eyes: return pose.eyes
+        case .faceX: return pose.faceX
+        case .faceY: return pose.faceY
+        case .bookLift: return pose.bookLift
+        }
+    }
+
+    /// 카드 한 종류(0…3)가 지금 내려오는 중이면 그 진행(0…1). 종류마다 `cardInterval` × 4초마다 한 번 내려온다.
+    static func cardProgress(_ index: Int, at t: Double) -> Double? {
+        let cycle = cardInterval * Double(cardStarts.count)
+        let local = t - firstCard - Double(index) * cardInterval
+        guard local >= 0 else { return nil }
+        let progress = local.truncatingRemainder(dividingBy: cycle) / cardFall
+        return progress < 1 ? progress : nil
+    }
+
+    /// 그 값이 되풀이되는 방식(테스트가 실제 값으로 확인한다).
+    static func loop(_ property: Property, _ kind: SyncSceneKind) -> Loop {
+        let arrival = firstCard + cardFall
+        let cardCycle = cardInterval * Double(cardStarts.count)
+        let settled = readyHops[readyHops.count - 1].start + hopDuration + 2.2
+        switch (kind, property) {
+        case (.receiving, .cloudY): return Loop(intro: 0, period: 4.2)
+        case (.receiving, .glow): return Loop(intro: 0, period: 3)
+        case (.receiving, .card(let index)): return Loop(intro: firstCard + Double(index) * cardInterval, period: cardCycle)
+        case (.receiving, .bookSparkle), (.receiving, .bookLift), (.receiving, .squashX), (.receiving, .squashY),
+             (.receiving, .faceY):
+            return Loop(intro: arrival, period: cardInterval)
+        case (.receiving, .leaf): return Loop(intro: arrival, period: cardInterval)
+        case (.receiving, .faceX): return Loop(intro: firstCard + 3 * cardInterval, period: cardCycle)
+        case (.receiving, .pageFlip): return Loop(intro: 2.2, period: 4.8)
+        case (.receiving, .leafSway): return Loop(intro: 0, period: 2.6)
+        case (.receiving, .breath): return Loop(intro: 0, period: 3.2)
+        case (.receiving, .eyes): return Loop(intro: 0, period: 3.7)
+        case (.ready, .check): return Loop(intro: 1.05, period: 2.8)
+        case (.ready, .glow): return Loop(intro: 0.8, period: 3.4)
+        case (.ready, .star(let index)): return Loop(intro: 0.45 + Double(index) * 0.09 + 1.7, period: 2.2)
+        case (.ready, .leafSway): return Loop(intro: 0, period: 2.6)
+        case (.ready, .tilt): return Loop(intro: settled, period: 3.6)
+        case (.ready, .breath): return Loop(intro: settled, period: 3)
+        case (.ready, .eyes): return Loop(intro: settled, period: 3.4)
+        case (.ready, .leaf): return Loop(intro: settled + 1, period: nil)
+        case (.ready, _): return Loop(intro: settled, period: nil)
+        case (.trouble, .cloudX), (.trouble, .faceX): return Loop(intro: 0, period: 6.5)
+        case (.trouble, .cloudY): return Loop(intro: 0, period: 4)
+        case (.trouble, .drop): return Loop(intro: 0, period: dropPeriod)
+        case (.trouble, .tilt), (.trouble, .leaf): return Loop(intro: 0, period: 5.2)
+        case (.trouble, .leafSway): return Loop(intro: 0, period: 2.9)
+        case (.trouble, .breath): return Loop(intro: 0, period: 3.4)
+        case (.trouble, .eyes): return Loop(intro: 0, period: 3.3)
+        case (.trouble, .question), (.trouble, .questionTilt): return Loop(intro: 0.6, period: 4.6)
+        default: return Loop(intro: 0, period: nil)
+        }
+    }
+
+    /// 내려오는 카드 한 장의 자리(장면 단위, 가운데 위가 원점, 카드의 가운데)와 기울기·크기·불투명도.
+    /// 구름 밑에서 출발해 머리 옆(출발한 쪽)으로 비켜 살랑이며 내려오다가, 끝에 수첩 쪽으로 들어가며 작아지고 사라진다(얼굴 앞을 지나지 않는다).
+    static func cardPlacement(progress p: Double, startX: Double, book: CGPoint)
+        -> (x: Double, y: Double, rotation: Double, scale: Double, opacity: Double) {
+        guard p >= 0, p < 1 else { return (startX, cardTop, 0, 1, 0) }
+        let side = (startX >= 0 ? 1.0 : -1.0) * cardLane
+        let x: Double = if p < 0.3 {
+            startX + (side - startX) * smooth(p / 0.3)
+        } else if p < 0.72 {
+            side + sin(p * 2 * .pi * 1.5) * 7
+        } else {
+            side + (Double(book.x) - side) * smooth((p - 0.72) / 0.28)
+        }
+        let top = cardTop + (Double(book.y) - 24 - cardTop) * pow(p, 1.15)
+        let fadeIn = min(1, p / 0.12)
+        let fadeOut = p > 0.84 ? max(0, 1 - (p - 0.84) / 0.16) : 1
+        let scale = p > 0.78 ? 1 - (p - 0.78) / 0.22 * 0.5 : 1
+        return (x, top + cardHeight / 2, sin(p * 2 * .pi * 1.1) * 12 * (1 - p), scale, fadeIn * fadeOut)
+    }
+
+    /// 카드가 출발하는 높이(카드 위쪽)와 카드의 높이(장면 단위).
+    static let cardTop = 112.0
+    static let cardHeight = 36.0
+    /// 빗방울이 떨어지는 거리(장면 단위)와 불투명도.
+    static let dropDistance = 72.0
+    static func dropOpacity(_ progress: Double) -> Double {
+        guard progress > 0 else { return 0 }
+        let fade = progress < 0.15 ? progress / 0.15 : max(0, 1 - (progress - 0.6) / 0.4)
+        return min(fade, 1) * 0.85
     }
 
     // MARK: - 도움 함수
