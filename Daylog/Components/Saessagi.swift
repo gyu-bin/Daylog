@@ -1,6 +1,7 @@
 import SwiftUI
 
-/// Daylog의 캐릭터 "새싹이"의 모습. 그림은 `Assets.xcassets/Saessagi`의 1024×1024 투명 PNG다(받은 v2 원본 그대로).
+/// Daylog의 캐릭터 "새싹이"의 모습. 그림은 `Assets.xcassets/Saessagi`의 1024×1024 투명 PNG다(받은 원본 그대로).
+/// idle·happy·rest는 작은 크기에서도 또렷하게 보이도록 선을 굵게 그린 판이고, 나머지는 v2다.
 enum SaessagiPose: String, CaseIterable, Sendable {
     /// 기본: 웃으며 서 있다.
     case idle
@@ -21,18 +22,19 @@ enum SaessagiPose: String, CaseIterable, Sendable {
     /// 모습마다 캔버스 안의 위치와 크기가 달라서, 이 값으로 가운데·바닥을 맞춘다. 파일은 건드리지 않는다.
     var content: CGRect {
         switch self {
-        case .idle: return CGRect(x: 208, y: 109, width: 609, height: 806)
-        case .happy: return CGRect(x: 166, y: 108, width: 690, height: 807)
+        case .idle: return CGRect(x: 179, y: 53, width: 664, height: 911)
+        case .happy: return CGRect(x: 106, y: 50, width: 813, height: 915)
         case .cheer: return CGRect(x: 112, y: 110, width: 778, height: 804)
-        case .rest: return CGRect(x: 111, y: 172, width: 801, height: 679)
+        case .rest: return CGRect(x: 55, y: 135, width: 915, height: 833)
         case .sleep: return CGRect(x: 110, y: 151, width: 804, height: 722)
         case .welcome: return CGRect(x: 128, y: 110, width: 768, height: 803)
         }
     }
 
     static let canvas: CGFloat = 1024
-    /// 어느 모습이든 이 크기 안에 들어온다(가장 키가 큰 모습 기준). 모든 모습을 같은 배율로 그려 크기가 들쭉날쭉하지 않게 한다.
-    static let fitted: CGFloat = 808
+    /// 틀의 한 변에 맞출 길이(그림 픽셀): 캐릭터가 차지하는 자리의 긴 변. 그림마다 캔버스를 채우는 정도가 달라서
+    /// (선이 굵은 판은 더 꽉 차 있다) 모습마다 따로 잡는다. 어느 모습이든 틀에 꼭 맞게 들어가 화면에서의 크기가 같다.
+    var fitted: CGFloat { max(content.width, content.height) }
 }
 
 /// 새싹이 한 장. `size`의 정사각형 안에 가로 가운데·바닥 정렬로 그린다. 꾸밈이라 접근성 요소에서 뺀다.
@@ -43,7 +45,7 @@ struct SaessagiView: View {
     var size: CGFloat = 48
 
     var body: some View {
-        let scale = size / SaessagiPose.fitted
+        let scale = size / pose.fitted
         let content = pose.content
         let center = SaessagiPose.canvas / 2
         Image(pose.assetName)

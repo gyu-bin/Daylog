@@ -26,10 +26,11 @@ struct SaessagiTests {
     @Test func everyPoseFitsTheSharedScale() {
         for pose in SaessagiPose.allCases {
             let content = pose.content
-            // 캐릭터가 캔버스 안에 있고, 같은 배율로 그렸을 때 틀을 넘지 않는다.
+            // 캐릭터가 캔버스 안에 있고, 긴 변이 틀에 꼭 맞는다(틀을 넘지 않는다).
             #expect(content.minX >= 0 && content.minY >= 0)
             #expect(content.maxX <= SaessagiPose.canvas && content.maxY <= SaessagiPose.canvas)
-            #expect(content.width <= SaessagiPose.fitted && content.height <= SaessagiPose.fitted)
+            #expect(content.width <= pose.fitted && content.height <= pose.fitted)
+            #expect(pose.fitted == max(content.width, content.height))
         }
     }
 
