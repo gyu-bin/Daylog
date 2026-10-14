@@ -40,22 +40,38 @@ enum SaessagiPose: String, CaseIterable, Sendable {
 /// 새싹이 한 장. `size`의 정사각형 안에 가로 가운데·바닥 정렬로 그린다. 꾸밈이라 접근성 요소에서 뺀다.
 ///
 /// 오늘 화면의 인사말 옆에서 쓰고, 앞으로 주간 성장·다시 시작 같은 화면에서도 이 뷰를 그대로 쓴다.
+///
+/// 그림은 1024픽셀인데 화면에서는 36~60pt로 작다. 그릴 때마다 큰 그림을 그대로 줄이면 선이 빠져 외곽선이 끊겨 보인다
+/// (1배율 Mac 화면에서 특히). 그래서 표시 크기와 화면 배율에 딱 맞는 그림을 한 번 만들어 두고(`SaessagiRenderer`) 픽셀 그대로 그린다.
 struct SaessagiView: View {
     let pose: SaessagiPose
     var size: CGFloat = 48
+    @Environment(\.displayScale) private var displayScale
 
     var body: some View {
+        Group {
+            if let image = SaessagiRenderer.image(pose: pose, size: size, displayScale: displayScale) {
+                // 만들어 둔 그림은 틀보다 사방으로 `padding`만큼 크다. 가운데에 두면 캐릭터의 발밑이 틀의 바닥에 온다.
+                Image(decorative: image, scale: displayScale)
+            } else {
+                resized
+            }
+        }
+        .frame(width: size, height: size)
+        .accessibilityHidden(true)
+    }
+
+    /// 그림을 만들지 못했을 때만 쓰는 예전 방식: 원본을 그리는 자리에서 줄인다.
+    private var resized: some View {
         let scale = size / pose.fitted
         let content = pose.content
         let center = SaessagiPose.canvas / 2
-        Image(pose.assetName)
+        return Image(pose.assetName)
             .resizable()
             .interpolation(.high)
             .frame(width: SaessagiPose.canvas * scale, height: SaessagiPose.canvas * scale)
             // 캐릭터의 가로 가운데를 틀의 가운데로, 발밑을 틀의 바닥으로 옮긴다.
             .offset(x: (center - content.midX) * scale, y: size / 2 - (content.maxY - center) * scale)
-            .frame(width: size, height: size)
-            .accessibilityHidden(true)
     }
 }
 
