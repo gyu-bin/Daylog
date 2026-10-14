@@ -138,6 +138,7 @@ struct DashboardCards: View {
                 VacationDayCard(day: store.selectedDay)
             }
         case .routines: RoutineCard()
+        case .weeklyGrowth: WeeklyGrowthCard()
         case .meals:
             if compact { MealSummaryCard() } else { MealCard() }
         case .achievement:

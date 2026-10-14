@@ -102,7 +102,7 @@ Debug 빌드에서만 `-DaylogDebugConfigURL http://127.0.0.1:<포트>/mobile-ui
 | `configVersion` | 설정의 버전. 게시할 때마다 올린다 | 1 이상의 정수 |
 | `minimumSupportedAppBuild` | 이 설정을 써도 되는 가장 낮은 iOS 빌드 번호. 그보다 낮은 앱은 거부한다 | 1 이상, 지금 iOS 빌드 번호 이하 |
 | `updatedAt` | 게시 시각(UTC) | `2026-10-12T12:00:00Z` 모양 |
-| `dashboard.defaultCardOrder` | iPhone의 기본 카드 순서 | 카드 11개를 한 번씩 |
+| `dashboard.defaultCardOrder` | iPhone의 기본 카드 순서 | 카드 11개를 한 번씩. 나중에 생긴 `weeklyGrowth`는 선택(적지 않으면 앱이 달성 현황 뒤에 둔다) |
 | `dashboard.defaultHiddenCards` | 처음에 숨겨 두는 카드(iPhone·iPad) | 아는 카드, `routines` 제외 |
 | `dashboard.layoutStyle` | 간격 묶음 | `standard`(16/18), `compact`(12/14), `airy`(20/20) |
 | `dashboard.cardSpacing` | 카드 사이 간격. 적으면 묶음보다 우선 | 8~24 |

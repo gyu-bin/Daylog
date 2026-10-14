@@ -115,7 +115,8 @@ struct MobileUIConfigTests {
             let config = try MobileUIConfig.decode(data, appBuild: 4)
             var settings = config.resolved()
             // 저장소에 둔 기본 설정은 앱의 내장 기본값과 같은 화면을 낸다(게시해도 달라지는 것이 없다).
-            #expect(settings.defaultCardOrder == DashboardCard.defaultOrder(phone: true).map(\.rawValue))
+            // 설정 파일에는 나중에 생긴 카드(이번 주의 성장)가 없다. 앱이 그 카드를 내장 순서의 자리에 끼워 넣는다.
+            #expect(DashboardCard.remoteOrder(settings.defaultCardOrder ?? []) == DashboardCard.defaultOrder(phone: true))
             #expect(Set(settings.defaultHiddenCards ?? []) == Set(DashboardCard.defaultHidden.map(\.rawValue)))
             settings.configVersion = 0; settings.updatedAt = ""; settings.defaultCardOrder = nil; settings.defaultHiddenCards = nil
             for key in MobileUISettings.TextKey.allCases { #expect(settings.string(key) == key.builtIn) }

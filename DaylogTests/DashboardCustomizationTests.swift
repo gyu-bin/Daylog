@@ -56,7 +56,7 @@ struct DashboardCustomizationTests {
     @Test func customCardNamesRoundTripAndBuiltInNamesAreUnchanged() {
         // 기본 카드는 예전에 저장한 글자 그대로다.
         #expect(DashboardCard.allCases.map(\.rawValue) == [
-            "summary", "nextRoutine", "vacation", "routines", "meals", "achievement", "recentDays", "tomorrow",
+            "summary", "nextRoutine", "vacation", "routines", "weeklyGrowth", "meals", "achievement", "recentDays", "tomorrow",
             "calendar", "trend", "routineRates"
         ])
         let id = UUID()
@@ -128,7 +128,7 @@ struct DashboardCustomizationTests {
         preferences.place(card, before: .meals)
         #expect(preferences.column(of: card) == .right)
         let right = preferences.layout(of: preferences.visibleCards).right
-        #expect(right.prefix(2) == [card, .meals])
+        #expect(right.firstIndex(of: card).map { $0 + 1 } == right.firstIndex(of: .meals))
         preferences.place(card, atEndOf: .left)
         #expect(preferences.layout(of: preferences.visibleCards).left.last == card)
     }

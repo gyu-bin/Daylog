@@ -98,6 +98,7 @@ extension DashboardCard {
         case .nextRoutine: return "nextRoutine"
         case .vacation: return "vacation"
         case .routines: return "routines"
+        case .weeklyGrowth: return "weeklyGrowth"
         case .meals: return "meals"
         case .achievement: return "achievement"
         case .recentDays: return "recentDays"

@@ -100,7 +100,7 @@ struct DevicePreferencesTests {
         let layout = preferences.layout(of: preferences.visibleCards)
         #expect(layout.band.isEmpty)
         #expect(layout.left == [.nextRoutine, .vacation, .routines])
-        #expect(layout.right == [.meals, .achievement, .recentDays, .tomorrow])
+        #expect(layout.right == [.weeklyGrowth, .meals, .achievement, .recentDays, .tomorrow])
         preferences.setVisible(true, card: .summary)
         #expect(preferences.layout(of: preferences.visibleCards).band == [.summary])
     }
@@ -108,7 +108,9 @@ struct DevicePreferencesTests {
     /// iPhone은 진행률이 맨 위에 오는 순서로 시작하고, 기본 배치 복원도 그 순서로 돌아간다.
     @Test func phoneStartsWithProgressOnTop() {
         let preferences = DevicePreferences(defaults: testDefaults(), isPhone: true)
-        #expect(preferences.visibleCards == [.achievement, .nextRoutine, .routines, .meals, .recentDays, .tomorrow, .vacation])
+        #expect(preferences.visibleCards == [
+            .achievement, .weeklyGrowth, .nextRoutine, .routines, .meals, .recentDays, .tomorrow, .vacation
+        ])
         preferences.move(.achievement, by: 1)
         preferences.restoreDashboard()
         #expect(preferences.visibleCards.first == .achievement)
@@ -121,13 +123,13 @@ struct DevicePreferencesTests {
         preferences.place(.tomorrow, before: .routines)
         var layout = preferences.layout(of: preferences.visibleCards)
         #expect(layout.left == [.nextRoutine, .vacation, .tomorrow, .routines])
-        #expect(layout.right == [.meals, .achievement, .recentDays])
+        #expect(layout.right == [.weeklyGrowth, .meals, .achievement, .recentDays])
         #expect(preferences.visibleCards.firstIndex(of: .tomorrow)! < preferences.visibleCards.firstIndex(of: .routines)!)
 
         preferences.place(.vacation, atEndOf: .right)
         layout = preferences.layout(of: preferences.visibleCards)
         #expect(layout.left == [.nextRoutine, .tomorrow, .routines])
-        #expect(layout.right == [.meals, .achievement, .recentDays, .vacation])
+        #expect(layout.right == [.weeklyGrowth, .meals, .achievement, .recentDays, .vacation])
         #expect(preferences.visibleCards.last == .vacation)
 
         // 자기 자신 앞이나 띠 카드 앞에는 놓을 수 없다.
@@ -143,9 +145,9 @@ struct DevicePreferencesTests {
         let preferences = DevicePreferences(defaults: testDefaults())
         let right = preferences.layout(of: preferences.visibleCards).right
         preferences.moveDown(.meals, in: right)
-        #expect(preferences.layout(of: preferences.visibleCards).right == [.achievement, .meals, .recentDays, .tomorrow])
-        preferences.moveUp(.achievement, in: preferences.layout(of: preferences.visibleCards).right)
-        #expect(preferences.layout(of: preferences.visibleCards).right == [.achievement, .meals, .recentDays, .tomorrow])
+        #expect(preferences.layout(of: preferences.visibleCards).right == [.weeklyGrowth, .achievement, .meals, .recentDays, .tomorrow])
+        preferences.moveUp(.weeklyGrowth, in: preferences.layout(of: preferences.visibleCards).right)
+        #expect(preferences.layout(of: preferences.visibleCards).right == [.weeklyGrowth, .achievement, .meals, .recentDays, .tomorrow])
         preferences.moveDown(.tomorrow, in: preferences.layout(of: preferences.visibleCards).right)
         #expect(preferences.layout(of: preferences.visibleCards).right.last == .tomorrow)
         preferences.setColumn(.left, for: .tomorrow)

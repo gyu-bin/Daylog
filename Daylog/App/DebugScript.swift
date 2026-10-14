@@ -219,6 +219,9 @@ enum DebugScript {
             }
             log("WINDOWS \(argument) section=\(store.section) sheetWindows=\(Platform.sheetWindowsAmongSeveral) any=\(Platform.isShowingSheet) | " + windows.joined(separator: " | "))
             #endif
+        case "weeklyGoal":
+            // 이번 주의 성장 카드의 목표: weeklyGoal:4, 추천값으로 되돌리려면 weeklyGoal:auto.
+            DevicePreferences.shared.setWeeklyGoal(Int(argument))
         case "sync":
             // 첫 동기화 안내 검증용: sync:noAccount, sync:imported, sync:error=내용 …(`CloudSyncMonitor.simulate`).
             sync.simulate(argument)

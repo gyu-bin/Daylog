@@ -59,6 +59,8 @@ except Exception as e:
 if not isinstance(cfg, dict): sys.exit("최상위가 객체가 아닙니다")
 
 CARDS = ["summary", "nextRoutine", "vacation", "routines", "meals", "achievement", "recentDays", "tomorrow", "calendar", "trend", "routineRates"]
+# 나중에 생긴 카드. 순서에 적지 않아도 된다(앱이 내장 순서의 자리에 끼워 넣는다). 적으면 이 카드를 모르는 예전 앱은 건너뛴다.
+OPTIONAL_CARDS = ["weeklyGrowth"]
 ACCENTS = ["mint", "green", "blue", "purple", "coral", "orange"]
 CARD_STYLES = ["bordered", "soft", "flat"]
 LAYOUTS = ["standard", "compact", "airy"]
@@ -90,11 +92,12 @@ if not isinstance(dashboard, dict): errors.append("dashboard: 객체여야 합�
 only(dashboard, ["defaultCardOrder", "defaultHiddenCards", "layoutStyle", "cardSpacing", "cardPadding"], "dashboard")
 order = dashboard.get("defaultCardOrder")
 if order is not None:
-    if not isinstance(order, list) or sorted(order) != sorted(CARDS):
-        errors.append("dashboard.defaultCardOrder: 카드 %d개를 한 번씩 모두 적어야 합니다(%s)" % (len(CARDS), ", ".join(CARDS)))
+    required = [c for c in order if c not in OPTIONAL_CARDS] if isinstance(order, list) else None
+    if required is None or sorted(required) != sorted(CARDS) or len(set(order)) != len(order):
+        errors.append("dashboard.defaultCardOrder: 카드 %d개를 한 번씩 모두 적어야 합니다(%s). 선택: %s" % (len(CARDS), ", ".join(CARDS), ", ".join(OPTIONAL_CARDS)))
 hidden = dashboard.get("defaultHiddenCards")
 if hidden is not None:
-    if not isinstance(hidden, list) or len(set(hidden)) != len(hidden) or any(c not in CARDS for c in hidden):
+    if not isinstance(hidden, list) or len(set(hidden)) != len(hidden) or any(c not in CARDS + OPTIONAL_CARDS for c in hidden):
         errors.append("dashboard.defaultHiddenCards: 아는 카드만, 한 번씩 적어야 합니다")
     elif "routines" in hidden:
         errors.append("dashboard.defaultHiddenCards: routines 카드는 숨길 수 없습니다")
