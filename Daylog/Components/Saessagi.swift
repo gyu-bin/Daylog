@@ -145,9 +145,16 @@ struct TodaySaessagi: View {
 
     var body: some View {
         ZStack {
-            SaessagiView(pose: pose, size: size)
-                .id(pose)
-                .transition(reduceMotion ? .identity : .opacity)
+            Group {
+                // 평소 모습일 때만 살아 움직인다. 반응(기쁨·휴식)이 시작되면 그 그림으로 바뀌며 움직임도 멈춘다.
+                if pose == .idle {
+                    SaessagiIdleView(size: size)
+                } else {
+                    SaessagiView(pose: pose, size: size)
+                }
+            }
+            .id(pose)
+            .transition(reduceMotion ? .identity : .opacity)
         }
         .offset(y: lift)
         .animation(reduceMotion ? nil : .easeInOut(duration: 0.18), value: pose)

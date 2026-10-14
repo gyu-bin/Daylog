@@ -77,6 +77,55 @@ struct SaessagiTests {
         }
     }
 
+    // MARK: - 대기 애니메이션
+
+    @Test func idleLayersLineUpWithTheSinglePicture() throws {
+        for asset in [SaessagiIdleLayers.body, SaessagiIdleLayers.leaf, SaessagiIdleLayers.eyes] {
+            #expect(NSImage(named: asset) != nil, "\(asset) 그림이 없다")
+            // 레이어는 기본 그림과 같은 크기로 만들어져 정확히 겹친다.
+            let whole = try #require(SaessagiRenderer.image(pose: .idle, size: 48, displayScale: 2))
+            let layer = try #require(SaessagiRenderer.image(asset: asset, pose: .idle, size: 48, displayScale: 2))
+            #expect(layer.width == whole.width && layer.height == whole.height)
+        }
+    }
+
+    @Test func idleAnchorsSitInsideTheCharacter() {
+        for size in [36.0, 48.0, 132.0] {
+            let pivot = SaessagiRenderer.unitPoint(of: SaessagiIdleLayers.leafPivot, pose: .idle, size: size)
+            let eyes = SaessagiRenderer.unitPoint(of: SaessagiIdleLayers.eyeCenter, pose: .idle, size: size)
+            // 줄기 밑동은 가로 가운데, 위에서 4분의 1쯤. 눈은 그보다 아래, 발보다 위.
+            #expect(abs(pivot.x - 0.5) < 0.02 && pivot.y > 0.15 && pivot.y < 0.4)
+            #expect(abs(eyes.x - 0.5) < 0.02 && eyes.y > pivot.y && eyes.y < 0.75)
+        }
+        // 그림의 발밑 가운데는 틀의 바닥 가운데(여백 안쪽)다.
+        let content = SaessagiPose.idle.content
+        let foot = SaessagiRenderer.unitPoint(of: CGPoint(x: content.midX, y: content.maxY), pose: .idle, size: 48)
+        #expect(abs(foot.x - 0.5) < 0.001)
+        #expect(abs(foot.y - (48 + SaessagiRenderer.padding) / (48 + SaessagiRenderer.padding * 2)) < 0.001)
+    }
+
+    @Test func idleMotionStaysSmallAndBlinksEveryFewSeconds() {
+        let starts = SaessagiIdleMotion.blinkStarts
+        // 깜빡임 사이는 3~5초다(한 바퀴를 돌아 다시 시작할 때도). 붙어 있는 한 쌍은 두 번 연달아 깜빡이는 것이다.
+        var gaps = zip(starts.dropFirst(), starts).map { $0 - $1 }
+        gaps.append(starts[0] + SaessagiIdleMotion.blinkCycle - starts[starts.count - 1])
+        let doubles = gaps.filter { $0 < 1 }
+        #expect(doubles.count == 1)
+        for gap in gaps where gap >= 1 { #expect(gap >= 3 && gap <= 5.1) }
+        // 깜빡임은 약 0.2초, 잎과 숨은 작고 느리다.
+        #expect(abs(SaessagiIdleMotion.blinkClose + SaessagiIdleMotion.blinkOpen - 0.2) < 0.05)
+        #expect(SaessagiIdleMotion.leafAngle <= 3 && SaessagiIdleMotion.breathStretch <= 0.03)
+        #expect(SaessagiIdleMotion.leafHalfPeriod >= 1.5 && SaessagiIdleMotion.breathHalfPeriod >= 2)
+
+        // 키프레임: 시간은 0에서 1까지 늘어나고, 눈은 뜬 채로 시작해 뜬 채로 끝난다.
+        let track = SaessagiIdleMotion.blinkTrack
+        #expect(track.values.count == track.keyTimes.count)
+        #expect(track.keyTimes.first == 0 && track.keyTimes.last == 1)
+        #expect(zip(track.keyTimes.dropFirst(), track.keyTimes).allSatisfy { $0 > $1 })
+        #expect(track.values.first == 1 && track.values.last == 1)
+        #expect(track.values.filter { $0 == SaessagiIdleMotion.closedEyeScale }.count == starts.count)
+    }
+
     @Test func restsOnVacationAndSmilesOtherwise() {
         #expect(SaessagiMood.base(isVacation: false) == .idle)
         #expect(SaessagiMood.base(isVacation: true) == .rest)

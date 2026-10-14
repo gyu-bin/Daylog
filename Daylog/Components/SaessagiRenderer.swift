@@ -19,6 +19,8 @@ enum SaessagiRenderer {
     static let cacheLimit = 64
 
     private struct Key: Hashable {
+        /// 그림의 에셋 이름. 대기 애니메이션의 레이어는 기본 모습과 자리가 같고 이름만 다르다.
+        let asset: String
         let pose: SaessagiPose
         /// 만든 그림의 한 변(픽셀).
         let side: Int
@@ -30,13 +32,18 @@ enum SaessagiRenderer {
 
     /// `size`pt 틀에 그릴 그림. 한 변은 `(size + 2 × padding) × displayScale` 픽셀이고, 캐릭터는 가로 가운데·바닥에서 `padding` 위에 있다.
     static func image(pose: SaessagiPose, size: CGFloat, displayScale: CGFloat) -> CGImage? {
+        image(asset: pose.assetName, pose: pose, size: size, displayScale: displayScale)
+    }
+
+    /// `pose`와 같은 자리·같은 배율로 `asset`을 그린 그림. 레이어들이 서로, 그리고 한 장짜리 그림과 정확히 겹친다.
+    static func image(asset: String, pose: SaessagiPose, size: CGFloat, displayScale: CGFloat) -> CGImage? {
         let scale = max(displayScale, 1)
         let side = Int(((size + padding * 2) * scale).rounded())
         let fitted = Int((size * scale).rounded())
         guard side > 0, fitted > 0 else { return nil }
-        let key = Key(pose: pose, side: side, fitted: fitted)
+        let key = Key(asset: asset, pose: pose, side: side, fitted: fitted)
         if let cached = cache[key] { return cached }
-        guard let source = sourceImage(pose), let image = downsample(source, pose: pose, side: side, fitted: fitted) else {
+        guard let source = sourceImage(asset), let image = downsample(source, pose: pose, side: side, fitted: fitted) else {
             return nil
         }
         if cache.count >= cacheLimit { cache.removeAll() }
@@ -44,12 +51,22 @@ enum SaessagiRenderer {
         return image
     }
 
-    private static func sourceImage(_ pose: SaessagiPose) -> CGImage? {
+    private static func sourceImage(_ asset: String) -> CGImage? {
         #if os(macOS)
-        return NSImage(named: pose.assetName)?.cgImage(forProposedRect: nil, context: nil, hints: nil)
+        return NSImage(named: asset)?.cgImage(forProposedRect: nil, context: nil, hints: nil)
         #else
-        return UIImage(named: pose.assetName)?.cgImage
+        return UIImage(named: asset)?.cgImage
         #endif
+    }
+
+    /// 원본 그림 위의 한 점(1024 기준 픽셀, 위에서 아래로)이 만들어 둔 그림 안에서 어디인지(0…1).
+    /// 레이어를 돌리거나 접을 때의 기준점으로 쓴다.
+    static func unitPoint(of source: CGPoint, pose: SaessagiPose, size: CGFloat) -> CGPoint {
+        let scale = size / pose.fitted
+        let x = size / 2 + (source.x - pose.content.midX) * scale
+        let y = size - (pose.content.maxY - source.y) * scale
+        let side = size + padding * 2
+        return CGPoint(x: (x + padding) / side, y: (y + padding) / side)
     }
 
     /// 캐릭터 자리를 원본 해상도로 잘라 낸 뒤 한 번에 줄인다.
