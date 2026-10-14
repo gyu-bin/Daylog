@@ -130,9 +130,9 @@ struct DashboardHeader: View {
 
     var body: some View {
         ViewThatFits(in: .horizontal) {
-            HStack(alignment: .center, spacing: 16) {
+            // 제목과 단추 사이의 빈자리는 새싹이가 차지한다(빈칸 대신). 새싹이는 그 안에서만 걷고, 단추 쪽 끝으로 숨는다.
+            HStack(alignment: .center, spacing: 8) {
                 titles
-                Spacer(minLength: 16)
                 controls
             }
             VStack(alignment: .leading, spacing: 10) {
@@ -215,8 +215,8 @@ struct DashboardHeader: View {
             .accessibilityAddTraits(.isHeader)
             .fixedSize()
             // 인사말 옆의 새싹이. 날짜와 인사말 두 줄의 높이 안에 들어가 머리말이 높아지지 않는다.
-            // 오른쪽에 자리가 남으면 그만큼(최대 `walkRange`)을 걸어 다닐 자리로 쓴다.
-            TodaySaessagi(size: 48, walkRange: 64)
+            // 단추까지 남는 자리를 모두 걸어 다닐 자리로 쓴다(넓은 창에서는 멀리 산책하고 단추 쪽 끝으로 숨는다).
+            TodaySaessagi(size: 48, walkRange: 900, fillsWidth: true)
                 .layoutPriority(-1)
         }
     }

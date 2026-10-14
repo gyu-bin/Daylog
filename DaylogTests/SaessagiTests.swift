@@ -244,13 +244,14 @@ struct SaessagiTests {
             counts[action, default: 0] += 1
             last = action
         }
-        // 네 가지 행동과 쉬기가 모두 나오고, 그 밖의 동작은 나오지 않는다.
-        for action in [SaessagiAction.stay, .walk, .lookAround, .hop, .doze] { #expect((counts[action] ?? 0) > 200) }
-        #expect(counts.count == 5)
-        // 조는 것이 걷기·두리번거리기보다 드물다.
-        #expect(counts[.doze]! < counts[.walk]! && counts[.doze]! < counts[.lookAround]!)
-        // 10초쯤 보면 여러 번 움직인다: 쉬는 시간은 2~5초.
-        #expect(behavior.rest == 2.0...5.0 && behavior.firstRest <= 3)
+        // 여섯 가지 행동과 쉬기가 모두 나오고, 그 밖의 동작은 나오지 않는다.
+        let expected: [SaessagiAction] = [.stay, .walk, .stroll, .lookAround, .hop, .doze, .peek]
+        for action in expected { #expect((counts[action] ?? 0) > 150) }
+        #expect(counts.count == expected.count)
+        // 조는 것과 숨바꼭질은 걷기·두리번거리기보다 드물다.
+        #expect(counts[.doze]! < counts[.walk]! && counts[.peek]! < counts[.lookAround]!)
+        // 산만하지 않게: 쉬는 시간은 2.5~5.5초.
+        #expect(behavior.rest == 2.5...5.5 && behavior.firstRest <= 3)
     }
 
     @Test func everyPoseHasABehaviourThatSuitsIt() {
@@ -404,5 +405,58 @@ struct SaessagiGrowthArtTests {
         // 카드 안의 성장 단계는 두리번거리지만 걷지는 않는다(걸을 자리가 없다).
         #expect(SaessagiBehavior.growing.choices.contains { $0.action == .lookAround })
         #expect(!SaessagiBehavior.growing.choices.contains { $0.action == .walk })
+    }
+}
+
+/// 머리말 새싹이의 새 행동: 멀리 산책, 자리 끝 숨바꼭질, 인사와 잠깐 쉬기.
+@MainActor
+struct SaessagiHeaderActionTests {
+    private let size = 48.0
+
+    @Test func strollGoesFarOnlyWhenThereIsRoom() {
+        var generator = SystemRandomNumberGenerator()
+        let step = SaessagiWalkMotion.stepLength * size
+        // 좁은 자리(iPhone 머리말)에서는 산책하지 않는다.
+        #expect(SaessagiMotionPlan.make(.stroll, at: 0, range: 5 * step, size: size, using: &generator) == nil)
+        for _ in 0..<50 {
+            let plan = SaessagiMotionPlan.make(.stroll, at: 100, range: 400, size: size, using: &generator)
+            guard let plan else { Issue.record("넓은 자리에서는 산책한다"); continue }
+            let distance = abs(plan.finalX - 100)
+            #expect(distance >= Double(SaessagiWalkMotion.strollMinimumSteps - 1) * step - 0.01)
+            #expect(distance <= SaessagiWalkMotion.strollReach * size + 0.01)
+            #expect(plan.finalX >= 0 && plan.finalX <= 400)
+            #expect(plan.steps <= SaessagiWalkMotion.strollMaximumSteps)
+        }
+    }
+
+    @Test func peekHidesPastTheLaneEndAndComesBack() throws {
+        let range = 300.0
+        let plan = try #require(SaessagiMotionPlan.peek(at: range - 40, range: range, size: size))
+        // 자리 끝 너머로 몸 대부분이 넘어갔다가(잘려 숨는다) 반쯤 나오고, 끝으로 돌아온다.
+        let farthest = plan.moverX.values.max() ?? 0
+        #expect(farthest >= range + 0.8 * size - 0.01 && farthest <= range + size)
+        #expect(abs(plan.finalX - range) < 0.01)
+        // 내다볼 때 두 번 깜빡이고, 끝나면 앞을 본다.
+        #expect(plan.eyes.values.filter { $0 < 0.5 }.count == 2)
+        #expect(plan.face.last == 0 && plan.rock.last == 0)
+        // 자리가 좁거나 끝에서 멀면 하지 않는다.
+        #expect(SaessagiMotionPlan.peek(at: 0, range: size, size: size) == nil)
+        #expect(SaessagiMotionPlan.peek(at: 0, range: 1_000, size: size) == nil)
+        // 끝이 멀면 숨바꼭질 대신 끝 쪽으로 산책한다.
+        var generator = SystemRandomNumberGenerator()
+        let approach = try #require(SaessagiMotionPlan.make(.peek, at: 0, range: 1_000, size: size, using: &generator))
+        #expect(approach.finalX > 0 && approach.finalX <= SaessagiWalkMotion.strollReach * size + 0.01)
+        #expect(approach.moverX.values.allSatisfy { $0 <= 1_000 })
+    }
+
+    @Test func headerBehaviourMixesTheNewActions() {
+        let actions = Set(SaessagiBehavior.today.choices.map(\.action))
+        #expect(actions.isSuperset(of: [.walk, .stroll, .lookAround, .hop, .doze, .peek]))
+        #expect(SaessagiAction.peek.isAvailable && SaessagiAction.stroll.needsLayers && SaessagiAction.peek.needsLayers)
+        #expect(!SaessagiAction.tumble.isAvailable)
+        // 인사는 손을 흔드는 모습, 잠깐 쉬기는 엎드린 모습.
+        #expect(SaessagiReaction.greet.pose == .welcome && SaessagiReaction.nap.pose == .rest)
+        #expect(SaessagiReaction.nap.duration > SaessagiReaction.greet.duration)
+        #expect(TodaySaessagi.napInterval.lowerBound >= 30)
     }
 }

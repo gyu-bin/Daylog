@@ -127,6 +127,8 @@ struct SaessagiAnimatedView: View {
     var link: SaessagiStageLink?
     /// 처음 나타날 때 한 번 하는 연출(예: 성장 단계가 바뀌어 잎이 자라난다).
     var entrance: SaessagiEntrance?
+    /// 걸을 자리 끝에서 잘라 내 숨바꼭질을 할 수 있게 할지(머리말의 새싹이).
+    var clipsLaneEnd = false
     @Environment(\.displayScale) private var displayScale
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.scenePhase) private var scenePhase
@@ -138,7 +140,7 @@ struct SaessagiAnimatedView: View {
         if !reduceMotion, let rig = SaessagiRig(pose: pose, size: size, displayScale: displayScale) {
             SaessagiStageView(
                 rig: rig, size: size, displayScale: displayScale, startX: startX, link: link, maxRange: maxRange,
-                behavior: behavior ?? .standard(for: pose), entrance: entrance,
+                behavior: behavior ?? .standard(for: pose), entrance: entrance, clipsLaneEnd: clipsLaneEnd,
                 isAnimating: isVisible && isOnScreen && scenePhase == .active
             )
             .frame(minWidth: size, idealWidth: size, maxWidth: fillsLane ? .infinity : size)
@@ -250,6 +252,10 @@ final class SaessagiStage {
     /// 걸어 다닐 수 있는 거리(pt): 받은 너비에서 새싹이 한 칸을 뺀 만큼, 상한(`maxRange`)까지.
     private var range: CGFloat = 0
     private var laneWidth: CGFloat = 0
+    /// 레이어를 얹은 뷰의 레이어와, 자리 끝에서 잘라 내는 가리개.
+    private weak var host: CALayer?
+    private let laneMask = CALayer()
+    private var clipsLaneEnd = false
     private var maxRange: CGFloat = 0
     /// 지금 서 있는 자리(왼쪽 끝에서 오른쪽으로 떨어진 거리). 걸으면 바뀐다.
     private var restingX: CGFloat = 0
@@ -274,6 +280,7 @@ final class SaessagiStage {
     func install(in host: CALayer, startX: CGFloat, link: SaessagiStageLink?) {
         link?.stage = self
         guard mover.superlayer !== host else { return }
+        self.host = host
         host.addSublayer(mover)
         mover.addSublayer(breather)
         for layer in [footLeft, footRight, torso] { breather.addSublayer(layer) }
@@ -282,9 +289,35 @@ final class SaessagiStage {
         restingX = max(startX, 0)
     }
 
+    /// 자리 끝에서 새싹이를 잘라 낼지(숨바꼭질을 할 수 있는 자리). 세로로는 자르지 않는다(뛰어도 머리가 잘리지 않는다).
+    func setClipsLaneEnd(_ clips: Bool) {
+        guard clips != clipsLaneEnd else { return }
+        clipsLaneEnd = clips
+        updateLaneMask()
+    }
+
+    private func updateLaneMask() {
+        guard let host else { return }
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        if clipsLaneEnd, laneWidth > 0 {
+            laneMask.backgroundColor = CGColor(gray: 0, alpha: 1)
+            // 왼쪽(글자 쪽)으로는 가지 않으니 넉넉히 두고, 오른쪽은 자리 끝(그림의 여백까지)에서 자른다.
+            laneMask.frame = CGRect(
+                x: -size * 2, y: -size * 3, width: laneWidth + size * 2 + SaessagiRenderer.padding, height: size * 7
+            )
+            if host.mask !== laneMask { host.mask = laneMask }
+        } else if host.mask === laneMask {
+            host.mask = nil
+        }
+        CATransaction.commit()
+    }
+
     /// 걸어 다닐 자리의 너비가 정해졌다(레이아웃 때마다).
     func setLaneWidth(_ width: CGFloat) {
+        let changed = width != laneWidth
         laneWidth = width
+        if changed { updateLaneMask() }
         range = min(max(width - size, 0), maxRange)
         // 자리가 좁아졌으면(창 크기 변경) 그 안으로 들어온다. 행동 중이 아닐 때만.
         if restingX > range + 0.5, !isActing {
@@ -307,6 +340,7 @@ final class SaessagiStage {
             configuration = (rig.pose, size, displayScale)
             self.size = size
             layout(rig: rig, size: size, displayScale: displayScale)
+            updateLaneMask()
         } else if needsRestart {
             // 움직이는 방식이 바뀌었다(예: 기다리다가 멈춤): 새 박자로 다시 시작한다.
             stop()
@@ -494,7 +528,10 @@ final class SaessagiStage {
     /// 행동 하나를 시작하고 걸리는 시간(초)을 돌려준다. 하지 않으면 0.
     private func play(_ action: SaessagiAction, using generator: inout some RandomNumberGenerator) -> Double {
         // 나뉜 레이어가 있어야 하는 행동은 그림 한 장짜리 모습에서는 하지 않는다.
-        guard (isLayered && (hasFeet || action != .walk)) || !action.needsLayers,
+        let walks = action == .walk || action == .stroll || action == .peek
+        // 숨바꼭질은 자리 끝에서 잘라 낼 때만 한다(그렇지 않으면 숨지 못하고 머리말 밖으로 걸어 나간다).
+        guard action != .peek || (clipsLaneEnd && range >= laneWidth - size - 0.5) else { return 0 }
+        guard (isLayered && (hasFeet || !walks)) || !action.needsLayers,
               let plan = SaessagiMotionPlan.make(action, at: restingX, range: range, size: size, using: &generator)
         else { return 0 }
         // 끝나면 걸어간 자리에 서 있다.
@@ -541,7 +578,7 @@ final class SaessagiStage {
     }
 
     /// 화면 검증용: `-DaylogDebugSaessagiAction hop`처럼 주면 기본 모습의 새싹이가 그 행동만 한다
-    /// (walk, lookAround, hop, doze. Debug 빌드만).
+    /// (walk, stroll, peek, lookAround, hop, doze. Debug 빌드만).
     private var debugAction: SaessagiAction? {
         #if DEBUG
         guard isLayered else { return nil }
@@ -550,6 +587,8 @@ final class SaessagiStage {
         case "lookAround": return .lookAround
         case "hop": return .hop
         case "doze": return .doze
+        case "stroll": return .stroll
+        case "peek": return .peek
         default: return nil
         }
         #else
@@ -592,6 +631,7 @@ struct SaessagiStageView: NSViewRepresentable {
     let maxRange: CGFloat
     let behavior: SaessagiBehavior
     var entrance: SaessagiEntrance?
+    var clipsLaneEnd = false
     let isAnimating: Bool
 
     final class Coordinator {
@@ -617,6 +657,7 @@ struct SaessagiStageView: NSViewRepresentable {
         guard let layer = view.layer else { return }
         let stage = context.coordinator.stage
         stage.install(in: layer, startX: startX, link: link)
+        stage.setClipsLaneEnd(clipsLaneEnd)
         stage.setLaneWidth(view.bounds.width)
         stage.update(
             rig: rig, size: size, displayScale: displayScale, maxRange: maxRange, behavior: behavior, entrance: entrance,
@@ -646,6 +687,7 @@ struct SaessagiStageView: UIViewRepresentable {
     let maxRange: CGFloat
     let behavior: SaessagiBehavior
     var entrance: SaessagiEntrance?
+    var clipsLaneEnd = false
     let isAnimating: Bool
 
     final class Coordinator {
@@ -671,6 +713,7 @@ struct SaessagiStageView: UIViewRepresentable {
     func updateUIView(_ view: SaessagiHostView, context: Context) {
         let stage = context.coordinator.stage
         stage.install(in: view.layer, startX: startX, link: link)
+        stage.setClipsLaneEnd(clipsLaneEnd)
         stage.setLaneWidth(view.bounds.width)
         stage.update(
             rig: rig, size: size, displayScale: displayScale, maxRange: maxRange, behavior: behavior, entrance: entrance,

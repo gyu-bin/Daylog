@@ -94,11 +94,16 @@ enum SaessagiReaction: Equatable, Sendable {
     case completed
     /// 루틴을 건너뛰었다: 잠깐 쉬는 모습이 된다.
     case skipped
+    /// 앱에 들어왔다: 손을 흔들어 반갑게 인사한다(실행마다 한 번).
+    case greet
+    /// 가끔 잠깐 엎드려 쉰다.
+    case nap
 
     var pose: SaessagiPose {
         switch self {
         case .completed: return .happy
-        case .skipped: return .rest
+        case .skipped, .nap: return .rest
+        case .greet: return .welcome
         }
     }
 
@@ -107,6 +112,8 @@ enum SaessagiReaction: Equatable, Sendable {
         switch self {
         case .completed: return 1.6
         case .skipped: return 2.0
+        case .greet: return 2.4
+        case .nap: return 5.0
         }
     }
 }
@@ -134,14 +141,16 @@ enum SaessagiMood {
     }
 }
 
-/// 오늘 화면 인사말 옆의 새싹이: 평소에는 숨 쉬고 깜빡이다가 가끔 걷거나 두리번거리거나 폴짝 뛰거나 졸고,
+/// 오늘 화면 머리말의 새싹이: 평소에는 숨 쉬고 깜빡이다가 가끔 걷거나 멀리 산책하거나 두리번거리거나 폴짝 뛰거나 졸고,
+/// 자리가 넓으면 자리 끝(단추 쪽)으로 숨었다가 빼꼼 내다본다. 앱에 들어오면 한 번 손을 흔들고, 가끔 잠깐 엎드려 쉰다.
 /// 루틴을 완료하거나 건너뛰면 하던 것을 멈추고 잠깐 반응한다.
 ///
-/// 가로로 `walkRange`만큼까지 늘어나는 자리를 차지한다(자리가 남을 때만). 그 안에서만 걸어 다닌다.
-/// 놓는 쪽에서 `.layoutPriority(-1)`을 주어 글자나 단추의 자리를 빼앗지 않게 한다.
+/// 가로로 `walkRange`만큼까지 늘어나는 자리를 차지한다(자리가 남을 때만). 그 안에서만 걸어 다니고, 숨바꼭질은 자리 끝에서 잘려 보인다.
+/// 놓는 쪽에서 `.layoutPriority(-1)`을 주어 글자나 단추의 자리를 빼앗지 않게 한다. 누르기는 받지 않는다(단추를 가로채지 않는다).
 struct TodaySaessagi: View {
     @Environment(AppStore.self) private var store
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.scenePhase) private var scenePhase
     var size: CGFloat = 48
     /// 걸어 다닐 수 있는 최대 거리(pt).
     var walkRange: CGFloat = 60
@@ -154,6 +163,12 @@ struct TodaySaessagi: View {
     /// 통통 뛸 때 위로 뜬 높이.
     @State private var lift: CGFloat = 0
     @State private var pending: Task<Void, Never>?
+    /// 차지한 자리의 너비. 반응 그림을 자리 밖(숨바꼭질 중)에 놓지 않으려고 둔다.
+    @State private var laneWidth: CGFloat = 0
+    /// 이번 실행에서 이미 인사했다(창을 다시 열거나 다른 메뉴에 다녀와도 다시 하지 않는다).
+    private static var hasGreeted = false
+    /// 잠깐 쉬는 사이의 간격(초).
+    static let napInterval: ClosedRange<Double> = 50...100
 
     private var progress: SaessagiProgress {
         SaessagiProgress(
@@ -179,7 +194,7 @@ struct TodaySaessagi: View {
                 if pose == .idle {
                     SaessagiAnimatedView(
                         pose: .idle, size: size, behavior: .today, fillsLane: true, maxRange: walkRange,
-                        startX: canWalk ? awayX : 0, link: link
+                        startX: canWalk ? awayX : 0, link: link, clipsLaneEnd: fillsWidth
                     )
                 } else {
                     // 기쁨은 통통 뛰고, 휴식(건너뛰기·휴가)은 느리게 숨 쉬며 가끔 꿈틀한다.
@@ -196,8 +211,24 @@ struct TodaySaessagi: View {
             alignment: .leading
         )
         .animation(reduceMotion ? nil : .easeInOut(duration: 0.18), value: pose)
+        .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { laneWidth = $0 }
         .onChange(of: progress) { old, new in
             if let next = SaessagiMood.reaction(from: old, to: new) { react(next) }
+        }
+        .task(id: canWalk) {
+            // 앱에 들어오면 한 번 인사하고, 그 뒤로는 가끔 잠깐 엎드려 쉰다. 화면에서 사라지면 멈춘다.
+            guard canWalk else { return }
+            if !Self.hasGreeted {
+                Self.hasGreeted = true
+                try? await Task.sleep(for: .seconds(0.8))
+                guard !Task.isCancelled, reaction == nil else { return }
+                react(.greet)
+            }
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(Double.random(in: Self.napInterval)))
+                guard !Task.isCancelled else { return }
+                if reaction == nil, canWalk, scenePhase == .active { react(.nap) }
+            }
         }
         .onDisappear { pending?.cancel() }
     }
@@ -205,7 +236,7 @@ struct TodaySaessagi: View {
     private func react(_ next: SaessagiReaction) {
         pending?.cancel()
         // 걷던 중이었으면 그 자리에서 반응한다(평소 모습이 떠 있을 때만 위치를 알 수 있다).
-        if let offset = link.currentOffset() { awayX = max(offset, 0) }
+        if let offset = link.currentOffset() { awayX = min(max(offset, 0), max(laneWidth - size, 0)) }
         reaction = next
         // 앞의 반응이 뛰던 중이었으면 제자리에서 다시 시작한다.
         lift = 0
