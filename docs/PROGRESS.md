@@ -1118,6 +1118,8 @@ iPhone·iPad App Store 제출 자료를 만들고 App Store Connect에 올렸다
 - 에셋 품질(다시 그리지 않고 그대로 씀): rest는 오른쪽 잎이 세로로 잘려 있고 뒤에 옅은 흰 자국이 있어 다크 모드에서 보인다.
   sleep·welcome은 발밑에 흰 그림자 자국, welcome은 잎 윗부분이 잘려 있다. 전체적으로 외곽선이 거칠다(작게 쓸 때는 눈에 덜 띈다).
 - 확인: Mac(라이트·다크, 완료·건너뛰기·휴가), iPhone Pro Max·iPad(다크)·iPhone SE(기본·큰 글자). 미확인: 폭 393pt iPhone, Reduce Motion 화면, 실기기.
+- 같은 날 v2 에셋으로 교체(`daylog_saessagi_v2_6_assets.zip`, 1024×1024, 이름은 그대로). 위의 잘림·흰 자국·거친 외곽선이 없다. 캔버스 안 위치 값만 새 그림에 맞췄다.
+  Mac(라이트·다크, 완료·건너뛰기·휴가)과 iPhone Pro Max 시뮬레이터(다크)에서 다시 확인.
 
 ## 다음 작업
 

@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// Daylog의 캐릭터 "새싹이"의 모습. 그림은 `Assets.xcassets/Saessagi`의 512×512 투명 PNG다(받은 원본 그대로).
+/// Daylog의 캐릭터 "새싹이"의 모습. 그림은 `Assets.xcassets/Saessagi`의 1024×1024 투명 PNG다(받은 v2 원본 그대로).
 enum SaessagiPose: String, CaseIterable, Sendable {
     /// 기본: 웃으며 서 있다.
     case idle
@@ -17,22 +17,22 @@ enum SaessagiPose: String, CaseIterable, Sendable {
 
     var assetName: String { "saessagi_\(rawValue)" }
 
-    /// 그림 안에서 캐릭터가 실제로 차지하는 자리(512 기준 픽셀, 위에서 아래로). 모습마다 캔버스 안의 위치와 크기가 달라서,
-    /// 이 값으로 가운데·바닥을 맞춘다. 파일은 건드리지 않는다.
+    /// 그림 안에서 캐릭터가 실제로 차지하는 자리(1024 기준 픽셀, 위에서 아래로. 반짝이·하트 같은 소품과 발밑 그림자 포함).
+    /// 모습마다 캔버스 안의 위치와 크기가 달라서, 이 값으로 가운데·바닥을 맞춘다. 파일은 건드리지 않는다.
     var content: CGRect {
         switch self {
-        case .idle: return CGRect(x: 136, y: 95, width: 231, height: 365)
-        case .happy: return CGRect(x: 112, y: 85, width: 266, height: 361)
-        case .cheer: return CGRect(x: 123, y: 127, width: 258, height: 335)
-        case .rest: return CGRect(x: 169, y: 191, width: 255, height: 253)
-        case .sleep: return CGRect(x: 86, y: 67, width: 327, height: 342)
-        case .welcome: return CGRect(x: 150, y: 52, width: 256, height: 375)
+        case .idle: return CGRect(x: 208, y: 109, width: 609, height: 806)
+        case .happy: return CGRect(x: 166, y: 108, width: 690, height: 807)
+        case .cheer: return CGRect(x: 112, y: 110, width: 778, height: 804)
+        case .rest: return CGRect(x: 111, y: 172, width: 801, height: 679)
+        case .sleep: return CGRect(x: 110, y: 151, width: 804, height: 722)
+        case .welcome: return CGRect(x: 128, y: 110, width: 768, height: 803)
         }
     }
 
-    static let canvas: CGFloat = 512
+    static let canvas: CGFloat = 1024
     /// 어느 모습이든 이 크기 안에 들어온다(가장 키가 큰 모습 기준). 모든 모습을 같은 배율로 그려 크기가 들쭉날쭉하지 않게 한다.
-    static let fitted: CGFloat = 384
+    static let fitted: CGFloat = 808
 }
 
 /// 새싹이 한 장. `size`의 정사각형 안에 가로 가운데·바닥 정렬로 그린다. 꾸밈이라 접근성 요소에서 뺀다.
