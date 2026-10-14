@@ -65,6 +65,8 @@ struct SaessagiLayerSet: Equatable, Sendable {
 enum SaessagiEntrance: Equatable, Sendable {
     /// 머리 위의 잎(꽃)이 작게 돋아나 자란다: 성장 단계가 바뀐 순간.
     case growLeaf
+    /// 반갑게 인사: 나타나자마자 한 번 통 뛴다(회고를 열었을 때).
+    case hello
 }
 
 /// 대기 애니메이션의 크기와 박자. 작고 느리게: 눈에 띄되 거슬리지 않게.
@@ -480,6 +482,9 @@ final class SaessagiStage {
             appear.keyTimes = [0, 0.15, 0.3]
             appear.duration = 1.4
             leafLayer.add(appear, forKey: "\(Self.actionKey).appear")
+        case .hello:
+            var generator = SystemRandomNumberGenerator()
+            _ = play(.bounce, using: &generator)
         }
     }
 

@@ -1225,6 +1225,19 @@ iPhone·iPad App Store 제출 자료를 만들고 App Store Connect에 올렸다
 - Debug: `-DaylogDebugGrowthBonus <XP>`(화면에만 더함). 스크립트 `window:`와 함께 Lv.9→10, Lv.24→25 전환을 확인했다.
 - 확인: 관련 테스트 103개, Mac(라이트 Lv.9→10, 다크 Lv.24→25, CPU 0~0.1%), iPhone 17 Pro Max(실제 탭으로 +10·+30 XP와 잎사귀 전환, 움직임 줄이기에서 정지 화면, 다크).
 
+## Phase 7-F 새싹이 주간 회고 (2026-10-14)
+
+- 새 카드 "새싹이의 주간 회고"(`DashboardCard.weeklyReview`, 나중 카드·원격 설정 OPTIONAL_CARDS에 추가)와 상세 시트(`WeeklyReviewSheet`).
+  이번 주의 성장은 진행 중인 이번 주, 회고는 끝난 지난주(설정의 주 시작 요일 기준)다. 자동 팝업·알림 없음.
+- 계산은 새 규칙 없이 기존 것을 쓴다(`WeeklyReviewCalculator`, `StatsService.review`): 날짜별 결과·루틴별 완료 일수는 통계, 실천한 날은 이번 주의 성장의 판정,
+  XP는 새싹이 성장의 규칙. 완료한 루틴 수는 휴가·루틴 없는 날을 뺀 날의 완료 합. 가장 꾸준한 루틴은 완료한 날이 가장 많은 것(같으면 달성률·순서).
+  앞 주에 기록할 루틴이 없었으면 비교하지 않는다. 기록이 바뀌면(`dataVersion`) 다시 계산한다.
+- 문구는 템플릿(늘었음·비슷함(±1개 또는 10%)·줄었음·기록 없음·휴가·비교 없음). 줄어도 탓하지 않는다.
+  새싹이는 지금 성장 단계 모습으로, 좋은 한 주는 작은 축하(`growingCheer`), 쉬어 간 주는 차분하게(`growingCalm`), 상세를 열면 한 번 인사(`SaessagiEntrance.hello`).
+- Debug: `-DaylogDebugOpenWeeklyReview YES`(상세를 바로 연다).
+- 확인: 관련 테스트 97개(회고 대상 주·연도 경계·건너뛰기·휴가·중복·비교·통계/XP 일치), Mac 라이트 카드·다크 상세(CPU 0~0.2%),
+  iPhone 17 Pro Max 라이트 카드·실제 탭으로 상세·다크·움직임 줄이기(정지 확인 후 설정 원복).
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.

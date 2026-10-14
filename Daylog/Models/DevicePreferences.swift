@@ -316,28 +316,30 @@ struct DashboardLayout: Equatable {
 
 /// 대시보드 카드. 기본 카드는 선언 순서가 기본 순서다.
 enum DashboardCard: Hashable, Identifiable, RawRepresentable, CaseIterable {
-    case summary, nextRoutine, vacation, routines, weeklyGrowth, saessagiGrowth, meals, achievement, recentDays, tomorrow, calendar, trend
-    case routineRates
+    case summary, nextRoutine, vacation, routines, weeklyGrowth, saessagiGrowth, weeklyReview, meals, achievement, recentDays, tomorrow
+    case calendar, trend, routineRates
     /// 사용자가 더한 꾸미기 카드(이미지·텍스트·섹션 제목·구분선). 내용은 `DashboardDecor`와 `AppStore.dashboardTexts`에 있다.
     case custom(CustomCardKind, UUID)
 
     var id: String { rawValue }
 
     /// 앱이 제공하는 기본 카드. 꾸미기 카드는 들어 있지 않다(원격 설정의 허용 목록도 이 값을 쓴다).
-    /// 이번 주의 성장은 두 열 화면에서 오른쪽 열의 맨 위이고, 새싹이 성장이 그 바로 아래다(왼쪽 열의 오늘 루틴을 밀지 않는다).
+    /// 이번 주의 성장은 두 열 화면에서 오른쪽 열의 맨 위이고, 새싹이 성장과 새싹이의 주간 회고가 그 아래다
+    /// (왼쪽 열의 오늘 루틴을 밀지 않는다).
     static let allCases: [DashboardCard] = [
-        .summary, .nextRoutine, .vacation, .routines, .weeklyGrowth, .saessagiGrowth, .meals, .achievement, .recentDays, .tomorrow,
-        .calendar, .trend, .routineRates
+        .summary, .nextRoutine, .vacation, .routines, .weeklyGrowth, .saessagiGrowth, .weeklyReview, .meals, .achievement,
+        .recentDays, .tomorrow, .calendar, .trend, .routineRates
     ]
 
     static let defaultOrder: [DashboardCard] = allCases
 
     /// iPhone의 기본 순서: 오늘의 진행률이 맨 위(예전 iPhone 오늘 화면과 같다). 나머지는 같다.
     static func defaultOrder(phone: Bool) -> [DashboardCard] {
-        // iPhone: 달성 현황 → 이번 주의 성장 → 다음 루틴 → 루틴 → 새싹이 성장 → 식사 → 최근 7일 → 내일 할 일 → 휴가.
+        // iPhone: 달성 현황 → 이번 주의 성장 → 다음 루틴 → 루틴 → 새싹이 성장 → 주간 회고 → 식사 → 최근 7일 → 내일 할 일 → 휴가.
         // 휴가는 가끔 보는 카드라 아래에 둔다. 새싹이 성장은 오늘 루틴을 체크한 바로 아래에서 반응이 보이게 둔다.
         let phoneFirst: [DashboardCard] = [
-            .achievement, .weeklyGrowth, .nextRoutine, .routines, .saessagiGrowth, .meals, .recentDays, .tomorrow, .vacation
+            .achievement, .weeklyGrowth, .nextRoutine, .routines, .saessagiGrowth, .weeklyReview, .meals, .recentDays, .tomorrow,
+            .vacation
         ]
         return phone ? phoneFirst + allCases.filter { !phoneFirst.contains($0) } : defaultOrder
     }
@@ -353,6 +355,7 @@ enum DashboardCard: Hashable, Identifiable, RawRepresentable, CaseIterable {
         case .routines: return "오늘 루틴"
         case .weeklyGrowth: return "이번 주의 성장"
         case .saessagiGrowth: return "새싹이 성장"
+        case .weeklyReview: return "새싹이의 주간 회고"
         case .meals: return "식사 기록"
         case .achievement: return "오늘의 달성 현황"
         case .recentDays: return "최근 7일 기록"
@@ -377,7 +380,7 @@ enum DashboardCard: Hashable, Identifiable, RawRepresentable, CaseIterable {
 
     /// 원격 설정의 형식이 정해진 뒤에 생긴 기본 카드. 게시된 설정의 순서에는 이 카드가 없을 수 있다
     /// (Tools/mobile-config.sh의 OPTIONAL_CARDS와 같다).
-    static let lateAdditions: [DashboardCard] = [.weeklyGrowth, .saessagiGrowth]
+    static let lateAdditions: [DashboardCard] = [.weeklyGrowth, .saessagiGrowth, .weeklyReview]
 
     /// 원격 설정이 준 iPhone 기본 순서를 전체 순서로 만든다. 적히지 않은 카드는 뒤에 붙이되(예전과 같다),
     /// 나중에 생긴 카드는 맨 아래로 밀리지 않게 내장 순서에서 바로 앞에 있던 카드 뒤에 둔다.

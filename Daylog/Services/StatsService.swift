@@ -105,6 +105,15 @@ struct StatsService {
         )
     }
 
+    /// 주간 회고에 쓰는 값: 기간의 날짜별 결과와, 그 가운데 `focus` 기간의 루틴별 완료 일수.
+    /// 대시보드·통계와 같은 날짜 판정과 집계(`StatsSource`)를 그대로 쓴다.
+    func review(from: Day, to: Day, focus: ClosedRange<Day>, today: Day) throws -> (outcomes: [DayOutcome], rates: [RoutineRate]) {
+        let source = try loadSource(from: from, to: min(to, today))
+        let outcomes = Day.range(from: from, to: to).map { source.outcome(on: $0, today: today) }
+        let focusDays = Day.range(from: focus.lowerBound, to: focus.upperBound)
+        return (outcomes, try routineRates(source: source, days: focusDays, today: today))
+    }
+
     /// 같은 routineID는 이름이 바뀌어도 한 항목으로 합산하고, 현재 이름으로 표시한다. 달성률 내림차순.
     /// 삭제한 항목도 기간 안에 지난 기록이 있으면 나온다(지웠다고 지난 통계가 달라지지 않는다).
     private func routineRates(source: StatsSource, days: [Day], today: Day) throws -> [RoutineRate] {

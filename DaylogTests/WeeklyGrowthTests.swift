@@ -244,7 +244,7 @@ struct WeeklyGrowthTests {
         #expect(!preferences.isLayoutCustomized)
         #expect(preferences.cardOrder == DashboardCard.defaultOrder)
         #expect(preferences.layout(of: preferences.visibleCards).right == [
-            .weeklyGrowth, .saessagiGrowth, .meals, .achievement, .recentDays, .tomorrow,
+            .weeklyGrowth, .saessagiGrowth, .weeklyReview, .meals, .achievement, .recentDays, .tomorrow,
         ])
     }
 
@@ -257,9 +257,9 @@ struct WeeklyGrowthTests {
         let preferences = DevicePreferences(defaults: defaults, isPhone: false)
         #expect(preferences.isLayoutCustomized)
         // 원래 카드의 순서·숨김·열은 그대로이고, 새 카드는 맨 뒤(오른쪽 열)에 보이는 채로 붙는다.
-        // 나중에 생긴 카드(이번 주의 성장, 새싹이 성장)가 내장 순서대로 맨 뒤에 붙는다.
-        #expect(preferences.cardOrder.dropLast(2).map(\.rawValue) == order)
-        #expect(preferences.cardOrder.suffix(2) == [.weeklyGrowth, .saessagiGrowth])
+        // 나중에 생긴 카드(이번 주의 성장, 새싹이 성장, 주간 회고)가 내장 순서대로 맨 뒤에 붙는다.
+        #expect(preferences.cardOrder.dropLast(3).map(\.rawValue) == order)
+        #expect(preferences.cardOrder.suffix(3) == [.weeklyGrowth, .saessagiGrowth, .weeklyReview])
         #expect(preferences.hiddenCards == [.recentDays, .summary])
         #expect(preferences.leftCards == [.meals, .routines])
         #expect(preferences.visibleCards.contains(.weeklyGrowth) && preferences.column(of: .weeklyGrowth) == .right)
@@ -283,7 +283,7 @@ struct WeeklyGrowthTests {
         let preferences = DevicePreferences(defaults: testDefaults(), isPhone: true)
         preferences.applyRemoteDefaults(order: published, hidden: ["summary", "calendar", "trend", "routineRates"])
         #expect(preferences.visibleCards == [
-            .achievement, .weeklyGrowth, .nextRoutine, .routines, .saessagiGrowth, .meals, .recentDays, .tomorrow, .vacation
+            .achievement, .weeklyGrowth, .nextRoutine, .routines, .saessagiGrowth, .weeklyReview, .meals, .recentDays, .tomorrow, .vacation
         ])
         // 설정이 이 카드의 자리를 직접 정하면 그대로 따른다.
         preferences.applyRemoteDefaults(order: published + ["weeklyGrowth"], hidden: [])
