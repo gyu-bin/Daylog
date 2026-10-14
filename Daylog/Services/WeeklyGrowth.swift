@@ -30,7 +30,7 @@ struct WeeklyGrowth: Equatable, Sendable {
 
     /// 첫 줄: 목표까지 얼마나 남았는지. 실제 기록에서 나온 사실만 말한다.
     var headline: String {
-        if !hasRoutines { return "루틴을 만들면 여기에 실천한 날이 쌓여요." }
+        if !hasRoutines { return "첫 루틴을 만들면 이번 주 실천이 여기에 쌓여요." }
         if isGoalReached { return "이번 주 목표를 달성했어요!" }
         if isOnVacation { return practicedDays > 0 ? "이번 주에 \(practicedDays)일 실천했어요." : "지금은 쉬어 가는 중이에요." }
         if remainingToGoal <= remainingChances { return "이번 주 목표까지 \(remainingToGoal)일 남았어요." }
@@ -40,7 +40,7 @@ struct WeeklyGrowth: Equatable, Sendable {
 
     /// 둘째 줄: 짧은 응원. 비교나 과장은 하지 않는다.
     var detail: String {
-        if !hasRoutines { return "작은 습관 하나부터 시작해 보세요." }
+        if !hasRoutines { return "오늘의 루틴에서 작은 습관 하나를 추가해 보세요." }
         if isGoalReached { return "꾸준히 실천한 한 주예요." }
         if isOnVacation { return "휴가 중에는 목표를 잠시 내려놓아도 괜찮아요." }
         if practicedToday { return "오늘도 한 걸음 나아갔어요." }

@@ -33,6 +33,9 @@ struct DashboardCards: View {
             case .vacation:
                 // iPhone에서는 여느 카드처럼 늘 보이고(기본 위치는 아래쪽), 넓은 화면에서는 휴가 중이거나 임박했을 때만.
                 return compact || vacationStatus.showsOnDashboard
+            case .weeklyReview:
+                // 처음 쓰는 사용자에게는 돌아볼 지난주가 없다.
+                return store.hasWeekToReview(weekStart: preferences.weekStart)
             default:
                 return true
             }
@@ -144,7 +147,12 @@ struct DashboardCards: View {
                 .id(RoutineCardFocus.scrollID)
         case .weeklyGrowth: WeeklyGrowthCard()
         case .saessagiGrowth: SaessagiGrowthCard()
-        case .weeklyReview: WeeklyReviewCard()
+        case .weeklyReview:
+            if isEditing, !store.hasWeekToReview(weekStart: preferences.weekStart) {
+                EditingPlaceholder(card: card, note: "루틴을 시작한 뒤 한 주가 지나면 지난주 회고가 나와요.")
+            } else {
+                WeeklyReviewCard()
+            }
         case .meals:
             if compact { MealSummaryCard() } else { MealCard() }
         case .achievement:

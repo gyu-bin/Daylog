@@ -1,7 +1,8 @@
 import SwiftUI
 
-/// 이번 주의 성장: 이번 주에 실천한 날 수와 주간 목표. 새싹이가 옆에서 응원한다.
+/// 이번 주의 성장: 이번 주에 실천한 날 수와 주간 목표. 실천한 날의 칸이 중심이다.
 /// 보고 있는 날짜와 상관없이 실제 이번 주를 보여 준다. 값은 `WeeklyGrowthCalculator`가 통계의 날짜별 결과에서 센다.
+/// 오늘 화면에 움직이는 새싹이가 겹치지 않도록 이 카드에는 새싹이를 두지 않는다(성장의 새싹이는 "새싹이 성장" 카드가 맡는다).
 struct WeeklyGrowthCard: View {
     @Environment(AppStore.self) private var store
     @Environment(DevicePreferences.self) private var preferences
@@ -13,10 +14,9 @@ struct WeeklyGrowthCard: View {
                 CardHeader(symbol: "leaf.fill", title: "이번 주의 성장", tint: Theme.accent) {
                     goalMenu(growth)
                 }
-                HStack(alignment: .center, spacing: 12) {
-                    // 응원하며 좌우로 흔들고 가볍게 뛴다. 목표를 달성하면 더 자주, 더 크게 축하한다.
-                    SaessagiAnimatedView(pose: .cheer, size: 52, behavior: growth.isGoalReached ? .celebrating : .cheering)
-                    VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: 4) {
+                    // 루틴이 없으면 0/5 칸 대신 시작 안내만 보여 준다.
+                    if growth.hasRoutines {
                         // 글자가 커서 한 줄에 다 들어가지 않으면 칸을 아랫줄로 내린다.
                         ViewThatFits(in: .horizontal) {
                             HStack(alignment: .center, spacing: 10) {
@@ -28,27 +28,43 @@ struct WeeklyGrowthCard: View {
                                 dots(growth)
                             }
                         }
-                        Text(growth.headline)
-                            .font(.subheadline.weight(.semibold))
-                            .foregroundStyle(growth.isGoalReached ? AnyShapeStyle(Theme.accent) : AnyShapeStyle(.primary))
-                        Text(growth.detail)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
+                        .padding(.bottom, 2)
                     }
-                    .fixedSize(horizontal: false, vertical: true)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .accessibilityElement(children: .ignore)
-                    .accessibilityLabel(growth.accessibilityLabel)
+                    Text(growth.headline)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(growth.isGoalReached ? AnyShapeStyle(Theme.accent) : AnyShapeStyle(.primary))
+                    Text(detail(growth))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(growth.accessibilityLabel)
             }
         }
     }
 
+    /// 둘째 줄. 루틴은 있는데 아직 한 번도 완료한 적이 없으면 첫 행동을 알려 준다.
+    private func detail(_ growth: WeeklyGrowth) -> String {
+        if growth.hasRoutines, !growth.isOnVacation, store.stats.lastPracticedDay == nil {
+            return "오늘 루틴 하나를 완료하면 첫 실천이 기록돼요."
+        }
+        return growth.detail
+    }
+
     private func count(_ growth: WeeklyGrowth) -> some View {
-        Text("\(growth.practicedDays) / \(growth.goal)일 실천")
-            .font(.title3.weight(.bold))
-            .monospacedDigit()
-            .lineLimit(1)
+        HStack(spacing: 5) {
+            Text("\(growth.practicedDays) / \(growth.goal)일 실천")
+                .font(.title3.weight(.bold))
+                .monospacedDigit()
+                .lineLimit(1)
+            if growth.isGoalReached {
+                Image(systemName: "checkmark.seal.fill")
+                    .foregroundStyle(Theme.accent)
+                    .accessibilityHidden(true)
+            }
+        }
     }
 
     /// 목표만큼의 칸. 실천한 날만큼 채운다.
@@ -57,7 +73,7 @@ struct WeeklyGrowthCard: View {
             ForEach(0..<growth.goal, id: \.self) { index in
                 Circle()
                     .fill(index < growth.filledDots ? AnyShapeStyle(Theme.accent) : AnyShapeStyle(Theme.track))
-                    .frame(width: 11, height: 11)
+                    .frame(width: 12, height: 12)
             }
         }
         .accessibilityHidden(true)

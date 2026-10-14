@@ -144,6 +144,13 @@ enum WeeklyReviewCalculator {
 }
 
 extension AppStore {
+    /// 회고할 지난주가 있는가: 첫 루틴을 만든 날(통계 시작일)이 지난주의 마지막 날 이전이다.
+    /// 처음 쓰는 사용자에게는 카드를 보여 주지 않고, 오래 쉬다 온 사용자에게는 기록이 없어도 보여 준다(기존 설정 값만 쓴다).
+    func hasWeekToReview(weekStart: WeekStart) -> Bool {
+        guard let firstDay = stats.firstDay else { return false }
+        return firstDay <= WeeklyReviewCalculator.reviewedWeek(today: today, weekStart: weekStart).upperBound
+    }
+
     /// 지난주의 회고. 기록이 바뀌거나(동기화 포함) 날짜·주 시작 요일이 바뀌면 다시 계산하고, 그 사이에는 계산해 둔 값을 쓴다.
     func weeklyReview(weekStart: WeekStart) -> WeeklyReview {
         let week = WeeklyReviewCalculator.reviewedWeek(today: today, weekStart: weekStart)

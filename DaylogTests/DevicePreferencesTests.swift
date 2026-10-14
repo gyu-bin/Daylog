@@ -68,7 +68,7 @@ struct DevicePreferencesTests {
         #expect(reopened.cardOrder == preferences.cardOrder)
         // 처음부터 숨겨 둔 카드에 방금 숨긴 카드가 더해진다.
         #expect(reopened.hiddenCards == DashboardCard.defaultHidden.union([.recentDays]))
-        #expect(reopened.leftCards == [.nextRoutine, .routines])
+        #expect(reopened.leftCards == DashboardCard.defaultLeft.subtracting([.vacation]))
         preferences.setMealsEnabled(false)
         preferences.restoreDashboard()
         #expect(preferences.cardOrder == DashboardCard.defaultOrder)
@@ -99,8 +99,8 @@ struct DevicePreferencesTests {
         let preferences = DevicePreferences(defaults: testDefaults())
         let layout = preferences.layout(of: preferences.visibleCards)
         #expect(layout.band.isEmpty)
-        #expect(layout.left == [.nextRoutine, .vacation, .routines])
-        #expect(layout.right == [.weeklyGrowth, .saessagiGrowth, .weeklyReview, .meals, .achievement, .recentDays, .tomorrow])
+        #expect(layout.left == [.nextRoutine, .vacation, .routines, .saessagiGrowth, .weeklyReview])
+        #expect(layout.right == [.weeklyGrowth, .meals, .achievement, .recentDays, .tomorrow])
         preferences.setVisible(true, card: .summary)
         #expect(preferences.layout(of: preferences.visibleCards).band == [.summary])
     }
@@ -122,14 +122,14 @@ struct DevicePreferencesTests {
         let preferences = DevicePreferences(defaults: testDefaults())
         preferences.place(.tomorrow, before: .routines)
         var layout = preferences.layout(of: preferences.visibleCards)
-        #expect(layout.left == [.nextRoutine, .vacation, .tomorrow, .routines])
-        #expect(layout.right == [.weeklyGrowth, .saessagiGrowth, .weeklyReview, .meals, .achievement, .recentDays])
+        #expect(layout.left == [.nextRoutine, .vacation, .tomorrow, .routines, .saessagiGrowth, .weeklyReview])
+        #expect(layout.right == [.weeklyGrowth, .meals, .achievement, .recentDays])
         #expect(preferences.visibleCards.firstIndex(of: .tomorrow)! < preferences.visibleCards.firstIndex(of: .routines)!)
 
         preferences.place(.vacation, atEndOf: .right)
         layout = preferences.layout(of: preferences.visibleCards)
-        #expect(layout.left == [.nextRoutine, .tomorrow, .routines])
-        #expect(layout.right == [.weeklyGrowth, .saessagiGrowth, .weeklyReview, .meals, .achievement, .recentDays, .vacation])
+        #expect(layout.left == [.nextRoutine, .tomorrow, .routines, .saessagiGrowth, .weeklyReview])
+        #expect(layout.right == [.weeklyGrowth, .meals, .achievement, .recentDays, .vacation])
         #expect(preferences.visibleCards.last == .vacation)
 
         // 자기 자신 앞이나 띠 카드 앞에는 놓을 수 없다.
@@ -146,11 +146,11 @@ struct DevicePreferencesTests {
         let right = preferences.layout(of: preferences.visibleCards).right
         preferences.moveDown(.meals, in: right)
         #expect(preferences.layout(of: preferences.visibleCards).right == [
-            .weeklyGrowth, .saessagiGrowth, .weeklyReview, .achievement, .meals, .recentDays, .tomorrow,
+            .weeklyGrowth, .achievement, .meals, .recentDays, .tomorrow,
         ])
         preferences.moveUp(.weeklyGrowth, in: preferences.layout(of: preferences.visibleCards).right)
         #expect(preferences.layout(of: preferences.visibleCards).right == [
-            .weeklyGrowth, .saessagiGrowth, .weeklyReview, .achievement, .meals, .recentDays, .tomorrow,
+            .weeklyGrowth, .achievement, .meals, .recentDays, .tomorrow,
         ])
         preferences.moveDown(.tomorrow, in: preferences.layout(of: preferences.visibleCards).right)
         #expect(preferences.layout(of: preferences.visibleCards).right.last == .tomorrow)

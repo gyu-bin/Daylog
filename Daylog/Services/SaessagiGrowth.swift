@@ -56,6 +56,8 @@ struct SaessagiGrowth: Equatable, Sendable {
 
     /// 다음 성장 단계 안내.
     var nextStageNote: String {
+        // 아직 한 번도 완료하지 않았다: 다음 단계보다 첫 행동을 알려 준다.
+        if xp == 0 { return "루틴을 하나 완료할 때마다 10 XP가 쌓여요." }
         guard let next = stage.next, let remaining = xpToNextStage else { return "꽃이 활짝 피었어요. 꾸준함이 계속 쌓이고 있어요." }
         let verb = next == .flower ? "꽃이 피어요" : "잎사귀로 자라요"
         return "Lv.\(next.firstLevel)에 \(verb) · \(remaining.formatted()) XP 남음"

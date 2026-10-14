@@ -123,7 +123,7 @@ struct WeeklyGrowthTests {
         // 루틴이 없으면 숫자를 꾸며 내지 않는다.
         let empty = growth([], hasRoutines: false)
         #expect(empty.practicedDays == 0)
-        #expect(empty.headline == "루틴을 만들면 여기에 실천한 날이 쌓여요.")
+        #expect(empty.headline == "첫 루틴을 만들면 이번 주 실천이 여기에 쌓여요.")
     }
 
     // MARK: - 실제 기록에서
@@ -224,10 +224,10 @@ struct WeeklyGrowthTests {
     ]
 
     @Test func newCardStartsWhereItDoesNotPushTheRoutines() {
-        // Mac·iPad: 오른쪽 열의 맨 위. 왼쪽 열(다음 루틴·휴가·오늘 루틴)은 그대로다.
+        // Mac·iPad: 오른쪽 열의 맨 위. 왼쪽 열은 다음 루틴·휴가·오늘 루틴, 그 아래 새싹이 성장·주간 회고(오른쪽 열만 길어지지 않게).
         let wide = DevicePreferences(defaults: testDefaults(), isPhone: false)
         let layout = wide.layout(of: wide.visibleCards)
-        #expect(layout.left == [.nextRoutine, .vacation, .routines])
+        #expect(layout.left == [.nextRoutine, .vacation, .routines, .saessagiGrowth, .weeklyReview])
         #expect(layout.right.first == .weeklyGrowth)
         // iPhone: 오늘의 달성 현황 바로 아래.
         let phone = DevicePreferences(defaults: testDefaults(), isPhone: true)
@@ -244,7 +244,11 @@ struct WeeklyGrowthTests {
         #expect(!preferences.isLayoutCustomized)
         #expect(preferences.cardOrder == DashboardCard.defaultOrder)
         #expect(preferences.layout(of: preferences.visibleCards).right == [
-            .weeklyGrowth, .saessagiGrowth, .weeklyReview, .meals, .achievement, .recentDays, .tomorrow,
+            .weeklyGrowth, .meals, .achievement, .recentDays, .tomorrow,
+        ])
+        // 바꾼 적 없는 배치는 새 기본값을 따라 성장 카드가 왼쪽 열로 간다.
+        #expect(preferences.layout(of: preferences.visibleCards).left == [
+            .nextRoutine, .vacation, .routines, .saessagiGrowth, .weeklyReview,
         ])
     }
 
@@ -262,6 +266,8 @@ struct WeeklyGrowthTests {
         #expect(preferences.cardOrder.suffix(3) == [.weeklyGrowth, .saessagiGrowth, .weeklyReview])
         #expect(preferences.hiddenCards == [.recentDays, .summary])
         #expect(preferences.leftCards == [.meals, .routines])
+        // 사용자가 바꾼 배치의 열은 새 기본값으로 덮지 않는다(새 카드는 오른쪽 열 맨 뒤).
+        #expect(preferences.column(of: .saessagiGrowth) == .right && preferences.column(of: .weeklyReview) == .right)
         #expect(preferences.visibleCards.contains(.weeklyGrowth) && preferences.column(of: .weeklyGrowth) == .right)
         // 숨기고, 옮기고, 다시 켜도 유지된다.
         preferences.setVisible(false, card: .weeklyGrowth)

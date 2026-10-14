@@ -1,9 +1,10 @@
 import SwiftUI
 
-/// 새싹이의 주간 회고: 지난주(끝난 한 주)를 짧게 돌아보고 새싹이가 응원한다. [자세히 보기]로 조금 더 자세한 회고를 연다.
+/// 새싹이의 주간 회고: 지난주(끝난 한 주)를 짧게 요약한다. [자세히 보기]의 상세 회고에서 새싹이가 함께 돌아보고 응원한다.
 ///
 /// "이번 주의 성장"이 진행 중인 이번 주의 목표를 보여 준다면, 이 카드는 끝난 지난주의 요약이다.
-/// 값은 기존 기록에서 계산한다(`WeeklyReview`). 새싹이는 지금 성장 단계의 모습이고, 회고 내용에 따라 움직임만 달라진다.
+/// 값은 기존 기록에서 계산한다(`WeeklyReview`). 오늘 화면에 움직이는 새싹이가 겹치지 않도록 카드에는 새싹이를 두지 않는다
+/// (성장의 새싹이는 "새싹이 성장" 카드가 맡는다).
 struct WeeklyReviewCard: View {
     @Environment(AppStore.self) private var store
     @Environment(DevicePreferences.self) private var preferences
@@ -21,31 +22,40 @@ struct WeeklyReviewCard: View {
                         .foregroundStyle(stage.tint)
                         .accessibilityHint("지난주 회고를 자세히 봅니다.")
                 }
-                HStack(alignment: .center, spacing: 14) {
-                    SaessagiAnimatedView(pose: stage.pose, size: 60, behavior: review.saessagiBehavior)
-                        .padding(6)
-                        .background(stage.tint.opacity(0.12), in: Circle())
-                    // 날짜는 제목 줄에 두면 좁은 화면에서 잘려서 한마디 위에 따로 적는다.
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("지난주 · \(review.periodTitle)")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                        Text("“\(review.headline)”")
-                            .font(.subheadline.weight(.semibold))
-                    }
-                    .fixedSize(horizontal: false, vertical: true)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                // 날짜는 제목 줄에 두면 좁은 화면에서 잘려서 한마디 위에 따로 적는다.
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("지난주 · \(review.periodTitle)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    Text(review.headline)
+                        .font(.subheadline.weight(.semibold))
                 }
+                .fixedSize(horizontal: false, vertical: true)
                 if review.hasRecords {
                     WeeklyReviewFigures(review: review, compact: true)
-                    if let top = review.topRoutine {
-                        WeeklyReviewTopRoutine(top: top, tint: stage.tint)
+                    // 가장 꾸준했던 습관과 지난주 대비는 한두 줄로. 자세한 것은 상세 회고에 있다.
+                    VStack(alignment: .leading, spacing: 3) {
+                        if let top = review.topRoutine {
+                            Label {
+                                Text("가장 꾸준했던 습관 · \(top.title) \(top.days)일")
+                                    .lineLimit(2)
+                            } icon: {
+                                Image(systemName: "sparkles").foregroundStyle(stage.tint)
+                            }
+                            .font(.caption.weight(.semibold))
+                        }
+                        if let note = review.changeNote {
+                            Text(note)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
                     }
-                }
-                Text([review.changeNote, review.cheer].compactMap { $0 }.joined(separator: " "))
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
+                } else {
+                    Text(review.cheer)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
             }
             .accessibilityElement(children: .contain)
         }

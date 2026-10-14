@@ -17,7 +17,8 @@ struct SaessagiGrowthCard: View {
     @State private var burst = 0
     @State private var pending: Task<Void, Never>?
 
-    private static let mascotSize: CGFloat = 76
+    /// iPhone에서는 한 열이라 카드가 길어지지 않게 조금 작게 그린다.
+    private static let mascotSize: CGFloat = Platform.isPhone ? 64 : 76
 
     var body: some View {
         let growth = store.growth
@@ -92,6 +93,13 @@ struct SaessagiGrowthCard: View {
                     .padding(.horizontal, 8)
                     .padding(.vertical, 3)
                     .background(growth.stage.tint.opacity(0.14), in: Capsule())
+                Spacer(minLength: 4)
+                Text("\(growth.xpIntoLevel) / \(growth.xpForNextLevel) XP")
+                    .font(.caption.weight(.medium))
+                    .monospacedDigit()
+                    .foregroundStyle(.secondary)
+                    .lineLimit(1)
+                    .layoutPriority(1)
             }
             GeometryReader { proxy in
                 ZStack(alignment: .leading) {
@@ -103,10 +111,6 @@ struct SaessagiGrowthCard: View {
             }
             .frame(height: 8)
             .animation(reduceMotion ? nil : .easeOut(duration: 0.5), value: growth.xp)
-            Text("\(growth.xpIntoLevel) / \(growth.xpForNextLevel) XP")
-                .font(.caption.weight(.medium))
-                .monospacedDigit()
-                .foregroundStyle(.secondary)
             // 방금 얻은 보상(레벨업·성장·하루 보너스)이 있으면 잠시 그것을, 아니면 다음 성장 단계 안내를 보여 준다.
             Group {
                 if let message = shown.flatMap({ $0.celebration ?? $0.detail }) {

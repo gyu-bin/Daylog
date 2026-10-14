@@ -324,8 +324,7 @@ enum DashboardCard: Hashable, Identifiable, RawRepresentable, CaseIterable {
     var id: String { rawValue }
 
     /// 앱이 제공하는 기본 카드. 꾸미기 카드는 들어 있지 않다(원격 설정의 허용 목록도 이 값을 쓴다).
-    /// 이번 주의 성장은 두 열 화면에서 오른쪽 열의 맨 위이고, 새싹이 성장과 새싹이의 주간 회고가 그 아래다
-    /// (왼쪽 열의 오늘 루틴을 밀지 않는다).
+    /// 이번 주의 성장은 두 열 화면에서 오른쪽 열의 맨 위이고, 새싹이 성장과 새싹이의 주간 회고는 왼쪽 열의 오늘 루틴 아래다.
     static let allCases: [DashboardCard] = [
         .summary, .nextRoutine, .vacation, .routines, .weeklyGrowth, .saessagiGrowth, .weeklyReview, .meals, .achievement,
         .recentDays, .tomorrow, .calendar, .trend, .routineRates
@@ -345,7 +344,10 @@ enum DashboardCard: Hashable, Identifiable, RawRepresentable, CaseIterable {
     }
     /// 통계 화면에 있는 카드와 지표 띠는 처음에는 숨긴다. 시안의 구성(휴가·루틴 | 식사·달성 현황·7일·내일)을 따른다.
     static let defaultHidden: Set<DashboardCard> = [.summary, .calendar, .trend, .routineRates]
-    static let defaultLeft: Set<DashboardCard> = [.nextRoutine, .vacation, .routines]
+    /// 두 열 화면의 왼쪽 열: 오늘 루틴 아래에 새싹이 성장과 주간 회고를 둔다. 오른쪽 열(이번 주의 성장·식사·달성 현황·7일·내일)만
+    /// 길어지지 않게 하고, 루틴을 체크하면 바로 아래의 성장 카드가 반응하는 것이 보이게 한다.
+    /// 배치를 바꾼 적 없는 사용자만 이 값을 따른다(바꾼 사용자의 열은 그대로다).
+    static let defaultLeft: Set<DashboardCard> = [.nextRoutine, .vacation, .routines, .saessagiGrowth, .weeklyReview]
 
     var title: String {
         switch self {
