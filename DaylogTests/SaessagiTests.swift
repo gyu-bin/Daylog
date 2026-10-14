@@ -260,7 +260,7 @@ struct SaessagiTests {
             #expect(!behavior.choices.isEmpty)
             #expect(behavior.rest.upperBound <= 6 && behavior.rest.lowerBound > 0)
             // 그림 한 장짜리 모습은 나뉜 레이어가 있어야 하는 행동을 고르지 않는다.
-            if pose != .idle {
+            if pose != .idle && !pose.isGrowth {
                 #expect(behavior.choices.allSatisfy { !$0.action.needsLayers })
             }
             // 숨은 작고 느리다.
@@ -311,9 +311,9 @@ struct SaessagiTests {
     @Test func rigsAreLayeredOnlyForTheIdlePose() throws {
         for pose in SaessagiPose.allCases {
             let rig = try #require(SaessagiRig(pose: pose, size: 48, displayScale: 2))
-            // 기본 모습과 성장 단계(몸·잎·눈)만 나뉘어 있다. 성장 단계는 발과 입이 몸에 붙어 있다.
+            // 기본 모습과 성장 단계만 나뉘어 있다. 성장 단계는 기본 모습의 몸·눈·입·발을 그대로 쓴다.
             #expect(rig.isLayered == (pose == .idle || pose.isGrowth))
-            #expect((rig.footLeft != nil) == (pose == .idle) && (rig.mouth != nil) == (pose == .idle))
+            #expect((rig.footLeft != nil) == rig.isLayered && (rig.mouth != nil) == rig.isLayered)
             #expect(rig.pose == pose)
             #expect(rig.body.width == Int((48 + SaessagiRenderer.padding * 2) * 2))
         }
@@ -351,7 +351,7 @@ struct SaessagiTests {
     }
 }
 
-/// 새싹이 성장 단계 그림: 세 단계가 한 틀을 함께 써서 몸이 같은 크기·같은 자리에 있고, 머리 위만 자란다.
+/// 새싹이 성장 단계 그림: 공식 새싹이 그대로이고, 세 단계가 한 틀을 함께 써서 몸이 같은 크기·같은 자리에 있으며 머리 위의 잎만 다르다.
 @MainActor
 struct SaessagiGrowthArtTests {
     /// 불투명에 가까운 픽셀이 차지하는 범위(위에서 아래로).
@@ -375,29 +375,34 @@ struct SaessagiGrowthArtTests {
         let frames = try GrowthStage.allCases.map { stage in
             try bounds(try #require(SaessagiRenderer.image(pose: stage.pose, size: size, displayScale: scale)))
         }
-        // 발밑과 몸의 너비는 세 단계가 같다(받은 그림이 몸의 중심과 바닥선을 맞춰 두었다).
+        // 발밑과 몸의 너비는 세 단계가 똑같다(같은 공식 몸이다).
         for frame in frames {
             #expect(abs(frame.maxY - frames[0].maxY) <= 1)
-            #expect(abs((frame.maxX - frame.minX) - (frames[0].maxX - frames[0].minX)) <= 8)
+            #expect(abs((frame.maxX - frame.minX) - (frames[0].maxX - frames[0].minX)) <= 1)
         }
-        // 위로 갈수록 자란다: 새싹 → 잎사귀 → 꽃. 꽃이 틀의 높이를 거의 다 쓴다.
-        #expect(frames[0].minY > frames[1].minY && frames[1].minY > frames[2].minY)
+        // 잎사귀·꽃은 머리 위가 새싹보다 높거나 같고, 잎사귀의 셋째 잎이 틀의 맨 위에 닿는다(잘리지 않는다).
+        #expect(frames[1].minY < frames[0].minY && frames[2].minY <= frames[0].minY)
         let padding = Int(SaessagiRenderer.padding * scale)
-        #expect(abs(frames[2].minY - padding) <= 3)
+        #expect(abs(frames[1].minY - padding) <= 3)
     }
 
     @Test func growthLayersLineUpWithTheWholePicture() throws {
         for stage in GrowthStage.allCases {
             let set = try #require(SaessagiLayerSet.of(stage.pose))
-            #expect(set.mouth == nil && set.footLeft == nil)
+            // 잎 말고는 공식 기본 모습의 레이어 그대로다.
+            #expect(set.body == SaessagiLayerSet.idle.body && set.eyes == SaessagiLayerSet.idle.eyes)
+            #expect(set.mouth == SaessagiLayerSet.idle.mouth && set.footLeft == SaessagiLayerSet.idle.footLeft)
+            #expect(set.leafPivot == SaessagiLayerSet.idle.leafPivot)
             for asset in set.all {
                 #expect(SaessagiRenderer.image(asset: asset, pose: stage.pose, size: 48, displayScale: 2) != nil, "\(asset)")
             }
             // 잎이 도는 중심은 머리 꼭대기(눈보다 위), 눈의 중심은 얼굴 가운데 근처다.
             #expect(set.leafPivot.y < set.eyeCenter.y && abs(set.eyeCenter.x - 512) < 30 && abs(set.leafPivot.x - 512) < 20)
         }
+        #expect(SaessagiLayerSet.of(.growthSprout)?.leaf == SaessagiLayerSet.idle.leaf)
         #expect(SaessagiBehavior.standard(for: .growthLeaf) == .growing)
-        // 성장 단계는 걷거나 두리번거리지 않는다(발과 입이 몸에 붙어 있다).
-        #expect(!SaessagiBehavior.growing.choices.contains { $0.action.needsLayers })
+        // 카드 안의 성장 단계는 두리번거리지만 걷지는 않는다(걸을 자리가 없다).
+        #expect(SaessagiBehavior.growing.choices.contains { $0.action == .lookAround })
+        #expect(!SaessagiBehavior.growing.choices.contains { $0.action == .walk })
     }
 }

@@ -21,7 +21,7 @@ enum SaessagiIdleLayers {
 }
 
 /// 부분만 움직이는 모습의 레이어 묶음: 기본 모습(`idle`)과 성장 단계 세 그림.
-/// 성장 단계는 `Tools/saessagi-growth-layers.swift`가 몸·잎(꽃)·눈으로 나눈다. 발과 입은 몸에 붙어 있다.
+/// 성장 단계는 기본 모습의 몸·눈·입·발을 그대로 쓰고 잎 레이어만 바꾼다(새싹은 공식 잎, 잎사귀·꽃은 `Tools/saessagi-growth-compose.swift`).
 struct SaessagiLayerSet: Equatable, Sendable {
     let body: String
     let leaf: String
@@ -40,20 +40,21 @@ struct SaessagiLayerSet: Equatable, Sendable {
         leafPivot: SaessagiIdleLayers.leafPivot, eyeCenter: SaessagiIdleLayers.eyeCenter, hip: SaessagiIdleLayers.hip
     )
 
-    /// 성장 단계. 중심점은 도구가 출력한 값이다. 몸은 발밑 가운데를 중심으로 기운다(발이 몸에 붙어 있다).
-    private static func growth(_ stage: String, leafPivot: CGPoint, eyeCenter: CGPoint) -> SaessagiLayerSet {
-        SaessagiLayerSet(
-            body: "saessagi_growth_\(stage)_body", leaf: "saessagi_growth_\(stage)_leaf", eyes: "saessagi_growth_\(stage)_eyes",
-            leafPivot: leafPivot, eyeCenter: eyeCenter, hip: CGPoint(x: 502, y: 948)
+    /// 성장 단계: 기본 모습에서 잎만 바꾼다. 잎(꽃)은 기본 모습과 같은 줄기 밑동을 중심으로 흔들린다.
+    private static func growth(leaf: String) -> SaessagiLayerSet {
+        let idle = SaessagiLayerSet.idle
+        return SaessagiLayerSet(
+            body: idle.body, leaf: leaf, eyes: idle.eyes, mouth: idle.mouth, footLeft: idle.footLeft, footRight: idle.footRight,
+            leafPivot: idle.leafPivot, eyeCenter: idle.eyeCenter, hip: idle.hip
         )
     }
 
     static func of(_ pose: SaessagiPose) -> SaessagiLayerSet? {
         switch pose {
         case .idle: return .idle
-        case .growthSprout: return growth("sprout", leafPivot: CGPoint(x: 520, y: 475), eyeCenter: CGPoint(x: 498.5, y: 605))
-        case .growthLeaf: return growth("leaf", leafPivot: CGPoint(x: 513, y: 468), eyeCenter: CGPoint(x: 493, y: 600.75))
-        case .growthFlower: return growth("flower", leafPivot: CGPoint(x: 513, y: 471), eyeCenter: CGPoint(x: 493, y: 602.5))
+        case .growthSprout: return growth(leaf: SaessagiIdleLayers.leaf)
+        case .growthLeaf: return growth(leaf: "saessagi_growth_leaf_layer")
+        case .growthFlower: return growth(leaf: "saessagi_growth_flower_layer")
         case .happy, .cheer, .rest, .sleep, .welcome: return nil
         }
     }

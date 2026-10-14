@@ -15,7 +15,8 @@ enum SaessagiPose: String, CaseIterable, Sendable {
     case sleep
     /// 다시 시작: 손을 흔든다.
     case welcome
-    /// 성장 단계(새싹이 성장 카드): 새싹 → 잎사귀 → 꽃. 세 그림은 몸의 자리와 크기가 같고 머리 위만 다르다.
+    /// 성장 단계(새싹이 성장 카드): 새싹 → 잎사귀 → 꽃. 몸·얼굴·발은 공식 기본 모습(`idle`) 그대로이고 머리 위의 잎만 다르다
+    /// (`Tools/saessagi-growth-compose.swift`).
     case growthSprout = "growth_sprout"
     case growthLeaf = "growth_leaf"
     case growthFlower = "growth_flower"
@@ -38,8 +39,9 @@ enum SaessagiPose: String, CaseIterable, Sendable {
     }
 
     static let canvas: CGFloat = 1024
-    /// 성장 단계 세 그림(받은 그림의 보이는 범위: 새싹 204~823×230~948, 잎사귀 187~825×135~948, 꽃 174~830×60~948)을 합친 자리.
-    static let growthContent = CGRect(x: 174, y: 60, width: 657, height: 889)
+    /// 성장 단계 세 그림(새싹 179~842×53~963, 잎사귀 179~842×37~963, 꽃 179~842×51~963)을 합친 자리.
+    /// 세 단계가 이 틀을 함께 써서 몸이 같은 크기·같은 자리에 오고, 머리 위만 자란다.
+    static let growthContent = CGRect(x: 179, y: 37, width: 664, height: 927)
 
     /// 성장 단계 그림인가.
     var isGrowth: Bool { self == .growthSprout || self == .growthLeaf || self == .growthFlower }

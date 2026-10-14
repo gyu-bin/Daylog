@@ -84,14 +84,14 @@ struct SaessagiBehavior: Equatable, Sendable {
         [(.deepBreath, 4), (.wiggle, 1), (.stay, 2)], rest: 3...6, firstRest: 2.5, breathStretch: 0.045, breathHalfPeriod: 2.6
     )
 
-    /// 새싹이 성장 카드: 숨 쉬고 깜빡이며 잎을 흔들다가, 가끔 좌우로 몸을 흔들거나 폴짝 뛴다.
-    /// (성장 단계 그림은 발과 입이 몸에 붙어 있어 걷기·두리번거리기는 하지 않는다.)
-    static let growing = make([(.sway, 4), (.hop, 3), (.stay, 2)], rest: 2...4.5, firstRest: 1.6)
+    /// 새싹이 성장 카드: 숨 쉬고 깜빡이며 잎을 흔들다가, 가끔 두리번거리거나 좌우로 몸을 흔들거나 폴짝 뛴다.
+    /// (카드 안에는 걸어 다닐 자리가 없어 걷지는 않는다.)
+    static let growing = make([(.lookAround, 3), (.sway, 3), (.hop, 3), (.stay, 2)], rest: 2...4.5, firstRest: 1.6)
     /// 성장 단계의 작은 축하(좋은 한 주를 돌아볼 때): 더 자주 통통 뛰고 몸을 흔든다.
     static let growingCheer = make([(.bounce, 4), (.hop, 3), (.sway, 3)], rest: 1.4...3, firstRest: 1.2)
     /// 성장 단계의 차분한 응원(쉬어 간 한 주): 느리게 숨 쉬고 가끔 천천히 흔든다.
     static let growingCalm = make(
-        [(.sway, 2), (.stay, 3)], rest: 3.5...6, firstRest: 2.5, breathStretch: 0.035, breathHalfPeriod: 2.2
+        [(.sway, 2), (.doze, 2), (.stay, 3)], rest: 3.5...6, firstRest: 2.5, breathStretch: 0.035, breathHalfPeriod: 2.2
     )
 
     /// 그 모습에 어울리는 기본 움직임.
