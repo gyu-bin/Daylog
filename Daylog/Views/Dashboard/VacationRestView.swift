@@ -11,11 +11,15 @@ struct VacationRestView: View {
     /// [유지할 루틴 보기]. 휴가 중에 이어 가는 루틴이 없으면 nil이고 단추를 보여 주지 않는다.
     var onShowKeptRoutines: (() -> Void)?
     /// [평소 화면 보기].
-    let onShowDashboard: () -> Void
+    var onShowDashboard: () -> Void = {}
+    /// 설정의 미리보기로 띄웠을 때: 예시 휴가 기간과 낮·밤 전환, [미리보기 종료]. 실제 기록과 휴가는 읽기만 한다.
+    var preview: VacationRestPreview?
 
     var body: some View {
         GeometryReader { proxy in
+            // 미리보기는 맨 위의 표시와 낮·밤 전환이 더 있다(유지할 루틴 단추는 없다).
             let reserved = reservedHeight - (onShowKeptRoutines == nil ? Self.buttonHeight : 0)
+                + (preview == nil ? 0 : Self.previewExtraHeight)
             // 글자를 크게 쓰거나 창이 낮으면 한 화면을 넘을 수 있다. 넘치면 스크롤하고, 아니면 가운데에 둔다.
             ScrollView {
                 content(hammock: VacationArt.hammockSide(pane: proxy.size, reserved: reserved))
@@ -36,9 +40,11 @@ struct VacationRestView: View {
     #if os(macOS)
     private static let baseReservedHeight: CGFloat = 380
     private static let buttonHeight: CGFloat = 42
+    private static let previewExtraHeight: CGFloat = 80
     #else
     private static let baseReservedHeight: CGFloat = 450
     private static let buttonHeight: CGFloat = 60
+    private static let previewExtraHeight: CGFloat = 90
     #endif
 
     /// 배경이 번지는 가장자리. Mac에서는 사이드바 밑으로 들어가지 않게 왼쪽은 남긴다.
@@ -52,6 +58,14 @@ struct VacationRestView: View {
 
     private func content(hammock: CGFloat) -> some View {
         VStack(spacing: 14) {
+            if preview != nil {
+                // 실제 휴가가 아니라는 것을 맨 위에 분명히 적는다.
+                Label("미리보기 · 실제 휴가와 기록은 바뀌지 않아요", systemImage: "eye")
+                    .font(.caption.weight(.semibold))
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background(.regularMaterial, in: Capsule())
+            }
             VStack(spacing: 8) {
                 Text(store.today.longTitle)
                     .font(.subheadline)
@@ -78,24 +92,28 @@ struct VacationRestView: View {
 
             // 진행 상황과 단추는 한 카드에 담는다. 모래 위에 바로 두면 저녁 풍경에서 단추의 글자가 묻힌다.
             VStack(spacing: 14) {
-                if let info = VacationRestInfo.make(periods: store.vacationPeriods, today: store.today) {
+                if let info = preview?.info ?? VacationRestInfo.make(periods: store.vacationPeriods, today: store.today) {
                     progress(info)
                 }
-                VStack(spacing: 10) {
-                    if let onShowKeptRoutines {
-                        Button(action: onShowKeptRoutines) {
-                            Text("유지할 루틴 보기").frame(maxWidth: .infinity)
+                if let preview {
+                    previewControls(preview)
+                } else {
+                    VStack(spacing: 10) {
+                        if let onShowKeptRoutines {
+                            Button(action: onShowKeptRoutines) {
+                                Text("유지할 루틴 보기").frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .accessibilityHint("휴가 중에도 이어 가기로 한 루틴을 보여 줍니다.")
                         }
-                        .buttonStyle(.borderedProminent)
-                        .accessibilityHint("휴가 중에도 이어 가기로 한 루틴을 보여 줍니다.")
+                        Button(action: onShowDashboard) {
+                            Text("평소 화면 보기").frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.bordered)
+                        .accessibilityHint("평소의 오늘 화면을 잠시 봅니다. 휴가와 카드 배치는 바뀌지 않아요.")
                     }
-                    Button(action: onShowDashboard) {
-                        Text("평소 화면 보기").frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.bordered)
-                    .accessibilityHint("평소의 오늘 화면을 잠시 봅니다. 휴가와 카드 배치는 바뀌지 않아요.")
+                    .controlSize(.large)
                 }
-                .controlSize(.large)
             }
             .padding(16)
             .frame(maxWidth: 340)
@@ -103,6 +121,24 @@ struct VacationRestView: View {
             .overlay(RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous).strokeBorder(Theme.cardBorder, lineWidth: 1))
             .padding(.horizontal, 20)
         }
+    }
+
+    /// 미리보기의 단추: 낮·밤 전환과 [미리보기 종료].
+    private func previewControls(_ preview: VacationRestPreview) -> some View {
+        VStack(spacing: 10) {
+            Picker("풍경", selection: preview.isNight) {
+                Label("낮", systemImage: "sun.max.fill").tag(false)
+                Label("밤", systemImage: "moon.stars.fill").tag(true)
+            }
+            .pickerStyle(.segmented)
+            .labelsHidden()
+            Button(action: preview.onClose) {
+                Text("미리보기 종료").frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .keyboardShortcut(.cancelAction)
+        }
+        .controlSize(.large)
     }
 
     private func progress(_ info: VacationRestInfo) -> some View {
@@ -144,5 +180,42 @@ struct VacationRestReturnBar: View {
         .padding(.vertical, 8)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Theme.vacationTint.opacity(0.12), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+    }
+}
+
+/// 휴가 화면을 미리보기로 띄울 때 넘기는 값.
+struct VacationRestPreview {
+    /// 예시 휴가 기간의 진행(실제 휴가 기록이 아니다).
+    let info: VacationRestInfo
+    /// 밤 풍경으로 볼지.
+    let isNight: Binding<Bool>
+    let onClose: () -> Void
+
+    /// 예시 기간: 어제부터 5일 동안의 휴가 2일째.
+    static func sampleInfo(today: Day) -> VacationRestInfo? {
+        VacationRestInfo.make(periods: [VacationPeriod(start: today.adding(days: -1), end: today.adding(days: 3))], today: today)
+    }
+}
+
+/// 설정 > 휴가의 [휴가 화면 미리보기]: 실제 휴가 화면(`VacationRestView`)을 예시 기간으로 띄운다. 낮·밤을 바꿔 볼 수 있다.
+/// 휴가·기록·알림은 건드리지 않는다(화면이 읽기만 한다).
+struct VacationRestPreviewScreen: View {
+    @Environment(AppStore.self) private var store
+    @Environment(\.colorScheme) private var systemScheme
+    @Environment(\.dismiss) private var dismiss
+    @State private var isNight: Bool?
+
+    var body: some View {
+        let night = Binding(get: { isNight ?? (systemScheme == .dark) }, set: { isNight = $0 })
+        Group {
+            if let info = VacationRestPreview.sampleInfo(today: store.today) {
+                VacationRestView(preview: VacationRestPreview(info: info, isNight: night, onClose: { dismiss() }))
+            }
+        }
+        // 풍경과 글자를 함께 낮·밤으로 바꾼다(앱의 화면 모드 설정은 그대로).
+        .environment(\.colorScheme, night.wrappedValue ? .dark : .light)
+        #if os(macOS)
+        .frame(width: 720, height: 800)
+        #endif
     }
 }

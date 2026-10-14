@@ -9,6 +9,7 @@ struct VacationEditorTarget: Identifiable {
 struct VacationSettingsSection: View {
     @Environment(AppStore.self) private var store
     @State private var showing = false
+    @State private var showsPreview = false
 
     var body: some View {
         Section {
@@ -16,12 +17,30 @@ struct VacationSettingsSection: View {
                 // 대시보드의 휴가 카드와 같은 규칙으로 지금 상태를 요약한다.
                 LabeledContent("휴가 관리", value: VacationStatus.summary(periods: store.vacationPeriods, today: store.today))
             }
+            Button { showsPreview = true } label: {
+                Label("🌴 휴가 화면 미리보기", systemImage: "eye")
+                    .labelStyle(.titleOnly)
+            }
+            .accessibilityHint("휴가 중에 보이는 해변 화면을 예시로 봅니다. 휴가와 기록은 바뀌지 않아요.")
         } header: {
             Text("휴가")
         } footer: {
             Text("휴가 날짜는 루틴 통계에서 제외돼요. 휴가마다 모두 쉴지, 고른 루틴만 이어 갈지 정할 수 있어요. 기존 체크와 식사 기록은 그대로 남습니다.")
         }
         .sheet(isPresented: $showing) { VacationManagementView() }
+        #if os(macOS)
+        .sheet(isPresented: $showsPreview) { VacationRestPreviewScreen() }
+        #else
+        .fullScreenCover(isPresented: $showsPreview) { VacationRestPreviewScreen() }
+        #endif
+        #if DEBUG
+        // 화면 검증용: `-DaylogDebugOpenPreview vacation`이면 미리보기를 바로 연다(Debug 빌드만).
+        .task {
+            guard UserDefaults.standard.string(forKey: "DaylogDebugOpenPreview") == "vacation" else { return }
+            try? await Task.sleep(for: .seconds(1))
+            showsPreview = true
+        }
+        #endif
     }
 }
 
