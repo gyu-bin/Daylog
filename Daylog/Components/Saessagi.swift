@@ -121,8 +121,8 @@ enum SaessagiMood {
     }
 }
 
-/// 오늘 화면 인사말 옆의 새싹이: 평소에는 제자리에서 숨 쉬고 깜빡이다가 가끔 옆으로 걸어갔다 오고,
-/// 루틴을 완료하거나 건너뛰면 잠깐 반응한다.
+/// 오늘 화면 인사말 옆의 새싹이: 평소에는 숨 쉬고 깜빡이다가 가끔 걷거나 두리번거리거나 폴짝 뛰거나 졸고,
+/// 루틴을 완료하거나 건너뛰면 하던 것을 멈추고 잠깐 반응한다.
 ///
 /// 가로로 `walkRange`만큼까지 늘어나는 자리를 차지한다(자리가 남을 때만). 그 안에서만 걸어 다닌다.
 /// 놓는 쪽에서 `.layoutPriority(-1)`을 주어 글자나 단추의 자리를 빼앗지 않게 한다.
@@ -134,7 +134,7 @@ struct TodaySaessagi: View {
     var walkRange: CGFloat = 60
     /// 줄에 남는 가로 자리를 모두 차지할지. 빈칸(Spacer) 대신 놓을 때 켠다: 걷는 거리는 그래도 `walkRange`까지다.
     var fillsWidth = false
-    /// 걷던 자리. 반응 그림을 그 자리에 놓고, 끝나면 거기서 걸어 돌아온다.
+    /// 서 있던 자리. 반응 그림을 그 자리에 놓고, 끝나면 평소 모습도 거기서 다시 시작한다.
     @State private var awayX: CGFloat = 0
     @State private var link = SaessagiStageLink()
     @State private var reaction: SaessagiReaction?

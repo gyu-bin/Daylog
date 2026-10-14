@@ -53,7 +53,7 @@ enum SaessagiIdleMotion {
     }
 }
 
-/// 살아 있는 기본 모습: 잎이 바람에 흔들리고, 가끔 눈을 깜빡이고, 숨을 쉬고, 가끔 종종걸음으로 옆에 다녀온다.
+/// 살아 있는 기본 모습: 잎이 바람에 흔들리고, 눈을 깜빡이고, 숨을 쉬고, 가끔 걷거나 두리번거리거나 폴짝 뛰거나 존다.
 ///
 /// 몸·발·눈·입·잎을 따로 겹쳐 그리고 부분만 움직인다(그림 전체를 흔들거나 밀지 않는다). 레이어는 기본 그림과 같은 방식으로
 /// 미리 줄여 둔 것이라 가만히 있을 때는 한 장짜리 그림과 거의 똑같이 보인다.
@@ -65,7 +65,7 @@ enum SaessagiIdleMotion {
 /// 이 작은 그림 하나에 CPU를 10% 넘게 썼다(실측). 레이어 애니메이션은 앱이 프레임마다 할 일이 없다.
 struct SaessagiIdleView: View {
     var size: CGFloat = 48
-    /// 처음 서 있을 자리(제자리에서 오른쪽으로 떨어진 거리). 0이 아니면 나타난 뒤 제자리로 걸어 돌아온다.
+    /// 처음 서 있을 자리(왼쪽 끝에서 오른쪽으로 떨어진 거리).
     var startX: CGFloat = 0
     /// 지금 어디에 있는지 물어볼 수 있게 무대를 이어 두는 고리.
     var link: SaessagiStageLink?
@@ -154,9 +154,10 @@ final class SaessagiIdleStage {
     private var range: CGFloat = 0
     private var laneWidth: CGFloat = 0
     private var maxRange: CGFloat = 60
-    /// 제자리가 아닌 곳에서 시작했으면 그 거리. 첫 행동으로 걸어 돌아온다.
-    private var pendingReturn: CGFloat = 0
+    /// 지금 서 있는 자리(왼쪽 끝에서 오른쪽으로 떨어진 거리). 걸으면 바뀐다.
+    private var restingX: CGFloat = 0
     private var actions: Task<Void, Never>?
+    private var lastAction: SaessagiAction?
 
     #if os(macOS)
     /// AppKit의 레이어는 아래가 원점이다: 위쪽이 +y, 양의 회전이 시계 반대 방향.
@@ -177,13 +178,35 @@ final class SaessagiIdleStage {
         for layer in [footLeft, footRight, torso] { breather.addSublayer(layer) }
         for layer in [bodyLayer, face, leafLayer] { torso.addSublayer(layer) }
         for layer in [mouthLayer, eyesLayer] { face.addSublayer(layer) }
-        pendingReturn = max(startX, 0)
+        restingX = max(startX, 0)
     }
 
     /// 걸어 다닐 자리의 너비가 정해졌다(레이아웃 때마다).
     func setLaneWidth(_ width: CGFloat) {
         laneWidth = width
         range = min(max(width - size, 0), maxRange)
+        // 자리가 좁아졌으면(창 크기 변경) 그 안으로 들어온다. 걷는 중이 아닐 때만.
+        if restingX > range + 0.5, !isActing {
+            restingX = range
+            setModelX(restingX)
+        }
+    }
+
+    /// 걷기 같은 행동이 돌고 있는가.
+    private var isActing: Bool {
+        mover.animationKeys()?.contains { $0.hasPrefix(Self.walkKey) } ?? false
+    }
+
+    private func setModelX(_ x: CGFloat) {
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        mover.setValue(x, forKeyPath: "transform.translation.x")
+        CATransaction.commit()
+    }
+
+    /// 뷰가 사라질 때: 움직임과 예약해 둔 행동을 모두 내린다.
+    func halt() {
+        stop()
     }
 
     func update(images: SaessagiIdleImages, size: CGFloat, displayScale: CGFloat, maxRange: CGFloat, isAnimating: Bool) {
@@ -213,12 +236,13 @@ final class SaessagiIdleStage {
         let center = CGPoint(x: 0.5, y: 0.5)
         CATransaction.begin()
         CATransaction.setDisableActions(true)
-        place(mover, anchor: center, side: side)
+        // 눌리고 늘어나는 기준과 숨쉬기의 기준은 발밑 가운데, 몸이 기우는 기준은 다리 사이. 눈과 잎은 각자의 중심.
+        let feet = unit(CGPoint(x: content.midX, y: content.maxY))
+        place(mover, anchor: feet, side: side)
         // 레이어 그림은 틀보다 사방으로 여백만큼 크다(한 장짜리 그림과 같다).
         mover.position.x -= SaessagiRenderer.padding
         mover.position.y -= SaessagiRenderer.padding
-        // 숨쉬기의 기준은 발밑 가운데, 몸이 기우는 기준은 다리 사이. 눈과 잎은 각자의 중심.
-        place(breather, anchor: unit(CGPoint(x: content.midX, y: content.maxY)), side: side)
+        place(breather, anchor: feet, side: side)
         place(footLeft, anchor: center, side: side)
         place(footRight, anchor: center, side: side)
         place(torso, anchor: unit(SaessagiIdleLayers.hip), side: side)
@@ -236,7 +260,7 @@ final class SaessagiIdleStage {
             layer.contentsScale = displayScale
             layer.contentsGravity = .resize
         }
-        mover.setValue(pendingReturn, forKeyPath: "transform.translation.x")
+        mover.setValue(restingX, forKeyPath: "transform.translation.x")
         CATransaction.commit()
     }
 
@@ -291,21 +315,24 @@ final class SaessagiIdleStage {
         blink.calculationMode = .linear
         eyesLayer.add(blink, forKey: "blink")
 
-        // 가끔 하는 행동(지금은 걷기). 걷는 동안에만 깨어 있고 그 사이에는 잠든다.
+        // 가끔 하는 행동. 행동 하나를 걸어 두고 끝날 때까지, 그리고 다음 행동까지 잠든다(한 번에 하나만 돈다).
+        actions?.cancel()
         actions = Task { [weak self] in
-            var delay = (self?.pendingReturn ?? 0) > 0.5 ? 0.4 : Self.firstRest
+            var delay = Self.firstRest
             var generator = SystemRandomNumberGenerator()
             while !Task.isCancelled {
                 try? await Task.sleep(for: .seconds(delay))
                 guard !Task.isCancelled, let self else { return }
-                let duration = self.play(SaessagiAction.next(using: &generator))
+                let action = Self.debugAction ?? SaessagiAction.next(after: self.lastAction, using: &generator)
+                self.lastAction = action
+                let duration = self.play(action, using: &generator)
                 try? await Task.sleep(for: .seconds(duration))
                 delay = Self.rest(using: &generator)
             }
         }
     }
 
-    /// 움직임을 내리고 제자리에 가만히 선 모습으로 돌아간다.
+    /// 움직임을 내리고 서 있던 자리에 가만히 선 모습으로 돌아간다.
     private func stop() {
         isAnimating = false
         actions?.cancel()
@@ -313,59 +340,62 @@ final class SaessagiIdleStage {
         leafLayer.removeAnimation(forKey: "sway")
         breather.removeAnimation(forKey: "breath")
         eyesLayer.removeAnimation(forKey: "blink")
-        for layer in [mover, footLeft, footRight, torso, face, leafLayer] {
+        for layer in [mover, footLeft, footRight, torso, face, eyesLayer, leafLayer] {
             for key in layer.animationKeys() ?? [] where key.hasPrefix(Self.walkKey) { layer.removeAnimation(forKey: key) }
         }
-        pendingReturn = 0
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
-        mover.setValue(0, forKeyPath: "transform.translation.x")
-        CATransaction.commit()
+        setModelX(restingX)
     }
 
     // MARK: - 가끔 하는 행동
 
-    /// 행동 하나를 시작하고 걸리는 시간(초)을 돌려준다. 할 수 없으면 0.
-    private func play(_ action: SaessagiAction) -> Double {
+    /// 행동 하나를 시작하고 걸리는 시간(초)을 돌려준다. 하지 않으면 0.
+    private func play(_ action: SaessagiAction, using generator: inout some RandomNumberGenerator) -> Double {
+        let plan: SaessagiMotionPlan?
         switch action {
+        case .stay:
+            plan = nil
         case .walk:
-            return walk()
-        case .lookAround, .hop, .tumble, .peek, .doze:
+            plan = SaessagiMotionPlan.walkTarget(from: restingX, range: range, size: size, using: &generator)
+                .flatMap { SaessagiMotionPlan.walk(from: restingX, to: $0, size: size) }
+        case .lookAround:
+            plan = .lookAround(at: restingX, size: size)
+        case .hop:
+            plan = .hop(at: restingX, size: size)
+        case .doze:
+            plan = .doze(at: restingX, size: size)
+        case .tumble, .peek:
             // 아직 만들지 않은 동작.
-            return 0
+            plan = nil
         }
-    }
-
-    private func walk() -> Double {
-        let plan = pendingReturn > 0.5
-            ? SaessagiWalkPlan.returnHome(from: pendingReturn, size: size)
-            : SaessagiWalkPlan.roundTrip(range: range, size: size)
-        pendingReturn = 0
-        // 걷기는 늘 제자리에서 끝난다.
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
-        mover.setValue(0, forKeyPath: "transform.translation.x")
-        CATransaction.commit()
         guard let plan else { return 0 }
+        // 끝나면 걸어간 자리에 서 있다.
+        restingX = plan.finalX
+        setModelX(restingX)
         let degrees = Double.pi / 180 * Self.clockwise
         // 몸의 이동과 발의 좌우 위치는 곧게 이어야 디딘 발이 땅에서 미끄러지지 않는다.
         add(plan.moverX, to: mover, keyPath: "transform.translation.x", plan: plan, eased: false)
         add(plan.bob, to: mover, keyPath: "transform.translation.y", scale: Self.up, plan: plan)
+        add(plan.squashX, to: mover, keyPath: "transform.scale.x", plan: plan)
+        add(plan.squashY, to: mover, keyPath: "transform.scale.y", plan: plan)
         add(plan.footLeftX, to: footLeft, keyPath: "transform.translation.x", plan: plan, eased: false)
         add(plan.footLeftLift, to: footLeft, keyPath: "transform.translation.y", scale: Self.up, plan: plan)
         add(plan.footRightX, to: footRight, keyPath: "transform.translation.x", plan: plan, eased: false)
         add(plan.footRightLift, to: footRight, keyPath: "transform.translation.y", scale: Self.up, plan: plan)
         add(plan.rock, to: torso, keyPath: "transform.rotation.z", scale: degrees, plan: plan)
-        // 잎은 평소의 흔들림 위에 걸음의 흔들림을 더한다.
+        // 잎은 평소의 흔들림 위에 행동의 흔들림을 더한다.
         add(plan.leaf, to: leafLayer, keyPath: "transform.rotation.z", scale: degrees, plan: plan, additive: true)
         add(plan.face, to: face, keyPath: "transform.translation.x", plan: plan)
+        // 눈은 행동이 도는 동안 평소의 깜빡임 대신 이 값을 따른다(나중에 건 애니메이션이 이긴다).
+        add(plan.eyes, to: eyesLayer, keyPath: "transform.scale.y", plan: plan)
         return plan.duration
     }
 
     private func add(
-        _ track: SaessagiTrack, to layer: CALayer, keyPath: String, scale: Double = 1, plan: SaessagiWalkPlan,
+        _ track: SaessagiTrack, to layer: CALayer, keyPath: String, scale: Double = 1, plan: SaessagiMotionPlan,
         eased: Bool = true, additive: Bool = false
     ) {
+        // 변하지 않는 값은 걸지 않는다.
+        guard !track.isConstant else { return }
         let animation = CAKeyframeAnimation(keyPath: keyPath)
         animation.values = track.values.map { $0 * scale }
         animation.keyTimes = track.times.map { NSNumber(value: $0 / plan.duration) }
@@ -386,6 +416,21 @@ final class SaessagiIdleStage {
 
     private static func rest(using generator: inout some RandomNumberGenerator) -> Double {
         debugRest ?? Double.random(in: SaessagiWalkMotion.rest, using: &generator)
+    }
+
+    /// 화면 검증용: `-DaylogDebugSaessagiAction hop`처럼 주면 그 행동만 한다(walk, lookAround, hop, doze. Debug 빌드만).
+    private static var debugAction: SaessagiAction? {
+        #if DEBUG
+        switch UserDefaults.standard.string(forKey: "DaylogDebugSaessagiAction") {
+        case "walk": return .walk
+        case "lookAround": return .lookAround
+        case "hop": return .hop
+        case "doze": return .doze
+        default: return nil
+        }
+        #else
+        return nil
+        #endif
     }
 
     /// 화면 검증용: `-DaylogDebugSaessagiRest 2`처럼 주면 쉬는 시간을 그 초로 고정한다(Debug 빌드만).
@@ -438,6 +483,10 @@ struct SaessagiIdleLayerView: NSViewRepresentable {
         return view
     }
 
+    static func dismantleNSView(_ view: SaessagiHostView, coordinator: Coordinator) {
+        coordinator.stage.halt()
+    }
+
     func updateNSView(_ view: SaessagiHostView, context: Context) {
         guard let layer = view.layer else { return }
         let stage = context.coordinator.stage
@@ -482,6 +531,10 @@ struct SaessagiIdleLayerView: UIViewRepresentable {
         let coordinator = context.coordinator
         view.onLayout = { width in coordinator.stage.setLaneWidth(width) }
         return view
+    }
+
+    static func dismantleUIView(_ view: SaessagiHostView, coordinator: Coordinator) {
+        coordinator.stage.halt()
     }
 
     func updateUIView(_ view: SaessagiHostView, context: Context) {
