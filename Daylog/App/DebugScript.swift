@@ -5,6 +5,8 @@ import ImageIO
 import SwiftData
 #if os(iOS)
 import UIKit
+#else
+import AppKit
 #endif
 
 /// 동기화 검증용 스크립트 실행기. Debug 빌드에만 들어가고, 실행 인자를 주지 않으면 아무 일도 하지 않는다.
@@ -19,6 +21,7 @@ import UIKit
 ///       archive, restore, archiveGroup, threshold,
 ///       wait:<초>, waitImport:<최대 초>, waitExport:<최대 초>, refresh, dump:<이름>,
 ///       section:<메뉴>(dashboard, routines, meals, statistics, calendar, settings), newWindow(iPad),
+///       window:<너비>,<높이>(Mac 창의 크기. 넓은 창과 좁은 창의 화면을 확인할 때),
 ///       sync:<상태>(첫 동기화 안내를 흉내 낸다. `-DaylogDebugFirstSync <상태>`로 켠 실행에서만 뜻이 있다),
 ///       counts(개수만 출력), compareBackup:<백업 이름 일부>, verifyBackup:<백업 이름 일부>,
 ///       purgeLocalStore, quit
@@ -218,6 +221,17 @@ enum DebugScript {
                 scene.windows.map { "key=\($0.isKeyWindow) state=\(scene.activationState.rawValue) sheet=\($0.rootViewController?.presentedViewController != nil)" }
             }
             log("WINDOWS \(argument) section=\(store.section) sheetWindows=\(Platform.sheetWindowsAmongSeveral) any=\(Platform.isShowingSheet) | " + windows.joined(separator: " | "))
+            #endif
+        case "window":
+            // Mac 창의 크기를 바꾼다: window:1200,800. 왼쪽 위는 그대로 둔다.
+            #if os(macOS)
+            let size = argument.split(separator: ",").compactMap { Double($0) }
+            if size.count == 2, let window = NSApp.windows.first(where: { $0.isVisible && $0.canBecomeMain }) {
+                var frame = window.frame
+                frame.origin.y += frame.height - size[1]
+                frame.size = CGSize(width: size[0], height: size[1])
+                window.setFrame(frame, display: true)
+            }
             #endif
         case "restartDismiss":
             // "다시 시작하기" 안내: restartDismiss:2026-10-14(그날 닫은 것으로), restartDismiss:off(닫은 기록 지움).

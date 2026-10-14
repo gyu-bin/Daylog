@@ -1,236 +1,380 @@
 import QuartzCore
 import SwiftUI
 
-/// 휴가 화면의 배경: 파스텔 하늘, 햇빛, 언덕, 그리고 천천히 흐르는 구름과 흔들리는 나뭇잎.
+/// 휴가 화면의 배경: 하늘과 바다, 두 야자나무 사이의 해먹, 그 위에 누운 새싹이. 밝은 모드는 낮, 어두운 모드는 저녁이다.
 ///
-/// 하늘·햇빛·언덕은 가만히 있는 SwiftUI 도형이고, 움직이는 구름과 잎만 Core Animation 레이어다
+/// 그림은 조각으로 나뉘어 있고(`VacationArt`) 전부 Core Animation 레이어에 올린다. 움직임도 레이어 애니메이션이다
 /// (SwiftUI의 반복 애니메이션은 프레임마다 앱이 다시 계산해 CPU를 쓴다. 새싹이와 같은 이유).
-/// 움직임 줄이기를 켰거나, 화면에서 사라지거나, 앱이 뒤로 가면 움직임을 멈춘다.
+/// 움직임 줄이기를 켰거나, 화면에서 사라지거나, 앱이 뒤로 가면 쉬는 자세로 멈춘다.
 struct VacationSceneBackground: View {
+    /// 해먹이 놓일 띠(이 뷰의 좌표). 아직 자리를 모르면 nil이고, 그동안은 가운데에 둔다.
+    let slot: CGRect?
+    /// 위쪽 안전 영역. 해와 구름을 그 아래에 둔다.
+    var topInset: CGFloat = 0
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.displayScale) private var displayScale
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.scenePhase) private var scenePhase
     @State private var isVisible = false
 
     var body: some View {
-        let isDark = colorScheme == .dark
-        GeometryReader { proxy in
-            let size = proxy.size
-            ZStack {
-                LinearGradient(colors: VacationPalette.sky(isDark: isDark), startPoint: .top, endPoint: .bottom)
-                // 햇빛: 오른쪽 위에서 번진다.
-                RadialGradient(
-                    colors: [VacationPalette.sun(isDark: isDark), .clear], center: UnitPoint(x: 0.86, y: 0.08),
-                    startRadius: 0, endRadius: max(size.width, size.height) * 0.55
-                )
-                // 언덕: 먼 것(옅게)과 가까운 것.
-                Ellipse()
-                    .fill(VacationPalette.farHill(isDark: isDark))
-                    .frame(width: size.width * 1.5, height: size.height * 0.42)
-                    .position(x: size.width * 0.2, y: size.height * 1.03)
-                Ellipse()
-                    .fill(VacationPalette.nearHill(isDark: isDark))
-                    .frame(width: size.width * 1.7, height: size.height * 0.4)
-                    .position(x: size.width * 0.82, y: size.height * 1.08)
-                VacationSceneLayerView(isDark: isDark, isAnimating: isVisible && !reduceMotion && scenePhase == .active)
-            }
-        }
+        VacationSceneLayerView(
+            slot: slot, topInset: topInset, isDark: colorScheme == .dark, displayScale: displayScale,
+            isAnimating: isVisible && !reduceMotion && scenePhase == .active
+        )
         .accessibilityHidden(true)
         .onAppear { isVisible = true }
         .onDisappear { isVisible = false }
     }
 }
 
-/// 휴가 화면의 색. 밝은 모드는 낮의 파스텔, 어두운 모드는 같은 풍경의 저녁.
-enum VacationPalette {
-    private static func rgb(_ hex: UInt32, _ opacity: Double = 1) -> Color {
-        Color(
-            red: Double((hex >> 16) & 0xFF) / 255, green: Double((hex >> 8) & 0xFF) / 255, blue: Double(hex & 0xFF) / 255,
-            opacity: opacity
-        )
-    }
+/// 해먹이 놓일 띠의 자리를 배경에 알려 주는 값.
+struct VacationSlotKey: PreferenceKey {
+    static let defaultValue: Anchor<CGRect>? = nil
 
-    static func sky(isDark: Bool) -> [Color] {
-        isDark ? [rgb(0x14213A), rgb(0x1B3440), rgb(0x21403A)] : [rgb(0xCDE8FB), rgb(0xE3F4F2), rgb(0xFFF5DD)]
+    static func reduce(value: inout Anchor<CGRect>?, nextValue: () -> Anchor<CGRect>?) {
+        value = value ?? nextValue()
     }
-
-    static func sun(isDark: Bool) -> Color { isDark ? rgb(0xFFE9A8, 0.1) : rgb(0xFFF3B8, 0.85) }
-    static func farHill(isDark: Bool) -> Color { isDark ? rgb(0x234A41) : rgb(0xC8EACB) }
-    static func nearHill(isDark: Bool) -> Color { isDark ? rgb(0x2B5A49) : rgb(0xAEDDB4) }
-    static func mound(isDark: Bool) -> [Color] { isDark ? [rgb(0x3E7A5C), rgb(0x2F6149)] : [rgb(0xB5E3A6), rgb(0x8ED198)] }
-
-    static func cloud(isDark: Bool) -> CGColor { CGColor(gray: 1, alpha: isDark ? 0.1 : 0.85) }
-    static func leaves(isDark: Bool) -> [CGColor] {
-        let alpha: CGFloat = isDark ? 0.5 : 0.9
-        return [
-            CGColor(red: 0.56, green: 0.84, blue: 0.58, alpha: alpha), CGColor(red: 0.42, green: 0.76, blue: 0.54, alpha: alpha),
-            CGColor(red: 0.66, green: 0.88, blue: 0.63, alpha: alpha),
-        ]
-    }
-    static func leafEdge(isDark: Bool) -> CGColor { CGColor(red: 0.2, green: 0.5, blue: 0.34, alpha: isDark ? 0.4 : 0.35) }
 }
 
-/// 구름과 잎을 올리고 움직이는 무대. 자리는 화면 크기에 대한 비율로 정한다(위에서 아래로).
+/// 장면의 레이어를 올리고 움직이는 무대. macOS와 iOS가 함께 쓴다.
+///
+/// 겹치는 순서: 하늘 → 별 → 해 → 구름 → 풍경(산·바다·모래) → 두 야자나무(줄기 → 잎 → 열매)
+/// → 흔들리는 묶음(`swing`: 해먹 뒤쪽 → 새싹이(`character`: 몸 → 잎 → 선글라스 → 잔 → 손과 팔) → 해먹 앞쪽).
+/// 새싹이와 잔은 해먹과 한 묶음으로 흔들리므로 서로 어긋나지 않는다.
 @MainActor
 final class VacationSceneStage {
-    private struct Cloud {
-        var x: CGFloat, y: CGFloat, width: CGFloat, drift: CGFloat, duration: Double
+    struct Configuration: Equatable {
+        var layout: VacationSceneLayout
+        var isDark: Bool
+        var displayScale: CGFloat
     }
-
-    private struct Leaf {
-        var x: CGFloat, y: CGFloat, length: CGFloat, angle: CGFloat, sway: CGFloat, duration: Double
-    }
-
-    /// 구름: 위쪽 하늘에 셋.
-    private static let clouds = [
-        Cloud(x: 0.16, y: 0.13, width: 0.34, drift: 18, duration: 11),
-        Cloud(x: 0.8, y: 0.2, width: 0.28, drift: 14, duration: 14),
-        Cloud(x: 0.55, y: 0.06, width: 0.2, drift: 10, duration: 9),
-    ]
-    /// 위쪽 두 구석에서 늘어진 큰 잎(구석을 중심으로 조금씩 흔들린다)과, 떠 있는 작은 잎.
-    private static let foliage = [
-        Leaf(x: -0.02, y: -0.01, length: 0.42, angle: 28, sway: 2.5, duration: 3.4),
-        Leaf(x: -0.02, y: 0.02, length: 0.3, angle: 58, sway: 3, duration: 2.9),
-        Leaf(x: 1.02, y: -0.01, length: 0.36, angle: 150, sway: 2.5, duration: 3.1),
-        Leaf(x: 1.02, y: 0.03, length: 0.26, angle: 122, sway: 3, duration: 3.7),
-    ]
-    private static let floating = [
-        Leaf(x: 0.12, y: 0.4, length: 0.05, angle: -24, sway: 14, duration: 2.6),
-        Leaf(x: 0.9, y: 0.47, length: 0.045, angle: 200, sway: 16, duration: 3.2),
-        Leaf(x: 0.2, y: 0.7, length: 0.04, angle: 32, sway: 12, duration: 2.9),
-        Leaf(x: 0.83, y: 0.74, length: 0.05, angle: 160, sway: 15, duration: 3.5),
-    ]
 
     private let root = CALayer()
-    private var movers: [(layer: CALayer, animations: [(key: String, animation: CAAnimation)])] = []
-    private var size = CGSize.zero
-    private var isDark = false
+    private let sky = CALayer()
+    private let stars = CALayer()
+    private let sun = CALayer()
+    private let cloudLayers = VacationArt.clouds.map { _ in CALayer() }
+    private let sceneryGroup = CALayer()
+    private var sceneryTiles: [CALayer] = []
+    private let sand = CALayer()
+    private let rig = CALayer()
+    private let trunks = [VacationArt.PalmSide.left: CALayer(), .right: CALayer()]
+    private let fronds = [VacationArt.PalmSide.left: CALayer(), .right: CALayer()]
+    private let coconuts = [VacationArt.PalmSide.left: CALayer(), .right: CALayer()]
+    private let swing = CALayer()
+    private let hammockBack = CALayer()
+    private let character = CALayer()
+    private let body = CALayer()
+    private let leaf = CALayer()
+    private let sunglasses = CALayer()
+    private let drink = CALayer()
+    private let handRest = CALayer()
+    private let armSip = CALayer()
+    private let armAdjust = CALayer()
+    private let hammockFront = CALayer()
+
+    private var configuration: Configuration?
+    /// 지금 올려 둔 그림을 만들 때의 크기. 창 크기를 바꾸는 동안에는 있던 그림을 늘여 쓰다가, 멈추면 다시 만든다.
+    private var rendered: Configuration?
+    private var rerender: Task<Void, Never>?
     private var isAnimating = false
+    private var actions: Task<Void, Never>?
+    private var lastAction: VacationAction?
+
+    private static let actionKey = "action"
+    private static let loopKey = "loop"
 
     func install(in host: CALayer) {
         guard root.superlayer !== host else { return }
         #if os(macOS)
-        // AppKit의 레이어는 아래가 원점이다. 이 무대 안에서는 iOS처럼 위에서 아래로 놓는다.
+        // AppKit의 레이어는 아래가 원점이다. 이 무대 안에서는 iOS처럼 위에서 아래로 놓는다(양의 회전도 시계 방향이 된다).
         root.isGeometryFlipped = true
         #endif
         host.addSublayer(root)
+        for layer in [sky, stars, sun] + cloudLayers + [sceneryGroup, sand, rig] { root.addSublayer(layer) }
+        for side in VacationArt.PalmSide.allCases {
+            for layer in [trunks[side], fronds[side], coconuts[side]] { rig.addSublayer(layer!) }
+        }
+        rig.addSublayer(swing)
+        for layer in [hammockBack, character, hammockFront] { swing.addSublayer(layer) }
+        for layer in [body, leaf, sunglasses, drink, handRest, armSip, armAdjust] { character.addSublayer(layer) }
+        sky.contentsGravity = .resize
+        armSip.opacity = 0
+        armAdjust.opacity = 0
     }
 
-    func update(size: CGSize, isDark: Bool, isAnimating: Bool) {
-        if size != self.size || isDark != self.isDark {
-            self.size = size
-            self.isDark = isDark
-            build()
-            self.isAnimating = false
+    func update(_ next: Configuration, isAnimating: Bool) {
+        if next != configuration {
+            let previous = configuration
+            configuration = next
+            layout(next)
+            if rendered == nil || previous?.isDark != next.isDark || previous?.displayScale != next.displayScale {
+                render(next)
+            } else {
+                // 크기만 바뀌었다(창 크기 조절, 회전): 잠깐 멈춘 뒤에 그 크기로 다시 만든다.
+                rerender?.cancel()
+                rerender = Task { [weak self] in
+                    try? await Task.sleep(for: .milliseconds(220))
+                    guard !Task.isCancelled, let self, let current = self.configuration else { return }
+                    self.render(current)
+                }
+            }
         }
         guard isAnimating != self.isAnimating else { return }
-        self.isAnimating = isAnimating
-        for mover in movers {
-            for item in mover.animations {
-                if isAnimating { mover.layer.add(item.animation, forKey: item.key) } else { mover.layer.removeAnimation(forKey: item.key) }
-            }
-        }
+        if isAnimating { start() } else { stop() }
     }
 
+    /// 뷰가 사라질 때: 움직임과 예약해 둔 일을 모두 내린다.
     func halt() {
-        update(size: size, isDark: isDark, isAnimating: false)
+        rerender?.cancel()
+        stop()
     }
 
-    private func build() {
+    // MARK: - 자리
+
+    private func layout(_ configuration: Configuration) {
+        let layout = configuration.layout
+        let scale = configuration.displayScale
         CATransaction.begin()
         CATransaction.setDisableActions(true)
-        root.sublayers?.forEach { $0.removeFromSuperlayer() }
-        movers = []
-        root.frame = CGRect(origin: .zero, size: size)
-        guard size.width > 0, size.height > 0 else {
-            CATransaction.commit()
-            return
-        }
-        // 크기의 기준: 너무 넓은 창에서 구름과 잎이 지나치게 커지지 않게 한다.
-        let unit = min(size.width, 720)
-        let ease = CAMediaTimingFunction(name: .easeInEaseOut)
+        root.frame = CGRect(origin: .zero, size: layout.pane)
 
-        for (index, cloud) in Self.clouds.enumerated() {
-            let width = cloud.width * unit
-            let layer = CAShapeLayer()
-            layer.path = Self.cloudPath(width: width)
-            layer.fillColor = VacationPalette.cloud(isDark: isDark)
-            layer.bounds = CGRect(x: 0, y: 0, width: width, height: width * 0.46)
-            layer.position = CGPoint(x: cloud.x * size.width, y: cloud.y * size.height)
-            root.addSublayer(layer)
-            let drift = CABasicAnimation(keyPath: "transform.translation.x")
-            drift.fromValue = -cloud.drift
-            drift.toValue = cloud.drift
-            drift.duration = cloud.duration
-            drift.autoreverses = true
-            drift.repeatCount = .infinity
-            drift.timingFunction = ease
-            drift.timeOffset = Double(index) * 3.1
-            movers.append((layer, [("drift", drift)]))
+        place(sky, layout.skyFrame, scale: scale)
+        place(stars, layout.starsFrame, scale: scale)
+        stars.isHidden = !configuration.isDark
+        place(sun, layout.sunFrame, scale: scale)
+        for (layer, cloud) in zip(cloudLayers, VacationArt.clouds) { place(layer, layout.cloudFrame(cloud), scale: scale) }
+        sand.frame = layout.sandFrame
+        sand.backgroundColor = VacationArt.sandColor(isDark: configuration.isDark)
+
+        // 풍경: 가운데 한 장과, 화면이 더 넓으면 양옆에 뒤집어 가며 붙인 장들.
+        let perSide = layout.sceneryTilesPerSide
+        let count = perSide * 2 + 1
+        while sceneryTiles.count < count {
+            let tile = CALayer()
+            sceneryGroup.addSublayer(tile)
+            sceneryTiles.append(tile)
+        }
+        while sceneryTiles.count > count { sceneryTiles.removeLast().removeFromSuperlayer() }
+        sceneryGroup.frame = CGRect(origin: .zero, size: layout.pane)
+        let center = aligned(layout.sceneryFrame, scale: scale)
+        for (index, tile) in sceneryTiles.enumerated() {
+            let offset = index - perSide
+            tile.bounds = CGRect(origin: .zero, size: center.size)
+            tile.position = CGPoint(x: center.midX + CGFloat(offset) * center.width, y: center.midY)
+            tile.setAffineTransform(CGAffineTransform(scaleX: offset.isMultiple(of: 2) ? 1 : -1, y: 1))
         }
 
-        let colors = VacationPalette.leaves(isDark: isDark)
-        for (index, leaf) in (Self.foliage + Self.floating).enumerated() {
-            let isFoliage = index < Self.foliage.count
-            let length = leaf.length * unit
-            let layer = CAShapeLayer()
-            layer.path = Self.leafPath(length: length)
-            layer.fillColor = colors[index % colors.count]
-            layer.strokeColor = VacationPalette.leafEdge(isDark: isDark)
-            layer.lineWidth = isFoliage ? 1.5 : 1
-            // 잎자루(왼쪽 끝)를 중심으로 돈다.
-            layer.bounds = CGRect(x: 0, y: -length * 0.2, width: length, height: length * 0.4)
-            layer.anchorPoint = CGPoint(x: 0, y: 0.5)
-            layer.position = CGPoint(x: leaf.x * size.width, y: leaf.y * size.height)
-            let base = leaf.angle * .pi / 180
-            layer.setValue(base, forKeyPath: "transform.rotation.z")
-            root.addSublayer(layer)
-            let sway = CABasicAnimation(keyPath: "transform.rotation.z")
-            sway.fromValue = base - leaf.sway * .pi / 180
-            sway.toValue = base + leaf.sway * .pi / 180
-            sway.duration = leaf.duration
-            sway.autoreverses = true
-            sway.repeatCount = .infinity
-            sway.timingFunction = ease
-            sway.timeOffset = Double(index) * 0.7
-            var animations: [(String, CAAnimation)] = [("sway", sway)]
-            if !isFoliage {
-                // 떠 있는 잎은 위아래로도 조금 움직인다.
-                let float = CABasicAnimation(keyPath: "transform.translation.y")
-                float.fromValue = -5
-                float.toValue = 5
-                float.duration = leaf.duration * 1.3
-                float.autoreverses = true
-                float.repeatCount = .infinity
-                float.timingFunction = ease
-                float.timeOffset = Double(index) * 0.9
-                animations.append(("float", float))
+        // 해먹과 나무: 포즈 정사각형의 왼쪽 위를 원점으로 놓는다.
+        let origin = layout.poseOrigin
+        let side = layout.slot.width
+        rig.bounds = CGRect(x: 0, y: 0, width: side, height: side)
+        rig.anchorPoint = .zero
+        rig.position = CGPoint(x: (origin.x * scale).rounded() / scale, y: (origin.y * scale).rounded() / scale)
+        for palm in VacationArt.PalmSide.allCases {
+            let pieces = [(trunks[palm], VacationArt.palmTrunk(palm)), (fronds[palm], VacationArt.palmFronds(palm)), (coconuts[palm], VacationArt.palmCoconuts(palm))]
+            for (layer, piece) in pieces {
+                place(layer!, layout.rect(VacationArt.palmRect(piece, side: palm)), anchor: piece.anchor, scale: scale)
             }
-            movers.append((layer, animations.map { (key: $0.0, animation: $0.1) }))
         }
+        // 흔들리는 묶음은 줄이 묶인 높이를, 새싹이는 해먹에 닿은 자리를 기준으로 삼는다.
+        let full = CGRect(x: 0, y: 0, width: side, height: side)
+        place(swing, full, anchor: CGPoint(x: 0.5, y: VacationArt.hookLine / VacationArt.canvas), scale: scale)
+        place(character, full, anchor: CGPoint(
+            x: VacationArt.breathPivot.x / VacationArt.canvas, y: VacationArt.breathPivot.y / VacationArt.canvas
+        ), scale: scale)
+        for (layer, piece) in posePieces { place(layer, layout.rect(piece.rect), anchor: piece.anchor, scale: scale) }
         CATransaction.commit()
     }
 
-    /// 뭉게구름: 납작한 바닥 위에 둥근 덩어리 셋.
-    private static func cloudPath(width: CGFloat) -> CGPath {
-        let height = width * 0.46
-        let path = CGMutablePath()
-        path.addRoundedRect(
-            in: CGRect(x: 0, y: height * 0.45, width: width, height: height * 0.55), cornerWidth: height * 0.27, cornerHeight: height * 0.27
-        )
-        path.addEllipse(in: CGRect(x: width * 0.12, y: height * 0.18, width: width * 0.36, height: height * 0.7))
-        path.addEllipse(in: CGRect(x: width * 0.36, y: 0, width: width * 0.4, height: height * 0.86))
-        path.addEllipse(in: CGRect(x: width * 0.62, y: height * 0.26, width: width * 0.28, height: height * 0.6))
-        return path
+    private var posePieces: [(CALayer, VacationArt.Piece)] {
+        [
+            (hammockBack, VacationArt.hammockBack), (hammockFront, VacationArt.hammockFront), (body, VacationArt.body),
+            (leaf, VacationArt.leaf), (sunglasses, VacationArt.sunglasses), (drink, VacationArt.drink),
+            (handRest, VacationArt.handRest), (armSip, VacationArt.armSip), (armAdjust, VacationArt.armAdjust),
+        ]
     }
 
-    /// 잎 한 장: 잎자루(0, 0)에서 끝(length, 0)까지의 아몬드 꼴.
-    private static func leafPath(length: CGFloat) -> CGPath {
-        let path = CGMutablePath()
-        path.move(to: .zero)
-        path.addQuadCurve(to: CGPoint(x: length, y: 0), control: CGPoint(x: length * 0.5, y: -length * 0.36))
-        path.addQuadCurve(to: .zero, control: CGPoint(x: length * 0.5, y: length * 0.36))
-        return path
+    /// 화면의 픽셀에 맞춘 자리.
+    private func aligned(_ frame: CGRect, scale: CGFloat) -> CGRect {
+        let minX = (frame.minX * scale).rounded() / scale, minY = (frame.minY * scale).rounded() / scale
+        let width = max((frame.width * scale).rounded(), 1) / scale, height = max((frame.height * scale).rounded(), 1) / scale
+        return CGRect(x: minX, y: minY, width: width, height: height)
+    }
+
+    /// `anchor`(조각 안의 0…1, 왼쪽 위가 원점)를 기준점으로 삼아 레이어를 `frame`에 놓는다. 걸려 있는 변형은 건드리지 않는다.
+    private func place(_ layer: CALayer, _ frame: CGRect, anchor: CGPoint = CGPoint(x: 0.5, y: 0.5), scale: CGFloat) {
+        let frame = aligned(frame, scale: scale)
+        layer.bounds = CGRect(origin: .zero, size: frame.size)
+        layer.anchorPoint = anchor
+        layer.position = CGPoint(x: frame.minX + frame.width * anchor.x, y: frame.minY + frame.height * anchor.y)
+        layer.contentsScale = scale
+        if layer !== sky { layer.contentsGravity = .resize }
+    }
+
+    // MARK: - 그림
+
+    /// 지금 자리의 크기에 맞는 그림을 만들어 올린다.
+    private func render(_ configuration: Configuration) {
+        rendered = configuration
+        let scale = configuration.displayScale
+        let isDark = configuration.isDark
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        func set(_ layer: CALayer, _ asset: String) {
+            let size = layer.bounds.size
+            layer.contents = VacationArtRenderer.image(asset, pixels: CGSize(width: size.width * scale, height: size.height * scale))
+        }
+        // 하늘은 세로로 늘여 쓰는 가는 띠라 원본 그대로 올린다.
+        sky.contents = VacationArtRenderer.source(VacationArt.name("vacation_sky", isDark: isDark))
+        if isDark { set(stars, "vacation_stars_night") } else { stars.contents = nil }
+        set(sun, VacationArt.name("vacation_sun", isDark: isDark))
+        // 구름은 가장 큰 것에 맞춰 한 장만 만들어 함께 쓴다.
+        if let largest = cloudLayers.max(by: { $0.bounds.width < $1.bounds.width }) {
+            set(largest, VacationArt.name("vacation_cloud", isDark: isDark))
+            for layer in cloudLayers { layer.contents = largest.contents }
+        }
+        if let first = sceneryTiles.first {
+            set(first, VacationArt.name("vacation_scenery", isDark: isDark))
+            for tile in sceneryTiles { tile.contents = first.contents }
+        }
+        for palm in VacationArt.PalmSide.allCases {
+            set(trunks[palm]!, VacationArt.palmTrunk(palm).asset)
+            set(fronds[palm]!, VacationArt.palmFronds(palm).asset)
+            set(coconuts[palm]!, VacationArt.palmCoconuts(palm).asset)
+        }
+        for (layer, piece) in posePieces { set(layer, piece.asset) }
+        CATransaction.commit()
+    }
+
+    // MARK: - 늘 도는 움직임
+
+    private func start() {
+        isAnimating = true
+        let ease = CAMediaTimingFunction(name: .easeInEaseOut)
+        func loop(_ layer: CALayer, _ keyPath: String, from: Any, to: Any, halfPeriod: Double, offset: Double = 0) {
+            let animation = CABasicAnimation(keyPath: keyPath)
+            animation.fromValue = from
+            animation.toValue = to
+            animation.duration = halfPeriod
+            animation.autoreverses = true
+            animation.repeatCount = .infinity
+            animation.timingFunction = ease
+            animation.timeOffset = offset
+            layer.add(animation, forKey: "\(Self.loopKey).\(keyPath)")
+        }
+        func shear(_ amount: CGFloat) -> NSValue {
+            NSValue(caTransform3D: CATransform3DMakeAffineTransform(CGAffineTransform(a: 1, b: 0, c: amount, d: 1, tx: 0, ty: 0)))
+        }
+        // 해먹: 줄이 묶인 높이는 그대로 두고 아래로 갈수록 좌우로 더 움직인다(가운데에서 시작한다).
+        loop(swing, "transform", from: shear(-VacationHammockMotion.swing), to: shear(VacationHammockMotion.swing),
+             halfPeriod: VacationHammockMotion.swingHalfPeriod, offset: VacationHammockMotion.swingHalfPeriod / 2)
+        // 숨쉬기: 해먹에 닿은 쪽은 제자리, 위로만 조금.
+        loop(character, "transform.scale.y", from: 1, to: 1 + VacationHammockMotion.breath, halfPeriod: VacationHammockMotion.breathHalfPeriod)
+        // 머리 위의 잎: 줄기 밑동을 중심으로 살랑인다.
+        let leafAngle = VacationHammockMotion.leafAngle * .pi / 180
+        loop(leaf, "transform.rotation.z", from: -leafAngle, to: leafAngle, halfPeriod: VacationHammockMotion.leafHalfPeriod,
+             offset: VacationHammockMotion.leafHalfPeriod / 2)
+        // 야자나무의 잎: 꼭대기를 중심으로 느리게, 두 나무가 서로 다른 박자로.
+        let frondAngle = VacationHammockMotion.frondAngle * .pi / 180
+        loop(fronds[.left]!, "transform.rotation.z", from: -frondAngle, to: frondAngle, halfPeriod: 2.7, offset: 1.1)
+        loop(fronds[.right]!, "transform.rotation.z", from: frondAngle, to: -frondAngle, halfPeriod: 3.2, offset: 0.4)
+        // 구름: 천천히 좌우로 흐른다.
+        for (index, (layer, cloud)) in zip(cloudLayers, VacationArt.clouds).enumerated() {
+            loop(layer, "transform.translation.x", from: -cloud.drift, to: cloud.drift, halfPeriod: cloud.duration, offset: Double(index) * 3.1)
+        }
+
+        // 가끔 하는 행동. 하나를 걸어 두고 끝날 때까지, 그리고 다음 행동까지 잠든다(한 번에 하나만 돈다).
+        actions?.cancel()
+        actions = Task { [weak self] in
+            var generator = SystemRandomNumberGenerator()
+            var delay = Self.debugRest ?? VacationAction.firstRest
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(delay))
+                guard !Task.isCancelled, let self else { return }
+                let action = Self.debugAction ?? VacationAction.next(after: self.lastAction, using: &generator)
+                self.lastAction = action
+                let plan = VacationMotionPlan.make(action)
+                self.play(plan)
+                try? await Task.sleep(for: .seconds(plan.duration))
+                delay = Self.debugRest ?? Double.random(in: VacationAction.rest, using: &generator)
+            }
+        }
+    }
+
+    /// 움직임을 내리고 쉬는 자세로 돌아간다.
+    private func stop() {
+        isAnimating = false
+        actions?.cancel()
+        actions = nil
+        for layer in [swing, character, leaf, sunglasses, drink, handRest, armSip, armAdjust] + Array(fronds.values) + cloudLayers {
+            for key in layer.animationKeys() ?? [] where key.hasPrefix(Self.actionKey) || key.hasPrefix(Self.loopKey) {
+                layer.removeAnimation(forKey: key)
+            }
+        }
+    }
+
+    // MARK: - 가끔 하는 행동
+
+    private func play(_ plan: VacationMotionPlan) {
+        let unit = Double(configuration?.layout.unit ?? 0)
+        let degrees = Double.pi / 180
+        add(plan.drinkX, to: drink, "transform.translation.x", scale: unit, plan: plan)
+        add(plan.drinkY, to: drink, "transform.translation.y", scale: unit, plan: plan)
+        add(plan.drinkTilt, to: drink, "transform.rotation.z", scale: degrees, plan: plan)
+        add(plan.handRestX, to: handRest, "transform.translation.x", scale: unit, plan: plan)
+        add(plan.handRestY, to: handRest, "transform.translation.y", scale: unit, plan: plan)
+        add(plan.handRestOpacity, to: handRest, "opacity", plan: plan)
+        add(plan.armSipOpacity, to: armSip, "opacity", plan: plan)
+        add(plan.armAdjustOpacity, to: armAdjust, "opacity", plan: plan)
+        add(plan.armAdjustX, to: armAdjust, "transform.translation.x", scale: unit, plan: plan)
+        add(plan.armAdjustY, to: armAdjust, "transform.translation.y", scale: unit, plan: plan)
+        add(plan.glassesY, to: sunglasses, "transform.translation.y", scale: unit, plan: plan)
+        add(plan.glassesTilt, to: sunglasses, "transform.rotation.z", scale: degrees, plan: plan)
+        // 잎과 숨쉬기는 늘 도는 움직임 위에 더한다.
+        add(plan.leaf, to: leaf, "transform.rotation.z", scale: degrees, plan: plan, additive: true)
+        add(plan.stretch, to: character, "transform.scale.y", plan: plan, additive: true)
+    }
+
+    private func add(
+        _ track: SaessagiTrack, to layer: CALayer, _ keyPath: String, scale: Double = 1, plan: VacationMotionPlan, additive: Bool = false
+    ) {
+        // 변하지 않는 값은 걸지 않는다.
+        guard !track.isConstant else { return }
+        let animation = CAKeyframeAnimation(keyPath: keyPath)
+        animation.values = track.values.map { $0 * scale }
+        animation.keyTimes = track.times.map { NSNumber(value: $0 / plan.duration) }
+        animation.duration = plan.duration
+        animation.calculationMode = .linear
+        animation.isAdditive = additive
+        animation.timingFunctions = Array(repeating: CAMediaTimingFunction(name: .easeInEaseOut), count: max(track.values.count - 1, 0))
+        layer.add(animation, forKey: "\(Self.actionKey).\(keyPath)")
+    }
+
+    /// 화면 검증용: `-DaylogDebugVacationAction sip`처럼 주면 그 행동만 한다(sip, adjust, flutter, sigh. Debug 빌드만).
+    private static var debugAction: VacationAction? {
+        #if DEBUG
+        switch UserDefaults.standard.string(forKey: "DaylogDebugVacationAction") {
+        case "sip": return .sip
+        case "adjust": return .adjust
+        case "flutter": return .flutter
+        case "sigh": return .sigh
+        default: return nil
+        }
+        #else
+        return nil
+        #endif
+    }
+
+    /// 화면 검증용: `-DaylogDebugSaessagiRest 2`처럼 주면 쉬는 시간을 그 초로 고정한다(Debug 빌드만. 새싹이와 같은 값을 쓴다).
+    private static var debugRest: Double? {
+        #if DEBUG
+        let value = UserDefaults.standard.double(forKey: "DaylogDebugSaessagiRest")
+        return value > 0 ? value : nil
+        #else
+        return nil
+        #endif
     }
 }
 
@@ -249,39 +393,33 @@ final class VacationSceneHostView: NSView {
 }
 
 struct VacationSceneLayerView: NSViewRepresentable {
+    let slot: CGRect?
+    let topInset: CGFloat
     let isDark: Bool
+    let displayScale: CGFloat
     let isAnimating: Bool
 
-    final class Coordinator {
-        @MainActor lazy var stage = VacationSceneStage()
-        var isDark = false
-        var isAnimating = false
-    }
-
-    func makeCoordinator() -> Coordinator { Coordinator() }
+    func makeCoordinator() -> VacationSceneCoordinator { VacationSceneCoordinator() }
 
     func makeNSView(context: Context) -> VacationSceneHostView {
         let view = VacationSceneHostView()
         view.wantsLayer = true
         view.layer?.masksToBounds = true
         let coordinator = context.coordinator
-        view.onLayout = { size in
-            coordinator.stage.update(size: size, isDark: coordinator.isDark, isAnimating: coordinator.isAnimating)
-        }
+        view.onLayout = { size in coordinator.apply(pane: size) }
         return view
     }
 
-    static func dismantleNSView(_ view: VacationSceneHostView, coordinator: Coordinator) {
+    static func dismantleNSView(_ view: VacationSceneHostView, coordinator: VacationSceneCoordinator) {
         coordinator.stage.halt()
     }
 
     func updateNSView(_ view: VacationSceneHostView, context: Context) {
         guard let layer = view.layer else { return }
         let coordinator = context.coordinator
-        coordinator.isDark = isDark
-        coordinator.isAnimating = isAnimating
         coordinator.stage.install(in: layer)
-        coordinator.stage.update(size: view.bounds.size, isDark: isDark, isAnimating: isAnimating)
+        coordinator.set(slot: slot, topInset: topInset, isDark: isDark, displayScale: displayScale, isAnimating: isAnimating)
+        coordinator.apply(pane: view.bounds.size)
     }
 }
 #else
@@ -297,16 +435,13 @@ final class VacationSceneHostView: UIView {
 }
 
 struct VacationSceneLayerView: UIViewRepresentable {
+    let slot: CGRect?
+    let topInset: CGFloat
     let isDark: Bool
+    let displayScale: CGFloat
     let isAnimating: Bool
 
-    final class Coordinator {
-        @MainActor lazy var stage = VacationSceneStage()
-        var isDark = false
-        var isAnimating = false
-    }
-
-    func makeCoordinator() -> Coordinator { Coordinator() }
+    func makeCoordinator() -> VacationSceneCoordinator { VacationSceneCoordinator() }
 
     func makeUIView(context: Context) -> VacationSceneHostView {
         let view = VacationSceneHostView()
@@ -314,22 +449,71 @@ struct VacationSceneLayerView: UIViewRepresentable {
         view.backgroundColor = .clear
         view.clipsToBounds = true
         let coordinator = context.coordinator
-        view.onLayout = { size in
-            coordinator.stage.update(size: size, isDark: coordinator.isDark, isAnimating: coordinator.isAnimating)
-        }
+        view.onLayout = { size in coordinator.apply(pane: size) }
         return view
     }
 
-    static func dismantleUIView(_ view: VacationSceneHostView, coordinator: Coordinator) {
+    static func dismantleUIView(_ view: VacationSceneHostView, coordinator: VacationSceneCoordinator) {
         coordinator.stage.halt()
     }
 
     func updateUIView(_ view: VacationSceneHostView, context: Context) {
         let coordinator = context.coordinator
-        coordinator.isDark = isDark
-        coordinator.isAnimating = isAnimating
         coordinator.stage.install(in: view.layer)
-        coordinator.stage.update(size: view.bounds.size, isDark: isDark, isAnimating: isAnimating)
+        coordinator.set(slot: slot, topInset: topInset, isDark: isDark, displayScale: displayScale, isAnimating: isAnimating)
+        coordinator.apply(pane: view.bounds.size)
     }
 }
 #endif
+
+/// SwiftUI가 알려 준 값을 기억해 두었다가, 뷰의 크기가 정해질 때마다 무대에 넘긴다.
+@MainActor
+final class VacationSceneCoordinator {
+    lazy var stage = VacationSceneStage()
+    private var slot: CGRect?
+    private var topInset: CGFloat = 0
+    private var isDark = false
+    private var displayScale: CGFloat = 1
+    private var isAnimating = false
+
+    func set(slot: CGRect?, topInset: CGFloat, isDark: Bool, displayScale: CGFloat, isAnimating: Bool) {
+        self.slot = slot
+        self.topInset = topInset
+        self.isDark = isDark
+        self.displayScale = max(displayScale, 1)
+        self.isAnimating = isAnimating
+    }
+
+    func apply(pane: CGSize) {
+        guard pane.width > 0, pane.height > 0 else { return }
+        // 자리를 아직 모르면 가운데에 둔다(곧 제자리가 온다).
+        let slot = slot ?? {
+            let side = VacationArt.hammockSide(pane: pane, reserved: pane.height * 0.5)
+            let height = side * VacationArt.slotHeight / VacationArt.canvas
+            return CGRect(x: (pane.width - side) / 2, y: (pane.height - height) / 2, width: side, height: height)
+        }()
+        guard slot.width > 0 else { return }
+        stage.update(
+            VacationSceneStage.Configuration(
+                layout: VacationSceneLayout(pane: pane, slot: slot, topInset: topInset), isDark: isDark, displayScale: displayScale
+            ),
+            isAnimating: isAnimating
+        )
+    }
+}
+
+/// 늘 도는 움직임의 크기와 박자.
+enum VacationHammockMotion {
+    /// 해먹이 좌우로 흔들리는 정도: 줄이 묶인 높이에서 아래로 1 내려갈 때 옆으로 가는 거리.
+    static let swing: CGFloat = 0.032
+    /// 한쪽 끝에서 반대쪽 끝까지 가는 시간(초).
+    static let swingHalfPeriod: Double = 2.6
+    /// 숨쉴 때 늘어나는 키의 비율과, 들이쉬는(내쉬는) 시간.
+    static let breath: CGFloat = 0.028
+    static let breathHalfPeriod: Double = 1.9
+    /// 머리 위 잎이 좌우로 기우는 각도(도)와 한쪽으로 가는 시간.
+    static let leafAngle: Double = 4
+    static let leafHalfPeriod: Double = 1.6
+    /// 야자나무 잎이 기우는 각도(도).
+    static let frondAngle: Double = 1.6
+}
