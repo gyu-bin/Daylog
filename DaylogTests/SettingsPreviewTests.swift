@@ -12,11 +12,17 @@ struct SettingsPreviewTests {
         #expect(info.start == day("2026-10-13") && info.end == day("2026-10-17"))
     }
 
-    @Test func syncPreviewCoversEveryStateWithoutProgressNumbers() {
-        let phases = SyncPreviewSample.allCases.map(\.phase)
-        #expect(phases.contains(.waiting) && phases.contains(.found) && phases.contains(.stalled(nil)))
-        #expect(phases.contains(.unavailable(.noAccount)))
-        #expect(phases.contains { if case .stalled(let note?) = $0 { return note.hasPrefix("예시") } else { return false } })
+    @Test func syncPreviewOffersThreeDistinctScenesWithoutProgressNumbers() {
+        // 고를 것은 세 가지뿐이고, 셋이 서로 다른 장면이다.
+        #expect(SyncPreviewSample.allCases.map(\.title) == ["기록 받는 중", "준비 완료", "연결 문제"])
+        let kinds = SyncPreviewSample.allCases.map { SyncSceneKind($0.phase(), isPreview: true) }
+        #expect(kinds == [.receiving, .ready, .trouble])
+        // 연결 문제의 실제 경우(오래 걸림·오류·로그인 안 됨)는 모두 같은 장면을 쓴다.
+        for phase in [FirstSyncPhase.stalled(nil), .stalled("오류"), .unavailable(.noAccount), .unavailable(.restricted)] {
+            #expect(SyncSceneKind(phase, isPreview: false) == .trouble)
+        }
+        // 실제 화면에서는 기록을 찾아도 "준비 완료"를 보여 주지 않는다(곧바로 오늘 화면으로 간다).
+        #expect(SyncSceneKind(.found, isPreview: false) == .receiving && SyncSceneKind(.empty, isPreview: false) == .receiving)
         for sample in SyncPreviewSample.allCases {
             #expect(!sample.note.contains("%") && !sample.title.isEmpty)
         }

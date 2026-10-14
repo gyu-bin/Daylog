@@ -13,6 +13,8 @@ struct FirstSyncView: View {
     /// 설정의 미리보기: 실제 동기화 상태 대신 이 상태를 보여 준다. 단추는 아무 일도 하지 않고, 화면을 닫지도 않는다
     /// (iCloud 계정 확인·동기화·시작 안내 같은 실제 동작을 하지 않는다).
     var preview: FirstSyncPhase?
+    /// 미리보기에서 화면 아래에 덧붙이는 안내(이 상태가 실제로 언제 보이는지).
+    var previewNote: String?
     /// [다시 확인]을 누른 직후. 상태가 그대로여도 눌렸다는 것을 보여 준다.
     @State private var isRechecking = false
 
@@ -25,25 +27,47 @@ struct FirstSyncView: View {
         )
     }
 
+    @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
     var body: some View {
         let phase = phase
+        let kind = SyncSceneKind(phase, isPreview: preview != nil)
         GeometryReader { proxy in
             // 글자를 크게 쓰면 한 화면을 넘을 수 있다. 넘치면 스크롤하고, 아니면 가운데에 둔다.
+            // 그림은 화면 높이에 맞춰 줄인다(작은 iPhone에서도 글과 단추가 잘리지 않게).
+            let sceneHeight = min(400, max(210, proxy.size.height * 0.48))
             ScrollView {
-                content(phase)
-                    .frame(maxWidth: 420)
-                    .padding(.horizontal, 28)
-                    .padding(.vertical, 32)
-                    .frame(maxWidth: .infinity, minHeight: proxy.size.height)
+                VStack(spacing: 14) {
+                    SyncScene(kind: kind, height: sceneHeight)
+                        .id(kind)
+                        .transition(.opacity)
+                    content(phase)
+                        .id(kind)
+                        .transition(.opacity)
+                    if let previewNote {
+                        Label(previewNote, systemImage: "info.circle.fill")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(12)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(Theme.cardBackground.opacity(0.7), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                            .padding(.top, 4)
+                    }
+                }
+                .animation(reduceMotion ? nil : .easeInOut(duration: 0.35), value: kind)
+                .frame(maxWidth: 440)
+                .padding(.horizontal, 24)
+                .padding(.vertical, 24)
+                .frame(maxWidth: .infinity, minHeight: proxy.size.height)
             }
             .scrollBounceBehavior(.basedOnSize)
         }
         .background {
-            ZStack {
-                Theme.windowBackground
-                LinearGradient(colors: [Theme.accentWash, .clear], startPoint: .top, endPoint: .center)
-            }
-            .ignoresSafeArea()
+            LinearGradient(colors: SyncSceneBackground.colors(kind, dark: colorScheme == .dark), startPoint: .top, endPoint: .bottom)
+                .animation(reduceMotion ? nil : .easeInOut(duration: 0.4), value: kind)
+                .ignoresSafeArea()
         }
         .accessibilityAddTraits(.isModal)
         .task {
@@ -66,30 +90,29 @@ struct FirstSyncView: View {
         case .found where preview != nil:
             // 실제로는 기록을 찾으면 이 화면 없이 바로 오늘 화면으로 간다. 미리보기에서만 그 순간을 보여 준다.
             message(
-                badge: "checkmark.icloud", tint: Theme.accent, floats: false, pose: .happy,
-                title: "기록을 모두 불러왔어요!",
-                detail: "다른 기기에서 쓰던 루틴과 기록이 이 기기에도 왔어요. 실제로는 이 순간 바로 오늘 화면으로 넘어가요."
+                title: "준비됐어요!\n오늘도 함께해요.",
+                detail: "다른 기기의 기록을 확인했어요.\n이제 Daylog를 시작할 수 있어요."
             ) {
-                EmptyView()
+                Button(action: {}) {
+                    Text("Daylog 시작하기").font(.headline).frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(Color(red: 0.3, green: 0.68, blue: 0.34))
+                .controlSize(.large)
+                .frame(maxWidth: 320)
             }
         case .waiting, .found, .empty:
             // 기록을 찾았거나 없다고 본 순간에는 곧 이 화면이 걷힌다. 그 사이에 문구를 바꿔 깜빡이지 않게 한다.
+            // 얼마나 받았는지는 알 수 없어 진행률·완료율은 보여 주지 않는다(점 세 개는 기다리는 표시일 뿐이다).
             message(
-                badge: nil, tint: Theme.accent, floats: true,
-                title: "새싹이가 기록을 확인하고 있어요!",
-                detail: "다른 기기에서 사용하던 루틴과 기록을 불러오고 있어요. 잠시만 기다려 주세요."
+                title: "새싹이가 iCloud 기록을\n확인하고 있어요!",
+                detail: "다른 기기의 소중한 기록을\n가져와 정리하고 있어요."
             ) {
-                HStack(spacing: 10) {
-                    ProgressView()
-                    Text("동기화 중...")
-                        .font(.callout)
-                        .foregroundStyle(.secondary)
-                }
-                .accessibilityElement(children: .combine)
+                SyncWaitingDots()
             }
         case .unavailable(let account):
+            // 계정 문제는 네트워크 문제라고 말하지 않는다.
             message(
-                badge: "icloud.slash", tint: .secondary, floats: false,
                 title: account.title,
                 detail: account == .restricted
                     ? "스크린 타임이나 기기 관리 설정에서 iCloud 사용이 막혀 있어요. 다른 기기의 기록은 불러올 수 없지만, \(Platform.thisDevice)에만 기록하며 사용할 수 있어요."
@@ -99,9 +122,10 @@ struct FirstSyncView: View {
             }
         case .stalled(let note):
             message(
-                badge: "exclamationmark.icloud", tint: Theme.streakTint, floats: false,
-                title: "동기화가 오래 걸리고 있어요",
-                detail: "아직 기록을 다 확인하지 못했어요. 네트워크 연결을 확인해 주세요. 일단 시작해도 다른 기기의 기록은 도착하는 대로 나타나고, 그사이 적은 내용도 그대로 남아요."
+                title: "아직 기록을 확인하지 못했어요.",
+                detail: note == nil
+                    ? "네트워크 상태를 확인하고 다시 시도해 보세요.\n지금 시작해도 이 기기의 기록은 안전하고, 다른 기기의 기록은 도착하는 대로 나타나요."
+                    : "동기화 중에 문제가 생겼어요. 네트워크 상태를 확인하고 다시 시도해 보세요.\n지금 시작해도 이 기기의 기록은 안전해요."
             ) {
                 if let note {
                     Text(note)
@@ -115,28 +139,10 @@ struct FirstSyncView: View {
         }
     }
 
-    /// 가운데의 새싹이, 제목, 설명, 그 아래의 내용. `badge`는 문제가 있을 때 새싹이 옆에 붙이는 상태 아이콘이다.
-    private func message(
-        badge: String?, tint: Color, floats: Bool, pose: SaessagiPose = .idle, title: String, detail: String,
-        @ViewBuilder footer: () -> some View
-    ) -> some View {
-        VStack(spacing: 18) {
-            // 기다리는 동안에는 두리번거리고, 문제가 생겨 멈춘 화면에서는 숨 쉬고 깜빡이기만 한다. 다 받은 순간은 기뻐서 뛴다.
-            SaessagiAnimatedView(pose: pose, size: 132, behavior: pose == .idle ? (floats ? .waiting : .calm) : .celebrating)
-                .padding(22)
-                .background(Theme.accent.opacity(0.12), in: Circle())
-                .overlay(alignment: .bottomTrailing) {
-                    if let badge {
-                        Image(systemName: badge)
-                            .font(.system(size: 17, weight: .semibold))
-                            .foregroundStyle(tint)
-                            .frame(width: 40, height: 40)
-                            .background(Theme.cardBackground, in: Circle())
-                            .overlay(Circle().strokeBorder(Theme.cardBorder, lineWidth: 1))
-                            .accessibilityHidden(true)
-                    }
-                }
-            VStack(spacing: 8) {
+    /// 제목, 설명, 그 아래의 내용. 그림(`SyncScene`)은 위에 따로 있다.
+    private func message(title: String, detail: String, @ViewBuilder footer: () -> some View) -> some View {
+        VStack(spacing: 16) {
+            VStack(spacing: 10) {
                 Text(title)
                     .font(.title2.bold())
                     .accessibilityAddTraits(.isHeader)
@@ -149,26 +155,27 @@ struct FirstSyncView: View {
             VStack(spacing: 12) {
                 footer()
             }
-            .padding(.top, 6)
+            .padding(.top, 4)
         }
     }
 
     /// 기다리지 않아도 되는 두 가지 길. 어느 쪽도 기록을 지우거나 바꾸지 않는다.
     private var choices: some View {
         VStack(spacing: 10) {
+            Button(action: { if preview == nil { recheck() } }) {
+                Text(isRechecking ? "확인 중…" : "다시 확인하기").font(.headline).frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(Color(red: 0.25, green: 0.55, blue: 0.95))
+            .disabled(isRechecking)
             Button(action: { if preview == nil { gate.finish() } }) {
                 Text("일단 시작하기").frame(maxWidth: .infinity)
             }
-            .buttonStyle(.borderedProminent)
-            .accessibilityHint("시작 안내로 넘어갑니다. 다른 기기의 기록이 나중에 오면 그대로 합쳐져요.")
-            Button(action: { if preview == nil { recheck() } }) {
-                Text(isRechecking ? "확인 중…" : "다시 확인").frame(maxWidth: .infinity)
-            }
             .buttonStyle(.bordered)
-            .disabled(isRechecking)
+            .accessibilityHint("시작 안내로 넘어갑니다. 다른 기기의 기록이 나중에 오면 그대로 합쳐져요.")
         }
         .controlSize(.large)
-        .frame(maxWidth: 300)
+        .frame(maxWidth: 320)
     }
 
     /// 계정 상태를 다시 묻고 처음부터 다시 기다린다. 동기화를 강제로 돌리는 공식 방법은 없다.

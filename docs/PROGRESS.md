@@ -1302,6 +1302,15 @@ iPhone·iPad App Store 제출 자료를 만들고 App Store Connect에 올렸다
 - 검증: 검증 앱(1600pt 창 170초, 1700pt 창, 900pt 창), iPhone 17 Pro Max·iPad Pro 13 시뮬레이터, 움직임 줄이기(iPhone 시뮬레이터). 좌표·경계 기록과
   영상·연속 캡처는 `docs/qa/header-saessagi-2026-10-14/`. Debug: `-DaylogDebugSaessagiLog YES`(경계·좌표를 표준 오류로), `-DaylogDebugSaessagiAction dash|bigHop|doubleHop|leafShake`.
 
+## iCloud 첫 동기화 화면: 세 장면 리디자인 (2026-10-14)
+
+- 첫 동기화 화면(`FirstSyncView`)과 설정의 미리보기가 같은 장면(`SyncScene`)을 쓴다: 기록 받는 중(구름에서 기록 카드가 내려와 수첩에 들어가고 새싹이가 끄덕임),
+  준비 완료(미리보기만: 체크·별·수첩을 안고 두 번 점프), 연결 문제(회색 구름·빗방울·올려다보며 갸웃·물음표). 움직임은 `SyncSceneMotion`이 계산한다(테스트 있음).
+- 새싹이는 공식 기본 모습 레이어를 겹친 것에 SwiftUI 수첩을 들린 것이다. 원화는 바꾸지 않았다. 시안의 새 자세(펼쳐 읽기, 앉아 올려다보기)는 원화가 필요하다(QA 보고서에 목록).
+- 상태 판정·재시도·완료 시 바로 오늘 화면으로 가는 처리는 그대로다. 진행률·완료율은 없다. 미리보기 고르기는 셋으로 줄였다(Debug: `-DaylogDebugSyncSample receiving|ready|trouble|failed|noAccount`).
+- 같은 날 헤더 새싹이: 숨바꼭질 가리개를 첫 단추 바로 앞에서 흐려지게 해 단추 뒤로 숨는 것처럼 보이게 했고, iPhone의 좁은 틈 안에서도 걷게 했다.
+- 검증: `docs/qa/sync-screens-2026-10-14/`.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
