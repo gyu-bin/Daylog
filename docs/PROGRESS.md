@@ -1313,6 +1313,14 @@ iPhone·iPad App Store 제출 자료를 만들고 App Store Connect에 올렸다
 - 성능: 처음 `TimelineView`(24fps)는 매 프레임 창 전체를 다시 배치해 앱 CPU 8~14%였다. Core Animation 레이어(`SyncSceneStage`)로 옮겨 0~2%(Release 0~0.8%).
   측정용 빌드 `Tools/dev.sh perf`(Release 최적화 + 검증용 실행 인자), 검증 스크립트 `hide`/`unhide` 추가.
 
+## 새 버전: Mac 1.5.8 (8) · GitHub v1.5.8 · TestFlight 1.0.0 (11) (2026-10-14)
+
+- 사용자 지시 "새 버전 올려(3곳 모두)", 피오 교체 전에 지금 상태를 올림. 커밋 `088f8c4`. 전체 테스트 620개 통과.
+- Mac: `Tools/update.sh`로 /Applications/Daylog.app 1.5.7 (7) → 1.5.8 (8) 교체(직전 앱 `build/update/previous.app`), 실행·iCloud(Production) 연결 확인, 로그에 오류 없음.
+- GitHub: `v1.5.8` DMG·appcast 게시. 공개 주소에서 받은 DMG·appcast가 만든 파일과 같고 EdDSA 서명 검증 통과. 1.5.7은 게시하지 않았다(옛 커밋으로 이 Mac에만 설치했던 번호).
+- TestFlight: 1.0.0 (11) 업로드 성공(IPA 확인: 앱·위젯 11, iCloud·알림 Production, App Group, remote-notification). 처리 상태는 App Store Connect에서 확인 필요.
+- 다음 번호: Mac 1.5.9 (9), iOS 빌드 12.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.
