@@ -75,6 +75,8 @@ struct SettingsView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @State private var selected: SettingsCategory = SettingsView.initialCategory
+    /// iCloud의 [동기화 화면 미리보기].
+    @State private var showsSyncPreview = false
     /// 좁은 화면에서 들어가 있는 갈래. nil이면 갈래 목록.
     @State private var compactSelection: SettingsCategory? = SettingsView.debugCategory
     #if os(iOS)
@@ -101,6 +103,19 @@ struct SettingsView: View {
         }
         #if os(iOS)
         .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { availableWidth = $0 }
+        #endif
+        #if os(macOS)
+        .sheet(isPresented: $showsSyncPreview) { SyncPreviewScreen() }
+        #else
+        .fullScreenCover(isPresented: $showsSyncPreview) { SyncPreviewScreen() }
+        #endif
+        #if DEBUG
+        // 화면 검증용: `-DaylogDebugOpenPreview sync`면 미리보기를 바로 연다(Debug 빌드만).
+        .task {
+            guard UserDefaults.standard.string(forKey: "DaylogDebugOpenPreview") == "sync" else { return }
+            try? await Task.sleep(for: .seconds(1))
+            showsSyncPreview = true
+        }
         #endif
     }
 
@@ -410,6 +425,8 @@ struct SettingsView: View {
                     sync.refreshAccountStatus()
                 }
             }
+            Button("☁️ 동기화 화면 미리보기") { showsSyncPreview = true }
+                .accessibilityHint("새 기기에서 처음 열 때 보이는 동기화 안내를 예시로 봅니다. 실제 동기화는 바뀌지 않아요.")
         } footer: {
             Text(sync.isEnabled
                  ? "같은 Apple 계정의 Mac·iPhone·iPad가 기록을 맞춰요. 인터넷이 없어도 쓸 수 있고, 연결되면 이어서 맞춰요. 계정은 기기의 시스템 설정에서 관리해요."

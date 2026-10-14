@@ -10,11 +10,15 @@ struct FirstSyncView: View {
     @Environment(CloudSyncMonitor.self) private var sync
     @Environment(DevicePreferences.self) private var preferences
     let gate: FirstSyncGate
+    /// 설정의 미리보기: 실제 동기화 상태 대신 이 상태를 보여 준다. 단추는 아무 일도 하지 않고, 화면을 닫지도 않는다
+    /// (iCloud 계정 확인·동기화·시작 안내 같은 실제 동작을 하지 않는다).
+    var preview: FirstSyncPhase?
     /// [다시 확인]을 누른 직후. 상태가 그대로여도 눌렸다는 것을 보여 준다.
     @State private var isRechecking = false
 
     private var phase: FirstSyncPhase {
-        FirstSyncPolicy.phase(
+        if let preview { return preview }
+        return FirstSyncPolicy.phase(
             hasRecords: store.hasUserRecords, account: sync.account, isImporting: sync.isImporting,
             lastImportAt: sync.lastImportAt, errorMessage: sync.lastErrorMessage,
             waitingSince: gate.waitingSince, now: gate.now
@@ -43,13 +47,15 @@ struct FirstSyncView: View {
         }
         .accessibilityAddTraits(.isModal)
         .task {
-            // 경과 시간으로 "오래 걸린다"와 "더 올 것이 없다"를 가리므로 1초마다 다시 본다.
+            // 경과 시간으로 "오래 걸린다"와 "더 올 것이 없다"를 가리므로 1초마다 다시 본다(미리보기는 하지 않는다).
+            guard preview == nil else { return }
             while !Task.isCancelled {
                 try? await Task.sleep(for: .seconds(1))
                 gate.tick()
             }
         }
         .onChange(of: phase, initial: true) { _, phase in
+            guard preview == nil else { return }
             resolve(phase)
         }
     }
@@ -57,6 +63,15 @@ struct FirstSyncView: View {
     @ViewBuilder
     private func content(_ phase: FirstSyncPhase) -> some View {
         switch phase {
+        case .found where preview != nil:
+            // 실제로는 기록을 찾으면 이 화면 없이 바로 오늘 화면으로 간다. 미리보기에서만 그 순간을 보여 준다.
+            message(
+                badge: "checkmark.icloud", tint: Theme.accent, floats: false, pose: .happy,
+                title: "기록을 모두 불러왔어요!",
+                detail: "다른 기기에서 쓰던 루틴과 기록이 이 기기에도 왔어요. 실제로는 이 순간 바로 오늘 화면으로 넘어가요."
+            ) {
+                EmptyView()
+            }
         case .waiting, .found, .empty:
             // 기록을 찾았거나 없다고 본 순간에는 곧 이 화면이 걷힌다. 그 사이에 문구를 바꿔 깜빡이지 않게 한다.
             message(
@@ -102,11 +117,12 @@ struct FirstSyncView: View {
 
     /// 가운데의 새싹이, 제목, 설명, 그 아래의 내용. `badge`는 문제가 있을 때 새싹이 옆에 붙이는 상태 아이콘이다.
     private func message(
-        badge: String?, tint: Color, floats: Bool, title: String, detail: String, @ViewBuilder footer: () -> some View
+        badge: String?, tint: Color, floats: Bool, pose: SaessagiPose = .idle, title: String, detail: String,
+        @ViewBuilder footer: () -> some View
     ) -> some View {
         VStack(spacing: 18) {
-            // 기다리는 동안에는 두리번거리고, 문제가 생겨 멈춘 화면에서는 숨 쉬고 깜빡이기만 한다.
-            SaessagiAnimatedView(pose: .idle, size: 132, behavior: floats ? .waiting : .calm)
+            // 기다리는 동안에는 두리번거리고, 문제가 생겨 멈춘 화면에서는 숨 쉬고 깜빡이기만 한다. 다 받은 순간은 기뻐서 뛴다.
+            SaessagiAnimatedView(pose: pose, size: 132, behavior: pose == .idle ? (floats ? .waiting : .calm) : .celebrating)
                 .padding(22)
                 .background(Theme.accent.opacity(0.12), in: Circle())
                 .overlay(alignment: .bottomTrailing) {
@@ -140,12 +156,12 @@ struct FirstSyncView: View {
     /// 기다리지 않아도 되는 두 가지 길. 어느 쪽도 기록을 지우거나 바꾸지 않는다.
     private var choices: some View {
         VStack(spacing: 10) {
-            Button(action: gate.finish) {
+            Button(action: { if preview == nil { gate.finish() } }) {
                 Text("일단 시작하기").frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
             .accessibilityHint("시작 안내로 넘어갑니다. 다른 기기의 기록이 나중에 오면 그대로 합쳐져요.")
-            Button(action: recheck) {
+            Button(action: { if preview == nil { recheck() } }) {
                 Text(isRechecking ? "확인 중…" : "다시 확인").frame(maxWidth: .infinity)
             }
             .buttonStyle(.bordered)
