@@ -10,6 +10,8 @@ struct TodayCompactView: View {
     @Environment(\.mobileUI) private var ui
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    /// 휴가 중에 평소 화면을 보고 있을 때: 휴식 화면으로 돌아가는 동작.
+    var onShowVacationRest: (() -> Void)?
 
     var body: some View {
         ScrollViewReader { scroll in
@@ -18,6 +20,9 @@ struct TodayCompactView: View {
                 header
                     // 사진이 있으면 머리말 뒤에 낮게 깐다. 머리말 높이만큼만 차지해 첫 카드가 거의 밀리지 않는다.
                     .dashboardHeaderBackdrop(padding: 12)
+                if let onShowVacationRest {
+                    VacationRestReturnBar(action: onShowVacationRest)
+                }
                 if isEditing {
                     DashboardEditBar(isEditing: $isEditing)
                 } else if !store.stats.hasStarted {

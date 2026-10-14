@@ -20,6 +20,8 @@ struct WeeklyGrowth: Equatable, Sendable {
     var remainingChances: Int
     /// 루틴이 하나라도 있다.
     var hasRoutines: Bool
+    /// 오늘이 휴가다. 목표를 재촉하지 않는다.
+    var isOnVacation = false
 
     var isGoalReached: Bool { practicedDays >= goal }
     var remainingToGoal: Int { max(goal - practicedDays, 0) }
@@ -30,6 +32,7 @@ struct WeeklyGrowth: Equatable, Sendable {
     var headline: String {
         if !hasRoutines { return "루틴을 만들면 여기에 실천한 날이 쌓여요." }
         if isGoalReached { return "이번 주 목표를 달성했어요!" }
+        if isOnVacation { return practicedDays > 0 ? "이번 주에 \(practicedDays)일 실천했어요." : "지금은 쉬어 가는 중이에요." }
         if remainingToGoal <= remainingChances { return "이번 주 목표까지 \(remainingToGoal)일 남았어요." }
         // 남은 날로는 목표에 닿지 않는다. 닿을 수 있는 것처럼 말하지 않는다.
         return practicedDays > 0 ? "이번 주에 \(practicedDays)일 실천했어요." : "이번 주는 아직 실천한 날이 없어요."
@@ -39,6 +42,7 @@ struct WeeklyGrowth: Equatable, Sendable {
     var detail: String {
         if !hasRoutines { return "작은 습관 하나부터 시작해 보세요." }
         if isGoalReached { return "꾸준히 실천한 한 주예요." }
+        if isOnVacation { return "휴가 중에는 목표를 잠시 내려놓아도 괜찮아요." }
         if practicedToday { return "오늘도 한 걸음 나아갔어요." }
         if isTodayEligible { return "오늘도 작은 습관 하나부터 시작해 보세요." }
         return remainingChances > 0 ? "다음 루틴이 있는 날에 이어 가요." : "다음 주에 다시 이어 가요."
@@ -110,11 +114,13 @@ extension AppStore {
             ? upcomingDays(count: daysLeft + 1).dropFirst()
                 .filter { !$0.isVacation && $0.sections.contains { !$0.checks.isEmpty } }.map(\.day)
             : []
-        return WeeklyGrowthCalculator.make(
+        var growth = WeeklyGrowthCalculator.make(
             outcomes: stats.trend, upcomingEligibleDays: Array(upcoming), today: today, weekStart: weekStart,
             chosenGoal: chosenGoal,
             recommendedGoal: WeeklyGrowthCalculator.recommendedGoal(routineWeekdays: activeRoutines.map(\.weekdays)),
             hasRoutines: !activeRoutines.isEmpty
         )
+        growth.isOnVacation = isVacation(on: today)
+        return growth
     }
 }

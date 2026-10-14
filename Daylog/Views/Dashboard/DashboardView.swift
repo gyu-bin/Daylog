@@ -6,16 +6,47 @@ struct DashboardView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var isEditing = false
+    /// 휴가인 날에 [평소 화면 보기]를 눌렀다. 다른 메뉴에 다녀오거나 휴가가 끝나면 풀린다(저장하지 않는다).
+    @State private var showsDashboardOnVacation = false
 
     /// 이 너비부터 두 열로 나눈다.
     static let wideBreakpoint: CGFloat = 880
 
+    private var isOnVacation: Bool { store.isVacation(on: store.today) }
+
     var body: some View {
-        // 좁은 화면(iPhone, 좁은 iPad 창)은 오늘 할 일만 담은 짧은 화면을 쓴다. macOS는 늘 넓은 쪽이다.
-        if horizontalSizeClass == .compact {
-            TodayCompactView()
-        } else {
-            wideDashboard
+        Group {
+            if isOnVacation, store.isViewingToday, !showsDashboardOnVacation {
+                // 휴가인 날의 오늘 화면은 대시보드 대신 휴식 화면이다. 지난 날짜를 볼 때는 평소대로 그날의 기록을 보여 준다.
+                VacationRestView(
+                    onShowKeptRoutines: store.routinePolicy(on: store.today).keepsRoutines ? showKeptRoutines : nil,
+                    onShowDashboard: { showsDashboardOnVacation = true }
+                )
+            } else if horizontalSizeClass == .compact {
+                // 좁은 화면(iPhone, 좁은 iPad 창)은 오늘 할 일만 담은 짧은 화면을 쓴다. macOS는 늘 넓은 쪽이다.
+                TodayCompactView(onShowVacationRest: vacationRestReturn)
+            } else {
+                wideDashboard
+            }
+        }
+        .onChange(of: isOnVacation) { _, _ in showsDashboardOnVacation = false }
+    }
+
+    /// 휴가 중에 평소 화면을 보고 있을 때만 있는, 휴식 화면으로 돌아가는 길.
+    private var vacationRestReturn: (() -> Void)? {
+        guard isOnVacation, showsDashboardOnVacation else { return nil }
+        return {
+            store.goToToday()
+            showsDashboardOnVacation = false
+        }
+    }
+
+    /// 평소 화면으로 바꾸고, 그 화면이 뜬 뒤에 루틴 카드를 보여 준다(휴가인 날의 루틴 카드에는 유지하는 루틴만 있다).
+    private func showKeptRoutines() {
+        showsDashboardOnVacation = true
+        Task {
+            try? await Task.sleep(for: .milliseconds(350))
+            store.focusRoutineCard()
         }
     }
 
@@ -26,6 +57,9 @@ struct DashboardView: View {
                 VStack(alignment: .leading, spacing: Theme.spacing) {
                     DashboardHeader(isEditing: $isEditing)
                         .dashboardHeaderBackdrop()
+                    if let vacationRestReturn {
+                        VacationRestReturnBar(action: vacationRestReturn)
+                    }
                     if isEditing {
                         DashboardEditBar(isEditing: $isEditing)
                     } else if !store.stats.hasStarted {
