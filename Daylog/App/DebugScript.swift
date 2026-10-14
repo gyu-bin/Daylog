@@ -219,6 +219,11 @@ enum DebugScript {
             }
             log("WINDOWS \(argument) section=\(store.section) sheetWindows=\(Platform.sheetWindowsAmongSeveral) any=\(Platform.isShowingSheet) | " + windows.joined(separator: " | "))
             #endif
+        case "restartDismiss":
+            // "다시 시작하기" 안내: restartDismiss:2026-10-14(그날 닫은 것으로), restartDismiss:off(닫은 기록 지움).
+            DevicePreferences.shared.setRestartDismissedDay(Day(key: argument))
+        case "focusRoutines":
+            store.focusRoutineCard()
         case "weeklyGoal":
             // 이번 주의 성장 카드의 목표: weeklyGoal:4, 추천값으로 되돌리려면 weeklyGoal:auto.
             DevicePreferences.shared.setWeeklyGoal(Int(argument))

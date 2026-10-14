@@ -108,7 +108,10 @@ struct StatsSource: Sendable {
                 return DayOutcome(day: day, status: .rest, done: 0, total: 0)
             }
             let done = record.checks.filter(\.isDone).count
-            return DayOutcome(day: day, status: record.isRecorded ? .recorded : .unrecorded, done: done, total: total)
+            let skipped = record.checks.filter { record.skipped.contains($0.routineID) }.count
+            return DayOutcome(
+                day: day, status: record.isRecorded ? .recorded : .unrecorded, done: done, total: total, skipped: skipped
+            )
         }
         // 한 번도 열지 않은 날은 당시의 루틴 이력으로 예정 여부를 판정한다.
         let scheduled = resolver.scheduled(on: day).count

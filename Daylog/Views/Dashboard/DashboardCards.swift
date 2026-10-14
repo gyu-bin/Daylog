@@ -137,7 +137,11 @@ struct DashboardCards: View {
             } else {
                 VacationDayCard(day: store.selectedDay)
             }
-        case .routines: RoutineCard()
+        case .routines:
+            RoutineCard()
+                // [오늘 루틴 보기]가 여기로 스크롤하고 잠깐 강조한다.
+                .modifier(RoutineCardFocus())
+                .id(RoutineCardFocus.scrollID)
         case .weeklyGrowth: WeeklyGrowthCard()
         case .meals:
             if compact { MealSummaryCard() } else { MealCard() }

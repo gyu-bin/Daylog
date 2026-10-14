@@ -12,6 +12,7 @@ struct TodayCompactView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
+        ScrollViewReader { scroll in
         ScrollView {
             VStack(alignment: .leading, spacing: ui.cardSpacing) {
                 header
@@ -21,6 +22,8 @@ struct TodayCompactView: View {
                     DashboardEditBar(isEditing: $isEditing)
                 } else if !store.stats.hasStarted {
                     StartHint()
+                } else if let prompt = store.restartPrompt(dismissedDay: preferences.restartDismissedDay) {
+                    RestartCard(prompt: prompt)
                 }
                 DashboardCards(compact: true, wide: false, isEditing: isEditing)
             }
@@ -32,6 +35,10 @@ struct TodayCompactView: View {
         }
         .scrollDismissesKeyboard(.interactively)
         .onChange(of: store.section) { _, _ in isEditing = false }
+        .onChange(of: store.routineCardFocusToken) { _, _ in
+            RoutineCardFocus.scroll(scroll, reduceMotion: reduceMotion)
+        }
+        }
     }
 
     /// 위: 앱 이름(휴가 중이면 작은 배지), 대시보드 편집과 루틴 추가. 아래: 날짜와 인사말, 새싹이, 날짜 이동.

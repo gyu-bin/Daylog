@@ -20,6 +20,8 @@ struct DayOutcome: Equatable, Identifiable, Sendable {
     let status: DayStatus
     let done: Int
     let total: Int
+    /// 그날 건너뛴 루틴 수. 달성률에는 쓰이지 않는다(건너뛴 루틴은 미완료와 같다). "아무것도 하지 않은 날"과 구분할 때만 본다.
+    var skipped: Int = 0
 
     var id: Day { day }
 

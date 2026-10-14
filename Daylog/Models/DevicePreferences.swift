@@ -13,6 +13,8 @@ final class DevicePreferences {
     static let layoutVersionKey = "device.dashboard.layoutVersion"
     static let onboardingKey = "device.onboardingCompleted"
     static let weekStartKey = "device.weekStart"
+    /// "다시 시작하기" 안내를 닫은 날(날짜 키). 그 뒤로 다시 실천하기 전까지는 같은 쉬는 기간으로 보고 띄우지 않는다.
+    static let restartDismissedKey = "device.restartPrompt.dismissedDay"
     /// 사용자가 고른 주간 목표(일). 없으면 루틴 일정에 맞춘 추천값을 쓴다.
     static let weeklyGoalKey = "device.weeklyGoalDays"
     /// 알림 안내(iPhone·iPad)를 이 기기에서 이미 보여 줬는지.
@@ -44,6 +46,8 @@ final class DevicePreferences {
     private(set) var weekStart: WeekStart
     /// 이번 주의 성장 카드의 목표(1~7일). 고르지 않았으면 nil이고 추천값을 쓴다. 이 기기에만 저장한다.
     private(set) var weeklyGoal: Int?
+    /// "다시 시작하기" 안내를 닫은 날. 닫은 적이 없으면 nil. 이 기기에만 저장한다.
+    private(set) var restartDismissedDay: Day?
 
     init(defaults: UserDefaults = .standard, isPhone: Bool = Platform.isPhone) {
         self.defaults = defaults
@@ -53,6 +57,7 @@ final class DevicePreferences {
         notificationGuideCompleted = defaults.bool(forKey: Self.notificationGuideKey)
         weekStart = defaults.string(forKey: Self.weekStartKey).flatMap(WeekStart.init(rawValue:)) ?? .monday
         weeklyGoal = (defaults.object(forKey: Self.weeklyGoalKey) as? Int).flatMap { (1...7).contains($0) ? $0 : nil }
+        restartDismissedDay = defaults.string(forKey: Self.restartDismissedKey).flatMap(Day.init(key:))
         isLayoutCustomized = false
         if defaults.integer(forKey: Self.layoutVersionKey) >= Self.layoutVersion {
             cardOrder = DashboardCard.normalizedOrder(defaults.stringArray(forKey: Self.orderKey) ?? [])
@@ -150,6 +155,16 @@ final class DevicePreferences {
     func setWeekStart(_ value: WeekStart) {
         weekStart = value
         defaults.set(value.rawValue, forKey: Self.weekStartKey)
+    }
+
+    /// "다시 시작하기" 안내를 닫는다. nil이면 닫은 기록을 지운다(검증용).
+    func setRestartDismissedDay(_ day: Day?) {
+        restartDismissedDay = day
+        if let day {
+            defaults.set(day.key, forKey: Self.restartDismissedKey)
+        } else {
+            defaults.removeObject(forKey: Self.restartDismissedKey)
+        }
     }
 
     /// 주간 목표를 정한다(1~7일). nil이면 추천값으로 되돌린다.
