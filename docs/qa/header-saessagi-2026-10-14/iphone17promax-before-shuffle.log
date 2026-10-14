@@ -1,0 +1,20 @@
+[Saessagi 733924.69] frame controls minX=291.7 maxX=424.0 minY=132.0 maxY=164.0
+[Saessagi 733924.69] frame lane minX=215.3 maxX=283.7 minY=120.0 maxY=164.0
+[Saessagi 733924.69] frame title minX=16.0 maxX=207.3 minY=121.0 maxY=164.0
+[Saessagi 733924.70] lane width=68.3 range=24.3 size=44 clips=Y canPeek=Y
+[Saessagi 733928.01] lane width=68.3 range=24.3 size=44 clips=Y canPeek=Y
+[Saessagi 733929.25] action=hop from=0.0 to=0.0 min=0.0 max=0.0 dur=1.10 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0
+[Saessagi 733930.93] action=bigHop from=0.0 to=0.0 min=0.0 max=0.0 dur=0.98 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0
+[Saessagi 733933.25] action=lookAround from=0.0 to=0.0 min=0.0 max=0.0 dur=1.85 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0
+[Saessagi 733935.82] action=bigHop from=0.0 to=0.0 min=0.0 max=0.0 dur=0.98 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0
+[Saessagi 733938.04] action=doubleHop from=0.0 to=0.0 min=0.0 max=0.0 dur=1.56 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0
+[Saessagi 733940.60] action=hop from=0.0 to=0.0 min=0.0 max=0.0 dur=1.10 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0
+[Saessagi 733942.57] action=stay skipped x=0.0 range=24.3
+[Saessagi 733945.40] action=lookAround from=0.0 to=0.0 min=0.0 max=0.0 dur=1.85 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0
+[Saessagi 733948.07] action=doubleHop from=0.0 to=0.0 min=0.0 max=0.0 dur=1.56 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0
+[Saessagi 733950.30] action=hop from=0.0 to=0.0 min=0.0 max=0.0 dur=1.10 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0
+[Saessagi 733952.41] action=leafShake from=0.0 to=0.0 min=0.0 max=0.0 dur=1.14 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0
+[Saessagi 733954.56] action=doubleHop from=0.0 to=0.0 min=0.0 max=0.0 dur=1.56 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0
+[Saessagi 733957.05] action=bigHop from=0.0 to=0.0 min=0.0 max=0.0 dur=0.98 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0
+[Saessagi 733959.25] action=stay skipped x=0.0 range=24.3
+[Saessagi 733961.25] action=lookAround from=0.0 to=0.0 min=0.0 max=0.0 dur=1.85 steps=0 lane=68.3 range=24.3 body=6.0...38.0 visibleMax=38.0

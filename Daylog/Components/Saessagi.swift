@@ -141,20 +141,21 @@ enum SaessagiMood {
     }
 }
 
-/// 오늘 화면 머리말의 새싹이: 평소에는 숨 쉬고 깜빡이다가 가끔 걷거나 멀리 산책하거나 두리번거리거나 폴짝 뛰거나 졸고,
-/// 자리가 넓으면 자리 끝(단추 쪽)으로 숨었다가 빼꼼 내다본다. 앱에 들어오면 한 번 손을 흔들고, 가끔 잠깐 엎드려 쉰다.
-/// 루틴을 완료하거나 건너뛰면 하던 것을 멈추고 잠깐 반응한다.
+/// 오늘 화면 머리말의 새싹이: 긴 산책·빠른 걸음과 폴짝 뛰기·두리번거리기·잎 흔들기를 번갈아 하고, 자리가 넓으면 한 바퀴에
+/// 한 번은 자리 끝(단추 쪽)으로 숨었다가 빼꼼 내다보고 뛰어나온다(`SaessagiDirector`). 앱에 들어오면 한 번 손을 흔들고,
+/// 가끔 잠깐 엎드려 쉰다. 루틴을 완료하거나 건너뛰면 하던 것을 멈추고 잠깐 반응한다.
 ///
-/// 가로로 `walkRange`만큼까지 늘어나는 자리를 차지한다(자리가 남을 때만). 그 안에서만 걸어 다니고, 숨바꼭질은 자리 끝에서 잘려 보인다.
+/// `fillsWidth`면 줄에 남는 가로 자리(제목 끝에서 첫 단추 앞까지)를 모두 차지하고 그 전체를 걸어 다닌다. 거리의 상한은 따로 두지
+/// 않는다: 창이 넓어지면 그만큼 멀리 간다. 숨바꼭질은 자리 끝에서 새싹이만 잘려 보인다.
 /// 놓는 쪽에서 `.layoutPriority(-1)`을 주어 글자나 단추의 자리를 빼앗지 않게 한다. 누르기는 받지 않는다(단추를 가로채지 않는다).
 struct TodaySaessagi: View {
     @Environment(AppStore.self) private var store
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.scenePhase) private var scenePhase
     var size: CGFloat = 48
-    /// 걸어 다닐 수 있는 최대 거리(pt).
+    /// 남는 자리를 차지하지 않을 때(`fillsWidth`가 거짓) 옆으로 늘어나 걸어 다니는 거리(pt).
     var walkRange: CGFloat = 60
-    /// 줄에 남는 가로 자리를 모두 차지할지. 빈칸(Spacer) 대신 놓을 때 켠다: 걷는 거리는 그래도 `walkRange`까지다.
+    /// 줄에 남는 가로 자리를 모두 차지하고 그 전체를 걸어 다닐지. 빈칸(Spacer) 대신 놓을 때 켠다.
     var fillsWidth = false
     /// 서 있던 자리. 반응 그림을 그 자리에 놓고, 끝나면 평소 모습도 거기서 다시 시작한다.
     @State private var awayX: CGFloat = 0
@@ -193,7 +194,7 @@ struct TodaySaessagi: View {
                 // 평소 모습일 때만 살아 움직인다. 반응(기쁨·휴식)이 시작되면 그 그림으로 바뀌며 움직임도 멈춘다.
                 if pose == .idle {
                     SaessagiAnimatedView(
-                        pose: .idle, size: size, behavior: .today, fillsLane: true, maxRange: walkRange,
+                        pose: .idle, size: size, behavior: .today, fillsLane: true, maxRange: fillsWidth ? .infinity : walkRange,
                         startX: canWalk ? awayX : 0, link: link, clipsLaneEnd: fillsWidth
                     )
                 } else {
@@ -212,6 +213,7 @@ struct TodaySaessagi: View {
         )
         .animation(reduceMotion ? nil : .easeInOut(duration: 0.18), value: pose)
         .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { laneWidth = $0 }
+        .saessagiDebugFrame("lane")
         .onChange(of: progress) { old, new in
             if let next = SaessagiMood.reaction(from: old, to: new) { react(next) }
         }
@@ -252,5 +254,22 @@ struct TodaySaessagi: View {
             guard !Task.isCancelled else { return }
             reaction = nil
         }
+    }
+}
+
+extension View {
+    /// 화면 검증용(`-DaylogDebugSaessagiLog YES`, Debug 빌드만): 머리말 요소의 창 안 자리(왼쪽 끝·오른쪽 끝)를 적어
+    /// 새싹이가 걷는 자리가 제목과 단추 사이의 빈자리와 맞는지, 겹치지 않는지 확인한다.
+    func saessagiDebugFrame(_ name: String) -> some View {
+        #if DEBUG
+        onGeometryChange(for: CGRect.self) { $0.frame(in: .global) } action: { frame in
+            guard SaessagiStage.logsEnabled else { return }
+            SaessagiStage.write(String(
+                format: "frame %@ minX=%.1f maxX=%.1f minY=%.1f maxY=%.1f", name, frame.minX, frame.maxX, frame.minY, frame.maxY
+            ))
+        }
+        #else
+        self
+        #endif
     }
 }

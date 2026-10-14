@@ -27,16 +27,31 @@ enum SaessagiAction: CaseIterable, Sendable {
     case wiggle
     /// 크게 한 번 숨을 쉰다.
     case deepBreath
-    /// 넓은 자리에서 천천히 멀리 산책한다.
+    /// 머리말에서 성큼성큼 멀리 산책한다: 걸을 자리의 70~90%를 가고, 길면 중간에 폴짝 뛰며 나아간다.
     case stroll
-    /// 걸을 자리 끝(머리말의 단추 쪽)으로 걸어가 그 뒤로 숨었다가, 빼꼼 내다보고 돌아온다.
+    /// 걸을 자리 끝(머리말의 단추 쪽)으로 걸어가 그 뒤로 숨었다가, 빼꼼 내다보고 폴짝 뛰어나온다.
     case peek
+    /// 빠른 걸음으로 조금 옮겨 간다(머리말).
+    case dash
+    /// 높이 폴짝 뛴다.
+    case bigHop
+    /// 연달아 두 번 뛴다(두 번째가 더 높다).
+    case doubleHop
+    /// 머리 위의 잎을 파르르 흔든다.
+    case leafShake
     /// 넘어졌다 일어나기: 새 그림이 있어야 해서 아직 만들지 않았다.
     case tumble
 
     var isAvailable: Bool { self != .tumble }
     /// 나뉜 레이어(발·눈·입·잎)가 있어야 하는 행동.
-    var needsLayers: Bool { self == .walk || self == .lookAround || self == .doze || self == .stroll || self == .peek }
+    var needsLayers: Bool {
+        switch self {
+        case .walk, .lookAround, .doze, .stroll, .peek, .dash, .leafShake: return true
+        default: return false
+        }
+    }
+    /// 옆으로 옮겨 가는 행동(발이 따로 있어야 한다).
+    var travels: Bool { self == .walk || self == .stroll || self == .peek || self == .dash }
 }
 
 /// 새싹이가 놓인 자리에서 어떻게 움직일지: 고를 행동과 비중, 쉬는 시간, 숨의 크기.
@@ -53,21 +68,26 @@ struct SaessagiBehavior: Equatable, Sendable {
     /// 숨을 들이쉴 때 키가 늘어나는 비율과, 들숨 또는 날숨 한 번의 시간(초).
     var breathStretch = SaessagiIdleMotion.breathStretch
     var breathHalfPeriod = SaessagiIdleMotion.breathHalfPeriod
+    /// 무작위로만 고르지 않고 `SaessagiDirector`의 순서를 따르는가(머리말). 이때 `choices`는 제자리 동작을 고르는 비중이다.
+    var isDirected = false
 
     private static func make(
         _ choices: [(SaessagiAction, Int)], rest: ClosedRange<Double>, firstRest: Double,
-        breathStretch: Double = SaessagiIdleMotion.breathStretch, breathHalfPeriod: Double = SaessagiIdleMotion.breathHalfPeriod
+        breathStretch: Double = SaessagiIdleMotion.breathStretch, breathHalfPeriod: Double = SaessagiIdleMotion.breathHalfPeriod,
+        isDirected: Bool = false
     ) -> SaessagiBehavior {
         SaessagiBehavior(
             choices: choices.map { Choice(action: $0.0, weight: $0.1) }, rest: rest, firstRest: firstRest,
-            breathStretch: breathStretch, breathHalfPeriod: breathHalfPeriod
+            breathStretch: breathStretch, breathHalfPeriod: breathHalfPeriod, isDirected: isDirected
         )
     }
 
-    /// 오늘 화면 머리말: 걷고, 멀리 산책하고, 두리번거리고, 뛰고, 졸고, 자리가 넓으면 단추 뒤로 숨바꼭질한다.
-    /// 자리가 좁으면(iPhone) 산책·숨바꼭질은 할 수 없어 건너뛰고 제자리 동작이 된다.
+    /// 오늘 화면 머리말: 긴 산책·빠른 걸음과 제자리 동작(뛰기·두리번·잎 흔들기)을 번갈아 하고, 한 바퀴에 한 번은
+    /// 단추 쪽 끝으로 숨바꼭질한다(순서는 `SaessagiDirector`). 행동 사이에는 잠깐만 쉰다.
+    /// 자리가 좁으면(iPhone) 이동이 짧아지고 제자리 동작이 늘어난다.
     static let today = make(
-        [(.stay, 3), (.walk, 5), (.stroll, 3), (.lookAround, 5), (.hop, 4), (.doze, 2), (.peek, 2)], rest: 2.5...5.5, firstRest: 2
+        [(.hop, 3), (.bigHop, 2), (.doubleHop, 2), (.lookAround, 3), (.leafShake, 3)], rest: 0.5...1.3, firstRest: 1.2,
+        isDirected: true
     )
     /// 기다리는 안내 화면: 주로 두리번거린다.
     static let waiting = make([(.lookAround, 6), (.hop, 2), (.stay, 2)], rest: 2...4, firstRest: 1.2)
@@ -152,15 +172,32 @@ enum SaessagiWalkMotion {
     /// 한 번에 걷는 걸음 수: 이보다 적게 걸을 자리밖에 없으면 걷지 않고, 이보다 많이 걷지 않는다(2~3초).
     static let minimumSteps = 4
     static let maximumSteps = 9
-    /// 산책: 이만큼 이상 걸을 자리가 있을 때만 하고, 한 번에 이보다 많이 걷지 않는다(약 2.5~6초).
-    static let strollMinimumSteps = 10
-    static let strollMaximumSteps = 22
-    /// 산책은 보통 걸음보다 조금 성큼성큼(최대 이 배수) 걸어 넓은 머리말을 오간다.
-    static let strollStrideScale = 1.5
-    /// 숨바꼭질: 걸을 자리가 새싹이 키의 이 배수 이상일 때만 한다. 자리 끝이 산책 한 번 거리보다 멀면 먼저 그쪽으로 산책한다.
+
+    // 머리말의 이동. 가는 거리는 정해 두지 않고 그때 걸을 자리(`range`)에서 정한다.
+
+    /// 긴 산책: 한 걸음의 거리와 시간(보통 걸음보다 성큼성큼, 1초에 약 43pt). 갈 길이 키의 `strideRamp`배보다 멀면
+    /// 그만큼 보폭을 넓힌다(최대 `strideStretch`배): 아주 넓은 창에서도 끝에서 끝까지 너무 오래 걸리지 않게 한다.
+    static let strollStep = 0.18
+    static let strollStepDuration = 0.2
+    static let strideRamp = 8.0
+    static let strideStretch = 1.4
+    /// 긴 산책은 걸을 자리의 이만큼을 간다(그쪽 끝이 더 가까우면 끝까지).
+    static let strollShare = 0.7...0.9
+    /// 긴 산책 중에는 이 거리(키의 배수)마다 한 번 폴짝 뛰며 나아간다. 한 번에 나아가는 거리.
+    static let leapEvery = 5.0
+    static let leapAdvance = 0.8
+    /// 빠른 걸음: 한 걸음의 거리와 시간(1초에 약 40pt). 걸을 자리의 이 비율까지 간다(적어도 키의 두 배).
+    static let dashStep = 0.15
+    static let dashStepDuration = 0.17
+    static let dashShare = 0.4
+    /// 성큼성큼 걸을 때 발을 더 높이 들고 몸이 더 통통 뜬다.
+    static let briskVigor = 1.25
+    /// 걸을 자리가 키의 이 배수보다 좁으면 옮겨 가지 않고 제자리에서 움직인다.
+    static let travelMinimum = 1.2
+    /// 걸을 자리가 키의 이 배수보다 좁으면(iPhone) 이동을 줄이고 제자리 동작을 늘린다.
+    static let narrowLane = 3.0
+    /// 숨바꼭질: 걸을 자리가 키의 이 배수 이상일 때만 한다. 어디에 있든 끝까지 걸어가서 숨는다.
     static let peekMinimumRange = 1.5
-    /// 산책 한 번에 갈 수 있는 가장 먼 거리(새싹이 키에 대한 비율).
-    static var strollReach: Double { Double(strollMaximumSteps - 1) * stepLength * strollStrideScale }
 }
 
 /// 시간에 따라 변하는 값 하나(키프레임). 시간은 초, 처음은 0초.
@@ -270,19 +307,79 @@ struct SaessagiMotionPlan: Equatable, Sendable {
         return nil
     }
 
-    /// 산책할 곳: 지금 자리에서 `strollMinimumSteps`~`strollMaximumSteps` 걸음 떨어진 곳. 그만한 자리가 없으면 nil.
+    /// 긴 산책할 곳: 더 넓은 쪽으로 걸을 자리의 70~90%만큼(그쪽 끝이 더 가까우면 끝까지). 그래서 넓은 머리말에서는
+    /// 한쪽 끝에서 다른 쪽 끝으로 오간다. 자리가 키의 `travelMinimum`배보다 좁으면 nil.
     static func strollTarget(
         from x: Double, range: Double, size: Double, using generator: inout some RandomNumberGenerator
     ) -> Double? {
-        let step = SaessagiWalkMotion.stepLength * size
-        guard step > 0 else { return nil }
-        let shortest = Double(SaessagiWalkMotion.strollMinimumSteps - 1) * step
-        let longest = SaessagiWalkMotion.strollReach * size
+        guard size > 0, range >= SaessagiWalkMotion.travelMinimum * size else { return nil }
+        let x = min(max(x, 0), range)
+        let direction: Double = range - x >= x ? 1 : -1
+        let distance = Double.random(in: SaessagiWalkMotion.strollShare, using: &generator) * range
+        return min(max(x + direction * distance, 0), range)
+    }
+
+    /// 빠른 걸음으로 갈 곳: 키의 `travelMinimum`배에서 걸을 자리의 `dashShare`(적어도 키의 두 배)까지 떨어진 곳.
+    /// 자리가 더 넓은 쪽으로 더 자주 간다. 그만한 자리가 없으면 nil.
+    static func dashTarget(
+        from x: Double, range: Double, size: Double, using generator: inout some RandomNumberGenerator
+    ) -> Double? {
+        guard size > 0 else { return nil }
+        let shortest = SaessagiWalkMotion.travelMinimum * size
+        let longest = max(SaessagiWalkMotion.dashShare * range, 2 * size)
         let left = min(max(x, 0), longest), right = min(max(range - x, 0), longest)
         let options = [(-1.0, left), (1.0, right)].filter { $0.1 >= shortest }
-        guard let pick = options.randomElement(using: &generator) else { return nil }
-        let distance = Double.random(in: shortest...pick.1, using: &generator)
-        return min(max(x + pick.0 * distance, 0), range)
+        let total = options.reduce(0) { $0 + $1.1 }
+        guard total > 0 else { return nil }
+        var pick = Double.random(in: 0..<total, using: &generator)
+        for option in options {
+            if pick < option.1 {
+                let distance = Double.random(in: shortest...option.1, using: &generator)
+                return min(max(x + option.0 * distance, 0), range)
+            }
+            pick -= option.1
+        }
+        return nil
+    }
+
+    /// 머리말의 이동: `x`에서 `target`까지 가는 쪽을 보고 성큼성큼(`step`·`period`) 걷는다.
+    /// `leaps`면 `leapEvery`마다 한 번 멈춰 폴짝 뛰며 나아간다. 거리는 정해 두지 않는다(자리가 넓으면 그만큼 오래 걷는다).
+    static func journey(
+        from x: Double, to target: Double, size: Double, step: Double, period: Double, leaps: Bool
+    ) -> SaessagiMotionPlan? {
+        guard size > 0, step > 0, abs(target - x) > 0.5 else { return nil }
+        let direction = target > x ? 1.0 : -1.0
+        var plan = SaessagiMotionPlan(startX: x)
+        plan.face.add(direction * SaessagiWalkMotion.faceShift * size, at: SaessagiWalkMotion.faceTurn)
+        plan.duration = SaessagiWalkMotion.faceTurn * 0.6
+        plan.travel(to: target, step: step, period: period, leaps: leaps, size: size)
+        plan.face.hold(until: plan.duration)
+        plan.face.add(0, at: plan.duration + SaessagiWalkMotion.faceTurn)
+        plan.duration += SaessagiWalkMotion.faceTurn
+        plan.holdAll(until: plan.duration)
+        return plan
+    }
+
+    /// 지금 자리에서 `target`까지 성큼성큼 걷는다(가는 쪽을 보는 것은 부르는 쪽이 한다).
+    private mutating func travel(to target: Double, step: Double, period: Double, leaps: Bool, size: Double) {
+        let distance = abs(target - moverX.last)
+        guard distance > 0.5 else { return }
+        let direction = target > moverX.last ? 1.0 : -1.0
+        let stretch = leaps ? min(max(distance / (SaessagiWalkMotion.strideRamp * size), 1), SaessagiWalkMotion.strideStretch) : 1
+        let nominal = step * size * stretch
+        let advance = SaessagiWalkMotion.leapAdvance * size
+        let count = leaps ? Int(distance / (SaessagiWalkMotion.leapEvery * size)) : 0
+        // 걷는 거리를 뛰는 자리로 고르게 나눈다(뛰기 사이는 키의 네 배쯤 넉넉히 걷는다).
+        let segment = (distance - Double(count) * advance) / Double(count + 1)
+        for index in 0...count {
+            if index > 0 { leap(height: 0.24 * size, advance: advance, direction: direction, size: size) }
+            let stepCount = max(2, Int((segment / nominal).rounded()) + 1)
+            steps += stepCount
+            stride(
+                steps: stepCount, stepLength: segment / Double(stepCount - 1), direction: direction, size: size, period: period,
+                vigor: SaessagiWalkMotion.briskVigor
+            )
+        }
     }
 
     /// `x`에서 `target`까지 걷는다. 가는 쪽을 먼저 보고, 걷고, 멈춰서 앞을 본다.
@@ -307,8 +404,10 @@ struct SaessagiMotionPlan: Equatable, Sendable {
         return plan
     }
 
-    private mutating func stride(steps: Int, stepLength: Double, direction: Double, size: Double) {
-        let period = SaessagiWalkMotion.stepDuration
+    private mutating func stride(
+        steps: Int, stepLength: Double, direction: Double, size: Double, period: Double = SaessagiWalkMotion.stepDuration,
+        vigor: Double = 1
+    ) {
         let start = duration
         let half = stepLength / 2
         var x = moverX.last
@@ -323,7 +422,7 @@ struct SaessagiMotionPlan: Equatable, Sendable {
             moverX.add(x, at: finish)
             let swingEnd = isLast ? 0 : direction * half
             let stanceEnd = isLast ? 0 : -direction * half
-            let lift = SaessagiWalkMotion.footLift * size
+            let lift = SaessagiWalkMotion.footLift * size * vigor
             if swingsRight {
                 footRightX.add(swingEnd, at: finish)
                 footRightLift.add(lift, at: middle)
@@ -337,7 +436,7 @@ struct SaessagiMotionPlan: Equatable, Sendable {
                 footRightX.add(stanceEnd, at: finish)
                 footRightLift.add(0, at: finish)
             }
-            bob.add(SaessagiWalkMotion.bob * size, at: middle)
+            bob.add(SaessagiWalkMotion.bob * size * vigor, at: middle)
             bob.add(0, at: finish)
             // 디딘 발 쪽으로 기운다: 오른발을 들면 왼쪽으로. 잎은 반대로 늦게 따라온다.
             let side = swingsRight ? -1.0 : 1.0
@@ -353,46 +452,65 @@ struct SaessagiMotionPlan: Equatable, Sendable {
 
     // MARK: - 숨바꼭질
 
-    /// 걸을 자리 끝(`range`, 머리말의 단추 쪽)까지 걸어가 그 너머로 몸을 숨긴다(무대가 자리 끝에서 잘라 낸다).
-    /// 잠깐 뒤 반쯤 돌아와 왼쪽을 내다보며 깜빡이고, 자리 끝으로 돌아온다. 자리가 좁거나 끝에서 멀면 nil.
+    /// 숨바꼭질에서 자리 끝(`range`)보다 오른쪽으로 들어가는 거리(키에 대한 비율). 무대는 자리 끝에서 새싹이만 잘라 내므로
+    /// 그만큼 몸이 가려진다. 몸은 키의 약 14~86% 자리에 있고 눈은 가운데에 있다.
+    static let peekHidden = 0.8
+    /// 한쪽 눈과 몸 절반쯤이 나오는 자리, 몸을 더 내밀어 두리번거리는 자리.
+    static let peekPeeking = 0.5
+    static let peekLeaning = 0.34
+    /// 폴짝 뛰어나와 내려앉는 자리(자리 끝에서 왼쪽으로).
+    static let peekLanding = 0.45
+
+    /// 걸을 자리 끝(`range`, 머리말의 단추 쪽)까지 걸어가 그 너머로 몸을 숨긴다(무대가 자리 끝에서 새싹이만 잘라 낸다).
+    /// 잠깐 숨어 있다가 돌아서 한쪽 눈만 빼꼼 내밀고 깜빡이고, 몸을 더 내밀어 두리번거린 뒤 폴짝 뛰어나온다.
+    /// 끝에서 멀리 있으면 먼저 끝까지 걸어간다(가는 거리를 정해 두지 않는다). 자리가 좁으면 nil.
     static func peek(at x: Double, range: Double, size: Double) -> SaessagiMotionPlan? {
-        let nominal = SaessagiWalkMotion.stepLength * size
-        guard nominal > 0, range >= SaessagiWalkMotion.peekMinimumRange * size,
-              range - x <= SaessagiWalkMotion.strollReach * size else { return nil }
-        let hidden = range + 0.82 * size
-        let peeking = range + 0.45 * size
+        guard size > 0, range >= SaessagiWalkMotion.peekMinimumRange * size else { return nil }
+        let hidden = range + peekHidden * size
+        let peeking = range + peekPeeking * size
+        let leaning = range + peekLeaning * size
+        let landing = max(range - peekLanding * size, 0)
         let turn = SaessagiWalkMotion.faceTurn
         let look = SaessagiWalkMotion.faceShift * size
         var plan = SaessagiMotionPlan(startX: x)
-        func steps(_ distance: Double) -> Int { max(2, Int((distance / nominal).rounded()) + 1) }
 
-        // 1. 끝을 보고 걸어가 숨는다.
+        // 1. 끝을 보고 성큼성큼 걸어가 숨는다.
         plan.face.add(look, at: turn)
         plan.duration = turn * 0.6
-        let go = min(steps(hidden - x), SaessagiWalkMotion.strollMaximumSteps + 2)
-        plan.stride(steps: go, stepLength: (hidden - x) / Double(go - 1), direction: 1, size: size)
+        plan.travel(
+            to: hidden, step: SaessagiWalkMotion.strollStep, period: SaessagiWalkMotion.strollStepDuration, leaps: true, size: size
+        )
         // 2. 숨어 있다.
-        plan.duration += 1.2
+        plan.duration += 0.8
         plan.holdAll(until: plan.duration)
-        // 3. 돌아서 반쯤 나와 왼쪽을 내다본다.
+        // 3. 돌아서 살금살금 나와 한쪽 눈만 내밀고 두 번 깜빡인다.
         plan.face.add(-look * 1.3, at: plan.duration + turn)
         plan.duration += turn * 0.6
-        let out = steps(hidden - peeking)
-        plan.stride(steps: out, stepLength: (hidden - peeking) / Double(out - 1), direction: -1, size: size)
+        plan.travel(to: peeking, step: SaessagiWalkMotion.stepLength, period: 0.3, leaps: false, size: size)
         plan.face.hold(until: plan.duration)
-        // 내다보며 두 번 깜빡인다.
         let closed = SaessagiIdleMotion.closedEyeScale
-        let blink = plan.duration + 0.3
+        let blink = plan.duration + 0.35
         plan.eyes.hold(until: blink)
         for start in [blink, blink + 0.32] {
             plan.eyes.add(closed, at: start + SaessagiIdleMotion.blinkClose)
             plan.eyes.add(1, at: start + SaessagiIdleMotion.blinkClose + SaessagiIdleMotion.blinkOpen)
         }
-        plan.duration += 1.0
+        plan.duration += 1.1
         plan.holdAll(until: plan.duration)
-        // 4. 자리 끝으로 돌아와 앞을 본다.
-        let back = steps(peeking - range)
-        plan.stride(steps: back, stepLength: (peeking - range) / Double(back - 1), direction: -1, size: size)
+        // 4. 몸을 조금 더 내밀어 왼쪽을 기웃거리고, 숨던 쪽을 한 번 돌아봤다가 다시 왼쪽을 본다.
+        plan.travel(to: leaning, step: SaessagiWalkMotion.stepLength, period: 0.3, leaps: false, size: size)
+        let lookStart = plan.duration
+        for (time, side, tilt) in [(0.25, -1.5, -4.0), (0.6, -1.5, -4.0), (0.85, 0.4, 1.0), (1.15, 0.4, 1.0), (1.4, -1.2, -2.0)] {
+            plan.face.add(side * look, at: lookStart + time)
+            plan.rock.add(tilt, at: lookStart + time)
+        }
+        for (time, angle) in [(0.3, 4.0), (0.55, -2.0), (0.8, -5.0), (1.05, 2.0), (1.3, 0.0)] {
+            plan.leaf.add(angle, at: lookStart + time)
+        }
+        plan.duration = lookStart + 1.4
+        plan.holdAll(until: plan.duration)
+        // 5. 폴짝 뛰어나와 내려앉고, 앞을 본다.
+        plan.leap(height: 0.28 * size, advance: leaning - landing, direction: -1, size: size)
         plan.face.add(0, at: plan.duration + turn)
         plan.duration += turn
         plan.holdAll(until: plan.duration)
@@ -447,6 +565,87 @@ struct SaessagiMotionPlan: Equatable, Sendable {
         let leaf: [(Double, Double)] = [(0.14, 2), (0.26, -7), (0.44, 3), (0.66, 13), (0.82, -8), (0.96, 4), (1.1, 0)]
         for (time, angle) in leaf { plan.leaf.add(angle, at: time) }
         plan.duration = 1.1
+        plan.holdAll(until: plan.duration)
+        return plan
+    }
+
+    /// 제자리에서 높이 뛴다(머리말).
+    static func bigHop(at x: Double, size: Double) -> SaessagiMotionPlan {
+        var plan = SaessagiMotionPlan(startX: x)
+        plan.leap(height: 0.34 * size, size: size)
+        plan.holdAll(until: plan.duration)
+        return plan
+    }
+
+    /// 연달아 두 번 뛴다: 첫 번째는 작게, 내려앉아 눌린 힘으로 두 번째는 더 높이(머리말).
+    static func doubleHop(at x: Double, size: Double) -> SaessagiMotionPlan {
+        var plan = SaessagiMotionPlan(startX: x)
+        plan.leap(height: 0.18 * size, size: size, settles: false)
+        plan.leap(height: 0.3 * size, size: size)
+        plan.holdAll(until: plan.duration)
+        return plan
+    }
+
+    /// 뛰기 한 번을 지금까지의 움직임 뒤에 붙인다: 움츠렸다가 뛰어올라(가는 쪽으로 `advance`만큼 나아가며) 내려앉고,
+    /// 눌렸다가 돌아온다. 떠 있는 동안 두 발을 들고, 잎은 뛰어오를 때 뒤로 눕고 내려앉은 뒤 크게 흔들린다.
+    /// `settles`가 거짓이면 내려앉아 눌린 채로 끝나 곧바로 다음 뛰기를 이어 붙일 수 있다.
+    private mutating func leap(
+        height: Double, advance: Double = 0, direction: Double = 1, size: Double, settles: Bool = true
+    ) {
+        let start = duration
+        holdAll(until: start)
+        let x = moverX.last
+        // 잎이 흔들리는 크기는 뛰는 높이를 따른다.
+        let swing = min(max(height / (0.2 * size), 0.8), 1.4)
+        for (time, level) in [(0.12, 0.0), (0.2, 0.6), (0.32, 1.0), (0.44, 0.62), (0.52, 0.0)] {
+            bob.add(level * height, at: start + time)
+        }
+        if advance > 0 {
+            // 떠 있는 동안에만 나아간다(땅에 있을 때 미끄러지지 않는다). 가는 쪽으로 몸을 숙인다.
+            moverX.add(x, at: start + 0.14)
+            moverX.add(x + direction * advance, at: start + 0.5)
+            rock.add(direction * 5, at: start + 0.3)
+            rock.add(0, at: start + 0.56)
+        }
+        var squash: [(Double, Double, Double)] = [
+            (0.12, 1.08, 0.88), (0.2, 0.95, 1.08), (0.32, 1, 1), (0.48, 0.98, 1.03), (0.56, 1.1, 0.86),
+        ]
+        if settles { squash += [(0.7, 0.97, 1.04), (0.82, 1, 1)] }
+        for (time, wide, tall) in squash {
+            squashX.add(wide, at: start + time)
+            squashY.add(tall, at: start + time)
+        }
+        let tuck = 0.05 * size
+        for (time, level) in [(0.14, 0.0), (0.32, 1.0), (0.52, 0.0)] {
+            footLeftLift.add(level * tuck, at: start + time)
+            footRightLift.add(level * tuck, at: start + time)
+        }
+        var leafKeys: [(Double, Double)] = [(0.24, -8), (0.42, 4), (0.58, 13)]
+        if settles { leafKeys += [(0.72, -8), (0.86, 4), (0.98, 0)] }
+        for (time, angle) in leafKeys { leaf.add(angle * swing, at: start + time) }
+        duration = start + (settles ? 0.98 : 0.58)
+        holdAll(until: duration)
+    }
+
+    // MARK: - 잎 흔들기
+
+    /// 머리 위의 잎을 빠르게 좌우로 크게 흔들다가 잦아든다. 몸은 털듯이 살짝 떨고, 눈은 가늘게 뜬다(머리말).
+    static func leafShake(at x: Double, size: Double) -> SaessagiMotionPlan {
+        var plan = SaessagiMotionPlan(startX: x)
+        let leaf: [(Double, Double)] = [
+            (0.12, -14), (0.24, 16), (0.36, -16), (0.48, 15), (0.6, -12), (0.72, 9), (0.86, -5), (1.0, 2), (1.14, 0),
+        ]
+        for (time, angle) in leaf { plan.leaf.add(angle, at: time) }
+        for (time, angle) in [(0.12, 2.5), (0.24, -2.5), (0.36, 2.5), (0.48, -2.5), (0.6, 1.5), (0.72, -1.0), (0.86, 0.0)] {
+            plan.rock.add(angle, at: time)
+        }
+        for (time, wide, tall) in [(0.1, 1.04, 0.95), (0.25, 0.98, 1.03), (0.6, 0.99, 1.02), (0.85, 1.0, 1.0)] {
+            plan.squashX.add(wide, at: time)
+            plan.squashY.add(tall, at: time)
+        }
+        for (time, level) in [(0.12, 0.02), (0.24, 0.0), (0.36, 0.02), (0.48, 0.0)] { plan.bob.add(level * size, at: time) }
+        for (time, scale) in [(0.1, 0.55), (0.75, 0.55), (0.9, 1.0)] { plan.eyes.add(scale, at: time) }
+        plan.duration = 1.14
         plan.holdAll(until: plan.duration)
         return plan
     }
@@ -589,17 +788,24 @@ struct SaessagiMotionPlan: Equatable, Sendable {
             return walkTarget(from: x, range: range, size: size, using: &generator).flatMap { walk(from: x, to: $0, size: size) }
         case .stroll:
             return strollTarget(from: x, range: range, size: size, using: &generator).flatMap {
-                walk(from: x, to: $0, size: size, maxSteps: SaessagiWalkMotion.strollMaximumSteps)
+                journey(
+                    from: x, to: $0, size: size, step: SaessagiWalkMotion.strollStep,
+                    period: SaessagiWalkMotion.strollStepDuration, leaps: true
+                )
             }
-        case .peek:
-            // 자리 끝이 멀면 이번에는 그쪽으로 산책만 한다(다음에 끝에서 숨는다).
-            guard range >= SaessagiWalkMotion.peekMinimumRange * size else { return nil }
-            return peek(at: x, range: range, size: size) ?? walk(
-                from: x, to: min(range, x + SaessagiWalkMotion.strollReach * size), size: size,
-                maxSteps: SaessagiWalkMotion.strollMaximumSteps
-            )
+        case .dash:
+            return dashTarget(from: x, range: range, size: size, using: &generator).flatMap {
+                journey(
+                    from: x, to: $0, size: size, step: SaessagiWalkMotion.dashStep,
+                    period: SaessagiWalkMotion.dashStepDuration, leaps: false
+                )
+            }
+        case .peek: return peek(at: x, range: range, size: size)
         case .lookAround: return lookAround(at: x, size: size)
         case .hop: return hop(at: x, size: size)
+        case .bigHop: return bigHop(at: x, size: size)
+        case .doubleHop: return doubleHop(at: x, size: size)
+        case .leafShake: return leafShake(at: x, size: size)
         case .doze: return doze(at: x, size: size)
         case .sway: return sway(at: x, size: size)
         case .bounce: return bounce(at: x, size: size)

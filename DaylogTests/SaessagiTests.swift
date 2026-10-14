@@ -233,25 +233,63 @@ struct SaessagiTests {
         #expect(doze.eyes.value(at: 1.5) == SaessagiIdleMotion.closedEyeScale && doze.eyes.value(at: 2.2) > 1)
     }
 
-    @Test func todayBehaviourMixesActionsAndNeverRepeatsBackToBack() {
+    @Test func headerDirectorAlternatesMovesAndGuaranteesPeekAndLongWalks() {
         var generator = SystemRandomNumberGenerator()
-        var counts: [SaessagiAction: Int] = [:]
-        var last: SaessagiAction?
-        let behavior = SaessagiBehavior.today
-        for _ in 0..<4_000 {
-            let action = behavior.next(after: last, using: &generator)
-            #expect(action != last && action.isAvailable)
-            counts[action, default: 0] += 1
-            last = action
+        let size = 48.0, range = 600.0
+        var director = SaessagiDirector()
+        var actions: [SaessagiAction] = []
+        for _ in 0..<(SaessagiDirector.cycle.count * 40) {
+            actions.append(director.next(
+                x: 0, range: range, size: size, canPeek: true, flourishes: SaessagiBehavior.today.choices, using: &generator
+            ))
         }
-        // 여섯 가지 행동과 쉬기가 모두 나오고, 그 밖의 동작은 나오지 않는다.
-        let expected: [SaessagiAction] = [.stay, .walk, .stroll, .lookAround, .hop, .doze, .peek]
-        for action in expected { #expect((counts[action] ?? 0) > 150) }
-        #expect(counts.count == expected.count)
-        // 조는 것과 숨바꼭질은 걷기·두리번거리기보다 드물다.
-        #expect(counts[.doze]! < counts[.walk]! && counts[.peek]! < counts[.lookAround]!)
-        // 산만하지 않게: 쉬는 시간은 2.5~5.5초.
-        #expect(behavior.rest == 2.5...5.5 && behavior.firstRest <= 3)
+        // 한 바퀴(7박자)마다 긴 산책과 숨바꼭질이 꼭 한 번씩 있고, 숨바꼭질 다음에는 연달아 뛴다.
+        for lap in stride(from: 0, to: actions.count, by: SaessagiDirector.cycle.count) {
+            let cycle = Array(actions[lap..<(lap + SaessagiDirector.cycle.count)])
+            #expect(cycle.first == .stroll)
+            #expect(cycle.filter { $0 == .peek }.count == 1)
+            let peek = cycle.firstIndex(of: .peek)!
+            #expect(cycle[peek + 1] == .doubleHop)
+            // 쉬는 박자는 한 바퀴에 한 번뿐이다.
+            #expect(cycle.filter { $0 == .stay || $0 == .doze }.count == 1)
+            // 그 밖에는 모두 이동하거나 뛰거나 잎을 흔드는 등 눈에 띄는 동작이다.
+            #expect(cycle.filter { $0 == .stay || $0 == .doze || $0 == .walk }.count <= 1)
+        }
+        // 같은 행동을 바로 이어서 하지 않는다.
+        for (a, b) in zip(actions, actions.dropFirst()) { #expect(a != b) }
+        // 뛰기 세 가지와 두리번·잎 흔들기, 빠른 걸음이 모두 나온다.
+        for action in [SaessagiAction.hop, .bigHop, .doubleHop, .lookAround, .leafShake, .dash] {
+            #expect(actions.contains(action))
+        }
+        // 행동 사이에 잠깐만 쉰다.
+        #expect(SaessagiBehavior.today.rest.upperBound <= 1.5 && SaessagiBehavior.today.firstRest <= 1.5)
+        #expect(SaessagiBehavior.today.isDirected && !SaessagiBehavior.growing.isDirected)
+    }
+
+    @Test func headerDirectorStaysInPlaceOnNarrowLanes() {
+        var generator = SystemRandomNumberGenerator()
+        let size = 44.0
+        // 옮겨 갈 자리가 없으면(키의 1.2배 미만) 긴 산책·빠른 걸음·숨바꼭질 대신 제자리에서 뛰고 두리번거리고 잎을 흔들고,
+        // 한 바퀴에 한 번 그 안에서 종종거린다.
+        var director = SaessagiDirector()
+        for _ in 0..<70 {
+            let action = director.next(
+                x: 0, range: 40, size: size, canPeek: true, flourishes: SaessagiBehavior.today.choices, using: &generator
+            )
+            #expect(action != .stroll && action != .dash && action != .peek)
+        }
+        // 좁은 자리(iPhone)에서는 숨바꼭질 박자도 뛰기가 되고, 이동 박자의 절반쯤만 걷는다.
+        var narrow = SaessagiDirector()
+        var travels = 0, total = 0
+        for _ in 0..<700 {
+            let action = narrow.next(
+                x: 0, range: 2 * size, size: size, canPeek: false, flourishes: SaessagiBehavior.today.choices, using: &generator
+            )
+            #expect(action != .peek)
+            if action.travels { travels += 1 }
+            total += 1
+        }
+        #expect(Double(travels) / Double(total) < 0.3)
     }
 
     @Test func everyPoseHasABehaviourThatSuitsIt() {
@@ -413,46 +451,95 @@ struct SaessagiGrowthArtTests {
 struct SaessagiHeaderActionTests {
     private let size = 48.0
 
-    @Test func strollGoesFarOnlyWhenThereIsRoom() {
+    @Test func longWalksCoverMostOfTheLaneWhateverItsWidth() throws {
         var generator = SystemRandomNumberGenerator()
-        let step = SaessagiWalkMotion.stepLength * size
-        // 좁은 자리(iPhone 머리말)에서는 산책하지 않는다.
-        #expect(SaessagiMotionPlan.make(.stroll, at: 0, range: 5 * step, size: size, using: &generator) == nil)
+        // 좁은 자리(키의 1.2배 미만)에서는 산책하지 않는다.
+        #expect(SaessagiMotionPlan.make(.stroll, at: 0, range: 50, size: size, using: &generator) == nil)
+        // 거리의 상한을 두지 않는다: 자리가 넓을수록 멀리 간다(창이 넓으면 그만큼).
+        for range in [200.0, 600.0, 1_400.0] {
+            for start in [0.0, range] {
+                for _ in 0..<20 {
+                    let plan = try #require(SaessagiMotionPlan.make(.stroll, at: start, range: range, size: size, using: &generator))
+                    let distance = abs(plan.finalX - start)
+                    #expect(distance >= 0.7 * range - 0.01 && distance <= 0.9 * range + 0.01)
+                    #expect(plan.moverX.values.allSatisfy { $0 >= -0.01 && $0 <= range + 0.01 })
+                    // 길면 중간에 폴짝 뛰며 나아간다.
+                    if distance > SaessagiWalkMotion.leapEvery * size { #expect(plan.bob.values.max()! >= 0.2 * size) }
+                }
+            }
+        }
+        // 가운데에서는 더 넓은 쪽 끝까지 간다.
+        let middle = try #require(SaessagiMotionPlan.make(.stroll, at: 250, range: 600, size: size, using: &generator))
+        #expect(middle.finalX > 250)
+        // 빠른 걸음은 키의 1.2배 이상, 자리의 40%까지.
         for _ in 0..<50 {
-            let plan = SaessagiMotionPlan.make(.stroll, at: 100, range: 400, size: size, using: &generator)
-            guard let plan else { Issue.record("넓은 자리에서는 산책한다"); continue }
-            let distance = abs(plan.finalX - 100)
-            #expect(distance >= Double(SaessagiWalkMotion.strollMinimumSteps - 1) * step - 0.01)
-            #expect(distance <= SaessagiWalkMotion.strollReach * size + 0.01)
-            #expect(plan.finalX >= 0 && plan.finalX <= 400)
-            #expect(plan.steps <= SaessagiWalkMotion.strollMaximumSteps)
+            let dash = try #require(SaessagiMotionPlan.make(.dash, at: 300, range: 600, size: size, using: &generator))
+            let distance = abs(dash.finalX - 300)
+            #expect(distance >= 1.2 * size - 0.01 && distance <= 0.4 * 600 + 0.01)
+        }
+        // 걷는 동안 디딘 발은 땅에서 미끄러지지 않는다(성큼성큼 걸어도 같다).
+        let plan = try #require(SaessagiMotionPlan.journey(
+            from: 0, to: 4 * size, size: size, step: SaessagiWalkMotion.strollStep,
+            period: SaessagiWalkMotion.strollStepDuration, leaps: false
+        ))
+        let period = SaessagiWalkMotion.strollStepDuration
+        let begin = SaessagiWalkMotion.faceTurn * 0.6 + period
+        let planted = plan.moverX.value(at: begin) + plan.footRightX.value(at: begin)
+        for fraction in [0.25, 0.5, 0.75, 1.0] {
+            let time = begin + period * fraction
+            #expect(abs(plan.moverX.value(at: time) + plan.footRightX.value(at: time) - planted) < 1e-6)
         }
     }
 
-    @Test func peekHidesPastTheLaneEndAndComesBack() throws {
-        let range = 300.0
-        let plan = try #require(SaessagiMotionPlan.peek(at: range - 40, range: range, size: size))
-        // 자리 끝 너머로 몸 대부분이 넘어갔다가(잘려 숨는다) 반쯤 나오고, 끝으로 돌아온다.
-        let farthest = plan.moverX.values.max() ?? 0
-        #expect(farthest >= range + 0.8 * size - 0.01 && farthest <= range + size)
-        #expect(abs(plan.finalX - range) < 0.01)
-        // 내다볼 때 두 번 깜빡이고, 끝나면 앞을 본다.
-        #expect(plan.eyes.values.filter { $0 < 0.5 }.count == 2)
-        #expect(plan.face.last == 0 && plan.rock.last == 0)
-        // 자리가 좁거나 끝에서 멀면 하지 않는다.
+    @Test func peekWalksToTheEndHidesPeeksAndHopsOut() throws {
+        for (start, range) in [(260.0, 300.0), (0.0, 1_000.0)] {
+            // 끝에서 멀어도 끝까지 걸어가서 숨는다(가는 거리의 상한이 없다).
+            let plan = try #require(SaessagiMotionPlan.peek(at: start, range: range, size: size))
+            let farthest = plan.moverX.values.max() ?? 0
+            #expect(abs(farthest - (range + SaessagiMotionPlan.peekHidden * size)) < 0.01)
+            // 숨었다가 한쪽 눈만 내밀고(그 자리에서 두 번 깜빡인다), 더 내밀어 두리번거린 뒤 뛰어나와 자리 안에 내려앉는다.
+            #expect(plan.moverX.values.contains { abs($0 - (range + SaessagiMotionPlan.peekPeeking * size)) < 0.01 })
+            #expect(plan.eyes.values.filter { $0 < 0.5 }.count == 2)
+            #expect(abs(plan.finalX - (range - SaessagiMotionPlan.peekLanding * size)) < 0.01)
+            #expect(plan.bob.values.max()! >= 0.28 * size - 0.01)
+            #expect(plan.face.last == 0 && plan.rock.last == 0 && plan.squashY.last == 1)
+            // 자리 왼쪽 끝(제목 쪽)을 넘지 않는다.
+            #expect(plan.moverX.values.allSatisfy { $0 >= 0 })
+        }
+        // 자리가 좁으면 하지 않는다.
         #expect(SaessagiMotionPlan.peek(at: 0, range: size, size: size) == nil)
-        #expect(SaessagiMotionPlan.peek(at: 0, range: 1_000, size: size) == nil)
-        // 끝이 멀면 숨바꼭질 대신 끝 쪽으로 산책한다.
-        var generator = SystemRandomNumberGenerator()
-        let approach = try #require(SaessagiMotionPlan.make(.peek, at: 0, range: 1_000, size: size, using: &generator))
-        #expect(approach.finalX > 0 && approach.finalX <= SaessagiWalkMotion.strollReach * size + 0.01)
-        #expect(approach.moverX.values.allSatisfy { $0 <= 1_000 })
+    }
+
+    @Test func jumpsSquashOnLandingAndEndAtRest() {
+        let plans: [(SaessagiMotionPlan, Double)] = [
+            (.bigHop(at: 20, size: size), 0.34), (.doubleHop(at: 20, size: size), 0.3), (.leafShake(at: 20, size: size), 0.02),
+        ]
+        for (plan, height) in plans {
+            #expect(plan.moverX.isConstant && plan.finalX == 20)
+            #expect(abs((plan.bob.values.max() ?? 0) - height * size) < 1e-9)
+            #expect(plan.duration >= 0.9 && plan.duration <= 2.2)
+            for track in [plan.bob, plan.footLeftLift, plan.footRightLift, plan.rock, plan.leaf, plan.face] {
+                #expect(abs(track.last) < 1e-9 && abs(track.end - plan.duration) < 1e-9)
+            }
+            for track in [plan.squashX, plan.squashY, plan.eyes] { #expect(track.last == 1) }
+            #expect(plan.squashX.values.allSatisfy { $0 >= 0.9 && $0 <= 1.12 })
+            #expect(plan.squashY.values.allSatisfy { $0 >= 0.85 && $0 <= 1.1 })
+        }
+        // 연속 점프는 두 번 뜨고, 두 번째가 더 높다. 사이에 내려앉아 눌린다.
+        let double = SaessagiMotionPlan.doubleHop(at: 0, size: size)
+        let first = double.bob.value(at: 0.32), second = double.bob.value(at: 0.58 + 0.32)
+        #expect(first > 0 && second > first && double.bob.value(at: 0.55) == 0)
+        #expect(double.squashY.value(at: 0.56) < 0.9)
+        // 잎 흔들기는 잎을 크게 흔들고 눈을 가늘게 뜬다.
+        let shake = SaessagiMotionPlan.leafShake(at: 0, size: size)
+        #expect(shake.leaf.values.max()! >= 15 && shake.leaf.values.min()! <= -15 && shake.eyes.value(at: 0.5) < 1)
     }
 
     @Test func headerBehaviourMixesTheNewActions() {
         let actions = Set(SaessagiBehavior.today.choices.map(\.action))
-        #expect(actions.isSuperset(of: [.walk, .stroll, .lookAround, .hop, .doze, .peek]))
+        #expect(actions == [.hop, .bigHop, .doubleHop, .lookAround, .leafShake])
         #expect(SaessagiAction.peek.isAvailable && SaessagiAction.stroll.needsLayers && SaessagiAction.peek.needsLayers)
+        #expect(SaessagiAction.dash.travels && !SaessagiAction.bigHop.travels && SaessagiAction.leafShake.needsLayers)
         #expect(!SaessagiAction.tumble.isAvailable)
         // 인사는 손을 흔드는 모습, 잠깐 쉬기는 엎드린 모습.
         #expect(SaessagiReaction.greet.pose == .welcome && SaessagiReaction.nap.pose == .rest)

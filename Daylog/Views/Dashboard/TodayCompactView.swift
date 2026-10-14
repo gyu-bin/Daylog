@@ -99,7 +99,7 @@ struct TodayCompactView: View {
             }
             if showsSaessagi {
                 // 단추 높이(44) 안에 들어가는 크기. 단추까지의 빈자리를 새싹이가 차지하고 그 안에서 걷는다.
-                TodaySaessagi(size: 36, walkRange: 400, fillsWidth: true)
+                TodaySaessagi(size: 36, fillsWidth: true)
                     .layoutPriority(-1)
             } else {
                 Spacer(minLength: 8)
@@ -146,14 +146,16 @@ struct TodayCompactView: View {
     private func greetingRow(showsIcon: Bool, saessagi: CGFloat?) -> some View {
         HStack(alignment: .bottom, spacing: 8) {
             greeting(showsIcon: showsIcon)
+                .saessagiDebugFrame("title")
             if let saessagi {
                 // 날짜 이동 단추까지의 빈자리를 새싹이가 차지하고 그 안에서 걷는다(글자와 단추가 먼저 자리를 잡는다).
-                TodaySaessagi(size: saessagi, walkRange: 400, fillsWidth: true)
+                TodaySaessagi(size: saessagi, fillsWidth: true)
                     .layoutPriority(-1)
             } else {
                 Spacer(minLength: 4)
             }
             DateNavigator(showsDate: false)
+                .saessagiDebugFrame("controls")
         }
     }
 

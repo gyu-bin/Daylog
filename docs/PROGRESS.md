@@ -1288,6 +1288,20 @@ iPhone·iPad App Store 제출 자료를 만들고 App Store Connect에 올렸다
   화면 넘기기를 하지 않고 단추도 아무 일도 하지 않는다. 진행률은 만들지 않는다. "완료"는 실제로는 바로 오늘 화면으로 넘어가는 순간이라고 적어 둔다.
 - Debug: `-DaylogDebugSaessagiAction stroll|peek`, `-DaylogDebugOpenPreview vacation|sync`, `-DaylogDebugSyncSample <상태>`.
 
+## 헤더 새싹이 2차: 실제 빈자리 전체·더 활발하게·숨바꼭질 보장 (2026-10-14)
+
+- 원인: 설치된 Mac 1.5.7(c994fe6)은 머리말이 `TodaySaessagi(walkRange: 64)` + 빈칸이라 제목 옆 64pt 안에서만 움직였다(02ec221 이전 코드).
+  최신 main에도 한 번 걷는 거리(최대 9걸음 ≈ 30pt, 산책 최대 ≈ 107pt), 숨바꼭질은 끝에서 107pt 안일 때만, 무작위 선택(숨바꼭질 비중 2/24),
+  쉬는 시간 2.5~5.5초, 걸을 자리 상한(Mac 900·iPhone 400pt) 같은 제한이 남아 있었다.
+- 걸을 자리 = 제목 끝(+10) ~ 첫 단추 앞(−8)의 실제 빈자리(레이아웃이 정한 너비). 상한을 없앴다(`fillsWidth`면 `maxRange = .infinity`).
+  창이 줄어들면 걷던 중이어도 새 자리 안으로 들어온다.
+- 머리말 순서(`SaessagiDirector`): 긴 산책 → 점프 → 빠른 걸음(가끔 산책) → 두리번·잎 흔들기 → 숨바꼭질 → 연속 점프 → 잠깐 휴식을 한 바퀴로 돈다.
+  행동 사이 0.5~1.3초. 긴 산책은 걸을 자리의 70~90%(키의 5배마다 폴짝 뛰며 나아감, 멀면 보폭을 최대 1.4배), 빠른 걸음은 자리의 40%까지.
+  숨바꼭질은 어디서든 끝까지 걸어가 숨고(키의 80%) → 한쪽 눈(50%) → 더 내밀어 두리번 → 폴짝 뛰어나온다. 새 행동 `dash`·`bigHop`·`doubleHop`·`leafShake`.
+  좁은 자리(키의 1.2배 미만, iPhone)는 제자리 점프·두리번·잎 흔들기와 작은 종종걸음만. 성장 카드·휴가 화면 등 다른 새싹이의 움직임은 그대로다.
+- 검증: 검증 앱(1600pt 창 170초, 1700pt 창, 900pt 창), iPhone 17 Pro Max·iPad Pro 13 시뮬레이터, 움직임 줄이기(iPhone 시뮬레이터). 좌표·경계 기록과
+  영상·연속 캡처는 `docs/qa/header-saessagi-2026-10-14/`. Debug: `-DaylogDebugSaessagiLog YES`(경계·좌표를 표준 오류로), `-DaylogDebugSaessagiAction dash|bigHop|doubleHop|leafShake`.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.

@@ -1,0 +1,19 @@
+[Saessagi 734164.71] frame controls minX=793.5 maxX=1010.0 minY=63.0 maxY=95.0
+[Saessagi 734164.71] frame lane minX=474.0 maxX=785.5 minY=56.0 maxY=104.0
+[Saessagi 734164.71] frame title minX=238.5 maxX=464.0 minY=54.0 maxY=104.0
+[Saessagi 734164.74] lane width=311.5 range=263.5 size=48 clips=Y canPeek=Y
+[Saessagi 734168.00] lane width=311.5 range=263.5 size=48 clips=Y canPeek=Y
+[Saessagi 734169.26] action=stroll from=0.0 to=227.0 min=0.0 max=227.0 dur=5.72 steps=27 lane=311.5 range=263.5 body=6.5...268.5 visibleMax=268.5
+[Saessagi 734176.25] action=doubleHop from=227.0 to=227.0 min=227.0 max=227.0 dur=1.56 steps=0 lane=311.5 range=263.5 body=233.5...268.5 visibleMax=268.5
+[Saessagi 734178.74] action=stroll from=227.0 to=14.3 min=14.3 max=227.0 dur=5.52 steps=26 lane=311.5 range=263.5 body=20.8...268.5 visibleMax=268.5
+[Saessagi 734184.86] action=doubleHop from=14.3 to=14.3 min=14.3 max=14.3 dur=1.56 steps=0 lane=311.5 range=263.5 body=20.8...55.8 visibleMax=55.8
+[Saessagi 734187.42] action=peek from=14.3 to=241.9 min=14.3 max=301.9 dur=14.10 steps=38 lane=311.5 range=263.5 body=20.8...343.4 visibleMax=313.5
+[Saessagi 734203.20] action=doubleHop from=241.9 to=241.9 min=241.9 max=241.9 dur=1.56 steps=0 lane=311.5 range=263.5 body=248.4...283.4 visibleMax=283.4
+[Saessagi 734205.53] action=doze from=241.9 to=241.9 min=241.9 max=241.9 dur=2.80 steps=0 lane=311.5 range=263.5 body=248.4...283.4 visibleMax=283.4
+[Saessagi 734209.50] action=stroll from=241.9 to=32.7 min=32.7 max=241.9 dur=5.32 steps=25 lane=311.5 range=263.5 body=39.2...283.4 visibleMax=283.4
+[Saessagi 734216.07] action=hop from=32.7 to=32.7 min=32.7 max=32.7 dur=1.10 steps=0 lane=311.5 range=263.5 body=39.2...74.2 visibleMax=74.2
+[Saessagi 734218.02] action=dash from=32.7 to=124.3 min=32.7 max=124.3 dur=2.70 steps=14 lane=311.5 range=263.5 body=39.2...165.8 visibleMax=165.8
+[Saessagi 734221.51] action=bigHop from=124.3 to=124.3 min=124.3 max=124.3 dur=0.98 steps=0 lane=311.5 range=263.5 body=130.8...165.8 visibleMax=165.8
+[Saessagi 734223.03] action=peek from=124.3 to=241.9 min=124.3 max=301.9 dur=11.52 steps=30 lane=311.5 range=263.5 body=130.8...343.4 visibleMax=313.5
+[Saessagi 734235.67] action=doubleHop from=241.9 to=241.9 min=241.9 max=241.9 dur=1.56 steps=0 lane=311.5 range=263.5 body=248.4...283.4 visibleMax=283.4
+[Saessagi 734238.15] action=doze from=241.9 to=241.9 min=241.9 max=241.9 dur=2.80 steps=0 lane=311.5 range=263.5 body=248.4...283.4 visibleMax=283.4

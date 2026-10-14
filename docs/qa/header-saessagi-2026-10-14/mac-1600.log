@@ -1,0 +1,63 @@
+[Saessagi 733522.54] frame controls minX=36.0 maxX=246.0 minY=94.0 maxY=126.0
+[Saessagi 733522.54] frame lane minX=273.0 maxX=321.0 minY=36.0 maxY=84.0
+[Saessagi 733522.54] frame title minX=36.0 maxX=263.0 minY=39.0 maxY=84.0
+[Saessagi 733522.56] frame controls minX=36.0 maxX=246.0 minY=1144.0 maxY=1176.0
+[Saessagi 733522.56] frame lane minX=273.0 maxX=321.0 minY=1086.0 maxY=1134.0
+[Saessagi 733522.56] frame title minX=36.0 maxX=263.0 minY=1089.0 maxY=1134.0
+[Saessagi 733522.60] frame controls minX=36.0 maxX=246.0 minY=276.0 maxY=308.0
+[Saessagi 733522.60] frame lane minX=273.0 maxX=1164.0 minY=218.0 maxY=266.0
+[Saessagi 733522.60] frame title minX=36.0 maxX=263.0 minY=221.0 maxY=266.0
+[Saessagi 733522.60] frame controls minX=954.0 maxX=1164.0 minY=226.0 maxY=258.0
+[Saessagi 733522.60] frame lane minX=273.0 maxX=946.0 minY=218.0 maxY=266.0
+[Saessagi 733522.60] frame title minX=36.0 maxX=263.0 minY=221.0 maxY=266.0
+[Saessagi 733522.60] lane width=673.0 range=625.0 size=48 clips=Y canPeek=Y
+[Saessagi 733522.64] frame controls minX=954.0 maxX=1164.0 minY=96.0 maxY=128.0
+[Saessagi 733522.64] frame lane minX=273.0 maxX=946.0 minY=88.0 maxY=136.0
+[Saessagi 733522.64] frame title minX=36.0 maxX=263.0 minY=91.0 maxY=136.0
+[Saessagi 733522.64] frame controls minX=954.0 maxX=1164.0 minY=194.0 maxY=226.0
+[Saessagi 733522.64] frame lane minX=273.0 maxX=946.0 minY=186.0 maxY=234.0
+[Saessagi 733522.64] frame title minX=36.0 maxX=263.0 minY=189.0 maxY=234.0
+[Saessagi 733522.65] frame controls minX=654.0 maxX=864.0 minY=96.0 maxY=128.0
+[Saessagi 733522.65] frame lane minX=273.0 maxX=646.0 minY=88.0 maxY=136.0
+[Saessagi 733522.65] frame title minX=36.0 maxX=263.0 minY=91.0 maxY=136.0
+[Saessagi 733522.67] lane width=373.0 range=325.0 size=48 clips=Y canPeek=Y
+[Saessagi 733522.87] frame controls minX=637.0 maxX=847.0 minY=96.0 maxY=128.0
+[Saessagi 733522.87] frame lane minX=273.0 maxX=629.0 minY=88.0 maxY=136.0
+[Saessagi 733522.88] lane width=356.0 range=308.0 size=48 clips=Y canPeek=Y
+[Saessagi 733523.41] frame controls minX=1337.0 maxX=1547.0 minY=96.0 maxY=128.0
+[Saessagi 733523.41] frame lane minX=273.0 maxX=1329.0 minY=88.0 maxY=136.0
+[Saessagi 733523.44] lane width=1056.0 range=1008.0 size=48 clips=Y canPeek=Y
+[Saessagi 733524.06] action=stroll from=0.0 to=888.0 min=0.0 max=888.0 dur=16.86 steps=68 lane=1056.0 range=1008.0 body=6.5...929.5 visibleMax=929.5
+[Saessagi 733541.98] action=hop from=888.0 to=888.0 min=888.0 max=888.0 dur=1.10 steps=0 lane=1056.0 range=1008.0 body=894.5...929.5 visibleMax=929.5
+[Saessagi 733544.49] action=dash from=888.0 to=547.4 min=547.4 max=888.0 dur=8.48 steps=48 lane=1056.0 range=1008.0 body=553.9...929.5 visibleMax=929.5
+[Saessagi 733553.59] action=lookAround from=547.4 to=547.4 min=547.4 max=547.4 dur=1.85 steps=0 lane=1056.0 range=1008.0 body=553.9...588.9 visibleMax=588.9
+[Saessagi 733556.24] action=peek from=547.4 to=986.4 min=547.4 max=1046.4 dur=17.48 steps=50 lane=1056.0 range=1008.0 body=553.9...1087.9 visibleMax=1058.0
+[Saessagi 733575.09] action=doubleHop from=986.4 to=986.4 min=986.4 max=986.4 dur=1.56 steps=0 lane=1056.0 range=1008.0 body=992.9...1027.9 visibleMax=1027.9
+[Saessagi 733577.28] action=doze from=986.4 to=986.4 min=986.4 max=986.4 dur=2.80 steps=0 lane=1056.0 range=1008.0 body=992.9...1027.9 visibleMax=1027.9
+[Saessagi 733581.16] action=stroll from=986.4 to=124.4 min=124.4 max=986.4 dur=16.06 steps=64 lane=1056.0 range=1008.0 body=130.9...1027.9 visibleMax=1027.9
+[Saessagi 733598.29] action=doubleHop from=124.4 to=124.4 min=124.4 max=124.4 dur=1.56 steps=0 lane=1056.0 range=1008.0 body=130.9...165.9 visibleMax=165.9
+[Saessagi 733600.77] action=stroll from=124.4 to=958.6 min=124.4 max=958.6 dur=16.06 steps=64 lane=1056.0 range=1008.0 body=130.9...1000.1 visibleMax=1000.1
+[Saessagi 733617.43] action=leafShake from=958.6 to=958.6 min=958.6 max=958.6 dur=1.14 steps=0 lane=1056.0 range=1008.0 body=965.1...1000.1 visibleMax=1000.1
+[Saessagi 733619.30] action=peek from=958.6 to=986.4 min=958.6 max=1046.4 dur=9.32 steps=19 lane=1056.0 range=1008.0 body=965.1...1087.9 visibleMax=1058.0
+[Saessagi 733630.22] action=doubleHop from=986.4 to=986.4 min=986.4 max=986.4 dur=1.56 steps=0 lane=1056.0 range=1008.0 body=992.9...1027.9 visibleMax=1027.9
+[Saessagi 733632.78] action=stay skipped x=986.4 range=1008.0
+[Saessagi 733634.85] action=stroll from=986.4 to=262.0 min=262.0 max=986.4 dur=14.46 steps=56 lane=1056.0 range=1008.0 body=268.5...1027.9 visibleMax=1027.9
+[Saessagi 733650.88] action=hop from=262.0 to=262.0 min=262.0 max=262.0 dur=1.10 steps=0 lane=1056.0 range=1008.0 body=268.5...303.4 visibleMax=303.4
+[Saessagi 733653.00] action=dash from=262.0 to=80.6 min=80.6 max=262.0 dur=4.74 steps=26 lane=1056.0 range=1008.0 body=87.1...303.4 visibleMax=303.4
+[Saessagi 733658.92] action=lookAround from=80.6 to=80.6 min=80.6 max=80.6 dur=1.85 steps=0 lane=1056.0 range=1008.0 body=87.1...122.0 visibleMax=122.0
+[Saessagi 733662.08] action=peek from=80.6 to=986.4 min=80.6 max=1046.4 dur=25.04 steps=78 lane=1056.0 range=1008.0 body=87.1...1087.9 visibleMax=1058.0
+[Saessagi 733688.27] action=doubleHop from=986.4 to=986.4 min=986.4 max=986.4 dur=1.56 steps=0 lane=1056.0 range=1008.0 body=992.9...1027.9 visibleMax=1027.9
+[Saessagi 733691.16] action=stay skipped x=986.4 range=1008.0
+[Saessagi 733693.84] action=stroll from=986.4 to=110.8 min=110.8 max=986.4 dur=16.86 steps=68 lane=1056.0 range=1008.0 body=117.3...1027.9 visibleMax=1027.9
+[Saessagi 733712.66] action=hop from=110.8 to=110.8 min=110.8 max=110.8 dur=1.10 steps=0 lane=1056.0 range=1008.0 body=117.3...152.3 visibleMax=152.3
+[Saessagi 733714.72] action=stroll from=110.8 to=885.2 min=110.8 max=885.2 dur=15.26 steps=60 lane=1056.0 range=1008.0 body=117.3...926.7 visibleMax=926.7
+[Saessagi 733731.25] action=hop from=885.2 to=885.2 min=885.2 max=885.2 dur=1.10 steps=0 lane=1056.0 range=1008.0 body=891.7...926.7 visibleMax=926.7
+[Saessagi 733733.09] action=peek from=885.2 to=986.4 min=885.2 max=1046.4 dur=11.12 steps=28 lane=1056.0 range=1008.0 body=891.7...1087.9 visibleMax=1058.0
+[Saessagi 733744.88] action=doubleHop from=986.4 to=986.4 min=986.4 max=986.4 dur=1.56 steps=0 lane=1056.0 range=1008.0 body=992.9...1027.9 visibleMax=1027.9
+[Saessagi 733747.15] action=doze from=986.4 to=986.4 min=986.4 max=986.4 dur=2.80 steps=0 lane=1056.0 range=1008.0 body=992.9...1027.9 visibleMax=1027.9
+[Saessagi 733750.65] action=stroll from=986.4 to=138.3 min=138.3 max=986.4 dur=16.06 steps=64 lane=1056.0 range=1008.0 body=144.8...1027.9 visibleMax=1027.9
+[Saessagi 733768.20] action=bigHop from=138.3 to=138.3 min=138.3 max=138.3 dur=0.98 steps=0 lane=1056.0 range=1008.0 body=144.8...179.8 visibleMax=179.8
+[Saessagi 733770.05] action=stroll from=138.3 to=1008.0 min=138.3 max=1008.0 dur=16.86 steps=68 lane=1056.0 range=1008.0 body=144.8...1049.5 visibleMax=1049.5
+[Saessagi 733787.83] action=lookAround from=1008.0 to=1008.0 min=1008.0 max=1008.0 dur=1.85 steps=0 lane=1056.0 range=1008.0 body=1014.5...1049.5 visibleMax=1049.5
+[Saessagi 733790.40] action=peek from=1008.0 to=986.4 min=986.4 max=1046.4 dur=8.12 steps=13 lane=1056.0 range=1008.0 body=992.9...1087.9 visibleMax=1058.0
+[Saessagi 733799.36] action=doubleHop from=986.4 to=986.4 min=986.4 max=986.4 dur=1.56 steps=0 lane=1056.0 range=1008.0 body=992.9...1027.9 visibleMax=1027.9

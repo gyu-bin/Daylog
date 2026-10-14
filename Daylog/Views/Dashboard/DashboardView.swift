@@ -150,6 +150,7 @@ struct DashboardHeader: View {
             addButton
         }
         .fixedSize()
+        .saessagiDebugFrame("controls")
     }
 
     /// 루틴 빠른 추가(⌘N과 같다): 마지막으로 쓴 그룹의 입력칸을 연다.
@@ -214,9 +215,10 @@ struct DashboardHeader: View {
             .accessibilityElement(children: .combine)
             .accessibilityAddTraits(.isHeader)
             .fixedSize()
+            .saessagiDebugFrame("title")
             // 인사말 옆의 새싹이. 날짜와 인사말 두 줄의 높이 안에 들어가 머리말이 높아지지 않는다.
             // 단추까지 남는 자리를 모두 걸어 다닐 자리로 쓴다(넓은 창에서는 멀리 산책하고 단추 쪽 끝으로 숨는다).
-            TodaySaessagi(size: 48, walkRange: 900, fillsWidth: true)
+            TodaySaessagi(size: 48, fillsWidth: true)
                 .layoutPriority(-1)
         }
     }

@@ -261,6 +261,8 @@ final class SaessagiStage {
     private var restingX: CGFloat = 0
     private var actions: Task<Void, Never>?
     private var lastAction: SaessagiAction?
+    /// 머리말에서 다음 행동의 순서를 정한다(`behavior.isDirected`일 때). 움직이기 시작할 때마다 처음부터.
+    private var director = SaessagiDirector()
     /// 다음에 움직이기 시작할 때 한 번 할 연출.
     private var pendingEntrance: SaessagiEntrance?
     /// 발이 따로 있는가(걷기는 발이 있어야 한다).
@@ -313,17 +315,26 @@ final class SaessagiStage {
         CATransaction.commit()
     }
 
-    /// 걸어 다닐 자리의 너비가 정해졌다(레이아웃 때마다).
+    /// 걸어 다닐 자리의 너비가 정해졌다(레이아웃 때마다). 머리말에서는 제목 끝에서 첫 단추 앞까지의 실제 빈자리다.
     func setLaneWidth(_ width: CGFloat) {
         let changed = width != laneWidth
         laneWidth = width
         if changed { updateLaneMask() }
+        let oldRange = range
         range = min(max(width - size, 0), maxRange)
-        // 자리가 좁아졌으면(창 크기 변경) 그 안으로 들어온다. 행동 중이 아닐 때만.
-        if restingX > range + 0.5, !isActing {
-            restingX = range
+        // 자리가 좁아졌으면(창 크기 변경) 그 안으로 들어온다. 걷던 중이면 걷기를 멈추고 지금 자리에서 들어온다
+        // (잘라 내는 가리개가 있어 단추 위로는 그려지지 않지만, 다음 행동은 새 자리 안에서 시작해야 한다).
+        if restingX > range + 0.5 {
+            if isActing {
+                let now = currentOffset()
+                removeActionAnimations()
+                restingX = min(max(now, 0), range)
+            } else {
+                restingX = range
+            }
             setModelX(restingX)
         }
+        if changed || oldRange != range { logLane() }
     }
 
     func update(
@@ -470,20 +481,42 @@ final class SaessagiStage {
         }
 
         // 가끔 하는 행동. 행동 하나를 걸어 두고 끝날 때까지, 그리고 다음 행동까지 잠든다(한 번에 하나만 돈다).
+        // 다시 시작하면 앞의 순서를 지우고 새로 돈다(타이머가 겹쳐 쌓이지 않는다).
         actions?.cancel()
+        director = SaessagiDirector()
         actions = Task { [weak self] in
             var generator = SystemRandomNumberGenerator()
             var delay = Self.debugRest ?? self?.behavior.firstRest ?? 2
             while !Task.isCancelled {
                 try? await Task.sleep(for: .seconds(delay))
                 guard !Task.isCancelled, let self else { return }
-                let action = self.debugAction ?? self.behavior.next(after: self.lastAction, using: &generator)
+                let action = self.nextAction(using: &generator)
                 self.lastAction = action
                 let duration = self.play(action, using: &generator)
                 try? await Task.sleep(for: .seconds(duration))
-                delay = Self.debugRest ?? Double.random(in: self.behavior.rest, using: &generator)
+                delay = Self.debugRest ?? self.pause(after: action, using: &generator)
             }
         }
+    }
+
+    private func nextAction(using generator: inout some RandomNumberGenerator) -> SaessagiAction {
+        if let debugAction { return debugAction }
+        guard behavior.isDirected else { return behavior.next(after: lastAction, using: &generator) }
+        return director.next(
+            x: restingX, range: range, size: size, canPeek: canPeek, flourishes: behavior.choices, using: &generator
+        )
+    }
+
+    /// 다음 행동까지 쉬는 시간. 머리말의 쉬기 박자에서는 조금 더 오래 가만히 있는다.
+    private func pause(after action: SaessagiAction, using generator: inout some RandomNumberGenerator) -> Double {
+        let span = behavior.isDirected && action == .stay ? SaessagiDirector.restPause : behavior.rest
+        return Double.random(in: span, using: &generator)
+    }
+
+    /// 숨바꼭질을 할 수 있는가: 자리 끝에서 새싹이만 잘라 내고, 걸을 자리가 실제 빈자리 전체일 때(상한에 걸리지 않았을 때).
+    /// 그렇지 않으면 숨지 못하고 머리말 밖으로 걸어 나간다.
+    private var canPeek: Bool {
+        clipsLaneEnd && laneWidth > 0 && range >= laneWidth - size - 0.5
     }
 
     /// 움직임을 내리고 서 있던 자리에 가만히 선 모습으로 돌아간다.
@@ -494,10 +527,14 @@ final class SaessagiStage {
         leafLayer.removeAnimation(forKey: "sway")
         breather.removeAnimation(forKey: "breath")
         eyesLayer.removeAnimation(forKey: "blink")
+        removeActionAnimations()
+        setModelX(restingX)
+    }
+
+    private func removeActionAnimations() {
         for layer in [mover, footLeft, footRight, torso, face, eyesLayer, leafLayer] {
             for key in layer.animationKeys() ?? [] where key.hasPrefix(Self.actionKey) { layer.removeAnimation(forKey: key) }
         }
-        setModelX(restingX)
     }
 
     /// 처음 나타날 때의 연출. 늘 도는 움직임 위에 더한다.
@@ -527,13 +564,21 @@ final class SaessagiStage {
 
     /// 행동 하나를 시작하고 걸리는 시간(초)을 돌려준다. 하지 않으면 0.
     private func play(_ action: SaessagiAction, using generator: inout some RandomNumberGenerator) -> Double {
-        // 나뉜 레이어가 있어야 하는 행동은 그림 한 장짜리 모습에서는 하지 않는다.
-        let walks = action == .walk || action == .stroll || action == .peek
+        // 걸을 자리가 줄어든 뒤라면 그 안에서 시작한다.
+        if restingX > range {
+            restingX = range
+            setModelX(restingX)
+        }
         // 숨바꼭질은 자리 끝에서 잘라 낼 때만 한다(그렇지 않으면 숨지 못하고 머리말 밖으로 걸어 나간다).
-        guard action != .peek || (clipsLaneEnd && range >= laneWidth - size - 0.5) else { return 0 }
-        guard (isLayered && (hasFeet || !walks)) || !action.needsLayers,
+        // 나뉜 레이어가 있어야 하는 행동은 그림 한 장짜리 모습에서는 하지 않는다.
+        guard action != .peek || canPeek,
+              (isLayered && (hasFeet || !action.travels)) || !action.needsLayers,
               let plan = SaessagiMotionPlan.make(action, at: restingX, range: range, size: size, using: &generator)
-        else { return 0 }
+        else {
+            log(action, plan: nil)
+            return 0
+        }
+        log(action, plan: plan)
         // 끝나면 걸어간 자리에 서 있다.
         restingX = plan.finalX
         setModelX(restingX)
@@ -578,7 +623,7 @@ final class SaessagiStage {
     }
 
     /// 화면 검증용: `-DaylogDebugSaessagiAction hop`처럼 주면 기본 모습의 새싹이가 그 행동만 한다
-    /// (walk, stroll, peek, lookAround, hop, doze. Debug 빌드만).
+    /// (walk, stroll, dash, peek, lookAround, hop, bigHop, doubleHop, leafShake, doze. Debug 빌드만).
     private var debugAction: SaessagiAction? {
         #if DEBUG
         guard isLayered else { return nil }
@@ -588,11 +633,61 @@ final class SaessagiStage {
         case "hop": return .hop
         case "doze": return .doze
         case "stroll": return .stroll
+        case "dash": return .dash
         case "peek": return .peek
+        case "bigHop": return .bigHop
+        case "doubleHop": return .doubleHop
+        case "leafShake": return .leafShake
         default: return nil
         }
         #else
         return nil
+        #endif
+    }
+
+    /// 화면 검증용: `-DaylogDebugSaessagiLog YES`면 머리말 새싹이의 걸을 자리와 행동마다의 좌표를 표준 오류에 적는다(Debug 빌드만).
+    /// 좌표는 걸을 자리의 왼쪽 끝에서 잰 pt이고, 자리의 창 안 위치는 `TodaySaessagi`가 따로 적는다.
+    static var logsEnabled: Bool {
+        #if DEBUG
+        UserDefaults.standard.bool(forKey: "DaylogDebugSaessagiLog")
+        #else
+        false
+        #endif
+    }
+
+    private func logLane() {
+        #if DEBUG
+        guard Self.logsEnabled, behavior.isDirected else { return }
+        Self.write(String(
+            format: "lane width=%.1f range=%.1f size=%.0f clips=%@ canPeek=%@", laneWidth, range, size,
+            clipsLaneEnd ? "Y" : "N", canPeek ? "Y" : "N"
+        ))
+        #endif
+    }
+
+    private func log(_ action: SaessagiAction, plan: SaessagiMotionPlan?) {
+        #if DEBUG
+        guard Self.logsEnabled, behavior.isDirected else { return }
+        guard let plan else {
+            Self.write("action=\(action) skipped x=\(String(format: "%.1f", restingX)) range=\(String(format: "%.1f", range))")
+            return
+        }
+        // 몸(그림의 투명한 여백 제외)이 차지한 가장 왼쪽·오른쪽. 자리 끝 너머는 잘려 보이지 않는다.
+        let pose = configuration?.pose ?? .idle
+        let inset = (1 - pose.content.width / pose.fitted) / 2 * size
+        let low = plan.moverX.values.min() ?? restingX, high = plan.moverX.values.max() ?? restingX
+        Self.write(String(
+            format: "action=%@ from=%.1f to=%.1f min=%.1f max=%.1f dur=%.2f steps=%d lane=%.1f range=%.1f body=%.1f...%.1f visibleMax=%.1f",
+            "\(action)", restingX, plan.finalX, low, high, plan.duration, plan.steps, laneWidth, range,
+            low + inset, high + size - inset, min(high + size - inset, laneWidth + SaessagiRenderer.padding)
+        ))
+        #endif
+    }
+
+    static func write(_ line: String) {
+        #if DEBUG
+        let stamp = String(format: "%.2f", CACurrentMediaTime())
+        FileHandle.standardError.write(Data("[Saessagi \(stamp)] \(line)\n".utf8))
         #endif
     }
 
