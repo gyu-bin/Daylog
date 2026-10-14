@@ -60,8 +60,8 @@ struct FirstSyncView: View {
         case .waiting, .found, .empty:
             // 기록을 찾았거나 없다고 본 순간에는 곧 이 화면이 걷힌다. 그 사이에 문구를 바꿔 깜빡이지 않게 한다.
             message(
-                symbol: "icloud.and.arrow.down", tint: Theme.accent,
-                title: "iCloud 기록을 확인하고 있어요",
+                badge: nil, tint: Theme.accent, floats: true,
+                title: "새싹이가 기록을 확인하고 있어요!",
                 detail: "다른 기기에서 사용하던 루틴과 기록을 불러오고 있어요. 잠시만 기다려 주세요."
             ) {
                 HStack(spacing: 10) {
@@ -74,19 +74,19 @@ struct FirstSyncView: View {
             }
         case .unavailable(let account):
             message(
-                symbol: "icloud.slash", tint: .secondary,
+                badge: "icloud.slash", tint: .secondary, floats: false,
                 title: account.title,
                 detail: account == .restricted
                     ? "스크린 타임이나 기기 관리 설정에서 iCloud 사용이 막혀 있어요. 다른 기기의 기록은 불러올 수 없지만, \(Platform.thisDevice)에만 기록하며 사용할 수 있어요."
                     : "다른 기기의 기록을 불러오려면 기기의 설정에서 iCloud에 로그인해 주세요. 로그인하지 않아도 \(Platform.thisDevice)에만 기록하며 사용할 수 있어요."
             ) {
-                choices(continueTitle: "\(Platform.thisDevice)에서만 사용")
+                choices
             }
         case .stalled(let note):
             message(
-                symbol: "exclamationmark.icloud", tint: Theme.streakTint,
+                badge: "exclamationmark.icloud", tint: Theme.streakTint, floats: false,
                 title: "동기화가 오래 걸리고 있어요",
-                detail: "네트워크 연결을 확인해 주세요. 기다리지 않고 먼저 사용해도 돼요. 다른 기기의 기록은 도착하는 대로 나타나고, 그사이 적은 내용도 그대로 남아요."
+                detail: "아직 기록을 다 확인하지 못했어요. 네트워크 연결을 확인해 주세요. 일단 시작해도 다른 기기의 기록은 도착하는 대로 나타나고, 그사이 적은 내용도 그대로 남아요."
             ) {
                 if let note {
                     Text(note)
@@ -95,21 +95,32 @@ struct FirstSyncView: View {
                         .multilineTextAlignment(.center)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                choices(continueTitle: "계속 사용")
+                choices
             }
         }
     }
 
+    /// 가운데의 새싹이, 제목, 설명, 그 아래의 내용. `badge`는 문제가 있을 때 새싹이 옆에 붙이는 상태 아이콘이다.
     private func message(
-        symbol: String, tint: Color, title: String, detail: String, @ViewBuilder footer: () -> some View
+        badge: String?, tint: Color, floats: Bool, title: String, detail: String, @ViewBuilder footer: () -> some View
     ) -> some View {
         VStack(spacing: 18) {
-            Image(systemName: symbol)
-                .font(.system(size: 34, weight: .medium))
-                .foregroundStyle(tint)
-                .frame(width: 84, height: 84)
-                .background(tint.opacity(0.14), in: Circle())
-                .accessibilityHidden(true)
+            FirstSyncMascot(floats: floats)
+                // 기다리는 화면으로 돌아오면([다시 확인]) 움직임을 처음부터 다시 시작한다.
+                .id(floats)
+                .padding(22)
+                .background(Theme.accent.opacity(0.12), in: Circle())
+                .overlay(alignment: .bottomTrailing) {
+                    if let badge {
+                        Image(systemName: badge)
+                            .font(.system(size: 17, weight: .semibold))
+                            .foregroundStyle(tint)
+                            .frame(width: 40, height: 40)
+                            .background(Theme.cardBackground, in: Circle())
+                            .overlay(Circle().strokeBorder(Theme.cardBorder, lineWidth: 1))
+                            .accessibilityHidden(true)
+                    }
+                }
             VStack(spacing: 8) {
                 Text(title)
                     .font(.title2.bold())
@@ -128,10 +139,10 @@ struct FirstSyncView: View {
     }
 
     /// 기다리지 않아도 되는 두 가지 길. 어느 쪽도 기록을 지우거나 바꾸지 않는다.
-    private func choices(continueTitle: String) -> some View {
+    private var choices: some View {
         VStack(spacing: 10) {
             Button(action: gate.finish) {
-                Text(continueTitle).frame(maxWidth: .infinity)
+                Text("일단 시작하기").frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
             .accessibilityHint("시작 안내로 넘어갑니다. 다른 기기의 기록이 나중에 오면 그대로 합쳐져요.")
@@ -170,5 +181,21 @@ struct FirstSyncView: View {
         case .waiting, .unavailable, .stalled:
             break
         }
+    }
+}
+
+/// 안내 가운데의 새싹이. 기다리는 동안에는 천천히 오르내리고, 움직임 줄이기를 켰으면 가만히 있다.
+private struct FirstSyncMascot: View {
+    let floats: Bool
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var isUp = false
+
+    var body: some View {
+        SaessagiView(pose: .idle, size: 132)
+            .offset(y: isUp ? -6 : 0)
+            .onAppear {
+                guard floats, !reduceMotion else { return }
+                withAnimation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true)) { isUp = true }
+            }
     }
 }
