@@ -1,29 +1,35 @@
 import QuartzCore
 import SwiftUI
 
-/// 기본 모습의 새싹이를 대기 애니메이션용으로 나눈 레이어. 기본 그림(`saessagi_idle`)과 크기·자리가 같다.
+/// 기본 모습의 새싹이를 대기·걷기 애니메이션용으로 나눈 레이어. 기본 그림(`saessagi_idle`)과 크기·자리가 같다.
 /// `Tools/saessagi-layers.swift`가 원본에서 잘라 만든다. 아래 좌표는 그 스크립트의 값과 맞춰야 한다(1024 기준 픽셀, 위에서 아래로).
 enum SaessagiIdleLayers {
     static let body = "saessagi_idle_body"
     static let leaf = "saessagi_idle_leaf"
     static let eyes = "saessagi_idle_eyes"
+    static let mouth = "saessagi_idle_mouth"
+    static let footLeft = "saessagi_idle_foot_left"
+    static let footRight = "saessagi_idle_foot_right"
+    static let all = [body, leaf, eyes, mouth, footLeft, footRight]
 
     /// 잎이 도는 중심: 줄기가 머리로 들어가는 자리.
     static let leafPivot = CGPoint(x: 512, y: 288)
     /// 눈이 접히는 중심: 두 눈의 한가운데 높이.
     static let eyeCenter = CGPoint(x: 509.5, y: 569.5)
+    /// 걸을 때 몸이 좌우로 기우는 중심: 다리 사이.
+    static let hip = CGPoint(x: 512, y: 905)
 }
 
 /// 대기 애니메이션의 크기와 박자. 작고 느리게: 눈에 띄되 거슬리지 않게.
 enum SaessagiIdleMotion {
-    /// 잎이 좌우로 기우는 각도(도).
-    static let leafAngle = 2.2
+    /// 잎이 좌우로 기우는 각도(도). 48pt로 작게 그려도 움직임이 보일 만큼.
+    static let leafAngle = 6.0
     /// 잎이 한쪽 끝에서 반대쪽 끝까지 가는 시간(초).
-    static let leafHalfPeriod = 1.9
-    /// 숨을 들이쉴 때 키가 늘어나는 비율. 48pt에서 1pt가 안 된다.
-    static let breathStretch = 0.018
+    static let leafHalfPeriod = 1.3
+    /// 숨을 들이쉴 때 키가 늘어나는 비율. 48pt에서 2pt쯤.
+    static let breathStretch = 0.04
     /// 들숨 또는 날숨 한 번의 시간(초).
-    static let breathHalfPeriod = 2.4
+    static let breathHalfPeriod = 1.6
     /// 눈을 감는 시간과 뜨는 시간(초). 합쳐 약 0.2초.
     static let blinkClose = 0.09
     static let blinkOpen = 0.11
@@ -47,16 +53,24 @@ enum SaessagiIdleMotion {
     }
 }
 
-/// 살아 있는 기본 모습: 잎이 바람에 살짝 흔들리고, 가끔 눈을 깜빡이고, 아주 조금 숨을 쉰다.
+/// 살아 있는 기본 모습: 잎이 바람에 흔들리고, 가끔 눈을 깜빡이고, 숨을 쉬고, 가끔 종종걸음으로 옆에 다녀온다.
 ///
-/// 몸·눈·잎 세 장을 겹쳐 그리고 잎과 눈만 따로 움직인다(그림 전체를 흔들지 않는다). 세 장은 기본 그림과 같은 방식으로
-/// 미리 줄여 둔 것이라 가만히 있을 때는 한 장짜리 그림과 똑같이 보인다.
+/// 몸·발·눈·입·잎을 따로 겹쳐 그리고 부분만 움직인다(그림 전체를 흔들거나 밀지 않는다). 레이어는 기본 그림과 같은 방식으로
+/// 미리 줄여 둔 것이라 가만히 있을 때는 한 장짜리 그림과 거의 똑같이 보인다.
 /// 움직임 줄이기를 켰거나 레이어를 만들지 못하면 정지 그림을 보여 준다. 화면에서 사라지거나 앱이 뒤로 가면 멈춘다.
+///
+/// 이 뷰는 가로로 늘어난다: 받은 너비에서 새싹이 한 칸을 뺀 만큼이 걸어 다닐 자리다. 자리가 없으면 걷지 않는다.
 ///
 /// 움직임은 Core Animation에 맡긴다. SwiftUI의 반복 애니메이션으로 돌리면 프레임마다 앱이 다시 계산해서
 /// 이 작은 그림 하나에 CPU를 10% 넘게 썼다(실측). 레이어 애니메이션은 앱이 프레임마다 할 일이 없다.
 struct SaessagiIdleView: View {
     var size: CGFloat = 48
+    /// 처음 서 있을 자리(제자리에서 오른쪽으로 떨어진 거리). 0이 아니면 나타난 뒤 제자리로 걸어 돌아온다.
+    var startX: CGFloat = 0
+    /// 지금 어디에 있는지 물어볼 수 있게 무대를 이어 두는 고리.
+    var link: SaessagiStageLink?
+    /// 자리가 넓어도 이보다 멀리는 가지 않는다(pt).
+    var maxRange: CGFloat = 60
     @Environment(\.displayScale) private var displayScale
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.scenePhase) private var scenePhase
@@ -64,25 +78,29 @@ struct SaessagiIdleView: View {
 
     var body: some View {
         if !reduceMotion, let layers = SaessagiIdleImages(size: size, displayScale: displayScale) {
-            let side = size + SaessagiRenderer.padding * 2
-            SaessagiIdleLayerView(images: layers, size: size, displayScale: displayScale, isAnimating: isVisible && scenePhase == .active)
-                // 레이어 그림은 틀보다 사방으로 여백만큼 크다(한 장짜리 그림과 같다).
-                .frame(width: side, height: side)
-                .frame(width: size, height: size)
-                .accessibilityHidden(true)
-                .onAppear { isVisible = true }
-                .onDisappear { isVisible = false }
+            SaessagiIdleLayerView(
+                images: layers, size: size, displayScale: displayScale, startX: startX, link: link, maxRange: maxRange,
+                isAnimating: isVisible && scenePhase == .active
+            )
+            .frame(minWidth: size, idealWidth: size, maxWidth: .infinity)
+            .frame(height: size)
+            .accessibilityHidden(true)
+            .onAppear { isVisible = true }
+            .onDisappear { isVisible = false }
         } else {
             SaessagiView(pose: .idle, size: size)
         }
     }
 }
 
-/// 미리 줄여 둔 세 레이어.
+/// 미리 줄여 둔 레이어들.
 struct SaessagiIdleImages {
     let body: CGImage
     let eyes: CGImage
+    let mouth: CGImage
     let leaf: CGImage
+    let footLeft: CGImage
+    let footRight: CGImage
 
     @MainActor
     init?(size: CGFloat, displayScale: CGFloat) {
@@ -90,66 +108,141 @@ struct SaessagiIdleImages {
             SaessagiRenderer.image(asset: asset, pose: .idle, size: size, displayScale: displayScale)
         }
         guard let body = layer(SaessagiIdleLayers.body), let eyes = layer(SaessagiIdleLayers.eyes),
-              let leaf = layer(SaessagiIdleLayers.leaf) else { return nil }
+              let mouth = layer(SaessagiIdleLayers.mouth), let leaf = layer(SaessagiIdleLayers.leaf),
+              let footLeft = layer(SaessagiIdleLayers.footLeft), let footRight = layer(SaessagiIdleLayers.footRight)
+        else { return nil }
         self.body = body
         self.eyes = eyes
+        self.mouth = mouth
         self.leaf = leaf
+        self.footLeft = footLeft
+        self.footRight = footRight
     }
 }
 
-/// 세 레이어를 올리고 움직임을 거는 일. macOS와 iOS가 함께 쓴다.
+/// 걷다가 다른 모습(기쁨·휴식)으로 바뀔 때, 그 그림을 새싹이가 서 있던 자리에 놓으려고 지금 위치를 묻는 고리.
+@MainActor
+final class SaessagiStageLink {
+    fileprivate weak var stage: SaessagiIdleStage?
+
+    /// 제자리에서 오른쪽으로 떨어진 거리(pt). 무대가 없으면(다른 모습이 떠 있으면) nil.
+    func currentOffset() -> CGFloat? {
+        stage?.currentOffset()
+    }
+}
+
+/// 레이어를 올리고 움직임을 거는 일. macOS와 iOS가 함께 쓴다.
+///
+/// 겹치는 순서와 묶음: 걷는 이동(`mover`) → 숨쉬기(`breather`) → 두 발, 그 위에 몸통(`torso`: 몸 → 얼굴(입·눈) → 잎).
 @MainActor
 final class SaessagiIdleStage {
-    private let container = CALayer()
+    private let mover = CALayer()
+    private let breather = CALayer()
+    private let footLeft = CALayer()
+    private let footRight = CALayer()
+    private let torso = CALayer()
     private let bodyLayer = CALayer()
+    private let face = CALayer()
+    private let mouthLayer = CALayer()
     private let eyesLayer = CALayer()
     private let leafLayer = CALayer()
     private var isAnimating = false
     /// 지금 올려 둔 그림의 크기와 배율. 바뀌면 다시 놓는다.
     private var configuration: (size: CGFloat, scale: CGFloat)?
+    private var size: CGFloat = 48
+    /// 걸어 다닐 수 있는 거리(pt): 받은 너비에서 새싹이 한 칸을 뺀 만큼, 상한(`maxRange`)까지.
+    private var range: CGFloat = 0
+    private var laneWidth: CGFloat = 0
+    private var maxRange: CGFloat = 60
+    /// 제자리가 아닌 곳에서 시작했으면 그 거리. 첫 행동으로 걸어 돌아온다.
+    private var pendingReturn: CGFloat = 0
+    private var actions: Task<Void, Never>?
 
-    func install(in host: CALayer) {
-        guard container.superlayer !== host else { return }
-        host.addSublayer(container)
-        for layer in [bodyLayer, eyesLayer, leafLayer] { container.addSublayer(layer) }
+    #if os(macOS)
+    /// AppKit의 레이어는 아래가 원점이다: 위쪽이 +y, 양의 회전이 시계 반대 방향.
+    private static let up: CGFloat = 1
+    private static let clockwise: CGFloat = -1
+    #else
+    private static let up: CGFloat = -1
+    private static let clockwise: CGFloat = 1
+    #endif
+
+    private static let walkKey = "walk"
+
+    func install(in host: CALayer, startX: CGFloat, link: SaessagiStageLink?) {
+        link?.stage = self
+        guard mover.superlayer !== host else { return }
+        host.addSublayer(mover)
+        mover.addSublayer(breather)
+        for layer in [footLeft, footRight, torso] { breather.addSublayer(layer) }
+        for layer in [bodyLayer, face, leafLayer] { torso.addSublayer(layer) }
+        for layer in [mouthLayer, eyesLayer] { face.addSublayer(layer) }
+        pendingReturn = max(startX, 0)
     }
 
-    func update(images: SaessagiIdleImages, size: CGFloat, displayScale: CGFloat, isAnimating: Bool) {
+    /// 걸어 다닐 자리의 너비가 정해졌다(레이아웃 때마다).
+    func setLaneWidth(_ width: CGFloat) {
+        laneWidth = width
+        range = min(max(width - size, 0), maxRange)
+    }
+
+    func update(images: SaessagiIdleImages, size: CGFloat, displayScale: CGFloat, maxRange: CGFloat, isAnimating: Bool) {
+        self.maxRange = maxRange
         if configuration?.size != size || configuration?.scale != displayScale {
+            // 크기가 바뀌었으면 움직임을 내리고 새 기준점으로 다시 건다.
+            if self.isAnimating { stop() }
             configuration = (size, displayScale)
+            self.size = size
             layout(images: images, size: size, displayScale: displayScale)
-            // 자리가 바뀌었으니 움직임도 새 기준점으로 다시 건다.
-            removeAnimations()
-            self.isAnimating = false
         }
+        setLaneWidth(laneWidth)
         guard isAnimating != self.isAnimating else { return }
-        self.isAnimating = isAnimating
-        if isAnimating { addAnimations() } else { removeAnimations() }
+        if isAnimating { start() } else { stop() }
+    }
+
+    /// 제자리에서 오른쪽으로 떨어진 거리(pt). 걷는 중이면 화면에 보이는 그 순간의 값이다.
+    func currentOffset() -> CGFloat {
+        let layer = mover.presentation() ?? mover
+        return (layer.value(forKeyPath: "transform.translation.x") as? CGFloat) ?? 0
     }
 
     private func layout(images: SaessagiIdleImages, size: CGFloat, displayScale: CGFloat) {
         let side = size + SaessagiRenderer.padding * 2
         let content = SaessagiPose.idle.content
         func unit(_ source: CGPoint) -> CGPoint { SaessagiRenderer.unitPoint(of: source, pose: .idle, size: size) }
+        let center = CGPoint(x: 0.5, y: 0.5)
         CATransaction.begin()
         CATransaction.setDisableActions(true)
-        // 숨쉬기의 기준: 발밑 가운데. 눈과 잎은 각자의 중심.
-        place(container, anchor: unit(CGPoint(x: content.midX, y: content.maxY)), side: side)
-        place(bodyLayer, anchor: CGPoint(x: 0.5, y: 0.5), side: side)
+        place(mover, anchor: center, side: side)
+        // 레이어 그림은 틀보다 사방으로 여백만큼 크다(한 장짜리 그림과 같다).
+        mover.position.x -= SaessagiRenderer.padding
+        mover.position.y -= SaessagiRenderer.padding
+        // 숨쉬기의 기준은 발밑 가운데, 몸이 기우는 기준은 다리 사이. 눈과 잎은 각자의 중심.
+        place(breather, anchor: unit(CGPoint(x: content.midX, y: content.maxY)), side: side)
+        place(footLeft, anchor: center, side: side)
+        place(footRight, anchor: center, side: side)
+        place(torso, anchor: unit(SaessagiIdleLayers.hip), side: side)
+        place(bodyLayer, anchor: center, side: side)
+        place(face, anchor: center, side: side)
+        place(mouthLayer, anchor: center, side: side)
         place(eyesLayer, anchor: unit(SaessagiIdleLayers.eyeCenter), side: side)
         place(leafLayer, anchor: unit(SaessagiIdleLayers.leafPivot), side: side)
-        for (layer, image) in [(bodyLayer, images.body), (eyesLayer, images.eyes), (leafLayer, images.leaf)] {
+        let contents: [(CALayer, CGImage)] = [
+            (footLeft, images.footLeft), (footRight, images.footRight), (bodyLayer, images.body),
+            (mouthLayer, images.mouth), (eyesLayer, images.eyes), (leafLayer, images.leaf),
+        ]
+        for (layer, image) in contents {
             layer.contents = image
             layer.contentsScale = displayScale
             layer.contentsGravity = .resize
         }
+        mover.setValue(pendingReturn, forKeyPath: "transform.translation.x")
         CATransaction.commit()
     }
 
     /// `anchor`(왼쪽 위가 원점인 0…1)를 중심으로 삼아 한 변이 `side`인 레이어를 제자리에 놓는다.
     private func place(_ layer: CALayer, anchor: CGPoint, side: CGFloat) {
         #if os(macOS)
-        // AppKit의 레이어는 아래가 원점이다.
         let point = CGPoint(x: anchor.x, y: 1 - anchor.y)
         #else
         let point = anchor
@@ -159,10 +252,13 @@ final class SaessagiIdleStage {
         layer.position = CGPoint(x: point.x * side, y: point.y * side)
     }
 
-    private func addAnimations() {
+    // MARK: - 평소의 움직임
+
+    private func start() {
+        isAnimating = true
         let ease = CAMediaTimingFunction(name: .easeInEaseOut)
 
-        // 잎: 줄기 밑동을 중심으로 좌우로 살짝.
+        // 잎: 줄기 밑동을 중심으로 좌우로.
         let angle = SaessagiIdleMotion.leafAngle * .pi / 180
         let sway = CABasicAnimation(keyPath: "transform.rotation.z")
         sway.fromValue = -angle
@@ -175,7 +271,7 @@ final class SaessagiIdleStage {
         sway.timeOffset = SaessagiIdleMotion.leafHalfPeriod / 2
         leafLayer.add(sway, forKey: "sway")
 
-        // 숨쉬기: 발은 제자리, 키만 아주 조금.
+        // 숨쉬기: 발은 제자리, 키만 조금.
         let breath = CABasicAnimation(keyPath: "transform.scale.y")
         breath.fromValue = 1
         breath.toValue = 1 + SaessagiIdleMotion.breathStretch
@@ -183,7 +279,7 @@ final class SaessagiIdleStage {
         breath.autoreverses = true
         breath.repeatCount = .infinity
         breath.timingFunction = ease
-        container.add(breath, forKey: "breath")
+        breather.add(breath, forKey: "breath")
 
         // 눈: 정해 둔 박자대로 감았다 뜬다.
         let blink = CAKeyframeAnimation(keyPath: "transform.scale.y")
@@ -194,22 +290,137 @@ final class SaessagiIdleStage {
         blink.repeatCount = .infinity
         blink.calculationMode = .linear
         eyesLayer.add(blink, forKey: "blink")
+
+        // 가끔 하는 행동(지금은 걷기). 걷는 동안에만 깨어 있고 그 사이에는 잠든다.
+        actions = Task { [weak self] in
+            var delay = (self?.pendingReturn ?? 0) > 0.5 ? 0.4 : Self.firstRest
+            var generator = SystemRandomNumberGenerator()
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(delay))
+                guard !Task.isCancelled, let self else { return }
+                let duration = self.play(SaessagiAction.next(using: &generator))
+                try? await Task.sleep(for: .seconds(duration))
+                delay = Self.rest(using: &generator)
+            }
+        }
     }
 
-    private func removeAnimations() {
+    /// 움직임을 내리고 제자리에 가만히 선 모습으로 돌아간다.
+    private func stop() {
+        isAnimating = false
+        actions?.cancel()
+        actions = nil
         leafLayer.removeAnimation(forKey: "sway")
-        container.removeAnimation(forKey: "breath")
+        breather.removeAnimation(forKey: "breath")
         eyesLayer.removeAnimation(forKey: "blink")
+        for layer in [mover, footLeft, footRight, torso, face, leafLayer] {
+            for key in layer.animationKeys() ?? [] where key.hasPrefix(Self.walkKey) { layer.removeAnimation(forKey: key) }
+        }
+        pendingReturn = 0
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        mover.setValue(0, forKeyPath: "transform.translation.x")
+        CATransaction.commit()
+    }
+
+    // MARK: - 가끔 하는 행동
+
+    /// 행동 하나를 시작하고 걸리는 시간(초)을 돌려준다. 할 수 없으면 0.
+    private func play(_ action: SaessagiAction) -> Double {
+        switch action {
+        case .walk:
+            return walk()
+        case .lookAround, .hop, .tumble, .peek, .doze:
+            // 아직 만들지 않은 동작.
+            return 0
+        }
+    }
+
+    private func walk() -> Double {
+        let plan = pendingReturn > 0.5
+            ? SaessagiWalkPlan.returnHome(from: pendingReturn, size: size)
+            : SaessagiWalkPlan.roundTrip(range: range, size: size)
+        pendingReturn = 0
+        // 걷기는 늘 제자리에서 끝난다.
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        mover.setValue(0, forKeyPath: "transform.translation.x")
+        CATransaction.commit()
+        guard let plan else { return 0 }
+        let degrees = Double.pi / 180 * Self.clockwise
+        // 몸의 이동과 발의 좌우 위치는 곧게 이어야 디딘 발이 땅에서 미끄러지지 않는다.
+        add(plan.moverX, to: mover, keyPath: "transform.translation.x", plan: plan, eased: false)
+        add(plan.bob, to: mover, keyPath: "transform.translation.y", scale: Self.up, plan: plan)
+        add(plan.footLeftX, to: footLeft, keyPath: "transform.translation.x", plan: plan, eased: false)
+        add(plan.footLeftLift, to: footLeft, keyPath: "transform.translation.y", scale: Self.up, plan: plan)
+        add(plan.footRightX, to: footRight, keyPath: "transform.translation.x", plan: plan, eased: false)
+        add(plan.footRightLift, to: footRight, keyPath: "transform.translation.y", scale: Self.up, plan: plan)
+        add(plan.rock, to: torso, keyPath: "transform.rotation.z", scale: degrees, plan: plan)
+        // 잎은 평소의 흔들림 위에 걸음의 흔들림을 더한다.
+        add(plan.leaf, to: leafLayer, keyPath: "transform.rotation.z", scale: degrees, plan: plan, additive: true)
+        add(plan.face, to: face, keyPath: "transform.translation.x", plan: plan)
+        return plan.duration
+    }
+
+    private func add(
+        _ track: SaessagiTrack, to layer: CALayer, keyPath: String, scale: Double = 1, plan: SaessagiWalkPlan,
+        eased: Bool = true, additive: Bool = false
+    ) {
+        let animation = CAKeyframeAnimation(keyPath: keyPath)
+        animation.values = track.values.map { $0 * scale }
+        animation.keyTimes = track.times.map { NSNumber(value: $0 / plan.duration) }
+        animation.duration = plan.duration
+        animation.calculationMode = .linear
+        animation.isAdditive = additive
+        if eased {
+            animation.timingFunctions = Array(
+                repeating: CAMediaTimingFunction(name: .easeInEaseOut), count: max(track.values.count - 1, 0)
+            )
+        }
+        layer.add(animation, forKey: "\(Self.walkKey).\(keyPath)")
+    }
+
+    private static var firstRest: Double {
+        debugRest ?? SaessagiWalkMotion.firstRest
+    }
+
+    private static func rest(using generator: inout some RandomNumberGenerator) -> Double {
+        debugRest ?? Double.random(in: SaessagiWalkMotion.rest, using: &generator)
+    }
+
+    /// 화면 검증용: `-DaylogDebugSaessagiRest 2`처럼 주면 쉬는 시간을 그 초로 고정한다(Debug 빌드만).
+    private static var debugRest: Double? {
+        #if DEBUG
+        let value = UserDefaults.standard.double(forKey: "DaylogDebugSaessagiRest")
+        return value > 0 ? value : nil
+        #else
+        return nil
+        #endif
     }
 }
 
 #if os(macOS)
 import AppKit
 
+/// 레이어를 얹는 빈 뷰. 너비가 정해질 때마다 알려 주고, 누르기는 받지 않는다.
+final class SaessagiHostView: NSView {
+    var onLayout: ((CGFloat) -> Void)?
+
+    override func layout() {
+        super.layout()
+        onLayout?(bounds.width)
+    }
+
+    override func hitTest(_ point: NSPoint) -> NSView? { nil }
+}
+
 struct SaessagiIdleLayerView: NSViewRepresentable {
     let images: SaessagiIdleImages
     let size: CGFloat
     let displayScale: CGFloat
+    let startX: CGFloat
+    let link: SaessagiStageLink?
+    let maxRange: CGFloat
     let isAnimating: Bool
 
     final class Coordinator {
@@ -218,25 +429,43 @@ struct SaessagiIdleLayerView: NSViewRepresentable {
 
     func makeCoordinator() -> Coordinator { Coordinator() }
 
-    func makeNSView(context: Context) -> NSView {
-        let view = NSView()
+    func makeNSView(context: Context) -> SaessagiHostView {
+        let view = SaessagiHostView()
         view.wantsLayer = true
+        view.layer?.masksToBounds = false
+        let coordinator = context.coordinator
+        view.onLayout = { width in coordinator.stage.setLaneWidth(width) }
         return view
     }
 
-    func updateNSView(_ view: NSView, context: Context) {
+    func updateNSView(_ view: SaessagiHostView, context: Context) {
         guard let layer = view.layer else { return }
-        context.coordinator.stage.install(in: layer)
-        context.coordinator.stage.update(images: images, size: size, displayScale: displayScale, isAnimating: isAnimating)
+        let stage = context.coordinator.stage
+        stage.install(in: layer, startX: startX, link: link)
+        stage.setLaneWidth(view.bounds.width)
+        stage.update(images: images, size: size, displayScale: displayScale, maxRange: maxRange, isAnimating: isAnimating)
     }
 }
 #else
 import UIKit
 
+/// 레이어를 얹는 빈 뷰. 너비가 정해질 때마다 알려 준다.
+final class SaessagiHostView: UIView {
+    var onLayout: ((CGFloat) -> Void)?
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        onLayout?(bounds.width)
+    }
+}
+
 struct SaessagiIdleLayerView: UIViewRepresentable {
     let images: SaessagiIdleImages
     let size: CGFloat
     let displayScale: CGFloat
+    let startX: CGFloat
+    let link: SaessagiStageLink?
+    let maxRange: CGFloat
     let isAnimating: Bool
 
     final class Coordinator {
@@ -245,16 +474,21 @@ struct SaessagiIdleLayerView: UIViewRepresentable {
 
     func makeCoordinator() -> Coordinator { Coordinator() }
 
-    func makeUIView(context: Context) -> UIView {
-        let view = UIView()
+    func makeUIView(context: Context) -> SaessagiHostView {
+        let view = SaessagiHostView()
         view.isUserInteractionEnabled = false
         view.backgroundColor = .clear
+        view.clipsToBounds = false
+        let coordinator = context.coordinator
+        view.onLayout = { width in coordinator.stage.setLaneWidth(width) }
         return view
     }
 
-    func updateUIView(_ view: UIView, context: Context) {
-        context.coordinator.stage.install(in: view.layer)
-        context.coordinator.stage.update(images: images, size: size, displayScale: displayScale, isAnimating: isAnimating)
+    func updateUIView(_ view: SaessagiHostView, context: Context) {
+        let stage = context.coordinator.stage
+        stage.install(in: view.layer, startX: startX, link: link)
+        stage.setLaneWidth(view.bounds.width)
+        stage.update(images: images, size: size, displayScale: displayScale, maxRange: maxRange, isAnimating: isAnimating)
     }
 }
 #endif

@@ -80,7 +80,8 @@ struct SaessagiTests {
     // MARK: - 대기 애니메이션
 
     @Test func idleLayersLineUpWithTheSinglePicture() throws {
-        for asset in [SaessagiIdleLayers.body, SaessagiIdleLayers.leaf, SaessagiIdleLayers.eyes] {
+        #expect(SaessagiIdleLayers.all.count == 6)
+        for asset in SaessagiIdleLayers.all {
             #expect(NSImage(named: asset) != nil, "\(asset) 그림이 없다")
             // 레이어는 기본 그림과 같은 크기로 만들어져 정확히 겹친다.
             let whole = try #require(SaessagiRenderer.image(pose: .idle, size: 48, displayScale: 2))
@@ -114,8 +115,10 @@ struct SaessagiTests {
         for gap in gaps where gap >= 1 { #expect(gap >= 3 && gap <= 5.1) }
         // 깜빡임은 약 0.2초, 잎과 숨은 작고 느리다.
         #expect(abs(SaessagiIdleMotion.blinkClose + SaessagiIdleMotion.blinkOpen - 0.2) < 0.05)
-        #expect(SaessagiIdleMotion.leafAngle <= 3 && SaessagiIdleMotion.breathStretch <= 0.03)
-        #expect(SaessagiIdleMotion.leafHalfPeriod >= 1.5 && SaessagiIdleMotion.breathHalfPeriod >= 2)
+        // 깜빡임은 약 0.2초. 잎과 숨은 작은 크기에서도 보일 만큼, 그러나 과하지 않게.
+        #expect(SaessagiIdleMotion.leafAngle >= 4 && SaessagiIdleMotion.leafAngle <= 8)
+        #expect(SaessagiIdleMotion.breathStretch >= 0.03 && SaessagiIdleMotion.breathStretch <= 0.05)
+        #expect(SaessagiIdleMotion.leafHalfPeriod >= 1 && SaessagiIdleMotion.breathHalfPeriod >= 1.2)
 
         // 키프레임: 시간은 0에서 1까지 늘어나고, 눈은 뜬 채로 시작해 뜬 채로 끝난다.
         let track = SaessagiIdleMotion.blinkTrack
@@ -124,6 +127,96 @@ struct SaessagiTests {
         #expect(zip(track.keyTimes.dropFirst(), track.keyTimes).allSatisfy { $0 > $1 })
         #expect(track.values.first == 1 && track.values.last == 1)
         #expect(track.values.filter { $0 == SaessagiIdleMotion.closedEyeScale }.count == starts.count)
+    }
+
+    // MARK: - 걷기
+
+    /// 걸음마다 디딘 발이 땅에서 제자리에 있는지 본다: 몸의 위치 + 몸에 대한 발의 위치가 걸음 내내 같아야 한다.
+    private func expectNoSliding(_ plan: SaessagiWalkPlan, legStart: Double, steps: Int, direction: Double) {
+        let period = SaessagiWalkMotion.stepDuration
+        for index in 0..<steps {
+            let begin = legStart + Double(index) * period
+            let swingsRight = (direction > 0) == (index % 2 == 0)
+            let stance = swingsRight ? plan.footLeftX : plan.footRightX
+            let stanceLift = swingsRight ? plan.footLeftLift : plan.footRightLift
+            let swingLift = swingsRight ? plan.footRightLift : plan.footLeftLift
+            let planted = plan.moverX.value(at: begin) + stance.value(at: begin)
+            for fraction in [0.25, 0.5, 0.75, 1.0] {
+                let time = begin + period * fraction
+                #expect(abs(plan.moverX.value(at: time) + stance.value(at: time) - planted) < 1e-6)
+                // 디딘 발은 땅에 붙어 있다.
+                #expect(abs(stanceLift.value(at: time)) < 1e-6)
+            }
+            // 든 발은 걸음 한가운데에서 가장 높다.
+            #expect(abs(swingLift.value(at: begin + period / 2) - SaessagiWalkMotion.footLift * 48) < 1e-6)
+        }
+    }
+
+    @Test func walkGoesOutTurnsAndComesBackWithoutSliding() throws {
+        let size = 48.0, range = 60.0
+        let plan = try #require(SaessagiWalkPlan.roundTrip(range: range, size: size))
+        let step = SaessagiWalkMotion.stepLength * size
+        let steps = plan.stepsPerLeg
+        #expect(steps >= SaessagiWalkMotion.minimumSteps && steps <= SaessagiWalkMotion.maximumSteps)
+        let legTime = Double(steps) * SaessagiWalkMotion.stepDuration
+        let far = Double(steps - 1) * step
+        // 자리를 벗어나지 않는다: 0에서 가장 먼 곳까지, 그리고 제자리로.
+        #expect(far <= range + 1e-9 && far > range - step * 2)
+        #expect(plan.moverX.values.allSatisfy { $0 >= -1e-9 && $0 <= far + 1e-9 })
+        #expect(abs(plan.position(at: legTime) - far) < 1e-9)
+        #expect(abs(plan.position(at: legTime + SaessagiWalkMotion.turnPause) - far) < 1e-9)
+        #expect(abs(plan.position(at: plan.duration)) < 1e-9 && plan.position(at: 0) == 0)
+        // 가는 길과 오는 길 모두 디딘 발이 미끄러지지 않는다.
+        expectNoSliding(plan, legStart: 0, steps: steps, direction: 1)
+        expectNoSliding(plan, legStart: legTime + SaessagiWalkMotion.turnPause, steps: steps, direction: -1)
+        // 가는 쪽을 본다: 갈 때는 오른쪽, 돌아서고 나서는 왼쪽, 끝나면 앞.
+        #expect(plan.face.value(at: legTime * 0.5) > 0)
+        #expect(plan.face.value(at: legTime + SaessagiWalkMotion.turnPause + legTime * 0.5) < 0)
+        // 끝나면 모든 것이 평소 자세다.
+        for track in [plan.bob, plan.footLeftX, plan.footLeftLift, plan.footRightX, plan.footRightLift, plan.rock, plan.leaf, plan.face] {
+            #expect(abs(track.last) < 1e-9 && track.values[0] == 0)
+            #expect(abs(track.end - plan.duration) < 1e-9)
+            #expect(zip(track.times.dropFirst(), track.times).allSatisfy { $0 > $1 })
+        }
+        // 몸은 걸음마다 한 번씩 뜨고, 좌우로 번갈아 기운다.
+        #expect(plan.bob.values.max() == SaessagiWalkMotion.bob * size && plan.bob.values.min() == 0)
+        let period = SaessagiWalkMotion.stepDuration
+        let first = plan.rock.value(at: period * 0.5) - SaessagiWalkMotion.lean
+        let second = plan.rock.value(at: period * 1.5) - SaessagiWalkMotion.lean
+        #expect(first * second < 0)
+    }
+
+    @Test func walkNeedsRoomAndReturnsHomeFromAnywhere() throws {
+        // 걸을 자리가 없으면 걷지 않는다.
+        #expect(SaessagiWalkPlan.roundTrip(range: 0, size: 48) == nil)
+        #expect(SaessagiWalkPlan.roundTrip(range: 4, size: 48) == nil)
+        // 자리가 넓어도 걸음 수에는 상한이 있다.
+        #expect(SaessagiWalkPlan.roundTrip(range: 2_000, size: 48)?.stepsPerLeg == SaessagiWalkMotion.maximumSteps)
+        // 떨어져 있던 자리에서는 딱 그만큼을 걸어 제자리로 온다.
+        for away in [3.0, 17.3, 55.0] {
+            let plan = try #require(SaessagiWalkPlan.returnHome(from: away, size: 48))
+            #expect(plan.position(at: 0) == away && abs(plan.position(at: plan.duration)) < 1e-9)
+            #expect(plan.moverX.values.allSatisfy { $0 >= -1e-9 && $0 <= away + 1e-9 })
+            expectNoSlidingReturn(plan)
+        }
+        #expect(SaessagiWalkPlan.returnHome(from: 0, size: 48) == nil)
+    }
+
+    private func expectNoSlidingReturn(_ plan: SaessagiWalkPlan) {
+        let period = SaessagiWalkMotion.stepDuration
+        for index in 0..<plan.stepsPerLeg {
+            let begin = Double(index) * period
+            // 왼쪽으로 갈 때는 왼발부터 내딛는다.
+            let stance = index % 2 == 0 ? plan.footRightX : plan.footLeftX
+            let planted = plan.moverX.value(at: begin) + stance.value(at: begin)
+            #expect(abs(plan.moverX.value(at: begin + period) + stance.value(at: begin + period) - planted) < 1e-6)
+        }
+    }
+
+    @Test func onlyWalkingIsAvailableForNow() {
+        var generator = SystemRandomNumberGenerator()
+        #expect(SaessagiAction.allCases.filter(\.isAvailable) == [.walk])
+        for _ in 0..<20 { #expect(SaessagiAction.next(using: &generator) == .walk) }
     }
 
     @Test func restsOnVacationAndSmilesOtherwise() {

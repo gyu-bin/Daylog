@@ -52,6 +52,7 @@ struct TodayCompactView: View {
                     HStack(alignment: .bottom, spacing: 8) {
                         greeting(showsIcon: true)
                         TodaySaessagi(size: 44)
+                            .layoutPriority(-1)
                     }
                     DateNavigator(showsDate: false)
                 }
@@ -82,10 +83,6 @@ struct TodayCompactView: View {
             Text("Daylog")
                 .font(.title2.weight(.bold))
                 .accessibilityAddTraits(.isHeader)
-            if showsSaessagi {
-                // 단추 높이(44) 안에 들어가는 크기.
-                TodaySaessagi(size: 36)
-            }
             if store.isVacation(on: store.today) {
                 // 휴가 카드가 아래쪽에 있어도 오늘이 휴가라는 것은 위에서 알 수 있게 한다.
                 Label("휴가 중", systemImage: "beach.umbrella.fill")
@@ -95,7 +92,13 @@ struct TodayCompactView: View {
                     .padding(.vertical, 3)
                     .background(Theme.vacationTint.opacity(0.16), in: Capsule())
             }
-            Spacer(minLength: 8)
+            if showsSaessagi {
+                // 단추 높이(44) 안에 들어가는 크기. 단추까지의 빈자리를 새싹이가 차지하고 그 안에서 걷는다.
+                TodaySaessagi(size: 36, fillsWidth: true)
+                    .layoutPriority(-1)
+            } else {
+                Spacer(minLength: 8)
+            }
             Button {
                 isEditing.toggle()
             } label: {
@@ -139,9 +142,12 @@ struct TodayCompactView: View {
         HStack(alignment: .bottom, spacing: 8) {
             greeting(showsIcon: showsIcon)
             if let saessagi {
-                TodaySaessagi(size: saessagi)
+                // 날짜 이동 단추까지의 빈자리를 새싹이가 차지하고 그 안에서 걷는다(글자와 단추가 먼저 자리를 잡는다).
+                TodaySaessagi(size: saessagi, fillsWidth: true)
+                    .layoutPriority(-1)
+            } else {
+                Spacer(minLength: 4)
             }
-            Spacer(minLength: 4)
             DateNavigator(showsDate: false)
         }
     }

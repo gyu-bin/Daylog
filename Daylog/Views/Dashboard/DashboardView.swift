@@ -179,10 +179,12 @@ struct DashboardHeader: View {
             }
             .accessibilityElement(children: .combine)
             .accessibilityAddTraits(.isHeader)
+            .fixedSize()
             // 인사말 옆의 새싹이. 날짜와 인사말 두 줄의 높이 안에 들어가 머리말이 높아지지 않는다.
-            TodaySaessagi(size: 48)
+            // 오른쪽에 자리가 남으면 그만큼(최대 `walkRange`)을 걸어 다닐 자리로 쓴다.
+            TodaySaessagi(size: 48, walkRange: 64)
+                .layoutPriority(-1)
         }
-        .fixedSize()
     }
 }
 

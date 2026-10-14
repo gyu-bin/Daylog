@@ -121,11 +121,22 @@ enum SaessagiMood {
     }
 }
 
-/// 오늘 화면 인사말 옆의 새싹이: 평소에는 가만히 있고, 루틴을 완료하거나 건너뛰면 잠깐 반응한다.
+/// 오늘 화면 인사말 옆의 새싹이: 평소에는 제자리에서 숨 쉬고 깜빡이다가 가끔 옆으로 걸어갔다 오고,
+/// 루틴을 완료하거나 건너뛰면 잠깐 반응한다.
+///
+/// 가로로 `walkRange`만큼까지 늘어나는 자리를 차지한다(자리가 남을 때만). 그 안에서만 걸어 다닌다.
+/// 놓는 쪽에서 `.layoutPriority(-1)`을 주어 글자나 단추의 자리를 빼앗지 않게 한다.
 struct TodaySaessagi: View {
     @Environment(AppStore.self) private var store
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     var size: CGFloat = 48
+    /// 걸어 다닐 수 있는 최대 거리(pt).
+    var walkRange: CGFloat = 60
+    /// 줄에 남는 가로 자리를 모두 차지할지. 빈칸(Spacer) 대신 놓을 때 켠다: 걷는 거리는 그래도 `walkRange`까지다.
+    var fillsWidth = false
+    /// 걷던 자리. 반응 그림을 그 자리에 놓고, 끝나면 거기서 걸어 돌아온다.
+    @State private var awayX: CGFloat = 0
+    @State private var link = SaessagiStageLink()
     @State private var reaction: SaessagiReaction?
     /// 통통 뛸 때 위로 뜬 높이.
     @State private var lift: CGFloat = 0
@@ -143,20 +154,30 @@ struct TodaySaessagi: View {
         reaction?.pose ?? SaessagiMood.base(isVacation: store.isVacation(on: store.selectedDay))
     }
 
+    /// 걸어 다니는 날인가: 움직임 줄이기를 켰거나 휴가인 날(쉬는 모습)에는 자리를 늘리지 않는다.
+    private var canWalk: Bool {
+        !reduceMotion && !store.isVacation(on: store.selectedDay)
+    }
+
     var body: some View {
-        ZStack {
+        ZStack(alignment: .leading) {
             Group {
                 // 평소 모습일 때만 살아 움직인다. 반응(기쁨·휴식)이 시작되면 그 그림으로 바뀌며 움직임도 멈춘다.
                 if pose == .idle {
-                    SaessagiIdleView(size: size)
+                    SaessagiIdleView(size: size, startX: canWalk ? awayX : 0, link: link, maxRange: walkRange)
                 } else {
                     SaessagiView(pose: pose, size: size)
+                        .offset(x: canWalk ? awayX : 0)
                 }
             }
             .id(pose)
             .transition(reduceMotion ? .identity : .opacity)
         }
         .offset(y: lift)
+        .frame(
+            minWidth: size, idealWidth: size, maxWidth: fillsWidth ? .infinity : size + (canWalk ? walkRange : 0),
+            alignment: .leading
+        )
         .animation(reduceMotion ? nil : .easeInOut(duration: 0.18), value: pose)
         .onChange(of: progress) { old, new in
             if let next = SaessagiMood.reaction(from: old, to: new) { react(next) }
@@ -166,6 +187,8 @@ struct TodaySaessagi: View {
 
     private func react(_ next: SaessagiReaction) {
         pending?.cancel()
+        // 걷던 중이었으면 그 자리에서 반응한다(평소 모습이 떠 있을 때만 위치를 알 수 있다).
+        if let offset = link.currentOffset() { awayX = max(offset, 0) }
         reaction = next
         // 앞의 반응이 뛰던 중이었으면 제자리에서 다시 시작한다.
         lift = 0
