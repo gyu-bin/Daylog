@@ -105,9 +105,8 @@ struct FirstSyncView: View {
         badge: String?, tint: Color, floats: Bool, title: String, detail: String, @ViewBuilder footer: () -> some View
     ) -> some View {
         VStack(spacing: 18) {
-            FirstSyncMascot(floats: floats)
-                // 기다리는 화면으로 돌아오면([다시 확인]) 움직임을 처음부터 다시 시작한다.
-                .id(floats)
+            // 기다리는 동안에는 두리번거리고, 문제가 생겨 멈춘 화면에서는 숨 쉬고 깜빡이기만 한다.
+            SaessagiAnimatedView(pose: .idle, size: 132, behavior: floats ? .waiting : .calm)
                 .padding(22)
                 .background(Theme.accent.opacity(0.12), in: Circle())
                 .overlay(alignment: .bottomTrailing) {
@@ -181,21 +180,5 @@ struct FirstSyncView: View {
         case .waiting, .unavailable, .stalled:
             break
         }
-    }
-}
-
-/// 안내 가운데의 새싹이. 기다리는 동안에는 천천히 오르내리고, 움직임 줄이기를 켰으면 가만히 있다.
-private struct FirstSyncMascot: View {
-    let floats: Bool
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @State private var isUp = false
-
-    var body: some View {
-        SaessagiView(pose: .idle, size: 132)
-            .offset(y: isUp ? -6 : 0)
-            .onAppear {
-                guard floats, !reduceMotion else { return }
-                withAnimation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true)) { isUp = true }
-            }
     }
 }

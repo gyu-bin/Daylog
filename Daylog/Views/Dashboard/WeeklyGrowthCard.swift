@@ -14,7 +14,8 @@ struct WeeklyGrowthCard: View {
                     goalMenu(growth)
                 }
                 HStack(alignment: .center, spacing: 12) {
-                    SaessagiView(pose: .cheer, size: 52)
+                    // 응원하며 좌우로 흔들고 가볍게 뛴다. 목표를 달성하면 더 자주, 더 크게 축하한다.
+                    SaessagiAnimatedView(pose: .cheer, size: 52, behavior: growth.isGoalReached ? .celebrating : .cheering)
                     VStack(alignment: .leading, spacing: 4) {
                         // 글자가 커서 한 줄에 다 들어가지 않으면 칸을 아랫줄로 내린다.
                         ViewThatFits(in: .horizontal) {

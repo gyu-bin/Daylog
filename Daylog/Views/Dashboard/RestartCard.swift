@@ -10,7 +10,8 @@ struct RestartCard: View {
     var body: some View {
         Card(fillsHeight: false) {
             HStack(alignment: .center, spacing: 12) {
-                SaessagiView(pose: .welcome, size: 60)
+                // 반갑게 까딱이며 인사하고 가끔 통 뛴다.
+                SaessagiAnimatedView(pose: .welcome, size: 60)
                 VStack(alignment: .leading, spacing: 4) {
                     Text("오늘부터 다시 시작해 볼까요?")
                         .font(.headline)

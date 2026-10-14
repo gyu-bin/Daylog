@@ -232,24 +232,88 @@ struct SaessagiTests {
         #expect(doze.eyes.value(at: 1.5) == SaessagiIdleMotion.closedEyeScale && doze.eyes.value(at: 2.2) > 1)
     }
 
-    @Test func actionsAreWeightedAndNeverRepeatBackToBack() {
+    @Test func todayBehaviourMixesActionsAndNeverRepeatsBackToBack() {
         var generator = SystemRandomNumberGenerator()
         var counts: [SaessagiAction: Int] = [:]
         var last: SaessagiAction?
+        let behavior = SaessagiBehavior.today
         for _ in 0..<4_000 {
-            let action = SaessagiAction.next(after: last, using: &generator)
+            let action = behavior.next(after: last, using: &generator)
             #expect(action != last && action.isAvailable)
             counts[action, default: 0] += 1
             last = action
         }
-        // 네 가지 행동과 쉬기가 모두 나오고, 만들지 않은 동작은 나오지 않는다.
+        // 네 가지 행동과 쉬기가 모두 나오고, 그 밖의 동작은 나오지 않는다.
         for action in [SaessagiAction.stay, .walk, .lookAround, .hop, .doze] { #expect((counts[action] ?? 0) > 200) }
-        #expect(counts[.tumble] == nil && counts[.peek] == nil)
-        // 쉬는 것이 가장 흔하고, 조는 것이 가장 드물다.
-        #expect(counts[.stay]! > counts[.hop]! && counts[.stay]! > counts[.doze]!)
+        #expect(counts.count == 5)
+        // 조는 것이 걷기·두리번거리기보다 드물다.
         #expect(counts[.doze]! < counts[.walk]! && counts[.doze]! < counts[.lookAround]!)
-        // 쉬는 시간은 5~10초.
-        #expect(SaessagiWalkMotion.rest == 5.0...10.0)
+        // 10초쯤 보면 여러 번 움직인다: 쉬는 시간은 2~5초.
+        #expect(behavior.rest == 2.0...5.0 && behavior.firstRest <= 3)
+    }
+
+    @Test func everyPoseHasABehaviourThatSuitsIt() {
+        var generator = SystemRandomNumberGenerator()
+        for pose in SaessagiPose.allCases {
+            let behavior = SaessagiBehavior.standard(for: pose)
+            #expect(!behavior.choices.isEmpty)
+            #expect(behavior.rest.upperBound <= 6 && behavior.rest.lowerBound > 0)
+            // 그림 한 장짜리 모습은 나뉜 레이어가 있어야 하는 행동을 고르지 않는다.
+            if pose != .idle {
+                #expect(behavior.choices.allSatisfy { !$0.action.needsLayers })
+            }
+            // 숨은 작고 느리다.
+            #expect(behavior.breathStretch <= 0.05 && behavior.breathHalfPeriod >= 1.2)
+            for _ in 0..<20 { #expect(behavior.next(after: nil, using: &generator).isAvailable) }
+        }
+        // 쉬는 모습과 자는 모습은 숨이 더 느리다.
+        #expect(SaessagiBehavior.resting.breathHalfPeriod > SaessagiBehavior.today.breathHalfPeriod)
+        #expect(SaessagiBehavior.sleeping.breathHalfPeriod >= SaessagiBehavior.resting.breathHalfPeriod)
+        // 축하는 평소의 응원보다 잦다.
+        #expect(SaessagiBehavior.celebrating.rest.upperBound < SaessagiBehavior.cheering.rest.upperBound)
+        #expect(SaessagiBehavior.celebrating.choices.contains { $0.action == .cheer })
+        // 고를 것이 하나뿐이면 그것을 다시 한다. 고를 것이 없으면 쉰다.
+        #expect(SaessagiBehavior.joyful.next(after: .bounce, using: &generator) == .bounce)
+        #expect(SaessagiBehavior.calm.next(after: nil, using: &generator) == .stay)
+    }
+
+    @Test func wholeImageActionsStayGentleAndEndAtRest() throws {
+        var generator = SystemRandomNumberGenerator()
+        let size = 52.0
+        for action in [SaessagiAction.sway, .bounce, .cheer, .wave, .wiggle, .deepBreath] {
+            let plan = try #require(SaessagiMotionPlan.make(action, at: 0, range: 0, size: size, using: &generator))
+            #expect(plan.duration >= 0.6 && plan.duration <= 3.1)
+            // 제자리에서, 그림 전체만 움직인다(발·눈·입·잎을 따로 건드리지 않는다).
+            #expect(plan.moverX.isConstant && plan.finalX == 0)
+            for track in [plan.footLeftX, plan.footLeftLift, plan.footRightX, plan.footRightLift, plan.leaf, plan.face] {
+                #expect(track.isConstant)
+            }
+            #expect(plan.eyes.isConstant)
+            // 끝나면 평소 자세.
+            #expect(abs(plan.bob.last) < 1e-9 && abs(plan.rock.last) < 1e-9)
+            #expect(plan.squashX.last == 1 && plan.squashY.last == 1)
+            // 작은 카드 안에서도 자리를 크게 벗어나지 않는다: 뜀은 키의 15%까지, 기울기는 8도까지, 눌림은 10%쯤까지.
+            #expect(plan.bob.values.allSatisfy { $0 >= 0 && $0 <= 0.15 * size + 1e-9 })
+            #expect(plan.rock.values.allSatisfy { abs($0) <= 8 })
+            #expect(plan.squashX.values.allSatisfy { $0 >= 0.95 && $0 <= 1.08 })
+            #expect(plan.squashY.values.allSatisfy { $0 >= 0.9 && $0 <= 1.06 })
+        }
+        // 쉬기와 아직 없는 동작은 움직임을 만들지 않는다. 걸을 자리가 없으면 걷지 않는다.
+        for action in [SaessagiAction.stay, .tumble, .peek, .walk] {
+            #expect(SaessagiMotionPlan.make(action, at: 0, range: 0, size: size, using: &generator) == nil)
+        }
+        // 축하는 두 번 뛴다.
+        let cheer = SaessagiMotionPlan.cheer(at: 0, size: size)
+        #expect(cheer.bob.values.filter { $0 == 0.15 * size }.count == 2)
+    }
+
+    @Test func rigsAreLayeredOnlyForTheIdlePose() throws {
+        for pose in SaessagiPose.allCases {
+            let rig = try #require(SaessagiRig(pose: pose, size: 48, displayScale: 2))
+            #expect(rig.isLayered == (pose == .idle))
+            #expect(rig.pose == pose)
+            #expect(rig.body.width == Int((48 + SaessagiRenderer.padding * 2) * 2))
+        }
     }
 
     @Test func restsOnVacationAndSmilesOtherwise() {

@@ -164,9 +164,13 @@ struct TodaySaessagi: View {
             Group {
                 // 평소 모습일 때만 살아 움직인다. 반응(기쁨·휴식)이 시작되면 그 그림으로 바뀌며 움직임도 멈춘다.
                 if pose == .idle {
-                    SaessagiIdleView(size: size, startX: canWalk ? awayX : 0, link: link, maxRange: walkRange)
+                    SaessagiAnimatedView(
+                        pose: .idle, size: size, behavior: .today, fillsLane: true, maxRange: walkRange,
+                        startX: canWalk ? awayX : 0, link: link
+                    )
                 } else {
-                    SaessagiView(pose: pose, size: size)
+                    // 기쁨은 통통 뛰고, 휴식(건너뛰기·휴가)은 느리게 숨 쉬며 가끔 꿈틀한다.
+                    SaessagiAnimatedView(pose: pose, size: size)
                         .offset(x: canWalk ? awayX : 0)
                 }
             }

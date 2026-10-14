@@ -1,6 +1,9 @@
 import Foundation
 
-/// 새싹이가 평소 모습에서 가끔 하는 행동. 한 번에 하나만 한다.
+/// 새싹이가 가끔 하는 행동. 한 번에 하나만 한다. 어떤 행동을 얼마나 자주 하는지는 놓인 자리마다 `SaessagiBehavior`가 정한다.
+///
+/// 앞의 다섯은 몸·발·눈·입·잎이 나뉜 기본 모습에서 하고, 그다음 여섯은 그림 한 장짜리 모습(응원·반가움·기쁨·휴식·잠)에서도 한다:
+/// 팔다리를 따로 움직이지 않고 그림 전체를 발밑 기준으로 기울이고, 띄우고, 눌렀다 늘린다.
 enum SaessagiAction: CaseIterable, Sendable {
     /// 아무것도 하지 않고 더 쉰다(숨 쉬고 깜빡이기만 한다).
     case stay
@@ -12,32 +15,97 @@ enum SaessagiAction: CaseIterable, Sendable {
     case hop
     /// 꾸벅꾸벅 졸다가 놀라 깬다.
     case doze
+    /// 좌우로 몸을 흔든다.
+    case sway
+    /// 작게 통 뛴다.
+    case bounce
+    /// 좌우로 기울며 두 번 크게 뛴다(축하).
+    case cheer
+    /// 든 손 쪽으로 몸을 까딱까딱 기울인다(손을 따로 움직일 수 없어 몸으로 흔든다).
+    case wave
+    /// 느리게 꿈틀한다.
+    case wiggle
+    /// 크게 한 번 숨을 쉰다.
+    case deepBreath
     /// 넘어졌다 일어나기, 빼꼼 숨기: 새 그림이 있어야 해서 아직 만들지 않았다.
     case tumble
     case peek
 
-    /// 고를 때의 비중. 0이면 고르지 않는다. 쉬는 것이 가장 흔하다.
-    var weight: Int {
-        switch self {
-        case .stay: return 8
-        case .walk: return 6
-        case .lookAround: return 6
-        case .hop: return 4
-        case .doze: return 3
-        case .tumble, .peek: return 0
+    var isAvailable: Bool { self != .tumble && self != .peek }
+    /// 나뉜 레이어(발·눈·입·잎)가 있어야 하는 행동.
+    var needsLayers: Bool { self == .walk || self == .lookAround || self == .doze }
+}
+
+/// 새싹이가 놓인 자리에서 어떻게 움직일지: 고를 행동과 비중, 쉬는 시간, 숨의 크기.
+struct SaessagiBehavior: Equatable, Sendable {
+    struct Choice: Equatable, Sendable {
+        var action: SaessagiAction
+        var weight: Int
+    }
+
+    var choices: [Choice]
+    /// 행동 사이에 쉬는 시간(초)과, 처음 나타났을 때 첫 행동까지의 시간.
+    var rest: ClosedRange<Double>
+    var firstRest: Double
+    /// 숨을 들이쉴 때 키가 늘어나는 비율과, 들숨 또는 날숨 한 번의 시간(초).
+    var breathStretch = SaessagiIdleMotion.breathStretch
+    var breathHalfPeriod = SaessagiIdleMotion.breathHalfPeriod
+
+    private static func make(
+        _ choices: [(SaessagiAction, Int)], rest: ClosedRange<Double>, firstRest: Double,
+        breathStretch: Double = SaessagiIdleMotion.breathStretch, breathHalfPeriod: Double = SaessagiIdleMotion.breathHalfPeriod
+    ) -> SaessagiBehavior {
+        SaessagiBehavior(
+            choices: choices.map { Choice(action: $0.0, weight: $0.1) }, rest: rest, firstRest: firstRest,
+            breathStretch: breathStretch, breathHalfPeriod: breathHalfPeriod
+        )
+    }
+
+    /// 오늘 화면 인사말 옆: 걷고, 두리번거리고, 뛰고, 존다.
+    static let today = make([(.stay, 3), (.walk, 6), (.lookAround, 6), (.hop, 4), (.doze, 3)], rest: 2...5, firstRest: 2)
+    /// 기다리는 안내 화면: 주로 두리번거린다.
+    static let waiting = make([(.lookAround, 6), (.hop, 2), (.stay, 2)], rest: 2...4, firstRest: 1.2)
+    /// 가만히: 숨 쉬고 깜빡이기만 한다.
+    static let calm = make([], rest: 4...8, firstRest: 4)
+    /// 작은 카드의 응원: 좌우로 흔들고 가볍게 뛴다.
+    static let cheering = make([(.sway, 5), (.bounce, 4)], rest: 1.5...3.5, firstRest: 1.5)
+    /// 목표를 달성했을 때: 더 자주, 더 크게.
+    static let celebrating = make([(.cheer, 5), (.sway, 3), (.bounce, 3)], rest: 1.2...3, firstRest: 0.8)
+    /// 반기는 인사: 손을 흔들듯 까딱이고 가끔 뛴다.
+    static let welcoming = make([(.wave, 6), (.bounce, 3)], rest: 1.5...3.5, firstRest: 1)
+    /// 기뻐하는 잠깐의 반응: 곧바로 통통 뛴다.
+    static let joyful = make([(.bounce, 1)], rest: 0.25...0.5, firstRest: 0.45)
+    /// 쉬는 모습: 느리게 숨 쉬고 가끔 꿈틀한다.
+    static let resting = make(
+        [(.wiggle, 4), (.stay, 1)], rest: 2.5...5, firstRest: 1.5, breathStretch: 0.05, breathHalfPeriod: 2.0
+    )
+    /// 자는 모습: 더 느린 숨, 가끔 크게 한 번.
+    static let sleeping = make(
+        [(.deepBreath, 4), (.wiggle, 1), (.stay, 2)], rest: 3...6, firstRest: 2.5, breathStretch: 0.045, breathHalfPeriod: 2.6
+    )
+
+    /// 그 모습에 어울리는 기본 움직임.
+    static func standard(for pose: SaessagiPose) -> SaessagiBehavior {
+        switch pose {
+        case .idle: return .waiting
+        case .happy: return .joyful
+        case .cheer: return .cheering
+        case .rest: return .resting
+        case .sleep: return .sleeping
+        case .welcome: return .welcoming
         }
     }
 
-    var isAvailable: Bool { weight > 0 }
-
-    /// 다음 행동을 비중대로 고른다. 바로 앞에 한 행동은 다시 고르지 않는다.
-    static func next(after last: SaessagiAction?, using generator: inout some RandomNumberGenerator) -> SaessagiAction {
-        let choices = allCases.filter { $0.isAvailable && $0 != last }
-        let total = choices.reduce(0) { $0 + $1.weight }
+    /// 다음 행동을 비중대로 고른다. 바로 앞에 한 행동은 다시 고르지 않는다(고를 것이 그것뿐이면 다시 한다).
+    func next(after last: SaessagiAction?, using generator: inout some RandomNumberGenerator) -> SaessagiAction {
+        let usable = choices.filter { $0.action.isAvailable && $0.weight > 0 }
+        let fresh = usable.filter { $0.action != last }
+        let pool = fresh.isEmpty ? usable : fresh
+        let total = pool.reduce(0) { $0 + $1.weight }
         guard total > 0 else { return .stay }
         var pick = Int.random(in: 0..<total, using: &generator)
-        for choice in choices {
-            if pick < choice.weight { return choice }
+        for choice in pool {
+            if pick < choice.weight { return choice.action }
             pick -= choice.weight
         }
         return .stay
@@ -67,9 +135,6 @@ enum SaessagiWalkMotion {
     /// 한 번에 걷는 걸음 수: 이보다 적게 걸을 자리밖에 없으면 걷지 않고, 이보다 많이 걷지 않는다(2~3초).
     static let minimumSteps = 4
     static let maximumSteps = 9
-    /// 행동 사이에 쉬는 시간(초), 처음 나타났을 때 첫 행동까지의 시간.
-    static let rest = 5.0...10.0
-    static let firstRest = 3.5
 }
 
 /// 시간에 따라 변하는 값 하나(키프레임). 시간은 초, 처음은 0초.
@@ -322,6 +387,125 @@ struct SaessagiMotionPlan: Equatable, Sendable {
         plan.duration = 2.8
         plan.holdAll(until: plan.duration)
         return plan
+    }
+
+    // MARK: - 그림 한 장으로도 하는 행동
+
+    /// 좌우로 몸을 흔든다.
+    static func sway(at x: Double, size: Double) -> SaessagiMotionPlan {
+        var plan = SaessagiMotionPlan(startX: x)
+        for (time, angle) in [(0.24, -6.0), (0.56, 6.0), (0.88, -4.0), (1.15, 2.0), (1.35, 0.0)] { plan.rock.add(angle, at: time) }
+        for (time, level) in [(0.24, 0.03), (0.4, 0.0), (0.56, 0.03), (0.72, 0.0), (0.88, 0.02), (1.05, 0.0)] {
+            plan.bob.add(level * size, at: time)
+        }
+        plan.duration = 1.35
+        plan.holdAll(until: plan.duration)
+        return plan
+    }
+
+    /// 작게 통 뛴다. 작은 카드 안에서도 자리를 벗어나지 않는 높이다.
+    static func bounce(at x: Double, size: Double) -> SaessagiMotionPlan {
+        var plan = SaessagiMotionPlan(startX: x)
+        plan.jump(from: 0, height: 0.1 * size, tilt: 0)
+        plan.duration = 0.8
+        plan.holdAll(until: plan.duration)
+        return plan
+    }
+
+    /// 좌우로 기울며 두 번 뛴다(축하).
+    static func cheer(at x: Double, size: Double) -> SaessagiMotionPlan {
+        var plan = SaessagiMotionPlan(startX: x)
+        plan.jump(from: 0, height: 0.15 * size, tilt: -5)
+        plan.jump(from: 0.66, height: 0.15 * size, tilt: 5)
+        plan.rock.add(0, at: 1.5)
+        plan.duration = 1.55
+        plan.holdAll(until: plan.duration)
+        return plan
+    }
+
+    /// 든 손 쪽(오른쪽)으로 몸을 까딱까딱 기울인다.
+    static func wave(at x: Double, size: Double) -> SaessagiMotionPlan {
+        var plan = SaessagiMotionPlan(startX: x)
+        for (time, angle) in [(0.18, 7.0), (0.36, 2.0), (0.54, 7.0), (0.72, 2.0), (0.9, 6.0), (1.2, 0.0)] {
+            plan.rock.add(angle, at: time)
+        }
+        for (time, level) in [(0.18, 0.025), (0.36, 0.0), (0.54, 0.025), (0.72, 0.0), (0.9, 0.02), (1.1, 0.0)] {
+            plan.bob.add(level * size, at: time)
+        }
+        plan.duration = 1.2
+        plan.holdAll(until: plan.duration)
+        return plan
+    }
+
+    /// 느리게 꿈틀한다: 살짝 퍼졌다가 늘어나며 좌우로 조금 기운다.
+    static func wiggle(at x: Double, size: Double) -> SaessagiMotionPlan {
+        var plan = SaessagiMotionPlan(startX: x)
+        let poses: [(time: Double, x: Double, y: Double, tilt: Double)] = [
+            (0.45, 1.055, 0.95, -3), (0.9, 0.975, 1.035, 2.5), (1.35, 1.04, 0.965, -1.5), (1.8, 1, 1, 0),
+        ]
+        for pose in poses {
+            plan.squashX.add(pose.x, at: pose.time)
+            plan.squashY.add(pose.y, at: pose.time)
+            plan.rock.add(pose.tilt, at: pose.time)
+        }
+        plan.duration = 1.8
+        plan.holdAll(until: plan.duration)
+        return plan
+    }
+
+    /// 크게 한 번 숨을 쉰다.
+    static func deepBreath(at x: Double, size: Double) -> SaessagiMotionPlan {
+        var plan = SaessagiMotionPlan(startX: x)
+        for (time, wide, tall) in [(1.3, 0.985, 1.055), (1.7, 0.985, 1.055), (3.0, 1.0, 1.0)] {
+            plan.squashX.add(wide, at: time)
+            plan.squashY.add(tall, at: time)
+        }
+        plan.duration = 3.0
+        plan.holdAll(until: plan.duration)
+        return plan
+    }
+
+    /// 뛰기 한 번을 `start`초부터 더한다: 움츠림 → 도약 → 착지 → 눌렸다 복원(약 0.75초). `tilt`만큼 기운 채 뛴다.
+    private mutating func jump(from start: Double, height: Double, tilt: Double) {
+        bob.hold(until: start + 0.1)
+        for (time, level) in [(0.18, 0.62), (0.28, 1.0), (0.37, 0.66), (0.45, 0.0)] { bob.add(level * height, at: start + time) }
+        squashX.hold(until: start)
+        squashY.hold(until: start)
+        let squash: [(Double, Double, Double)] = [
+            (0.1, 1.05, 0.93), (0.18, 0.97, 1.05), (0.28, 1, 1), (0.44, 0.985, 1.02), (0.52, 1.07, 0.91), (0.64, 0.985, 1.02), (0.75, 1, 1),
+        ]
+        for (time, wide, tall) in squash {
+            squashX.add(wide, at: start + time)
+            squashY.add(tall, at: start + time)
+        }
+        if tilt != 0 {
+            rock.hold(until: start)
+            rock.add(tilt, at: start + 0.2)
+            rock.add(tilt * 0.4, at: start + 0.55)
+        }
+    }
+
+    // MARK: - 고르기
+
+    /// 그 행동의 움직임을 만든다. 하지 않는 행동(쉬기, 아직 없는 동작)이나 할 수 없는 경우(걸을 자리 없음)는 nil.
+    static func make(
+        _ action: SaessagiAction, at x: Double, range: Double, size: Double, using generator: inout some RandomNumberGenerator
+    ) -> SaessagiMotionPlan? {
+        switch action {
+        case .stay, .tumble, .peek:
+            return nil
+        case .walk:
+            return walkTarget(from: x, range: range, size: size, using: &generator).flatMap { walk(from: x, to: $0, size: size) }
+        case .lookAround: return lookAround(at: x, size: size)
+        case .hop: return hop(at: x, size: size)
+        case .doze: return doze(at: x, size: size)
+        case .sway: return sway(at: x, size: size)
+        case .bounce: return bounce(at: x, size: size)
+        case .cheer: return cheer(at: x, size: size)
+        case .wave: return wave(at: x, size: size)
+        case .wiggle: return wiggle(at: x, size: size)
+        case .deepBreath: return deepBreath(at: x, size: size)
+        }
     }
 
     // MARK: -
