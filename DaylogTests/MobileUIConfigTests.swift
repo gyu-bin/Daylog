@@ -117,7 +117,10 @@ struct MobileUIConfigTests {
             // 저장소에 둔 기본 설정은 앱의 내장 기본값과 같은 화면을 낸다(게시해도 달라지는 것이 없다).
             // 설정 파일에는 나중에 생긴 카드(이번 주의 성장)가 없다. 앱이 그 카드를 내장 순서의 자리에 끼워 넣는다.
             #expect(DashboardCard.remoteOrder(settings.defaultCardOrder ?? []) == DashboardCard.defaultOrder(phone: true))
-            #expect(Set(settings.defaultHiddenCards ?? []) == Set(DashboardCard.defaultHidden.map(\.rawValue)))
+            // 숨김도 같다: 설정 파일이 모르는 나중 카드(주간 회고)는 앱이 기본값대로 숨긴다.
+            let pad = DevicePreferences(defaults: testDefaults(), isPhone: false)
+            pad.applyRemoteDefaults(order: settings.defaultCardOrder, hidden: settings.defaultHiddenCards)
+            #expect(pad.hiddenCards == DashboardCard.defaultHidden)
             settings.configVersion = 0; settings.updatedAt = ""; settings.defaultCardOrder = nil; settings.defaultHiddenCards = nil
             for key in MobileUISettings.TextKey.allCases { #expect(settings.string(key) == key.builtIn) }
             settings.text = [:]
@@ -270,7 +273,8 @@ struct MobileUIConfigTests {
         preferences.applyRemoteDefaults(order: remoteOrder, hidden: ["calendar"])
         // 설정에 적힌 카드는 그 순서대로다. 적히지 않은 나중 카드(새싹이 성장)는 내장 순서에서 앞에 있던 카드(오늘 루틴) 뒤에 들어간다.
         #expect(preferences.cardOrder.prefix(5).map(\.rawValue) == ["summary", "routines", "saessagiGrowth", "weeklyReview", "achievement"])
-        #expect(preferences.hiddenCards == [.calendar])
+        // 설정이 모르는 주간 회고는 앱의 기본값대로 숨긴다.
+        #expect(preferences.hiddenCards == [.calendar, .weeklyReview])
         #expect(!preferences.isLayoutCustomized)
 
         // 사용자가 카드를 숨기면 그때부터는 사용자의 배치다.
@@ -286,7 +290,7 @@ struct MobileUIConfigTests {
         // [기본 배치 복원]은 지금의 기본값(원격이 준 것)으로 돌아가고, 다시 기본값을 따른다.
         preferences.restoreDashboard()
         #expect(!preferences.isLayoutCustomized)
-        #expect(preferences.cardOrder.first == .trend && preferences.hiddenCards == [.summary])
+        #expect(preferences.cardOrder.first == .trend && preferences.hiddenCards == [.summary, .weeklyReview])
     }
 
     @Test func layoutsSavedBeforeThisFeatureCountAsCustomizedOnlyIfTheyDifferFromTheDefault() {
@@ -317,7 +321,7 @@ struct MobileUIConfigTests {
         pad.applyRemoteDefaults(order: ["trend", "routines"], hidden: ["summary"])
         // iPad·Mac의 두 열 순서는 내장 순서를 따른다. 숨김 기본값만 받는다.
         #expect(pad.cardOrder == DashboardCard.defaultOrder(phone: false))
-        #expect(pad.hiddenCards == [.summary])
+        #expect(pad.hiddenCards == [.summary, .weeklyReview])
         // 식사 표시 같은 개인 설정은 원격 설정이 바꾸지 못한다.
         #expect(!pad.mealsEnabled)
     }

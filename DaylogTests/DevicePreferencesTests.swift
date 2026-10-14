@@ -99,7 +99,7 @@ struct DevicePreferencesTests {
         let preferences = DevicePreferences(defaults: testDefaults())
         let layout = preferences.layout(of: preferences.visibleCards)
         #expect(layout.band.isEmpty)
-        #expect(layout.left == [.nextRoutine, .vacation, .routines, .saessagiGrowth, .weeklyReview])
+        #expect(layout.left == [.nextRoutine, .vacation, .routines, .saessagiGrowth])
         #expect(layout.right == [.weeklyGrowth, .meals, .achievement, .recentDays, .tomorrow])
         preferences.setVisible(true, card: .summary)
         #expect(preferences.layout(of: preferences.visibleCards).band == [.summary])
@@ -109,7 +109,7 @@ struct DevicePreferencesTests {
     @Test func phoneStartsWithProgressOnTop() {
         let preferences = DevicePreferences(defaults: testDefaults(), isPhone: true)
         #expect(preferences.visibleCards == [
-            .achievement, .weeklyGrowth, .nextRoutine, .routines, .saessagiGrowth, .weeklyReview, .meals, .recentDays, .tomorrow, .vacation
+            .achievement, .weeklyGrowth, .nextRoutine, .routines, .saessagiGrowth, .meals, .recentDays, .tomorrow, .vacation
         ])
         preferences.move(.achievement, by: 1)
         preferences.restoreDashboard()
@@ -122,13 +122,13 @@ struct DevicePreferencesTests {
         let preferences = DevicePreferences(defaults: testDefaults())
         preferences.place(.tomorrow, before: .routines)
         var layout = preferences.layout(of: preferences.visibleCards)
-        #expect(layout.left == [.nextRoutine, .vacation, .tomorrow, .routines, .saessagiGrowth, .weeklyReview])
+        #expect(layout.left == [.nextRoutine, .vacation, .tomorrow, .routines, .saessagiGrowth])
         #expect(layout.right == [.weeklyGrowth, .meals, .achievement, .recentDays])
         #expect(preferences.visibleCards.firstIndex(of: .tomorrow)! < preferences.visibleCards.firstIndex(of: .routines)!)
 
         preferences.place(.vacation, atEndOf: .right)
         layout = preferences.layout(of: preferences.visibleCards)
-        #expect(layout.left == [.nextRoutine, .tomorrow, .routines, .saessagiGrowth, .weeklyReview])
+        #expect(layout.left == [.nextRoutine, .tomorrow, .routines, .saessagiGrowth])
         #expect(layout.right == [.weeklyGrowth, .meals, .achievement, .recentDays, .vacation])
         #expect(preferences.visibleCards.last == .vacation)
 

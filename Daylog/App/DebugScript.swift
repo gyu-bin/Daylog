@@ -159,6 +159,12 @@ enum DebugScript {
         case "onboardingDone":
             // 시작 안내를 본 것으로 한다. 안내 시트가 떠 있으면 화면 검증과 정상 종료가 막힌다.
             DevicePreferences.shared.completeOnboarding()
+        case "editDashboard":
+            // 오늘 화면의 카드 편집 모드를 연다. 설정의 [편집]처럼 설정을 거쳐 오늘 화면으로 돌아온다(나타날 때 편집 요청을 읽는다).
+            store.section = .settings
+            store.wantsDashboardEditing = true
+            try? await Task.sleep(for: .milliseconds(600))
+            store.section = .dashboard
         case "showCard", "hideCard":
             // 대시보드 카드 보이기/숨기기: showCard:summary, hideCard:summary. 이 기기 설정만 바꾼다.
             if let card = DashboardCard(rawValue: argument) {

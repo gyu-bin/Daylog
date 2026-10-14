@@ -227,7 +227,7 @@ struct WeeklyGrowthTests {
         // Mac·iPad: 오른쪽 열의 맨 위. 왼쪽 열은 다음 루틴·휴가·오늘 루틴, 그 아래 새싹이 성장·주간 회고(오른쪽 열만 길어지지 않게).
         let wide = DevicePreferences(defaults: testDefaults(), isPhone: false)
         let layout = wide.layout(of: wide.visibleCards)
-        #expect(layout.left == [.nextRoutine, .vacation, .routines, .saessagiGrowth, .weeklyReview])
+        #expect(layout.left == [.nextRoutine, .vacation, .routines, .saessagiGrowth])
         #expect(layout.right.first == .weeklyGrowth)
         // iPhone: 오늘의 달성 현황 바로 아래.
         let phone = DevicePreferences(defaults: testDefaults(), isPhone: true)
@@ -247,9 +247,9 @@ struct WeeklyGrowthTests {
             .weeklyGrowth, .meals, .achievement, .recentDays, .tomorrow,
         ])
         // 바꾼 적 없는 배치는 새 기본값을 따라 성장 카드가 왼쪽 열로 간다.
-        #expect(preferences.layout(of: preferences.visibleCards).left == [
-            .nextRoutine, .vacation, .routines, .saessagiGrowth, .weeklyReview,
-        ])
+        #expect(preferences.layout(of: preferences.visibleCards).left == [.nextRoutine, .vacation, .routines, .saessagiGrowth])
+        // 주간 회고는 처음에 숨겨 두고, 켜면 왼쪽 열에 나온다.
+        #expect(preferences.hiddenCards.contains(.weeklyReview) && preferences.column(of: .weeklyReview) == .left)
     }
 
     @Test func customizedLayoutIsKeptAndTheNewCardGoesLast() {
@@ -264,7 +264,13 @@ struct WeeklyGrowthTests {
         // 나중에 생긴 카드(이번 주의 성장, 새싹이 성장, 주간 회고)가 내장 순서대로 맨 뒤에 붙는다.
         #expect(preferences.cardOrder.dropLast(3).map(\.rawValue) == order)
         #expect(preferences.cardOrder.suffix(3) == [.weeklyGrowth, .saessagiGrowth, .weeklyReview])
-        #expect(preferences.hiddenCards == [.recentDays, .summary])
+        // 원래 숨긴 카드는 그대로이고, 본 적 없는 주간 회고는 기본값(숨김)으로 들어온다. 이번 주의 성장·새싹이 성장은 보인다.
+        #expect(preferences.hiddenCards == [.recentDays, .summary, .weeklyReview])
+        #expect(preferences.visibleCards.contains(.saessagiGrowth))
+        // 다시 켜면 그 선택이 남는다(다음 실행에서 다시 숨기지 않는다).
+        preferences.setVisible(true, card: .weeklyReview)
+        #expect(DevicePreferences(defaults: defaults, isPhone: false).visibleCards.contains(.weeklyReview))
+        preferences.setVisible(false, card: .weeklyReview)
         #expect(preferences.leftCards == [.meals, .routines])
         // 사용자가 바꾼 배치의 열은 새 기본값으로 덮지 않는다(새 카드는 오른쪽 열 맨 뒤).
         #expect(preferences.column(of: .saessagiGrowth) == .right && preferences.column(of: .weeklyReview) == .right)
@@ -288,8 +294,9 @@ struct WeeklyGrowthTests {
         ]
         let preferences = DevicePreferences(defaults: testDefaults(), isPhone: true)
         preferences.applyRemoteDefaults(order: published, hidden: ["summary", "calendar", "trend", "routineRates"])
+        // 게시된 설정이 모르는 주간 회고는 앱의 기본값대로 숨긴다.
         #expect(preferences.visibleCards == [
-            .achievement, .weeklyGrowth, .nextRoutine, .routines, .saessagiGrowth, .weeklyReview, .meals, .recentDays, .tomorrow, .vacation
+            .achievement, .weeklyGrowth, .nextRoutine, .routines, .saessagiGrowth, .meals, .recentDays, .tomorrow, .vacation
         ])
         // 설정이 이 카드의 자리를 직접 정하면 그대로 따른다.
         preferences.applyRemoteDefaults(order: published + ["weeklyGrowth"], hidden: [])
@@ -298,5 +305,57 @@ struct WeeklyGrowthTests {
         preferences.setVisible(false, card: .weeklyGrowth)
         preferences.applyRemoteDefaults(order: published, hidden: [])
         #expect(preferences.hiddenCards.contains(.weeklyGrowth))
+    }
+}
+
+/// 카드 표시 설정(Phase 7-H2): 이번 주의 성장·주간 회고를 끄고 켜도 다음 실행까지 남고, 기록 계산에는 영향이 없다.
+@MainActor
+struct DashboardCardVisibilityTests {
+    @Test func weeklyCardsToggleAndSurviveRelaunch() {
+        let defaults = testDefaults()
+        let preferences = DevicePreferences(defaults: defaults, isPhone: true)
+        // 새 사용자: 이번 주의 성장·새싹이 성장은 켜져 있고 주간 회고는 꺼져 있다.
+        #expect(preferences.visibleCards.contains(.weeklyGrowth) && preferences.visibleCards.contains(.saessagiGrowth))
+        #expect(!preferences.visibleCards.contains(.weeklyReview) && preferences.hiddenChoices.contains(.weeklyReview))
+
+        preferences.setVisible(false, card: .weeklyGrowth)
+        #expect(!preferences.visibleCards.contains(.weeklyGrowth))
+        #expect(!DevicePreferences(defaults: defaults, isPhone: true).visibleCards.contains(.weeklyGrowth))
+        preferences.setVisible(true, card: .weeklyGrowth)
+        #expect(DevicePreferences(defaults: defaults, isPhone: true).visibleCards.contains(.weeklyGrowth))
+
+        // 주간 회고: 끔 → 켬 → 끔, 순서를 바꾼 뒤 다시 켜도 그대로.
+        preferences.setVisible(true, card: .weeklyReview)
+        preferences.move(.weeklyReview, by: -1)
+        let order = preferences.cardOrder
+        var relaunched = DevicePreferences(defaults: defaults, isPhone: true)
+        #expect(relaunched.visibleCards.contains(.weeklyReview) && relaunched.cardOrder == order)
+        relaunched.setVisible(false, card: .weeklyReview)
+        relaunched = DevicePreferences(defaults: defaults, isPhone: true)
+        #expect(!relaunched.visibleCards.contains(.weeklyReview) && relaunched.cardOrder == order)
+
+        // 기본 배치 복원: 기본 순서, 주간 회고는 다시 숨김.
+        relaunched.restoreDashboard()
+        #expect(relaunched.cardOrder == DashboardCard.defaultOrder(phone: true))
+        #expect(relaunched.hiddenCards == DashboardCard.defaultHidden)
+    }
+
+    @Test func hidingCardsDoesNotChangeRecordsOrCalculations() throws {
+        let env = try TestEnv()
+        let routines = try env.addRoutines(2, today: monday)
+        try env.log(monday, done: 2)
+        let clock = TestClock(day("2026-10-13"))
+        let store = AppStore(container: env.container, clock: { clock.today })
+        store.start()
+        let before = (store.growth.xp, store.weeklyReview(weekStart: .monday), store.stats.lastPracticedDay)
+        let preferences = DevicePreferences(defaults: testDefaults(), isPhone: true)
+        for card in [DashboardCard.weeklyGrowth, .saessagiGrowth, .weeklyReview, .achievement, .meals] {
+            preferences.setVisible(false, card: card)
+        }
+        store.setDone(routineID: routines[0].id, true)
+        // 카드를 숨겨도 기록과 XP·회고·마지막 완료일 계산은 그대로 돈다.
+        #expect(store.growth.xp == before.0 + 10)
+        #expect(store.weeklyReview(weekStart: .monday) == before.1)
+        #expect(store.stats.lastPracticedDay == day("2026-10-13") && before.2 == monday)
     }
 }

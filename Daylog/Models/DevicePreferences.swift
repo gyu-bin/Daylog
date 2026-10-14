@@ -71,13 +71,23 @@ final class DevicePreferences {
             saveLayout()
             return
         }
+        // 저장된 순서에 없는 기본 카드(앱이 새로 얻은 카드) 가운데 처음에 숨기는 카드.
+        let savedNames = Set(defaults.stringArray(forKey: Self.orderKey) ?? [])
+        let newcomers = DashboardCard.allCases.filter { !savedNames.contains($0.rawValue) && DashboardCard.defaultHidden.contains($0) }
         if let stored = defaults.object(forKey: Self.customizedKey) as? Bool {
             isLayoutCustomized = stored
         } else {
             // 이 표시가 생기기 전에 저장된 배치: 내장 기본 배치와 다르면 사용자가 바꾼 것으로 본다.
+            // 그 뒤에 생긴 기본 숨김 카드는 저장된 숨김 목록에 없을 수밖에 없으니 비교에서 뺀다.
             isLayoutCustomized = cardOrder != DashboardCard.defaultOrder(phone: isPhone)
-                || hiddenCards != DashboardCard.defaultHidden || leftCards != DashboardCard.defaultLeft
+                || hiddenCards != DashboardCard.defaultHidden.subtracting(newcomers) || leftCards != DashboardCard.defaultLeft
             defaults.set(isLayoutCustomized, forKey: Self.customizedKey)
+        }
+        // 배치를 바꾼 사용자: 그 사람이 고른 카드의 표시·순서·열은 그대로이고, 본 적 없는 새 카드만 기본값(숨김)으로 들인다.
+        // 배치를 바꾸지 않은 사용자는 아래에서 기본 배치를 그대로 따른다.
+        if isLayoutCustomized, !newcomers.isEmpty {
+            hiddenCards.formUnion(newcomers)
+            saveLayout()
         }
         if !isLayoutCustomized {
             // 배치를 바꾼 적이 없으면 지금 앱의 기본 배치를 따른다. 앱이 새 기본 카드를 얻었을 때 그 카드가 맨 아래가 아니라
@@ -105,7 +115,10 @@ final class DevicePreferences {
     /// 사용자가 바꾼 배치는 건드리지 않고, [기본 배치 복원]을 누를 때 쓸 기본값으로만 기억한다.
     func applyRemoteDefaults(order: [String]?, hidden: [String]?) {
         remoteDefaultOrder = order.map(DashboardCard.remoteOrder)
-        remoteDefaultHidden = hidden.map { Set($0.compactMap(DashboardCard.init(rawValue:))).subtracting([.routines]) }
+        // 설정이 모르는 나중 카드(순서에도 숨김에도 적히지 않은 것)는 앱의 기본값을 따른다. 예: 주간 회고는 숨긴 채로.
+        let named = Set((order ?? []) + (hidden ?? []))
+        let lateHidden = DashboardCard.lateAdditions.filter { !named.contains($0.rawValue) && DashboardCard.defaultHidden.contains($0) }
+        remoteDefaultHidden = hidden.map { Set($0.compactMap(DashboardCard.init(rawValue:))).subtracting([.routines]).union(lateHidden) }
         guard !isLayoutCustomized else { return }
         // 기본 배치는 기본 카드만 정한다. 꾸미기 카드는 그 뒤에 그대로 둔다.
         let order = defaultOrder + cardOrder.filter(\.isCustom)
@@ -343,7 +356,8 @@ enum DashboardCard: Hashable, Identifiable, RawRepresentable, CaseIterable {
         return phone ? phoneFirst + allCases.filter { !phoneFirst.contains($0) } : defaultOrder
     }
     /// 통계 화면에 있는 카드와 지표 띠는 처음에는 숨긴다. 시안의 구성(휴가·루틴 | 식사·달성 현황·7일·내일)을 따른다.
-    static let defaultHidden: Set<DashboardCard> = [.summary, .calendar, .trend, .routineRates]
+    /// 새싹이의 주간 회고도 처음에는 숨긴다(카드 편집에서 켠다).
+    static let defaultHidden: Set<DashboardCard> = [.summary, .calendar, .trend, .routineRates, .weeklyReview]
     /// 두 열 화면의 왼쪽 열: 오늘 루틴 아래에 새싹이 성장과 주간 회고를 둔다. 오른쪽 열(이번 주의 성장·식사·달성 현황·7일·내일)만
     /// 길어지지 않게 하고, 루틴을 체크하면 바로 아래의 성장 카드가 반응하는 것이 보이게 한다.
     /// 배치를 바꾼 적 없는 사용자만 이 값을 따른다(바꾼 사용자의 열은 그대로다).
