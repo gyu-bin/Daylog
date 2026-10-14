@@ -61,6 +61,7 @@ extension AppStore {
         routineID: UUID, on day: Day, _ status: CheckStatus, onlyFrom expected: CheckStatus? = nil, at now: Date = .now
     ) {
         guard day <= today else { return }
+        let xpBefore = growth.xp
         perform {
             let record = try day == selectedDay && self.record != nil
                 ? self.record
@@ -74,6 +75,8 @@ extension AppStore {
             try DayRecordService(context: context).setStatus(check, status, now: now)
         }
         reloadStats()
+        // 사용자가 직접 완료해 XP가 늘었을 때만 반응한다(취소·건너뛰기는 카드의 값만 바뀐다).
+        if status == .done, let event = GrowthEvent.make(before: xpBefore, after: growth.xp) { noteGrowth(event) }
     }
 
     /// 그 날짜에 건너뛴 루틴. 읽지 못하면 건너뛴 것이 없는 것으로 본다(체크 목록은 그대로 보여 준다).

@@ -20,6 +20,53 @@ enum SaessagiIdleLayers {
     static let hip = CGPoint(x: 512, y: 905)
 }
 
+/// 부분만 움직이는 모습의 레이어 묶음: 기본 모습(`idle`)과 성장 단계 세 그림.
+/// 성장 단계는 `Tools/saessagi-growth-layers.swift`가 몸·잎(꽃)·눈으로 나눈다. 발과 입은 몸에 붙어 있다.
+struct SaessagiLayerSet: Equatable, Sendable {
+    let body: String
+    let leaf: String
+    let eyes: String
+    var mouth: String?
+    var footLeft: String?
+    var footRight: String?
+    /// 잎이 도는 중심, 눈이 접히는 중심, 몸이 기우는 중심(1024 기준 픽셀, 위에서 아래로).
+    let leafPivot: CGPoint
+    let eyeCenter: CGPoint
+    let hip: CGPoint
+
+    static let idle = SaessagiLayerSet(
+        body: SaessagiIdleLayers.body, leaf: SaessagiIdleLayers.leaf, eyes: SaessagiIdleLayers.eyes, mouth: SaessagiIdleLayers.mouth,
+        footLeft: SaessagiIdleLayers.footLeft, footRight: SaessagiIdleLayers.footRight,
+        leafPivot: SaessagiIdleLayers.leafPivot, eyeCenter: SaessagiIdleLayers.eyeCenter, hip: SaessagiIdleLayers.hip
+    )
+
+    /// 성장 단계. 중심점은 도구가 출력한 값이다. 몸은 발밑 가운데를 중심으로 기운다(발이 몸에 붙어 있다).
+    private static func growth(_ stage: String, leafPivot: CGPoint, eyeCenter: CGPoint) -> SaessagiLayerSet {
+        SaessagiLayerSet(
+            body: "saessagi_growth_\(stage)_body", leaf: "saessagi_growth_\(stage)_leaf", eyes: "saessagi_growth_\(stage)_eyes",
+            leafPivot: leafPivot, eyeCenter: eyeCenter, hip: CGPoint(x: 502, y: 948)
+        )
+    }
+
+    static func of(_ pose: SaessagiPose) -> SaessagiLayerSet? {
+        switch pose {
+        case .idle: return .idle
+        case .growthSprout: return growth("sprout", leafPivot: CGPoint(x: 520, y: 475), eyeCenter: CGPoint(x: 498.5, y: 605))
+        case .growthLeaf: return growth("leaf", leafPivot: CGPoint(x: 513, y: 468), eyeCenter: CGPoint(x: 493, y: 600.75))
+        case .growthFlower: return growth("flower", leafPivot: CGPoint(x: 513, y: 471), eyeCenter: CGPoint(x: 493, y: 602.5))
+        case .happy, .cheer, .rest, .sleep, .welcome: return nil
+        }
+    }
+
+    var all: [String] { [body, leaf, eyes] + [mouth, footLeft, footRight].compactMap { $0 } }
+}
+
+/// 처음 나타날 때 한 번 하는 연출.
+enum SaessagiEntrance: Equatable, Sendable {
+    /// 머리 위의 잎(꽃)이 작게 돋아나 자란다: 성장 단계가 바뀐 순간.
+    case growLeaf
+}
+
 /// 대기 애니메이션의 크기와 박자. 작고 느리게: 눈에 띄되 거슬리지 않게.
 enum SaessagiIdleMotion {
     /// 잎이 좌우로 기우는 각도(도). 48pt로 작게 그려도 움직임이 보일 만큼.
@@ -75,6 +122,8 @@ struct SaessagiAnimatedView: View {
     var startX: CGFloat = 0
     /// 지금 어디에 있는지 물어볼 수 있게 무대를 이어 두는 고리.
     var link: SaessagiStageLink?
+    /// 처음 나타날 때 한 번 하는 연출(예: 성장 단계가 바뀌어 잎이 자라난다).
+    var entrance: SaessagiEntrance?
     @Environment(\.displayScale) private var displayScale
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.scenePhase) private var scenePhase
@@ -86,7 +135,8 @@ struct SaessagiAnimatedView: View {
         if !reduceMotion, let rig = SaessagiRig(pose: pose, size: size, displayScale: displayScale) {
             SaessagiStageView(
                 rig: rig, size: size, displayScale: displayScale, startX: startX, link: link, maxRange: maxRange,
-                behavior: behavior ?? .standard(for: pose), isAnimating: isVisible && isOnScreen && scenePhase == .active
+                behavior: behavior ?? .standard(for: pose), entrance: entrance,
+                isAnimating: isVisible && isOnScreen && scenePhase == .active
             )
             .frame(minWidth: size, idealWidth: size, maxWidth: fillsLane ? .infinity : size)
             .frame(height: size)
@@ -113,9 +163,11 @@ private struct SaessagiOnScreen: ViewModifier {
     }
 }
 
-/// 한 모습을 그릴 그림들. 기본 모습은 나뉜 레이어 여섯 장, 그 밖에는 한 장.
+/// 한 모습을 그릴 그림들. 기본 모습은 나뉜 레이어 여섯 장, 성장 단계는 세 장(몸·잎·눈), 그 밖에는 한 장.
 struct SaessagiRig {
     let pose: SaessagiPose
+    /// 나뉜 레이어의 이름과 중심점. 한 장짜리 모습은 nil.
+    let layers: SaessagiLayerSet?
     /// 몸(나뉜 모습) 또는 그림 전체(한 장짜리 모습).
     let body: CGImage
     let eyes: CGImage?
@@ -133,8 +185,9 @@ struct SaessagiRig {
             SaessagiRenderer.image(asset: asset, pose: pose, size: size, displayScale: displayScale)
         }
         self.pose = pose
-        guard pose == .idle else {
+        guard let set = SaessagiLayerSet.of(pose) else {
             guard let whole = SaessagiRenderer.image(pose: pose, size: size, displayScale: displayScale) else { return nil }
+            layers = nil
             body = whole
             eyes = nil
             mouth = nil
@@ -143,10 +196,12 @@ struct SaessagiRig {
             footRight = nil
             return
         }
-        guard let body = layer(SaessagiIdleLayers.body), let eyes = layer(SaessagiIdleLayers.eyes),
-              let mouth = layer(SaessagiIdleLayers.mouth), let leaf = layer(SaessagiIdleLayers.leaf),
-              let footLeft = layer(SaessagiIdleLayers.footLeft), let footRight = layer(SaessagiIdleLayers.footRight)
+        guard let body = layer(set.body), let eyes = layer(set.eyes), let leaf = layer(set.leaf) else { return nil }
+        // 입과 발은 따로 있는 모습만 나눠 그린다(성장 단계는 몸에 붙어 있다).
+        let mouth = set.mouth.flatMap(layer), footLeft = set.footLeft.flatMap(layer), footRight = set.footRight.flatMap(layer)
+        guard (set.mouth == nil || mouth != nil) && (set.footLeft == nil || footLeft != nil) && (set.footRight == nil || footRight != nil)
         else { return nil }
+        layers = set
         self.body = body
         self.eyes = eyes
         self.mouth = mouth
@@ -197,6 +252,10 @@ final class SaessagiStage {
     private var restingX: CGFloat = 0
     private var actions: Task<Void, Never>?
     private var lastAction: SaessagiAction?
+    /// 다음에 움직이기 시작할 때 한 번 할 연출.
+    private var pendingEntrance: SaessagiEntrance?
+    /// 발이 따로 있는가(걷기는 발이 있어야 한다).
+    private var hasFeet = false
 
     #if os(macOS)
     /// AppKit의 레이어는 아래가 원점이다: 위쪽이 +y, 양의 회전이 시계 반대 방향.
@@ -232,8 +291,10 @@ final class SaessagiStage {
     }
 
     func update(
-        rig: SaessagiRig, size: CGFloat, displayScale: CGFloat, maxRange: CGFloat, behavior: SaessagiBehavior, isAnimating: Bool
+        rig: SaessagiRig, size: CGFloat, displayScale: CGFloat, maxRange: CGFloat, behavior: SaessagiBehavior,
+        entrance: SaessagiEntrance? = nil, isAnimating: Bool
     ) {
+        if configuration == nil { pendingEntrance = entrance }
         self.maxRange = maxRange
         let needsRestart = behavior != self.behavior && self.isAnimating
         self.behavior = behavior
@@ -277,6 +338,7 @@ final class SaessagiStage {
 
     private func layout(rig: SaessagiRig, size: CGFloat, displayScale: CGFloat) {
         isLayered = rig.isLayered
+        hasFeet = rig.footLeft != nil
         let pose = rig.pose
         let side = size + SaessagiRenderer.padding * 2
         let content = pose.content
@@ -293,12 +355,12 @@ final class SaessagiStage {
         place(breather, anchor: feet, side: side)
         place(footLeft, anchor: center, side: side)
         place(footRight, anchor: center, side: side)
-        place(torso, anchor: rig.isLayered ? unit(SaessagiIdleLayers.hip) : feet, side: side)
+        place(torso, anchor: rig.layers.map { unit($0.hip) } ?? feet, side: side)
         place(bodyLayer, anchor: center, side: side)
         place(face, anchor: center, side: side)
         place(mouthLayer, anchor: center, side: side)
-        place(eyesLayer, anchor: rig.isLayered ? unit(SaessagiIdleLayers.eyeCenter) : center, side: side)
-        place(leafLayer, anchor: rig.isLayered ? unit(SaessagiIdleLayers.leafPivot) : center, side: side)
+        place(eyesLayer, anchor: rig.layers.map { unit($0.eyeCenter) } ?? center, side: side)
+        place(leafLayer, anchor: rig.layers.map { unit($0.leafPivot) } ?? center, side: side)
         let contents: [(CALayer, CGImage?)] = [
             (footLeft, rig.footLeft), (footRight, rig.footRight), (bodyLayer, rig.body),
             (mouthLayer, rig.mouth), (eyesLayer, rig.eyes), (leafLayer, rig.leaf),
@@ -365,6 +427,11 @@ final class SaessagiStage {
             eyesLayer.add(blink, forKey: "blink")
         }
 
+        if let entrance = pendingEntrance {
+            pendingEntrance = nil
+            playEntrance(entrance)
+        }
+
         // 가끔 하는 행동. 행동 하나를 걸어 두고 끝날 때까지, 그리고 다음 행동까지 잠든다(한 번에 하나만 돈다).
         actions?.cancel()
         actions = Task { [weak self] in
@@ -396,12 +463,32 @@ final class SaessagiStage {
         setModelX(restingX)
     }
 
+    /// 처음 나타날 때의 연출. 늘 도는 움직임 위에 더한다.
+    private func playEntrance(_ entrance: SaessagiEntrance) {
+        switch entrance {
+        case .growLeaf:
+            guard isLayered else { return }
+            // 머리 위의 잎(꽃)이 줄기 밑동에서 작게 돋아나 조금 넘치게 자랐다가 자리를 잡는다.
+            let grow = CAKeyframeAnimation(keyPath: "transform.scale")
+            grow.values = [0.12, 0.12, 1.14, 0.95, 1.03, 1]
+            grow.keyTimes = [0, 0.18, 0.62, 0.78, 0.9, 1]
+            grow.duration = 1.4
+            grow.timingFunctions = Array(repeating: CAMediaTimingFunction(name: .easeInEaseOut), count: 5)
+            leafLayer.add(grow, forKey: "\(Self.actionKey).grow")
+            let appear = CAKeyframeAnimation(keyPath: "opacity")
+            appear.values = [0, 0, 1]
+            appear.keyTimes = [0, 0.15, 0.3]
+            appear.duration = 1.4
+            leafLayer.add(appear, forKey: "\(Self.actionKey).appear")
+        }
+    }
+
     // MARK: - 가끔 하는 행동
 
     /// 행동 하나를 시작하고 걸리는 시간(초)을 돌려준다. 하지 않으면 0.
     private func play(_ action: SaessagiAction, using generator: inout some RandomNumberGenerator) -> Double {
         // 나뉜 레이어가 있어야 하는 행동은 그림 한 장짜리 모습에서는 하지 않는다.
-        guard isLayered || !action.needsLayers,
+        guard (isLayered && (hasFeet || action != .walk)) || !action.needsLayers,
               let plan = SaessagiMotionPlan.make(action, at: restingX, range: range, size: size, using: &generator)
         else { return 0 }
         // 끝나면 걸어간 자리에 서 있다.
@@ -498,6 +585,7 @@ struct SaessagiStageView: NSViewRepresentable {
     let link: SaessagiStageLink?
     let maxRange: CGFloat
     let behavior: SaessagiBehavior
+    var entrance: SaessagiEntrance?
     let isAnimating: Bool
 
     final class Coordinator {
@@ -525,7 +613,8 @@ struct SaessagiStageView: NSViewRepresentable {
         stage.install(in: layer, startX: startX, link: link)
         stage.setLaneWidth(view.bounds.width)
         stage.update(
-            rig: rig, size: size, displayScale: displayScale, maxRange: maxRange, behavior: behavior, isAnimating: isAnimating
+            rig: rig, size: size, displayScale: displayScale, maxRange: maxRange, behavior: behavior, entrance: entrance,
+            isAnimating: isAnimating
         )
     }
 }
@@ -550,6 +639,7 @@ struct SaessagiStageView: UIViewRepresentable {
     let link: SaessagiStageLink?
     let maxRange: CGFloat
     let behavior: SaessagiBehavior
+    var entrance: SaessagiEntrance?
     let isAnimating: Bool
 
     final class Coordinator {
@@ -577,7 +667,8 @@ struct SaessagiStageView: UIViewRepresentable {
         stage.install(in: view.layer, startX: startX, link: link)
         stage.setLaneWidth(view.bounds.width)
         stage.update(
-            rig: rig, size: size, displayScale: displayScale, maxRange: maxRange, behavior: behavior, isAnimating: isAnimating
+            rig: rig, size: size, displayScale: displayScale, maxRange: maxRange, behavior: behavior, entrance: entrance,
+            isAnimating: isAnimating
         )
     }
 }

@@ -48,7 +48,8 @@ struct SaessagiTests {
     }
 
     @Test func renderedCharacterFillsTheFrameAndStaysInsideThePadding() throws {
-        for pose in SaessagiPose.allCases {
+        // 성장 단계는 세 그림이 한 틀을 함께 쓴다(아래의 따로 된 검사).
+        for pose in SaessagiPose.allCases where !pose.isGrowth {
             let size = 48.0, scale = 2.0
             let image = try #require(SaessagiRenderer.image(pose: pose, size: size, displayScale: scale))
             let side = image.width
@@ -310,7 +311,9 @@ struct SaessagiTests {
     @Test func rigsAreLayeredOnlyForTheIdlePose() throws {
         for pose in SaessagiPose.allCases {
             let rig = try #require(SaessagiRig(pose: pose, size: 48, displayScale: 2))
-            #expect(rig.isLayered == (pose == .idle))
+            // 기본 모습과 성장 단계(몸·잎·눈)만 나뉘어 있다. 성장 단계는 발과 입이 몸에 붙어 있다.
+            #expect(rig.isLayered == (pose == .idle || pose.isGrowth))
+            #expect((rig.footLeft != nil) == (pose == .idle) && (rig.mouth != nil) == (pose == .idle))
             #expect(rig.pose == pose)
             #expect(rig.body.width == Int((48 + SaessagiRenderer.padding * 2) * 2))
         }
@@ -345,5 +348,56 @@ struct SaessagiTests {
         // 날짜를 옮겨서 개수가 달라진 것은 반응할 일이 아니다.
         let otherDay = Day(year: 2026, month: 10, day: 13)
         #expect(SaessagiMood.reaction(from: before, to: SaessagiProgress(day: otherDay, done: 5, skipped: 3)) == nil)
+    }
+}
+
+/// 새싹이 성장 단계 그림: 세 단계가 한 틀을 함께 써서 몸이 같은 크기·같은 자리에 있고, 머리 위만 자란다.
+@MainActor
+struct SaessagiGrowthArtTests {
+    /// 불투명에 가까운 픽셀이 차지하는 범위(위에서 아래로).
+    private func bounds(_ image: CGImage) throws -> (minX: Int, minY: Int, maxX: Int, maxY: Int) {
+        let side = image.width
+        var pixels = [UInt8](repeating: 0, count: side * side * 4)
+        let context = try #require(CGContext(
+            data: &pixels, width: side, height: side, bitsPerComponent: 8, bytesPerRow: side * 4,
+            space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
+        ))
+        context.draw(image, in: CGRect(x: 0, y: 0, width: side, height: side))
+        var result = (minX: side, minY: side, maxX: -1, maxY: -1)
+        for y in 0..<side { for x in 0..<side where pixels[(y * side + x) * 4 + 3] > 128 {
+            result = (min(result.minX, x), min(result.minY, y), max(result.maxX, x), max(result.maxY, y))
+        } }
+        return result
+    }
+
+    @Test func stagesShareTheFrameAndOnlyTheTopGrows() throws {
+        let size = 72.0, scale = 2.0
+        let frames = try GrowthStage.allCases.map { stage in
+            try bounds(try #require(SaessagiRenderer.image(pose: stage.pose, size: size, displayScale: scale)))
+        }
+        // 발밑과 몸의 너비는 세 단계가 같다(받은 그림이 몸의 중심과 바닥선을 맞춰 두었다).
+        for frame in frames {
+            #expect(abs(frame.maxY - frames[0].maxY) <= 1)
+            #expect(abs((frame.maxX - frame.minX) - (frames[0].maxX - frames[0].minX)) <= 8)
+        }
+        // 위로 갈수록 자란다: 새싹 → 잎사귀 → 꽃. 꽃이 틀의 높이를 거의 다 쓴다.
+        #expect(frames[0].minY > frames[1].minY && frames[1].minY > frames[2].minY)
+        let padding = Int(SaessagiRenderer.padding * scale)
+        #expect(abs(frames[2].minY - padding) <= 3)
+    }
+
+    @Test func growthLayersLineUpWithTheWholePicture() throws {
+        for stage in GrowthStage.allCases {
+            let set = try #require(SaessagiLayerSet.of(stage.pose))
+            #expect(set.mouth == nil && set.footLeft == nil)
+            for asset in set.all {
+                #expect(SaessagiRenderer.image(asset: asset, pose: stage.pose, size: 48, displayScale: 2) != nil, "\(asset)")
+            }
+            // 잎이 도는 중심은 머리 꼭대기(눈보다 위), 눈의 중심은 얼굴 가운데 근처다.
+            #expect(set.leafPivot.y < set.eyeCenter.y && abs(set.eyeCenter.x - 512) < 30 && abs(set.leafPivot.x - 512) < 20)
+        }
+        #expect(SaessagiBehavior.standard(for: .growthLeaf) == .growing)
+        // 성장 단계는 걷거나 두리번거리지 않는다(발과 입이 몸에 붙어 있다).
+        #expect(!SaessagiBehavior.growing.choices.contains { $0.action.needsLayers })
     }
 }

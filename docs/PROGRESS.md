@@ -1212,6 +1212,19 @@ iPhone·iPad App Store 제출 자료를 만들고 App Store Connect에 올렸다
 - v1 포즈 조각 9장과 그 SVG 원본은 지웠다.
 - 확인: 세 그림의 차이는 손 언저리뿐(픽셀 비교), Mac 다크 연속 캡처로 마시기·고쳐 쓰기의 겹침과 정렬, CPU 0.0~0.1%, Mac 라이트·다크, iPhone 17 Pro Max 라이트(3배율에서 약간 부드러움).
 
+## Phase 7-E 새싹이 성장 시스템 (2026-10-14)
+
+- XP는 저장하지 않고 통계의 날짜별 결과에서 파생한다(`GrowthCalculator`, `DashboardStats.growthXP`): 루틴 완료 +10, 예정된 루틴을 모두 완료한 날 +20,
+  건너뛰기 0, 휴가일 제외. 같은 날짜의 기록·같은 루틴의 체크는 저장소 단계에서 하나로 합쳐진 뒤라 한 번만 센다. 완료 취소·과거 기록·동기화가 그대로 반영된다.
+  레벨 = XP/100 + 1, 단계는 Lv.1~9 새싹, Lv.10~24 잎사귀, Lv.25~ 꽃. 스키마 변경 없음.
+- 새 카드 "새싹이 성장"(`DashboardCard.saessagiGrowth`, 나중 카드 목록·원격 설정 OPTIONAL_CARDS에 추가): 단계 새싹이, Lv, 단계 이름, XP/100, 진행 막대, 다음 단계 안내.
+- 반응은 이 기기에서 사용자가 완료할 때만(`AppStore.setStatus` → `growthEvent`): 폴짝·반짝임·"+10 XP", 하루 보너스 문구, 레벨업은 두 번 뛰고 "Lv.N 달성!",
+  단계가 바뀌면 머리 위 잎(꽃)이 돋아나는 연출. 앱 실행·동기화로는 반응하지 않는다.
+- 그림: 받은 3단계 PNG(1024, 724px 원본을 키운 것)를 `Tools/saessagi-growth-layers.swift`로 몸·잎(꽃)·눈으로 나눴다. 기존 애니메이션(`SaessagiAnimatedView`,
+  `SaessagiStage`)에 성장 단계를 레이어 모습으로 더했다(`SaessagiLayerSet`): 숨쉬기, 깜빡임, 잎 살랑임, 가끔 좌우 흔들기·폴짝. 발과 입이 몸에 붙어 있어 걷기·두리번거리기는 하지 않는다.
+- Debug: `-DaylogDebugGrowthBonus <XP>`(화면에만 더함). 스크립트 `window:`와 함께 Lv.9→10, Lv.24→25 전환을 확인했다.
+- 확인: 관련 테스트 103개, Mac(라이트 Lv.9→10, 다크 Lv.24→25, CPU 0~0.1%), iPhone 17 Pro Max(실제 탭으로 +10·+30 XP와 잎사귀 전환, 움직임 줄이기에서 정지 화면, 다크).
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.

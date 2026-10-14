@@ -268,7 +268,8 @@ struct MobileUIConfigTests {
         #expect(!preferences.isLayoutCustomized)
         let remoteOrder = ["summary", "routines", "achievement"]
         preferences.applyRemoteDefaults(order: remoteOrder, hidden: ["calendar"])
-        #expect(preferences.cardOrder.prefix(3).map(\.rawValue) == remoteOrder)
+        // 설정에 적힌 카드는 그 순서대로다. 적히지 않은 나중 카드(새싹이 성장)는 내장 순서에서 앞에 있던 카드(오늘 루틴) 뒤에 들어간다.
+        #expect(preferences.cardOrder.prefix(4).map(\.rawValue) == ["summary", "routines", "saessagiGrowth", "achievement"])
         #expect(preferences.hiddenCards == [.calendar])
         #expect(!preferences.isLayoutCustomized)
 

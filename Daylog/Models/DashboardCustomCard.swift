@@ -99,6 +99,7 @@ extension DashboardCard {
         case .vacation: return "vacation"
         case .routines: return "routines"
         case .weeklyGrowth: return "weeklyGrowth"
+        case .saessagiGrowth: return "saessagiGrowth"
         case .meals: return "meals"
         case .achievement: return "achievement"
         case .recentDays: return "recentDays"

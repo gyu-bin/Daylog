@@ -60,7 +60,7 @@ if not isinstance(cfg, dict): sys.exit("최상위가 객체가 아닙니다")
 
 CARDS = ["summary", "nextRoutine", "vacation", "routines", "meals", "achievement", "recentDays", "tomorrow", "calendar", "trend", "routineRates"]
 # 나중에 생긴 카드. 순서에 적지 않아도 된다(앱이 내장 순서의 자리에 끼워 넣는다). 적으면 이 카드를 모르는 예전 앱은 건너뛴다.
-OPTIONAL_CARDS = ["weeklyGrowth"]
+OPTIONAL_CARDS = ["weeklyGrowth", "saessagiGrowth"]
 ACCENTS = ["mint", "green", "blue", "purple", "coral", "orange"]
 CARD_STYLES = ["bordered", "soft", "flat"]
 LAYOUTS = ["standard", "compact", "airy"]

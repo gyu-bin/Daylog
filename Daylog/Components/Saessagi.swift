@@ -15,6 +15,10 @@ enum SaessagiPose: String, CaseIterable, Sendable {
     case sleep
     /// 다시 시작: 손을 흔든다.
     case welcome
+    /// 성장 단계(새싹이 성장 카드): 새싹 → 잎사귀 → 꽃. 세 그림은 몸의 자리와 크기가 같고 머리 위만 다르다.
+    case growthSprout = "growth_sprout"
+    case growthLeaf = "growth_leaf"
+    case growthFlower = "growth_flower"
 
     var assetName: String { "saessagi_\(rawValue)" }
 
@@ -28,10 +32,17 @@ enum SaessagiPose: String, CaseIterable, Sendable {
         case .rest: return CGRect(x: 55, y: 135, width: 915, height: 833)
         case .sleep: return CGRect(x: 110, y: 151, width: 804, height: 722)
         case .welcome: return CGRect(x: 128, y: 110, width: 768, height: 803)
+        // 성장 단계는 세 그림을 합친 자리를 함께 쓴다: 몸이 단계마다 같은 크기·같은 자리에 오고, 머리 위만 자란다.
+        case .growthSprout, .growthLeaf, .growthFlower: return Self.growthContent
         }
     }
 
     static let canvas: CGFloat = 1024
+    /// 성장 단계 세 그림(받은 그림의 보이는 범위: 새싹 204~823×230~948, 잎사귀 187~825×135~948, 꽃 174~830×60~948)을 합친 자리.
+    static let growthContent = CGRect(x: 174, y: 60, width: 657, height: 889)
+
+    /// 성장 단계 그림인가.
+    var isGrowth: Bool { self == .growthSprout || self == .growthLeaf || self == .growthFlower }
     /// 틀의 한 변에 맞출 길이(그림 픽셀): 캐릭터가 차지하는 자리의 긴 변. 그림마다 캔버스를 채우는 정도가 달라서
     /// (선이 굵은 판은 더 꽉 차 있다) 모습마다 따로 잡는다. 어느 모습이든 틀에 꼭 맞게 들어가 화면에서의 크기가 같다.
     var fitted: CGFloat { max(content.width, content.height) }

@@ -143,6 +143,7 @@ struct DashboardCards: View {
                 .modifier(RoutineCardFocus())
                 .id(RoutineCardFocus.scrollID)
         case .weeklyGrowth: WeeklyGrowthCard()
+        case .saessagiGrowth: SaessagiGrowthCard()
         case .meals:
             if compact { MealSummaryCard() } else { MealCard() }
         case .achievement:

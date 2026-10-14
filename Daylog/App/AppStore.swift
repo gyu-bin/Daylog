@@ -68,6 +68,8 @@ final class AppStore {
     /// 캘린더가 보여 주는 달의 1일.
     private(set) var calendarMonth: Day
     private(set) var monthOutcomes: [Day: DayOutcome] = [:]
+    /// 이 기기에서 사용자가 루틴을 완료해 XP를 얻은 마지막 순간. 새싹이 성장 카드가 반응한다(`setStatus`에서만 바뀐다).
+    private(set) var growthEvent: GrowthEvent?
     /// 값이 바뀌면 빠른 추가 입력창이 포커스를 가져간다.
     private(set) var quickAddFocusToken = 0
     /// 오늘 화면이 루틴 카드로 스크롤하고 잠깐 강조해야 할 때 올라간다("다시 시작하기"의 [오늘 루틴 보기]).
@@ -355,6 +357,11 @@ final class AppStore {
         // 30일보다 오래된 날짜를 고쳐도 캘린더에는 보이므로 항상 함께 맞춘다.
         reloadMonth()
         onReload?()
+    }
+
+    /// 사용자가 루틴을 완료해 XP를 얻었다. 새싹이 성장 카드가 이 값을 보고 반응한다.
+    func noteGrowth(_ event: GrowthEvent) {
+        growthEvent = event
     }
 
     private func reloadMonth() {

@@ -49,6 +49,8 @@ struct DashboardStats: Equatable, Sendable {
     var routineRates: [RoutineRate]
     /// 최근 30일의 그룹별 달성률. 각 날짜는 그날 실제로 속해 있던 그룹으로 집계한다.
     var groupRates: [GroupRate]
+    /// 새싹이 성장의 누적 XP: 통계 시작일부터 오늘까지의 날짜별 결과에서 계산한다(`GrowthCalculator`).
+    var growthXP = 0
 
     var hasStarted: Bool { firstDay != nil }
 
@@ -63,7 +65,8 @@ struct DashboardStats: Equatable, Sendable {
             longestStreak: 0,
             trend: [],
             routineRates: [],
-            groupRates: []
+            groupRates: [],
+            growthXP: 0
         )
     }
 }

@@ -84,6 +84,10 @@ struct SaessagiBehavior: Equatable, Sendable {
         [(.deepBreath, 4), (.wiggle, 1), (.stay, 2)], rest: 3...6, firstRest: 2.5, breathStretch: 0.045, breathHalfPeriod: 2.6
     )
 
+    /// 새싹이 성장 카드: 숨 쉬고 깜빡이며 잎을 흔들다가, 가끔 좌우로 몸을 흔들거나 폴짝 뛴다.
+    /// (성장 단계 그림은 발과 입이 몸에 붙어 있어 걷기·두리번거리기는 하지 않는다.)
+    static let growing = make([(.sway, 4), (.hop, 3), (.stay, 2)], rest: 2...4.5, firstRest: 1.6)
+
     /// 그 모습에 어울리는 기본 움직임.
     static func standard(for pose: SaessagiPose) -> SaessagiBehavior {
         switch pose {
@@ -93,6 +97,7 @@ struct SaessagiBehavior: Equatable, Sendable {
         case .rest: return .resting
         case .sleep: return .sleeping
         case .welcome: return .welcoming
+        case .growthSprout, .growthLeaf, .growthFlower: return .growing
         }
     }
 
