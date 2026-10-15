@@ -545,6 +545,36 @@ struct SaessagiHeaderActionTests {
         #expect(shake.leaf.values.max()! >= 15 && shake.leaf.values.min()! <= -15 && shake.eyes.value(at: 0.5) < 1)
     }
 
+    @Test func pioStyleWaddlesAndKeepsFeetPlanted() throws {
+        var generator = SystemRandomNumberGenerator()
+        // 피오 걸음: 몸이 디딘 발 쪽으로 번갈아 크게 기울고, 든 발을 굴리고, 디딜 때 눌린다. 디딘 발은 미끄러지지 않는다.
+        let plan = try #require(SaessagiMotionPlan.journey(
+            from: 0, to: 6 * size, size: size, step: SaessagiWalkMotion.strollStep,
+            period: SaessagiWalkMotion.strollStepDuration, leaps: false, style: .pio
+        ))
+        #expect(plan.rock.values.max()! >= 7 && plan.rock.values.min()! <= -5)
+        #expect(plan.footLeftTilt.values.contains { abs($0) > 10 } && plan.footRightTilt.values.contains { abs($0) > 10 })
+        #expect(plan.squashY.values.min()! < 0.97 && plan.squashY.last == 1 && plan.rock.last == 0)
+        let period = SaessagiWalkMotion.strollStepDuration, begin = SaessagiWalkMotion.faceTurn * 0.6 + period
+        let planted = plan.moverX.value(at: begin) + plan.footRightX.value(at: begin)
+        for fraction in [0.25, 0.5, 0.75, 1.0] {
+            #expect(abs(plan.moverX.value(at: begin + period * fraction) + plan.footRightX.value(at: begin + period * fraction) - planted) < 1e-6)
+        }
+        // 새싹이 걸음은 그대로(발을 굴리지 않는다).
+        let standard = try #require(SaessagiMotionPlan.make(.dash, at: 300, range: 600, size: size, using: &generator))
+        #expect(standard.footLeftTilt.isConstant && standard.footRightTilt.isConstant)
+        // 날개 인사: 오른쪽 날개만 높이 들어 두세 번 흔들고 내린다.
+        let wave = SaessagiMotionPlan.make(.wave, at: 0, range: 600, size: size, style: .pio, using: &generator)!
+        #expect(wave.wingRight.values.max()! > 50 && wave.wingLeft.values.max()! < 10 && wave.wingRight.last == 0)
+        // 퍼덕임: 박자와 크기가 고르지 않고, 오른쪽이 조금 늦게 따라온다.
+        let flap = SaessagiMotionPlan.flap(at: 0, size: size)
+        let peaks = flap.wingLeft.values.filter { $0 > 20 }
+        #expect(Set(peaks).count >= 4 && flap.wingLeft.last == 0 && flap.wingRight.last == 0)
+        // 뛸 때 날개를 펼쳤다가 내려앉으며 천천히 내린다.
+        let jump = SaessagiMotionPlan.bigHop(at: 0, size: size)
+        #expect(jump.wingLeft.values.max()! > 30 && jump.wingLeft.last == 0)
+    }
+
     @Test func headerBehaviourMixesTheNewActions() {
         let actions = Set(SaessagiBehavior.today.choices.map(\.action))
         #expect(actions == [.hop, .bigHop, .doubleHop, .lookAround, .leafShake])

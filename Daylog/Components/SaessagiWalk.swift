@@ -39,6 +39,8 @@ enum SaessagiAction: CaseIterable, Sendable {
     case doubleHop
     /// 머리 위의 잎을 파르르 흔든다.
     case leafShake
+    /// 양 날개를 빠르게 퍼덕이며 살짝 떠오른다(날개가 따로 있는 모습, 피오 시범).
+    case flap
     /// 넘어졌다 일어나기: 새 그림이 있어야 해서 아직 만들지 않았다.
     case tumble
 
@@ -46,7 +48,7 @@ enum SaessagiAction: CaseIterable, Sendable {
     /// 나뉜 레이어(발·눈·입·잎)가 있어야 하는 행동.
     var needsLayers: Bool {
         switch self {
-        case .walk, .lookAround, .doze, .stroll, .peek, .dash, .leafShake: return true
+        case .walk, .lookAround, .doze, .stroll, .peek, .dash, .leafShake, .flap: return true
         default: return false
         }
     }
@@ -202,6 +204,13 @@ enum SaessagiWalkMotion {
     static let peekMinimumRange = 1.5
 }
 
+/// 리그에 맞춘 움직임의 결: 새싹이(기본)와 피오 시범(뒤뚱 걸음, 날개 동작).
+enum SaessagiRigStyle: Equatable, Sendable {
+    case standard
+    /// 피오: 디딘 발 쪽으로 크게 기울고, 발을 들 때 굴리고, 디딜 때 몸이 살짝 눌린다. 날개는 균형을 잡는다.
+    case pio
+}
+
 /// 시간에 따라 변하는 값 하나(키프레임). 시간은 초, 처음은 0초.
 struct SaessagiTrack: Equatable, Sendable {
     private(set) var times: [Double] = [0]
@@ -227,6 +236,13 @@ struct SaessagiTrack: Equatable, Sendable {
 
     mutating func hold(until time: Double) {
         if time > end + 1e-9 { add(last, at: time) }
+    }
+
+    /// 값마다 `transform`을 적용한 트랙(시각은 같다).
+    func mapped(_ transform: (Double) -> Double) -> SaessagiTrack {
+        var copy = self
+        copy.values = values.map(transform)
+        return copy
     }
 
     /// 그 시각의 값(키프레임 사이는 곧게 잇는다).
@@ -268,6 +284,14 @@ struct SaessagiMotionPlan: Equatable, Sendable {
     private(set) var face = SaessagiTrack()
     /// 눈의 세로 배율(1 = 뜬 눈). 깜빡임 대신 이 값이 쓰인다.
     private(set) var eyes = SaessagiTrack(start: 1)
+    /// 왼쪽·오른쪽 날개를 들어 올린 각도(도, 바깥·위로 들면 양수). 날개가 따로 없는 모습에서는 쓰지 않는다.
+    private(set) var wingLeft = SaessagiTrack()
+    private(set) var wingRight = SaessagiTrack()
+    /// 발을 굴리는 각도(도, 피오). 새싹이에서는 쓰지 않는다.
+    private(set) var footLeftTilt = SaessagiTrack()
+    private(set) var footRightTilt = SaessagiTrack()
+    /// 움직임의 결(걷기에 쓴다).
+    private var style = SaessagiRigStyle.standard
 
     private init(startX: Double) {
         moverX = SaessagiTrack(start: startX)
@@ -348,11 +372,13 @@ struct SaessagiMotionPlan: Equatable, Sendable {
     /// 머리말의 이동: `x`에서 `target`까지 가는 쪽을 보고 성큼성큼(`step`·`period`) 걷는다.
     /// `leaps`면 `leapEvery`마다 한 번 멈춰 폴짝 뛰며 나아간다. 거리는 정해 두지 않는다(자리가 넓으면 그만큼 오래 걷는다).
     static func journey(
-        from x: Double, to target: Double, size: Double, step: Double, period: Double, leaps: Bool
+        from x: Double, to target: Double, size: Double, step: Double, period: Double, leaps: Bool,
+        style: SaessagiRigStyle = .standard
     ) -> SaessagiMotionPlan? {
         guard size > 0, step > 0, abs(target - x) > 0.5 else { return nil }
         let direction = target > x ? 1.0 : -1.0
         var plan = SaessagiMotionPlan(startX: x)
+        plan.style = style
         plan.face.add(direction * SaessagiWalkMotion.faceShift * size, at: SaessagiWalkMotion.faceTurn)
         plan.duration = SaessagiWalkMotion.faceTurn * 0.6
         plan.travel(to: target, step: step, period: period, leaps: leaps, size: size)
@@ -439,15 +465,48 @@ struct SaessagiMotionPlan: Equatable, Sendable {
                 footRightX.add(stanceEnd, at: finish)
                 footRightLift.add(0, at: finish)
             }
-            bob.add(SaessagiWalkMotion.bob * size * vigor, at: middle)
-            bob.add(0, at: finish)
-            // 디딘 발 쪽으로 기운다: 오른발을 들면 왼쪽으로. 잎은 반대로 늦게 따라온다.
             let side = swingsRight ? -1.0 : 1.0
-            rock.add(direction * SaessagiWalkMotion.lean + side * SaessagiWalkMotion.rock, at: middle)
+            if style == .pio {
+                // 피오의 뒤뚱 걸음: 든 발은 조금 더 높이 들며 가는 쪽으로 굴리고, 몸은 디딘 발 쪽으로 크게 기운다.
+                // 발이 땅에 닿는 순간 몸이 살짝 눌렸다가, 다음 발을 들며 늘어난다.
+                let tilt = direction * 11
+                if swingsRight { footRightTilt.add(tilt, at: middle); footRightTilt.add(0, at: finish); footLeftTilt.add(0, at: finish) }
+                else { footLeftTilt.add(tilt, at: middle); footLeftTilt.add(0, at: finish); footRightTilt.add(0, at: finish) }
+                if swingsRight { footRightLift.add(0.022 * size * vigor, at: middle) } else { footLeftLift.add(0.022 * size * vigor, at: middle) }
+                bob.add(0.045 * size * vigor, at: middle)
+                bob.add(0, at: finish)
+                squashX.add(0.985, at: middle); squashY.add(1.02, at: middle)
+                rock.add(direction * 1.5 + side * 7.5, at: middle)
+                // 날개: 기운 쪽 반대 날개가 들려 균형을 잡는다.
+                wingLeft.add((swingsRight ? 3 : 11) * vigor, at: middle)
+                wingRight.add((swingsRight ? 11 : 3) * vigor, at: middle)
+                if isLast {
+                    // 마지막 걸음: 디디며 조금 더 눌렸다가(발이 땅에 닿기 직전부터) 걸음이 끝날 때 펴진다.
+                    let land = finish - 0.3 * period
+                    squashX.add(1.04, at: land); squashY.add(0.95, at: land)
+                    rock.add(side * 2, at: land)
+                    squashX.add(1, at: finish); squashY.add(1, at: finish)
+                    wingLeft.add(0, at: finish); wingRight.add(0, at: finish)
+                } else {
+                    squashX.add(1.025, at: finish); squashY.add(0.968, at: finish)
+                    rock.add(side * 2, at: finish)
+                    wingLeft.add(4, at: finish); wingRight.add(4, at: finish)
+                }
+            } else {
+                bob.add(SaessagiWalkMotion.bob * size * vigor, at: middle)
+                bob.add(0, at: finish)
+                // 디딘 발 쪽으로 기운다: 오른발을 들면 왼쪽으로. 잎은 반대로 늦게 따라온다.
+                rock.add(direction * SaessagiWalkMotion.lean + side * SaessagiWalkMotion.rock, at: middle)
+                // 날개: 내딛는 발 반대쪽이 들려 균형을 잡는다(성큼성큼 걸으면 더 크게)
+                wingLeft.add((swingsRight ? 9 : 2) * vigor, at: middle)
+                wingRight.add((swingsRight ? 2 : 9) * vigor, at: middle)
+            }
             leaf.add(-direction * SaessagiWalkMotion.leafTrail - side * SaessagiWalkMotion.leafSwing, at: middle)
         }
         duration = start + Double(steps) * period
         rock.add(0, at: duration)
+        wingLeft.add(0, at: duration)
+        wingRight.add(0, at: duration)
         // 멈춘 뒤 잎이 한 번 앞으로 넘어갔다 돌아온다.
         leaf.add(direction * SaessagiWalkMotion.leafTrail * 0.6, at: duration)
         leaf.add(0, at: duration + SaessagiWalkMotion.faceTurn)
@@ -467,7 +526,7 @@ struct SaessagiMotionPlan: Equatable, Sendable {
     /// 걸을 자리 끝(`range`, 머리말의 단추 쪽)까지 걸어가 그 너머로 몸을 숨긴다(무대가 자리 끝에서 새싹이만 잘라 낸다).
     /// 잠깐 숨어 있다가 돌아서 한쪽 눈만 빼꼼 내밀고 깜빡이고, 몸을 더 내밀어 두리번거린 뒤 폴짝 뛰어나온다.
     /// 끝에서 멀리 있으면 먼저 끝까지 걸어간다(가는 거리를 정해 두지 않는다). 자리가 좁으면 nil.
-    static func peek(at x: Double, range: Double, size: Double) -> SaessagiMotionPlan? {
+    static func peek(at x: Double, range: Double, size: Double, style: SaessagiRigStyle = .standard) -> SaessagiMotionPlan? {
         guard size > 0, range >= SaessagiWalkMotion.peekMinimumRange * size else { return nil }
         let hidden = range + peekHidden * size
         let peeking = range + peekPeeking * size
@@ -476,6 +535,7 @@ struct SaessagiMotionPlan: Equatable, Sendable {
         let turn = SaessagiWalkMotion.faceTurn
         let look = SaessagiWalkMotion.faceShift * size
         var plan = SaessagiMotionPlan(startX: x)
+        plan.style = style
 
         // 1. 끝을 보고 성큼성큼 걸어가 숨는다.
         plan.face.add(look, at: turn)
@@ -567,6 +627,10 @@ struct SaessagiMotionPlan: Equatable, Sendable {
         // 잎: 뛰어오를 때 뒤로 눕고, 내려앉은 뒤에 크게 흔들리다 잦아든다.
         let leaf: [(Double, Double)] = [(0.14, 2), (0.26, -7), (0.44, 3), (0.66, 13), (0.82, -8), (0.96, 4), (1.1, 0)]
         for (time, angle) in leaf { plan.leaf.add(angle, at: time) }
+        for (time, angle) in [(0.14, -3.0), (0.25, 28.0), (0.31, 19.0), (0.38, 33.0), (0.48, 24.0), (0.6, 13.0), (0.78, 5.0), (0.96, 0.0)] {
+            plan.wingLeft.add(angle, at: time)
+            plan.wingRight.add(angle, at: time + 0.015)
+        }
         plan.duration = 1.1
         plan.holdAll(until: plan.duration)
         return plan
@@ -623,11 +687,51 @@ struct SaessagiMotionPlan: Equatable, Sendable {
             footLeftLift.add(level * tuck, at: start + time)
             footRightLift.add(level * tuck, at: start + time)
         }
+        let wingKeys: [(Double, Double)] = settles
+            ? [(0.12, -3), (0.22, 34), (0.28, 24), (0.35, 40), (0.45, 30), (0.54, 18), (0.68, 9), (0.84, 3), (0.98, 0)]
+            : [(0.12, -3), (0.22, 34), (0.28, 24), (0.35, 40), (0.45, 30), (0.58, 16)]
+        for (time, angle) in wingKeys {
+            wingLeft.add(angle * swing, at: start + time)
+            wingRight.add(angle * swing, at: min(start + time + 0.015, start + (settles ? 0.98 : 0.58)))
+        }
         var leafKeys: [(Double, Double)] = [(0.24, -8), (0.42, 4), (0.58, 13)]
         if settles { leafKeys += [(0.72, -8), (0.86, 4), (0.98, 0)] }
         for (time, angle) in leafKeys { leaf.add(angle * swing, at: start + time) }
         duration = start + (settles ? 0.98 : 0.58)
         holdAll(until: duration)
+    }
+
+    // MARK: - 퍼덕이기
+
+    /// 양 날개를 빠르게 퍼덕이며 살짝 떠올랐다 내려앉는다. 볏은 바람에 뒤로 눕는다.
+    static func flap(at x: Double, size: Double) -> SaessagiMotionPlan {
+        var plan = SaessagiMotionPlan(startX: x)
+        // 한 번 퍼덕임 = 올리기(느리게) + 내리치기(빠르게). 크기와 박자를 조금씩 다르게 해 기계적으로 보이지 않게,
+        // 오른쪽 날개는 0.02초 늦게 따라온다.
+        let beats: [(up: Double, rise: Double, fall: Double)] = [
+            (38, 0.11, 0.06), (46, 0.1, 0.055), (42, 0.1, 0.06), (48, 0.09, 0.055), (40, 0.1, 0.06), (30, 0.11, 0.07), (16, 0.12, 0.08),
+        ]
+        var t = 0.06
+        for beat in beats {
+            plan.wingLeft.add(beat.up, at: t + beat.rise)
+            plan.wingRight.add(beat.up * 0.96, at: t + beat.rise + 0.02)
+            t += beat.rise + beat.fall
+            plan.wingLeft.add(3, at: t)
+            plan.wingRight.add(3, at: t + 0.02)
+        }
+        plan.wingLeft.add(0, at: t + 0.14); plan.wingRight.add(0, at: t + 0.16)
+        for (time, level) in [(0.1, 0.0), (0.4, 0.09), (0.75, 0.12), (0.92, 0.04), (1.02, 0.0)] { plan.bob.add(level * size, at: time) }
+        for (time, wide, tall) in [(0.1, 1.04, 0.95), (0.3, 0.98, 1.03), (0.98, 1.0, 1.0), (1.04, 1.06, 0.92), (1.16, 0.99, 1.02), (1.26, 1.0, 1.0)] {
+            plan.squashX.add(wide, at: time); plan.squashY.add(tall, at: time)
+        }
+        for (time, angle) in [(0.2, -9.0), (0.6, -12.0), (0.95, -6.0), (1.1, 8.0), (1.24, -3.0), (1.34, 0.0)] { plan.leaf.add(angle, at: time) }
+        for (time, scale) in [(0.1, 0.6), (0.9, 0.6), (1.0, 1.0)] { plan.eyes.add(scale, at: time) }
+        for (time, level) in [(0.4, 0.035), (0.75, 0.035), (1.02, 0.0)] {
+            plan.footLeftLift.add(level * size, at: time); plan.footRightLift.add(level * size, at: time)
+        }
+        plan.duration = max(1.34, t + 0.16)
+        plan.holdAll(until: plan.duration)
+        return plan
     }
 
     // MARK: - 잎 흔들기
@@ -716,9 +820,38 @@ struct SaessagiMotionPlan: Equatable, Sendable {
         return plan
     }
 
+    /// 피오의 날개 인사: 오른쪽 날개를 부드럽게 들어 올려 끝을 세 번 가볍게 흔들고, 살짝 넘치게 내렸다가 제자리로.
+    /// 몸은 드는 쪽으로 조금 기울고 볏이 따라 흔들린다. 다른 날개도 살짝 들린다.
+    static func wingWave(at x: Double, size: Double) -> SaessagiMotionPlan {
+        var plan = SaessagiMotionPlan(startX: x)
+        plan.style = .pio
+        let right: [(Double, Double)] = [
+            (0.1, -3), (0.38, 58), (0.52, 40), (0.68, 60), (0.84, 42), (1.0, 57), (1.18, 52), (1.5, -4), (1.68, 1), (1.8, 0),
+        ]
+        for (time, angle) in right { plan.wingRight.add(angle, at: time) }
+        for (time, angle) in [(0.3, 7.0), (1.2, 6.0), (1.6, 0.0)] { plan.wingLeft.add(angle, at: time) }
+        for (time, angle) in [(0.38, -4.0), (1.18, -3.0), (1.55, 1.0), (1.8, 0.0)] { plan.rock.add(angle, at: time) }
+        for (time, level) in [(0.12, 0.0), (0.3, 0.025), (0.5, 0.0)] { plan.bob.add(level * size, at: time) }
+        for (time, wide, tall) in [(0.12, 1.03, 0.96), (0.32, 0.99, 1.02), (0.5, 1.0, 1.0)] {
+            plan.squashX.add(wide, at: time); plan.squashY.add(tall, at: time)
+        }
+        for (time, angle) in [(0.4, -6.0), (0.58, 4.0), (0.76, -5.0), (0.94, 4.0), (1.12, -3.0), (1.6, 3.0), (1.8, 0.0)] {
+            plan.leaf.add(angle, at: time)
+        }
+        for (time, scale) in [(0.3, 0.6), (1.2, 0.6), (1.35, 1.0)] { plan.eyes.add(scale, at: time) }
+        plan.duration = 1.8
+        plan.holdAll(until: plan.duration)
+        return plan
+    }
+
     /// 든 손 쪽(오른쪽)으로 몸을 까딱까딱 기울인다.
     static func wave(at x: Double, size: Double) -> SaessagiMotionPlan {
         var plan = SaessagiMotionPlan(startX: x)
+        // 날개가 따로 있으면: 오른쪽 날개를 높이 들어 세 번 흔들고 내린다(왼쪽은 살짝 따라 든다).
+        for (time, angle) in [(0.16, 62.0), (0.34, 42.0), (0.52, 64.0), (0.7, 42.0), (0.88, 60.0), (1.2, 0.0)] {
+            plan.wingRight.add(angle, at: time)
+        }
+        for (time, angle) in [(0.2, 6.0), (0.9, 6.0), (1.2, 0.0)] { plan.wingLeft.add(angle, at: time) }
         for (time, angle) in [(0.18, 7.0), (0.36, 2.0), (0.54, 7.0), (0.72, 2.0), (0.9, 6.0), (1.2, 0.0)] {
             plan.rock.add(angle, at: time)
         }
@@ -782,7 +915,8 @@ struct SaessagiMotionPlan: Equatable, Sendable {
 
     /// 그 행동의 움직임을 만든다. 하지 않는 행동(쉬기, 아직 없는 동작)이나 할 수 없는 경우(걸을 자리 없음)는 nil.
     static func make(
-        _ action: SaessagiAction, at x: Double, range: Double, size: Double, using generator: inout some RandomNumberGenerator
+        _ action: SaessagiAction, at x: Double, range: Double, size: Double, style: SaessagiRigStyle = .standard,
+        using generator: inout some RandomNumberGenerator
     ) -> SaessagiMotionPlan? {
         switch action {
         case .stay, .tumble:
@@ -793,27 +927,28 @@ struct SaessagiMotionPlan: Equatable, Sendable {
             return strollTarget(from: x, range: range, size: size, using: &generator).flatMap {
                 journey(
                     from: x, to: $0, size: size, step: SaessagiWalkMotion.strollStep,
-                    period: SaessagiWalkMotion.strollStepDuration, leaps: true
+                    period: SaessagiWalkMotion.strollStepDuration, leaps: true, style: style
                 )
             }
         case .dash:
             return dashTarget(from: x, range: range, size: size, using: &generator).flatMap {
                 journey(
                     from: x, to: $0, size: size, step: SaessagiWalkMotion.dashStep,
-                    period: SaessagiWalkMotion.dashStepDuration, leaps: false
+                    period: SaessagiWalkMotion.dashStepDuration, leaps: false, style: style
                 )
             }
-        case .peek: return peek(at: x, range: range, size: size)
+        case .peek: return peek(at: x, range: range, size: size, style: style)
         case .lookAround: return lookAround(at: x, size: size)
         case .hop: return hop(at: x, size: size)
         case .bigHop: return bigHop(at: x, size: size)
         case .doubleHop: return doubleHop(at: x, size: size)
         case .leafShake: return leafShake(at: x, size: size)
+        case .flap: return flap(at: x, size: size)
         case .doze: return doze(at: x, size: size)
         case .sway: return sway(at: x, size: size)
         case .bounce: return bounce(at: x, size: size)
         case .cheer: return cheer(at: x, size: size)
-        case .wave: return wave(at: x, size: size)
+        case .wave: return style == .pio ? wingWave(at: x, size: size) : wave(at: x, size: size)
         case .wiggle: return wiggle(at: x, size: size)
         case .deepBreath: return deepBreath(at: x, size: size)
         }
@@ -824,7 +959,7 @@ struct SaessagiMotionPlan: Equatable, Sendable {
     private mutating func holdAll(until time: Double, except skipped: PartialKeyPath<SaessagiMotionPlan>? = nil) {
         let tracks: [WritableKeyPath<SaessagiMotionPlan, SaessagiTrack>] = [
             \.moverX, \.bob, \.squashX, \.squashY, \.footLeftX, \.footLeftLift, \.footRightX, \.footRightLift,
-            \.rock, \.leaf, \.face, \.eyes,
+            \.rock, \.leaf, \.face, \.eyes, \.wingLeft, \.wingRight, \.footLeftTilt, \.footRightTilt,
         ]
         for track in tracks where track != skipped {
             self[keyPath: track].hold(until: time)

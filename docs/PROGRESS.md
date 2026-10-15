@@ -1321,6 +1321,16 @@ iPhone·iPad App Store 제출 자료를 만들고 App Store Connect에 올렸다
 - TestFlight: 1.0.0 (11) 업로드 성공(IPA 확인: 앱·위젯 11, iCloud·알림 Production, App Group, remote-notification). 처리 상태는 App Store Connect에서 확인 필요.
 - 다음 번호: Mac 1.5.9 (9), iOS 빌드 12.
 
+## 피오 시범(DEBUG 전용): 마스터 리깅과 애니메이션 (2026-10-15)
+
+- `-DaylogDebugCharacter pio`(Debug 빌드만)로 머리말·성장 카드·스플래시를 피오로 그린다. Release 기본 캐릭터는 새싹이 그대로이고,
+  피오 에셋(`Daylog/PioTrial.xcassets`)은 Release 빌드에서 빠진다(`EXCLUDED_SOURCE_FILE_NAMES`). 피오 앱 아이콘 검증 앱: `Tools/dev.sh pio`.
+- 레이어: 마스터(Pio_Style_Locked_Kit, 실제 1254px) 한 장에서 `Tools/pio-rig/`로 몸·날개 좌우·날개 그림자·볏·눈·발 좌우·눈꺼풀(감은·웃는·졸린 눈)을 만든다.
+  가려진 몸은 둘레 음영으로 메우고 실제 피부 결을 옮겨 붙인다. 다시 합치면 마스터와 PSNR 약 42dB.
+- 움직임: 피오 결(`SaessagiRigStyle.pio`)로 뒤뚱 걸음(디딘 발 쪽으로 크게 기울기, 든 발 굴리기, 디딜 때 눌림), 한쪽 날개 인사, 고르지 않은 퍼덕임,
+  점프 때 날개 펼치기·공중 퍼덕·착지 후 천천히 내리기, 눈꺼풀 깜빡임(중간 회색 프레임 없음). 새싹이의 움직임은 그대로다.
+- 미완: 성장 4단계 그림, 휴가·iCloud·스플래시·아이콘의 피오 교체. 검증 자료 `docs/qa/pio-trial-2026-10-14/`.
+
 ## 다음 작업
 
 1. 로컬 main 및 원격 상태를 확인하고 기존 변경을 보존한다. A/B/C/D/F/G의 중복 개발은 하지 않는다.

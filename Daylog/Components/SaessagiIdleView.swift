@@ -33,6 +33,20 @@ struct SaessagiLayerSet: Equatable, Sendable {
     let leafPivot: CGPoint
     let eyeCenter: CGPoint
     let hip: CGPoint
+    /// 날개(피오 시범): 왼쪽·오른쪽 날개와 날개가 몸에 드리운 그림자, 날개가 도는 중심(어깨). 새싹이에는 없다.
+    var wingLeft: String?
+    var wingRight: String?
+    var wingShadowLeft: String?
+    var wingShadowRight: String?
+    var wingLeftPivot: CGPoint = .zero
+    var wingRightPivot: CGPoint = .zero
+    /// 발을 굴리는 중심(피오). 없으면 그림 가운데(새싹이는 발을 굴리지 않는다).
+    var footLeftPivot: CGPoint?
+    var footRightPivot: CGPoint?
+    /// 눈 위에 겹치는 눈꺼풀(감은 눈·웃는 눈·졸린 눈). 있으면 깜빡임을 눈 접기 대신 눈꺼풀로 한다.
+    var lidClosed: String?
+    var lidHappy: String?
+    var lidSleepy: String?
 
     static let idle = SaessagiLayerSet(
         body: SaessagiIdleLayers.body, leaf: SaessagiIdleLayers.leaf, eyes: SaessagiIdleLayers.eyes, mouth: SaessagiIdleLayers.mouth,
@@ -50,6 +64,8 @@ struct SaessagiLayerSet: Equatable, Sendable {
     }
 
     static func of(_ pose: SaessagiPose) -> SaessagiLayerSet? {
+        // 피오 시범: 기본 모습은 부위로 나눈 피오, 그 밖의 모습은 한 장짜리 마스터.
+        if PioTrial.art(for: pose) != nil { return pose == .idle ? PioTrial.rigLayers : nil }
         switch pose {
         case .idle: return .idle
         case .growthSprout: return growth(leaf: SaessagiIdleLayers.leaf)
@@ -59,7 +75,10 @@ struct SaessagiLayerSet: Equatable, Sendable {
         }
     }
 
-    var all: [String] { [body, leaf, eyes] + [mouth, footLeft, footRight].compactMap { $0 } }
+    var all: [String] {
+        [body, leaf, eyes] + [mouth, footLeft, footRight, wingLeft, wingRight, wingShadowLeft, wingShadowRight, lidClosed, lidHappy, lidSleepy]
+            .compactMap { $0 }
+    }
 }
 
 /// 처음 나타날 때 한 번 하는 연출.
@@ -180,6 +199,14 @@ struct SaessagiRig {
     let leaf: CGImage?
     let footLeft: CGImage?
     let footRight: CGImage?
+    /// 날개·날개 그림자·눈꺼풀(피오 시범). 없으면 nil.
+    var wingLeft: CGImage?
+    var wingRight: CGImage?
+    var wingShadowLeft: CGImage?
+    var wingShadowRight: CGImage?
+    var lidClosed: CGImage?
+    var lidHappy: CGImage?
+    var lidSleepy: CGImage?
 
     /// 발·눈·입·잎이 따로 있는가.
     var isLayered: Bool { leaf != nil }
@@ -207,6 +234,13 @@ struct SaessagiRig {
         guard (set.mouth == nil || mouth != nil) && (set.footLeft == nil || footLeft != nil) && (set.footRight == nil || footRight != nil)
         else { return nil }
         layers = set
+        wingLeft = set.wingLeft.flatMap(layer)
+        wingRight = set.wingRight.flatMap(layer)
+        wingShadowLeft = set.wingShadowLeft.flatMap(layer)
+        wingShadowRight = set.wingShadowRight.flatMap(layer)
+        lidClosed = set.lidClosed.flatMap(layer)
+        lidHappy = set.lidHappy.flatMap(layer)
+        lidSleepy = set.lidSleepy.flatMap(layer)
         self.body = body
         self.eyes = eyes
         self.mouth = mouth
@@ -243,6 +277,15 @@ final class SaessagiStage {
     private let mouthLayer = CALayer()
     private let eyesLayer = CALayer()
     private let leafLayer = CALayer()
+    /// 날개(어깨를 중심으로 돈다): 늘 하는 살랑임(`wingSway…`) 안에 행동의 움직임(`wing…`)과 그림자.
+    private let wingSwayLeft = CALayer(), wingSwayRight = CALayer()
+    private let wingLeftLayer = CALayer(), wingRightLayer = CALayer()
+    private let wingShadowLeftLayer = CALayer(), wingShadowRightLayer = CALayer()
+    private let wingImageLeft = CALayer(), wingImageRight = CALayer()
+    /// 눈꺼풀: 평소에는 보이지 않고, 깜빡이거나 표정을 지을 때 눈 위에 나타난다.
+    private let lidClosedLayer = CALayer(), lidHappyLayer = CALayer(), lidSleepyLayer = CALayer()
+    private var hasWings = false
+    private var hasLids = false
     private var isAnimating = false
     /// 지금 올려 둔 그림의 모습·크기·배율. 바뀌면 다시 놓는다.
     private var configuration: (pose: SaessagiPose, size: CGFloat, scale: CGFloat)?
@@ -290,8 +333,12 @@ final class SaessagiStage {
         host.addSublayer(mover)
         mover.addSublayer(breather)
         for layer in [footLeft, footRight, torso] { breather.addSublayer(layer) }
-        for layer in [bodyLayer, face, leafLayer] { torso.addSublayer(layer) }
-        for layer in [mouthLayer, eyesLayer] { face.addSublayer(layer) }
+        for layer in [bodyLayer, wingSwayLeft, wingSwayRight, face, leafLayer] { torso.addSublayer(layer) }
+        for layer in [mouthLayer, eyesLayer, lidClosedLayer, lidHappyLayer, lidSleepyLayer] { face.addSublayer(layer) }
+        wingSwayLeft.addSublayer(wingLeftLayer)
+        wingSwayRight.addSublayer(wingRightLayer)
+        for layer in [wingShadowLeftLayer, wingImageLeft] { wingLeftLayer.addSublayer(layer) }
+        for layer in [wingShadowRightLayer, wingImageRight] { wingRightLayer.addSublayer(layer) }
         restingX = max(startX, 0)
     }
 
@@ -402,6 +449,8 @@ final class SaessagiStage {
     private func layout(rig: SaessagiRig, size: CGFloat, displayScale: CGFloat) {
         isLayered = rig.isLayered
         hasFeet = rig.footLeft != nil
+        hasWings = rig.wingLeft != nil && rig.wingRight != nil
+        hasLids = rig.lidClosed != nil
         let pose = rig.pose
         let side = size + SaessagiRenderer.padding * 2
         let content = pose.content
@@ -416,17 +465,29 @@ final class SaessagiStage {
         mover.position.x -= SaessagiRenderer.padding
         mover.position.y -= SaessagiRenderer.padding
         place(breather, anchor: feet, side: side)
-        place(footLeft, anchor: center, side: side)
-        place(footRight, anchor: center, side: side)
+        place(footLeft, anchor: rig.layers?.footLeftPivot.map(unit) ?? center, side: side)
+        place(footRight, anchor: rig.layers?.footRightPivot.map(unit) ?? center, side: side)
         place(torso, anchor: rig.layers.map { unit($0.hip) } ?? feet, side: side)
         place(bodyLayer, anchor: center, side: side)
         place(face, anchor: center, side: side)
         place(mouthLayer, anchor: center, side: side)
         place(eyesLayer, anchor: rig.layers.map { unit($0.eyeCenter) } ?? center, side: side)
         place(leafLayer, anchor: rig.layers.map { unit($0.leafPivot) } ?? center, side: side)
+        let wingLeftAnchor = rig.layers.map { unit($0.wingLeftPivot) } ?? center
+        let wingRightAnchor = rig.layers.map { unit($0.wingRightPivot) } ?? center
+        for layer in [wingSwayLeft, wingLeftLayer] { place(layer, anchor: wingLeftAnchor, side: side) }
+        for layer in [wingSwayRight, wingRightLayer] { place(layer, anchor: wingRightAnchor, side: side) }
+        // 그림자는 날개 안에서 날개와 같은 자리(날개보다 아래에 그린다)
+        for layer in [wingShadowLeftLayer, wingShadowRightLayer, wingImageLeft, wingImageRight, lidClosedLayer, lidHappyLayer, lidSleepyLayer] {
+            place(layer, anchor: center, side: side)
+        }
+        for layer in [lidClosedLayer, lidHappyLayer, lidSleepyLayer] { layer.opacity = 0 }
         let contents: [(CALayer, CGImage?)] = [
             (footLeft, rig.footLeft), (footRight, rig.footRight), (bodyLayer, rig.body),
             (mouthLayer, rig.mouth), (eyesLayer, rig.eyes), (leafLayer, rig.leaf),
+            (wingShadowLeftLayer, rig.wingShadowLeft), (wingShadowRightLayer, rig.wingShadowRight),
+            (wingImageLeft, rig.wingLeft), (wingImageRight, rig.wingRight),
+            (lidClosedLayer, rig.lidClosed), (lidHappyLayer, rig.lidHappy), (lidSleepyLayer, rig.lidSleepy),
         ]
         for (layer, image) in contents {
             layer.contents = image
@@ -487,7 +548,38 @@ final class SaessagiStage {
             blink.duration = track.duration
             blink.repeatCount = .infinity
             blink.calculationMode = .linear
+            if hasLids {
+                // 눈꺼풀이 있으면: 눈은 조금만 접히고, 같은 박자로 감은 눈꺼풀이 나타났다 사라진다(선이 아니라 둥근 얼굴 위의 눈매).
+                blink.values = track.values.map { Self.lidEyeScale($0) }
+                // 눈꺼풀은 서서히 겹치면 반쯤 비친 눈이 회색으로 보인다: 눈이 감기는 순간 한 번에 덮었다가 뜨는 순간 걷는다.
+                let lid = Self.lidSwitch(duration: track.duration, threshold: 0.75) { time in
+                    var value = track.values[0]
+                    for index in 1..<track.keyTimes.count where time / track.duration <= track.keyTimes[index] {
+                        let t0 = track.keyTimes[index - 1], t1 = track.keyTimes[index]
+                        let f = t1 > t0 ? (time / track.duration - t0) / (t1 - t0) : 1
+                        value = track.values[index - 1] + (track.values[index] - track.values[index - 1]) * f
+                        break
+                    }
+                    return value
+                }
+                lid.repeatCount = .infinity
+                lidClosedLayer.add(lid, forKey: "blink")
+            }
             eyesLayer.add(blink, forKey: "blink")
+        }
+        if hasWings {
+            // 날개: 어깨를 중심으로 아주 작게, 고르지 않게 들썩인다(숨에 맞춰 살짝, 가끔 조금 더). 양쪽이 어긋난다.
+            for (layer, sign, offset) in [(wingSwayLeft, 1.0, 0.0), (wingSwayRight, -1.0, 1.3)] {
+                let sway = CAKeyframeAnimation(keyPath: "transform.rotation.z")
+                let values = [0.0, 2.2, 0.8, 3.4, 1.2, 0.3, 2.6, 0.9, 0.0]
+                sway.values = values.map { $0 * Double.pi / 180 * Self.clockwise * sign }
+                sway.keyTimes = [0, 0.12, 0.26, 0.4, 0.55, 0.66, 0.8, 0.9, 1].map { NSNumber(value: $0) }
+                sway.timingFunctions = Array(repeating: ease, count: values.count - 1)
+                sway.duration = 4.6
+                sway.repeatCount = .infinity
+                sway.timeOffset = offset
+                layer.add(sway, forKey: "sway")
+            }
         }
 
         if let entrance = pendingEntrance {
@@ -517,8 +609,14 @@ final class SaessagiStage {
     private func nextAction(using generator: inout some RandomNumberGenerator) -> SaessagiAction {
         if let debugAction { return debugAction }
         guard behavior.isDirected else { return behavior.next(after: lastAction, using: &generator) }
+        // 날개가 있으면(피오 시범): 처음 나타날 때 날개로 인사하고, 제자리 동작에 퍼덕이기·인사를 더한다.
+        if hasWings, !PioTrial.hasWaved {
+            PioTrial.hasWaved = true
+            return .wave
+        }
         return director.next(
-            x: restingX, range: range, size: size, canPeek: canPeek, flourishes: behavior.choices, using: &generator
+            x: restingX, range: range, size: size, canPeek: canPeek,
+            flourishes: hasWings ? PioTrial.flourishes(adding: behavior.choices) : behavior.choices, using: &generator
         )
     }
 
@@ -542,12 +640,17 @@ final class SaessagiStage {
         leafLayer.removeAnimation(forKey: "sway")
         breather.removeAnimation(forKey: "breath")
         eyesLayer.removeAnimation(forKey: "blink")
+        lidClosedLayer.removeAnimation(forKey: "blink")
+        wingSwayLeft.removeAnimation(forKey: "sway")
+        wingSwayRight.removeAnimation(forKey: "sway")
         removeActionAnimations()
         setModelX(restingX)
     }
 
     private func removeActionAnimations() {
-        for layer in [mover, footLeft, footRight, torso, face, eyesLayer, leafLayer] {
+        for layer in [mover, footLeft, footRight, torso, bodyLayer, face, eyesLayer, leafLayer, wingLeftLayer, wingRightLayer,
+                      wingImageLeft, wingImageRight,
+                      wingShadowLeftLayer, wingShadowRightLayer, lidClosedLayer, lidHappyLayer, lidSleepyLayer] {
             for key in layer.animationKeys() ?? [] where key.hasPrefix(Self.actionKey) { layer.removeAnimation(forKey: key) }
         }
     }
@@ -578,7 +681,10 @@ final class SaessagiStage {
     // MARK: - 가끔 하는 행동
 
     /// 행동 하나를 시작하고 걸리는 시간(초)을 돌려준다. 하지 않으면 0.
-    private func play(_ action: SaessagiAction, using generator: inout some RandomNumberGenerator) -> Double {
+    private func play(_ requested: SaessagiAction, using generator: inout some RandomNumberGenerator) -> Double {
+        // 피오 시범(한 장짜리 그림): 레이어가 있어야 하는 제자리 동작은 비슷한 몸 전체 동작으로 바꾸고, 걷기는 몸 전체로 한다.
+        let walksWholeBody = !isLayered && PioTrial.isEnabled
+        let action = walksWholeBody ? PioTrial.wholeImageSubstitute(for: requested) : requested
         // 걸을 자리가 줄어든 뒤라면 그 안에서 시작한다.
         if restingX > range {
             restingX = range
@@ -587,8 +693,10 @@ final class SaessagiStage {
         // 숨바꼭질은 자리 끝에서 잘라 낼 때만 한다(그렇지 않으면 숨지 못하고 머리말 밖으로 걸어 나간다).
         // 나뉜 레이어가 있어야 하는 행동은 그림 한 장짜리 모습에서는 하지 않는다.
         guard action != .peek || canPeek,
-              (isLayered && (hasFeet || !action.travels)) || !action.needsLayers,
-              let plan = SaessagiMotionPlan.make(action, at: restingX, range: range, size: size, using: &generator)
+              (isLayered && (hasFeet || !action.travels)) || !action.needsLayers || (walksWholeBody && action.travels),
+              let plan = SaessagiMotionPlan.make(
+                  action, at: restingX, range: range, size: size, style: hasWings ? .pio : .standard, using: &generator
+              )
         else {
             log(action, plan: nil)
             return 0
@@ -604,18 +712,87 @@ final class SaessagiStage {
         add(plan.squashX, to: mover, keyPath: "transform.scale.x", plan: plan)
         add(plan.squashY, to: mover, keyPath: "transform.scale.y", plan: plan)
         add(plan.rock, to: torso, keyPath: "transform.rotation.z", scale: degrees, plan: plan)
+        if walksWholeBody, action.travels { face(along: plan) }
         guard isLayered else { return plan.duration }
         add(plan.footLeftX, to: footLeft, keyPath: "transform.translation.x", plan: plan, eased: false)
         add(plan.footLeftLift, to: footLeft, keyPath: "transform.translation.y", scale: Self.up, plan: plan)
         add(plan.footRightX, to: footRight, keyPath: "transform.translation.x", plan: plan, eased: false)
         add(plan.footRightLift, to: footRight, keyPath: "transform.translation.y", scale: Self.up, plan: plan)
+        add(plan.footLeftTilt, to: footLeft, keyPath: "transform.rotation.z", scale: degrees, plan: plan)
+        add(plan.footRightTilt, to: footRight, keyPath: "transform.rotation.z", scale: degrees, plan: plan)
         // 잎은 늘 도는 흔들림 위에 행동의 흔들림을 더한다.
         add(plan.leaf, to: leafLayer, keyPath: "transform.rotation.z", scale: degrees, plan: plan, additive: true)
-        add(plan.face, to: face, keyPath: "transform.translation.x", plan: plan)
+        // 피오(눈꺼풀이 있는 리그)는 부리가 몸에 붙어 있어 눈만 옆으로 옮기면 얼굴이 어긋나 보인다: 눈을 옮기지 않는다.
+        if !hasLids { add(plan.face, to: face, keyPath: "transform.translation.x", plan: plan) }
         // 눈은 행동이 도는 동안 평소의 깜빡임 대신 이 값을 따른다(나중에 건 애니메이션이 이긴다).
         add(plan.eyes, to: eyesLayer, keyPath: "transform.scale.y", plan: plan)
+        if hasWings {
+            // 왼쪽 날개는 들면 시계 방향, 오른쪽은 반대. 그림자는 날개가 몸에서 떨어질수록 옅어진다.
+            // 몸 쪽으로는 3도 넘게 접지 않는다(몸통 안으로 파고들지 않게).
+            let left = plan.wingLeft.mapped { max($0, -3) }, right = plan.wingRight.mapped { max($0, -3) }
+            add(left, to: wingLeftLayer, keyPath: "transform.rotation.z", scale: degrees, plan: plan)
+            add(right, to: wingRightLayer, keyPath: "transform.rotation.z", scale: -degrees, plan: plan)
+            // 들어 올린 날개는 앞뒤로 기울어 길이가 조금 짧고 넓어 보인다(그림을 비틀지 않고 원근만 흉내 낸다).
+            for (track, image) in [(left, wingImageLeft), (right, wingImageRight)] {
+                add(track.mapped { 1 - 0.1 * min(max($0, 0), 60) / 60 }, to: image, keyPath: "transform.scale.y", plan: plan)
+                add(track.mapped { 1 + 0.04 * min(max($0, 0), 60) / 60 }, to: image, keyPath: "transform.scale.x", plan: plan)
+            }
+            add(plan.wingLeft.mapped(Self.shadowOpacity), to: wingShadowLeftLayer, keyPath: "opacity", plan: plan)
+            add(plan.wingRight.mapped(Self.shadowOpacity), to: wingShadowRightLayer, keyPath: "opacity", plan: plan)
+        }
+        if hasLids, !plan.eyes.isConstant {
+            // 눈을 감는 동작은 눈꺼풀로: 잎을 털 때는 웃는 눈, 졸 때는 졸린 눈, 그 밖에는 감은 눈.
+            let lid = action == .leafShake || action == .flap ? lidHappyLayer : (action == .doze ? lidSleepyLayer : lidClosedLayer)
+            let threshold = action == .leafShake || action == .flap ? 0.8 : 0.75
+            let switching = Self.lidSwitch(duration: plan.duration, threshold: threshold) { plan.eyes.value(at: $0) }
+            lid.add(switching, forKey: "\(Self.actionKey).lid")
+            add(plan.eyes.mapped { Self.lidEyeScale($0) }, to: eyesLayer, keyPath: "transform.scale.y", plan: plan)
+        }
         return plan.duration
     }
+
+    /// 한 장짜리 그림이 걸을 때 가는 쪽을 보게 좌우를 뒤집는다(그림은 오른쪽을 보고 있다). 멈추면 마지막으로 간 쪽을 본 채로 있다.
+    private func face(along plan: SaessagiMotionPlan) {
+        let xs = plan.moverX.values, times = plan.moverX.times
+        guard xs.count > 1, plan.duration > 0 else { return }
+        var facing = (bodyLayer.value(forKeyPath: "transform.scale.x") as? Double) ?? 1
+        var values: [Double] = []
+        for index in 0..<(xs.count - 1) {
+            let step = xs[index + 1] - xs[index]
+            if abs(step) > 0.01 { facing = step > 0 ? 1 : -1 }
+            values.append(facing)
+        }
+        let animation = CAKeyframeAnimation(keyPath: "transform.scale.x")
+        animation.values = values
+        // 한 칸씩 끊어 바꾼다: 시각은 값보다 하나 많다(처음 0, 끝 1).
+        var keyTimes = times.map { NSNumber(value: min($0 / plan.duration, 1)) }
+        keyTimes[keyTimes.count - 1] = 1
+        animation.keyTimes = keyTimes
+        animation.calculationMode = .discrete
+        animation.duration = plan.duration
+        bodyLayer.add(animation, forKey: "\(Self.actionKey).facing")
+        CATransaction.begin()
+        CATransaction.setDisableActions(true)
+        bodyLayer.setValue(facing, forKeyPath: "transform.scale.x")
+        CATransaction.commit()
+    }
+
+    /// 눈꺼풀이 있을 때 눈 자체의 세로 배율: 거의 접지 않는다(눈꺼풀이 덮는다).
+    private static func lidEyeScale(_ scale: Double) -> Double { scale >= 1 ? scale : 0.85 + 0.15 * scale }
+
+    /// 눈꺼풀을 켜고 끄는 애니메이션: 눈의 세로 배율(`eye(time)`)이 `threshold`보다 작은 동안 보인다. 1/60초마다 본다.
+    private static func lidSwitch(duration: Double, threshold: Double, eye: (Double) -> Double) -> CAKeyframeAnimation {
+        let count = max(2, Int((duration * 60).rounded()))
+        let animation = CAKeyframeAnimation(keyPath: "opacity")
+        animation.values = (0..<count).map { eye(duration * (Double($0) + 0.5) / Double(count)) < threshold ? 1.0 : 0.0 }
+        animation.keyTimes = (0...count).map { NSNumber(value: Double($0) / Double(count)) }
+        animation.calculationMode = .discrete
+        animation.duration = duration
+        return animation
+    }
+
+    /// 날개가 든 각도에 따른 날개 그림자의 불투명도.
+    private static func shadowOpacity(_ angle: Double) -> Double { max(0, 1 - abs(angle) / 18) }
 
     private func add(
         _ track: SaessagiTrack, to layer: CALayer, keyPath: String, scale: Double = 1, plan: SaessagiMotionPlan,
@@ -653,6 +830,8 @@ final class SaessagiStage {
         case "bigHop": return .bigHop
         case "doubleHop": return .doubleHop
         case "leafShake": return .leafShake
+        case "flap": return .flap
+        case "wave": return .wave
         default: return nil
         }
         #else

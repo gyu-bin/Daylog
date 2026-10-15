@@ -80,7 +80,9 @@ enum DockIcon {
 
     /// 그 외관에서 걸 Dock 아이콘. 라이트는 번들의 기본 아이콘을 쓰므로 nil.
     static func image(for appearance: NSAppearance) -> NSImage? {
-        isDark(appearance) ? NSImage(named: darkImageName) : nil
+        // 피오 시범(검증용 앱에서만)은 번들 아이콘(피오)을 그대로 둔다.
+        if PioTrial.isEnabled { return nil }
+        return isDark(appearance) ? NSImage(named: darkImageName) : nil
     }
 }
 #endif

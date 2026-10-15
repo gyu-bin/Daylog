@@ -21,11 +21,13 @@ enum SaessagiPose: String, CaseIterable, Sendable {
     case growthLeaf = "growth_leaf"
     case growthFlower = "growth_flower"
 
-    var assetName: String { "saessagi_\(rawValue)" }
+    /// 그릴 그림. 검증용 피오 시범(`PioTrial`)이 켜져 있으면 피오 그림을 쓴다.
+    var assetName: String { PioTrial.art(for: self)?.asset ?? "saessagi_\(rawValue)" }
 
     /// 그림 안에서 캐릭터가 실제로 차지하는 자리(1024 기준 픽셀, 위에서 아래로. 반짝이·하트 같은 소품과 발밑 그림자 포함).
     /// 모습마다 캔버스 안의 위치와 크기가 달라서, 이 값으로 가운데·바닥을 맞춘다. 파일은 건드리지 않는다.
     var content: CGRect {
+        if let art = PioTrial.art(for: self) { return art.content }
         switch self {
         case .idle: return CGRect(x: 179, y: 53, width: 664, height: 911)
         case .happy: return CGRect(x: 106, y: 50, width: 813, height: 915)
@@ -220,6 +222,8 @@ struct TodaySaessagi: View {
         .task(id: canWalk) {
             // 앱에 들어오면 한 번 인사하고, 그 뒤로는 가끔 잠깐 엎드려 쉰다. 화면에서 사라지면 멈춘다.
             guard canWalk else { return }
+            // 피오 시범: 인사는 날개로 하고(무대가 한다), 엎드려 쉬기 대신 무대에서 꾸벅 존다.
+            guard !PioTrial.isEnabled else { return }
             if !Self.hasGreeted {
                 Self.hasGreeted = true
                 try? await Task.sleep(for: .seconds(0.8))

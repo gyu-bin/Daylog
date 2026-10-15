@@ -4,6 +4,7 @@
 #   Tools/dev.sh build [Debug|Release]   검증용 Mac 앱을 빌드한다(번들 ID com.daylog.verify, iCloud 없음)
 #   Tools/dev.sh test [xcodebuild 인자…]  같은 자리에서 단위 테스트를 돌린다(예: -only-testing:DaylogTests/RoutineSkipTests)
 #   Tools/dev.sh path [Debug|Release|Perf] 검증용 Mac 앱의 경로를 출력한다
+#   Tools/dev.sh pio                     피오 시범용: 피오 앱 아이콘으로 검증용 Mac 앱을 따로 빌드한다(verify-pio)
 #   Tools/dev.sh perf                    성능 측정용: Release 최적화 그대로에 검증용 실행 인자(DEBUG 조건)만 켠 Mac 앱을 빌드한다
 #   Tools/dev.sh ios [Debug|Release]     iPhone·iPad 시뮬레이터용 앱을 빌드한다(build-ios)
 #   Tools/dev.sh apps                    이 Mac에 있는 Daylog 앱 묶음과 시스템에 등록된 경로를 보여 준다(읽기만 한다)
@@ -27,7 +28,7 @@ VERIFY_ARGS=(-project Daylog.xcodeproj -scheme Daylog -derivedDataPath "$VERIFY_
   PRODUCT_BUNDLE_IDENTIFIER="$VERIFY_ID" CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=
   PROVISIONING_PROFILE_SPECIFIER= CODE_SIGN_ENTITLEMENTS=Config/Verify.entitlements)
 
-usage() { sed -n '2,10p' "$0" | sed 's/^# \{0,1\}//'; exit "${1:-0}"; }
+usage() { sed -n '2,11p' "$0" | sed 's/^# \{0,1\}//'; exit "${1:-0}"; }
 
 configuration() {
   case "${1:-Debug}" in
@@ -42,6 +43,12 @@ case "${1:-}" in
     mkdir -p "$DEV_DIR"
     xcodebuild "${VERIFY_ARGS[@]}" -configuration "$config" build
     echo "$VERIFY_DERIVED/Build/Products/$config/Daylog.app"
+    ;;
+  pio)
+    # 피오 시범: 검증용 Mac 앱을 피오 앱 아이콘으로 따로 빌드한다(실제 앱 아이콘 설정은 그대로). 실행할 때 -DaylogDebugCharacter pio.
+    mkdir -p "$DEV_DIR"
+    xcodebuild "${VERIFY_ARGS[@]/$VERIFY_DERIVED/$DEV_DIR/verify-pio}" -configuration Debug ASSETCATALOG_COMPILER_APPICON_NAME=PioAppIcon build
+    echo "$DEV_DIR/verify-pio/Build/Products/Debug/Daylog.app"
     ;;
   test)
     shift

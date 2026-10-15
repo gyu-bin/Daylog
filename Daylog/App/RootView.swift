@@ -132,6 +132,9 @@ struct RootView: View {
             .accessibilityHidden(firstSync.isActive)
             .overlay { firstSyncOverlay }
             .animation(.easeOut(duration: 0.3), value: firstSync.isActive)
+            // 피오 시범의 스플래시(검증용 앱에서만, 실행할 때 한 번).
+            .overlay { PioTrialMacSplashOverlay() }
+            .overlay(alignment: .bottom) { PioTrialStagePreview() }
             .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification)) { notification in
                 // 창이 처음 앞에 올 때 첫 입력 칸이 전체 선택된 채 포커스를 받으면 실수로 덮어쓰기 쉽다.
                 // 창을 닫았다가 메뉴 막대에서 다시 열면 새 창이라, 창마다 한 번씩 푼다. 시트와 메뉴 막대 창은 건드리지 않는다.
@@ -161,10 +164,16 @@ struct RootView: View {
         .preferredColorScheme(Self.debugColorScheme ?? appearance.colorScheme)
         .keyboardDoneBar()
         .clearingWindowControls()
+        .overlay(alignment: .bottom) { PioTrialStagePreview() }
         // 실제 화면은 밑에서 이미 준비돼 있다. 스플래시는 그 위를 덮었다가 걷힌다.
         .overlay {
             if showsSplash {
-                SplashView(onLeaving: { splashIsLeaving = true }) { showsSplash = false }
+                if PioTrial.isEnabled {
+                    // 피오 시범(검증용 앱에서만).
+                    PioTrialSplash(onLeaving: { splashIsLeaving = true }) { showsSplash = false }
+                } else {
+                    SplashView(onLeaving: { splashIsLeaving = true }) { showsSplash = false }
+                }
             }
         }
         #endif
