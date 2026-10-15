@@ -49,8 +49,10 @@ struct SaessagiGrowthCard: View {
                 .offset(y: size * 0.06)
             Group {
                 if PioTrial.isEnabled {
-                    // 피오 시범: 기본 피오 한 장의 화질만 본다(성장 단계 그림은 아직 없다. 검증용 앱에서만).
-                    PioTrialGrowthMascot(size: size)
+                    // 피오 시범(검증용 앱에서만): 부위 리그로 그 레벨의 성장 단계(1·2) 피오가 움직인다.
+                    SaessagiAnimatedView(
+                        pose: .idle, size: size, behavior: .growing, pioStage: PioTrial.artStage(level: growth.level)
+                    )
                 } else {
                     SaessagiAnimatedView(
                         pose: growth.stage.pose, size: size, behavior: .growing,
@@ -94,7 +96,7 @@ struct SaessagiGrowthCard: View {
                     .font(.title2.weight(.bold))
                     .monospacedDigit()
                     .contentTransition(.numericText(value: Double(growth.level)))
-                Text(PioTrial.isEnabled ? "단계 미정" : growth.stage.title)
+                Text(PioTrial.isEnabled ? PioTrial.stageTitle(level: growth.level) : growth.stage.title)
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(growth.stage.tint)
                     .padding(.horizontal, 8)
@@ -125,7 +127,7 @@ struct SaessagiGrowthCard: View {
                         .foregroundStyle(growth.stage.tint)
                         .fontWeight(.semibold)
                 } else {
-                    Text(PioTrial.isEnabled ? "피오 시범: 성장 단계 그림은 아직 없어요." : growth.nextStageNote)
+                    Text(PioTrial.isEnabled ? PioTrial.nextStageNote(level: growth.level) : growth.nextStageNote)
                         .foregroundStyle(.secondary)
                 }
             }
@@ -204,17 +206,5 @@ private struct SparkleBurst: View {
             progress = 0.5
             withAnimation(.easeOut(duration: 0.85)) { progress = 1 }
         }
-    }
-}
-
-/// 피오 시범의 성장 카드 그림(검증용 앱에서만): 숨 쉬듯 가끔 폴짝 뛴다(Core Animation, 앱이 매 프레임 그리지 않는다).
-/// 움직임 줄이기면 가만히 있다.
-private struct PioTrialGrowthMascot: View {
-    let size: CGFloat
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
-
-    var body: some View {
-        PioTrialHopView(asset: PioTrial.base.asset, content: PioTrial.base.content, size: size, isAnimating: !reduceMotion)
-            .frame(width: size, height: size)
     }
 }

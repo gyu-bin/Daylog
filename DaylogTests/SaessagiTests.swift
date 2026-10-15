@@ -575,6 +575,14 @@ struct SaessagiHeaderActionTests {
         #expect(jump.wingLeft.values.max()! > 30 && jump.wingLeft.last == 0)
     }
 
+    @Test func pioTrialGrowthStageArtFollowsLevelBoundaries() {
+        // 성장 단계 그림은 레벨 경계만 본다(XP·레벨 계산은 그대로). 그림이 있는 단계까지만 바뀐다.
+        #expect(PioTrial.stage(forLevel: 9).number == 1 && PioTrial.stage(forLevel: 10).number == 2)
+        #expect(PioTrial.stage(forLevel: 24).number == 2 && PioTrial.stage(forLevel: 25).number == 3 && PioTrial.stage(forLevel: 50).number == 4)
+        #expect(PioTrial.artStage(level: 1) == 1 && PioTrial.artStage(level: 10) == 2 && PioTrial.artStage(level: 60) == PioTrial.implementedStages)
+        #expect(GrowthCalculator.level(forXP: 900) == 10 && GrowthCalculator.level(forXP: 899) == 9)
+    }
+
     @Test func headerBehaviourMixesTheNewActions() {
         let actions = Set(SaessagiBehavior.today.choices.map(\.action))
         #expect(actions == [.hop, .bigHop, .doubleHop, .lookAround, .leafShake])

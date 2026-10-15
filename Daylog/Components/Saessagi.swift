@@ -197,7 +197,8 @@ struct TodaySaessagi: View {
                 if pose == .idle {
                     SaessagiAnimatedView(
                         pose: .idle, size: size, behavior: .today, fillsLane: true, maxRange: fillsWidth ? .infinity : walkRange,
-                        startX: canWalk ? awayX : 0, link: link, clipsLaneEnd: fillsWidth
+                        startX: canWalk ? awayX : 0, link: link, clipsLaneEnd: fillsWidth,
+                        pioStage: PioTrial.isEnabled ? PioTrial.artStage(level: store.growth.level) : 1
                     )
                 } else {
                     // 기쁨은 통통 뛰고, 휴식(건너뛰기·휴가)은 느리게 숨 쉬며 가끔 꿈틀한다.

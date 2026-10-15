@@ -31,19 +31,27 @@ enum PioTrial {
             : ("pio_idle", CGRect(x: 94, y: 143, width: 819, height: 760))
     }
 
+    /// 그림이 준비된 성장 단계(2단계: 새 날개 + 1단계 볏). 3·4단계는 아직 없어 그 레벨에서도 2단계 모습을 보인다.
+    static let implementedStages = 2
+
+    /// 그 레벨에서 보일 성장 단계 그림(1…`implementedStages`). XP·레벨 계산은 그대로 쓰고 경계만 본다.
+    static func artStage(level: Int) -> Int { min(stage(forLevel: level).number, implementedStages) }
+
     /// 마스터를 부위로 나눈 레이어(`Tools/pio-rig`로 만든다, 모두 1536 캔버스·마스터와 같은 좌표).
     /// 기준점은 1024 기준 좌표(마스터 픽셀 × 2/3): 볏 밑동, 두 눈의 가운데, 다리 사이, 양 어깨.
-    static var rigLayers: SaessagiLayerSet? {
+    /// 성장 2단계는 날개(와 날개 그림자)만 바꾼다: 얼굴·몸·발·볏과 모든 기준점은 1단계 그대로다.
+    static func rigLayers(stage: Int = 1) -> SaessagiLayerSet? {
         guard isEnabled, !usesOldArt else { return nil }
         var set = SaessagiLayerSet(
             body: "pio_rig_body", leaf: "pio_rig_crest", eyes: "pio_rig_eyes", mouth: nil,
             footLeft: "pio_rig_foot_left", footRight: "pio_rig_foot_right",
             leafPivot: CGPoint(x: 496.7, y: 392), eyeCenter: CGPoint(x: 512.8, y: 564.5), hip: CGPoint(x: 512, y: 820)
         )
-        set.wingLeft = "pio_rig_wing_left"
-        set.wingRight = "pio_rig_wing_right"
-        set.wingShadowLeft = "pio_rig_wing_left_shadow"
-        set.wingShadowRight = "pio_rig_wing_right_shadow"
+        let wings = stage >= 2 ? "_2" : ""
+        set.wingLeft = "pio_rig_wing_left" + wings
+        set.wingRight = "pio_rig_wing_right" + wings
+        set.wingShadowLeft = "pio_rig_wing_left_shadow" + wings
+        set.wingShadowRight = "pio_rig_wing_right_shadow" + wings
         set.wingLeftPivot = CGPoint(x: 321.3, y: 626.7)
         set.wingRightPivot = CGPoint(x: 702.7, y: 626.7)
         // 발: 뒤꿈치 쪽(몸에 붙은 위쪽 가운데)을 중심으로 굴린다.
@@ -89,6 +97,12 @@ enum PioTrial {
 
     static func stage(forLevel level: Int) -> Stage {
         stages.last { level >= $0.firstLevel } ?? stages[0]
+    }
+
+    /// 성장 카드에 적는 단계 이름. 그림이 아직 없는 단계는 그렇다고 적는다.
+    static func stageTitle(level: Int) -> String {
+        let current = stage(forLevel: level)
+        return current.number > implementedStages ? "\(current.title) · 그림 준비 중" : current.title
     }
 
     /// 다음 단계까지의 안내.
@@ -169,124 +183,10 @@ struct PioTrialMacSplashOverlay: View {
 #endif
 
 #if canImport(SwiftUI)
-/// 한 장짜리 피오 그림을 레이어에 올리고, 3.2초마다 움츠렸다 폴짝 뛰었다 내려앉는다(피오 시범, 성장 카드).
-@MainActor
-final class PioTrialHopStage {
-    let root = CALayer()
-    private let image = CALayer()
-    private var configured: (asset: String, content: CGRect, size: CGFloat)?
-
-    #if os(macOS)
-    private static let up: CGFloat = 1
-    private static let bottom = CGPoint(x: 0.5, y: 0)
-    #else
-    private static let up: CGFloat = -1
-    private static let bottom = CGPoint(x: 0.5, y: 1)
-    #endif
-
-    func update(asset: String, content: CGRect, size: CGFloat, isAnimating: Bool) {
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
-        defer { CATransaction.commit() }
-        if configured?.asset != asset || configured?.content != content || configured?.size != size {
-            configured = (asset, content, size)
-            root.bounds = CGRect(x: 0, y: 0, width: size, height: size)
-            // 피오가 차지하는 자리(1024 기준)의 긴 변이 `size`가 되게 캔버스를 키우고, 그 가운데·발밑을 틀의 가운데·바닥에 맞춘다.
-            let canvas = size * 1024 / max(content.width, content.height)
-            let below = (1024 - content.maxY) / 1024 * canvas
-            let shift = (512 - content.midX) / 1024 * canvas
-            image.bounds = CGRect(x: 0, y: 0, width: canvas, height: canvas)
-            image.anchorPoint = Self.bottom
-            image.position = CGPoint(x: size / 2 + shift, y: Self.up > 0 ? -below : size + below)
-            image.contentsGravity = .resizeAspect
-            image.minificationFilter = .trilinear
-            #if os(macOS)
-            image.contents = NSImage(named: asset)?.cgImage(forProposedRect: nil, context: nil, hints: nil)
-            #else
-            image.contents = UIImage(named: asset)?.cgImage
-            #endif
-            if image.superlayer == nil { root.addSublayer(image) }
-        }
-        image.removeAllAnimations()
-        guard isAnimating else { return }
-        let times: [NSNumber] = [0, 0.75, 0.79, 0.86, 0.92, 0.96, 1]
-        let lift = CAKeyframeAnimation(keyPath: "transform.translation.y")
-        lift.values = [0, 0, 0, size * 0.16 * Self.up, 0, 0, 0]
-        let wide = CAKeyframeAnimation(keyPath: "transform.scale.x")
-        wide.values = [1, 1, 1.06, 1, 1.06, 1, 1]
-        let tall = CAKeyframeAnimation(keyPath: "transform.scale.y")
-        tall.values = [1, 1, 0.92, 1.04, 0.92, 1, 1]
-        for animation in [lift, wide, tall] {
-            animation.keyTimes = times
-            animation.duration = 3.2
-            animation.repeatCount = .infinity
-            animation.timingFunctions = Array(repeating: CAMediaTimingFunction(name: .easeInEaseOut), count: times.count - 1)
-            image.add(animation, forKey: animation.keyPath)
-        }
-    }
-
-    func halt() { image.removeAllAnimations() }
-}
-
-#if os(macOS)
-struct PioTrialHopView: NSViewRepresentable {
-    let asset: String
-    let content: CGRect
-    let size: CGFloat
-    let isAnimating: Bool
-
-    final class Coordinator { @MainActor lazy var stage = PioTrialHopStage() }
-    func makeCoordinator() -> Coordinator { Coordinator() }
-
-    func makeNSView(context: Context) -> SyncLayerHost {
-        let view = SyncLayerHost()
-        view.wantsLayer = true
-        view.layer?.masksToBounds = false
-        view.layer?.addSublayer(context.coordinator.stage.root)
-        view.hosted = context.coordinator.stage.root
-        return view
-    }
-
-    func updateNSView(_ view: SyncLayerHost, context: Context) {
-        context.coordinator.stage.update(asset: asset, content: content, size: size, isAnimating: isAnimating)
-        view.needsLayout = true
-    }
-
-    static func dismantleNSView(_ view: SyncLayerHost, coordinator: Coordinator) { coordinator.stage.halt() }
-}
-#else
-struct PioTrialHopView: UIViewRepresentable {
-    let asset: String
-    let content: CGRect
-    let size: CGFloat
-    let isAnimating: Bool
-
-    final class Coordinator { @MainActor lazy var stage = PioTrialHopStage() }
-    func makeCoordinator() -> Coordinator { Coordinator() }
-
-    func makeUIView(context: Context) -> SyncLayerHost {
-        let view = SyncLayerHost()
-        view.isUserInteractionEnabled = false
-        view.clipsToBounds = false
-        view.layer.addSublayer(context.coordinator.stage.root)
-        view.hosted = context.coordinator.stage.root
-        return view
-    }
-
-    func updateUIView(_ view: SyncLayerHost, context: Context) {
-        context.coordinator.stage.update(asset: asset, content: content, size: size, isAnimating: isAnimating)
-        view.setNeedsLayout()
-    }
-
-    static func dismantleUIView(_ view: SyncLayerHost, coordinator: Coordinator) { coordinator.stage.halt() }
-}
-#endif
-#endif
-
-#if canImport(SwiftUI)
 /// 화면 검증용(Debug 빌드만): `-DaylogDebugPioStage 220`처럼 주면 머리말과 같은 무대·같은 동작의 피오를 크게 띄운다.
 /// 부위 경계와 움직임을 크게 보고 영상으로 남기려는 것이다(앱 화면에는 나오지 않는다).
 struct PioTrialStagePreview: View {
+    @Environment(AppStore.self) private var store
     private var size: CGFloat {
         #if DEBUG
         CGFloat(UserDefaults.standard.double(forKey: "DaylogDebugPioStage"))
@@ -297,7 +197,10 @@ struct PioTrialStagePreview: View {
 
     var body: some View {
         if PioTrial.isEnabled, size > 0 {
-            SaessagiAnimatedView(pose: .idle, size: size, behavior: .today, fillsLane: true, maxRange: .infinity)
+            SaessagiAnimatedView(
+                pose: .idle, size: size, behavior: .today, fillsLane: true, maxRange: .infinity,
+                pioStage: PioTrial.artStage(level: store.growth.level)
+            )
                 .frame(width: size * 3.2, height: size * 1.25, alignment: .bottomLeading)
                 .padding(24)
                 .background(Theme.windowBackground, in: RoundedRectangle(cornerRadius: 18))

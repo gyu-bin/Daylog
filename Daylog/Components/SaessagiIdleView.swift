@@ -63,9 +63,9 @@ struct SaessagiLayerSet: Equatable, Sendable {
         )
     }
 
-    static func of(_ pose: SaessagiPose) -> SaessagiLayerSet? {
+    static func of(_ pose: SaessagiPose, pioStage: Int = 1) -> SaessagiLayerSet? {
         // 피오 시범: 기본 모습은 부위로 나눈 피오, 그 밖의 모습은 한 장짜리 마스터.
-        if PioTrial.art(for: pose) != nil { return pose == .idle ? PioTrial.rigLayers : nil }
+        if PioTrial.art(for: pose) != nil { return pose == .idle ? PioTrial.rigLayers(stage: pioStage) : nil }
         switch pose {
         case .idle: return .idle
         case .growthSprout: return growth(leaf: SaessagiIdleLayers.leaf)
@@ -148,6 +148,8 @@ struct SaessagiAnimatedView: View {
     var entrance: SaessagiEntrance?
     /// 걸을 자리 끝에서 잘라 내 숨바꼭질을 할 수 있게 할지(머리말의 새싹이).
     var clipsLaneEnd = false
+    /// 피오 시범의 성장 단계 그림(1·2). 새싹이에는 영향이 없다.
+    var pioStage = 1
     @Environment(\.displayScale) private var displayScale
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.scenePhase) private var scenePhase
@@ -156,12 +158,16 @@ struct SaessagiAnimatedView: View {
     @State private var isOnScreen = true
 
     var body: some View {
-        if !reduceMotion, let rig = SaessagiRig(pose: pose, size: size, displayScale: displayScale) {
+        // 피오 성장 2단계는 한 장짜리 그림이 없어, 움직임 줄이기에서도 레이어를 멈춘 채로 그린다.
+        let stillLayers = reduceMotion && PioTrial.isEnabled && pioStage > 1
+        if !reduceMotion || stillLayers, let rig = SaessagiRig(pose: pose, size: size, displayScale: displayScale, pioStage: pioStage) {
             SaessagiStageView(
                 rig: rig, size: size, displayScale: displayScale, startX: startX, link: link, maxRange: maxRange,
                 behavior: behavior ?? .standard(for: pose), entrance: entrance, clipsLaneEnd: clipsLaneEnd,
-                isAnimating: isVisible && isOnScreen && scenePhase == .active
+                isAnimating: isVisible && isOnScreen && scenePhase == .active && !reduceMotion
             )
+            // 성장 단계가 바뀌면 새 레이어로 다시 놓는다.
+            .id(pioStage)
             .frame(minWidth: size, idealWidth: size, maxWidth: fillsLane ? .infinity : size)
             .frame(height: size)
             .accessibilityHidden(true)
@@ -212,12 +218,12 @@ struct SaessagiRig {
     var isLayered: Bool { leaf != nil }
 
     @MainActor
-    init?(pose: SaessagiPose, size: CGFloat, displayScale: CGFloat) {
+    init?(pose: SaessagiPose, size: CGFloat, displayScale: CGFloat, pioStage: Int = 1) {
         func layer(_ asset: String) -> CGImage? {
             SaessagiRenderer.image(asset: asset, pose: pose, size: size, displayScale: displayScale)
         }
         self.pose = pose
-        guard let set = SaessagiLayerSet.of(pose) else {
+        guard let set = SaessagiLayerSet.of(pose, pioStage: pioStage) else {
             guard let whole = SaessagiRenderer.image(pose: pose, size: size, displayScale: displayScale) else { return nil }
             layers = nil
             body = whole
