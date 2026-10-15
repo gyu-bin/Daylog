@@ -22,6 +22,19 @@ enum SaessagiIdleLayers {
 
 /// 부분만 움직이는 모습의 레이어 묶음: 기본 모습(`idle`)과 성장 단계 세 그림.
 /// 성장 단계는 기본 모습의 몸·눈·입·발을 그대로 쓰고 잎 레이어만 바꾼다(새싹은 공식 잎, 잎사귀·꽃은 `Tools/saessagi-growth-compose.swift`).
+/// 원화의 날개 뿌리는 그대로 두고 몸통의 어깨로 옮기는 정적 배치.
+/// 움직임 레이어와 분리해 인사·퍼덕임·움직임 줄이기에서도 배치가 유지된다.
+struct SaessagiWingAttachment: Equatable, Sendable {
+    let leftShoulder: CGPoint
+    let rightShoulder: CGPoint
+    let scale: CGFloat
+    var restingAngle: CGFloat = 0
+    var behindBody = true
+    var showsContactShadow = false
+    var minimumAngle: Double = -3
+    var perspectiveAngle: Double = 60
+}
+
 struct SaessagiLayerSet: Equatable, Sendable {
     let body: String
     let leaf: String
@@ -40,6 +53,7 @@ struct SaessagiLayerSet: Equatable, Sendable {
     var wingShadowRight: String?
     var wingLeftPivot: CGPoint = .zero
     var wingRightPivot: CGPoint = .zero
+    var wingAttachment: SaessagiWingAttachment?
     /// 발을 굴리는 중심(피오). 없으면 그림 가운데(새싹이는 발을 굴리지 않는다).
     var footLeftPivot: CGPoint?
     var footRightPivot: CGPoint?
@@ -47,6 +61,10 @@ struct SaessagiLayerSet: Equatable, Sendable {
     var lidClosed: String?
     var lidHappy: String?
     var lidSleepy: String?
+    /// 피오 3단계의 뒤쪽 볏과 꼬리. 몸통을 따라 움직이며 몸 뒤에서 뿌리를 가린다.
+    var leafBehindBody = false
+    var tailLeft: String?
+    var tailRight: String?
 
     static let idle = SaessagiLayerSet(
         body: SaessagiIdleLayers.body, leaf: SaessagiIdleLayers.leaf, eyes: SaessagiIdleLayers.eyes, mouth: SaessagiIdleLayers.mouth,
@@ -76,7 +94,7 @@ struct SaessagiLayerSet: Equatable, Sendable {
     }
 
     var all: [String] {
-        [body, leaf, eyes] + [mouth, footLeft, footRight, wingLeft, wingRight, wingShadowLeft, wingShadowRight, lidClosed, lidHappy, lidSleepy]
+        [body, leaf, eyes] + [mouth, footLeft, footRight, wingLeft, wingRight, wingShadowLeft, wingShadowRight, lidClosed, lidHappy, lidSleepy, tailLeft, tailRight]
             .compactMap { $0 }
     }
 }
@@ -148,7 +166,7 @@ struct SaessagiAnimatedView: View {
     var entrance: SaessagiEntrance?
     /// 걸을 자리 끝에서 잘라 내 숨바꼭질을 할 수 있게 할지(머리말의 새싹이).
     var clipsLaneEnd = false
-    /// 피오 시범의 성장 단계 그림(1·2). 새싹이에는 영향이 없다.
+    /// 피오 시범의 성장 단계 그림(1…3). 새싹이에는 영향이 없다.
     var pioStage = 1
     @Environment(\.displayScale) private var displayScale
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -158,7 +176,7 @@ struct SaessagiAnimatedView: View {
     @State private var isOnScreen = true
 
     var body: some View {
-        // 피오 성장 2단계는 한 장짜리 그림이 없어, 움직임 줄이기에서도 레이어를 멈춘 채로 그린다.
+        // 피오 성장 2·3단계는 한 장짜리 그림이 없어, 움직임 줄이기에서도 레이어를 멈춘 채로 그린다.
         let stillLayers = reduceMotion && PioTrial.isEnabled && pioStage > 1
         if !reduceMotion || stillLayers, let rig = SaessagiRig(pose: pose, size: size, displayScale: displayScale, pioStage: pioStage) {
             SaessagiStageView(
@@ -196,6 +214,8 @@ private struct SaessagiOnScreen: ViewModifier {
 /// 한 모습을 그릴 그림들. 기본 모습은 나뉜 레이어 여섯 장, 성장 단계는 세 장(몸·잎·눈), 그 밖에는 한 장.
 struct SaessagiRig {
     let pose: SaessagiPose
+    /// 3단계 날개의 원본 끝을 보존하는 여백. 캐릭터 배율과 카드 크기는 그대로다.
+    let padding: CGFloat
     /// 나뉜 레이어의 이름과 중심점. 한 장짜리 모습은 nil.
     let layers: SaessagiLayerSet?
     /// 몸(나뉜 모습) 또는 그림 전체(한 장짜리 모습).
@@ -213,16 +233,23 @@ struct SaessagiRig {
     var lidClosed: CGImage?
     var lidHappy: CGImage?
     var lidSleepy: CGImage?
+    var tailLeft: CGImage?
+    var tailRight: CGImage?
 
     /// 발·눈·입·잎이 따로 있는가.
     var isLayered: Bool { leaf != nil }
 
     @MainActor
     init?(pose: SaessagiPose, size: CGFloat, displayScale: CGFloat, pioStage: Int = 1) {
+        // 3단계 날개는 기존 맞춤 영역보다 오른쪽으로 약27px 더 나온다(1536 원본 기준).
+        // 몸 배율은 유지하고 래스터 여백만 넓힌다: 48·64·76pt는2pt, 220pt는5pt.
+        let padding: CGFloat = PioTrial.isEnabled && !PioTrial.usesOldArt && pioStage >= 3 && pose == .idle
+            ? max(SaessagiRenderer.padding, ceil(size * 27 / 1228.5)) : SaessagiRenderer.padding
         func layer(_ asset: String) -> CGImage? {
-            SaessagiRenderer.image(asset: asset, pose: pose, size: size, displayScale: displayScale)
+            SaessagiRenderer.image(asset: asset, pose: pose, size: size, displayScale: displayScale, padding: padding)
         }
         self.pose = pose
+        self.padding = padding
         guard let set = SaessagiLayerSet.of(pose, pioStage: pioStage) else {
             guard let whole = SaessagiRenderer.image(pose: pose, size: size, displayScale: displayScale) else { return nil }
             layers = nil
@@ -247,6 +274,10 @@ struct SaessagiRig {
         lidClosed = set.lidClosed.flatMap(layer)
         lidHappy = set.lidHappy.flatMap(layer)
         lidSleepy = set.lidSleepy.flatMap(layer)
+        tailLeft = set.tailLeft.flatMap(layer)
+        tailRight = set.tailRight.flatMap(layer)
+        guard (set.tailLeft == nil || tailLeft != nil) && (set.tailRight == nil || tailRight != nil),
+              (set.wingLeft == nil || wingLeft != nil) && (set.wingRight == nil || wingRight != nil) else { return nil }
         self.body = body
         self.eyes = eyes
         self.mouth = mouth
@@ -283,8 +314,10 @@ final class SaessagiStage {
     private let mouthLayer = CALayer()
     private let eyesLayer = CALayer()
     private let leafLayer = CALayer()
+    private let tailLeftLayer = CALayer(), tailRightLayer = CALayer()
     /// 날개(어깨를 중심으로 돈다): 늘 하는 살랑임(`wingSway…`) 안에 행동의 움직임(`wing…`)과 그림자.
     private let wingSwayLeft = CALayer(), wingSwayRight = CALayer()
+    private let wingAttachmentLeft = CALayer(), wingAttachmentRight = CALayer()
     private let wingLeftLayer = CALayer(), wingRightLayer = CALayer()
     private let wingShadowLeftLayer = CALayer(), wingShadowRightLayer = CALayer()
     private let wingImageLeft = CALayer(), wingImageRight = CALayer()
@@ -292,6 +325,7 @@ final class SaessagiStage {
     private let lidClosedLayer = CALayer(), lidHappyLayer = CALayer(), lidSleepyLayer = CALayer()
     private var hasWings = false
     private var hasLids = false
+    private var wingAttachment: SaessagiWingAttachment?
     private var isAnimating = false
     /// 지금 올려 둔 그림의 모습·크기·배율. 바뀌면 다시 놓는다.
     private var configuration: (pose: SaessagiPose, size: CGFloat, scale: CGFloat)?
@@ -336,10 +370,20 @@ final class SaessagiStage {
         link?.stage = self
         guard mover.superlayer !== host else { return }
         self.host = host
+        torso.name = "torso"
+        bodyLayer.name = "body"
+        wingAttachmentLeft.name = "wingAttachmentLeft"
+        wingAttachmentRight.name = "wingAttachmentRight"
+        wingSwayLeft.name = "wingSwayLeft"
+        wingSwayRight.name = "wingSwayRight"
+        wingLeftLayer.name = "wingActionLeft"
+        wingRightLayer.name = "wingActionRight"
+        wingImageLeft.name = "wingImageLeft"
+        wingImageRight.name = "wingImageRight"
         host.addSublayer(mover)
         mover.addSublayer(breather)
         for layer in [footLeft, footRight, torso] { breather.addSublayer(layer) }
-        for layer in [bodyLayer, wingSwayLeft, wingSwayRight, face, leafLayer] { torso.addSublayer(layer) }
+        for layer in [tailLeftLayer, tailRightLayer, bodyLayer, wingSwayLeft, wingSwayRight, face, leafLayer] { torso.addSublayer(layer) }
         for layer in [mouthLayer, eyesLayer, lidClosedLayer, lidHappyLayer, lidSleepyLayer] { face.addSublayer(layer) }
         wingSwayLeft.addSublayer(wingLeftLayer)
         wingSwayRight.addSublayer(wingRightLayer)
@@ -457,10 +501,11 @@ final class SaessagiStage {
         hasFeet = rig.footLeft != nil
         hasWings = rig.wingLeft != nil && rig.wingRight != nil
         hasLids = rig.lidClosed != nil
+        wingAttachment = rig.layers?.wingAttachment
         let pose = rig.pose
-        let side = size + SaessagiRenderer.padding * 2
+        let side = size + rig.padding * 2
         let content = pose.content
-        func unit(_ source: CGPoint) -> CGPoint { SaessagiRenderer.unitPoint(of: source, pose: pose, size: size) }
+        func unit(_ source: CGPoint) -> CGPoint { SaessagiRenderer.unitPoint(of: source, pose: pose, size: size, padding: rig.padding) }
         let center = CGPoint(x: 0.5, y: 0.5)
         CATransaction.begin()
         CATransaction.setDisableActions(true)
@@ -468,8 +513,8 @@ final class SaessagiStage {
         let feet = unit(CGPoint(x: content.midX, y: content.maxY))
         place(mover, anchor: feet, side: side)
         // 그림은 틀보다 사방으로 여백만큼 크다(정지 그림과 같다).
-        mover.position.x -= SaessagiRenderer.padding
-        mover.position.y -= SaessagiRenderer.padding
+        mover.position.x -= rig.padding
+        mover.position.y -= rig.padding
         place(breather, anchor: feet, side: side)
         place(footLeft, anchor: rig.layers?.footLeftPivot.map(unit) ?? center, side: side)
         place(footRight, anchor: rig.layers?.footRightPivot.map(unit) ?? center, side: side)
@@ -479,13 +524,42 @@ final class SaessagiStage {
         place(mouthLayer, anchor: center, side: side)
         place(eyesLayer, anchor: rig.layers.map { unit($0.eyeCenter) } ?? center, side: side)
         place(leafLayer, anchor: rig.layers.map { unit($0.leafPivot) } ?? center, side: side)
+        place(tailLeftLayer, anchor: center, side: side)
+        place(tailRightLayer, anchor: center, side: side)
+        leafLayer.removeFromSuperlayer()
+        if rig.layers?.leafBehindBody == true {
+            torso.insertSublayer(leafLayer, below: tailLeftLayer)
+        } else {
+            torso.addSublayer(leafLayer)
+        }
         let wingLeftAnchor = rig.layers.map { unit($0.wingLeftPivot) } ?? center
         let wingRightAnchor = rig.layers.map { unit($0.wingRightPivot) } ?? center
         for layer in [wingSwayLeft, wingLeftLayer] { place(layer, anchor: wingLeftAnchor, side: side) }
         for layer in [wingSwayRight, wingRightLayer] { place(layer, anchor: wingRightAnchor, side: side) }
+        for (mount, sway, shoulder, source, sign) in [
+            (wingAttachmentLeft, wingSwayLeft, wingAttachment?.leftShoulder, wingLeftAnchor, CGFloat(1)),
+            (wingAttachmentRight, wingSwayRight, wingAttachment?.rightShoulder, wingRightAnchor, CGFloat(-1)),
+        ] {
+            if let attachment = wingAttachment, let shoulder {
+                place(mount, anchor: source, side: side, position: unit(shoulder))
+                // 정적 배율은 명시적인 행렬로 둔다. 자식의 동작 애니메이션이 이를 덮어쓰지 않는다.
+                let scale = CATransform3DMakeScale(attachment.scale, attachment.scale, 1)
+                mount.transform = CATransform3DRotate(scale, attachment.restingAngle * .pi / 180 * Self.clockwise * sign, 0, 0, 1)
+                mount.addSublayer(sway)
+                torso.insertSublayer(mount, below: attachment.behindBody ? bodyLayer : face)
+            } else {
+                mount.removeFromSuperlayer()
+                torso.insertSublayer(sway, below: face)
+            }
+        }
         // 그림자는 날개 안에서 날개와 같은 자리(날개보다 아래에 그린다)
         for layer in [wingShadowLeftLayer, wingShadowRightLayer, wingImageLeft, wingImageRight, lidClosedLayer, lidHappyLayer, lidSleepyLayer] {
             place(layer, anchor: center, side: side)
+        }
+        if wingAttachment != nil {
+            // 뒤쪽 날개는 원근 축도 뿌리에 둬, 62° 인사 중에도 어깨에서 미끄러지지 않는다.
+            place(wingImageLeft, anchor: wingLeftAnchor, side: side)
+            place(wingImageRight, anchor: wingRightAnchor, side: side)
         }
         for layer in [lidClosedLayer, lidHappyLayer, lidSleepyLayer] { layer.opacity = 0 }
         let contents: [(CALayer, CGImage?)] = [
@@ -494,6 +568,7 @@ final class SaessagiStage {
             (wingShadowLeftLayer, rig.wingShadowLeft), (wingShadowRightLayer, rig.wingShadowRight),
             (wingImageLeft, rig.wingLeft), (wingImageRight, rig.wingRight),
             (lidClosedLayer, rig.lidClosed), (lidHappyLayer, rig.lidHappy), (lidSleepyLayer, rig.lidSleepy),
+            (tailLeftLayer, rig.tailLeft), (tailRightLayer, rig.tailRight),
         ]
         for (layer, image) in contents {
             layer.contents = image
@@ -505,15 +580,18 @@ final class SaessagiStage {
     }
 
     /// `anchor`(왼쪽 위가 원점인 0…1)를 중심으로 삼아 한 변이 `side`인 레이어를 제자리에 놓는다.
-    private func place(_ layer: CALayer, anchor: CGPoint, side: CGFloat) {
+    private func place(_ layer: CALayer, anchor: CGPoint, side: CGFloat, position: CGPoint? = nil) {
+        let target = position ?? anchor
         #if os(macOS)
         let point = CGPoint(x: anchor.x, y: 1 - anchor.y)
+        let location = CGPoint(x: target.x, y: 1 - target.y)
         #else
         let point = anchor
+        let location = target
         #endif
         layer.bounds = CGRect(x: 0, y: 0, width: side, height: side)
         layer.anchorPoint = point
-        layer.position = CGPoint(x: point.x * side, y: point.y * side)
+        layer.position = CGPoint(x: location.x * side, y: location.y * side)
     }
 
     // MARK: - 늘 도는 움직임
@@ -735,13 +813,15 @@ final class SaessagiStage {
         if hasWings {
             // 왼쪽 날개는 들면 시계 방향, 오른쪽은 반대. 그림자는 날개가 몸에서 떨어질수록 옅어진다.
             // 몸 쪽으로는 3도 넘게 접지 않는다(몸통 안으로 파고들지 않게).
-            let left = plan.wingLeft.mapped { max($0, -3) }, right = plan.wingRight.mapped { max($0, -3) }
+            let minimum = wingAttachment?.minimumAngle ?? -3
+            let perspectiveAngle = wingAttachment?.perspectiveAngle ?? 60
+            let left = plan.wingLeft.mapped { max($0, minimum) }, right = plan.wingRight.mapped { max($0, minimum) }
             add(left, to: wingLeftLayer, keyPath: "transform.rotation.z", scale: degrees, plan: plan)
             add(right, to: wingRightLayer, keyPath: "transform.rotation.z", scale: -degrees, plan: plan)
             // 들어 올린 날개는 앞뒤로 기울어 길이가 조금 짧고 넓어 보인다(그림을 비틀지 않고 원근만 흉내 낸다).
             for (track, image) in [(left, wingImageLeft), (right, wingImageRight)] {
-                add(track.mapped { 1 - 0.1 * min(max($0, 0), 60) / 60 }, to: image, keyPath: "transform.scale.y", plan: plan)
-                add(track.mapped { 1 + 0.04 * min(max($0, 0), 60) / 60 }, to: image, keyPath: "transform.scale.x", plan: plan)
+                add(track.mapped { 1 - 0.1 * min(max($0, 0), perspectiveAngle) / perspectiveAngle }, to: image, keyPath: "transform.scale.y", plan: plan)
+                add(track.mapped { 1 + 0.04 * min(max($0, 0), perspectiveAngle) / perspectiveAngle }, to: image, keyPath: "transform.scale.x", plan: plan)
             }
             add(plan.wingLeft.mapped(Self.shadowOpacity), to: wingShadowLeftLayer, keyPath: "opacity", plan: plan)
             add(plan.wingRight.mapped(Self.shadowOpacity), to: wingShadowRightLayer, keyPath: "opacity", plan: plan)

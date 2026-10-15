@@ -14,7 +14,7 @@ import UIKit
 @MainActor
 enum SaessagiRenderer {
     /// 틀 바깥으로 남겨 두는 여백(pt). 외곽선의 가장자리가 틀에서 잘리지 않게 한다. 정수라 어느 배율에서도 픽셀에 맞는다.
-    static let padding: CGFloat = 2
+    nonisolated static let padding: CGFloat = 2
     /// 기억해 두는 그림 수의 상한. 넘으면 비우고 다시 만든다(평소에는 닿지 않는다).
     static let cacheLimit = 64
 
@@ -36,7 +36,7 @@ enum SaessagiRenderer {
     }
 
     /// `pose`와 같은 자리·같은 배율로 `asset`을 그린 그림. 레이어들이 서로, 그리고 한 장짜리 그림과 정확히 겹친다.
-    static func image(asset: String, pose: SaessagiPose, size: CGFloat, displayScale: CGFloat) -> CGImage? {
+    static func image(asset: String, pose: SaessagiPose, size: CGFloat, displayScale: CGFloat, padding: CGFloat = SaessagiRenderer.padding) -> CGImage? {
         let scale = max(displayScale, 1)
         let side = Int(((size + padding * 2) * scale).rounded())
         let fitted = Int((size * scale).rounded())
@@ -61,7 +61,7 @@ enum SaessagiRenderer {
 
     /// 원본 그림 위의 한 점(1024 기준 픽셀, 위에서 아래로)이 만들어 둔 그림 안에서 어디인지(0…1).
     /// 레이어를 돌리거나 접을 때의 기준점으로 쓴다.
-    static func unitPoint(of source: CGPoint, pose: SaessagiPose, size: CGFloat) -> CGPoint {
+    static func unitPoint(of source: CGPoint, pose: SaessagiPose, size: CGFloat, padding: CGFloat = SaessagiRenderer.padding) -> CGPoint {
         let scale = size / pose.fitted
         let x = size / 2 + (source.x - pose.content.midX) * scale
         let y = size - (pose.content.maxY - source.y) * scale

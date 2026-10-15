@@ -4,7 +4,7 @@ import Foundation
 /// 피오 시범(검증용 앱에서만): `-DaylogDebugCharacter pio`로 실행하면 머리말·성장 카드·스플래시를 피오로 그린다.
 ///
 /// 시범일 뿐 실제 교체가 아니다: Release 빌드에서는 늘 꺼져 있고, 새싹이 원화·애니메이션·저장 값·XP·레벨 계산은 그대로 둔다.
-/// 피오 그림은 레이어가 나뉘지 않은 한 장짜리라, 걷기는 몸 전체를 옮기며 뒤뚱이고 가는 쪽으로 좌우를 뒤집는다(별도 3D 동작이 아니다).
+/// 기본 피오는 마스터 좌표의 부위 리그로 움직이고, 예전 그림 비교 모드만 한 장짜리 그림을 쓴다.
 enum PioTrial {
     static var isEnabled: Bool {
         #if DEBUG
@@ -31,19 +31,31 @@ enum PioTrial {
             : ("pio_idle", CGRect(x: 94, y: 143, width: 819, height: 760))
     }
 
-    /// 그림이 준비된 성장 단계(2단계: 새 날개 + 1단계 볏). 3·4단계는 아직 없어 그 레벨에서도 2단계 모습을 보인다.
-    static let implementedStages = 2
+    /// 그림이 준비된 성장 단계. 4단계 그림이 준비될 때까지 그 레벨에서도 3단계를 보여 준다.
+    static let implementedStages = 3
 
     /// 그 레벨에서 보일 성장 단계 그림(1…`implementedStages`). XP·레벨 계산은 그대로 쓰고 경계만 본다.
     static func artStage(level: Int) -> Int { min(stage(forLevel: level).number, implementedStages) }
 
+    /// 2단계 이후 같은 몸통 어깨를 쓴다(1536 원본: 왼쪽480,995 / 오른쪽1056,995).
+    /// 4단계도 이 배치를 재사용할 수 있지만, 전용 원화가 없으므로 실제 그림은 여전히3단계까지다.
+    static func wingAttachment(stage: Int) -> SaessagiWingAttachment? {
+        guard stage >= 2 else { return nil }
+        return SaessagiWingAttachment(
+            leftShoulder: CGPoint(x: 320, y: 995.0 / 1.5),
+            rightShoulder: CGPoint(x: 704, y: 995.0 / 1.5),
+            scale: stage == 2 ? 0.78 : 0.72
+        )
+    }
+
     /// 마스터를 부위로 나눈 레이어(`Tools/pio-rig`로 만든다, 모두 1536 캔버스·마스터와 같은 좌표).
     /// 기준점은 1024 기준 좌표(마스터 픽셀 × 2/3): 볏 밑동, 두 눈의 가운데, 다리 사이, 양 어깨.
-    /// 성장 2단계는 날개(와 날개 그림자)만 바꾼다: 얼굴·몸·발·볏과 모든 기준점은 1단계 그대로다.
+    /// 성장 2단계부터 날개는 공통 몸통 어깨 뒤에 놓는다. 얼굴·몸·발과 원화 뿌리 좌표는 그대로다.
+    /// 3단계는 승인된 날개와 새 볏·꼬리를 쓰며, 볏과 꼬리의 부착부는 몸 뒤에 놓는다.
     static func rigLayers(stage: Int = 1) -> SaessagiLayerSet? {
         guard isEnabled, !usesOldArt else { return nil }
         var set = SaessagiLayerSet(
-            body: "pio_rig_body", leaf: "pio_rig_crest", eyes: "pio_rig_eyes", mouth: nil,
+            body: "pio_rig_body", leaf: stage >= 3 ? "pio_stage3_crest" : "pio_rig_crest", eyes: "pio_rig_eyes", mouth: nil,
             footLeft: "pio_rig_foot_left", footRight: "pio_rig_foot_right",
             leafPivot: CGPoint(x: 496.7, y: 392), eyeCenter: CGPoint(x: 512.8, y: 564.5), hip: CGPoint(x: 512, y: 820)
         )
@@ -52,8 +64,23 @@ enum PioTrial {
         set.wingRight = "pio_rig_wing_right" + wings
         set.wingShadowLeft = "pio_rig_wing_left_shadow" + wings
         set.wingShadowRight = "pio_rig_wing_right_shadow" + wings
+        if stage >= 3 {
+            set.wingLeft = "pio_stage3_wing_left"
+            set.wingRight = "pio_stage3_wing_right"
+            set.wingShadowLeft = nil
+            set.wingShadowRight = nil
+            set.leafBehindBody = true
+            set.tailLeft = "pio_stage3_tail_left"
+            set.tailRight = "pio_stage3_tail_right"
+        }
         set.wingLeftPivot = CGPoint(x: 321.3, y: 626.7)
         set.wingRightPivot = CGPoint(x: 702.7, y: 626.7)
+        set.wingAttachment = wingAttachment(stage: stage)
+        if set.wingAttachment?.showsContactShadow == false {
+            // 앞쪽 날개용 그림자를 뒤쪽 부착부에 재사용하면 볼에 오래된 자국이 남는다.
+            set.wingShadowLeft = nil
+            set.wingShadowRight = nil
+        }
         // 발: 뒤꿈치 쪽(몸에 붙은 위쪽 가운데)을 중심으로 굴린다.
         set.footLeftPivot = CGPoint(x: 410, y: 828)
         set.footRightPivot = CGPoint(x: 612, y: 828)

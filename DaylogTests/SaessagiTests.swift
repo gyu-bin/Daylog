@@ -580,8 +580,124 @@ struct SaessagiHeaderActionTests {
         #expect(PioTrial.stage(forLevel: 9).number == 1 && PioTrial.stage(forLevel: 10).number == 2)
         #expect(PioTrial.stage(forLevel: 24).number == 2 && PioTrial.stage(forLevel: 25).number == 3 && PioTrial.stage(forLevel: 50).number == 4)
         #expect(PioTrial.artStage(level: 1) == 1 && PioTrial.artStage(level: 10) == 2 && PioTrial.artStage(level: 60) == PioTrial.implementedStages)
+        #expect(PioTrial.artStage(level: 24) == 2 && PioTrial.artStage(level: 25) == 3 && PioTrial.artStage(level: 49) == 3)
         #expect(GrowthCalculator.level(forXP: 900) == 10 && GrowthCalculator.level(forXP: 899) == 9)
     }
+
+    #if DEBUG
+    @Test func pioStageThreePreservesIdentityAndLoadsEveryAttachment() throws {
+        let defaults = UserDefaults.standard
+        let oldCharacter = defaults.object(forKey: "DaylogDebugCharacter")
+        let oldArt = defaults.object(forKey: "DaylogDebugPioArt")
+        defer {
+            defaults.set(oldCharacter, forKey: "DaylogDebugCharacter")
+            defaults.set(oldArt, forKey: "DaylogDebugPioArt")
+        }
+        defaults.set("pio", forKey: "DaylogDebugCharacter")
+        defaults.removeObject(forKey: "DaylogDebugPioArt")
+        let first = try #require(PioTrial.rigLayers(stage: 1))
+        let second = try #require(PioTrial.rigLayers(stage: 2))
+        let third = try #require(PioTrial.rigLayers(stage: 3))
+        #expect(third.body == first.body && third.eyes == first.eyes && third.footLeft == first.footLeft && third.footRight == first.footRight)
+        #expect(first.leaf == second.leaf && third.leaf != second.leaf)
+        #expect(!first.leafBehindBody && !second.leafBehindBody && third.leafBehindBody)
+        #expect(third.tailLeft != nil && third.tailRight != nil && second.tailLeft == nil)
+        #expect(third.wingShadowLeft == nil && third.wingShadowRight == nil)
+        #expect(first.wingAttachment == nil && first.wingShadowLeft != nil)
+        #expect(second.wingShadowLeft == nil && second.wingShadowRight == nil)
+        #expect(second.wingAttachment?.leftShoulder == third.wingAttachment?.leftShoulder)
+        #expect(second.wingAttachment?.rightShoulder == third.wingAttachment?.rightShoulder)
+        #expect(second.wingLeft == "pio_rig_wing_left_2" && third.wingLeft == "pio_stage3_wing_left")
+        #expect(PioTrial.wingAttachment(stage: 4)?.leftShoulder == third.wingAttachment?.leftShoulder)
+        #expect(PioTrial.implementedStages == 3 && PioTrial.artStage(level: 50) == 3)
+        #expect(third.leafPivot == first.leafPivot && third.wingLeftPivot == first.wingLeftPivot && third.hip == first.hip)
+        for name in third.all { #expect(NSImage(named: name) != nil, "Missing Stage 3 layer: \(name)") }
+        for size in [48.0, 64.0, 76.0, 220.0] {
+            let rig = try #require(SaessagiRig(pose: .idle, size: size, displayScale: 2, pioStage: 3))
+            #expect(rig.tailLeft != nil && rig.tailRight != nil && rig.wingLeft != nil && rig.wingRight != nil)
+            #expect(rig.padding == (size == 220 ? 5 : 2))
+            #expect(rig.body.width == Int((size + rig.padding * 2) * 2))
+            let oldRig = try #require(SaessagiRig(pose: .idle, size: size, displayScale: 2, pioStage: 2))
+            #expect(oldRig.padding == 2)
+            // Added viewport space must not shift the shoulder or scale the body in its original frame.
+            let a = SaessagiRenderer.unitPoint(of: third.wingRightPivot, pose: .idle, size: size, padding: rig.padding)
+            let b = SaessagiRenderer.unitPoint(of: third.wingRightPivot, pose: .idle, size: size)
+            #expect(abs(a.x * (size + rig.padding * 2) - rig.padding - (b.x * (size + 4) - 2)) < 0.0001)
+        }
+        defaults.removeObject(forKey: "DaylogDebugCharacter")
+        #expect(PioTrial.rigLayers(stage: 3) == nil)
+    }
+
+    @Test func developedWingRootsStayOnTorsoThroughRotationAndStopping() throws {
+        let defaults = UserDefaults.standard
+        let oldCharacter = defaults.object(forKey: "DaylogDebugCharacter")
+        let oldArt = defaults.object(forKey: "DaylogDebugPioArt")
+        defer {
+            defaults.set(oldCharacter, forKey: "DaylogDebugCharacter")
+            defaults.set(oldArt, forKey: "DaylogDebugPioArt")
+        }
+        defaults.set("pio", forKey: "DaylogDebugCharacter")
+        defaults.removeObject(forKey: "DaylogDebugPioArt")
+        func named(_ name: String, in layer: CALayer) -> CALayer? {
+            if layer.name == name { return layer }
+            return layer.sublayers?.lazy.compactMap { named(name, in: $0) }.first
+        }
+        for level in [1, 2, 3] {
+            let rig = try #require(SaessagiRig(pose: .idle, size: 220, displayScale: 3, pioStage: level))
+            let host = CALayer(), stage = SaessagiStage()
+            stage.install(in: host, startX: 0, link: nil)
+            stage.update(rig: rig, size: 220, displayScale: 3, maxRange: 0, behavior: .growing, isAnimating: false)
+            let torso = try #require(named("torso", in: host))
+            let body = try #require(named("body", in: torso))
+            if level == 1 {
+                #expect(named("wingAttachmentLeft", in: host) == nil)
+                #expect(named("wingSwayLeft", in: host)?.superlayer === torso)
+                stage.halt()
+                continue
+            }
+            let config = try #require(rig.layers?.wingAttachment)
+            let side = CGFloat(220) + rig.padding * 2
+            func local(_ source: CGPoint) -> CGPoint {
+                let point = SaessagiRenderer.unitPoint(of: source, pose: .idle, size: 220, padding: rig.padding)
+                #if os(macOS)
+                return CGPoint(x: point.x * side, y: (1 - point.y) * side)
+                #else
+                return CGPoint(x: point.x * side, y: point.y * side)
+                #endif
+            }
+            for (suffix, source, target, sign) in [
+                ("Left", rig.layers!.wingLeftPivot, config.leftShoulder, CGFloat(1)),
+                ("Right", rig.layers!.wingRightPivot, config.rightShoulder, CGFloat(-1)),
+            ] {
+                let mount = try #require(named("wingAttachment" + suffix, in: torso))
+                let action = try #require(named("wingAction" + suffix, in: mount))
+                let image = try #require(named("wingImage" + suffix, in: mount))
+                let siblings = torso.sublayers ?? []
+                #expect(try #require(siblings.firstIndex { $0 === mount }) < #require(siblings.firstIndex { $0 === body }))
+                #expect(abs(mount.transform.m11 - config.scale) < 0.000001)
+                // Actual CALayer coordinate conversion must keep the source root pinned even at full wave angle.
+                for angle: CGFloat in [0, 48, 62] {
+                    action.transform = CATransform3DMakeRotation(angle * .pi / 180 * sign, 0, 0, 1)
+                    image.transform = CATransform3DMakeScale(1 + 0.04 * min(angle, 60) / 60, 1 - 0.1 * min(angle, 60) / 60, 1)
+                    let root = image.convert(local(source), to: torso)
+                    let expected = local(target)
+                    #expect(abs(root.x - expected.x) < 0.0001 && abs(root.y - expected.y) < 0.0001)
+                }
+                action.transform = CATransform3DIdentity
+                image.transform = CATransform3DIdentity
+            }
+            let mount = try #require(named("wingAttachmentLeft", in: torso))
+            let transform = mount.transform, position = mount.position
+            stage.update(rig: rig, size: 220, displayScale: 3, maxRange: 0, behavior: .growing, isAnimating: true)
+            let sway = try #require(named("wingSwayLeft", in: mount))
+            #expect(sway.animation(forKey: "sway") != nil)
+            stage.update(rig: rig, size: 220, displayScale: 3, maxRange: 0, behavior: .growing, isAnimating: false)
+            #expect(sway.animation(forKey: "sway") == nil)
+            #expect(CATransform3DEqualToTransform(mount.transform, transform) && mount.position == position)
+            stage.halt()
+        }
+    }
+    #endif
 
     @Test func headerBehaviourMixesTheNewActions() {
         let actions = Set(SaessagiBehavior.today.choices.map(\.action))
