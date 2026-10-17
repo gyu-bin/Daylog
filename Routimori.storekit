@@ -1,0 +1,217 @@
+{
+  "identifier": "DF20902B-D18A-429A-91AD-390AFE2C736E",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "2000.00",
+      "familyShareable": false,
+      "internalID": "10000001",
+      "localizations": [
+        {
+          "description": "벚꽃 피오 의상을 영구 소장해요.",
+          "displayName": "벚꽃 피오",
+          "locale": "ko_KR"
+        }
+      ],
+      "productID": "com.mungyubin.daylog.ios.outfit.cherryBlossom",
+      "referenceName": "Pio Outfit - Cherry Blossom",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2000.00",
+      "familyShareable": false,
+      "internalID": "10000002",
+      "localizations": [
+        {
+          "description": "여름 휴가 피오 의상을 영구 소장해요.",
+          "displayName": "여름 휴가 피오",
+          "locale": "ko_KR"
+        }
+      ],
+      "productID": "com.mungyubin.daylog.ios.outfit.summerVacation",
+      "referenceName": "Pio Outfit - Summer Vacation",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2000.00",
+      "familyShareable": false,
+      "internalID": "10000003",
+      "localizations": [
+        {
+          "description": "가을 피오 의상을 영구 소장해요.",
+          "displayName": "가을 피오",
+          "locale": "ko_KR"
+        }
+      ],
+      "productID": "com.mungyubin.daylog.ios.outfit.autumn",
+      "referenceName": "Pio Outfit - Autumn",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2000.00",
+      "familyShareable": false,
+      "internalID": "10000004",
+      "localizations": [
+        {
+          "description": "겨울 피오 의상을 영구 소장해요.",
+          "displayName": "겨울 피오",
+          "locale": "ko_KR"
+        }
+      ],
+      "productID": "com.mungyubin.daylog.ios.outfit.winter",
+      "referenceName": "Pio Outfit - Winter",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2000.00",
+      "familyShareable": false,
+      "internalID": "10000005",
+      "localizations": [
+        {
+          "description": "할로윈 피오 의상을 영구 소장해요.",
+          "displayName": "할로윈 피오",
+          "locale": "ko_KR"
+        }
+      ],
+      "productID": "com.mungyubin.daylog.ios.outfit.halloween",
+      "referenceName": "Pio Outfit - Halloween",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2000.00",
+      "familyShareable": false,
+      "internalID": "10000006",
+      "localizations": [
+        {
+          "description": "크리스마스 피오 의상을 영구 소장해요.",
+          "displayName": "크리스마스 피오",
+          "locale": "ko_KR"
+        }
+      ],
+      "productID": "com.mungyubin.daylog.ios.outfit.christmas",
+      "referenceName": "Pio Outfit - Christmas",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2000.00",
+      "familyShareable": false,
+      "internalID": "10000007",
+      "localizations": [
+        {
+          "description": "한복 피오 의상을 영구 소장해요.",
+          "displayName": "한복 피오",
+          "locale": "ko_KR"
+        }
+      ],
+      "productID": "com.mungyubin.daylog.ios.outfit.hanbok",
+      "referenceName": "Pio Outfit - Hanbok",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2000.00",
+      "familyShareable": false,
+      "internalID": "10000008",
+      "localizations": [
+        {
+          "description": "카페 피오 의상을 영구 소장해요.",
+          "displayName": "카페 피오",
+          "locale": "ko_KR"
+        }
+      ],
+      "productID": "com.mungyubin.daylog.ios.outfit.cafe",
+      "referenceName": "Pio Outfit - Cafe",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2000.00",
+      "familyShareable": false,
+      "internalID": "10000009",
+      "localizations": [
+        {
+          "description": "학생 피오 의상을 영구 소장해요.",
+          "displayName": "학생 피오",
+          "locale": "ko_KR"
+        }
+      ],
+      "productID": "com.mungyubin.daylog.ios.outfit.student",
+      "referenceName": "Pio Outfit - Student",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2000.00",
+      "familyShareable": false,
+      "internalID": "10000010",
+      "localizations": [
+        {
+          "description": "운동 피오 의상을 영구 소장해요.",
+          "displayName": "운동 피오",
+          "locale": "ko_KR"
+        }
+      ],
+      "productID": "com.mungyubin.daylog.ios.outfit.fitness",
+      "referenceName": "Pio Outfit - Fitness",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2000.00",
+      "familyShareable": false,
+      "internalID": "10000011",
+      "localizations": [
+        {
+          "description": "비 오는 날 피오 의상을 영구 소장해요.",
+          "displayName": "비 오는 날 피오",
+          "locale": "ko_KR"
+        }
+      ],
+      "productID": "com.mungyubin.daylog.ios.outfit.rainyDay",
+      "referenceName": "Pio Outfit - Rainy Day",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2000.00",
+      "familyShareable": false,
+      "internalID": "10000012",
+      "localizations": [
+        {
+          "description": "잠옷 피오 의상을 영구 소장해요.",
+          "displayName": "잠옷 피오",
+          "locale": "ko_KR"
+        }
+      ],
+      "productID": "com.mungyubin.daylog.ios.outfit.pajamas",
+      "referenceName": "Pio Outfit - Pajamas",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "2000.00",
+      "familyShareable": false,
+      "internalID": "10000013",
+      "localizations": [
+        {
+          "description": "우주인 피오 의상을 영구 소장해요.",
+          "displayName": "우주인 피오",
+          "locale": "ko_KR"
+        }
+      ],
+      "productID": "com.mungyubin.daylog.ios.outfit.astronaut",
+      "referenceName": "Pio Outfit - Astronaut",
+      "type": "NonConsumable"
+    }
+  ],
+  "settings": {
+    "_askToBuyEnabled": false,
+    "_billingGracePeriodEnabled": false,
+    "_billingIssuesEnabled": false,
+    "_disableDialogs": false,
+    "_failTransactionsEnabled": false,
+    "_locale": "ko_KR",
+    "_renewalBillingIssuesEnabled": false,
+    "_storefront": "KOR",
+    "_timeRate": 0
+  },
+  "subscriptionGroups": [],
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
+}

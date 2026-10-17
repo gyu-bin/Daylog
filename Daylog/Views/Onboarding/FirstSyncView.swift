@@ -30,18 +30,26 @@ struct FirstSyncView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
+    private var usesRoutimori: Bool { PioCharacter.isEnabled }
+
     var body: some View {
         let phase = phase
         let kind = SyncSceneKind(phase, isPreview: preview != nil)
         GeometryReader { proxy in
             // 글자를 크게 쓰면 한 화면을 넘을 수 있다. 넘치면 스크롤하고, 아니면 가운데에 둔다.
             // 그림은 화면 높이에 맞춰 줄인다(작은 iPhone에서도 글과 단추가 잘리지 않게).
-            let sceneHeight = min(400, max(210, proxy.size.height * 0.48))
+            let proposedHeight = min(400, max(210, proxy.size.height * 0.48))
+            let sceneHeight = usesRoutimori ? min(proposedHeight, max(140, proxy.size.width - 48)) : proposedHeight
             ScrollView {
                 VStack(spacing: 14) {
+                    if usesRoutimori { RoutimoriSyncBrand() }
                     SyncScene(kind: kind, height: sceneHeight)
                         .id(kind)
                         .transition(.opacity)
+                    if usesRoutimori {
+                        PioAppearanceNotice(appearance: PioAppearanceCoordinator.shared.resolve(
+                            level: store.growth.level, context: kind.pioAppearanceContext))
+                    }
                     content(phase)
                         .id(kind)
                         .transition(.opacity)
@@ -65,7 +73,7 @@ struct FirstSyncView: View {
             .scrollBounceBehavior(.basedOnSize)
         }
         .background {
-            LinearGradient(colors: SyncSceneBackground.colors(kind, dark: colorScheme == .dark), startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: usesRoutimori ? RoutimoriSyncStyle.background(dark: colorScheme == .dark) : SyncSceneBackground.colors(kind, dark: colorScheme == .dark), startPoint: .top, endPoint: .bottom)
                 .animation(reduceMotion ? nil : .easeInOut(duration: 0.4), value: kind)
                 .ignoresSafeArea()
         }
@@ -90,25 +98,25 @@ struct FirstSyncView: View {
         case .found where preview != nil:
             // 실제로는 기록을 찾으면 이 화면 없이 바로 오늘 화면으로 간다. 미리보기에서만 그 순간을 보여 준다.
             message(
-                title: "준비됐어요!\n오늘도 함께해요.",
-                detail: "다른 기기의 기록을 확인했어요.\n이제 Daylog를 시작할 수 있어요."
+                title: usesRoutimori ? "동기화가 완료됐어요!" : "준비됐어요!\n오늘도 함께해요.",
+                detail: usesRoutimori ? "다른 기기의 기록을 확인했어요.\n오늘도 루티모리와 함께해요." : "다른 기기의 기록을 확인했어요.\n이제 Daylog를 시작할 수 있어요."
             ) {
                 Button(action: {}) {
-                    Text("Daylog 시작하기").font(.headline).frame(maxWidth: .infinity)
+                    Text(usesRoutimori ? "확인" : "Daylog 시작하기").font(.headline).frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(Color(red: 0.3, green: 0.68, blue: 0.34))
+                .tint(usesRoutimori ? RoutimoriSyncStyle.green : Color(red: 0.3, green: 0.68, blue: 0.34))
                 .controlSize(.large)
                 .frame(maxWidth: 320)
             }
         case .waiting, .found, .empty:
             // 기록을 찾았거나 없다고 본 순간에는 곧 이 화면이 걷힌다. 그 사이에 문구를 바꿔 깜빡이지 않게 한다.
-            // 얼마나 받았는지는 알 수 없어 진행률·완료율은 보여 주지 않는다(점 세 개는 기다리는 표시일 뿐이다).
+            // 얼마나 받았는지는 알 수 없어 진행률·완료율은 보여 주지 않는다(점과 왕복 막대는 기다리는 표시일 뿐이다).
             message(
-                title: "새싹이가 iCloud 기록을\n확인하고 있어요!",
+                title: usesRoutimori ? "루티모리가 iCloud 기록을\n확인하고 있어요" : "새싹이가 iCloud 기록을\n확인하고 있어요!",
                 detail: "다른 기기의 소중한 기록을\n가져와 정리하고 있어요."
             ) {
-                SyncWaitingDots()
+                if usesRoutimori { RoutimoriSyncActivity() } else { SyncWaitingDots() }
             }
         case .unavailable(let account):
             // 계정 문제는 네트워크 문제라고 말하지 않는다.
@@ -163,13 +171,13 @@ struct FirstSyncView: View {
     private var choices: some View {
         VStack(spacing: 10) {
             Button(action: { if preview == nil { recheck() } }) {
-                Text(isRechecking ? "확인 중…" : "다시 확인하기").font(.headline).frame(maxWidth: .infinity)
+                Text(isRechecking ? "확인 중…" : (usesRoutimori ? "다시 시도하기" : "다시 확인하기")).font(.headline).frame(maxWidth: .infinity)
             }
             .buttonStyle(.borderedProminent)
-            .tint(Color(red: 0.25, green: 0.55, blue: 0.95))
+            .tint(usesRoutimori ? RoutimoriSyncStyle.green : Color(red: 0.25, green: 0.55, blue: 0.95))
             .disabled(isRechecking)
             Button(action: { if preview == nil { gate.finish() } }) {
-                Text("일단 시작하기").frame(maxWidth: .infinity)
+                Text(usesRoutimori ? "나중에 하기" : "일단 시작하기").frame(maxWidth: .infinity)
             }
             .buttonStyle(.bordered)
             .accessibilityHint("시작 안내로 넘어갑니다. 다른 기기의 기록이 나중에 오면 그대로 합쳐져요.")

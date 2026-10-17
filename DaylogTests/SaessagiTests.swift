@@ -581,6 +581,7 @@ struct SaessagiHeaderActionTests {
         #expect(PioTrial.stage(forLevel: 24).number == 2 && PioTrial.stage(forLevel: 25).number == 3 && PioTrial.stage(forLevel: 50).number == 4)
         #expect(PioTrial.artStage(level: 1) == 1 && PioTrial.artStage(level: 10) == 2 && PioTrial.artStage(level: 60) == PioTrial.implementedStages)
         #expect(PioTrial.artStage(level: 24) == 2 && PioTrial.artStage(level: 25) == 3 && PioTrial.artStage(level: 49) == 3)
+        #expect(PioTrial.artStage(level: 50) == 4 && PioTrial.artStage(level: 100) == 4)
         #expect(GrowthCalculator.level(forXP: 900) == 10 && GrowthCalculator.level(forXP: 899) == 9)
     }
 
@@ -609,7 +610,7 @@ struct SaessagiHeaderActionTests {
         #expect(second.wingAttachment?.rightShoulder == third.wingAttachment?.rightShoulder)
         #expect(second.wingLeft == "pio_rig_wing_left_2" && third.wingLeft == "pio_stage3_wing_left")
         #expect(PioTrial.wingAttachment(stage: 4)?.leftShoulder == third.wingAttachment?.leftShoulder)
-        #expect(PioTrial.implementedStages == 3 && PioTrial.artStage(level: 50) == 3)
+        #expect(PioTrial.implementedStages == 4 && PioTrial.artStage(level: 49) == 3)
         #expect(third.leafPivot == first.leafPivot && third.wingLeftPivot == first.wingLeftPivot && third.hip == first.hip)
         for name in third.all { #expect(NSImage(named: name) != nil, "Missing Stage 3 layer: \(name)") }
         for size in [48.0, 64.0, 76.0, 220.0] {
@@ -628,6 +629,44 @@ struct SaessagiHeaderActionTests {
         #expect(PioTrial.rigLayers(stage: 3) == nil)
     }
 
+    @Test func pioStageFourUsesDedicatedArtWithoutChangingIdentityOrRegistration() throws {
+        let defaults = UserDefaults.standard
+        let oldCharacter = defaults.object(forKey: "DaylogDebugCharacter")
+        let oldArt = defaults.object(forKey: "DaylogDebugPioArt")
+        defer {
+            defaults.set(oldCharacter, forKey: "DaylogDebugCharacter")
+            defaults.set(oldArt, forKey: "DaylogDebugPioArt")
+        }
+        defaults.set("pio", forKey: "DaylogDebugCharacter")
+        defaults.removeObject(forKey: "DaylogDebugPioArt")
+        let third = try #require(PioTrial.rigLayers(stage: 3))
+        let fourth = try #require(PioTrial.rigLayers(stage: 4))
+        #expect(fourth.body == third.body && fourth.eyes == third.eyes && fourth.mouth == third.mouth)
+        #expect(fourth.footLeft == third.footLeft && fourth.footRight == third.footRight)
+        #expect(fourth.lidClosed == third.lidClosed && fourth.lidHappy == third.lidHappy && fourth.lidSleepy == third.lidSleepy)
+        #expect(fourth.leaf == "pio_stage4_crest" && fourth.leaf != third.leaf)
+        #expect(fourth.wingLeft == "pio_stage4_wing_left" && fourth.wingRight == "pio_stage4_wing_right")
+        #expect(fourth.tailLeft == "pio_stage4_tail_left" && fourth.tailRight == "pio_stage4_tail_right")
+        #expect(fourth.leafBehindBody && fourth.wingShadowLeft == nil && fourth.wingShadowRight == nil)
+        #expect(fourth.leafPivot == third.leafPivot && fourth.hip == third.hip && fourth.eyeCenter == third.eyeCenter)
+        #expect(fourth.wingLeftPivot == third.wingLeftPivot && fourth.wingRightPivot == third.wingRightPivot)
+        #expect(fourth.wingAttachment == third.wingAttachment)
+        for name in fourth.all { #expect(NSImage(named: name) != nil, "Missing Stage 4 layer: \(name)") }
+        for size: CGFloat in [48, 64, 76, 120, 220] {
+            let expectedPadding: CGFloat = size == 220 ? 5 : (size == 120 ? 3 : 2)
+            for scale: CGFloat in [1, 3] {
+                let rig = try #require(SaessagiRig(pose: .idle, size: size, displayScale: scale, pioStage: 4))
+                #expect(rig.leaf != nil && rig.tailLeft != nil && rig.tailRight != nil && rig.wingLeft != nil && rig.wingRight != nil)
+                #expect(rig.padding == expectedPadding)
+                #expect(rig.body.width == Int((size + rig.padding * 2) * scale))
+            }
+        }
+        defaults.set("v2", forKey: "DaylogDebugPioArt")
+        #expect(PioTrial.rigLayers(stage: 4) == nil)
+        defaults.removeObject(forKey: "DaylogDebugCharacter")
+        #expect(PioTrial.rigLayers(stage: 4) == nil)
+    }
+
     @Test func developedWingRootsStayOnTorsoThroughRotationAndStopping() throws {
         let defaults = UserDefaults.standard
         let oldCharacter = defaults.object(forKey: "DaylogDebugCharacter")
@@ -642,7 +681,7 @@ struct SaessagiHeaderActionTests {
             if layer.name == name { return layer }
             return layer.sublayers?.lazy.compactMap { named(name, in: $0) }.first
         }
-        for level in [1, 2, 3] {
+        for level in [1, 2, 3, 4] {
             let rig = try #require(SaessagiRig(pose: .idle, size: 220, displayScale: 3, pioStage: level))
             let host = CALayer(), stage = SaessagiStage()
             stage.install(in: host, startX: 0, link: nil)

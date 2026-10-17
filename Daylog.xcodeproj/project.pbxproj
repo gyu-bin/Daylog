@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D20000000000000000000020 /* DaylogWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D40000000000000000000004 /* DaylogWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D50000000000000000000001 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = D50000000000000000000002 /* Sparkle */; };
+		E71000000000000000000013 = {isa = PBXBuildFile; fileRef = E71000000000000000000003; };
+		E71000000000000000000014 = {isa = PBXBuildFile; fileRef = E71000000000000000000003; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 			remoteGlobalIDString = D4000000000000000000000A;
 			remoteInfo = DaylogWidgets;
 		};
+		E71000000000000000000005 /* PBXContainerItemProxy */ = {isa = PBXContainerItemProxy; containerPortal = D10000000000000000000001; proxyType = 1; remoteGlobalIDString = D2000000000000000000000A; remoteInfo = DaylogiOS; };
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +54,8 @@
 		D40000000000000000000004 /* DaylogWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DaylogWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40000000000000000000008 /* DaylogWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DaylogWidgets.entitlements; sourceTree = "<group>"; };
 		D40000000000000000000009 /* DaylogWidgets-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DaylogWidgets-Info.plist"; sourceTree = "<group>"; };
+		E71000000000000000000002 /* DaylogStoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = DaylogStoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E71000000000000000000003 /* Routimori.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Routimori.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -74,6 +79,7 @@
 			path = DaylogWidgets;
 			sourceTree = "<group>";
 		};
+		E71000000000000000000004 /* DaylogStoreKitTests */ = {isa = PBXFileSystemSynchronizedRootGroup; path = DaylogStoreKitTests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E71000000000000000000009 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -116,6 +123,8 @@
 				D30000000000000000000006 /* DaylogShared */,
 				D40000000000000000000006 /* DaylogWidgets */,
 				D10000000000000000000007 /* DaylogTests */,
+				E71000000000000000000004 /* DaylogStoreKitTests */,
+				E71000000000000000000003 /* Routimori.storekit */,
 				D10000000000000000000009 /* Config */,
 				D10000000000000000000003 /* Products */,
 			);
@@ -126,6 +135,7 @@
 			children = (
 				D10000000000000000000004 /* Daylog.app */,
 				D10000000000000000000005 /* DaylogTests.xctest */,
+				E71000000000000000000002 /* DaylogStoreKitTests.xctest */,
 				D20000000000000000000004 /* Daylog.app (iOS) */,
 				D40000000000000000000004 /* DaylogWidgets.appex */,
 			);
@@ -185,6 +195,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				D10000000000000000000007 /* DaylogTests */,
+				E71000000000000000000004 /* DaylogStoreKitTests */,
 			);
 			name = DaylogTests;
 			packageProductDependencies = (
@@ -241,6 +252,18 @@
 			productReference = D40000000000000000000004 /* DaylogWidgets.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		E71000000000000000000001 /* DaylogStoreKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E71000000000000000000010;
+			buildPhases = (E71000000000000000000007, E71000000000000000000009, E71000000000000000000008);
+			buildRules = ();
+			dependencies = (E71000000000000000000006);
+			fileSystemSynchronizedGroups = (E71000000000000000000004);
+			name = DaylogStoreKitTests;
+			productName = DaylogStoreKitTests;
+			productReference = E71000000000000000000002;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -287,6 +310,7 @@
 				D1000000000000000000000B /* DaylogTests */,
 				D2000000000000000000000A /* DaylogiOS */,
 				D4000000000000000000000A /* DaylogWidgets */,
+				E71000000000000000000001 /* DaylogStoreKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -303,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E71000000000000000000013 /* Routimori.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +345,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E71000000000000000000008 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (E71000000000000000000014); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -351,6 +377,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E71000000000000000000007 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -364,6 +391,7 @@
 			target = D4000000000000000000000A /* DaylogWidgets */;
 			targetProxy = D20000000000000000000022 /* PBXContainerItemProxy */;
 		};
+		E71000000000000000000006 /* PBXTargetDependency */ = {isa = PBXTargetDependency; target = D2000000000000000000000A; targetProxy = E71000000000000000000005; };
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -413,7 +441,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -425,7 +453,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.8;
+				MARKETING_VERSION = 1.5.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -435,14 +463,14 @@
 		D10000000000000000000019 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				EXCLUDED_SOURCE_FILE_NAMES = PioTrial.xcassets;
+				EXCLUDED_SOURCE_FILE_NAMES = "PioTrial.xcassets PioLayeredTrial.xcassets";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Config/Daylog.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -454,7 +482,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.8;
+				MARKETING_VERSION = 1.5.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -467,10 +495,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.5.8;
+				MARKETING_VERSION = 1.5.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -484,10 +512,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.5.8;
+				MARKETING_VERSION = 1.5.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
@@ -502,7 +530,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Config/DaylogiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -519,7 +547,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios;
 				PRODUCT_MODULE_NAME = Daylog;
 				PRODUCT_NAME = Daylog;
@@ -534,12 +562,12 @@
 		D20000000000000000000019 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				EXCLUDED_SOURCE_FILE_NAMES = PioTrial.xcassets;
+				EXCLUDED_SOURCE_FILE_NAMES = "PioTrial.xcassets PioLayeredTrial.xcassets";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Config/DaylogiOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -556,7 +584,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios;
 				PRODUCT_MODULE_NAME = Daylog;
 				PRODUCT_NAME = Daylog;
@@ -574,7 +602,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = Config/DaylogWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Config/DaylogWidgets-Info.plist";
@@ -585,7 +613,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -604,7 +632,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = Config/DaylogWidgets.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 6YASPU77L7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Config/DaylogWidgets-Info.plist";
@@ -615,7 +643,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios.widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -625,6 +653,42 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DAYLOG_WIDGET_EXTENSION";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E71000000000000000000011 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6YASPU77L7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios.storekittests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daylog.app/Daylog";
+			};
+			name = Debug;
+		};
+		E71000000000000000000012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6YASPU77L7;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios.storekittests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daylog.app/Daylog";
 			};
 			name = Release;
 		};
@@ -676,6 +740,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		E71000000000000000000010 = {isa = XCConfigurationList; buildConfigurations = (E71000000000000000000011, E71000000000000000000012); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */

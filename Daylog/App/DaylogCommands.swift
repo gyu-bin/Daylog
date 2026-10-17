@@ -38,9 +38,9 @@ struct DaylogCommands: Commands {
             Button("오늘 날짜") { if !Platform.isShowingSheet { store?.goToToday() } }
                 .keyboardShortcut("t")
             Divider()
-            ForEach(Array(DevicePreferences.shared.navigationSections(phone: false).enumerated()), id: \.element) { index, section in
+            ForEach(DevicePreferences.shared.navigationSections(phone: false)) { section in
                 Button(section.title) { store?.go(to: section, isShowingSheet: Platform.isShowingSheet) }
-                    .keyboardShortcut(KeyEquivalent(Character("\(index + 1)")))
+                    .keyboardShortcut(KeyEquivalent(Character("\(section.shortcutNumber)")))
             }
         }
     }

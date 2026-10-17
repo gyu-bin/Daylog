@@ -311,7 +311,8 @@ struct TemplateTests {
 
     @Test func templatesAreInTheSidebarBeforeSettingsAndNotInPhoneTabs() {
         let sections = AppStore.Section.allCases
-        #expect(sections.suffix(2) == [.templates, .settings])
+        // 템플릿 다음에 피오 옷장, 설정은 늘 마지막이다.
+        #expect(sections.suffix(3) == [.templates, .wardrobe, .settings])
         // 기존 메뉴의 순서(= ⌘1~⌘6)는 그대로다.
         #expect(sections.prefix(6) == [.dashboard, .routines, .meals, .statistics, .calendar, .vacation])
         #expect(!AppStore.Section.phoneTabs.contains(.templates))

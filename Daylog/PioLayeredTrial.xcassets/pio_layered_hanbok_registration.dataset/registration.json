@@ -1,0 +1,213 @@
+{
+  "canvas" : 1254,
+  "outfit" : "hanbok",
+  "parts" : [
+    {
+      "asset" : "pio_layered_hanbok_wingRight",
+      "fullCanvasSHA256" : "6f3c347d4464fa7d7e6dff453633bec7e186d367db1f549b6b8eced7f6ad8bb6",
+      "id" : "wingRight",
+      "neutralAngleDegrees" : -20,
+      "pivot" : [
+        975,
+        810
+      ],
+      "rect" : [
+        858,
+        567,
+        333,
+        330
+      ],
+      "z" : 0
+    },
+    {
+      "asset" : "pio_layered_hanbok_footLeft",
+      "fullCanvasSHA256" : "7182cb23ea7468d417d9baa7ad221b02c9fd7f8632f2f1bb73bb64098b757501",
+      "id" : "footLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        530,
+        1100
+      ],
+      "rect" : [
+        449,
+        1080,
+        162,
+        140
+      ],
+      "z" : 1
+    },
+    {
+      "asset" : "pio_layered_hanbok_footRight",
+      "fullCanvasSHA256" : "86b122e1e7868fa36190dcdfda843181e7212f8aaf7ba8a51f165ec17ea2993f",
+      "id" : "footRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        817,
+        1095
+      ],
+      "rect" : [
+        744,
+        1080,
+        152,
+        132
+      ],
+      "z" : 2
+    },
+    {
+      "asset" : "pio_layered_hanbok_sprout",
+      "fullCanvasSHA256" : "bc6cc8e6ee6a19fd76d8d4eaee164bc021b09b9e0c52826eb4f55494fdf9fc13",
+      "id" : "sprout",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        625,
+        365
+      ],
+      "rect" : [
+        365,
+        40,
+        514,
+        338
+      ],
+      "z" : 3
+    },
+    {
+      "asset" : "pio_layered_hanbok_body",
+      "fullCanvasSHA256" : "835a85c3644ec94a6568f66301411e658efb0c13926a2628c39f7dc0a48a6d46",
+      "id" : "body",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        650,
+        780
+      ],
+      "rect" : [
+        102,
+        162,
+        1079,
+        1065
+      ],
+      "z" : 4
+    },
+    {
+      "asset" : "pio_layered_hanbok_eyeLeft",
+      "fullCanvasSHA256" : "65ac8f029ca00e264de87d036af9e7fa3fba577fe66c0f32ad160620c41bc0d2",
+      "id" : "eyeLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        539,
+        631
+      ],
+      "rect" : [
+        487,
+        561,
+        104,
+        120
+      ],
+      "z" : 5
+    },
+    {
+      "asset" : "pio_layered_hanbok_eyeRight",
+      "fullCanvasSHA256" : "7c39bc0ca883f79dd7fab81d9f18d86ed8f4406fcf3aa4819eb935fe137aa1a3",
+      "id" : "eyeRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        824,
+        592
+      ],
+      "rect" : [
+        774,
+        524,
+        99,
+        114
+      ],
+      "z" : 6
+    },
+    {
+      "asset" : "pio_layered_hanbok_lidLeft",
+      "fullCanvasSHA256" : "c6eff1c7188e74e811d0d75cfc22dff7ac7f44961c7e1065a7b97c68408dfd0b",
+      "id" : "lidLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        539,
+        639
+      ],
+      "rect" : [
+        486,
+        619,
+        105,
+        40
+      ],
+      "z" : 7
+    },
+    {
+      "asset" : "pio_layered_hanbok_lidRight",
+      "fullCanvasSHA256" : "98ad047eb122ca5e7113852cad3d13a3a11d8ebfe7e8ffa6a2b163d60f75e2b3",
+      "id" : "lidRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        824,
+        598
+      ],
+      "rect" : [
+        773,
+        579,
+        102,
+        38
+      ],
+      "z" : 8
+    },
+    {
+      "asset" : "pio_layered_hanbok_halfLeft",
+      "fullCanvasSHA256" : "2a10df3ad51f11079c58968d0e0f4d42de7f211b2ac79477be4dce9c02c01a9f",
+      "id" : "halfLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        539,
+        629
+      ],
+      "rect" : [
+        444,
+        559,
+        161,
+        147
+      ],
+      "z" : 9
+    },
+    {
+      "asset" : "pio_layered_hanbok_halfRight",
+      "fullCanvasSHA256" : "ac29c546269bab5cfdcc340a8b13b70205b81addc16bb2175de8b016595817c9",
+      "id" : "halfRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        824,
+        589
+      ],
+      "rect" : [
+        731,
+        519,
+        158,
+        144
+      ],
+      "z" : 10
+    },
+    {
+      "asset" : "pio_layered_hanbok_wingLeft",
+      "fullCanvasSHA256" : "62a8b7d07cef7fdca8d8a39fd015df3401b32cc913ee292aaef09b8183c2c337",
+      "id" : "wingLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        400,
+        790
+      ],
+      "rect" : [
+        135,
+        679,
+        343,
+        326
+      ],
+      "z" : 11
+    }
+  ],
+  "revision" : "hanbok-pilot-v1-blink3",
+  "stageArtID" : "pilot-neutral-only",
+  "supportsGrowthStages" : false
+}

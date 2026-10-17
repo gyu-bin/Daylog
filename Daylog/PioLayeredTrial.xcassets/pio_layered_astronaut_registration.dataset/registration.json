@@ -1,0 +1,247 @@
+{
+  "canvas" : 1254,
+  "outfit" : "astronaut",
+  "parts" : [
+    {
+      "asset" : "pio_layered_astronaut_footLeft",
+      "fullCanvasSHA256" : "6ea400f2910a6fdd4afcc7fcdcf498c84760517455f342f35c72179e25dd968e",
+      "id" : "footLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        572,
+        1060
+      ],
+      "rect" : [
+        499,
+        1040,
+        146,
+        127
+      ],
+      "z" : 0
+    },
+    {
+      "asset" : "pio_layered_astronaut_footRight",
+      "fullCanvasSHA256" : "be405ddb5a56d117df08ae4abf41b6199127f0c49196b2c744b6321547b6ec1d",
+      "id" : "footRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        770,
+        1060
+      ],
+      "rect" : [
+        699,
+        1040,
+        141,
+        123
+      ],
+      "z" : 1
+    },
+    {
+      "asset" : "pio_layered_astronaut_wingRight",
+      "fullCanvasSHA256" : "d51c9399224175ccdb8b43dcf7e5cc2731d27161daa57f970d713d7df4625bb3",
+      "id" : "wingRight",
+      "neutralAngleDegrees" : -5,
+      "pivot" : [
+        933,
+        855
+      ],
+      "rect" : [
+        890,
+        680,
+        248,
+        222
+      ],
+      "z" : 2
+    },
+    {
+      "asset" : "pio_layered_astronaut_sprout",
+      "fullCanvasSHA256" : "552faaa7e5bc0b4d9c0b4d241869a05d041316df54ea7edd99e8f771cd6d0f12",
+      "id" : "sprout",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        625,
+        400
+      ],
+      "rect" : [
+        365,
+        75,
+        514,
+        338
+      ],
+      "z" : 3
+    },
+    {
+      "asset" : "pio_layered_astronaut_body",
+      "fullCanvasSHA256" : "deb0873ab1889c505a8b6440e57a4bf4e9e258b78583e8d450f7f9949d61e9ef",
+      "id" : "body",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        650,
+        800
+      ],
+      "rect" : [
+        135,
+        190,
+        1015,
+        962
+      ],
+      "z" : 4
+    },
+    {
+      "asset" : "pio_layered_astronaut_eyeLeft",
+      "fullCanvasSHA256" : "fb9ebc5e3bdc3d0037a9e8f17e2040be080b5c657e029911f8b198523d0ddfc3",
+      "id" : "eyeLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        550,
+        679
+      ],
+      "rect" : [
+        502,
+        613,
+        96,
+        111
+      ],
+      "z" : 5
+    },
+    {
+      "asset" : "pio_layered_astronaut_eyeRight",
+      "fullCanvasSHA256" : "30266a2fbbf25a3a421c9af3b01330ba6b402da423f28eafa847eaa62de355b9",
+      "id" : "eyeRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        799,
+        642
+      ],
+      "rect" : [
+        753,
+        578,
+        93,
+        107
+      ],
+      "z" : 6
+    },
+    {
+      "asset" : "pio_layered_astronaut_lidLeft",
+      "fullCanvasSHA256" : "3592601acc49cc0880a35fa6b16cb855d2af9937e54baabbe80671f72b23dd88",
+      "id" : "lidLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        550,
+        685
+      ],
+      "rect" : [
+        502,
+        668,
+        97,
+        36
+      ],
+      "z" : 7
+    },
+    {
+      "asset" : "pio_layered_astronaut_lidRight",
+      "fullCanvasSHA256" : "04747d19e91be01e4fd5de94530a045e7587f5b4e3449fcdbdd7d34da21a6e08",
+      "id" : "lidRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        799,
+        648
+      ],
+      "rect" : [
+        753,
+        631,
+        94,
+        34
+      ],
+      "z" : 8
+    },
+    {
+      "asset" : "pio_layered_astronaut_halfLeft",
+      "fullCanvasSHA256" : "f638246164edf4f17429f02fc9f8a4ed253f2b3fc023657ce74c4cc672f5dd3e",
+      "id" : "halfLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        550,
+        676.5
+      ],
+      "rect" : [
+        462,
+        612,
+        149,
+        135
+      ],
+      "z" : 9
+    },
+    {
+      "asset" : "pio_layered_astronaut_halfRight",
+      "fullCanvasSHA256" : "37a6a26e07748c8f22a1e5bd118f01f8758faf1fbdab5887318fd4cf5371dc53",
+      "id" : "halfRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        799.5,
+        639
+      ],
+      "rect" : [
+        715,
+        576,
+        143,
+        131
+      ],
+      "z" : 10
+    },
+    {
+      "asset" : "pio_layered_astronaut_wingLeft",
+      "fullCanvasSHA256" : "d4659ba4fe9b2a4db43e9d8eb3a1be87fe8a4802d3055bd91c37f9bb8e58f3ec",
+      "id" : "wingLeft",
+      "neutralAngleDegrees" : -18,
+      "pivot" : [
+        515,
+        870
+      ],
+      "rect" : [
+        229,
+        730,
+        327,
+        351
+      ],
+      "z" : 11
+    },
+    {
+      "asset" : "pio_layered_astronaut_visor",
+      "fullCanvasSHA256" : "13f3986cbeaab881e3018d56b7e5362e8e6b4f2381047ca630fc75198bed4ff2",
+      "id" : "visor",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        650,
+        650
+      ],
+      "rect" : [
+        297,
+        279,
+        672,
+        668
+      ],
+      "z" : 12
+    },
+    {
+      "asset" : "pio_layered_astronaut_helmet",
+      "fullCanvasSHA256" : "8bdd1d9ad2152733ca625785965cf38def9c8a1fe5ec175ebb2a427809e84ba0",
+      "id" : "helmet",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        650,
+        650
+      ],
+      "rect" : [
+        220,
+        292,
+        781,
+        703
+      ],
+      "z" : 13
+    }
+  ],
+  "revision" : "astronaut-pilot-v1-blink3",
+  "stageArtID" : "pilot-neutral-only",
+  "supportsGrowthStages" : false
+}

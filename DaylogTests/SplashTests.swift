@@ -88,4 +88,24 @@ struct SplashTests {
         #expect(SplashTimeline.Stage.logo < .settled)
         #expect(SplashTimeline.Stage.settled < .leaving)
     }
+
+    @Test func pioPerformanceFinishesBeforeTheDefaultSplashLeaves() {
+        let timeline = SplashTimeline.make(reduceMotion: false)
+        let appears = timeline.steps.first { $0.stage == .grown }!.at
+        let leaving = timeline.steps.first { $0.stage == .leaving }!.at
+        #expect(appears + SplashView.Performance.duration <= leaving)
+    }
+
+    @Test func pioFigureDrawsEveryLayerInOrderAndTurnsAroundItsOwnJoints() {
+        let parts = SplashView.Figure.parts
+        #expect(parts.map(\.asset) == ["wingLeft", "wingRight", "footLeft", "footRight", "sprout", "body",
+                                       "eyeLeft", "eyeRight", "lidLeft", "lidRight"])
+        for part in parts {
+            #expect(part.rect.insetBy(dx: -1, dy: -1).contains(part.pivot), "\(part.asset) turns around a point on itself")
+        }
+        // 날개·새싹이 도는 범위는 밑동이 몸에 가려지는 것을 확인한 범위 안이다(연기에 쓰는 가장 큰 값).
+        #expect(SplashView.Performance.rightWingRange.contains(-14) && SplashView.Performance.rightWingRange.contains(8))
+        #expect(SplashView.Performance.leftWingRange.contains(16) && SplashView.Performance.leftWingRange.contains(-6))
+        #expect(SplashView.Performance.sproutRange.contains(-10) && SplashView.Performance.sproutRange.contains(10))
+    }
 }

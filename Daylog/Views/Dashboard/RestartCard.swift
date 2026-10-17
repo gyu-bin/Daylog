@@ -11,7 +11,13 @@ struct RestartCard: View {
         Card(fillsHeight: false) {
             HStack(alignment: .center, spacing: 12) {
                 // 반갑게 까딱이며 인사하고 가끔 통 뛴다.
-                SaessagiAnimatedView(pose: .welcome, size: 60)
+                if PioOutfitMotionView.isTrialEnabled {
+                    PioAppearanceView(appearance: PioAppearanceCoordinator.shared.resolve(
+                        level: store.growth.level, context: .welcome, motion: .wave))
+                        .frame(width: 60, height: 60)
+                } else {
+                    SaessagiAnimatedView(pose: .welcome, size: 60)
+                }
                 VStack(alignment: .leading, spacing: 4) {
                     Text("오늘부터 다시 시작해 볼까요?")
                         .font(.headline)

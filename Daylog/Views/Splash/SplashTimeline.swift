@@ -2,18 +2,18 @@ import Foundation
 
 /// 스플래시의 장면 순서와 시간. 화면(`SplashView`)은 이 표대로만 움직인다.
 ///
-/// 시스템 Launch Screen(정적: 배경색 + 한가운데의 작은 잎사귀)에서 이어진다. 첫 장면은 Launch Screen과 같은 그림이다.
+/// 시스템 Launch Screen(정적: 아이보리 배경색만)에서 이어진다. 첫 장면은 Launch Screen과 같은 빈 배경이다.
 /// 저장소는 화면이 뜨기 전에 이미 열려 있으므로(`AppLaunch.make`), 스플래시는 앱의 준비를 기다리게 하지 않는다.
 /// 밑에서는 실제 화면이 이미 그려져 있고, 스플래시는 그 위를 덮었다가 걷힐 뿐이다.
 struct SplashTimeline: Equatable {
     enum Stage: Int, CaseIterable, Comparable {
-        /// Launch Screen과 같은 장면: 한가운데의 작은 잎사귀.
+        /// Launch Screen과 같은 장면: 빈 배경.
         case start
-        /// 잎사귀가 살짝 커지고 잔잔한 원이 퍼진다.
+        /// 피오가 살짝 커지며 나타난다.
         case grown
-        /// 잎사귀가 자리를 잡고 "Daylog"와 한 줄 문구가 나타난다.
+        /// "Routimori"와 한 줄 문구가 나타난다.
         case logo
-        /// 잎사귀가 가볍게 흔들리다 멈춘다.
+        /// 피오가 날개로 인사하고 눈을 한 번 깜빡인다.
         case settled
         /// 스플래시가 걷히고 실제 화면이 드러난다.
         case leaving
@@ -29,7 +29,7 @@ struct SplashTimeline: Equatable {
     }
 
     let steps: [Step]
-    /// 동작 줄이기: 커지거나 움직이지 않고, 글자만 나타났다가 화면째로 걷힌다.
+    /// 동작 줄이기: 커지거나 움직이지 않고, 피오와 글자가 나타났다가 화면째로 걷힌다.
     let reducesMotion: Bool
     /// 기준 시간표(1.08초)에 견준 빠르기. 글자가 나타나는 간격 같은 세부 시간에도 같이 곱한다.
     var pace: Double = 1
@@ -72,7 +72,7 @@ struct SplashTimeline: Equatable {
 
     /// 스플래시가 완전히 걷히는 시각(초).
     var total: Double { steps.last.map { $0.at + $0.duration } ?? 0 }
-    /// 잎사귀가 올라가기 시작한 뒤 이름이 나타나기 시작할 때까지의 간격(기준 시간표에서).
+    /// 글자 장면이 시작된 뒤 이름이 나타나기 시작할 때까지의 간격(기준 시간표에서).
     static let titleDelay: Double = 0.12
     /// 이름·문구가 나타나는 데 걸리는 시간(기준 시간표에서).
     static let titleFade: Double = 0.20

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Scheme LastUpgradeVersion="1600" version="1.7">
+  <BuildAction parallelizeBuildables="YES" buildImplicitDependencies="YES">
+    <BuildActionEntries>
+      <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="NO" buildForArchiving="NO" buildForAnalyzing="YES">
+        <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="D2000000000000000000000A" BuildableName="Daylog.app" BlueprintName="DaylogiOS" ReferencedContainer="container:Daylog.xcodeproj">
+            </BuildableReference>
+      </BuildActionEntry>
+    </BuildActionEntries>
+  </BuildAction>
+  <TestAction buildConfiguration="Debug" selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB" selectedLauncherIdentifier="Xcode.DebuggerFoundation.Launcher.LLDB" shouldUseLaunchSchemeArgsEnv="NO">
+    <Testables>
+      <TestableReference skipped="NO" parallelizable="NO">
+        <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="E71000000000000000000001" BuildableName="DaylogStoreKitTests.xctest" BlueprintName="DaylogStoreKitTests" ReferencedContainer="container:Daylog.xcodeproj" />
+      </TestableReference>
+    </Testables>
+    <CommandLineArguments>
+      <CommandLineArgument argument="-pio-storekit-testing" isEnabled="YES" />
+    </CommandLineArguments>
+  </TestAction>
+  <LaunchAction buildConfiguration="Debug" selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB" selectedLauncherIdentifier="Xcode.DebuggerFoundation.Launcher.LLDB" launchStyle="0" useCustomWorkingDirectory="NO" ignoresPersistentStateOnLaunch="NO" debugDocumentVersioning="YES" debugServiceExtension="internal" allowLocationSimulation="YES">
+    <BuildableProductRunnable runnableDebuggingMode="0">
+      <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="D2000000000000000000000A" BuildableName="Daylog.app" BlueprintName="DaylogiOS" ReferencedContainer="container:Daylog.xcodeproj">
+         </BuildableReference>
+    </BuildableProductRunnable>
+    <CommandLineArguments>
+      <CommandLineArgument argument="-pio-storekit-testing" isEnabled="YES" />
+      <CommandLineArgument argument="-DaylogStoreName" isEnabled="YES" />
+      <CommandLineArgument argument="routimori-storekit-review" isEnabled="YES" />
+      <CommandLineArgument argument="-DaylogDebugCharacter" isEnabled="YES" />
+      <CommandLineArgument argument="routimori" isEnabled="YES" />
+      <CommandLineArgument argument="-DaylogDebugSplash" isEnabled="YES" />
+      <CommandLineArgument argument="off" isEnabled="YES" />
+      <CommandLineArgument argument="-DaylogDebugScript" isEnabled="YES" />
+      <CommandLineArgument argument="onboardingDone;section:settings" isEnabled="YES" />
+      <CommandLineArgument argument="-DaylogDebugSettings" isEnabled="YES" />
+      <CommandLineArgument argument="wardrobe" isEnabled="YES" />
+    </CommandLineArguments>
+    <StoreKitConfigurationFileReference identifier="../../Routimori.storekit" />
+  </LaunchAction>
+  <AnalyzeAction buildConfiguration="Debug">
+   </AnalyzeAction>
+</Scheme>

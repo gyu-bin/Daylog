@@ -5,7 +5,15 @@ import Observation
 @MainActor
 @Observable
 final class DevicePreferences {
-    static let shared = DevicePreferences()
+    static let shared: DevicePreferences = {
+        #if DEBUG
+        if PioWardrobeStore.outfitTestingEnabled(arguments: ProcessInfo.processInfo.arguments),
+           let defaults = UserDefaults(suiteName: "com.mungyubin.daylog.pio-wardrobe-testing.device-preferences") {
+            return DevicePreferences(defaults: defaults)
+        }
+        #endif
+        return DevicePreferences()
+    }()
     static let mealsKey = "device.mealsEnabled"
     static let orderKey = "device.dashboard.order"
     static let hiddenKey = "device.dashboard.hidden"
@@ -152,7 +160,8 @@ final class DevicePreferences {
     }
 
     func navigationSections(phone: Bool) -> [AppStore.Section] {
-        (phone ? AppStore.Section.phoneTabs : AppStore.Section.allCases).filter { $0 != .meals || mealsEnabled }
+        (phone ? AppStore.Section.phoneTabs : AppStore.Section.allCases)
+            .filter { $0.isAvailable && ($0 != .meals || mealsEnabled) }
     }
 
     func safeSelection(_ section: AppStore.Section) -> AppStore.Section {
@@ -370,8 +379,8 @@ enum DashboardCard: Hashable, Identifiable, RawRepresentable, CaseIterable {
         case .vacation: return "휴가 설정"
         case .routines: return "오늘 루틴"
         case .weeklyGrowth: return "이번 주의 성장"
-        case .saessagiGrowth: return "새싹이 성장"
-        case .weeklyReview: return "새싹이의 주간 회고"
+        case .saessagiGrowth: return PioCharacter.isEnabled ? "피오 성장" : "새싹이 성장"
+        case .weeklyReview: return PioCharacter.isEnabled ? "피오의 주간 회고" : "새싹이의 주간 회고"
         case .meals: return "식사 기록"
         case .achievement: return "오늘의 달성 현황"
         case .recentDays: return "최근 7일 기록"

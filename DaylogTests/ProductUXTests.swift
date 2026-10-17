@@ -188,7 +188,7 @@ struct ProductUXTests {
     // MARK: - 메뉴와 설정 갈래
 
     @Test func vacationMenuIsInTheSidebarButNotInPhoneTabs() throws {
-        #expect(AppStore.Section.allCases == [.dashboard, .routines, .meals, .statistics, .calendar, .vacation, .templates, .settings])
+        #expect(AppStore.Section.allCases == [.dashboard, .routines, .meals, .statistics, .calendar, .vacation, .templates, .wardrobe, .settings])
         #expect(AppStore.Section.phoneTabs == [.dashboard, .routines, .meals, .statistics, .settings], "iPhone 탭은 다섯 개 그대로.")
         let suite = "daylog.tests.sections.\(UUID().uuidString)"
         let defaults = try #require(UserDefaults(suiteName: suite))
@@ -197,12 +197,15 @@ struct ProductUXTests {
         #expect(preferences.navigationSections(phone: false).last == .settings)
         #expect(preferences.navigationSections(phone: false).contains(.vacation))
         #expect(!preferences.navigationSections(phone: true).contains(.vacation))
+        #expect(AppStore.Section.wardrobe.shortcutNumber == 9)
+        #expect(AppStore.Section.settings.shortcutNumber == 8)
+        #expect(!AppStore.Section.phoneTabs.contains(.wardrobe))
         #expect(Set(AppStore.Section.allCases.map(\.symbol)).count == AppStore.Section.allCases.count, "메뉴 아이콘은 서로 달라야 한다.")
     }
 
     @Test func settingsCategoriesCoverEveryExistingSetting() {
         // 예전 한 화면의 설정이 모두 어느 갈래엔가 들어 있어야 한다(없앤 설정이 없다).
-        #expect(SettingsCategory.allCases.map(\.title) == ["iCloud", "일반", "오늘 화면", "루틴", "캘린더", "알림", "휴가", "데이터", "정보"])
+        #expect(SettingsCategory.allCases.map(\.title) == ["iCloud", "일반", "오늘 화면", "루틴", "캘린더", "알림", "휴가", "피오 옷장", "데이터", "정보"])
         #expect(Set(SettingsCategory.allCases.map(\.symbol)).count == SettingsCategory.allCases.count)
         #expect(SettingsCategory.allCases.allSatisfy { !$0.subtitle.isEmpty })
     }

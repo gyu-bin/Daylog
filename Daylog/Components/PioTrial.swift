@@ -31,14 +31,14 @@ enum PioTrial {
             : ("pio_idle", CGRect(x: 94, y: 143, width: 819, height: 760))
     }
 
-    /// 그림이 준비된 성장 단계. 4단계 그림이 준비될 때까지 그 레벨에서도 3단계를 보여 준다.
-    static let implementedStages = 3
+    /// 전용 부위 원화가 준비된 성장 단계.
+    static let implementedStages = 4
 
     /// 그 레벨에서 보일 성장 단계 그림(1…`implementedStages`). XP·레벨 계산은 그대로 쓰고 경계만 본다.
     static func artStage(level: Int) -> Int { min(stage(forLevel: level).number, implementedStages) }
 
     /// 2단계 이후 같은 몸통 어깨를 쓴다(1536 원본: 왼쪽480,995 / 오른쪽1056,995).
-    /// 4단계도 이 배치를 재사용할 수 있지만, 전용 원화가 없으므로 실제 그림은 여전히3단계까지다.
+    /// 3·4단계는 같은 크기와 부착점을 쓰고, 전용 원화의 디테일로 구분한다.
     static func wingAttachment(stage: Int) -> SaessagiWingAttachment? {
         guard stage >= 2 else { return nil }
         return SaessagiWingAttachment(
@@ -51,11 +51,12 @@ enum PioTrial {
     /// 마스터를 부위로 나눈 레이어(`Tools/pio-rig`로 만든다, 모두 1536 캔버스·마스터와 같은 좌표).
     /// 기준점은 1024 기준 좌표(마스터 픽셀 × 2/3): 볏 밑동, 두 눈의 가운데, 다리 사이, 양 어깨.
     /// 성장 2단계부터 날개는 공통 몸통 어깨 뒤에 놓는다. 얼굴·몸·발과 원화 뿌리 좌표는 그대로다.
-    /// 3단계는 승인된 날개와 새 볏·꼬리를 쓰며, 볏과 꼬리의 부착부는 몸 뒤에 놓는다.
+    /// 3·4단계는 각각 승인된 날개·볏·꼬리를 쓰며, 볏과 꼬리의 부착부는 몸 뒤에 놓는다.
     static func rigLayers(stage: Int = 1) -> SaessagiLayerSet? {
         guard isEnabled, !usesOldArt else { return nil }
+        let developedArt = stage >= 4 ? "pio_stage4" : "pio_stage3"
         var set = SaessagiLayerSet(
-            body: "pio_rig_body", leaf: stage >= 3 ? "pio_stage3_crest" : "pio_rig_crest", eyes: "pio_rig_eyes", mouth: nil,
+            body: "pio_rig_body", leaf: stage >= 3 ? "\(developedArt)_crest" : "pio_rig_crest", eyes: "pio_rig_eyes", mouth: nil,
             footLeft: "pio_rig_foot_left", footRight: "pio_rig_foot_right",
             leafPivot: CGPoint(x: 496.7, y: 392), eyeCenter: CGPoint(x: 512.8, y: 564.5), hip: CGPoint(x: 512, y: 820)
         )
@@ -65,13 +66,13 @@ enum PioTrial {
         set.wingShadowLeft = "pio_rig_wing_left_shadow" + wings
         set.wingShadowRight = "pio_rig_wing_right_shadow" + wings
         if stage >= 3 {
-            set.wingLeft = "pio_stage3_wing_left"
-            set.wingRight = "pio_stage3_wing_right"
+            set.wingLeft = "\(developedArt)_wing_left"
+            set.wingRight = "\(developedArt)_wing_right"
             set.wingShadowLeft = nil
             set.wingShadowRight = nil
             set.leafBehindBody = true
-            set.tailLeft = "pio_stage3_tail_left"
-            set.tailRight = "pio_stage3_tail_right"
+            set.tailLeft = "\(developedArt)_tail_left"
+            set.tailRight = "\(developedArt)_tail_right"
         }
         set.wingLeftPivot = CGPoint(x: 321.3, y: 626.7)
         set.wingRightPivot = CGPoint(x: 702.7, y: 626.7)

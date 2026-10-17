@@ -64,7 +64,7 @@ struct SaessagiGrowth: Equatable, Sendable {
     }
 
     var accessibilityLabel: String {
-        "새싹이 성장. 레벨 \(level), \(stage.title) 단계. 다음 레벨까지 \(xpIntoLevel) / \(xpForNextLevel) XP. \(nextStageNote)"
+        "\(PioCharacter.isEnabled ? "피오" : "새싹이") 성장. 레벨 \(level), \(stage.title) 단계. 다음 레벨까지 \(xpIntoLevel) / \(xpForNextLevel) XP. \(nextStageNote)"
     }
 }
 

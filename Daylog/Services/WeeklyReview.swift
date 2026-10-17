@@ -91,13 +91,13 @@ struct WeeklyReview: Equatable, Sendable {
         switch mood {
         case .empty: return "작은 습관 하나부터 함께해요."
         case .vacation: return "충분히 쉬었다면, 이번 주에 다시 함께해요."
-        case .eased: return "새싹이는 언제나 곁에서 기다리고 있어요."
+        case .eased: return PioCharacter.isEnabled ? "피오는 언제나 곁에서 기다리고 있어요." : "새싹이는 언제나 곁에서 기다리고 있어요."
         case .grew, .steady, .fresh: return "이번 주에도 함께해요."
         }
     }
 
     var accessibilityLabel: String {
-        var parts = ["새싹이의 주간 회고. \(periodTitle).", headline]
+        var parts = ["\(PioCharacter.isEnabled ? "피오" : "새싹이")의 주간 회고. \(periodTitle).", headline]
         if hasRecords {
             parts.append("완료한 루틴 \(completed)개, 실천한 날 \(practicedDays)일, 얻은 XP \(xp).")
             if let topRoutine { parts.append("가장 꾸준했던 습관 \(topRoutine.title), \(topRoutine.days)일 실천.") }

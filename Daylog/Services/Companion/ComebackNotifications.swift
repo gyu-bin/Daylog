@@ -8,7 +8,7 @@ enum ComebackStage: Int, CaseIterable, Sendable {
 
     var title: String {
         switch self {
-        case .day3: return "🌱 새싹이가 기다리고 있어요"
+        case .day3: return PioCharacter.isEnabled ? "🌱 피오가 기다리고 있어요" : "🌱 새싹이가 기다리고 있어요"
         case .day7: return "🌱 오랜만이에요!"
         case .day14: return "🍃 천천히 돌아와도 괜찮아요"
         case .day30: return "🌸 언제든 다시 시작할 수 있어요"
@@ -20,7 +20,7 @@ enum ComebackStage: Int, CaseIterable, Sendable {
         case .day3: return "오늘은 작은 습관 하나부터 시작해 볼까요?"
         case .day7: return "다시 시작하기 좋은 날이에요."
         case .day14: return "오늘 하나만 실천해 봐요."
-        case .day30: return "새싹이는 여기서 기다리고 있을게요."
+        case .day30: return PioCharacter.isEnabled ? "피오는 여기서 기다리고 있을게요." : "새싹이는 여기서 기다리고 있을게요."
         }
     }
 }

@@ -6,6 +6,7 @@ import SwiftUI
 /// 풍경과 해먹은 배경(`VacationSceneBackground`)이 그린다. 이 뷰는 문구와 단추를 놓고, 그 사이에 해먹이 들어갈 자리를 비워 둔다.
 struct VacationRestView: View {
     @Environment(AppStore.self) private var store
+    @Environment(\.colorScheme) private var colorScheme
     /// 해먹 말고 나머지(문구, 진행 카드, 단추, 여백)가 쓰는 높이의 어림값. 글자 크기를 따라 커진다.
     @ScaledMetric(relativeTo: .body) private var reservedHeight: CGFloat = Self.baseReservedHeight
     /// [유지할 루틴 보기]. 휴가 중에 이어 가는 루틴이 없으면 nil이고 단추를 보여 주지 않는다.
@@ -14,6 +15,11 @@ struct VacationRestView: View {
     var onShowDashboard: () -> Void = {}
     /// 설정의 미리보기로 띄웠을 때: 예시 휴가 기간과 낮·밤 전환, [미리보기 종료]. 실제 기록과 휴가는 읽기만 한다.
     var preview: VacationRestPreview?
+
+    private var appearance: PioResolvedAppearance {
+        PioAppearanceCoordinator.shared.resolve(level: store.growth.level,
+            context: colorScheme == .dark ? .vacationNight : .vacationDay, motion: .rest)
+    }
 
     var body: some View {
         GeometryReader { proxy in
@@ -30,7 +36,11 @@ struct VacationRestView: View {
             // 배경은 해먹 자리를 받아 그 자리에 해먹을, 그 둘레에 풍경을 그린다(스크롤하면 함께 움직인다).
             .backgroundPreferenceValue(VacationSlotKey.self) { anchor in
                 GeometryReader { area in
-                    VacationSceneBackground(slot: anchor.map { area[$0] }, topInset: proxy.safeAreaInsets.top)
+                    if PioCharacter.isEnabled {
+                        RoutimoriVacationScene(slot: anchor.map { area[$0] })
+                    } else {
+                        VacationSceneBackground(slot: anchor.map { area[$0] }, topInset: proxy.safeAreaInsets.top)
+                    }
                 }
                 .ignoresSafeArea(edges: Self.backgroundEdges)
             }
@@ -71,10 +81,10 @@ struct VacationRestView: View {
                     .font(.subheadline)
                     .monospacedDigit()
                     .foregroundStyle(.secondary)
-                Text("오늘은\n쉬어가는 날이에요.")
+                Text(PioCharacter.isEnabled ? "지금은 휴식 중이에요" : "오늘은\n쉬어가는 날이에요.")
                     .font(.title.bold())
                     .accessibilityAddTraits(.isHeader)
-                Text("잠시 멈춰도 괜찮아요.\n새싹이와 함께 여유로운 시간을 보내요.")
+                Text(PioCharacter.isEnabled ? "잠시 쉬어가요.\n더 좋은 내가 되기 위해서요." : "잠시 멈춰도 괜찮아요.\n새싹이와 함께 여유로운 시간을 보내요.")
                     .font(.callout)
                     .foregroundStyle(.secondary)
             }
@@ -87,11 +97,16 @@ struct VacationRestView: View {
                 .frame(width: hammock, height: hammock * VacationArt.slotHeight / VacationArt.canvas)
                 .anchorPreference(key: VacationSlotKey.self, value: .bounds) { $0 }
                 .accessibilityElement()
-                .accessibilityLabel("해먹에서 쉬는 새싹이")
+                .accessibilityLabel(PioCharacter.isEnabled
+                    ? "해먹에서 쉬는 \(appearance.outfitApplied ? appearance.outfit.title : "기본 피오"). \(appearance.compatibilityNote ?? "")"
+                    : "해먹에서 쉬는 새싹이")
                 .accessibilityAddTraits(.isImage)
 
             // 진행 상황과 단추는 한 카드에 담는다. 모래 위에 바로 두면 저녁 풍경에서 단추의 글자가 묻힌다.
             VStack(spacing: 14) {
+                if PioCharacter.isEnabled {
+                    PioAppearanceNotice(appearance: appearance)
+                }
                 if let info = preview?.info ?? VacationRestInfo.make(periods: store.vacationPeriods, today: store.today) {
                     progress(info)
                 }

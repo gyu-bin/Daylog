@@ -8,17 +8,18 @@ import UIKit
 /// 화면의 뿌리. 플랫폼과 창 너비에 맞는 탐색 구조를 고른다.
 struct RootView: View {
     @Environment(AppStore.self) private var store
+    @Environment(\.scenePhase) private var purchaseScenePhase
     @State private var preferences = DevicePreferences.shared
     @State private var templateInbox = TemplateInbox.shared
     /// 새 기기의 첫 동기화 안내. 떠 있는 동안에는 시작 안내와 알림 안내를 올리지 않는다.
     @State private var firstSync = FirstSyncGate.shared
-    #if !os(macOS)
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @AppStorage(AppearanceMode.storageKey) private var appearance: AppearanceMode = .system
-    /// 앱을 연 뒤 첫 화면에서만 스플래시를 튼다(백그라운드에서 돌아올 때는 틀지 않는다).
+    /// 앱을 연 뒤 첫 화면에서만 스플래시를 튼다(백그라운드에서 돌아올 때나 Mac의 두 번째 창에서는 틀지 않는다).
     @State private var showsSplash = SplashPolicy.claim()
     /// 스플래시가 걷히기 시작했다. 이때부터 시작 안내가 올라올 수 있다.
     @State private var splashIsLeaving = false
+    #if !os(macOS)
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @AppStorage(AppearanceMode.storageKey) private var appearance: AppearanceMode = .system
     /// 원격 UI 설정(iPhone·iPad 전용). 화면 값은 환경으로 내려보낸다.
     @State private var uiConfig = MobileUIConfigStore.shared
     @Environment(RoutineNotifications.self) private var notifications
@@ -29,6 +30,16 @@ struct RootView: View {
 
     var body: some View {
         navigation
+            .task {
+                let appStore = store
+                PioAppearanceCoordinator.shared.bindGrowthSource { [weak appStore] in appStore?.growth.level ?? 1 }
+                if !RuntimeEnvironment.isRunningTests { await PioWardrobeStore.shared.start() }
+            }
+            .onChange(of: purchaseScenePhase) { _, phase in
+                if phase == .active, !RuntimeEnvironment.isRunningTests {
+                    Task { await PioWardrobeStore.shared.refreshEntitlements() }
+                }
+            }
             .environment(preferences)
             .environment(DashboardDecor.shared)
             .environment(CommunityStore.shared)
@@ -125,15 +136,40 @@ struct RootView: View {
 
     @ViewBuilder
     private var navigation: some View {
+        #if DEBUG
+        if PioLayeredDiagnosticsView.isEnabled {
+            PioLayeredDiagnosticsView()
+        } else if PioOutfitDiagnosticsView.isEnabled {
+            PioOutfitDiagnosticsView()
+        } else {
+            applicationNavigation
+        }
+        #else
+        applicationNavigation
+        #endif
+    }
+
+    @ViewBuilder
+    private var applicationNavigation: some View {
         #if os(macOS)
         SidebarNavigation()
             // 안내에 가려진 화면은 누르거나 입력할 수 없게 한다(Tab으로 입력 칸에 들어가 루틴을 만드는 일을 막는다).
-            .disabled(firstSync.isActive)
-            .accessibilityHidden(firstSync.isActive)
+            .disabled(firstSync.isActive || isSplashShowing)
+            .accessibilityHidden(firstSync.isActive || isSplashShowing)
             .overlay { firstSyncOverlay }
             .animation(.easeOut(duration: 0.3), value: firstSync.isActive)
             // 피오 시범의 스플래시(검증용 앱에서만, 실행할 때 한 번).
             .overlay { PioTrialMacSplashOverlay() }
+            .overlay {
+                if showsSplash {
+                    if RoutimoriSplashTrial.isEnabled {
+                        RoutimoriSplashView(onLeaving: { splashIsLeaving = true }) { showsSplash = false }
+                    } else if !PioTrial.isEnabled {
+                        // 피오 시범은 따로 스플래시를 띄운다(PioTrialMacSplashOverlay).
+                        SplashView(onLeaving: { splashIsLeaving = true }) { showsSplash = false }
+                    }
+                }
+            }
             .overlay(alignment: .bottom) { PioTrialStagePreview() }
             .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification)) { notification in
                 // 창이 처음 앞에 올 때 첫 입력 칸이 전체 선택된 채 포커스를 받으면 실수로 덮어쓰기 쉽다.
@@ -150,14 +186,25 @@ struct RootView: View {
         Group {
             // 창이 좁으면(iPhone, iPad의 좁은 Split View·Stage Manager 창) 아래 탭, 넓으면 사이드바.
             if horizontalSizeClass == .compact {
-                TabNavigation()
+                if store.section == .wardrobe && AppStore.Section.wardrobe.isAvailable {
+                    NavigationStack {
+                        PioWardrobeView()
+                            .toolbar {
+                                ToolbarItem(placement: .topBarLeading) {
+                                    Button("오늘로 돌아가기") { store.section = .dashboard }
+                                }
+                            }
+                    }
+                } else {
+                    TabNavigation()
+                }
             } else {
                 SidebarNavigation()
             }
         }
         // 안내에 가려진 화면은 누르거나 입력할 수 없게 한다(외장 키보드로 입력 칸에 들어가 루틴을 만드는 일을 막는다).
-        .disabled(firstSync.isActive)
-        .accessibilityHidden(firstSync.isActive)
+        .disabled(firstSync.isActive || (RoutimoriSplashTrial.isEnabled && isSplashShowing))
+        .accessibilityHidden(firstSync.isActive || (RoutimoriSplashTrial.isEnabled && isSplashShowing))
         // 첫 동기화 안내는 화면 위, 스플래시 아래에 둔다.
         .overlay { firstSyncOverlay }
         .animation(.easeOut(duration: 0.3), value: firstSync.isActive)
@@ -168,7 +215,9 @@ struct RootView: View {
         // 실제 화면은 밑에서 이미 준비돼 있다. 스플래시는 그 위를 덮었다가 걷힌다.
         .overlay {
             if showsSplash {
-                if PioTrial.isEnabled {
+                if RoutimoriSplashTrial.isEnabled {
+                    RoutimoriSplashView(onLeaving: { splashIsLeaving = true }) { showsSplash = false }
+                } else if PioTrial.isEnabled {
                     // 피오 시범(검증용 앱에서만).
                     PioTrialSplash(onLeaving: { splashIsLeaving = true }) { showsSplash = false }
                 } else {
@@ -206,7 +255,7 @@ struct RootView: View {
     /// 첫 동기화 안내가 떠 있는 동안에도 올리지 않는다. 그 안내가 기록을 찾으면 시작 안내는 아예 건너뛴다.
     private var isSplashShowing: Bool {
         #if os(macOS)
-        false
+        showsSplash && !splashIsLeaving && !PioTrial.isEnabled
         #else
         showsSplash && !splashIsLeaving
         #endif
@@ -291,6 +340,8 @@ struct SectionContent: View {
             case .calendar: CalendarView()
             case .vacation: VacationView()
             case .templates: TemplateLibraryView()
+            case .wardrobe:
+                if section.isAvailable { PioWardrobeView() } else { SettingsView() }
             case .settings: SettingsView()
             }
         }
@@ -373,6 +424,7 @@ extension TabNavigation {
         case .calendar: return .statistics
         case .vacation: return .dashboard
         case .templates: return .routines
+        case .wardrobe: return .dashboard
         default: return section
         }
     }

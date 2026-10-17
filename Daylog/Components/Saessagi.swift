@@ -186,15 +186,32 @@ struct TodaySaessagi: View {
     }
 
     /// 걸어 다니는 날인가: 움직임 줄이기를 켰거나 휴가인 날(쉬는 모습)에는 자리를 늘리지 않는다.
+    private var usesOutfitTrial: Bool { PioCharacter.isEnabled }
+    /// 머리말 피오의 크기(새싹이 자리 `size`에 견준 배율).
+    static let pioScale: CGFloat = 1.7
+
     private var canWalk: Bool {
-        !reduceMotion && !store.isVacation(on: store.selectedDay)
+        !usesOutfitTrial && !reduceMotion && !store.isVacation(on: store.selectedDay)
+    }
+
+    private var outfitAppearance: PioResolvedAppearance {
+        PioAppearanceCoordinator.shared.resolve(
+            level: store.growth.level, context: .dashboard,
+            motion: pose == .idle ? .idle : (pose == .rest || pose == .sleep ? .rest : .celebration)
+        )
     }
 
     var body: some View {
         ZStack(alignment: .leading) {
             Group {
                 // 평소 모습일 때만 살아 움직인다. 반응(기쁨·휴식)이 시작되면 그 그림으로 바뀌며 움직임도 멈춘다.
-                if pose == .idle {
+                if usesOutfitTrial {
+                    // 피오는 인사말 옆의 주인공이라 새싹이 자리보다 크게 둔다(Mac 약 82pt, iPhone 약 61–75pt).
+                    PioAppearanceView(appearance: outfitAppearance, isAnimating: scenePhase == .active)
+                    .frame(width: size * Self.pioScale, height: size * Self.pioScale)
+                    .id(outfitAppearance.outfit)
+                    .transition(reduceMotion ? .identity : .opacity)
+                } else if pose == .idle {
                     SaessagiAnimatedView(
                         pose: .idle, size: size, behavior: .today, fillsLane: true, maxRange: fillsWidth ? .infinity : walkRange,
                         startX: canWalk ? awayX : 0, link: link, clipsLaneEnd: fillsWidth,
@@ -215,6 +232,7 @@ struct TodaySaessagi: View {
             alignment: .leading
         )
         .animation(reduceMotion ? nil : .easeInOut(duration: 0.18), value: pose)
+        .animation(reduceMotion ? nil : .easeInOut(duration: 0.18), value: outfitAppearance.outfit)
         .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { laneWidth = $0 }
         .saessagiDebugFrame("lane")
         .onChange(of: progress) { old, new in
@@ -248,7 +266,7 @@ struct TodaySaessagi: View {
         // 앞의 반응이 뛰던 중이었으면 제자리에서 다시 시작한다.
         lift = 0
         pending = Task {
-            if next == .completed, !reduceMotion {
+            if next == .completed, !reduceMotion, !usesOutfitTrial {
                 // 한 번 통통: 살짝 떴다가 제자리로 튕겨 내려온다.
                 withAnimation(.easeOut(duration: 0.14)) { lift = -size * 0.16 }
                 try? await Task.sleep(for: .milliseconds(140))

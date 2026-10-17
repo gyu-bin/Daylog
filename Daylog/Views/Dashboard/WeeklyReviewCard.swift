@@ -15,7 +15,7 @@ struct WeeklyReviewCard: View {
         let stage = store.growth.stage
         Card(fillsHeight: false) {
             VStack(alignment: .leading, spacing: 12) {
-                CardHeader(symbol: "leaf.circle.fill", title: "새싹이의 주간 회고", tint: stage.tint) {
+                CardHeader(symbol: "leaf.circle.fill", title: PioOutfitMotionView.isTrialEnabled ? "피오의 주간 회고" : "새싹이의 주간 회고", tint: stage.tint) {
                     Button("자세히 보기") { showsDetail = true }
                         .font(.caption.weight(.semibold))
                         .buttonStyle(.borderless)
@@ -162,24 +162,39 @@ struct WeeklyReviewSheet: View {
     let review: WeeklyReview
     let stage: GrowthStage
     @Environment(\.dismiss) private var dismiss
+    private var appearance: PioResolvedAppearance {
+        PioAppearanceCoordinator.shared.resolve(context: .weeklyReview, motion: .idle)
+    }
 
     var body: some View {
-        SheetScaffold(title: "새싹이의 주간 회고", subtitle: review.periodTitle, cancelTitle: "닫기", cancel: { dismiss() }) {
+        SheetScaffold(title: PioOutfitMotionView.isTrialEnabled ? "피오의 주간 회고" : "새싹이의 주간 회고", subtitle: review.periodTitle, cancelTitle: "닫기", cancel: { dismiss() }) {
             VStack(alignment: .leading, spacing: 16) {
                 HStack(alignment: .center, spacing: 16) {
                     // 열면 반갑게 한 번 뛰고, 그다음은 한 주의 분위기대로 움직인다.
-                    SaessagiAnimatedView(pose: stage.pose, size: 96, behavior: review.saessagiBehavior, entrance: .hello)
+                    Group {
+                        if PioOutfitMotionView.isTrialEnabled {
+                            PioAppearanceView(appearance: appearance)
+                                .frame(width: 96, height: 96)
+                        } else {
+                            SaessagiAnimatedView(pose: stage.pose, size: 96, behavior: review.saessagiBehavior, entrance: .hello)
+                        }
+                    }
                         .padding(10)
                         .background(stage.tint.opacity(0.12), in: Circle())
                     VStack(alignment: .leading, spacing: 6) {
                         Text("“\(review.headline)”")
                             .font(.headline)
                             .fixedSize(horizontal: false, vertical: true)
-                        Text("\(stage.title) 단계의 새싹이가 지난주를 함께 돌아봤어요.")
+                        Text(PioOutfitMotionView.isTrialEnabled
+                             ? "\(appearance.outfit.title)와 지난주를 함께 돌아봐요."
+                             : "\(stage.title) 단계의 새싹이가 지난주를 함께 돌아봤어요.")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                             .fixedSize(horizontal: false, vertical: true)
                     }
+                }
+                if PioOutfitMotionView.isTrialEnabled {
+                    PioAppearanceNotice(appearance: appearance)
                 }
                 WeeklyReviewDays(review: review, tint: stage.tint)
                 if review.hasRecords {

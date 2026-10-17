@@ -18,12 +18,18 @@ struct SyncScene: View {
     @State private var isVisible = false
 
     var body: some View {
-        SyncLayerView(
-            configuration: SyncSceneStage.Configuration(
-                kind: kind, height: height, dark: colorScheme == .dark, scale: displayScale, reduceMotion: reduceMotion
-            ),
-            isAnimating: isVisible && !reduceMotion && scenePhase == .active
-        )
+        Group {
+            if PioCharacter.isEnabled {
+                RoutimoriSyncScene(kind: kind, height: height)
+            } else {
+                SyncLayerView(
+                    configuration: SyncSceneStage.Configuration(
+                        kind: kind, height: height, dark: colorScheme == .dark, scale: displayScale, reduceMotion: reduceMotion
+                    ),
+                    isAnimating: isVisible && !reduceMotion && scenePhase == .active
+                )
+            }
+        }
         .frame(width: height, height: height)
         .accessibilityHidden(true)
         .onAppear { isVisible = true }

@@ -2,7 +2,19 @@ import SwiftUI
 
 /// 설정의 갈래. 왼쪽 목록(넓은 창)이나 첫 화면(iPhone)에 보이고, 고르면 그 갈래의 설정이 나온다.
 enum SettingsCategory: String, CaseIterable, Identifiable {
-    case sync, general, today, routine, calendar, notifications, vacation, data, about
+    case sync, general, today, routine, calendar, notifications, vacation, wardrobe, data, about
+
+    /// 목록에 보이는 갈래. 피오 옷장은 iPhone·iPad의 설정에 둔다(Mac은 사이드바에 따로 있다).
+    @MainActor static var visible: [SettingsCategory] {
+        allCases.filter { category in
+            guard category == .wardrobe else { return true }
+            #if os(macOS)
+            return false
+            #else
+            return AppStore.Section.wardrobe.isAvailable
+            #endif
+        }
+    }
 
     var id: String { rawValue }
 
@@ -15,6 +27,7 @@ enum SettingsCategory: String, CaseIterable, Identifiable {
         case .calendar: return "캘린더"
         case .notifications: return "알림"
         case .vacation: return "휴가"
+        case .wardrobe: return "피오 옷장"
         case .data: return "데이터"
         case .about: return "정보"
         }
@@ -34,6 +47,7 @@ enum SettingsCategory: String, CaseIterable, Identifiable {
         case .calendar: return "한 주의 시작 요일"
         case .notifications: return "루틴 알림"
         case .vacation: return "휴가 기간 관리"
+        case .wardrobe: return "의상 미리보기, 갈아입기"
         case .data: return "가져오기, 내보내기"
         case .about: return "버전, 시작 안내"
         }
@@ -48,6 +62,7 @@ enum SettingsCategory: String, CaseIterable, Identifiable {
         case .calendar: return "calendar"
         case .notifications: return "bell.fill"
         case .vacation: return "beach.umbrella.fill"
+        case .wardrobe: return "tshirt.fill"
         case .data: return "externaldrive.fill"
         case .about: return "info.circle.fill"
         }
@@ -62,6 +77,7 @@ enum SettingsCategory: String, CaseIterable, Identifiable {
         case .calendar: return .orange
         case .notifications: return .coral
         case .vacation: return .coral
+        case .wardrobe: return .mint
         case .data: return .green
         case .about: return .yellow
         }
@@ -143,7 +159,7 @@ struct SettingsView: View {
             HStack(alignment: .top, spacing: 24) {
                 ScrollView {
                     VStack(spacing: 4) {
-                        ForEach(SettingsCategory.allCases) { category in
+                        ForEach(SettingsCategory.visible) { category in
                             Button {
                                 selected = category
                             } label: {
@@ -224,7 +240,7 @@ struct SettingsView: View {
         } else {
             Form {
                 Section {
-                    ForEach(SettingsCategory.allCases) { category in
+                    ForEach(SettingsCategory.visible) { category in
                         Button {
                             compactSelection = category
                         } label: {
@@ -256,46 +272,54 @@ struct SettingsView: View {
 
     // MARK: - 갈래별 설정
 
+    @ViewBuilder
     private func detail(_ category: SettingsCategory) -> some View {
-        Form {
-            switch category {
-            case .sync:
-                syncSection
-                devicesSection
-            case .general:
-                AppearanceSection()
-                #if os(macOS)
-                MenuBarSettingsSection()
-                #else
-                WidgetGuideSection()
-                #endif
-            case .today:
-                DevicePreferenceSections()
-            case .routine:
-                Section {
-                    ThresholdControl()
-                } header: {
-                    Text("달성한 날 기준값")
-                } footer: {
-                    Text("하루 달성률이 이 값 이상이면 달성한 날로 세요.")
+        if category == .wardrobe {
+            // 옷장은 자체 화면(목록·미리보기·갈아입기)이라 설정의 Form에 넣지 않는다.
+            PioWardrobeView()
+        } else {
+            Form {
+                switch category {
+                case .sync:
+                    syncSection
+                    devicesSection
+                case .general:
+                    AppearanceSection()
+                    #if os(macOS)
+                    MenuBarSettingsSection()
+                    #else
+                    WidgetGuideSection()
+                    #endif
+                case .today:
+                    DevicePreferenceSections()
+                case .routine:
+                    Section {
+                        ThresholdControl()
+                    } header: {
+                        Text("달성한 날 기준값")
+                    } footer: {
+                        Text("하루 달성률이 이 값 이상이면 달성한 날로 세요.")
+                    }
+                case .calendar:
+                    CalendarSettingsSection()
+                case .notifications:
+                    NotificationSettingsSection()
+                    ComebackSettingsSection()
+                case .vacation:
+                    VacationSettingsSection()
+                case .data:
+                    DataTransferSettingsSection()
+                case .about:
+                    aboutSection
+                case .wardrobe:
+                    EmptyView()
                 }
-            case .calendar:
-                CalendarSettingsSection()
-            case .notifications:
-                NotificationSettingsSection()
-                ComebackSettingsSection()
-            case .vacation:
-                VacationSettingsSection()
-            case .data:
-                DataTransferSettingsSection()
-            case .about:
-                aboutSection
             }
+            .formStyle(.grouped)
+            #if os(macOS)
+            .scrollContentBackground(.hidden)
+            #endif
         }
-        .formStyle(.grouped)
-        #if os(macOS)
-        .scrollContentBackground(.hidden)
-        #endif
     }
 
     /// 개인정보 처리방침이 있는 곳. 이미 깔린 앱이 계속 여는 주소이므로 옮기지 않는다(App Store Connect에도 같은 주소를 적는다).

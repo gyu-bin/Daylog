@@ -148,8 +148,8 @@ struct ComebackSettingsSection: View {
                 }
             )) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("새싹이 복귀 알림")
-                    Text("며칠 동안 루틴을 쉬면 새싹이가 알려드려요.")
+                    Text(PioCharacter.isEnabled ? "피오 복귀 알림" : "새싹이 복귀 알림")
+                    Text(PioCharacter.isEnabled ? "며칠 동안 루틴을 쉬면 피오가 알려드려요." : "며칠 동안 루틴을 쉬면 새싹이가 알려드려요.")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }

@@ -17,7 +17,7 @@ struct SidebarView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 4) {
                     ForEach(sections.filter { $0 != .settings }) { section in
-                        row(section, shortcut: sections.firstIndex(of: section).map { $0 + 1 })
+                        row(section, shortcut: section.shortcutNumber)
                     }
                 }
             }
@@ -26,7 +26,7 @@ struct SidebarView: View {
             Divider()
                 .padding(.horizontal, 8)
                 .padding(.vertical, 8)
-            row(.settings, shortcut: sections.firstIndex(of: .settings).map { $0 + 1 })
+            row(.settings, shortcut: AppStore.Section.settings.shortcutNumber)
                 .padding(.bottom, 8)
         }
         .padding(.horizontal, 10)
@@ -149,6 +149,7 @@ extension AppStore.Section {
         case .calendar: return GroupColor.orange.color
         case .vacation: return Theme.vacationTint
         case .templates: return GroupColor.yellow.color
+        case .wardrobe: return GroupColor.green.color
         case .settings: return GroupColor.blue.color
         }
     }
@@ -163,6 +164,7 @@ extension AppStore.Section {
         case .calendar: return GroupColor.orange.ink
         case .vacation: return GroupColor.coral.ink
         case .templates: return GroupColor.yellow.ink
+        case .wardrobe: return GroupColor.green.ink
         case .settings: return GroupColor.blue.ink
         }
     }
@@ -206,6 +208,7 @@ extension AppStore.Section {
         case .calendar: return "calendar"
         case .vacation: return "beach.umbrella.fill"
         case .templates: return "rectangle.stack.fill"
+        case .wardrobe: return "tshirt.fill"
         case .settings: return "gearshape.fill"
         }
     }
