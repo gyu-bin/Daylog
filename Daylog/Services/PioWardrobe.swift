@@ -153,6 +153,10 @@ final class PioWardrobeStore {
     let purchases: PioPurchaseManager
     /// A Debug display permission, never an entitlement or app-icon permission.
     let isOutfitTestingEnabled: Bool
+    /// 의상 상점이 열리기 전(구매를 쓸 수 없는 배포판)에는 모든 의상을 무료로 입을 수 있다.
+    /// 구매·소유 기록이나 앱 아이콘 권한은 아니다. 단위 테스트는 구매 규칙을 그대로 검사하도록 끈다.
+    @ObservationIgnored private let wearsAllWhileShopClosed: Bool
+    var isFreeWearing: Bool { wearsAllWhileShopClosed && !purchases.availability.isEnabled }
     #if DEBUG
     static let mockOwnershipKey = "PioWardrobe.debugOwnedOutfits.v1"
     private var mockOwnedOutfits: Set<PioOutfitID> = []
@@ -175,11 +179,13 @@ final class PioWardrobeStore {
     var equippedOutfit: PioOutfitID { canWear(preferredOutfit) ? preferredOutfit : .basic }
     var selectedIcon: PioOutfitID { owns(preferredIcon) ? preferredIcon : .basic }
     var availableOutfits: Set<PioOutfitID> {
-        isOutfitTestingEnabled ? Set(PioOutfitID.allCases) : ownedOutfits
+        isOutfitTestingEnabled || isFreeWearing ? Set(PioOutfitID.allCases) : ownedOutfits
     }
 
     init(defaults: UserDefaults = .standard, purchases: PioPurchaseManager? = nil,
-         isOutfitTestingEnabled: Bool = false, outfitTestingDefaults: UserDefaults? = nil) {
+         isOutfitTestingEnabled: Bool = false, outfitTestingDefaults: UserDefaults? = nil,
+         wearsAllWhileShopClosed: Bool = !RuntimeEnvironment.isRunningTests) {
+        self.wearsAllWhileShopClosed = wearsAllWhileShopClosed
         #if DEBUG
         self.isOutfitTestingEnabled = isOutfitTestingEnabled
         #else
@@ -202,7 +208,7 @@ final class PioWardrobeStore {
     }
 
     func owns(_ outfit: PioOutfitID) -> Bool { ownedOutfits.contains(outfit) }
-    func canWear(_ outfit: PioOutfitID) -> Bool { isOutfitTestingEnabled || owns(outfit) }
+    func canWear(_ outfit: PioOutfitID) -> Bool { isOutfitTestingEnabled || isFreeWearing || owns(outfit) }
 
     @discardableResult func equip(_ outfit: PioOutfitID) -> Bool {
         guard canWear(outfit) else { return false }

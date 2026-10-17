@@ -125,7 +125,7 @@ final class PioAppearanceCoordinator {
     var equippedOutfit: PioOutfitID {
         let requested = wardrobe.preferredAppearanceOutfit
         return wardrobe.canWear(requested)
-            && (wardrobe.isOutfitTestingEnabled || ownedOutfits.contains(requested)) ? requested : .basic
+            && (wardrobe.isOutfitTestingEnabled || wardrobe.isFreeWearing || ownedOutfits.contains(requested)) ? requested : .basic
     }
 
     static func stage(forLevel level: Int) -> Int {
@@ -141,6 +141,7 @@ final class PioAppearanceCoordinator {
         let access: PioAppearanceAccess
         if requested == .basic { access = .free }
         else if wardrobe.purchases.owns(requested) { access = .verified }
+        else if wardrobe.isFreeWearing { access = .free }
         else if wardrobe.isOutfitTestingEnabled && wardrobe.canWear(requested) { access = .testing }
         else if !wardrobe.purchases.availability.isEnabled { access = .unavailable }
         else {
@@ -151,11 +152,11 @@ final class PioAppearanceCoordinator {
             }
         }
         let authorized = access == .verified || access == .free || access == .testing ? requested : .basic
-        // 의상 구매가 열리지 않은 배포판: 예전에 고른 의상이 남아 있어도 기본 피오를 보여 주고(선택 값은 지우지 않는다),
-        // 화면마다 "구매할 수 없어 기본으로 보여요" 같은 안내는 띄우지 않는다.
+        // 무료로 입는 동안(기본 피오, 상점이 열리기 전의 무료 착용)과 구매를 쓸 수 없는 배포판에서는 화면마다
+        // "이 장면 전용 원화가 없어요" 같은 개발용 안내를 띄우지 않는다. 원화가 없는 장면은 기본 피오 장면을 그대로 보여 준다.
         return resolveArtwork(outfit: authorized, requested: requested, stage: Self.stage(forLevel: level ?? currentLevel),
                               context: context, requestedMotion: motion, requestedPose: pose, access: access,
-                              showsNotes: access != .unavailable)
+                              showsNotes: access != .unavailable && !(access == .free && requested != .basic))
     }
 
     /// Shop previews explicitly bypass display authorization only. They cannot

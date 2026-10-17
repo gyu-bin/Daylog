@@ -70,7 +70,8 @@ struct RoutimoriVacationTests {
             let focusOnScreen = rig.canvas.convert(focus, to: rig.root)
             #expect(abs(focusOnScreen.x - slot.midX) < 0.0001 && abs(focusOnScreen.y - slot.midY) < 0.0001)
             #expect(rig.hammock.animation(forKey: "hammockSway")?.beginTime == 123)
-            #expect(rig.root.sublayers?.count == 1) // No blanket color-filter layer.
+            // No blanket color-filter layer: only the blurred full-bleed backdrop sits under the registered canvas.
+            #expect(rig.root.sublayers?.count == 2 && rig.root.sublayers?.first === rig.backdrop)
         }
         rig.setAnimating(false)
     }

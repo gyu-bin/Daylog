@@ -169,7 +169,7 @@ struct PioWardrobeView: View {
             } else {
                 LazyVGrid(columns: columns, alignment: .leading, spacing: 12) {
                     ForEach(outfits) { outfit in
-                        Button { selectedOutfit = outfit } label: { outfitCard(outfit) }
+                        Button { choose(outfit) } label: { outfitCard(outfit) }
                             .buttonStyle(.plain)
                             .accessibilityLabel("\(outfit.title), \(stateText(outfit)). 미리보기 선택")
                             .accessibilityValue(selectedOutfit == outfit ? "미리보기 선택됨" : "")
@@ -216,6 +216,7 @@ struct PioWardrobeView: View {
         if store.isOutfitTestingEnabled { return "테스트로 입혀 보기" }
         if outfit == .basic { return "무료 · 항상 보유" }
         if store.owns(outfit) { return "보유 중" }
+        if store.isFreeWearing { return "눌러서 입히기" }
         if let product = store.purchases.product(for: outfit) { return product.displayPrice }
         if store.purchases.productLoadState == .loading { return "상품 확인 중" }
         return "현재 구매 불가"
@@ -271,7 +272,9 @@ struct PioWardrobeView: View {
                 }
             }
             previewActions
-            Text("의상을 고르면 미리보기만 바뀌어요. ‘입히기’를 누르면 홈에도 적용돼요.")
+            Text(store.isFreeWearing
+                 ? "의상을 고르면 바로 피오에게 입혀져요. 홈과 다른 화면의 피오도 함께 바뀌어요."
+                 : "의상을 고르면 미리보기만 바뀌어요. ‘입히기’를 누르면 홈에도 적용돼요.")
                 .font(.caption).foregroundStyle(palette.secondary)
                 .fixedSize(horizontal: false, vertical: true)
             if let actionMessage {
@@ -283,6 +286,13 @@ struct PioWardrobeView: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .accessibilityIdentifier("wardrobe.previewPanel")
+    }
+
+    /// 의상을 고른다. 상점이 열리기 전에는 고르는 즉시 입혀서 홈 등 모든 피오에 바로 적용한다.
+    private func choose(_ outfit: PioOutfitID) {
+        selectedOutfit = outfit
+        guard store.isFreeWearing, store.equippedOutfit != outfit, WardrobeArt.isAvailable(outfit) else { return }
+        if store.equip(outfit) { actionMessage = "입혔어요. 홈에서도 이 피오와 함께해요." }
     }
 
     @ViewBuilder private var previewActions: some View {

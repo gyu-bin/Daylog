@@ -1,5 +1,6 @@
 import SwiftUI
 import QuartzCore
+import CoreImage
 #if os(macOS)
 import AppKit
 #else
@@ -48,7 +49,12 @@ final class RoutimoriVacationRig {
     static let nightAttachment = CGPoint(x: 68, y: 465)
     static let swingDegrees: CGFloat = 1.5
     let root = CALayer()
+    /// 화면 전체를 채우는 흐린 풍경. 넓은 창(Mac, iPad 가로)에서도 양옆이 비지 않게 같은 풍경을 크게 흐려 깔고,
+    /// 또렷한 원래 그림(`canvas`)은 해먹 자리에 맞춘 크기 그대로 그 위에 둔다(피오가 커져 글자를 가리지 않게).
+    let backdrop = CALayer()
     let canvas = CALayer()
+    private let dayAmbient: CGImage?
+    private let nightAmbient: CGImage?
     let beach = CALayer()
     let hammock = CALayer()
     private let dayBackground: CGImage?
@@ -62,10 +68,15 @@ final class RoutimoriVacationRig {
         dayForeground = foreground
         self.nightBackground = nightBackground
         self.nightForeground = nightForeground
+        dayAmbient = Self.ambient(background)
+        nightAmbient = Self.ambient(nightBackground)
         #if os(macOS)
         root.isGeometryFlipped = true
         #endif
         root.masksToBounds = true
+        backdrop.contentsGravity = .resizeAspectFill
+        backdrop.masksToBounds = true
+        root.addSublayer(backdrop)
         root.addSublayer(canvas)
         canvas.anchorPoint = .zero
         canvas.bounds = CGRect(origin: .zero, size: Self.sourceSize)
@@ -78,11 +89,11 @@ final class RoutimoriVacationRig {
         horizontalFade.endPoint = CGPoint(x: 1, y: 0.5)
         horizontalFade.colors = [CGColor(gray: 1, alpha: 0), CGColor(gray: 1, alpha: 1),
                                  CGColor(gray: 1, alpha: 1), CGColor(gray: 1, alpha: 0)]
-        horizontalFade.locations = [0, 0.075, 0.925, 1]
+        horizontalFade.locations = [0, 0.16, 0.84, 1]
         let verticalFade = CAGradientLayer()
         verticalFade.frame = canvas.bounds
         verticalFade.colors = horizontalFade.colors
-        verticalFade.locations = [0, 0.06, 0.94, 1]
+        verticalFade.locations = [0, 0.08, 0.92, 1]
         horizontalFade.mask = verticalFade
         canvas.mask = horizontalFade
         for layer in [beach, hammock] {
@@ -115,6 +126,8 @@ final class RoutimoriVacationRig {
         root.backgroundColor = isDark
             ? CGColor(red: 0.025, green: 0.065, blue: 0.12, alpha: 1)
             : CGColor(red: 0.98, green: 0.97, blue: 0.92, alpha: 1)
+        backdrop.frame = bounds
+        backdrop.contents = usesNightArtwork ? nightAmbient : dayAmbient
         beach.contents = usesNightArtwork ? nightBackground : dayBackground
         hammock.contents = usesNightArtwork ? nightForeground : dayForeground
         hammock.anchorPoint = CGPoint(x: anchor.x / Self.sourceSize.width, y: anchor.y / Self.sourceSize.height)
@@ -124,6 +137,16 @@ final class RoutimoriVacationRig {
         canvas.transform = CATransform3DMakeScale(scale, scale, 1)
         for layer in [root, beach, hammock] { layer.contentsScale = max(displayScale, 1) }
         CATransaction.commit()
+    }
+
+    /// 풍경을 작게 줄여 흐린 그림. 한 번만 만들고, 화면에서는 크게 늘려 깐다(작게 만들어 늘리므로 가볍다).
+    static func ambient(_ image: CGImage?) -> CGImage? {
+        guard let image, image.width > 0 else { return nil }
+        let input = CIImage(cgImage: image)
+        let scale = 192 / CGFloat(image.width)
+        let small = input.transformed(by: CGAffineTransform(scaleX: scale, y: scale))
+        let blurred = small.clampedToExtent().applyingGaussianBlur(sigma: 7).cropped(to: small.extent)
+        return CIContext().createCGImage(blurred, from: small.extent)
     }
 
     func setAnimating(_ active: Bool) {

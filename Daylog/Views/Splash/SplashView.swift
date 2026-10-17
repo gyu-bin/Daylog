@@ -113,11 +113,18 @@ struct SplashView: View {
     private func figure(_ metrics: Metrics) -> some View {
         let shown = stage >= (timeline.reducesMotion ? .logo : .grown)
         return KeyframeAnimator(initialValue: Performance(), trigger: performances) { pose in
-            Figure(width: metrics.figureWidth, pose: pose)
+            Figure(width: metrics.figureWidth, pose: pose, outfitAsset: equippedOutfitAsset)
         } keyframes: { _ in
             Performance.keyframes
         }
         .opacity(shown ? 1 : 0)
+    }
+
+    /// 옷장에서 입힌 의상의 그림. 기본 피오면 nil(부위별 그림으로 그린다).
+    private var equippedOutfitAsset: String? {
+        guard PioCharacter.isEnabled else { return nil }
+        let outfit = PioAppearanceCoordinator.shared.equippedOutfit
+        return outfit == .basic ? nil : outfit.artAssetName
     }
 
     // MARK: - 진행
@@ -312,6 +319,8 @@ extension SplashView {
     struct Figure: View {
         let width: CGFloat
         var pose = Performance()
+        /// 의상을 입었으면 그 의상의 한 장짜리 그림. 이때는 날개·새싹·눈이 따로 움직이지 않고, 몸 전체의 연기(내려앉기·찌부러짐·기울기)만 한다.
+        var outfitAsset: String? = nil
 
         struct Part {
             let asset: String
@@ -348,6 +357,15 @@ extension SplashView {
                     .blur(radius: 10 * s)
                     .offset(x: (690 - 235 - Self.viewBox.minX) * s, y: (Self.groundY - 17 - Self.viewBox.minY) * s)
                 ZStack(alignment: .topLeading) {
+                    if let outfitAsset {
+                        // 의상 그림은 1254 정사각형 안에 피오가 그려져 있다. 발밑을 같은 땅에 맞추고 가운데에 둔다.
+                        Image(outfitAsset)
+                            .resizable()
+                            .interpolation(.high)
+                            .scaledToFit()
+                            .frame(width: width * 1.05, height: width * 1.05)
+                            .offset(x: -width * 0.025, y: (Self.groundY - Self.viewBox.minY) * s - width * 1.05 * 0.94)
+                    } else {
                     ForEach(Self.parts, id: \.asset) { part in
                         Image("routimori_splash_pio_" + part.asset)
                             .resizable()
@@ -358,6 +376,7 @@ extension SplashView {
                                                               y: (part.pivot.y - part.rect.minY) / part.rect.height))
                             .opacity(opacity(of: part.asset))
                             .offset(x: (part.rect.minX - Self.viewBox.minX) * s, y: (part.rect.minY - Self.viewBox.minY) * s)
+                    }
                     }
                 }
                 .frame(width: width, height: width, alignment: .topLeading)
