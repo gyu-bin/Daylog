@@ -1,0 +1,25 @@
+{
+  "mode": "built-in image_gen",
+  "date": "2026-10-23",
+  "requests": [
+    {
+      "asset": "wing-left-candidate-v2.png",
+      "prompt": "Use case: precise-object-edit. Edit target image 3 is an isolated viewer-left pajama arm; image 1 is approved character pose/style, image 2 is assembled candidate context. Generate only one isolated complete viewer-left arm asset on true transparent background, no character or pillow. REPLACE its long tube-like sleeve with a very SHORT rounded puffy lavender cuff sleeve, cream star pattern and thin ivory piping, and a much LARGER chubby cream plush mitten palm pointing right, slightly down and inward to grip pillow. Palm should be nearly as broad as cuff and account for 45% of visible arm width. Sleeve shoulder root is smooth complete rounded hidden geometry at left, with no collar flap. The assembled arm must resemble the original approved short sleeve and large round hand in image 1. Preserve lavender/ivory colors, fuzzy premium 3D plush materials and soft upper-left light. Complete single arm fully within image with generous transparent margin; no cut edges, no body, no eyes, no pillow, no text. Short compact 1.5:1 arm silhouette rather than long tube, large round mitten with no fingers or thumb. Do not redesign character.",
+      "status": "rejected source halo"
+    },
+    {
+      "asset": "wing-left-candidate-v3.png",
+      "prompt": "Use case: precise-object-edit. Input image is the edit target isolated pajama left arm. Re-render this SAME single plush lavender star short puffy sleeve + large cream rounded mitten arm, but enforce ONLY opaque plush and antialiased edge alpha against genuinely TRANSPARENT empty background. Remove all outer glow, bloom, blurred halo, mist, background shadow, backlight; NO light aura or drop shadow whatsoever, not even low opacity. Shorten sleeve to a compact puffy cuff and enlarge mitten so the cream hand is about half the overall width. Round complete shoulder root on the left, mitten points right-down. Whole arm fully within canvas with margins. Match ivory piping lavender stars soft fuzzy plush. Do not include other parts or a character. True transparent PNG, alpha zero in empty space.",
+      "status": "rejected source halo persists"
+    },
+    {
+      "asset": "wing-right-candidate-v2.png",
+      "prompt": "Use case: precise-object-edit. Input image1 approved character for plush style/short cuff hand proportions. Input image2 edit target right arm. Create only ONE isolated viewer-right arm for hugging a pillow: very SHORT puffy rounded lavender sleeve/cuff decorated with cream stars and a thin ivory piping band, plus LARGE chubby cream plush mitten at the LEFT pointing inward/down-left. Cream mitten should occupy about half of visible arm width; cuff thick and compact, no long tube sleeve. Rounded complete closed shoulder root on right, fully rendered hidden root; no ragged opening or collar flap. Similar approved original right hand wrapping pillow, no fingers or thumb. Premium fuzzy 3D plush, lavender/ivory palette, subtle upper left illumination. Entire compact arm centered with generous empty transparent margins. Genuinely transparent alpha empty space. Absolutely NO aura, glow, bloom, haze, backlight, ground shadow, background, text, pillow, face, body, extra props. No cropping. One arm only, not a whole character.",
+      "status": "registration candidate"
+    },
+    {
+      "asset": "wing-left-candidate-v4.png",
+      "status": "selected registration candidate; no broad halo; small thumb lobe visible"
+    }
+  ]
+}

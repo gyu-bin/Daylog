@@ -1,0 +1,13 @@
+{
+  "sourceXctestrun": "/tmp/PioStoreKit-20261023-ios/Build/Products/DaylogiOSPioMotionReview_iphonesimulator27.1-arm64.xctestrun",
+  "testXctestrun": "/tmp/PioStoreKit-20261023-ios/Build/Products/PioScenesIOSReview-20261023.xctestrun",
+  "selected": [
+    "PioScenesIOSReviewTests"
+  ],
+  "arguments": [
+    "-PioIOSSceneReview",
+    "-PioOverhaulTrial"
+  ],
+  "destination": "0426CD78-3807-4650-9776-B649780E2884",
+  "StoreKitTransactions": false
+}

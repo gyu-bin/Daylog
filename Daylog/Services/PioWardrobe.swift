@@ -92,7 +92,7 @@ enum PioOutfitID: String, CaseIterable, Identifiable, Codable, Sendable {
     var artAssetName: String? {
         self == .basic ? "pio_wardrobe_basic_reference" : "pio_outfit_\(rawValue)"
     }
-    var plannedPriceText: String { self == .basic ? "무료" : "출시 예정 · 목표 ₩2,000" }
+    var plannedPriceText: String { self == .basic ? "무료" : "App Store에서 가격 확인" }
 }
 
 /// User-facing outcomes shared by the verified StoreKit flow and disabled builds.
@@ -125,10 +125,13 @@ struct UnavailablePioWardrobeEntitlements: PioWardrobeEntitlementProviding {
 @MainActor @Observable
 final class PioWardrobeStore {
     static let localTestingPreferencesSuite = "com.mungyubin.daylog.pio-storekit-local-testing"
+    static let sandboxPreferencesSuite = "com.mungyubin.daylog.pio-storekit-sandbox"
     static let outfitTestingPreferencesSuite = "com.mungyubin.daylog.pio-wardrobe-testing"
     static let shared = PioWardrobeStore(
         defaults: preferences(for: PioPurchaseManager.shared.availability), purchases: .shared,
-        isOutfitTestingEnabled: outfitTestingEnabled(arguments: ProcessInfo.processInfo.arguments)
+        isOutfitTestingEnabled: outfitTestingEnabled(arguments: ProcessInfo.processInfo.arguments),
+        selectionPersistence: PioWardrobeSelectionFile.current(for: PioPurchaseManager.shared.availability,
+            outfitTesting: outfitTestingEnabled(arguments: ProcessInfo.processInfo.arguments))
     )
 
     static func outfitTestingEnabled(arguments: [String]) -> Bool {
@@ -144,8 +147,11 @@ final class PioWardrobeStore {
     static func preferences(for availability: PioPurchaseAvailability,
                             production: UserDefaults = .standard,
                             localTesting: UserDefaults? = nil) -> UserDefaults {
-        guard availability == .localTesting else { return production }
-        return localTesting ?? UserDefaults(suiteName: localTestingPreferencesSuite)!
+        switch availability {
+        case .localTesting: return localTesting ?? UserDefaults(suiteName: localTestingPreferencesSuite)!
+        case .sandbox: return UserDefaults(suiteName: sandboxPreferencesSuite)!
+        default: return production
+        }
     }
     static let equippedKey = "PioWardrobe.equippedOutfit.v1"
     static let selectedIconKey = "PioWardrobe.selectedIcon.v1"
@@ -153,16 +159,16 @@ final class PioWardrobeStore {
     let purchases: PioPurchaseManager
     /// A Debug display permission, never an entitlement or app-icon permission.
     let isOutfitTestingEnabled: Bool
-    /// 의상 상점이 열리기 전(구매를 쓸 수 없는 배포판)에는 모든 의상을 무료로 입을 수 있다.
-    /// 구매·소유 기록이나 앱 아이콘 권한은 아니다. 단위 테스트는 구매 규칙을 그대로 검사하도록 끈다.
-    @ObservationIgnored private let wearsAllWhileShopClosed: Bool
-    var isFreeWearing: Bool { wearsAllWhileShopClosed && !purchases.availability.isEnabled }
+    /// Only the explicit isolated DEBUG wardrobe playground may wear unowned art.
+    /// Store unavailability must never unlock paid outfits in normal builds.
+    var isFreeWearing: Bool { isOutfitTestingEnabled }
     #if DEBUG
     static let mockOwnershipKey = "PioWardrobe.debugOwnedOutfits.v1"
     private var mockOwnedOutfits: Set<PioOutfitID> = []
     @ObservationIgnored private var legacyMockMode = false
     #endif
     @ObservationIgnored private let defaults: UserDefaults
+    @ObservationIgnored private let selectionPersistence: (any PioWardrobeSelectionPersisting)?
     private var preferredOutfit: PioOutfitID
     private var preferredIcon: PioOutfitID
     private(set) var previewStage: Int
@@ -184,8 +190,7 @@ final class PioWardrobeStore {
 
     init(defaults: UserDefaults = .standard, purchases: PioPurchaseManager? = nil,
          isOutfitTestingEnabled: Bool = false, outfitTestingDefaults: UserDefaults? = nil,
-         wearsAllWhileShopClosed: Bool = !RuntimeEnvironment.isRunningTests) {
-        self.wearsAllWhileShopClosed = wearsAllWhileShopClosed
+         selectionPersistence: (any PioWardrobeSelectionPersisting)? = nil) {
         #if DEBUG
         self.isOutfitTestingEnabled = isOutfitTestingEnabled
         #else
@@ -197,10 +202,12 @@ final class PioWardrobeStore {
             ? (outfitTestingDefaults ?? UserDefaults(suiteName: Self.outfitTestingPreferencesSuite)!)
             : defaults
         self.defaults = defaults
+        self.selectionPersistence = selectionPersistence
         self.purchases = purchases ?? PioPurchaseManager()
         let storedStage = defaults.integer(forKey: Self.previewStageKey)
         previewStage = (1...4).contains(storedStage) ? storedStage : 1
-        preferredOutfit = defaults.string(forKey: Self.equippedKey).flatMap(PioOutfitID.init(rawValue:)) ?? .basic
+        preferredOutfit = selectionPersistence?.load()
+            ?? defaults.string(forKey: Self.equippedKey).flatMap(PioOutfitID.init(rawValue:)) ?? .basic
         preferredIcon = defaults.string(forKey: Self.selectedIconKey).flatMap(PioOutfitID.init(rawValue:)) ?? .basic
         self.purchases.ownershipDidChange = { [weak self] invalidated in
             self?.repairSelections(invalidated: invalidated)
@@ -212,6 +219,8 @@ final class PioWardrobeStore {
 
     @discardableResult func equip(_ outfit: PioOutfitID) -> Bool {
         guard canWear(outfit) else { return false }
+        do { try selectionPersistence?.save(outfit) }
+        catch { return false }
         preferredOutfit = outfit
         defaults.set(outfit.rawValue, forKey: Self.equippedKey)
         return true

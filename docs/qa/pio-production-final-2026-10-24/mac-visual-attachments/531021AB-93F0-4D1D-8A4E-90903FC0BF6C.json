@@ -1,0 +1,192 @@
+{
+  "holdIDs" : [
+    "tablet",
+    "armLeft",
+    "armRight"
+  ],
+  "independent" : [
+    "eyes",
+    "lids",
+    "shared arms\/tablet hold joint"
+  ],
+  "limits" : "Native presentation-layer component captures; candidate geometry still requires visual approval. Held parts never detach or wave independently of the prop. No purchase, preference or whole-screen workflow verification.",
+  "observations" : [
+    {
+      "elapsed" : 0.1931766666675685,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00026837263860714428,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 0.22714175000146497,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00026837263860714428,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 1.6620150416711112,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.6950868749991059,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.9373473750019912,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.024639066087430005,
+      "lidOpacity" : 1,
+      "side" : 64,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 1.9660327500023413,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.024639066087430005,
+      "lidOpacity" : 1,
+      "side" : 220,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 2.31689816666767,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.016921333894429718,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 2.3458335833274759,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.016921333894429718,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 4.8109522083395859,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026149449226474088,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-negative"
+    },
+    {
+      "elapsed" : 4.8420610833418323,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026149449226474088,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-negative"
+    }
+  ],
+  "partAssets" : {
+    "armLeft" : "pio_cloud_prod_v2_student_v2_armPair",
+    "armRight" : "pio_cloud_prod_v2_student_v2_armPair",
+    "body" : "pio_cloud_prod_v2_student_v2_torso",
+    "browLeft" : "pio_cloud_prod_v2_student_browLeft",
+    "browRight" : "pio_cloud_prod_v2_student_browRight",
+    "eyeLeft" : "pio_cloud_prod_v2_student_eyeLeft",
+    "eyeRight" : "pio_cloud_prod_v2_student_eyeRight",
+    "halfLeft" : "pio_cloud_prod_v2_student_halfLeft",
+    "halfRight" : "pio_cloud_prod_v2_student_halfRight",
+    "lidLeft" : "pio_cloud_prod_v2_student_lidLeft",
+    "lidRight" : "pio_cloud_prod_v2_student_lidRight",
+    "optics" : "pio_cloud_prod_v2_student_optics",
+    "tablet" : "pio_cloud_prod_v2_basic_v1_tablet"
+  },
+  "partRects" : {
+    "armLeft" : [
+      270,
+      835,
+      282,
+      240
+    ],
+    "armRight" : [
+      800,
+      835,
+      262,
+      240
+    ],
+    "body" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "browLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "browRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "eyeLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "eyeRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "halfLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "halfRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "lidLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "lidRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "optics" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "tablet" : [
+      496,
+      888,
+      360,
+      220
+    ]
+  },
+  "platform" : "Mac",
+  "revision" : "student-production-hands-v2"
+}

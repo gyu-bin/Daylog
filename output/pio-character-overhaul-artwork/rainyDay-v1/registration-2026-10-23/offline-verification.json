@@ -1,0 +1,209 @@
+{
+  "status": "OFFLINE_ARTWORK_EVIDENCE_ONLY_NOT_APP_VERIFICATION",
+  "originalApprovedHashUnchanged": true,
+  "components": [
+    {
+      "part": "footLeft",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "footRight",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "wingLeft",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "umbrellaCanopy",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "body",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "eyeLeft",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "eyeRight",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "sprout",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "umbrellaShaft",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "wingRight",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "halfLeft",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "lidLeft",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "halfRight",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "lidRight",
+      "1254RGBA": true,
+      "sourceHashMatchesPreviousSnapshot": true,
+      "sourceHashMatchesCurrentManifest": true,
+      "scaleAtMostOne": true,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    }
+  ],
+  "sharedGripPivot": true,
+  "depthOrder": [
+    "umbrellaCanopy",
+    "body",
+    "umbrellaShaft",
+    "wingRight"
+  ],
+  "umbrellaPoses": {
+    "-5": {
+      "canopyShaftAlphaOverlapPixels": 940,
+      "handShaftAlphaOverlapPixels": 4957
+    },
+    "0": {
+      "canopyShaftAlphaOverlapPixels": 942,
+      "handShaftAlphaOverlapPixels": 4992
+    }
+  },
+  "motionBounds": [
+    {
+      "part": "wingLeft",
+      "angle": -12,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "wingLeft",
+      "angle": 12,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "umbrellaCanopy",
+      "angle": -5,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "umbrellaShaft",
+      "angle": -5,
+      "outsideAnyAlphaPixels": 1,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "wingRight",
+      "angle": -5,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    }
+  ],
+  "gif": {
+    "size": [
+      512,
+      512
+    ],
+    "frames": 48,
+    "durationMs": 60,
+    "loop": 0
+  },
+  "bodyMotion": "None. Source transform and body derivative fixed for every GIF frame; only left wing, umbrella grip group, and mutually exclusive eyes change."
+}

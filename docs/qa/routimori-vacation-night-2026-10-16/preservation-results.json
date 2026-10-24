@@ -1,0 +1,10 @@
+{
+  "baseline": "See baseline-provenance.json: captured after initial night code edit, before final registration refinement.",
+  "checked": 470,
+  "changed": [
+    "Daylog/Views/Dashboard/RoutimoriVacationScene.swift",
+    "DaylogTests/RoutimoriVacationTests.swift"
+  ],
+  "missing": [],
+  "dayAssetsUnchanged": true
+}

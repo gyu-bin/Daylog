@@ -1,0 +1,31 @@
+{
+  "newlyAuthoredSourceRoles": 4,
+  "sources": [
+    {
+      "file": "body-candidate.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "9f0004960f6ec602243e5b38f88a43b56f3a7cce65acf6447e9bd1a4b2658a87"
+    },
+    {
+      "file": "headwear-candidate.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "a24476def2dff7d1b8e4fbd74b47c79c70b51ebf3ab6c09f3151b9a93332feac"
+    },
+    {
+      "file": "wing-left-candidate.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "677b1b36f2701e095196f23578ace7e26c325bdb645fbd7ff9e594bedce75873"
+    },
+    {
+      "file": "wing-right-candidate.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "7cccb35e949bd5a6702dfd065e6259d8a49e9f8f31aecfbbedd3931a89db44fa"
+    }
+  ],
+  "method": "built-in image_gen, genuine reconstruction from exact approved outfit reference",
+  "rejectedSourceVersions": []
+}

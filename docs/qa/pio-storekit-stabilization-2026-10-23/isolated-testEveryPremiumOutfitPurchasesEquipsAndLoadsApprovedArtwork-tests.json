@@ -1,0 +1,63 @@
+{
+  "devices": [
+    {
+      "architecture": "arm64",
+      "deviceId": "0426CD78-3807-4650-9776-B649780E2884",
+      "deviceName": "Pio StoreKit Local 2026-10-23",
+      "modelName": "iPhone 17",
+      "osBuildNumber": "24A434",
+      "osVersion": "27.0",
+      "platform": "iOS Simulator"
+    }
+  ],
+  "testNodes": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "name": "XCTAssertTrue failed - All registered wardrobe transactions must disappear from Transaction.unfinished within 3 seconds without test-side acknowledgement.\nelapsed=0.005362042 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=0.112021167 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=0.216018167 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=0.323713833 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=0.425676458 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=0.532746542 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=0.641795292 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=0.748786792 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=0.851577125 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=0.954287042 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=1.056802625 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=1.159579667 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=1.262306 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=1.364171583 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=1.471381625 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=1.576459458 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=1.6785335 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=1.781116125 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=1.884082542 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=1.9859955 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=2.08823775 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=2.190680125 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=2.29318 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=2.400913625 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=2.50449275 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=2.606453083 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=2.709220167 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=2.812191208 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000\n\nelapsed=2.9196825 seconds registeredUnfinishedIDs=[98]\nid=98 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:16 +0000",
+                      "nodeType": "Failure Message",
+                      "sourceLocation": {
+                        "filePath": "/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift",
+                        "lineNumber": 335
+                      }
+                    }
+                  ],
+                  "duration": "3\ucd08",
+                  "durationInSeconds": 3.2925349473953247,
+                  "name": "testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()",
+                  "nodeIdentifier": "PioStoreKitIntegrationTests/testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork",
+                  "nodeType": "Test Case",
+                  "result": "Failed"
+                }
+              ],
+              "name": "PioStoreKitIntegrationTests",
+              "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests",
+              "nodeType": "Test Suite",
+              "result": "Failed"
+            }
+          ],
+          "name": "DaylogStoreKitTests",
+          "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests",
+          "nodeType": "Unit test bundle",
+          "result": "Failed"
+        }
+      ],
+      "name": "DaylogiOSStoreKit",
+      "nodeType": "Test Plan",
+      "result": "Failed"
+    }
+  ],
+  "testPlanConfigurations": [
+    {
+      "configurationId": "1",
+      "configurationName": "Test Scheme Action"
+    }
+  ]
+}

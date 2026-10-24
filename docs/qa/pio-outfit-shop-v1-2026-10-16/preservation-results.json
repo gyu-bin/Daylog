@@ -1,0 +1,12 @@
+{
+  "checked": 524,
+  "changed": [
+    "Daylog/Views/Settings/SettingsView.swift",
+    "DaylogTests/ProductUXTests.swift"
+  ],
+  "missing": [],
+  "expectedChanged": [
+    "Daylog/Views/Settings/SettingsView.swift",
+    "DaylogTests/ProductUXTests.swift"
+  ]
+}

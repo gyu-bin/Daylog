@@ -1,0 +1,341 @@
+{
+  "canvas" : [
+    1254,
+    1254
+  ],
+  "grip" : {
+    "endpointDegrees" : -8,
+    "parts" : [
+      "wingRight",
+      "bag"
+    ],
+    "pivot" : [
+      970,
+      840
+    ]
+  },
+  "notes" : [
+    "Eyes\/open\/half\/closed alternatives are mutually exclusive",
+    "Complete generated source alpha preserved",
+    "Source body remains identity registered; no upscale, masks or painting",
+    "Hat and sprout combined, not independently animated",
+    "Derivative registered PNGs are not new source artwork"
+  ],
+  "origin" : "topLeft",
+  "original" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/Daylog\/PioWardrobe.xcassets\/pio_outfit_halloween.imageset\/pio_outfit_halloween.png",
+  "parts" : [
+    {
+      "file" : "footLeft.png",
+      "id" : "footLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        397.64775413711584,
+        1044.2671394799054
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        500,
+        1150
+      ],
+      "scale" : 0.15366430260047281,
+      "sha256" : "d8b1c11089be0463c1abd1bf3536d34dca9f4ac1bd709f6bd0dd258f8ddb126d",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/foot-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+      "z" : 0
+    },
+    {
+      "file" : "footRight.png",
+      "id" : "footRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        698.69976359338057,
+        1045.4491725768321
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        800,
+        1150
+      ],
+      "scale" : 0.14775413711583923,
+      "sha256" : "910dbc3b44fabd9d014b3a58daf634d5ea3d67269b4669fcf37c4ea6d7dfda52",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/foot-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+      "z" : 1
+    },
+    {
+      "file" : "wingLeft.png",
+      "id" : "wingLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        130,
+        660
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        300,
+        850
+      ],
+      "scale" : 0.20000000000000001,
+      "sha256" : "c6f285b81f2bd9d7004c508c8e9f607f369e548c173106fa8a5d67df569b7b5f",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/halloween-v1\/source\/wing-left-candidate.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "ed9dce0230e3dcad3bc2bbbd0a8315b6a946b9267639e64ad1b12b52d77f3c96",
+      "z" : 2
+    },
+    {
+      "file" : "body.png",
+      "id" : "body",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        0,
+        0
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        640,
+        800
+      ],
+      "scale" : 1,
+      "sha256" : "a5684cd1828353cb1e011219eeedf122fb954ff059923de0d272328e9a230f62",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/halloween-v1\/source\/body-candidate.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "fa1949e341772c0ca616a8fab4b0b06134c03b00f4630044b17bb54990183adf",
+      "z" : 3
+    },
+    {
+      "file" : "eyeLeft.png",
+      "id" : "eyeLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        438.74345549738223,
+        577.93193717277484
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        525,
+        662
+      ],
+      "scale" : 0.13089005235602094,
+      "sha256" : "352c7cc6d4ce27e4d283b48e09cc4ba73caccf9fa7ebd095f630f61b15f18a9c",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-open-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "z" : 4
+    },
+    {
+      "file" : "eyeRight.png",
+      "id" : "eyeRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        728.74345549738223,
+        535.93193717277484
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        815,
+        620
+      ],
+      "scale" : 0.13089005235602094,
+      "sha256" : "ab183e553391bf87856e7deeb110333932cf657a4e8108f54c0726f610f97d3c",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-open-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "z" : 5
+    },
+    {
+      "file" : "headwear.png",
+      "id" : "headwear",
+      "neutralAngleDegrees" : -6,
+      "offset" : [
+        206.21124229979466,
+        -42.728439425051249
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 9,
+      "pivot" : [
+        630,
+        470
+      ],
+      "scale" : 0.59984599589322374,
+      "sha256" : "aec2b295516e626fb615572c0645c38499b64a2a3e9f8e38ac8d1dc804ad6e9a",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/halloween-v1\/source\/headwear-candidate.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "67a55c51dceb26e3ce6e1289224d263c83a77930693dc7aaaaeabfe10bc69cb2",
+      "z" : 6
+    },
+    {
+      "file" : "bag.png",
+      "id" : "bag",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        859.66216216216219,
+        716.43581081081084
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        970,
+        840
+      ],
+      "scale" : 0.32094594594594594,
+      "sha256" : "c95d5f232654faf70cfbbe69393220c6cc3be707c72b155051deef628032a74c",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/halloween-v1\/source\/basket-candidate.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "0ad1d3dfa7f27c2b699da572b2c46e398268fa411a360177903d129dbabf9b1d",
+      "z" : 7
+    },
+    {
+      "file" : "wingRight.png",
+      "id" : "wingRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        866.5,
+        656
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        970,
+        840
+      ],
+      "scale" : 0.23000000000000001,
+      "sha256" : "8960f448b991908ba4ceda54d4c4b8c4c01f0095fd85dab438416a9d964af553",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/halloween-v1\/source\/wing-right-candidate.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "e8d2f477db44de69d83216efe2adf16848a19a032c3a9186eca5dc97cba1fcbd",
+      "z" : 8
+    },
+    {
+      "file" : "halfLeft.png",
+      "id" : "halfLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        457.82860824742266,
+        638.8969139634047
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        525,
+        662
+      ],
+      "scale" : 0.083762886597938138,
+      "sha256" : "7a2bd041ed1f15dd4a242441792493c3df4ef63db842a3dc9df0ad8648e36f18",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-half-v1.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+      "z" : 9
+    },
+    {
+      "file" : "lidLeft.png",
+      "id" : "lidLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        442.86600496277913,
+        590.59741727618768
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        525,
+        662
+      ],
+      "scale" : 0.12406947890818859,
+      "sha256" : "2ec57e64b4ef459bb22d33a816214bb6ffe528bc6ae8193d0f2c6e5391979a11",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eyelid-closed-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "z" : 10
+    },
+    {
+      "file" : "halfRight.png",
+      "id" : "halfRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        747.82860824742272,
+        596.8969139634047
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        815,
+        620
+      ],
+      "scale" : 0.083762886597938138,
+      "sha256" : "0a6d6d39f504a131e6947c62baec8b7ee2876f2a4eb7436323f20120d84cb121",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-half-v1.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+      "z" : 11
+    },
+    {
+      "file" : "lidRight.png",
+      "id" : "lidRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        732.86600496277913,
+        548.59741727618768
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        815,
+        620
+      ],
+      "scale" : 0.12406947890818859,
+      "sha256" : "e60b2279b718b03d71e1374ced879a68ce7266d4639782ce89c1ac98e92c33f9",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eyelid-closed-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "z" : 12
+    }
+  ],
+  "status" : "UNAPPROVED_ARTWORK_CANDIDATE"
+}

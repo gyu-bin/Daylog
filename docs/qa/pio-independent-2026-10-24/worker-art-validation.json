@@ -1,0 +1,132 @@
+[
+  {
+    "outfit": "hanbok",
+    "sourceChecks": [
+      {
+        "asset": "pio_cloud_hanbok_v2_torso",
+        "sha": "d184a4d12467be3ea0c0d97141018ce878c44ae7a4e1982bb8deac50d62e4962",
+        "trueAlpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "byteIdenticalCatalog": true
+      },
+      {
+        "asset": "pio_cloud_hanbok_v2_armPair",
+        "sha": "772c1d1d857032ebe7d42d3f45b40931a5acc332df3e23380373453719a25fd3",
+        "trueAlpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "byteIdenticalCatalog": true
+      }
+    ],
+    "registrationCheck": "PASS"
+  },
+  {
+    "outfit": "astronaut",
+    "sourceChecks": [
+      {
+        "asset": "pio_cloud_astronaut_v2_torso",
+        "sha": "107c258f9b5125864cabde321ae009750ce01172defc9eb84541e69c6488e22e",
+        "trueAlpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "byteIdenticalCatalog": true
+      },
+      {
+        "asset": "pio_cloud_astronaut_v2_armPairCompact",
+        "sha": "87419caa9ad026e7b184a473a91c8892f5161cab52d888ad7832564569511671",
+        "trueAlpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "byteIdenticalCatalog": true
+      }
+    ],
+    "registrationCheck": "PASS"
+  },
+  {
+    "outfit": "cherryBlossom",
+    "sourceChecks": [
+      {
+        "asset": "pio_cloud_cherryBlossom_v2_torso",
+        "sha": "440775d3be6812899a1732c07c6245a3c0a34bd5dd2816678aae8346db9db3c0",
+        "trueAlpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "byteIdenticalCatalog": true
+      },
+      {
+        "asset": "pio_cloud_cherryBlossom_v2_armPair",
+        "sha": "7cad52c9584aea599d50351992947696c3ffcada21e063b7a70945643e5f57bb",
+        "trueAlpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "byteIdenticalCatalog": true
+      }
+    ],
+    "registrationCheck": "PASS"
+  },
+  {
+    "outfit": "autumn",
+    "sourceChecks": [
+      {
+        "asset": "pio_cloud_autumn_v2_torso",
+        "sha": "c69154ffe6f74c83e9474f6e7f773438cd4c85d130dfa86c9f99fc440bd2ceaa",
+        "trueAlpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "byteIdenticalCatalog": true
+      },
+      {
+        "asset": "pio_cloud_autumn_v2_armPair",
+        "sha": "38953dfb68df3783dab5ef1bc3233bef531e8282851b4fbae31bbf3ec4e04134",
+        "trueAlpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "byteIdenticalCatalog": true
+      }
+    ],
+    "registrationCheck": "PASS"
+  },
+  {
+    "outfit": "winter",
+    "sourceChecks": [
+      {
+        "asset": "pio_cloud_winter_v2_torso",
+        "sha": "4c4510632a36e41744a9d5af91bbfccda94a39fad736511e6232f97eceebeb1b",
+        "trueAlpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "byteIdenticalCatalog": true
+      },
+      {
+        "asset": "pio_cloud_winter_v2_armPair",
+        "sha": "9f3dc8c0cd4a66aa821afbf072667891769c5e083439e214a0a18f9d6be3fdc7",
+        "trueAlpha": true,
+        "size": [
+          1254,
+          1254
+        ],
+        "byteIdenticalCatalog": true
+      }
+    ],
+    "registrationCheck": "PASS"
+  }
+]

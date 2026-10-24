@@ -1,0 +1,42 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /private/tmp/PioStoreKit-20261023-ios/Build/Products/PioIsolation-072cc632-0a49-4af2-86e0-14562f2cc41b-verify.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitIsolationTests/testFinishInFreshProcess" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/direct-finish-verify.xcresult
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/direct-finish-verify.xcresult
+
+2026-10-23 21:02:46.671 xcodebuild[5526:926850] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:02:50.003180+0900 Daylog[5537:926948] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 21:02:50.375910+0900 Daylog[5537:926948] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 21:02:50.377314+0900 Daylog[5537:926948] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 21:02:50.377531+0900 Daylog[5537:926948] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 21:02:50.448.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 21:02:50.449.
+Test Suite 'PioStoreKitIsolationTests' started at 2026-10-23 21:02:50.449.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testFinishInFreshProcess]' started.
+PIO_ISOLATION {"appEnvironment":"Environment(rawValue: \"Xcode\")","elapsed":"0.057019583 seconds","event":"environment","mode":"direct","os":"Version 27.0 (Build 24A434)","phase":"verify","pid":5537,"run":"072cc632-0a49-4af2-86e0-14562f2cc41b","scenario":"finish","wallTime":1792756970.470006}
+PIO_ISOLATION {"elapsed":"0.05800275 seconds","event":"snapshot.begin","label":"fresh-process-before-session-init","wallTime":1792756970.4709899}
+PIO_ISOLATION {"currentEntitlements":[{"environment":"Environment(rawValue: \"Xcode\")","id":"199","product":"outfit.cafe","revoked":false,"verification":"verified"},{"environment":"Environment(rawValue: \"Xcode\")","id":"198","product":"outfit.space","revoked":false,"verification":"verified"}],"driverLedger":[],"elapsed":"0.062740958 seconds","equipped":"not-applicable","event":"snapshot.return","label":"fresh-process-before-session-init","managerOwned":[],"unfinished":[{"environment":"Environment(rawValue: \"Xcode\")","id":"199","product":"outfit.cafe","revoked":false,"verification":"verified"}],"wallTime":1792756970.475728}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIsolationTests.swift:221: error: -[DaylogStoreKitTests.PioStoreKitIsolationTests testFinishInFreshProcess] : XCTAssertTrue failed - A new process still sees unfinished receipts after the previous process awaited finish
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testFinishInFreshProcess]' failed (0.054 seconds).
+Test Suite 'PioStoreKitIsolationTests' failed at 2026-10-23 21:02:50.507.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.054 (0.058) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 21:02:50.507.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.054 (0.058) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 21:02:50.507.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.054 (0.059) seconds
+2026-10-23 21:02:50.523 xcodebuild[5526:926850] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:02:50.523 xcodebuild[5526:926850] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:02:50.524 xcodebuild[5526:926850] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:02:50.789 xcodebuild[5526:926850] [MT] IDETestOperationsObserverDebug: 4.154 elapsed -- Testing started completed.
+2026-10-23 21:02:50.789 xcodebuild[5526:926850] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 21:02:50.789 xcodebuild[5526:926850] [MT] IDETestOperationsObserverDebug: 4.154 sec, +4.154 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/direct-finish-verify.xcresult
+
+Failing tests:
+	PioStoreKitIsolationTests.testFinishInFreshProcess()
+
+** TEST EXECUTE FAILED **
+
+Testing started

@@ -1,0 +1,92 @@
+{
+  "independent" : [
+    "eyes",
+    "lids",
+    "shared arms\/tablet hold joint"
+  ],
+  "limits" : "Native presentation-layer component captures; candidate geometry still requires visual approval. Held parts never detach or wave independently of the prop. No purchase, preference or whole-screen workflow verification.",
+  "observations" : [
+    {
+      "elapsed" : 0.17154045833740383,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00029305099379778977,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 0.1958101250056643,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00029305099379778977,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 1.6458259166684002,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.6711722500040196,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.9178016666701296,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.024579953566489569,
+      "lidOpacity" : 1,
+      "side" : 64,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 1.9458823750028387,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.024579953566489569,
+      "lidOpacity" : 1,
+      "side" : 220,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 2.3229517083382234,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.016220985465725587,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 2.352576000004774,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.016220985465725587,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 4.9032560416671913,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026143324924134216,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-negative"
+    },
+    {
+      "elapsed" : 4.9281177083321381,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026143324924134216,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-negative"
+    }
+  ],
+  "platform" : "Mac",
+  "revision" : "basic-hands-v2"
+}

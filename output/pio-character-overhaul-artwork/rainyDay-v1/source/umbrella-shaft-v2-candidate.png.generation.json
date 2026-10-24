@@ -1,0 +1,7 @@
+{
+  "mode": "built-in imagegen precise-object-edit",
+  "prompt": "Use case: precise-object-edit. Edit target: supplied isolated silver pole and yellow J umbrella handle on1254×1254 transparent canvas. Correct ONLY the length of the upper metal pole: the upper pole currently reaches near y70; instead shorten its upper endpoint to approximately (650,620) along the same existing diagonal axis, leaving a natural short rounded hidden attachment root there. The remaining shaft from y620 downward and the entire glossy yellow J-handle must stay the same shape, scale, original lower-canvas position and lighting. Do not move, shrink or redesign the J. Preserve J inner hole as genuine transparent alpha. Delete all metal above y620, leaving genuine transparency in that upper area. This is genuine artwork reconstruction of a shorter pole, not a mask supplied by me. No canopy, body, wings, text, objects, backdrop or halo. Keep1254-square framing with original margins. Premium realistic2.5D rounded glossy yellow plastic and silver highlights, original high-resolution material.",
+  "target": "source/umbrella-shaft-candidate.png",
+  "output": "source/umbrella-shaft-v2-candidate.png",
+  "status": "UNAPPROVED_CANDIDATE"
+}

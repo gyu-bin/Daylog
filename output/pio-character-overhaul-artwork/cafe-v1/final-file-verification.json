@@ -1,0 +1,501 @@
+{
+  "pngs": [
+    {
+      "file": "qa/body-candidate-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1272934,
+      "sha256": "b0bf3f326026fc517553b279bb40f70f82f87b2724d9e22676ae5c94fde7890c"
+    },
+    {
+      "file": "qa/body-candidate-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1254347,
+      "sha256": "b81d20f636c53cc77d22fdb558354f51b6e28b3f05f7dc55788f6eab13a8beb7"
+    },
+    {
+      "file": "qa/body-v2-candidate-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1270387,
+      "sha256": "76c2e4178a954856437ae430f0bbc81ca5ca645e6485f09d114fd6f9d3ba4961"
+    },
+    {
+      "file": "qa/body-v2-candidate-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1258507,
+      "sha256": "c8164b93d1af1a26132d56f5d279f6c30d0abf0b9252b7414286c92e584ec648"
+    },
+    {
+      "file": "qa/components-dark.png",
+      "dimensions": [
+        1500,
+        900
+      ],
+      "bytes": 676037,
+      "sha256": "d28a3c7c5be118d8a78b3d179221d7e4725e2ec97880a54ae627a4743eb7e65c"
+    },
+    {
+      "file": "qa/components-light.png",
+      "dimensions": [
+        1500,
+        900
+      ],
+      "bytes": 661348,
+      "sha256": "50cefd6ffd20a34b5fa56b84e69984ae19552c8a59e54cc8905712cfbb17cf7e"
+    },
+    {
+      "file": "qa/cup-candidate-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 885510,
+      "sha256": "cb731d697efce3809a87bfb23d401450a275819a4a6ab6c999c62f39947902bf"
+    },
+    {
+      "file": "qa/cup-candidate-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 887179,
+      "sha256": "6b2255d56615696a3201cc7f2fba3226a20e6982919a20b5ef323a82a410306a"
+    },
+    {
+      "file": "qa/hat-candidate-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1130851,
+      "sha256": "535b154b5dff9f6f47b0cc4a9f49bc13754444faaa9699d0c382830ba59a3a11"
+    },
+    {
+      "file": "qa/hat-candidate-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1147115,
+      "sha256": "2089c6a42b11b129250ee215113094d8dad115fedf1dda4cca43d6bd3964a32e"
+    },
+    {
+      "file": "qa/left-candidate-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 659889,
+      "sha256": "098dae0bab42d2696b45491cd3bd332ee8bd70ee66f2c4f8d1a49c33d68d9b06"
+    },
+    {
+      "file": "qa/left-candidate-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 633954,
+      "sha256": "b7ba7ec0e2f7ab7819e73de64fa54e14636e7c3ee27d7885608d0da0dcf4c6f5"
+    },
+    {
+      "file": "qa/right-candidate-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 742138,
+      "sha256": "e4e5223086195772e448a63054dbad58705656b1eb98c8fa691d6e752db4946b"
+    },
+    {
+      "file": "qa/right-candidate-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 725053,
+      "sha256": "69a7c23fd42b60c4f1e09161563c56de15b5dce493570c377d1812b8fd508507"
+    },
+    {
+      "file": "qa/right-v2-candidate-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 641425,
+      "sha256": "b172986c15f6df997a9cce57dce82c43c8c248a893036d90061f2525f70b5900"
+    },
+    {
+      "file": "qa/right-v2-candidate-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 623152,
+      "sha256": "55b49a8bd28dbd07b250e7fc884f38ec2deae73350a54e7fb9e6de15a5571744"
+    },
+    {
+      "file": "registration/comparison-220pt-3x-dark.png",
+      "dimensions": [
+        4380,
+        810
+      ],
+      "bytes": 911095,
+      "sha256": "c06a99654e7da4b30fb130933b7c0b31f80ff39c0943d1ac3c07f24dfeb85870"
+    },
+    {
+      "file": "registration/comparison-220pt-3x-light.png",
+      "dimensions": [
+        4380,
+        810
+      ],
+      "bytes": 905444,
+      "sha256": "a70988c17bedd36022afa15be78bf8d0c224eb487a7500262bda820b01295679"
+    },
+    {
+      "file": "registration/comparison-64pt-3x-dark.png",
+      "dimensions": [
+        1572,
+        342
+      ],
+      "bytes": 97780,
+      "sha256": "c1938782368be4d20324d39b5dba98b4709a6dafde518605e64534ffb66da980"
+    },
+    {
+      "file": "registration/comparison-64pt-3x-light.png",
+      "dimensions": [
+        1572,
+        342
+      ],
+      "bytes": 96099,
+      "sha256": "4b2bf316a9d5c7bd2b9e371ebe69233ef0a607f3a23cc7dd49c85f09d9eb03f1"
+    },
+    {
+      "file": "registration/eyes-closed-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1627921,
+      "sha256": "0d6cbf9e910fede92e37d6f0daa35329e8735247e818b593c9c248b3e989b6ea"
+    },
+    {
+      "file": "registration/eyes-closed-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1406351,
+      "sha256": "42d961b5ee02eebc9c1e4404acdbe15ef743cca28125834f60fa2634b95507c4"
+    },
+    {
+      "file": "registration/eyes-closed-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1404436,
+      "sha256": "bc55aa622cc67eccfbc69a18aac5eaa024195e937dffe7a9f185f7ad97be6f5a"
+    },
+    {
+      "file": "registration/layers/body-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1104716,
+      "sha256": "11a0e2a452031407ff45064bce77ee99cc8fcba963852df666e045a93d40513e"
+    },
+    {
+      "file": "registration/layers/eyeLeft-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 24055,
+      "sha256": "a0077346615263eb8e196212adfe1e03348e8721b5b57c717475ae88209d0e48"
+    },
+    {
+      "file": "registration/layers/eyeRight-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 23994,
+      "sha256": "2311912df5c481df6d5308975fed69151716ca4a5e0ff31fa340cc61be259e36"
+    },
+    {
+      "file": "registration/layers/footLeft-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 24073,
+      "sha256": "8af1d494bf148e166d0b2da35c3281ec0ecb0f2441d38cf1876eb99eac869430"
+    },
+    {
+      "file": "registration/layers/footRight-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 28872,
+      "sha256": "879ec278415c185e69f945f37b47dba4f49b3d7dcad3b655c9c173a968a74e26"
+    },
+    {
+      "file": "registration/layers/headwear-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 587955,
+      "sha256": "1b00b38495cb96d5f495a90e0def6ffe364d0447374394bfecd195f7a8c134df"
+    },
+    {
+      "file": "registration/layers/lidLeft-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 14304,
+      "sha256": "230c74c14df155d0d02c3a9b70b74250a8a00047c0ff61242a338e453396e042"
+    },
+    {
+      "file": "registration/layers/lidRight-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 14288,
+      "sha256": "14d7a81580b87a648f7b4f073afb85aeb02d231df3e503a9c1d5314a07f794e5"
+    },
+    {
+      "file": "registration/layers/prop-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 126710,
+      "sha256": "c48ad81138a87dbe17cdddfe22ea1cb517b666e8c3424c06c5b5a0ec88a5a1b3"
+    },
+    {
+      "file": "registration/layers/wingLeft-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 96961,
+      "sha256": "de63639e1fb6437a258b625e9720bdff0e3d08cc7b1e9d21ec1044f226aa477e"
+    },
+    {
+      "file": "registration/layers/wingRight-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 69309,
+      "sha256": "01e072e18cde79acbb2ff1c3decae0ed9d7cf776a5ca916778ab3cf200e7efbc"
+    },
+    {
+      "file": "registration/neutral-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1630255,
+      "sha256": "f191df718a82236081029433c8a3e1f6b07bb72ef22993c96b91a02160661d82"
+    },
+    {
+      "file": "registration/neutral-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1408021,
+      "sha256": "ea36b80bd8a5233c5eaba436600a420298ed36a3c02f58341c8a43273acfd4ea"
+    },
+    {
+      "file": "registration/neutral-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1406368,
+      "sha256": "10bdff4f3d326b997742d0a2183487d3cda994d1d97d3c4b74346d3963992961"
+    },
+    {
+      "file": "registration/offline-motion-frames.png",
+      "dimensions": [
+        1320,
+        440
+      ],
+      "bytes": 240245,
+      "sha256": "6e2249e4e3499e93698c69aadf720dbaa2ff75a37c2cf8e13bb44a1450aaebd4"
+    },
+    {
+      "file": "registration/prop-raised-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1633763,
+      "sha256": "458ce7bcd28a79dc1b54a8b680a68a19ca057b71a1dc096c4db2f2408a92598f"
+    },
+    {
+      "file": "registration/prop-raised-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1409106,
+      "sha256": "41e23c9ec23d4a3c158fee594d0a67709109e9be372f43e2ea7a3eaf8494fc15"
+    },
+    {
+      "file": "registration/prop-raised-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1408255,
+      "sha256": "a924c0019d06613b92173f8130d00f80a0925ce4df8efa0946af91cd635d41fe"
+    },
+    {
+      "file": "registration/wing-minus12-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1625742,
+      "sha256": "6008f94d743d6ad6c05df555f6083d0fa3aa14cb83bb178780bcc1cdb7682ab0"
+    },
+    {
+      "file": "registration/wing-minus12-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1403230,
+      "sha256": "f34c1595dda683bdf913b54723e53a0b87396905af0ca8995aadb7476c5b65f9"
+    },
+    {
+      "file": "registration/wing-minus12-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1401894,
+      "sha256": "63c2bd251f8e5b1776553a5bb14258280009a309a0b129bb69e37f551df66ed8"
+    },
+    {
+      "file": "registration/wing-plus12-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1633836,
+      "sha256": "15cfdb132c7b76191de11d09c08ba9075abe086c8289a69e74056c1987ad70e5"
+    },
+    {
+      "file": "registration/wing-plus12-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1409722,
+      "sha256": "a354bb105f9e28bd4a6e0f9c4d022f609dad6f974fceba35a86898c1c4b7923e"
+    },
+    {
+      "file": "registration/wing-plus12-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1408237,
+      "sha256": "f6102fd075d515ab4aab1623e90e05874829986543cf61e18430c17b02e0faa1"
+    },
+    {
+      "file": "source/body-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1571563,
+      "sha256": "5005ce65eab26ae679c0acf63f7ce4348edcdf64d78dce3de3bd7684ace6311e"
+    },
+    {
+      "file": "source/body-v2-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1567866,
+      "sha256": "2f02ae13cee78f6f3b967fa72da21349acc16c48c35b57e4098a881b79bc0cb6"
+    },
+    {
+      "file": "source/cup-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1108264,
+      "sha256": "5691fd855231178d3a0efd347c94531bf85745898ae37f5ffbf0dc94f0468ff4"
+    },
+    {
+      "file": "source/hat-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1468485,
+      "sha256": "d64f13dfeb4fbe6accb49b521602df3d627a4855fa4d73670287b181908a63d1"
+    },
+    {
+      "file": "source/left-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 829807,
+      "sha256": "528f2ae916e183b5fef6537e48127f585b2c17403f89d0316851a678fa18414f"
+    },
+    {
+      "file": "source/right-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 923001,
+      "sha256": "268e9a2f18291b5b5b2588df56d3a366d3b21f19afb8fa86ff153f34c2b30353"
+    },
+    {
+      "file": "source/right-v2-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 805994,
+      "sha256": "1e3214a0acb4b9044a3594d8d7f0179ba035172f3500dc3770858211ecd8320a"
+    }
+  ],
+  "gif": {
+    "file": "registration/offline-independent-proof.gif",
+    "dimensions": [
+      440,
+      440
+    ],
+    "frames": 40,
+    "frameMilliseconds": 80,
+    "bytes": 2868588,
+    "sha256": "7e560be0c23ebdc2c4f948762b427c332c2d66ec5321ac50b22c184d44cc434b"
+  }
+}

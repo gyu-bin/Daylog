@@ -1,0 +1,59 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /private/tmp/PioStoreKit-20261023-ios/Build/Products/PioIsolation-42ca7c82-0277-4c37-8bf2-35b238122cd0-seed.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitIsolationTests/testScenario" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-cancel-seed.xcresult
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-cancel-seed.xcresult
+
+2026-10-23 21:02:51.451 xcodebuild[5561:927181] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:02:55.033586+0900 Daylog[5571:927285] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 21:02:55.432588+0900 Daylog[5571:927285] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 21:02:55.433857+0900 Daylog[5571:927285] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 21:02:55.434153+0900 Daylog[5571:927285] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 21:02:55.507.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 21:02:55.508.
+Test Suite 'PioStoreKitIsolationTests' started at 2026-10-23 21:02:55.508.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario]' started.
+PIO_ISOLATION {"appEnvironment":"Environment(rawValue: \"Xcode\")","elapsed":"0.072137667 seconds","event":"environment","mode":"manager","os":"Version 27.0 (Build 24A434)","phase":"seed","pid":5571,"run":"42ca7c82-0277-4c37-8bf2-35b238122cd0","scenario":"cancel","wallTime":1792756975.5360389}
+PIO_ISOLATION {"elapsed":"0.08359075 seconds","event":"SKTestSession.init.return","wallTime":1792756975.5474901}
+PIO_ISOLATION {"elapsed":"0.084277125 seconds","event":"resetToDefaultState.return","wallTime":1792756975.5481791}
+PIO_ISOLATION {"elapsed":"0.08519125 seconds","event":"clearTransactions.return","wallTime":1792756975.549093}
+PIO_ISOLATION {"dialogsDisabled":true,"elapsed":"0.09494575 seconds","event":"fixture.ready","purchaseError":"nil","storefront":"KOR","wallTime":1792756975.5588479}
+PIO_ISOLATION {"elapsed":"0.096498708 seconds","event":"manager.start.begin","wallTime":1792756975.5604}
+PioStoreKit: client=653B6B72 time=1792756975.561063 raw listener started subscription=A9F0B7D9-EDAF-4C34-8E58-8053CDAED583
+PIO_ISOLATION {"elapsed":"0.103367708 seconds","event":"manager.ownership","owned":["basic"],"wallTime":1792756975.56727}
+PIO_ISOLATION {"elapsed":"0.110345458 seconds","event":"manager.start.return","wallTime":1792756975.5742469}
+PIO_ISOLATION {"elapsed":"0.11040875 seconds","event":"snapshot.begin","label":"before-scenario","wallTime":1792756975.574312}
+PIO_ISOLATION {"currentEntitlements":[],"driverLedger":[],"elapsed":"0.114951292 seconds","equipped":"basic","event":"snapshot.return","label":"before-scenario","managerOwned":["basic"],"unfinished":[],"wallTime":1792756975.5788531}
+PIO_ISOLATION {"configured":"Optional(StoreKitTest.SKTestFailures.Purchase.generic(StoreKit.StoreKitError.userCancelled))","elapsed":"0.120843917 seconds","event":"setSimulatedError.return","wallTime":1792756975.5847459}
+PIO_ISOLATION {"elapsed":"0.120941458 seconds","event":"purchase.begin","product":"outfit.student","wallTime":1792756975.5848441}
+2026-10-23 21:02:55.598973+0900 Daylog[5571:927394] [Default] Received error that does not have a corresponding StoreKit Error: Error Domain=ASDServerErrorDomain Code=907 "(null)" UserInfo={storefront-country-code=KOR, client-environment-type=XcodeTest}
+2026-10-23 21:02:55.603173+0900 Daylog[5571:927394] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=907 "(null)" UserInfo={storefront-country-code=KOR, client-environment-type=XcodeTest}
+PIO_ISOLATION {"busy":false,"elapsed":"0.142941333 seconds","event":"manager.purchase.return","result":"failed(message: \"App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.\")","wallTime":1792756975.606842}
+PIO_ISOLATION {"elapsed":"0.14301675 seconds","event":"snapshot.begin","label":"after-cancel","wallTime":1792756975.60692}
+PIO_ISOLATION {"currentEntitlements":[],"driverLedger":[],"elapsed":"0.146610208 seconds","equipped":"basic","event":"snapshot.return","label":"after-cancel","managerOwned":["basic"],"unfinished":[],"wallTime":1792756975.6105099}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIsolationTests.swift:164: error: -[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario] : XCTAssertEqual failed: ("other") is not equal to ("cancelled")
+PioStoreKit: client=653B6B72 time=1792756975.6336231 raw listener ended subscription=A9F0B7D9-EDAF-4C34-8E58-8053CDAED583
+PIO_ISOLATION {"elapsed":"0.169864125 seconds","event":"adapter.trace","events":["client=653B6B72 time=1792756975.561063 raw listener started subscription=A9F0B7D9-EDAF-4C34-8E58-8053CDAED583","client=653B6B72 time=1792756975.6336231 raw listener ended subscription=A9F0B7D9-EDAF-4C34-8E58-8053CDAED583"],"remainingListeners":0,"wallTime":1792756975.6337662}
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario]' failed (0.123 seconds).
+Test Suite 'PioStoreKitIsolationTests' failed at 2026-10-23 21:02:55.637.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.123 (0.129) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 21:02:55.637.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.123 (0.129) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 21:02:55.637.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.123 (0.130) seconds
+2026-10-23 21:02:55.656 xcodebuild[5561:927181] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:02:55.656 xcodebuild[5561:927181] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:02:55.657 xcodebuild[5561:927181] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:02:55.926 xcodebuild[5561:927181] [MT] IDETestOperationsObserverDebug: 4.518 elapsed -- Testing started completed.
+2026-10-23 21:02:55.926 xcodebuild[5561:927181] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 21:02:55.926 xcodebuild[5561:927181] [MT] IDETestOperationsObserverDebug: 4.518 sec, +4.518 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-cancel-seed.xcresult
+
+Failing tests:
+	PioStoreKitIsolationTests.testScenario()
+
+** TEST EXECUTE FAILED **
+
+Testing started

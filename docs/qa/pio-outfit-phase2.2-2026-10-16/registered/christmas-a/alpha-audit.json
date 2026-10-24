@@ -1,0 +1,263 @@
+[
+  {
+    "alpha" : {
+      "alpha0" : 728227,
+      "alpha1to254" : 844264,
+      "alpha255" : 25
+    },
+    "boundsAlpha1" : [
+      0,
+      17,
+      1224,
+      1237
+    ],
+    "boundsAlpha16" : [
+      68,
+      171,
+      1126,
+      1016
+    ],
+    "boundsAlpha128" : [
+      71,
+      175,
+      1119,
+      1008
+    ],
+    "height" : 1254,
+    "name" : "body-clean",
+    "sha256" : "fa5fb8c1b7bfa066ddf27413b5e239278e69f5b1c3169cc559794aadfa7c91c7",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1013347,
+      "alpha1to254" : 559080,
+      "alpha255" : 89
+    },
+    "boundsAlpha1" : [
+      0,
+      18,
+      1254,
+      1236
+    ],
+    "boundsAlpha16" : [
+      16,
+      251,
+      1227,
+      777
+    ],
+    "boundsAlpha128" : [
+      19,
+      253,
+      1222,
+      772
+    ],
+    "height" : 1254,
+    "name" : "hat",
+    "sha256" : "1dc34a6230ba70a3c51ab038f80e6c09cfb5faef96f8e64d62cb5d033f0deab3",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 883971,
+      "alpha1to254" : 688110,
+      "alpha255" : 435
+    },
+    "boundsAlpha1" : [
+      0,
+      28,
+      1253,
+      1226
+    ],
+    "boundsAlpha16" : [
+      196,
+      192,
+      880,
+      949
+    ],
+    "boundsAlpha128" : [
+      197,
+      194,
+      878,
+      946
+    ],
+    "height" : 1254,
+    "name" : "gift",
+    "sha256" : "64e3cc78dedbdd5a4eb3b4c8728f7af5d05b000f000acdca1b6b07e3f9f84332",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1037528,
+      "alpha1to254" : 534871,
+      "alpha255" : 117
+    },
+    "boundsAlpha1" : [
+      0,
+      0,
+      1244,
+      1254
+    ],
+    "boundsAlpha16" : [
+      100,
+      208,
+      1075,
+      863
+    ],
+    "boundsAlpha128" : [
+      104,
+      211,
+      1068,
+      854
+    ],
+    "height" : 1254,
+    "name" : "hand-left",
+    "sha256" : "5ca16c9902b8e8c0e3710b197a6dafbe711bbe8aed83f78ac29a75e7fa75b5d6",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 957425,
+      "alpha1to254" : 614994,
+      "alpha255" : 97
+    },
+    "boundsAlpha1" : [
+      0,
+      26,
+      1238,
+      1204
+    ],
+    "boundsAlpha16" : [
+      154,
+      101,
+      1077,
+      1000
+    ],
+    "boundsAlpha128" : [
+      156,
+      103,
+      1071,
+      997
+    ],
+    "height" : 1254,
+    "name" : "hand-right",
+    "sha256" : "b20a62876c358a37889c664f93d05dab48dbe14663b0b7b935767571e3d90bd6",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1117569,
+      "alpha1to254" : 453853,
+      "alpha255" : 826
+    },
+    "boundsAlpha1" : [
+      33,
+      32,
+      1198,
+      1142
+    ],
+    "boundsAlpha16" : [
+      277,
+      245,
+      764,
+      750
+    ],
+    "boundsAlpha128" : [
+      278,
+      246,
+      762,
+      748
+    ],
+    "height" : 1192,
+    "name" : "eye-open",
+    "sha256" : "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1417434,
+      "alpha1to254" : 154588,
+      "alpha255" : 226
+    },
+    "boundsAlpha1" : [
+      37,
+      20,
+      1263,
+      1116
+    ],
+    "boundsAlpha16" : [
+      259,
+      552,
+      806,
+      293
+    ],
+    "boundsAlpha128" : [
+      267,
+      559,
+      793,
+      285
+    ],
+    "height" : 1192,
+    "name" : "eyelid-closed",
+    "sha256" : "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1023245,
+      "alpha1to254" : 548821,
+      "alpha255" : 182
+    },
+    "boundsAlpha1" : [
+      0,
+      9,
+      1305,
+      1158
+    ],
+    "boundsAlpha16" : [
+      178,
+      200,
+      969,
+      846
+    ],
+    "boundsAlpha128" : [
+      179,
+      201,
+      967,
+      845
+    ],
+    "height" : 1192,
+    "name" : "foot",
+    "sha256" : "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1026182,
+      "alpha1to254" : 546682,
+      "alpha255" : 0
+    },
+    "boundsAlpha1" : [
+      49,
+      57,
+      1467,
+      967
+    ],
+    "boundsAlpha16" : [
+      91,
+      66,
+      1381,
+      896
+    ],
+    "boundsAlpha128" : [
+      92,
+      67,
+      1379,
+      894
+    ],
+    "height" : 1024,
+    "name" : "sprout",
+    "sha256" : "56b0770a054cf8b0423c844c8db8796a096cb232e9691c826ecf171ca6905673",
+    "width" : 1536
+  }
+]

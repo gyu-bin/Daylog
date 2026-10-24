@@ -1,0 +1,493 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme DaylogStoreKitTests -configuration Debug -destination platform=macOS -derivedDataPath /tmp/PioStoreKit-20261023-mac -clonedSourcePackagesDirPath /tmp/PioOverhaul-v2-build/SourcePackages -parallel-testing-enabled NO "-only-testing:DaylogTests/PioStoreKitIntegrationTests" -resultBundlePath /tmp/PioStoreKit-20261023-mac-local-v1.xcresult test PRODUCT_BUNDLE_IDENTIFIER=com.daylog.verify CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= PROVISIONING_PROFILE_SPECIFIER= CODE_SIGN_ENTITLEMENTS=Config/Verify.entitlements
+
+Build settings from command line:
+    CODE_SIGN_ENTITLEMENTS = Config/Verify.entitlements
+    CODE_SIGN_IDENTITY = -
+    CODE_SIGN_STYLE = Manual
+    DEVELOPMENT_TEAM = 
+    PRODUCT_BUNDLE_IDENTIFIER = com.daylog.verify
+    PROVISIONING_PROFILE_SPECIFIER = 
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/PioStoreKit-20261023-mac-local-v1.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+note: Using codesigning identity override: -
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (3 targets)
+    Target 'DaylogTests' in project 'Daylog'
+        ➜ Explicit dependency on target 'Daylog' in project 'Daylog'
+    Target 'Daylog' in project 'Daylog'
+        ➜ Explicit dependency on target 'Sparkle-product' in project 'Sparkle'
+    Target 'Sparkle-product' in project 'Sparkle' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: f563298d230371211c6726cad2ff9e5d
+Build description path: /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/XCBuildData/f563298d230371211c6726cad2ff9e5d.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk /tmp/PioStoreKit-20261023-mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -o /tmp/PioStoreKit-20261023-mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+
+WriteAuxiliaryFile /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/Entitlements.plist (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/Entitlements.plist
+
+WriteAuxiliaryFile /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources/Entitlements.plist (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources/Entitlements.plist
+
+MkDir /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /bin/mkdir -p /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest
+
+ProcessProductPackaging /Users/mungyubin/Desktop/Coding/Daylog/Config/Verify.entitlements /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Entitlements:
+    
+    {
+    "com.apple.security.app-sandbox" = 1;
+    "com.apple.security.files.user-selected.read-write" = 1;
+    "com.apple.security.get-task-allow" = 1;
+    "com.apple.security.temporary-exception.mach-lookup.global-name" =     (
+        "com.daylog.verify-spks",
+        "com.daylog.verify-spki"
+    );
+}
+    
+    builtin-productPackagingUtility /Users/mungyubin/Desktop/Coding/Daylog/Config/Verify.entitlements -entitlements -format xml -o /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent
+
+ProcessProductPackagingDER /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent.der (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /usr/bin/derq query -f xml -i /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent -o /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent.der --raw
+
+Ld /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib normal (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -F/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -install_name @rpath/Daylog.debug.dylib -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_dependency_info.dat -Xlinker -no_adhoc_codesign -o /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib
+
+Copy /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks/Sparkle.framework /tmp/PioOverhaul-v2-build/SourcePackages/artifacts/sparkle/Sparkle/Sparkle.xcframework/macos-arm64_x86_64/Sparkle.framework (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks -remove-static-executable /tmp/PioOverhaul-v2-build/SourcePackages/artifacts/sparkle/Sparkle/Sparkle.xcframework/macos-arm64_x86_64/Sparkle.framework /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks
+
+CodeSign /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks/Sparkle.framework/Versions/B (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --preserve-metadata\=identifier,entitlements,flags --generate-entitlement-der /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks/Sparkle.framework/Versions/B
+/tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks/Sparkle.framework/Versions/B: replacing existing signature
+
+ProcessInfoPlistFile /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Info.plist /Users/mungyubin/Desktop/Coding/Daylog/Config/Daylog-Info.plist (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-infoPlistUtility /Users/mungyubin/Desktop/Coding/Daylog/Config/Daylog-Info.plist -producttype com.apple.product-type.application -genpkginfo /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PkgInfo -expandbuildsettings -platform macosx -additionalcontentfile /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist -scanforprivacyfile /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks/Sparkle.framework -o /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Info.plist
+
+Ld /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib normal (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -L/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -F/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -F/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -filelist /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.LinkFileList -install_name @rpath/Daylog.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/../Frameworks -Xlinker -object_path_lto -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftmodule -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -framework Sparkle -Xlinker -no_adhoc_codesign -o /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib
+
+ProcessProductPackaging /Users/mungyubin/Desktop/Coding/Daylog/Config/Verify.entitlements /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.xctest.xcent (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Entitlements:
+    
+    {
+    "com.apple.security.app-sandbox" = 1;
+    "com.apple.security.files.user-selected.read-write" = 1;
+    "com.apple.security.temporary-exception.mach-lookup.global-name" =     (
+        "com.daylog.verify-spks",
+        "com.daylog.verify-spki"
+    );
+}
+    
+    builtin-productPackagingUtility /Users/mungyubin/Desktop/Coding/Daylog/Config/Verify.entitlements -entitlements -format xml -o /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.xctest.xcent
+
+ProcessProductPackagingDER /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.xctest.xcent /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.xctest.xcent.der (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /usr/bin/derq query -f xml -i /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.xctest.xcent -o /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.xctest.xcent.der --raw
+
+ConstructStubExecutorLinkFileList /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-ExecutorLinkFileList-normal-arm64.txt (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    construct-stub-executor-link-file-list /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'Daylog' from project 'Daylog')
+
+Ld /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog normal (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -F/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/../Frameworks -rdynamic -Xlinker -no_deduplicate -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-ExecutorLinkFileList-normal-arm64.txt /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib -Xlinker -no_adhoc_codesign -o /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog
+
+CopySwiftLibs /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Library/SystemExtensions --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Extensions --platform macosx --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+
+ExtractAppIntentsMetadata (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name Daylog --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk --xcode-version 27A9275 --platform-family macOS --deployment-target 14.0 --bundle-identifier com.daylog.verify --output /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Resources --target-triple arm64-apple-macos14.0 --binary-file /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog --dependency-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_dependency_info.dat --stringsdata-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList --metadata-file-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.DependencyMetadataFileList --static-metadata-file-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-23 18:55:54.884 appintentsmetadataprocessor[66943:619917] Starting appintentsmetadataprocessor export
+2026-10-23 18:55:54.889 appintentsmetadataprocessor[66943:619917] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+ProcessInfoPlistFile /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Info.plist /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/empty-DaylogTests.plist (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-infoPlistUtility /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/empty-DaylogTests.plist -producttype com.apple.product-type.bundle.unit-test -expandbuildsettings -platform macosx -o /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Info.plist
+
+Ld /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/MacOS/DaylogTests normal (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -L/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -F/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -filelist /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/../Frameworks -Xlinker -rpath -Xlinker @executable_path/../Frameworks -bundle_loader /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog -Xlinker -object_path_lto -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftmodule -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib -Xlinker -no_adhoc_codesign -o /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/MacOS/DaylogTests
+
+CopySwiftLibs /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/MacOS/DaylogTests --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Frameworks --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/PlugIns --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Library/SystemExtensions --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Extensions --platform macosx --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+
+ExtractAppIntentsMetadata (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name DaylogTests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk --xcode-version 27A9275 --platform-family macOS --deployment-target 14.0 --bundle-identifier com.daylog.verify --output /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Resources --target-triple arm64-apple-macos14.0 --binary-file /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/MacOS/DaylogTests --dependency-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_dependency_info.dat --stringsdata-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.SwiftFileList --metadata-file-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.DependencyMetadataFileList --static-metadata-file-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-23 18:55:55.239 appintentsmetadataprocessor[66946:619943] Starting appintentsmetadataprocessor export
+2026-10-23 18:55:55.240 appintentsmetadataprocessor[66946:619943] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+CodeSign /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --entitlements /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.xctest.xcent --timestamp\=none --generate-entitlement-der /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest
+
+RegisterExecutionPolicyException /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-RegisterExecutionPolicyException /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest
+
+Touch /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /usr/bin/touch -c /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest
+
+CodeSign /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib
+
+CodeSign /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib
+
+CodeSign /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --entitlements /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent --timestamp\=none --generate-entitlement-der /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app
+
+Validate /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-validationUtility /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app -no-validate-extension -infoplist-subpath Contents/Info.plist
+
+RegisterWithLaunchServices /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-lsregisterurl --record-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/XCBuildData/registered-launchservices.txt -- /System/Library/Frameworks/CoreServices.framework/Versions/Current/Frameworks/LaunchServices.framework/Versions/Current/Support/lsregister -f -R -trusted /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app
+
+PruneExplicitPrecompiledModules /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/PioStoreKit-20261023-mac/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+note: Disabling hardened runtime with ad-hoc codesigning. (in target 'Daylog' from project 'Daylog')
+2026-10-23 18:55:56.734127+0900 Daylog[66953:620203] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 18:55:56.734978+0900 Daylog[66953:620199] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 18:55:56.734991+0900 Daylog[66953:620199] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 18:55:56.734589+0900 Daylog[66953:620203] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 18:55:56.735791+0900 Daylog[66953:620209] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 18:55:56.735803+0900 Daylog[66953:620209] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 18:55:56.736604+0900 Daylog[66953:620209] [Connection] Will NOT re-try to establish the connection
+2026-10-23 18:55:56.736622+0900 Daylog[66953:620199] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 18:55:56.736633+0900 Daylog[66953:620199] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 18:55:56.934988+0900 Daylog[66953:620106] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /Users/mungyubin/Library/Containers/com.daylog.verify/Data/tmp/com.daylog.verify.savedState
+2026-10-23 18:55:57.717681+0900 Daylog[66953:620198] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-23 18:55:57.793.
+Test Suite 'DaylogTests.xctest' started at 2026-10-23 18:55:57.793.
+Test Suite 'PioStoreKitIntegrationTests' started at 2026-10-23 18:55:57.794.
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testCancellationFromStoreKitDoesNotUnlockOrShowFailure]' started.
+PioStoreKit: Transaction.updates listener started
+2026-10-23 18:58:45.721184+0900 Daylog[66953:620106] [AppKit] Invalid view geometry: width is negative.
+2026-10-23 18:58:45.721674+0900 Daylog[66953:620106] [AppKit] Invalid view geometry: height is negative.
+2026-10-23 18:58:45.721769+0900 Daylog[66953:620106] [AppKit] Invalid view geometry: width is negative.
+2026-10-23 18:58:45.721811+0900 Daylog[66953:620106] [AppKit] Invalid view geometry: height is negative.
+2026-10-23 18:58:45.734184+0900 Daylog[66953:620106] [AppKit] Invalid view geometry: width is negative.
+2026-10-23 18:58:45.734284+0900 Daylog[66953:620106] [AppKit] Invalid view geometry: height is negative.
+<unknown>:0: warning: -[DaylogTests.PioStoreKitIntegrationTests testCancellationFromStoreKitDoesNotUnlockOrShowFailure] : Invalid view geometry: width is negative.
+<unknown>:0: warning: -[DaylogTests.PioStoreKitIntegrationTests testCancellationFromStoreKitDoesNotUnlockOrShowFailure] : Invalid view geometry: height is negative.
+2026-10-23 18:59:23.481187+0900 Daylog[66953:620335] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:330: error: -[DaylogTests.PioStoreKitIntegrationTests testCancellationFromStoreKitDoesNotUnlockOrShowFailure] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("cancelled")
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testCancellationFromStoreKitDoesNotUnlockOrShowFailure]' failed (206.031 seconds).
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testConfigurationLoadsThirteenNonConsumablesAtKoreanDisplayPrice]' started.
+PioStoreKit: Transaction.updates listener started
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testConfigurationLoadsThirteenNonConsumablesAtKoreanDisplayPrice]' passed (0.037 seconds).
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork]' started.
+PioStoreKit: Transaction.updates listener started
+2026-10-23 18:59:25.116807+0900 Daylog[66953:621220] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:237: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.cherryBlossom)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:238: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:239: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("basic") is not equal to ("cherryBlossom")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:256: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("[Daylog.PioOutfitID.basic]") is not equal to ("[Daylog.PioOutfitID.basic, Daylog.PioOutfitID.cherryBlossom]")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:258: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : failed - Missing verified transaction for outfit.cherryblossom
+2026-10-23 18:59:26.008276+0900 Daylog[66953:624680] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:237: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.summerVacation)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:238: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:239: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("basic") is not equal to ("summerVacation")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:256: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("[Daylog.PioOutfitID.basic]") is not equal to ("[Daylog.PioOutfitID.cherryBlossom, Daylog.PioOutfitID.basic, Daylog.PioOutfitID.summerVacation]")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:258: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : failed - Missing verified transaction for outfit.summer
+2026-10-23 18:59:27.306772+0900 Daylog[66953:621220] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:237: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.autumn)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:238: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:239: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("basic") is not equal to ("autumn")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:256: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("[Daylog.PioOutfitID.basic]") is not equal to ("[Daylog.PioOutfitID.basic, Daylog.PioOutfitID.autumn, Daylog.PioOutfitID.cherryBlossom, Daylog.PioOutfitID.summerVacation]")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:258: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : failed - Missing verified transaction for outfit.autumn
+2026-10-23 18:59:28.160529+0900 Daylog[66953:620199] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:237: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.winter)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:238: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:239: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("basic") is not equal to ("winter")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:256: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("[Daylog.PioOutfitID.basic]") is not equal to ("[Daylog.PioOutfitID.basic, Daylog.PioOutfitID.autumn, Daylog.PioOutfitID.cherryBlossom, Daylog.PioOutfitID.summerVacation, Daylog.PioOutfitID.winter]")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:258: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : failed - Missing verified transaction for outfit.winter
+2026-10-23 18:59:29.088032+0900 Daylog[66953:624696] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:237: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.halloween)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:238: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:239: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("basic") is not equal to ("halloween")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:256: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("[Daylog.PioOutfitID.basic]") is not equal to ("[Daylog.PioOutfitID.basic, Daylog.PioOutfitID.autumn, Daylog.PioOutfitID.halloween, Daylog.PioOutfitID.cherryBlossom, Daylog.PioOutfitID.summerVacation, Daylog.PioOutfitID.winter]")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:258: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : failed - Missing verified transaction for outfit.halloween
+2026-10-23 18:59:29.911316+0900 Daylog[66953:624682] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:237: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.christmas)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:238: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:239: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("basic") is not equal to ("christmas")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:256: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("[Daylog.PioOutfitID.basic]") is not equal to ("[Daylog.PioOutfitID.winter, Daylog.PioOutfitID.halloween, Daylog.PioOutfitID.christmas, Daylog.PioOutfitID.cherryBlossom, Daylog.PioOutfitID.basic, Daylog.PioOutfitID.summerVacation, Daylog.PioOutfitID.autumn]")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:258: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : failed - Missing verified transaction for outfit.christmas
+2026-10-23 18:59:31.231202+0900 Daylog[66953:624682] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:237: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.hanbok)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:238: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:239: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("basic") is not equal to ("hanbok")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:256: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("[Daylog.PioOutfitID.basic]") is not equal to ("[Daylog.PioOutfitID.cherryBlossom, Daylog.PioOutfitID.winter, Daylog.PioOutfitID.christmas, Daylog.PioOutfitID.halloween, Daylog.PioOutfitID.autumn, Daylog.PioOutfitID.basic, Daylog.PioOutfitID.summerVacation, Daylog.PioOutfitID.hanbok]")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:258: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : failed - Missing verified transaction for outfit.hanbok
+2026-10-23 18:59:32.049812+0900 Daylog[66953:624681] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:237: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.cafe)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:238: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:239: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("basic") is not equal to ("cafe")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:256: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("[Daylog.PioOutfitID.basic]") is not equal to ("[Daylog.PioOutfitID.cherryBlossom, Daylog.PioOutfitID.winter, Daylog.PioOutfitID.christmas, Daylog.PioOutfitID.halloween, Daylog.PioOutfitID.autumn, Daylog.PioOutfitID.cafe, Daylog.PioOutfitID.basic, Daylog.PioOutfitID.summerVacation, Daylog.PioOutfitID.hanbok]")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:258: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : failed - Missing verified transaction for outfit.cafe
+2026-10-23 18:59:32.858742+0900 Daylog[66953:624682] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:237: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.student)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:238: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:239: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("basic") is not equal to ("student")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:256: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("[Daylog.PioOutfitID.basic]") is not equal to ("[Daylog.PioOutfitID.cherryBlossom, Daylog.PioOutfitID.winter, Daylog.PioOutfitID.student, Daylog.PioOutfitID.christmas, Daylog.PioOutfitID.halloween, Daylog.PioOutfitID.autumn, Daylog.PioOutfitID.cafe, Daylog.PioOutfitID.basic, Daylog.PioOutfitID.summerVacation, Daylog.PioOutfitID.hanbok]")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:258: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : failed - Missing verified transaction for outfit.student
+2026-10-23 18:59:34.088125+0900 Daylog[66953:624681] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:237: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.fitness)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:238: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:239: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("basic") is not equal to ("fitness")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:256: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("[Daylog.PioOutfitID.basic]") is not equal to ("[Daylog.PioOutfitID.cherryBlossom, Daylog.PioOutfitID.winter, Daylog.PioOutfitID.student, Daylog.PioOutfitID.fitness, Daylog.PioOutfitID.christmas, Daylog.PioOutfitID.halloween, Daylog.PioOutfitID.autumn, Daylog.PioOutfitID.cafe, Daylog.PioOutfitID.basic, Daylog.PioOutfitID.summerVacation, Daylog.PioOutfitID.hanbok]")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:258: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : failed - Missing verified transaction for outfit.workout
+2026-10-23 18:59:34.950653+0900 Daylog[66953:624681] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:237: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.rainyDay)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:238: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:239: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("basic") is not equal to ("rainyDay")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:256: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("[Daylog.PioOutfitID.basic]") is not equal to ("[Daylog.PioOutfitID.cherryBlossom, Daylog.PioOutfitID.winter, Daylog.PioOutfitID.student, Daylog.PioOutfitID.fitness, Daylog.PioOutfitID.rainyDay, Daylog.PioOutfitID.christmas, Daylog.PioOutfitID.halloween, Daylog.PioOutfitID.autumn, Daylog.PioOutfitID.cafe, Daylog.PioOutfitID.basic, Daylog.PioOutfitID.summerVacation, Daylog.PioOutfitID.hanbok]")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:258: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : failed - Missing verified transaction for outfit.rainy
+2026-10-23 18:59:35.795397+0900 Daylog[66953:624681] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:237: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.pajamas)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:238: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:239: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("basic") is not equal to ("pajamas")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:256: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("[Daylog.PioOutfitID.basic]") is not equal to ("[Daylog.PioOutfitID.hanbok, Daylog.PioOutfitID.autumn, Daylog.PioOutfitID.christmas, Daylog.PioOutfitID.cherryBlossom, Daylog.PioOutfitID.student, Daylog.PioOutfitID.rainyDay, Daylog.PioOutfitID.cafe, Daylog.PioOutfitID.halloween, Daylog.PioOutfitID.winter, Daylog.PioOutfitID.summerVacation, Daylog.PioOutfitID.basic, Daylog.PioOutfitID.pajamas, Daylog.PioOutfitID.fitness]")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:258: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : failed - Missing verified transaction for outfit.pajamas
+2026-10-23 18:59:36.780773+0900 Daylog[66953:624682] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:237: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.astronaut)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:238: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:239: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("basic") is not equal to ("astronaut")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:256: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("[Daylog.PioOutfitID.basic]") is not equal to ("[Daylog.PioOutfitID.halloween, Daylog.PioOutfitID.winter, Daylog.PioOutfitID.cafe, Daylog.PioOutfitID.fitness, Daylog.PioOutfitID.rainyDay, Daylog.PioOutfitID.autumn, Daylog.PioOutfitID.hanbok, Daylog.PioOutfitID.summerVacation, Daylog.PioOutfitID.astronaut, Daylog.PioOutfitID.pajamas, Daylog.PioOutfitID.cherryBlossom, Daylog.PioOutfitID.christmas, Daylog.PioOutfitID.basic, Daylog.PioOutfitID.student]")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:258: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : failed - Missing verified transaction for outfit.space
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:266: error: -[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertEqual failed: ("0") is not equal to ("13")
+PioStoreKit: acknowledgement observed=true elapsed=0.004991167 seconds snapshots=1
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork]' failed (12.958 seconds).
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testExplicitRestoreRecoversExternalPurchase]' started.
+2026-10-23 18:59:36.881899+0900 Daylog[66953:624680] [Default] Device verification failed for transaction
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:321: error: -[DaylogTests.PioStoreKitIntegrationTests testExplicitRestoreRecoversExternalPurchase] : XCTAssertEqual failed: ("failed(message: "구매 내역을 확인하지 못했어요. 연결 상태를 확인하고 다시 복원해 주세요.")") is not equal to ("restored(Set([Daylog.PioOutfitID.astronaut]))")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:322: error: -[DaylogTests.PioStoreKitIntegrationTests testExplicitRestoreRecoversExternalPurchase] : XCTAssertTrue failed
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testExplicitRestoreRecoversExternalPurchase]' failed (0.071 seconds).
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testInterruptedPurchaseOnlyUnlocksAfterResolution]' started.
+PioStoreKit: Transaction.updates listener started
+2026-10-23 18:59:37.796794+0900 Daylog[66953:625224] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:101: error: -[DaylogTests.PioStoreKitIntegrationTests testInterruptedPurchaseOnlyUnlocksAfterResolution] : XCTUnwrap failed: expected non-nil value of type "SKTestTransaction"
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testInterruptedPurchaseOnlyUnlocksAfterResolution]' failed (0.934 seconds).
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate]' started.
+PioStoreKit: Transaction.updates listener started
+2026-10-23 18:59:39.117866+0900 Daylog[66953:625226] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:172: error: -[DaylogTests.PioStoreKitIntegrationTests testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("pending")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:101: error: -[DaylogTests.PioStoreKitIntegrationTests testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate] : XCTUnwrap failed: expected non-nil value of type "SKTestTransaction"
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate]' failed (1.311 seconds).
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testProductLoadFailureAndRetryUseRealStoreKitAPI]' started.
+PioStoreKit: Transaction.updates listener started
+2026-10-23 18:59:39.171972+0900 Daylog[66953:624681] [Default] Error in products service call: StoreKitServiceError(error: StoreKit.StoreKitServiceError.ErrorType.system(StoreKit.StoreKitInternalError.notAvailableInStorefront), environment: Optional("XcodeTest"), storefront: Optional("KOR"))
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testProductLoadFailureAndRetryUseRealStoreKitAPI]' passed (0.048 seconds).
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger]' started.
+PioStoreKit: Transaction.updates listener started
+2026-10-23 18:59:40.137424+0900 Daylog[66953:625224] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:142: error: -[DaylogTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.cafe)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:143: error: -[DaylogTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:144: error: -[DaylogTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:147: error: -[DaylogTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:147: error: -[DaylogTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:147: error: -[DaylogTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger] : XCTAssertTrue failed
+2026-10-23 18:59:41.497361+0900 Daylog[66953:625223] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:151: error: -[DaylogTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.cafe)")
+PioStoreKit: Transaction.updates listener started
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:158: error: -[DaylogTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:159: error: -[DaylogTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger] : XCTAssertEqual failed: ("basic") is not equal to ("cafe")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:162: error: -[DaylogTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger] : failed - Purchase must produce a verified StoreKit transaction
+PioStoreKit: Transaction.updates listener ended
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger]' failed (2.350 seconds).
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testPurchaseFailureLeavesLockedAndAllowsRetry]' started.
+PioStoreKit: Transaction.updates listener started
+2026-10-23 18:59:43.233307+0900 Daylog[66953:624681] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+2026-10-23 18:59:44.557020+0900 Daylog[66953:624681] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:344: error: -[DaylogTests.PioStoreKitIntegrationTests testPurchaseFailureLeavesLockedAndAllowsRetry] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.fitness)")
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testPurchaseFailureLeavesLockedAndAllowsRetry]' failed (3.043 seconds).
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment]' started.
+PioStoreKit: Transaction.updates listener started
+2026-10-23 18:59:45.409348+0900 Daylog[66953:625222] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=3504 "이 항목을 찾을 수 없습니다." UserInfo={NSLocalizedFailureReason=이 항목을 찾을 수 없습니다., client-environment-type=Sandbox, AMSServerErrorCode=3504, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:191: error: -[DaylogTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("purchased(Daylog.PioOutfitID.winter)")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:196: error: -[DaylogTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:101: error: -[DaylogTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment] : XCTUnwrap failed: expected non-nil value of type "SKTestTransaction"
+PioStoreKit: Transaction.updates listener ended
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:198: error: -[DaylogTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment] : Failed due to unwaited expectation 'Refund transaction update removes ownership'.
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment]' failed (0.856 seconds).
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testVerificationFailureNeverGrantsFreshManagerOwnership]' started.
+2026-10-23 18:59:45.469818+0900 Daylog[66953:624680] [Default] Device verification failed for transaction
+Test Case '-[DaylogTests.PioStoreKitIntegrationTests testVerificationFailureNeverGrantsFreshManagerOwnership]' passed (0.043 seconds).
+Test Suite 'PioStoreKitIntegrationTests' failed at 2026-10-23 18:59:45.480.
+	 Executed 11 tests, with 87 failures (1 unexpected) in 227.683 (227.686) seconds
+Test Suite 'DaylogTests.xctest' failed at 2026-10-23 18:59:45.480.
+	 Executed 11 tests, with 87 failures (1 unexpected) in 227.683 (227.687) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 18:59:45.480.
+	 Executed 11 tests, with 87 failures (1 unexpected) in 227.683 (227.688) seconds
+2026-10-23 18:59:51.430 xcodebuild[66887:619492] [MT] IDETestOperationsObserverDebug: 235.651 elapsed -- Testing started completed.
+2026-10-23 18:59:51.430 xcodebuild[66887:619492] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 18:59:51.430 xcodebuild[66887:619492] [MT] IDETestOperationsObserverDebug: 235.651 sec, +235.651 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioStoreKit-20261023-mac-local-v1.xcresult
+
+Failing tests:
+	PioStoreKitIntegrationTests.testCancellationFromStoreKitDoesNotUnlockOrShowFailure()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testExplicitRestoreRecoversExternalPurchase()
+	PioStoreKitIntegrationTests.testExplicitRestoreRecoversExternalPurchase()
+	PioStoreKitIntegrationTests.testInterruptedPurchaseOnlyUnlocksAfterResolution()
+	PioStoreKitIntegrationTests.testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate()
+	PioStoreKitIntegrationTests.testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate()
+	PioStoreKitIntegrationTests.testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()
+	PioStoreKitIntegrationTests.testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()
+	PioStoreKitIntegrationTests.testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()
+	PioStoreKitIntegrationTests.testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()
+	PioStoreKitIntegrationTests.testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()
+	PioStoreKitIntegrationTests.testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()
+	PioStoreKitIntegrationTests.testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()
+	PioStoreKitIntegrationTests.testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()
+	PioStoreKitIntegrationTests.testPurchaseFailureLeavesLockedAndAllowsRetry()
+	PioStoreKitIntegrationTests.testRefundUpdateRevokesAccessAndRefreshResetsEquipment()
+	PioStoreKitIntegrationTests.testRefundUpdateRevokesAccessAndRefreshResetsEquipment()
+	PioStoreKitIntegrationTests.testRefundUpdateRevokesAccessAndRefreshResetsEquipment()
+	PioStoreKitIntegrationTests.testRefundUpdateRevokesAccessAndRefreshResetsEquipment()
+
+** TEST FAILED **
+
+Testing started

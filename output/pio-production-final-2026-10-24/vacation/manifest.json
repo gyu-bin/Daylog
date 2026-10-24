@@ -1,0 +1,114 @@
+{
+  "source": {
+    "path": "Daylog/RoutimoriTrial.xcassets/routimori_vacation_hammock.imageset/routimori_vacation_hammock.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "bytes": 1137262,
+    "sha256": "28ce211117085ac1ff7a4ff9ef77c85ef48c40b5bb96c1254a544fd515f6103e",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "alpha_bbox": [
+      0,
+      51,
+      1024,
+      1446
+    ],
+    "alpha_over_200_bbox": [
+      0,
+      398,
+      1024,
+      945
+    ]
+  },
+  "generated": [
+    {
+      "path": "output/pio-production-final-2026-10-24/vacation/basic-day-complete-drink-v1.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 677818,
+      "sha256": "cfaa4beee131297103f6f616b9469446d8769e5d5c9fcd3b142bc55ee9744b35",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        33,
+        21,
+        964,
+        1496
+      ],
+      "alpha_over_200_bbox": [
+        478,
+        755,
+        700,
+        1000
+      ],
+      "provenance": "built-in image_gen edit of approved source; newly painted pixels, not recovered source pixels",
+      "runtime_approved": false
+    },
+    {
+      "path": "output/pio-production-final-2026-10-24/vacation/basic-day-complete-drink-v2.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1297870,
+      "sha256": "d304e545303d5a741397912998e00e56cbf4050fcdb9bc1c87156224e3c12fa0",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        19,
+        994,
+        1520
+      ],
+      "alpha_over_200_bbox": [
+        149,
+        389,
+        881,
+        1186
+      ],
+      "provenance": "built-in image_gen edit of approved source; newly painted pixels, not recovered source pixels",
+      "runtime_approved": false
+    },
+    {
+      "path": "output/pio-production-final-2026-10-24/vacation/basic-day-eye-free-candidate-v1.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1123931,
+      "sha256": "3780cadebc80819d20572dc002f7ba219277b4543246565629840ce43f3b1ab2",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        29,
+        1024,
+        1462
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        380,
+        1024,
+        947
+      ],
+      "provenance": "built-in image_gen edit of approved source; newly painted pixels, not recovered source pixels",
+      "runtime_approved": false
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "scheme": "DaylogiOSStoreKit",
+  "destination": "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884",
+  "derivedData": "/private/tmp/PioStoreKit-20261023-ios",
+  "source": "/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift",
+  "plannedInvocations": 2,
+  "runs": [
+    {
+      "test": "testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork",
+      "iteration": 1,
+      "status": "timeout",
+      "exitCode": -15,
+      "durationSeconds": 100.017,
+      "log": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-integration-2026-10-23/ios-focused-diagnostics/01-01-testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork.log",
+      "xcresult": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-integration-2026-10-23/ios-focused-diagnostics/01-01-testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork.xcresult",
+      "command": [
+        "/usr/bin/xcodebuild",
+        "-project",
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj",
+        "-scheme",
+        "DaylogiOSStoreKit",
+        "-configuration",
+        "Debug",
+        "-destination",
+        "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884",
+        "-derivedDataPath",
+        "/private/tmp/PioStoreKit-20261023-ios",
+        "-disableAutomaticPackageResolution",
+        "-parallel-testing-enabled",
+        "NO",
+        "-only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests/testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork",
+        "-resultBundlePath",
+        "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-integration-2026-10-23/ios-focused-diagnostics/01-01-testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork.xcresult",
+        "test-without-building"
+      ]
+    }
+  ]
+}

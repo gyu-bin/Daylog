@@ -1,0 +1,16 @@
+{
+  "tool": "built-in image_gen",
+  "transparent_background": true,
+  "assetStatus": "CANDIDATE_PENDING_NATIVE_QA",
+  "pixelEdits": false,
+  "prompts": [
+    {
+      "purpose": "astroTorso",
+      "prompt": "Use case: precise-object-edit. Input image is the authoritative approved seated ASTRONAUT RoutiMori Pio cloud asset, with an already eyeless clean face and separate existing visor layer elsewhere. Create a genuine clean underlying torso asset by removing ONLY BOTH white/lavender suited arms, sleeve cuffs and cream mitten tips, and removing the entire green tablet. Genuinely restore the hidden white/lavender spacesuit torso behind the hands/tablet and the natural shoulder attachment areas. Preserve exact1254x1254canvas and all existing head/body positions, full closed helmet rim and earpieces, head sprout, eyeless cream fur face, rosy cheeks, beak, lower padded suit, purple ankle cuffs and orange seated feet. Keep the approved rounded proportions, glossy helmet material, soft padded fabric, colors and lighting. No redesign, no added control panels, buttons, hoses, logos, drink, straw, gift or new features. No eyes or eyebrows. No arms/hands/tablet. Keep helmet geometry and opening unchanged so original independent eyes and existing visor overlay still align perfectly. ONE full-canvas genuinely transparentRGBA source, not a concept board, no background or ground shadow. Reconstruct only missing hidden suit material, preserving original identity and costume."
+    },
+    {
+      "purpose": "astroArms",
+      "prompt": "Technical game-art export for a cute cartoon chick in the approved spacesuit shown in the reference. Create ONLY the matching two white-and-lavender astronaut sleeve-and-mitten assemblies for independent animation. Genuine transparent1254x1254 PNG pair, exactly one left assembly and one right assembly with empty space between. Preserve original short padded white sleeves, broad pale-lavender cuff rings, thin ivory furry cuff rims, small cream rounded mitten-shaped wing tips pointing inward in the original green-tablet-holding pose, glossy-soft premium2.5D material and same lighting. Original left approx x278..556,y850..1055; right approx x790..1050,y850..1055. Keep these original small source positions/proportions instead of enlarging. Reconstruct a complete hidden padded shoulder-root extension behind each sleeve, not a flat cut edge. These are plush-toy astronaut clothing parts, not human anatomy. Do not include helmet, visor, torso, shoulder backpack, face, eyes, sprout, feet, tablet, background, floor, text, drinks or straws. No redesign, extra fingers, bare Basic-Pio arm substitution, hoses, stars, new colors or extra parts. Only two soft rounded spacesuit sleeves with the existing original white/lavender cuffs and cream cartoon mitten tips."
+    }
+  ]
+}

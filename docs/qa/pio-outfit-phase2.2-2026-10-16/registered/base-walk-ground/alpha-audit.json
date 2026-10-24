@@ -1,0 +1,205 @@
+[
+  {
+    "alpha" : {
+      "alpha0" : 925743,
+      "alpha1to254" : 646773,
+      "alpha255" : 0
+    },
+    "boundsAlpha1" : [
+      0,
+      21,
+      1253,
+      1233
+    ],
+    "boundsAlpha16" : [
+      194,
+      207,
+      885,
+      891
+    ],
+    "boundsAlpha128" : [
+      199,
+      211,
+      876,
+      883
+    ],
+    "height" : 1254,
+    "name" : "body-clean",
+    "sha256" : "83bcdf815b8b1c1312dc0fcd0eea9b004423cf660f034bd5e95f9604988b1594",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1305320,
+      "alpha1to254" : 266919,
+      "alpha255" : 9
+    },
+    "boundsAlpha1" : [
+      0,
+      24,
+      1305,
+      1164
+    ],
+    "boundsAlpha16" : [
+      393,
+      262,
+      512,
+      762
+    ],
+    "boundsAlpha128" : [
+      396,
+      266,
+      507,
+      755
+    ],
+    "height" : 1192,
+    "name" : "wing-left",
+    "sha256" : "4f4620bdd501d394ca1e2101e8de94bf0a4d340212f11a0fecb1737c52181cfa",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 874140,
+      "alpha1to254" : 698060,
+      "alpha255" : 48
+    },
+    "boundsAlpha1" : [
+      0,
+      8,
+      1305,
+      1184
+    ],
+    "boundsAlpha16" : [
+      194,
+      61,
+      1020,
+      1078
+    ],
+    "boundsAlpha128" : [
+      195,
+      62,
+      1018,
+      1076
+    ],
+    "height" : 1192,
+    "name" : "wing-right",
+    "sha256" : "6e304377636d2056c6cfdc492343ee51db3ed17133eb7798f1b4db22bd299d46",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1117569,
+      "alpha1to254" : 453853,
+      "alpha255" : 826
+    },
+    "boundsAlpha1" : [
+      33,
+      32,
+      1198,
+      1142
+    ],
+    "boundsAlpha16" : [
+      277,
+      245,
+      764,
+      750
+    ],
+    "boundsAlpha128" : [
+      278,
+      246,
+      762,
+      748
+    ],
+    "height" : 1192,
+    "name" : "eye-open",
+    "sha256" : "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1417434,
+      "alpha1to254" : 154588,
+      "alpha255" : 226
+    },
+    "boundsAlpha1" : [
+      37,
+      20,
+      1263,
+      1116
+    ],
+    "boundsAlpha16" : [
+      259,
+      552,
+      806,
+      293
+    ],
+    "boundsAlpha128" : [
+      267,
+      559,
+      793,
+      285
+    ],
+    "height" : 1192,
+    "name" : "eyelid-closed",
+    "sha256" : "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1023245,
+      "alpha1to254" : 548821,
+      "alpha255" : 182
+    },
+    "boundsAlpha1" : [
+      0,
+      9,
+      1305,
+      1158
+    ],
+    "boundsAlpha16" : [
+      178,
+      200,
+      969,
+      846
+    ],
+    "boundsAlpha128" : [
+      179,
+      201,
+      967,
+      845
+    ],
+    "height" : 1192,
+    "name" : "foot",
+    "sha256" : "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1026182,
+      "alpha1to254" : 546682,
+      "alpha255" : 0
+    },
+    "boundsAlpha1" : [
+      49,
+      57,
+      1467,
+      967
+    ],
+    "boundsAlpha16" : [
+      91,
+      66,
+      1381,
+      896
+    ],
+    "boundsAlpha128" : [
+      92,
+      67,
+      1379,
+      894
+    ],
+    "height" : 1024,
+    "name" : "sprout",
+    "sha256" : "56b0770a054cf8b0423c844c8db8796a096cb232e9691c826ecf171ca6905673",
+    "width" : 1536
+  }
+]

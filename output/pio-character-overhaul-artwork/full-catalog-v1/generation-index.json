@@ -1,0 +1,21 @@
+{
+  "mode": "built-in image_gen",
+  "newNativeSourceCountThisContinuation": 3,
+  "items": [
+    {
+      "role": "happy-eye",
+      "source": "new-native-sources/eye-happy-v1.png",
+      "exactPrompt": "new-native-sources/happy-eye-generation.json"
+    },
+    {
+      "role": "pajamas-arm",
+      "source": "new-native-sources/wing-oval-compact-candidate-v5.png",
+      "exactPrompt": "new-native-sources/pajamas-arm-generation.json"
+    },
+    {
+      "role": "rainy-shaft",
+      "source": "new-native-sources/umbrella-shaft-v3-candidate.png",
+      "exactPrompt": "new-native-sources/rainy-shaft-generation.json"
+    }
+  ]
+}

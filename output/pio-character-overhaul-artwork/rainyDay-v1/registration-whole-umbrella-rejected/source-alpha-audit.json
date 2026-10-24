@@ -1,0 +1,101 @@
+[
+  {
+    "alphaOpaque" : 528,
+    "alphaPartial" : 651205,
+    "alphaZero" : 920783,
+    "pixels" : [
+      1254,
+      1254
+    ],
+    "sha256" : "7d988e5d46c8ad6d8bde8d2a2ca7156666e89f71a9adbc130aa036178babf2c3",
+    "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/rainyDay-v1\/source\/body-candidate.png"
+  },
+  {
+    "alphaOpaque" : 510,
+    "alphaPartial" : 531241,
+    "alphaZero" : 1040765,
+    "pixels" : [
+      1254,
+      1254
+    ],
+    "sha256" : "6b20affb2e364ef5298fdcd9e3c070815d5e08729b6c5fc7f6f75163a783b97c",
+    "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/rainyDay-v1\/source\/boot-candidate.png"
+  },
+  {
+    "alphaOpaque" : 326,
+    "alphaPartial" : 506171,
+    "alphaZero" : 1066019,
+    "pixels" : [
+      1254,
+      1254
+    ],
+    "sha256" : "96f2a03ae85e043649fc97ac5de7f5cbb87eb86f25d186c348c12384e25d58ed",
+    "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/rainyDay-v1\/source\/wing-left-candidate.png"
+  },
+  {
+    "alphaOpaque" : 235,
+    "alphaPartial" : 494755,
+    "alphaZero" : 1077526,
+    "pixels" : [
+      1254,
+      1254
+    ],
+    "sha256" : "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+    "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-half-v1.png"
+  },
+  {
+    "alphaOpaque" : 729,
+    "alphaPartial" : 448982,
+    "alphaZero" : 1122805,
+    "pixels" : [
+      1254,
+      1254
+    ],
+    "sha256" : "3a8f4c520f2acf16b3316ac1664fb95a12fc9575147e02f2ec7b74be0a0c8417",
+    "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/rainyDay-v1\/source\/umbrella-candidate.png"
+  },
+  {
+    "alphaOpaque" : 0,
+    "alphaPartial" : 512713,
+    "alphaZero" : 1060151,
+    "pixels" : [
+      1536,
+      1024
+    ],
+    "sha256" : "639387f2916fb32af0ab30ebb8f43b09ed5e88366c052b7c7b8b91f51f893199",
+    "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/cherryBlossom-v2\/source\/sprout-v3-review.png"
+  },
+  {
+    "alphaOpaque" : 271,
+    "alphaPartial" : 376915,
+    "alphaZero" : 1195330,
+    "pixels" : [
+      1254,
+      1254
+    ],
+    "sha256" : "2658715f4e4d11d78f30a8c63fc3f103035a8d2a32305a3ba9ad6bc379229f13",
+    "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/rainyDay-v1\/source\/wing-right-candidate.png"
+  },
+  {
+    "alphaOpaque" : 226,
+    "alphaPartial" : 154588,
+    "alphaZero" : 1417434,
+    "pixels" : [
+      1319,
+      1192
+    ],
+    "sha256" : "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+    "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eyelid-closed-v1.png"
+  },
+  {
+    "alphaOpaque" : 826,
+    "alphaPartial" : 453853,
+    "alphaZero" : 1117569,
+    "pixels" : [
+      1319,
+      1192
+    ],
+    "sha256" : "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+    "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-open-v1.png"
+  }
+]

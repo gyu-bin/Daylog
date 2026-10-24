@@ -1,0 +1,104 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme DaylogGlobalPioReview -configuration Debug -destination platform=macOS -derivedDataPath /tmp/RoutimoriStoreKit.noindex/mac -clonedSourcePackagesDirPath /tmp/DaylogStage4.noindex/verify/SourcePackages -disableAutomaticPackageResolution -parallel-testing-enabled NO -resultBundlePath /tmp/Routimori-mac-global-review.xcresult CODE_SIGNING_ALLOWED=YES CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual CODE_SIGN_ENTITLEMENTS= DEVELOPMENT_TEAM= test
+
+Build settings from command line:
+    CODE_SIGN_ENTITLEMENTS = 
+    CODE_SIGN_IDENTITY = -
+    CODE_SIGN_STYLE = Manual
+    CODE_SIGNING_ALLOWED = YES
+    DEVELOPMENT_TEAM = 
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/Routimori-mac-global-review.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+note: Using codesigning identity override: -
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (3 targets)
+    Target 'DaylogTests' in project 'Daylog'
+        ➜ Explicit dependency on target 'Daylog' in project 'Daylog'
+    Target 'Daylog' in project 'Daylog'
+        ➜ Explicit dependency on target 'Sparkle-product' in project 'Sparkle'
+    Target 'Sparkle-product' in project 'Sparkle' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk /tmp/RoutimoriStoreKit.noindex/mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -o /tmp/RoutimoriStoreKit.noindex/mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+
+PruneExplicitPrecompiledModules /tmp/RoutimoriStoreKit.noindex/mac/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/RoutimoriStoreKit.noindex/mac/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/RoutimoriStoreKit.noindex/mac/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+note: Disabling hardened runtime with ad-hoc codesigning. (in target 'Daylog' from project 'Daylog')
+2026-10-16 15:52:47.979503+0900 Daylog[27813:31489794] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 15:52:47.979859+0900 Daylog[27813:31489794] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 15:52:47.980380+0900 Daylog[27813:31489804] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 15:52:47.980391+0900 Daylog[27813:31489804] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 15:52:47.981213+0900 Daylog[27813:31489795] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 15:52:47.981225+0900 Daylog[27813:31489795] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 15:52:47.981950+0900 Daylog[27813:31489795] [Connection] Will NOT re-try to establish the connection
+2026-10-16 15:52:47.981967+0900 Daylog[27813:31489794] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 15:52:47.981974+0900 Daylog[27813:31489794] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 15:52:48.082727+0900 Daylog[27813:31489755] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.mungyubin.daylog.savedState
+2026-10-16 15:52:48.553743+0900 Daylog[27813:31489804] [Common] Unable to obtain a task name port right for pid 615: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-16 15:52:48.637.
+Test Suite 'DaylogTests.xctest' started at 2026-10-16 15:52:48.637.
+Test Suite 'PioStoreKitReviewTests' started at 2026-10-16 15:52:48.637.
+Test Case '-[DaylogTests.PioStoreKitReviewTests testInteractivePurchaseReview]' started.
+PioStoreKit: Transaction.updates listener started
+2026-10-16 15:52:48.721004+0900 Daylog[27813:31489804] [Default] Device verification failed for transaction
+2026-10-16 15:52:48.721258+0900 Daylog[27813:31489804] [Default] Device verification failed for transaction
+2026-10-16 15:52:48.721454+0900 Daylog[27813:31489804] [Default] Device verification failed for transaction
+2026-10-16 15:52:48.721653+0900 Daylog[27813:31489804] [Default] Device verification failed for transaction
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitReviewTests.swift:55: error: -[DaylogTests.PioStoreKitReviewTests testInteractivePurchaseReview] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitReviewTests.swift:55: error: -[DaylogTests.PioStoreKitReviewTests testInteractivePurchaseReview] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitReviewTests.swift:55: error: -[DaylogTests.PioStoreKitReviewTests testInteractivePurchaseReview] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitReviewTests.swift:55: error: -[DaylogTests.PioStoreKitReviewTests testInteractivePurchaseReview] : XCTAssertTrue failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitReviewTests.swift:57: error: -[DaylogTests.PioStoreKitReviewTests testInteractivePurchaseReview] : XCTAssertTrue failed
+PIO_STOREKIT_REVIEW_READY stop=/var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/routimori-storekit-review.done
+Test Case '-[DaylogTests.PioStoreKitReviewTests testInteractivePurchaseReview]' failed (84.091 seconds).
+Test Suite 'PioStoreKitReviewTests' failed at 2026-10-16 15:54:12.730.
+	 Executed 1 test, with 5 failures (0 unexpected) in 84.091 (84.092) seconds
+Test Suite 'DaylogTests.xctest' failed at 2026-10-16 15:54:12.730.
+	 Executed 1 test, with 5 failures (0 unexpected) in 84.091 (84.093) seconds
+Test Suite 'Selected tests' failed at 2026-10-16 15:54:12.730.
+	 Executed 1 test, with 5 failures (0 unexpected) in 84.091 (84.093) seconds
+2026-10-16 15:54:26.169 xcodebuild[27760:31489467] [MT] IDETestOperationsObserverDebug: 98.574 elapsed -- Testing started completed.
+2026-10-16 15:54:26.169 xcodebuild[27760:31489467] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-16 15:54:26.169 xcodebuild[27760:31489467] [MT] IDETestOperationsObserverDebug: 98.574 sec, +98.574 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/Routimori-mac-global-review.xcresult
+
+Failing tests:
+	PioStoreKitReviewTests.testInteractivePurchaseReview()
+	PioStoreKitReviewTests.testInteractivePurchaseReview()
+
+** TEST FAILED **
+
+Testing started

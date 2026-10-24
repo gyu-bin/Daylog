@@ -1,0 +1,175 @@
+{
+  "bakedDetails" : [
+    "hair flower",
+    "hair tassel",
+    "waist flower",
+    "waist bow",
+    "skirt"
+  ],
+  "canvas" : [
+    1254,
+    1254
+  ],
+  "layers" : [
+    {
+      "id" : "footLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        420.60887512899899,
+        1046.9762641898865
+      ],
+      "pivot" : [
+        530,
+        1100
+      ],
+      "scale" : 0.1651186790505676,
+      "source" : "candidates\/base\/foot-v1.png",
+      "z" : 0
+    },
+    {
+      "id" : "footRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        717.44582043343655,
+        1049.0402476780187
+      ],
+      "pivot" : [
+        817,
+        1095
+      ],
+      "scale" : 0.15479876160990713,
+      "source" : "candidates\/base\/foot-v1.png",
+      "z" : 1
+    },
+    {
+      "id" : "sprout",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        332.69999999999999,
+        19.050000000000011
+      ],
+      "pivot" : [
+        625,
+        365
+      ],
+      "scale" : 0.37,
+      "source" : "candidates\/base\/sprout-v1.png",
+      "z" : 2
+    },
+    {
+      "id" : "body",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        101.8594217347956,
+        145.62811565304088
+      ],
+      "pivot" : [
+        650,
+        780
+      ],
+      "scale" : 0.86241276171485548,
+      "source" : "candidates\/hanbok\/body-clean-v1.png",
+      "z" : 3
+    },
+    {
+      "id" : "eyeLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        451.01832460732987,
+        546.29057591623041
+      ],
+      "pivot" : [
+        539,
+        631
+      ],
+      "scale" : 0.13350785340314136,
+      "source" : "candidates\/base\/eye-open-v1.png",
+      "z" : 4
+    },
+    {
+      "id" : "eyeRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        739.46858638743458,
+        509.57329842931938
+      ],
+      "pivot" : [
+        824,
+        592
+      ],
+      "scale" : 0.12827225130890052,
+      "source" : "candidates\/base\/eye-open-v1.png",
+      "z" : 5
+    },
+    {
+      "id" : "lidLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        453.58064516129031,
+        548.77419354838707
+      ],
+      "pivot" : [
+        539,
+        639
+      ],
+      "scale" : 0.12903225806451613,
+      "source" : "candidates\/base\/eyelid-closed-v1.png",
+      "z" : 6
+    },
+    {
+      "id" : "lidRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        741.86600496277913,
+        511.51364764267987
+      ],
+      "pivot" : [
+        824,
+        598
+      ],
+      "scale" : 0.12406947890818859,
+      "source" : "candidates\/base\/eyelid-closed-v1.png",
+      "z" : 7
+    },
+    {
+      "id" : "wingLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        127.69346733668341,
+        672.7261306532663
+      ],
+      "pivot" : [
+        390,
+        800
+      ],
+      "scale" : 0.29899497487437188,
+      "source" : "candidates\/hanbok\/sleeve-left-v2.png",
+      "z" : 8
+    },
+    {
+      "id" : "wingRight",
+      "neutralAngleDegrees" : -20,
+      "offset" : [
+        874.5,
+        521
+      ],
+      "pivot" : [
+        1005,
+        800
+      ],
+      "scale" : 0.29999999999999999,
+      "source" : "candidates\/hanbok\/sleeve-right-v2.png",
+      "z" : 9
+    }
+  ],
+  "origin" : "topLeft",
+  "referenceOffset" : [
+    0,
+    0
+  ],
+  "referenceScale" : 1,
+  "registrationMethod" : "Independent uniform downscale\/translation; no painting, alpha cleanup or source deformation",
+  "schemaVersion" : 1,
+  "sourceReference" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/Daylog\/PioWardrobe.xcassets\/pio_outfit_hanbok.imageset\/pio_outfit_hanbok.png",
+  "status" : "ART_QA_CANDIDATE_NOT_APPROVED"
+}

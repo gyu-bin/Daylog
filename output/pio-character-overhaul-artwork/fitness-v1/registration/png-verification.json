@@ -1,0 +1,353 @@
+{
+  "pngCount": 34,
+  "pngs": [
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/body.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 918280,
+      "sha256": "ae2567f3a4c8684504ecbc7f63358daa4b6678f5f6a3e84b6b5d153eade6a159"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/dumbbellLeft.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 120544,
+      "sha256": "b12aff979d205bb9a5fd3c1ebec143c6904f2fa2d89d14a4bb076c67895362e5"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/dumbbellRight.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 120494,
+      "sha256": "a30a0783964d2bb4bcc6ad64efbc9607ed994a0275d901eb82cd7176c3e12a6b"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/eyeLeft.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 47455,
+      "sha256": "0b3ea668013ec6bb200c3c498fd767e4a55ef7cff7a1610f0024ba2766d1d503"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/eyeRight.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 47416,
+      "sha256": "4f6789eaa7b7f0058cedd79ce129faac454389a0e1d54d9c8d5596d53124487a"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/footLeft.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 57833,
+      "sha256": "362f7ad1e52d4e0de17b78bf06bed3062a67d2f5734d0fa78b1c329667c05a61"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/footRight.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 56170,
+      "sha256": "da95bc820f01b6cd755ec4e731fd29f9f194ff97c89d3909416f9593de8fc6e5"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/halfLeft.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 38455,
+      "sha256": "c0f51a75616b5df93d6bcbaac3753cda1b198a656c24d62c9994d55165a75822"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/halfRight.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 38486,
+      "sha256": "dd0fd8b96342a3fa28c39ea3211a73d7eccde0fea9098034e59435bb11d10761"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/headwear.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 314790,
+      "sha256": "6c00546e600e94113909926c59d78fd4fb4be5a82cd8a59293da817c4a152287"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/lidLeft.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 35935,
+      "sha256": "22483f82c2d15dcc9f9c73bc76bd273997cd7307a1715b2e6f0728f6f8a0ad17"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/lidRight.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 35914,
+      "sha256": "19ff870b191832753ca6c3753f0f841b501d4c7ec8c317c7a315bb3dbc447b84"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/sprout.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 191782,
+      "sha256": "10801113923b30de3dc922a9de5d7173565206198de71a99abf9205ad89fa009"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/wingLeft.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 110236,
+      "sha256": "1c3571db553698d0aca35d49968d3d1f340189daf763715d73a4aa0119de8875"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registered-layers/wingRight.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 93268,
+      "sha256": "057f2210f65b609858f1ca70125928f76576cab25b83aea4846590307d4d0271"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/closed-alpha.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1343833,
+      "sha256": "e0a86c21d81eb0609fe035d59177024ce20af93088cdbead8b64c34ce9f03b3f"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/closed-dark.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1296648,
+      "sha256": "e5371028ca6df55673257e5206d34bdcf95957549a8feef46564933631793ac1"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/closed-light.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1307807,
+      "sha256": "7328af6824b13e0e24c8825a39cff45d56b6979b7d5130428197fea0f4887dae"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/comparison-220pt-3x-dark.png",
+      "size": [
+        4380,
+        828
+      ],
+      "mode": "RGBA",
+      "bytes": 1028063,
+      "sha256": "f589276d7348cff9706332aaaba1b0c59f4e97e689fe8345c48abf829fe0fb3a"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/comparison-220pt-3x-light.png",
+      "size": [
+        4380,
+        828
+      ],
+      "mode": "RGBA",
+      "bytes": 1032192,
+      "sha256": "b197a33f27e7774b8d1efab8ca5c45881bd476f98f47902323f700326b7158f8"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/comparison-64pt-3x-dark.png",
+      "size": [
+        1572,
+        360
+      ],
+      "mode": "RGBA",
+      "bytes": 122100,
+      "sha256": "70944a7fc6bc1bc9d674a5b9730ec552f609013260ef296e3a9656478b8039ac"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/comparison-64pt-3x-light.png",
+      "size": [
+        1572,
+        360
+      ],
+      "mode": "RGBA",
+      "bytes": 121870,
+      "sha256": "2ad2dbc25d61bb52221ab10845841011f1e821803f60c92adafffed168c1995e"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/neutral-alpha.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1346944,
+      "sha256": "d4023fdffa727fb065be45ac5d16ef8b338bcfc9055a23bfe62fb8cc7513abfc"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/neutral-dark.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1299948,
+      "sha256": "f12f9edcc131e48b4d9d265a19b09ef76335e9a7a3271fcac488a6617da677e5"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/neutral-light.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1310675,
+      "sha256": "9b68ee9cc25e9e7650dd9a3e0840e15c16c609d2d3e08a1038a87af05f484146"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/weights-raised-alpha.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1362647,
+      "sha256": "d029d53323380407a5600b945f9314307efd59082ca9f5d852a4a219e37bdd64"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/weights-raised-dark.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1311980,
+      "sha256": "f72336d6d648002f7b2206f823a4b7748c116f44c655b984c93afb1a06a32697"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/weights-raised-light.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1323260,
+      "sha256": "f426575f44d12e1d0107c486a817ac15671c3503c4700c7f55bf48b9b2dd32b4"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/wing-minus12-alpha.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1356358,
+      "sha256": "d2031a6eed47da2d57461611cd93dad9a6d116eabc2c61f347943010d23c012d"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/wing-minus12-dark.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1307555,
+      "sha256": "ca2d738de29c4205edaf2e457dab89916e59da48cf30badee8506014d753900e"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/wing-minus12-light.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1317091,
+      "sha256": "f0759eee9a391471664b5c2406de4f6f1949222a18b1b2d5e45edf3d6969d492"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/wing-plus12-alpha.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1334012,
+      "sha256": "b12f2dacc9b498467b30501730426cf710c08374de84d1f9cb739702b977d37a"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/wing-plus12-dark.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1288082,
+      "sha256": "e0cffa5f9965acc98775a11f78fddad092010ed2850b1e46f83bc59dfba1d83f"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/fitness-v1/registration/wing-plus12-light.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1298661,
+      "sha256": "664cd3eebb2495d3d668fc0852ff6f7f4a6fa0445a3db8406fc89f4c3b0d3d04"
+    }
+  ],
+  "gif": {
+    "frames": 48,
+    "size": [
+      512,
+      512
+    ],
+    "duration": 60
+  }
+}

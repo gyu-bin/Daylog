@@ -1,0 +1,53 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioCloudProductionFinaliOS.xctestrun -destination "platform=iOS Simulator,id=89B877BB-6094-4A27-B108-3A958EF23D9B" -parallel-testing-enabled NO "-only-testing:DaylogStoreKitTests/PioCloudProductionTests/testSmallProductionPackAndIndependentEyeFrames" "-only-testing:DaylogStoreKitTests/PioCloudProductionTests/testProductionReduceMotionSuppressionAndSceneStop" "-only-testing:DaylogStoreKitTests/PioCloudProductionTests/testProductionOffscreenWindowDetachStopsTracks" "-only-testing:DaylogStoreKitTests/PioCloudCandidateReviewTests/testActualIndependentBlinkAndHeldPresentation" "-only-testing:DaylogStoreKitTests/PioCloudProductionTests/testVisibleNativeSceneHostForScreenshot" -resultBundlePath /tmp/PioCloudProduction-iOS-final-20261024.xcresult
+
+Writing result bundle at path:
+	/tmp/PioCloudProduction-iOS-final-20261024.xcresult
+
+2026-10-24 12:50:08.347 xcodebuild[70998:1967444] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 12:50:44.723889+0900 Daylog[71347:1971068] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 12:50:45.642222+0900 Daylog[71347:1971677] [General] Failed to send CA Event for app launch measurements for ca_event_type: 0 event_name: com.apple.app_launch_measurement.FirstFramePresentationMetric
+2026-10-24 12:50:45.645499+0900 Daylog[71347:1971068] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 12:50:45.647082+0900 Daylog[71347:1971068] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 12:50:45.647334+0900 Daylog[71347:1971068] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 12:50:45.735700+0900 Daylog[71347:1971675] [General] Failed to send CA Event for app launch measurements for ca_event_type: 1 event_name: com.apple.app_launch_measurement.ExtendedLaunchMetrics
+Test Suite 'Selected tests' started at 2026-10-24 12:50:45.952.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 12:50:45.953.
+Test Suite 'PioCloudCandidateReviewTests' started at 2026-10-24 12:50:45.953.
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testActualIndependentBlinkAndHeldPresentation]' started.
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testActualIndependentBlinkAndHeldPresentation]' passed (4.906 seconds).
+Test Suite 'PioCloudCandidateReviewTests' passed at 2026-10-24 12:50:50.861.
+	 Executed 1 test, with 0 failures (0 unexpected) in 4.906 (4.908) seconds
+Test Suite 'PioCloudProductionTests' started at 2026-10-24 12:50:50.861.
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testProductionOffscreenWindowDetachStopsTracks]' started.
+IOSurfaceClientSetSurfaceNotify failed e00002c7
+2026-10-24 12:50:51.161588+0900 Daylog[71347:1971068] [error] image provider 0x126e42800 timed out while waiting for phase 2 (1)
+2026-10-24 12:50:51.221000+0900 Daylog[71347:1971677] fopen failed for data file: errno = 2 (No such file or directory)
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testProductionOffscreenWindowDetachStopsTracks]' passed (0.427 seconds).
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testProductionReduceMotionSuppressionAndSceneStop]' started.
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testProductionReduceMotionSuppressionAndSceneStop]' passed (0.003 seconds).
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testSmallProductionPackAndIndependentEyeFrames]' started.
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testSmallProductionPackAndIndependentEyeFrames]' passed (0.003 seconds).
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testVisibleNativeSceneHostForScreenshot]' started.
+2026-10-24 12:50:51.296395+0900 Daylog[71347:1971068] Unbalanced calls to begin/end appearance transitions for <UIViewController: 0x1192b1c00>.
+PIO_NATIVE_VISIBLE_REVIEW_READY productionBasic=true candidateFlags=false
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testVisibleNativeSceneHostForScreenshot]' passed (8.087 seconds).
+Test Suite 'PioCloudProductionTests' passed at 2026-10-24 12:50:59.383.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 8.520 (8.522) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-24 12:50:59.383.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 13.426 (13.430) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 12:50:59.383.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 13.426 (13.431) seconds
+2026-10-24 12:50:59.440 xcodebuild[70998:1967444] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 12:50:59.440 xcodebuild[70998:1967444] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 12:50:59.441 xcodebuild[70998:1967444] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 12:50:59.719 xcodebuild[70998:1967444] [MT] IDETestOperationsObserverDebug: 55.227 elapsed -- Testing started completed.
+2026-10-24 12:50:59.719 xcodebuild[70998:1967444] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 12:50:59.720 xcodebuild[70998:1967444] [MT] IDETestOperationsObserverDebug: 55.227 sec, +55.227 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCloudProduction-iOS-final-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

@@ -1,0 +1,30 @@
+{
+  "on": {
+    "size": [
+      1206,
+      2622
+    ],
+    "region": [
+      200,
+      1100,
+      1000,
+      2000
+    ],
+    "different_bbox": null,
+    "changed_pixels": 0
+  },
+  "off": {
+    "size": [
+      1206,
+      2622
+    ],
+    "region": [
+      200,
+      1100,
+      1000,
+      2000
+    ],
+    "different_bbox": null,
+    "changed_pixels": 0
+  }
+}

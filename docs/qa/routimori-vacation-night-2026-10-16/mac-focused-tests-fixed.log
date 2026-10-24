@@ -1,0 +1,269 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme Daylog -derivedDataPath /tmp/DaylogStage4.noindex/verify PRODUCT_BUNDLE_IDENTIFIER=com.daylog.verify CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= PROVISIONING_PROFILE_SPECIFIER= CODE_SIGN_ENTITLEMENTS=Config/Verify.entitlements test "-only-testing:DaylogTests/RoutimoriVacationTests" -resultBundlePath /tmp/RoutimoriVacationNight-fixed-20261016.xcresult
+
+Build settings from command line:
+    CODE_SIGN_ENTITLEMENTS = Config/Verify.entitlements
+    CODE_SIGN_IDENTITY = -
+    CODE_SIGN_STYLE = Manual
+    DEVELOPMENT_TEAM = 
+    PRODUCT_BUNDLE_IDENTIFIER = com.daylog.verify
+    PROVISIONING_PROFILE_SPECIFIER = 
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/RoutimoriVacationNight-fixed-20261016.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, name:Any Mac }
+note: Using codesigning identity override: -
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (3 targets)
+    Target 'DaylogTests' in project 'Daylog'
+        ➜ Explicit dependency on target 'Daylog' in project 'Daylog'
+    Target 'Daylog' in project 'Daylog'
+        ➜ Explicit dependency on target 'Sparkle-product' in project 'Sparkle'
+    Target 'Sparkle-product' in project 'Sparkle' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk /tmp/DaylogStage4.noindex/verify/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -o /tmp/DaylogStage4.noindex/verify/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+
+note: Disabling hardened runtime with ad-hoc codesigning. (in target 'Daylog' from project 'Daylog')
+CompileAssetCatalogVariant thinned /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Assets.xcassets /Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioTrial.xcassets /Users/mungyubin/Desktop/Coding/Daylog/Daylog/RoutimoriTrial.xcassets (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Assets.xcassets /Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioTrial.xcassets /Users/mungyubin/Desktop/Coding/Daylog/Daylog/RoutimoriTrial.xcassets --compile /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/thinned --output-format human-readable-text --notices --warnings --export-dependency-info /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_dependencies_thinned --output-partial-info-plist /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist_thinned --app-icon AppIcon --accent-color AccentColor --enable-on-demand-resources NO --development-region ko --target-device mac --minimum-deployment-target 14.0 --platform macosx
+/* com.apple.actool.compilation-results */
+/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist_thinned
+/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/thinned/AppIcon.icns
+/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/thinned/Assets.car
+
+
+SwiftDriver DaylogTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name DaylogTests -Onone @/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-macos14.0 -g -module-cache-path /tmp/DaylogStage4.noindex/verify/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/DaylogStage4.noindex/verify/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /tmp/DaylogStage4.noindex/verify/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /tmp/DaylogStage4.noindex/verify/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/DaylogStage4.noindex/verify/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache -output-file-map /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/DaylogStage4.noindex/verify/ModuleCache.noindex -sdk-module-cache-path /tmp/DaylogStage4.noindex/verify/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/DaylogStage4.noindex/verify/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-generated-files.hmap -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-own-target-headers.hmap -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-project-headers.hmap -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Products/Debug/include -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources/arm64 -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-Swift.h -working-directory /Users/mungyubin/Desktop/Coding/Daylog -experimental-emit-module-separately -disable-cmo
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ DaylogTests (in target 'DaylogTests' from project 'Daylog')
+
+SwiftCompile normal arm64 (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+
+SwiftCompile normal arm64 Compiling\ RoutimoriVacationTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutimoriVacationTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutimoriVacationTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutimoriVacationTests.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling RoutimoriVacationTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for DaylogTests (in target 'DaylogTests' from project 'Daylog')
+
+SwiftDriver\ Compilation\ Requirements DaylogTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name DaylogTests -Onone @/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-macos14.0 -g -module-cache-path /tmp/DaylogStage4.noindex/verify/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/DaylogStage4.noindex/verify/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /tmp/DaylogStage4.noindex/verify/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /tmp/DaylogStage4.noindex/verify/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/DaylogStage4.noindex/verify/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache -output-file-map /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/DaylogStage4.noindex/verify/ModuleCache.noindex -sdk-module-cache-path /tmp/DaylogStage4.noindex/verify/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/DaylogStage4.noindex/verify/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-generated-files.hmap -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-own-target-headers.hmap -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-project-headers.hmap -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Products/Debug/include -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources/arm64 -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-Swift.h -working-directory /Users/mungyubin/Desktop/Coding/Daylog -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver\ Compilation DaylogTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name DaylogTests -Onone @/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-macos14.0 -g -module-cache-path /tmp/DaylogStage4.noindex/verify/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/DaylogStage4.noindex/verify/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /tmp/DaylogStage4.noindex/verify/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /tmp/DaylogStage4.noindex/verify/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/DaylogStage4.noindex/verify/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache -output-file-map /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/DaylogStage4.noindex/verify/ModuleCache.noindex -sdk-module-cache-path /tmp/DaylogStage4.noindex/verify/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/DaylogStage4.noindex/verify/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-generated-files.hmap -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-own-target-headers.hmap -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-project-headers.hmap -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Products/Debug/include -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources/arm64 -Xcc -I/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-Swift.h -working-directory /Users/mungyubin/Desktop/Coding/Daylog -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/DaylogTests.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftsourceinfo (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftsourceinfo /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/DaylogTests.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo
+
+Copy /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/DaylogTests.swiftmodule/arm64-apple-macos.abi.json /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.abi.json (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.abi.json /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/DaylogTests.swiftmodule/arm64-apple-macos.abi.json
+
+Copy /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/DaylogTests.swiftmodule/arm64-apple-macos.swiftmodule /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftmodule (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftmodule /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/DaylogTests.swiftmodule/arm64-apple-macos.swiftmodule
+
+LinkAssetCatalog /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Assets.xcassets /Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioTrial.xcassets /Users/mungyubin/Desktop/Coding/Daylog/Daylog/RoutimoriTrial.xcassets (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-linkAssetCatalog --thinned /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/thinned --thinned-dependencies /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_dependencies_thinned --thinned-info-plist-content /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist_thinned --unthinned /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/unthinned --unthinned-dependencies /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_dependencies_unthinned --unthinned-info-plist-content /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist_unthinned --output /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources --plist-output /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist
+note: Emplaced /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources/AppIcon.icns (in target 'Daylog' from project 'Daylog')
+note: Emplaced /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources/Assets.car (in target 'Daylog' from project 'Daylog')
+
+ProcessInfoPlistFile /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Info.plist /Users/mungyubin/Desktop/Coding/Daylog/Config/Daylog-Info.plist (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-infoPlistUtility /Users/mungyubin/Desktop/Coding/Daylog/Config/Daylog-Info.plist -producttype com.apple.product-type.application -genpkginfo /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PkgInfo -expandbuildsettings -platform macosx -additionalcontentfile /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist -scanforprivacyfile /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Frameworks/Sparkle.framework -o /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Info.plist
+
+CopySwiftLibs /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib --scan-folder /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Frameworks --scan-folder /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns --scan-folder /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Library/SystemExtensions --scan-folder /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Extensions --platform macosx --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+
+ExtractAppIntentsMetadata (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name Daylog --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk --xcode-version 27A266a --platform-family macOS --deployment-target 14.0 --bundle-identifier com.daylog.verify --output /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources --target-triple arm64-apple-macos14.0 --binary-file /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog --dependency-file /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_dependency_info.dat --stringsdata-file /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList --metadata-file-list /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.DependencyMetadataFileList --static-metadata-file-list /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-16 08:20:17.925 appintentsmetadataprocessor[1306:29700379] Starting appintentsmetadataprocessor export
+2026-10-16 08:20:17.927 appintentsmetadataprocessor[1306:29700379] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+Ld /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/MacOS/DaylogTests normal (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -L/tmp/DaylogStage4.noindex/verify/Build/Products/Debug -L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F/tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -F/tmp/DaylogStage4.noindex/verify/Build/Products/Debug -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -filelist /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/../Frameworks -Xlinker -rpath -Xlinker @executable_path/../Frameworks -bundle_loader /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog -Xlinker -object_path_lto -Xlinker /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftmodule -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib -Xlinker -no_adhoc_codesign -o /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/MacOS/DaylogTests
+
+CopySwiftLibs /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/MacOS/DaylogTests --scan-folder /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Frameworks --scan-folder /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/PlugIns --scan-folder /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Library/SystemExtensions --scan-folder /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Extensions --platform macosx --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+
+ExtractAppIntentsMetadata (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name DaylogTests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk --xcode-version 27A266a --platform-family macOS --deployment-target 14.0 --bundle-identifier com.daylog.verify --output /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Resources --target-triple arm64-apple-macos14.0 --binary-file /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/MacOS/DaylogTests --dependency-file /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_dependency_info.dat --stringsdata-file /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.SwiftFileList --metadata-file-list /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.DependencyMetadataFileList --static-metadata-file-list /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-16 08:20:18.303 appintentsmetadataprocessor[1315:29700413] Starting appintentsmetadataprocessor export
+2026-10-16 08:20:18.304 appintentsmetadataprocessor[1315:29700413] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+CodeSign /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --entitlements /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.xctest.xcent --timestamp\=none --generate-entitlement-der /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest
+
+CodeSign /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib
+
+CodeSign /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib
+/tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib: replacing existing signature
+
+CodeSign /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --entitlements /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent --timestamp\=none --generate-entitlement-der /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app
+
+Validate /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-validationUtility /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app -no-validate-extension -infoplist-subpath Contents/Info.plist
+
+RegisterWithLaunchServices /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-lsregisterurl --record-path /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/XCBuildData/registered-launchservices.txt -- /System/Library/Frameworks/CoreServices.framework/Versions/Current/Frameworks/LaunchServices.framework/Versions/Current/Support/lsregister -f -R -trusted /tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app
+
+PruneExplicitPrecompiledModules /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/DaylogStage4.noindex/verify/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/DaylogStage4.noindex/verify/SDKExplicitPrecompiledModules
+
+2026-10-16 08:20:19.412387+0900 Daylog[1331:29700718] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:20:19.412802+0900 Daylog[1331:29700718] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:20:19.413393+0900 Daylog[1331:29700725] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:20:19.413405+0900 Daylog[1331:29700725] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:20:19.414595+0900 Daylog[1331:29700717] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:20:19.414613+0900 Daylog[1331:29700717] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:20:19.415355+0900 Daylog[1331:29700717] [Connection] Will NOT re-try to establish the connection
+2026-10-16 08:20:19.415375+0900 Daylog[1331:29700718] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:20:19.415384+0900 Daylog[1331:29700718] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:20:19.573274+0900 Daylog[1331:29700578] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /Users/mungyubin/Library/Containers/com.daylog.verify/Data/tmp/com.daylog.verify.savedState
+2026-10-16 08:20:20.207396+0900 Daylog[1331:29700718] [Common] Unable to obtain a task name port right for pid 615: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-16 08:20:20.997.
+Test Suite 'DaylogTests.xctest' started at 2026-10-16 08:20:20.997.
+Test Suite 'DaylogTests.xctest' passed at 2026-10-16 08:20:20.997.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+Test Suite 'Selected tests' passed at 2026-10-16 08:20:20.997.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite RoutimoriVacationTests started.
+◇ Test registeredImagesStayAlignedAndTheRopeAnchorDoesNotMove() started.
+◇ Test swayStopsRestoresAndNeverAnimatesTheBeach() started.
+◇ Test changingTimeOfDaySelectsRegisteredArtworkWithoutRestartingSway() started.
+✔ Test registeredImagesStayAlignedAndTheRopeAnchorDoesNotMove() passed after 0.001 seconds.
+✔ Test swayStopsRestoresAndNeverAnimatesTheBeach() passed after 0.001 seconds.
+2026-10-16 08:20:21.010549+0900 Daylog[1331:29700578] [General] attempting to modify read-only animation <CAKeyframeAnimation: 0x7cca08f200>
+2026-10-16 08:20:21.018006+0900 Daylog[1331:29700578] [General] 0   CoreFoundation                      0x000000018ca1a8c0 __exceptionPreprocess + 176
+2026-10-16 08:20:21.018020+0900 Daylog[1331:29700578] [General] 1   libobjc.A.dylib                     0x000000018c47860c objc_exception_throw + 88
+2026-10-16 08:20:21.018023+0900 Daylog[1331:29700578] [General] 2   CoreFoundation                      0x000000018ca1a7b0 +[NSException exceptionWithName:reason:userInfo:] + 0
+2026-10-16 08:20:21.018026+0900 Daylog[1331:29700578] [General] 3   QuartzCore                          0x000000019704814c _ZL18CAAnimation_setterP11CAAnimationj12_CAValueTypePKv + 104
+2026-10-16 08:20:21.018029+0900 Daylog[1331:29700578] [General] 4   QuartzCore                          0x00000001970665b4 -[CAAnimation setBeginTime:] + 52
+2026-10-16 08:20:21.018031+0900 Daylog[1331:29700578] [General] 5   DaylogTests                         0x000000010f108e40 $s11DaylogTests017RoutimoriVacationB0V62changingTimeOfDaySelectsRegisteredArtworkWithoutRestartingSwayyyKF + 1824
+2026-10-16 08:20:21.018034+0900 Daylog[1331:29700578] [General] 6   DaylogTests                         0x000000010f1084ec $s11DaylogTests017RoutimoriVacationB0V04$s11a8Tests017cD99B0V62changingTimeOfDaySelectsRegisteredArtworkWithoutRestartingSway4TestfMp_17Z3125354d32f42875fMu_33_9706C19E51C30C5F442D50D206AA4E42LLyyYaYbKFZ0eafcdghijklmnopqrS14_7__localfMu0_L_yyScA_pSgYiYaYbKFTY4_ + 56
+2026-10-16 08:20:21.018036+0900 Daylog[1331:29700578] [General] 7   DaylogTests                         0x000000010f107fc1 $s11DaylogTests017RoutimoriVacationB0V04$s11a8Tests017cD99B0V62changingTimeOfDaySelectsRegisteredArtworkWithoutRestartingSway4TestfMp_17Z3125354d32f42875fMu_33_9706C19E51C30C5F442D50D206AA4E42LLyyYaYbKFZTQ1_ + 1
+2026-10-16 08:20:21.018106+0900 Daylog[1331:29700578] [General] 8   DaylogTests                         0x000000010f10aabd $s11DaylogTests017RoutimoriVacationB0V04$s11a8Tests017cD107B0V62changingTimeOfDaySelectsRegisteredArtworkWithoutRestartingSway4TestfMp_25generator3125354d32f42875fMu_33_9706C19E51C30C5F442D50D206AA4E42LL7Testing4TestVyYaYbFZyyYaYbKScMYccfu_TQ0_ + 1
+2026-10-16 08:20:21.018115+0900 Daylog[1331:29700578] [General] 9   DaylogTests                         0x000000010f10c755 $s11DaylogTests017RoutimoriVacationB0V04$s11a8Tests017cD107B0V62changingTimeOfDaySelectsRegisteredArtworkWithoutRestartingSway4TestfMp_25generator3125354d32f42875fMu_33_9706C19E51C30C5F442D50D206AA4E42LL7Testing4TestVyYaYbFZyyYaYbKScMYccfu_TATQ0_ + 1
+2026-10-16 08:20:21.018119+0900 Daylog[1331:29700578] [General] 10  Testing                             0x0000000104d1ee91 $s7Testing6RunnerV19_applyScopingTraits33_E393D8EDD5AFFA0BF3AEFD347B81DFDFLL3for8testCase_yAA4TestV_AI0P0VSgyyYaYbKctYaKFZ011$s7Testing6b13V27_runSingleqp12Iteration33_fghijkL86DFDFLL_6withinyAA0E0V0F0V_AC4PlanV4StepVtYaFZyyYaXEfU_yyYaKXEfU_yyYaYbKcfU_yyYaYbKcfU_AKTf1nnEn_nTf4nndn_nTQ1_ + 1
+2026-10-16 08:20:21.018166+0900 Daylog[1331:29700578] [General] 11  Testing                             0x0000000104d20f89 $s7Testing6RunnerV27_runSingleTestCaseIteration33_E393D8EDD5AFFA0BF3AEFD347B81DFDFLL_6withinyAA0E0V0F0V_AC4PlanV4StepVtYaFZyyYaXEfU_yyYaKXEfU_yyYaYbKcfU_Tf4dnn_nTQ1_ + 1
+2026-10-16 08:20:21.018172+0900 Daylog[1331:29700578] [General] 12  Testing                             0x0000000104d157c9 $s7Testing6RunnerV27_runSingleTestCaseIteration33_E393D8EDD5AFFA0BF3AEFD347B81DFDFLL_6withinyAA0E0V0F0V_AC4PlanV4StepVtYaFZyyYaXEfU_yyYaKXEfU_TQ2_ + 1
+2026-10-16 08:20:21.018175+0900 Daylog[1331:29700578] [General] 13  Testing                             0x0000000104c68cb5 $s7Testing18__checkClosureCall6throws10performing10expression8comments10isRequired14sourceLocations6ResultOyyts5Error_pGx_q_yYaKXEAA12__ExpressionVSayAA7CommentVGyXKSbAA06SourceL0VtYaSQRzsAKRzr0_lFq_yYaKYTXEfU_TATQ0_ + 1
+2026-10-16 08:20:21.018216+0900 Daylog[1331:29700578] [General] 14  Testing                             0x0000000104cee1dd $s7Testing5IssueV18withErrorRecording2at13configuration9isolation_s0D0_pSgAA14SourceLocationVSg_AA13ConfigurationVSgScA_pSgYiyyYaKXEtYaFZTf4nnnnd_nTQ1_ + 1
+2026-10-16 08:20:21.018220+0900 Daylog[1331:29700578] [General] 15  Testing                             0x0000000104d151bd $s7Testing6RunnerV27_runSingleTestCaseIteration33_E393D8EDD5AFFA0BF3AEFD347B81DFDFLL_6withinyAA0E0V0F0V_AC4PlanV4StepVtYaFZyyYaXEfU_TQ1_ + 1
+2026-10-16 08:20:21.018229+0900 Daylog[1331:29700578] [General] 16  Testing                             0x0000000104c68cb5 $s7Testing18__checkClosureCall6throws10performing10expression8comments10isRequired14sourceLocations6ResultOyyts5Error_pGx_q_yYaKXEAA12__ExpressionVSayAA7CommentVGyXKSbAA06SourceL0VtYaSQRzsAKRzr0_lFq_yYaKYTXEfU_TATQ0_ + 1
+2026-10-16 08:20:21.018232+0900 Daylog[1331:29700578] [General] 17  Testing                             0x0000000104d2f705 $s7Testing15TestCancellablePAAE24withCancellationHandlingyqd__qd__yYaKXEYaKlFqd__yYaKXEfU_AA0B0V4CaseV_ytTg5TQ0_ + 1
+2026-10-16 08:20:21.018273+0900 Daylog[1331:29700578] [General] 18  Testing                             0x0000000104d2b041 $s7Testing15TestCancellablePAAE24withCancellationHandlingyqd__qd__yYaKXEYaKlFAA0B0V4CaseV_ytTB5TQ1_ + 1
+2026-10-16 08:20:21.018277+0900 Daylog[1331:29700578] [General] 19  Testing                             0x0000000104d15fad $s7Testing4TestV4CaseV11withCurrent_7performxAE_xyYaKXEtYaKlFZyt_Tt2B5TQ1_ + 1
+2026-10-16 08:20:21.018280+0900 Daylog[1331:29700578] [General] 20  Testing                             0x0000000104d14c21 $s7Testing6RunnerV27_runSingleTestCaseIteration33_E393D8EDD5AFFA0BF3AEFD347B81DFDFLL_6withinyAA0E0V0F0V_AC4PlanV4StepVtYaFZTQ1_ + 1
+2026-10-16 08:20:21.018282+0900 Daylog[1331:29700578] [General] 21  Testing                             0x0000000104d20a49 $s7Testing6RunnerV12_runTestCase33_E393D8EDD5AFFA0BF3AEFD347B81DFDFLL_6within2inyAA0D0V0E0V_AC4PlanV4StepVAC8_ContextAELLVtYaFZTf4nnxn_nTQ2_ + 1
+2026-10-16 08:20:21.018330+0900 Daylog[1331:29700578] [General] 22  Testing                             0x0000000104d14325 $s7Testing6RunnerV13_runTestCases33_E393D8EDD5AFFA0BF3AEFD347B81DFDFLL_6within7contextyx_AC4PlanV4StepVAC8_ContextAELLVtYaSTRzAA0D0V4CaseV7ElementRtzlFZySi_AQtYaYbcfU2_TQ1_ + 1
+2026-10-16 08:20:21.018337+0900 Daylog[1331:29700578] [General] 23  Testing                             0x0000000104c68cb5 $s7Testing18__checkClosureCall6throws10performing10expression8comments10isRequired14sourceLocations6ResultOyyts5Error_pGx_q_yYaKXEAA12__ExpressionVSayAA7CommentVGyXKSbAA06SourceL0VtYaSQRzsAKRzr0_lFq_yYaKYTXEfU_TATQ0_ + 1
+2026-10-16 08:20:21.018340+0900 Daylog[1331:29700578] [General] 24  Testing                             0x0000000104c71b29 $sSi7Testing4TestV4CaseVIeghHyn_Si6offset_AE7elementts5Error_pIeghHnzo_TRTQ0_ + 1
+2026-10-16 08:20:21.018342+0900 Daylog[1331:29700578] [General] 25  Testing                             0x0000000104c68cb5 $s7Testing18__checkClosureCall6throws10performing10expression8comments10isRequired14sourceLocations6ResultOyyts5Error_pGx_q_yYaKXEAA12__ExpressionVSayAA7CommentVGyXKSbAA06SourceL0VtYaSQRzsAKRzr0_lFq_yYaKYTXEfU_TATQ0_ + 1
+2026-10-16 08:20:21.018386+0900 Daylog[1331:29700578] [General] 26  Testing                             0x0000000104d1d909 $s7Testing6RunnerV8_forEach33_E393D8EDD5AFFA0BF3AEFD347B81DFDFLL2in15namingTasksWith_yq__SS8taskName_SSSg6actiontSgxXEyxYaYbKctYaKs8SendableRz7ElementQy_RszSTR_r0_lFZyScgyyts5Error_pGzYaKXEfU_yyYaKcfU_Si6offset_AA4TestV4CaseV7elementt_s18EnumeratedSequenceVys18LazyFilterSequenceVys11AnySequenceVyAUGGGTG5TQ0_ + 1
+2026-10-16 08:20:21.018389+0900 Daylog[1331:29700578] [General] 27  Testing                             0x0000000104c68cb5 $s7Testing18__checkClosureCall6throws10performing10expression8comments10isRequired14sourceLocations6ResultOyyts5Error_pGx_q_yYaKXEAA12__ExpressionVSayAA7CommentVGyXKSbAA06SourceL0VtYaSQRzsAKRzr0_lFq_yYaKYTXEfU_TATQ0_ + 1
+2026-10-16 08:20:21.018434+0900 Daylog[1331:29700578] [General] 28  libswift_Concurrency.dylib          0x00000002b91e6d41 _ZL23completeTaskWithClosurePN5swift12AsyncContextEPNS_10SwiftErrorE + 1
+2026-10-16 08:20:21.018622+0900 Daylog[1331:29700578] [HIExceptions] FAULT: CAAnimationImmutable: attempting to modify read-only animation <CAKeyframeAnimation: 0x7cca08f200>; (user info absent)
+2026-10-16 08:21:43.700944+0900 Daylog[2532:29706177] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:21:43.713844+0900 Daylog[2532:29706178] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:21:43.714315+0900 Daylog[2532:29706178] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:21:43.704771+0900 Daylog[2532:29706177] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:21:43.717316+0900 Daylog[2532:29706197] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:21:43.718846+0900 Daylog[2532:29706197] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:21:43.720394+0900 Daylog[2532:29706197] [Connection] Will NOT re-try to establish the connection
+2026-10-16 08:21:43.720851+0900 Daylog[2532:29706178] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:21:43.720931+0900 Daylog[2532:29706178] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 08:21:43.769746+0900 Daylog[2532:29706121] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /Users/mungyubin/Library/Containers/com.daylog.verify/Data/tmp/com.daylog.verify.savedState
+2026-10-16 08:21:44.454029+0900 Daylog[2532:29706178] [Common] Unable to obtain a task name port right for pid 615: (os/kern) failure (0x5)
+
+Restarting after unexpected exit, crash, or test timeout; summary will include totals from previous launches.
+
+Test Suite 'Selected tests' started at 2026-10-16 08:21:45.584.
+Test Suite 'DaylogTests.xctest' started at 2026-10-16 08:21:45.584.
+Test Suite 'DaylogTests.xctest' passed at 2026-10-16 08:21:45.584.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+Test Suite 'Selected tests' passed at 2026-10-16 08:21:45.584.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+2026-10-16 08:22:00.681 xcodebuild[1149:29699873] [MT] IDETestOperationsObserverDebug: 102.134 elapsed -- Testing started completed.
+2026-10-16 08:22:00.681 xcodebuild[1149:29699873] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-16 08:22:00.681 xcodebuild[1149:29699873] [MT] IDETestOperationsObserverDebug: 102.135 sec, +102.135 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/RoutimoriVacationNight-fixed-20261016.xcresult
+
+Failing tests:
+	RoutimoriVacationTests.changingTimeOfDaySelectsRegisteredArtworkWithoutRestartingSway()
+
+** TEST FAILED **
+
+Testing started

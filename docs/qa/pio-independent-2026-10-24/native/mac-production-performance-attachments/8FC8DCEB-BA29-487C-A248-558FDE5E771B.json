@@ -1,0 +1,76 @@
+{
+  "finalRSSAfterCleanup" : 211550208,
+  "limits" : "Bounded Debug test-host observation, not a performance threshold approval, Release profiling, long-term leak proof, external compositor\/GPU or battery measurement.",
+  "phases" : [
+    {
+      "active" : true,
+      "cpuPercent" : 0.35159612514868682,
+      "cpuSeconds" : 0.035622000000000043,
+      "finalRSS" : 207421440,
+      "initialRSS" : 209911808,
+      "publicOcclusionVisible" : true,
+      "samples" : [
+        209977344,
+        209977344,
+        209977344,
+        209747968,
+        207486976,
+        207421440,
+        207421440,
+        207421440,
+        207421440,
+        207421440
+      ],
+      "seconds" : 10.131510972976685,
+      "visibleSamples" : [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "windowVisible" : true
+    },
+    {
+      "active" : false,
+      "cpuPercent" : 0.97871355402593485,
+      "cpuSeconds" : 0.099393000000000065,
+      "finalRSS" : 211550208,
+      "initialRSS" : 207421440,
+      "publicOcclusionVisible" : true,
+      "samples" : [
+        207421440,
+        207421440,
+        207421440,
+        207437824,
+        211599360,
+        211599360,
+        211599360,
+        211599360,
+        211599360,
+        211550208
+      ],
+      "seconds" : 10.155473947525024,
+      "visibleSamples" : [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "windowVisible" : true
+    }
+  ],
+  "sceneReleased" : true,
+  "scope" : "Same process and same warm native Basic production eye scene, active10s then stopped10s. No candidate flags. Process CPU only."
+}

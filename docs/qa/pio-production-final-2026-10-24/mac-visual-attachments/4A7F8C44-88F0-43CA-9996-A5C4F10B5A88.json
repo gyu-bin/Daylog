@@ -1,0 +1,91 @@
+{
+  "checks" : [
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "basic"
+    },
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "cherryBlossom"
+    },
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "summerVacation"
+    },
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "autumn"
+    },
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "winter"
+    },
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "halloween"
+    },
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "christmas"
+    },
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "hanbok"
+    },
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "cafe"
+    },
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "student"
+    },
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "fitness"
+    },
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "rainyDay"
+    },
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "pajamas"
+    },
+    {
+      "assertionFailuresAdded" : 0,
+      "completed" : true,
+      "error" : "",
+      "outfit" : "astronaut"
+    }
+  ],
+  "count" : 14,
+  "platform" : "Mac",
+  "scope" : "Exact existing assertion body per explicitly selected outfit, sequential shared process\/cache; no omitted or silently substituted outfits. Native component evidence, not artwork approval or purchase verification."
+}

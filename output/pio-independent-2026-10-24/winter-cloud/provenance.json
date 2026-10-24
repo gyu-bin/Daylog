@@ -1,0 +1,52 @@
+[
+  {
+    "part": "torso",
+    "generatorOutput": "/Users/mungyubin/.codex/generated_images/01a167e0-d86f-7633-94a1-40ac5235c4f4/exec-2d309583-30c2-4244-b9ab-b1078338262a.png",
+    "source": "output/pio-independent-2026-10-24/winter-cloud/source/torso-candidate-v1.png",
+    "asset": "pio_cloud_winter_v2_torso",
+    "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_winter_v2_torso.imageset/pio_cloud_winter_v2_torso.png",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alpha16bbox": [
+      130,
+      47,
+      1149,
+      1214
+    ],
+    "sha256": "4c4510632a36e41744a9d5af91bbfccda94a39fad736511e6232f97eceebeb1b",
+    "pixelsChanged": false,
+    "approved": false
+  },
+  {
+    "part": "armPair",
+    "generatorOutput": "/Users/mungyubin/.codex/generated_images/01a167e0-d86f-7633-94a1-40ac5235c4f4/exec-a2c9a7d7-a017-41b6-b17e-bb9dd5e6e610.png",
+    "source": "output/pio-independent-2026-10-24/winter-cloud/source/armPair-candidate-v1.png",
+    "asset": "pio_cloud_winter_v2_armPair",
+    "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_winter_v2_armPair.imageset/pio_cloud_winter_v2_armPair.png",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alpha16bbox": [
+      62,
+      569,
+      1191,
+      988
+    ],
+    "sha256": "9f3dc8c0cd4a66aa821afbf072667891769c5e083439e214a0a18f9d6be3fdc7",
+    "pixelsChanged": false,
+    "approved": false
+  }
+]

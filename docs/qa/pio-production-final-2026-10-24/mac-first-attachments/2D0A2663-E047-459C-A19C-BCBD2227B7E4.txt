@@ -1,0 +1,3 @@
+Expectation failed: appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)")
+appearance.missingArtwork → ["routimori_vacation_day_halloween_cleanFace_eyes_eyelids", "routimori_vacation_day_halloween_arms_props_hiddenRoots", "routimori_vacation_day_halloween_front_back_hammock_occlusion", "pio_outfit_halloween_stage4"]
+"\(asset)_\(outfit.rawValue)" → "routimori_vacation_hammock_halloween"

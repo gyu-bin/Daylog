@@ -1,0 +1,125 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme Daylog -configuration Debug -destination platform=macOS -derivedDataPath /tmp/PioStoreKit-20261023-mac -clonedSourcePackagesDirPath /tmp/PioOverhaul-v2-build/SourcePackages "-only-testing:DaylogTests/PioHeaderCompletionTests" "-only-testing:DaylogTests/PioHeaderInteractionTests" -resultBundlePath /tmp/PioPolish-header-completion.xcresult test CODE_SIGNING_ALLOWED=NO PRODUCT_BUNDLE_IDENTIFIER=com.daylog.verify
+
+Build settings from command line:
+    CODE_SIGNING_ALLOWED = NO
+    PRODUCT_BUNDLE_IDENTIFIER = com.daylog.verify
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/PioPolish-header-completion.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (3 targets)
+    Target 'DaylogTests' in project 'Daylog'
+        ➜ Explicit dependency on target 'Daylog' in project 'Daylog'
+    Target 'Daylog' in project 'Daylog'
+        ➜ Explicit dependency on target 'Sparkle-product' in project 'Sparkle'
+    Target 'Sparkle-product' in project 'Sparkle' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: a0dc5961a397d16d4d308b03e850e20c
+Build description path: /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/XCBuildData/a0dc5961a397d16d4d308b03e850e20c.xcbuilddata
+ProcessInfoPlistFile /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Info.plist /Users/mungyubin/Desktop/Coding/Daylog/Config/Daylog-Info.plist (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-infoPlistUtility /Users/mungyubin/Desktop/Coding/Daylog/Config/Daylog-Info.plist -producttype com.apple.product-type.application -genpkginfo /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PkgInfo -expandbuildsettings -platform macosx -additionalcontentfile /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist -scanforprivacyfile /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks/Sparkle.framework -o /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Info.plist
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk /tmp/PioStoreKit-20261023-mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -o /tmp/PioStoreKit-20261023-mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+
+CopySwiftLibs /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Library/SystemExtensions --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Extensions --platform macosx --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+Ignoring --strip-bitcode because --sign was not passed
+
+ProcessInfoPlistFile /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Info.plist /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/empty-DaylogTests.plist (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-infoPlistUtility /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/empty-DaylogTests.plist -producttype com.apple.product-type.bundle.unit-test -expandbuildsettings -platform macosx -o /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Info.plist
+
+CopySwiftLibs /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/MacOS/DaylogTests --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Frameworks --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/PlugIns --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Library/SystemExtensions --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Extensions --platform macosx --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+Ignoring --strip-bitcode because --sign was not passed
+
+PruneExplicitPrecompiledModules /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/PioStoreKit-20261023-mac/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+2026-10-23 23:15:33.352066+0900 Daylog[36623:1241831] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 23:15:33.352192+0900 Daylog[36623:1241831] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 23:15:33.352882+0900 Daylog[36623:1241883] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 23:15:33.352893+0900 Daylog[36623:1241883] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 23:15:33.353665+0900 Daylog[36623:1241830] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 23:15:33.353681+0900 Daylog[36623:1241830] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 23:15:33.354469+0900 Daylog[36623:1241830] [Connection] Will NOT re-try to establish the connection
+2026-10-23 23:15:33.354489+0900 Daylog[36623:1241831] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 23:15:33.354504+0900 Daylog[36623:1241831] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 23:15:33.387903+0900 Daylog[36623:1241823] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-23 23:15:33.716175+0900 Daylog[36623:1241929] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-23 23:15:33.751.
+Test Suite 'DaylogTests.xctest' started at 2026-10-23 23:15:33.751.
+Test Suite 'PioHeaderCompletionTests' started at 2026-10-23 23:15:33.751.
+Test Case '-[DaylogTests.PioHeaderCompletionTests testGestureAutomaticallyReturnsToIdleWithoutAnotherTap]' started.
+Test Case '-[DaylogTests.PioHeaderCompletionTests testGestureAutomaticallyReturnsToIdleWithoutAnotherTap]' passed (2.805 seconds).
+Test Suite 'PioHeaderCompletionTests' passed at 2026-10-23 23:15:36.558.
+	 Executed 1 test, with 0 failures (0 unexpected) in 2.805 (2.806) seconds
+Test Suite 'PioHeaderInteractionTests' started at 2026-10-23 23:15:36.558.
+Test Case '-[DaylogTests.PioHeaderInteractionTests testLeavingScreenCancelsAndRejectsStaleCompletion]' started.
+Test Case '-[DaylogTests.PioHeaderInteractionTests testLeavingScreenCancelsAndRejectsStaleCompletion]' passed (0.002 seconds).
+Test Case '-[DaylogTests.PioHeaderInteractionTests testNativeHeaderReusesJointsWithTinyIdleAndFiniteTapTracks]' started.
+Test Case '-[DaylogTests.PioHeaderInteractionTests testNativeHeaderReusesJointsWithTinyIdleAndFiniteTapTracks]' passed (0.015 seconds).
+Test Case '-[DaylogTests.PioHeaderInteractionTests testProductionFallbackUsesOnlyAvailableMotionsForAllOutfits]' started.
+Test Case '-[DaylogTests.PioHeaderInteractionTests testProductionFallbackUsesOnlyAvailableMotionsForAllOutfits]' passed (0.001 seconds).
+Test Case '-[DaylogTests.PioHeaderInteractionTests testProgressReactionDoesNotConsumeTapSequence]' started.
+Test Case '-[DaylogTests.PioHeaderInteractionTests testProgressReactionDoesNotConsumeTapSequence]' passed (0.001 seconds).
+Test Case '-[DaylogTests.PioHeaderInteractionTests testResponsesAreBoundedAndDoNotOverlap]' started.
+Test Case '-[DaylogTests.PioHeaderInteractionTests testResponsesAreBoundedAndDoNotOverlap]' passed (0.001 seconds).
+Test Suite 'PioHeaderInteractionTests' passed at 2026-10-23 23:15:36.581.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.020 (0.023) seconds
+Test Suite 'DaylogTests.xctest' passed at 2026-10-23 23:15:36.581.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 2.825 (2.830) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 23:15:36.582.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 2.825 (2.831) seconds
+2026-10-23 23:15:36.885 xcodebuild[36600:1241598] [MT] IDETestOperationsObserverDebug: 3.768 elapsed -- Testing started completed.
+2026-10-23 23:15:36.885 xcodebuild[36600:1241598] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 23:15:36.885 xcodebuild[36600:1241598] [MT] IDETestOperationsObserverDebug: 3.768 sec, +3.768 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioPolish-header-completion.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started

@@ -1,0 +1,21 @@
+[
+  "xcodebuild",
+  "-project",
+  "Daylog.xcodeproj",
+  "-scheme",
+  "DaylogiOSStoreKit",
+  "-configuration",
+  "Debug",
+  "-destination",
+  "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884",
+  "-derivedDataPath",
+  "/private/tmp/PioStoreKit-20261023-ios",
+  "-parallel-testing-enabled",
+  "NO",
+  "-collect-test-diagnostics",
+  "never",
+  "-only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests",
+  "-resultBundlePath",
+  "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/original-eleven.xcresult",
+  "test-without-building"
+]

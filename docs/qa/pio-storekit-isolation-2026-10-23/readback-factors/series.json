@@ -1,0 +1,38 @@
+[
+  {
+    "method": "testRefundWithNoPreRefundReadback",
+    "exitCode": 0,
+    "passedTests": 1,
+    "failedTests": 0,
+    "skippedTests": 0,
+    "totalTestCount": 1,
+    "result": "Passed"
+  },
+  {
+    "method": "testRefundWithCurrentEntitlementsReadback",
+    "exitCode": 0,
+    "passedTests": 1,
+    "failedTests": 0,
+    "skippedTests": 0,
+    "totalTestCount": 1,
+    "result": "Passed"
+  },
+  {
+    "method": "testRefundWithUnfinishedReadback",
+    "exitCode": 0,
+    "passedTests": 1,
+    "failedTests": 0,
+    "skippedTests": 0,
+    "totalTestCount": 1,
+    "result": "Passed"
+  },
+  {
+    "method": "testRefundWithBothReadbacks",
+    "exitCode": 0,
+    "passedTests": 1,
+    "failedTests": 0,
+    "skippedTests": 0,
+    "totalTestCount": 1,
+    "result": "Passed"
+  }
+]

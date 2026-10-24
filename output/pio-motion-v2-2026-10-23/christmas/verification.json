@@ -1,0 +1,54 @@
+{
+  "outfit": "christmas",
+  "status": "PARTIAL_OFFLINE_STUDY",
+  "canonicalSourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/footLeft.png": "cef48396db4e5cd0d56ebbc3914f5bba322dfdf4206c85a6490bb4e3563e45b3",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/footRight.png": "11134c83d36c68acb6af069b6c7bfff6f17749920d5c45b7ccdc40a03cbf6ff0",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/body.png": "c538bac15879a1788d8df440811592587d0940d2b7ce23d11b8dd6c304cc3375",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/hat.png": "8a14b3407832adee4eaf9d4bdea5b7f10ae66780b46cebc446f3c9c8b81bb0d6",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/eyeLeft.png": "7bf8fbdaab43d29cc32347ca83b331b5d8e53509111c908ff85a5036c5cdbf48",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/eyeRight.png": "dc6b76bc8deb3103a44d0238b209bfbf60a38c930e1c16a61bcfeb763123d94c",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/lidLeft.png": "eb49044e29fd43446362ee1583597bee95c409b2fa9ff7709cab2a5af07cfc99",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/lidRight.png": "87467d2ffeb2db146b9406f5f18d047e700081d3edaaae07c6cc0eb6ce7fd942",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/gift.png": "5de29c94d9a81a488ce7a970f1622456dfc27d6349d8375e5a443d838711da16",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/handLeft.png": "9db133fb1112e7cc54824295d7319b861ca7f56b6425e8b86ff417b977733dad",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/handRight.png": "1d6b809b5facb36900c2954ee7b20405b1f8672d45fb52e8d685db09d337bd5d",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/halfLeft.png": "d7dee635e47cb77b416e4588b60e3bb36073b241ddbff779884ea235f19eb353",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/halfRight.png": "9935d146eb84b78305444b4a0b7ec61aecab0383b86c0a636f90f334e339adca",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/happyLeft.png": "e9c1310d5f82e0d627d2de05f380bafee6dbfa85f3255dfa68e57dfe3b825c16",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/happyRight.png": "b3e865b61a4f313e806359ed5ce27589f41ba2f2c429b0f78813b1c4252133f5"
+  },
+  "actions": [
+    "idle",
+    "greet",
+    "walk",
+    "bounce",
+    "jump",
+    "celebrate",
+    "bow",
+    "sleepy",
+    "surprised",
+    "encourage",
+    "special"
+  ],
+  "specialAction": "present held gift",
+  "framesPerAction": 32,
+  "durationMs": 70,
+  "maxAlphaOnFrameBorder": 0,
+  "canvas": [
+    480,
+    516
+  ],
+  "characterCanvas": [
+    350,
+    350
+  ],
+  "limits": [
+    "2D front-view stepping, no authored turn or gait occlusion change.",
+    "Bow is frontal lean/compression, not a reconstructed 3D head turn.",
+    "Hat and fabric stay rigid with torso.",
+    "Held props rigidly follow hands; no release or articulation.",
+    "No app/runtime/performance claim."
+  ]
+}

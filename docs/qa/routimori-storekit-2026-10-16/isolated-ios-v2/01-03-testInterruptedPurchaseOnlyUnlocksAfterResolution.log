@@ -1,0 +1,51 @@
+Command: /usr/bin/xcodebuild -clonedSourcePackagesDirPath /private/tmp/DaylogStage4.noindex/verify/SourcePackages -project /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination 'platform=iOS Simulator,id=87EA3A43-121C-4FFA-A716-A79E614ABEFA' -derivedDataPath /private/tmp/RoutimoriStoreKit.noindex/ios -disableAutomaticPackageResolution -parallel-testing-enabled NO -only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests/testInterruptedPurchaseOnlyUnlocksAfterResolution -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-storekit-2026-10-16/isolated-ios-v2/01-03-testInterruptedPurchaseOnlyUnlocksAfterResolution.xcresult test-without-building
+
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -clonedSourcePackagesDirPath /private/tmp/DaylogStage4.noindex/verify/SourcePackages -project /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination "platform=iOS Simulator,id=87EA3A43-121C-4FFA-A716-A79E614ABEFA" -derivedDataPath /private/tmp/RoutimoriStoreKit.noindex/ios -disableAutomaticPackageResolution -parallel-testing-enabled NO "-only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests/testInterruptedPurchaseOnlyUnlocksAfterResolution" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-storekit-2026-10-16/isolated-ios-v2/01-03-testInterruptedPurchaseOnlyUnlocksAfterResolution.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-storekit-2026-10-16/isolated-ios-v2/01-03-testInterruptedPurchaseOnlyUnlocksAfterResolution.xcresult
+
+2026-10-16 15:42:47.905839+0900 Daylog[18435:31452577] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-16 15:42:48.622411+0900 Daylog[18435:31452577] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-16 15:42:48.665835+0900 Daylog[18435:31452577] [API] cannot add handler to 0 from 0 - dropping
+2026-10-16 15:42:48.666376+0900 Daylog[18435:31452577] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-16 15:42:48.873.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-16 15:42:48.873.
+Test Suite 'PioStoreKitIntegrationTests' started at 2026-10-16 15:42:48.873.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testInterruptedPurchaseOnlyUnlocksAfterResolution]' started.
+PioStoreKit: Transaction.updates listener started
+PioStoreKit: raw verified update product=com.mungyubin.daylog.ios.outfit.rainyDay environment=Environment(rawValue: "Xcode") revoked=false
+objc[18435]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x10c1cc398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x10c2c0310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+2026-10-16 15:42:49.027432+0900 Daylog[18435:31453019] [Default] Received error that does not have a corresponding StoreKit Error: Error Domain=ASDErrorDomain Code=825 "No transactions in response" UserInfo={client-environment-type=XcodeTest, NSLocalizedFailureReason=No transactions in response, storefront-country-code=KOR}
+2026-10-16 15:42:49.043732+0900 Daylog[18435:31453019] [Default] Purchase did not return a transaction: Error Domain=ASDErrorDomain Code=825 "No transactions in response" UserInfo={client-environment-type=XcodeTest, NSLocalizedFailureReason=No transactions in response, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:296: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testInterruptedPurchaseOnlyUnlocksAfterResolution] : XCTAssertFalse failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:307: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testInterruptedPurchaseOnlyUnlocksAfterResolution] : Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: "Resolved interrupted purchase updates verified ownership".
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testInterruptedPurchaseOnlyUnlocksAfterResolution]' failed (10.322 seconds).
+Test Suite 'PioStoreKitIntegrationTests' failed at 2026-10-16 15:42:59.205.
+	 Executed 1 test, with 2 failures (0 unexpected) in 10.322 (10.332) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-16 15:42:59.206.
+	 Executed 1 test, with 2 failures (0 unexpected) in 10.322 (10.333) seconds
+Test Suite 'Selected tests' failed at 2026-10-16 15:42:59.208.
+	 Executed 1 test, with 2 failures (0 unexpected) in 10.322 (10.335) seconds
+PioStoreKit: Transaction.updates listener ended
+2026-10-16 15:43:13.552 xcodebuild[18400:31452366] [MT] IDETestOperationsObserverDebug: 28.944 elapsed -- Testing started completed.
+2026-10-16 15:43:13.552 xcodebuild[18400:31452366] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-16 15:43:13.552 xcodebuild[18400:31452366] [MT] IDETestOperationsObserverDebug: 28.944 sec, +28.944 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-storekit-2026-10-16/isolated-ios-v2/01-03-testInterruptedPurchaseOnlyUnlocksAfterResolution.xcresult
+
+Failing tests:
+	PioStoreKitIntegrationTests.testInterruptedPurchaseOnlyUnlocksAfterResolution()
+	PioStoreKitIntegrationTests.testInterruptedPurchaseOnlyUnlocksAfterResolution()
+
+** TEST EXECUTE FAILED **
+
+Testing started

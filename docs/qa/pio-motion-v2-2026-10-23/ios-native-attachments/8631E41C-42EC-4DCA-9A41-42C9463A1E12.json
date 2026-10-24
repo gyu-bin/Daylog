@@ -1,0 +1,41 @@
+{
+  "limits" : [
+    "No iPhone CPU\/memory profiling",
+    "Native layer pilot evidence, not full application screen compatibility",
+    "Reduce Motion OS setting was not toggled; NOT_TESTED"
+  ],
+  "outfitsResolved" : 14,
+  "pausedPartTracks" : 0,
+  "pilots" : [
+    {
+      "actualPresentationTranslationY" : [
+        4.8265810012817383,
+        -235.13543397188187
+      ],
+      "outfit" : "basic"
+    },
+    {
+      "actualPresentationTranslationY" : [
+        4.8718171119689941,
+        -231.22777730226517
+      ],
+      "outfit" : "christmas"
+    },
+    {
+      "actualPresentationTranslationY" : [
+        4.8729357719421387,
+        -233.04907023906708
+      ],
+      "outfit" : "hanbok"
+    },
+    {
+      "actualPresentationTranslationY" : [
+        4.5982298851013184,
+        -231.71551316976547
+      ],
+      "outfit" : "astronaut"
+    }
+  ],
+  "platform" : "iPhone simulator",
+  "status" : "NATIVE_PILOT_PRESENTATION_ONLY"
+}

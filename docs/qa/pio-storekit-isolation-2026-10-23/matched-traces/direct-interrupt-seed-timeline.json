@@ -1,0 +1,235 @@
+[
+  {
+    "appEnvironment": "Environment(rawValue: \"Xcode\")",
+    "elapsed": "0.071755334 seconds",
+    "event": "environment",
+    "mode": "direct",
+    "os": "Version 27.0 (Build 24A434)",
+    "phase": "seed",
+    "pid": 5427,
+    "run": "29a766a4-38da-4464-9201-bb1821885f94",
+    "scenario": "interrupt",
+    "wallTime": 1792756945.302168
+  },
+  {
+    "elapsed": "0.079138209 seconds",
+    "event": "SKTestSession.init.return",
+    "wallTime": 1792756945.3095489
+  },
+  {
+    "elapsed": "0.080482292 seconds",
+    "event": "resetToDefaultState.return",
+    "wallTime": 1792756945.310895
+  },
+  {
+    "elapsed": "0.087869709 seconds",
+    "event": "clearTransactions.return",
+    "wallTime": 1792756945.318283
+  },
+  {
+    "dialogsDisabled": true,
+    "elapsed": "0.101131042 seconds",
+    "event": "fixture.ready",
+    "purchaseError": "nil",
+    "storefront": "KOR",
+    "wallTime": 1792756945.3315449
+  },
+  {
+    "elapsed": "0.101579959 seconds",
+    "event": "Product.products.begin",
+    "requested": [
+      "outfit.autumn",
+      "outfit.cafe",
+      "outfit.cherryblossom",
+      "outfit.christmas",
+      "outfit.halloween",
+      "outfit.hanbok",
+      "outfit.pajamas",
+      "outfit.rainy",
+      "outfit.space",
+      "outfit.student",
+      "outfit.summer",
+      "outfit.winter",
+      "outfit.workout"
+    ],
+    "wallTime": 1792756945.331994
+  },
+  {
+    "elapsed": "0.108040459 seconds",
+    "event": "Product.products.return",
+    "returned": [
+      "outfit.autumn",
+      "outfit.cafe",
+      "outfit.cherryblossom",
+      "outfit.christmas",
+      "outfit.halloween",
+      "outfit.hanbok",
+      "outfit.pajamas",
+      "outfit.rainy",
+      "outfit.space",
+      "outfit.student",
+      "outfit.summer",
+      "outfit.winter",
+      "outfit.workout"
+    ],
+    "wallTime": 1792756945.338454
+  },
+  {
+    "elapsed": "0.108470542 seconds",
+    "event": "raw.iterator.started",
+    "wallTime": 1792756945.3388839
+  },
+  {
+    "elapsed": "0.108501209 seconds",
+    "event": "snapshot.begin",
+    "label": "before-scenario",
+    "wallTime": 1792756945.3389149
+  },
+  {
+    "currentEntitlements": [],
+    "driverLedger": [],
+    "elapsed": "0.113325375 seconds",
+    "equipped": "not-applicable",
+    "event": "snapshot.return",
+    "label": "before-scenario",
+    "managerOwned": [],
+    "unfinished": [],
+    "wallTime": 1792756945.343739
+  },
+  {
+    "elapsed": "0.114538625 seconds",
+    "event": "interruptedPurchasesEnabled.set",
+    "value": true,
+    "wallTime": 1792756945.344953
+  },
+  {
+    "elapsed": "0.114607667 seconds",
+    "event": "purchase.begin",
+    "product": "outfit.rainy",
+    "wallTime": 1792756945.345022
+  },
+  {
+    "elapsed": "0.156816125 seconds",
+    "environment": "Environment(rawValue: \"Xcode\")",
+    "event": "Transaction.updates",
+    "id": "196",
+    "product": "outfit.rainy",
+    "revoked": false,
+    "verification": "verified",
+    "wallTime": 1792756945.387229
+  },
+  {
+    "code": 2,
+    "domain": "StoreKit.StoreKitError",
+    "elapsed": "0.167237209 seconds",
+    "error": "unknown",
+    "event": "Product.purchase.throw",
+    "underlying": "nil",
+    "wallTime": 1792756945.39765
+  },
+  {
+    "elapsed": "0.1672925 seconds",
+    "event": "snapshot.begin",
+    "label": "before-resolve",
+    "wallTime": 1792756945.397707
+  },
+  {
+    "currentEntitlements": [
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "196",
+        "product": "outfit.rainy",
+        "revoked": false,
+        "verification": "verified"
+      }
+    ],
+    "driverLedger": [
+      {
+        "id": "196",
+        "issue": true,
+        "pending": false,
+        "product": "outfit.rainy",
+        "state": "SKPaymentTransactionState(rawValue: 2)"
+      }
+    ],
+    "elapsed": "0.1739755 seconds",
+    "equipped": "not-applicable",
+    "event": "snapshot.return",
+    "label": "before-resolve",
+    "managerOwned": [],
+    "unfinished": [
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "196",
+        "product": "outfit.rainy",
+        "revoked": false,
+        "verification": "verified"
+      }
+    ],
+    "wallTime": 1792756945.404388
+  },
+  {
+    "elapsed": "0.217861 seconds",
+    "event": "interruptedPurchasesEnabled.set",
+    "value": false,
+    "wallTime": 1792756945.4482741
+  },
+  {
+    "elapsed": "0.217930209 seconds",
+    "event": "resolveIssue.begin",
+    "id": "196",
+    "wallTime": 1792756945.448344
+  },
+  {
+    "elapsed": "0.222484625 seconds",
+    "event": "resolveIssue.return",
+    "wallTime": 1792756945.452898
+  },
+  {
+    "elapsed": "10.280191833999998 seconds",
+    "event": "resolve.notification",
+    "received": false,
+    "wallTime": 1792756955.5105991
+  },
+  {
+    "elapsed": "10.280403584 seconds",
+    "event": "snapshot.begin",
+    "label": "after-resolve",
+    "wallTime": 1792756955.510813
+  },
+  {
+    "currentEntitlements": [
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "196",
+        "product": "outfit.rainy",
+        "revoked": false,
+        "verification": "verified"
+      }
+    ],
+    "driverLedger": [
+      {
+        "id": "196",
+        "issue": false,
+        "pending": false,
+        "product": "outfit.rainy",
+        "state": "SKPaymentTransactionState(rawValue: 1)"
+      }
+    ],
+    "elapsed": "10.311510334000001 seconds",
+    "equipped": "not-applicable",
+    "event": "snapshot.return",
+    "label": "after-resolve",
+    "managerOwned": [],
+    "unfinished": [
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "196",
+        "product": "outfit.rainy",
+        "revoked": false,
+        "verification": "verified"
+      }
+    ],
+    "wallTime": 1792756955.541918
+  }
+]

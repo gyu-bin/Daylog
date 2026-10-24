@@ -1,0 +1,10 @@
+{
+  "frames": 48,
+  "unique_complete_frame_hashes": 2,
+  "seconds": 33.891,
+  "all_frames_byte_identical": false,
+  "settled_frames": 47,
+  "settled_unique_complete_frame_hashes": 1,
+  "settled_seconds": 33.044,
+  "explanation": "The first capture differs during initial settling; captures 001\u2013047 are byte-identical. Reduce Motion was then restored to its original off state."
+}

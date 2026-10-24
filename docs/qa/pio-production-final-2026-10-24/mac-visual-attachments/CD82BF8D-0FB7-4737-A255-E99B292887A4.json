@@ -1,0 +1,185 @@
+{
+  "holdIDs" : [
+    "tablet",
+    "armLeft",
+    "armRight"
+  ],
+  "independent" : [
+    "eyes",
+    "lids",
+    "shared arms\/tablet hold joint"
+  ],
+  "limits" : "Native presentation-layer component captures; candidate geometry still requires visual approval. Held parts never detach or wave independently of the prop. No purchase, preference or whole-screen workflow verification.",
+  "observations" : [
+    {
+      "elapsed" : 0.19211962500412483,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00027441931790417914,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 0.22539945832977537,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00027441931790417914,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 1.6569953333382728,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.6970260833331849,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.9394673333299579,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.024593714651694,
+      "lidOpacity" : 1,
+      "side" : 64,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 1.9699777083296794,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.024593714651694,
+      "lidOpacity" : 1,
+      "side" : 220,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 2.3315068333322415,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.016388134974459258,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 2.36600300000282,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.016388134974459258,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 4.8948044583376031,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026136731698642768,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-negative"
+    },
+    {
+      "elapsed" : 4.9329681666713441,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026136731698642768,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-negative"
+    }
+  ],
+  "partAssets" : {
+    "armLeft" : "pio_cloud_prod_v2_autumn_v2_armPair",
+    "armRight" : "pio_cloud_prod_v2_autumn_v2_armPair",
+    "body" : "pio_cloud_prod_v2_autumn_v2_torso",
+    "browLeft" : "pio_cloud_prod_v2_autumn_browLeft",
+    "browRight" : "pio_cloud_prod_v2_autumn_browRight",
+    "eyeLeft" : "pio_cloud_prod_v2_autumn_eyeLeft",
+    "eyeRight" : "pio_cloud_prod_v2_autumn_eyeRight",
+    "halfLeft" : "pio_cloud_prod_v2_autumn_halfLeft",
+    "halfRight" : "pio_cloud_prod_v2_autumn_halfRight",
+    "lidLeft" : "pio_cloud_prod_v2_autumn_lidLeft",
+    "lidRight" : "pio_cloud_prod_v2_autumn_lidRight",
+    "tablet" : "pio_cloud_prod_v2_basic_v1_tablet"
+  },
+  "partRects" : {
+    "armLeft" : [
+      255,
+      842,
+      300,
+      230
+    ],
+    "armRight" : [
+      790,
+      842,
+      290,
+      230
+    ],
+    "body" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "browLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "browRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "eyeLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "eyeRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "halfLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "halfRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "lidLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "lidRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "tablet" : [
+      495,
+      807,
+      362,
+      247
+    ]
+  },
+  "platform" : "Mac",
+  "revision" : "autumn-production-hands-v2"
+}

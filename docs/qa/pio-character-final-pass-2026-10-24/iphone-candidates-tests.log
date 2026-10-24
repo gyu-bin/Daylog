@@ -1,0 +1,44 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioCharacterFinalMain.xctestrun -destination "platform=iOS Simulator,id=89B877BB-6094-4A27-B108-3A958EF23D9B" -parallel-testing-enabled NO -resultBundlePath /tmp/PioCharacterFinal-iPhone-candidates-20261024.xcresult "-only-testing:DaylogStoreKitTests/PioVacationNightArtworkTests" "-only-testing:DaylogStoreKitTests/PioVacationHingeNativeTests"
+
+Writing result bundle at path:
+	/tmp/PioCharacterFinal-iPhone-candidates-20261024.xcresult
+
+2026-10-24 16:24:54.216 xcodebuild[25228:2478200] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:24:59.249206+0900 Daylog[25246:2478543] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 16:25:00.517340+0900 Daylog[25246:2478543] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 16:25:00.519909+0900 Daylog[25246:2478543] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 16:25:00.521606+0900 Daylog[25246:2478543] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-24 16:25:00.608.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 16:25:00.609.
+Test Suite 'PioVacationHingeNativeTests' started at 2026-10-24 16:25:00.609.
+Test Case '-[DaylogStoreKitTests.PioVacationHingeNativeTests testBasicDayNightHingeKeepsBothVisibleSourcePointsFixed]' started.
+Test Case '-[DaylogStoreKitTests.PioVacationHingeNativeTests testBasicDayNightHingeKeepsBothVisibleSourcePointsFixed]' passed (16.161 seconds).
+Test Suite 'PioVacationHingeNativeTests' passed at 2026-10-24 16:25:16.772.
+	 Executed 1 test, with 0 failures (0 unexpected) in 16.161 (16.163) seconds
+Test Suite 'PioVacationNightArtworkTests' started at 2026-10-24 16:25:16.773.
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testNightCandidate1024StaticRegistration]' started.
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testNightCandidate1024StaticRegistration]' passed (0.672 seconds).
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testNightCandidateNativePresentationAt64And220]' started.
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testNightCandidateNativePresentationAt64And220]' passed (4.147 seconds).
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testNightCandidateResourcesAndLifecycle]' started.
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testNightCandidateResourcesAndLifecycle]' passed (0.444 seconds).
+Test Suite 'PioVacationNightArtworkTests' passed at 2026-10-24 16:25:22.037.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 5.262 (5.264) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-24 16:25:22.037.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 21.423 (21.428) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 16:25:22.037.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 21.423 (21.429) seconds
+2026-10-24 16:25:22.059 xcodebuild[25228:2478200] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:25:22.059 xcodebuild[25228:2478200] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:25:22.060 xcodebuild[25228:2478200] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:25:22.329 xcodebuild[25228:2478200] [MT] IDETestOperationsObserverDebug: 28.218 elapsed -- Testing started completed.
+2026-10-24 16:25:22.329 xcodebuild[25228:2478200] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 16:25:22.329 xcodebuild[25228:2478200] [MT] IDETestOperationsObserverDebug: 28.218 sec, +28.218 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCharacterFinal-iPhone-candidates-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

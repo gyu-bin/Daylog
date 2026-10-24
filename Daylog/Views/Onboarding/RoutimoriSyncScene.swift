@@ -6,11 +6,13 @@ import AppKit
 import UIKit
 #endif
 
-/// Trial artwork is selected only by the existing DEBUG character switch.
+/// Validated cloud components are available normally; further trial artwork
+/// remains behind the existing DEBUG character switch.
 /// The scene receives display state; it never queries or completes a cloud operation.
 struct RoutimoriSyncScene: View {
     let kind: SyncSceneKind
     let height: CGFloat
+    var appearanceOverride: PioResolvedAppearance? = nil
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.colorScheme) private var colorScheme
@@ -18,18 +20,33 @@ struct RoutimoriSyncScene: View {
     @State private var isVisible = false
 
     private var appearance: PioResolvedAppearance {
-        PioAppearanceCoordinator.shared.resolve(context: kind.pioAppearanceContext)
+        PioCloudSceneResources.productionAppearance(from:
+            appearanceOverride ?? PioAppearanceCoordinator.shared.resolve(context: kind.pioAppearanceContext))
     }
     private var characterAssetName: String? {
         if case .existingScene(let asset) = appearance.artwork { return asset }
         return nil
     }
 
+    private var usesIndependentCharacter: Bool {
+        guard !appearance.isAwaitingVerification else { return false }
+        if kind != .ready && PioCloudSceneResources.hasProductionLayers(appearance.outfit) { return true }
+        #if DEBUG
+        return PioOverhaulTrial.isEnabled
+            && (kind == .ready ? PioOverhaulResources.manifest(appearance.outfit) != nil
+                : PioCloudSceneResources.hasSeatedLayers(appearance.outfit))
+        #else
+        return false
+        #endif
+    }
+
     var body: some View {
         RoutimoriSyncLayerView(
             configuration: .init(kind: kind, height: height, dark: colorScheme == .dark,
                                  scale: displayScale, reduceMotion: reduceMotion,
-                                 characterAssetName: characterAssetName),
+                                 characterAssetName: characterAssetName,
+                                 outfit: appearance.outfit, suppressCharacter: appearance.isAwaitingVerification,
+                                 usesIndependentCharacter: usesIndependentCharacter),
             isAnimating: isVisible && scenePhase == .active && !reduceMotion
         )
         .frame(width: height, height: height)
@@ -66,7 +83,7 @@ struct RoutimoriSyncBrand: View {
         VStack(spacing: 5) {
             Image(systemName: "leaf.fill").font(.system(size: 19, weight: .medium))
                 .rotationEffect(.degrees(-28)).accessibilityHidden(true)
-            Text("Routimori").font(.system(size: 34, weight: .bold, design: .rounded))
+            Text("RoutiMori").font(.system(size: 34, weight: .bold, design: .rounded))
             Text("조금씩, 더 나은 나로").font(.subheadline)
         }
         .foregroundStyle(RoutimoriSyncStyle.ink(dark: colorScheme == .dark))
@@ -101,6 +118,9 @@ final class RoutimoriSyncStage {
         /// A scene-specific approved asset, resolved centrally. This is never a
         /// standing costume pasted onto the tablet or expressive scene pose.
         var characterAssetName: String? = nil
+        var outfit: PioOutfitID = .basic
+        var suppressCharacter = false
+        var usesIndependentCharacter = false
     }
     let root = CALayer()
     let character = CALayer()
@@ -108,14 +128,29 @@ final class RoutimoriSyncStage {
     let glyph = CALayer()
     private(set) var configuration: Configuration?
     private var isAnimating = false
+    private let cloudCharacter = PioCloudCharacterRig()
+    #if DEBUG
+    private let celebration = PioOverhaulRig()
+    #endif
 
     func update(_ configuration: Configuration, isAnimating: Bool) {
-        let changed = self.configuration != configuration
-        if changed {
-            self.configuration = configuration
-            build(configuration)
+        var effective = configuration
+        if effective.usesIndependentCharacter {
+            #if DEBUG
+            effective.usesIndependentCharacter = effective.kind == .ready
+                ? PioOverhaulResources.manifest(effective.outfit) != nil
+                : PioCloudSceneResources.hasSeatedLayers(effective.outfit)
+            #else
+            effective.usesIndependentCharacter = effective.kind != .ready
+                && PioCloudSceneResources.hasProductionLayers(effective.outfit)
+            #endif
         }
-        animate(isAnimating && !configuration.reduceMotion, force: changed)
+        let changed = self.configuration != effective
+        if changed {
+            self.configuration = effective
+            build(effective)
+        }
+        animate(isAnimating && !effective.reduceMotion, force: changed)
     }
 
     func halt() { animate(false, force: true) }
@@ -161,6 +196,12 @@ final class RoutimoriSyncStage {
         case .ready: "routimori_sync_success"
         case .trouble: "routimori_sync_failure"
         }
+        character.sublayers?.forEach { $0.removeFromSuperlayer() }
+        cloudCharacter.setActive(false)
+        #if DEBUG
+        celebration.setActive(false)
+        #endif
+        character.isHidden = config.suppressCharacter
         let asset = config.characterAssetName ?? originalAsset
         #if os(macOS)
         character.contents = NSImage(named: asset)?.cgImage(forProposedRect: nil, context: nil, hints: nil)
@@ -170,6 +211,23 @@ final class RoutimoriSyncStage {
         // Square canvas, aspect fit: source resolution is deliberately not assumed to be 1024.
         character.bounds = CGRect(x: 0, y: 0, width: 256 * u, height: 256 * u)
         character.position = point(170 * u, 226 * u, config.height)
+        if config.usesIndependentCharacter && !config.suppressCharacter {
+            // Full-canvas seated sources include the feet at their lower edge.
+            // Keep genuine head/foot room within this scene, including gentle tilt.
+            character.bounds = CGRect(x: 0, y: 0, width: 230 * u, height: 230 * u)
+            character.position = point(170 * u, 215 * u, config.height)
+            character.contents = nil
+            if config.kind == .ready {
+                #if DEBUG
+                celebration.configure(config.outfit, action: .celebrate)
+                celebration.layout(character.bounds)
+                character.addSublayer(celebration.root)
+                #endif
+            } else {
+                cloudCharacter.configure(outfit: config.outfit, kind: config.kind, bounds: character.bounds)
+                character.addSublayer(cloudCharacter.root)
+            }
+        }
     }
 
     private func animate(_ enabled: Bool, force: Bool) {
@@ -182,21 +240,44 @@ final class RoutimoriSyncStage {
             layer.removeAllAnimations()
             layer.transform = CATransform3DIdentity
         }
+        cloudCharacter.setActive(enabled && config.usesIndependentCharacter && !config.suppressCharacter && config.kind != .ready)
+        #if DEBUG
+        celebration.setActive(enabled && config.usesIndependentCharacter && !config.suppressCharacter && config.kind == .ready)
+        if enabled && config.usesIndependentCharacter && config.kind == .ready {
+            // Reuse the proven native choreography, bounded to one celebration.
+            // The original rig implementation and source parts remain untouched.
+            for layer in [celebration.movement] + Array(celebration.layers.values) {
+                for key in layer.animationKeys() ?? [] {
+                    guard let animation = layer.animation(forKey: key)?.copy() as? CAAnimation else { continue }
+                    animation.repeatCount = 0
+                    layer.add(animation, forKey: key)
+                }
+            }
+        }
+        #endif
         guard enabled else { return }
         let u = config.height / 340
-        character.add(track("transform.scale", [1, 1.018, 1], duration: 3.8), forKey: "breathing")
+        if !config.suppressCharacter {
+            character.add(track("transform.scale", [1, 1.018, 1], duration: 3.8), forKey: "breathing")
+        }
         cloud.add(track("transform.translation.y", [0, down(-3 * u), 0], duration: 4.6), forKey: "float")
         switch config.kind {
         case .receiving:
-            character.add(track("transform.rotation.z", [0, 0.018, 0, -0.018, 0], duration: 6), forKey: "attention")
+            if !config.suppressCharacter {
+                character.add(track("transform.rotation.z", [0, 0.018, 0, -0.018, 0], duration: 6), forKey: "attention")
+            }
             glyph.add(track("transform.translation.y", [down(-3 * u), down(5 * u), down(-3 * u)], duration: 1.8), forKey: "receiving")
         case .ready:
-            character.add(track("transform.translation.y", [0, down(-10 * u), 0, down(-4 * u), 0],
-                                duration: 1.4, repeats: false), forKey: "celebration")
+            if !config.usesIndependentCharacter && !config.suppressCharacter {
+                character.add(track("transform.translation.y", [0, down(-10 * u), 0, down(-4 * u), 0],
+                                    duration: 1.4, repeats: false), forKey: "celebration")
+            }
             glyph.add(track("transform.scale", [1, 1.13, 1], duration: 1.1, repeats: false), forKey: "confirmation")
         case .trouble:
             // A single concerned tilt settles gently; an error must not shake forever.
-            character.add(track("transform.rotation.z", [0, -0.045, 0.018, 0], duration: 2.3, repeats: false), forKey: "concern")
+            if !config.suppressCharacter {
+                character.add(track("transform.rotation.z", [0, -0.045, 0.018, 0], duration: 2.3, repeats: false), forKey: "concern")
+            }
         }
     }
 
@@ -238,18 +319,21 @@ private struct RoutimoriSyncLayerView: NSViewRepresentable {
     let isAnimating: Bool
     final class Coordinator { @MainActor lazy var stage = RoutimoriSyncStage() }
     func makeCoordinator() -> Coordinator { Coordinator() }
-    func makeNSView(context: Context) -> SyncLayerHost {
-        let view = SyncLayerHost()
+    func makeNSView(context: Context) -> PioCloudSceneHost {
+        let view = PioCloudSceneHost()
         view.wantsLayer = true
         view.layer?.addSublayer(context.coordinator.stage.root)
         view.hosted = context.coordinator.stage.root
         return view
     }
-    func updateNSView(_ view: SyncLayerHost, context: Context) {
-        context.coordinator.stage.update(configuration, isAnimating: isAnimating)
+    func updateNSView(_ view: PioCloudSceneHost, context: Context) {
+        view.visibilityChanged = { [weak stage = context.coordinator.stage] visible in
+            stage?.update(configuration, isAnimating: isAnimating && visible)
+        }
+        view.refreshVisibility()
         view.needsLayout = true
     }
-    static func dismantleNSView(_ view: SyncLayerHost, coordinator: Coordinator) { coordinator.stage.halt() }
+    static func dismantleNSView(_ view: PioCloudSceneHost, coordinator: Coordinator) { view.visibilityChanged = nil; coordinator.stage.halt() }
 }
 #else
 private struct RoutimoriSyncLayerView: UIViewRepresentable {
@@ -257,19 +341,22 @@ private struct RoutimoriSyncLayerView: UIViewRepresentable {
     let isAnimating: Bool
     final class Coordinator { @MainActor lazy var stage = RoutimoriSyncStage() }
     func makeCoordinator() -> Coordinator { Coordinator() }
-    func makeUIView(context: Context) -> SyncLayerHost {
-        let view = SyncLayerHost()
+    func makeUIView(context: Context) -> PioCloudSceneHost {
+        let view = PioCloudSceneHost()
         view.isUserInteractionEnabled = false
         view.backgroundColor = .clear
         view.layer.addSublayer(context.coordinator.stage.root)
         view.hosted = context.coordinator.stage.root
         return view
     }
-    func updateUIView(_ view: SyncLayerHost, context: Context) {
-        context.coordinator.stage.update(configuration, isAnimating: isAnimating)
+    func updateUIView(_ view: PioCloudSceneHost, context: Context) {
+        view.visibilityChanged = { [weak stage = context.coordinator.stage] visible in
+            stage?.update(configuration, isAnimating: isAnimating && visible)
+        }
+        view.refreshVisibility()
         view.setNeedsLayout()
     }
-    static func dismantleUIView(_ view: SyncLayerHost, coordinator: Coordinator) { coordinator.stage.halt() }
+    static func dismantleUIView(_ view: PioCloudSceneHost, coordinator: Coordinator) { view.visibilityChanged = nil; coordinator.stage.halt() }
 }
 #endif
 
@@ -310,18 +397,20 @@ private struct RoutimoriActivityLayerView: NSViewRepresentable {
     let isAnimating: Bool
     final class Coordinator { @MainActor lazy var stage = RoutimoriSyncActivityStage() }
     func makeCoordinator() -> Coordinator { Coordinator() }
-    func makeNSView(context: Context) -> SyncLayerHost {
-        let view = SyncLayerHost()
+    func makeNSView(context: Context) -> PioCloudSceneHost {
+        let view = PioCloudSceneHost()
         view.wantsLayer = true
         view.layer?.addSublayer(context.coordinator.stage.root)
         view.hosted = context.coordinator.stage.root
         return view
     }
-    func updateNSView(_ view: SyncLayerHost, context: Context) {
-        context.coordinator.stage.update(isAnimating: isAnimating)
+    func updateNSView(_ view: PioCloudSceneHost, context: Context) {
+        view.visibilityChanged = { [weak stage = context.coordinator.stage] visible in stage?.update(isAnimating: isAnimating && visible) }
+        view.refreshVisibility()
         view.needsLayout = true
     }
-    static func dismantleNSView(_ view: SyncLayerHost, coordinator: Coordinator) {
+    static func dismantleNSView(_ view: PioCloudSceneHost, coordinator: Coordinator) {
+        view.visibilityChanged = nil
         coordinator.stage.update(isAnimating: false)
     }
 }
@@ -330,19 +419,21 @@ private struct RoutimoriActivityLayerView: UIViewRepresentable {
     let isAnimating: Bool
     final class Coordinator { @MainActor lazy var stage = RoutimoriSyncActivityStage() }
     func makeCoordinator() -> Coordinator { Coordinator() }
-    func makeUIView(context: Context) -> SyncLayerHost {
-        let view = SyncLayerHost()
+    func makeUIView(context: Context) -> PioCloudSceneHost {
+        let view = PioCloudSceneHost()
         view.isUserInteractionEnabled = false
         view.backgroundColor = .clear
         view.layer.addSublayer(context.coordinator.stage.root)
         view.hosted = context.coordinator.stage.root
         return view
     }
-    func updateUIView(_ view: SyncLayerHost, context: Context) {
-        context.coordinator.stage.update(isAnimating: isAnimating)
+    func updateUIView(_ view: PioCloudSceneHost, context: Context) {
+        view.visibilityChanged = { [weak stage = context.coordinator.stage] visible in stage?.update(isAnimating: isAnimating && visible) }
+        view.refreshVisibility()
         view.setNeedsLayout()
     }
-    static func dismantleUIView(_ view: SyncLayerHost, coordinator: Coordinator) {
+    static func dismantleUIView(_ view: PioCloudSceneHost, coordinator: Coordinator) {
+        view.visibilityChanged = nil
         coordinator.stage.update(isAnimating: false)
     }
 }

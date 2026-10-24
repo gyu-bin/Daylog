@@ -1,0 +1,39 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioProductionFinalMain.xctestrun -parallel-testing-enabled NO -destination "platform=iOS Simulator,id=18A1DFA8-796C-4403-9CC0-C02FD790F40A" -resultBundlePath /tmp/PioProductionFinal-iPad-final-20261024.xcresult "-only-testing:DaylogStoreKitTests/PioProductionFinalScreenTests"
+
+Writing result bundle at path:
+	/tmp/PioProductionFinal-iPad-final-20261024.xcresult
+
+2026-10-24 15:13:16.252 xcodebuild[10835:2333505] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 15:13:57.484489+0900 Daylog[11098:2336099] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 15:13:58.649185+0900 Daylog[11098:2336099] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+Test Suite 'Selected tests' started at 2026-10-24 15:13:58.912.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 15:13:58.912.
+Test Suite 'PioProductionFinalScreenTests' started at 2026-10-24 15:13:58.912.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalScreenTests testActualDeviceScreensAndAccessibilityLayouts]' started.
+2026-10-24 15:13:59.537666+0900 Daylog[11098:2336099] Unbalanced calls to begin/end appearance transitions for <_TtGC7SwiftUI19UIHostingControllerVS_7AnyView_: 0x106b9cf00>.
+IOSurfaceClientSetSurfaceNotify failed e00002c7
+2026-10-24 15:13:59.832599+0900 Daylog[11098:2337014] fopen failed for data file: errno = 2 (No such file or directory)
+2026-10-24 15:14:00.115771+0900 Daylog[11098:2337014] fopen failed for data file: errno = 2 (No such file or directory)
+2026-10-24 15:14:00.144435+0900 Daylog[11098:2336099] [error] image provider 0x12828fe80 timed out while waiting for phase 2 (1)
+2026-10-24 15:14:01.830402+0900 Daylog[11098:2336099] Unbalanced calls to begin/end appearance transitions for <_TtGC7SwiftUI19UIHostingControllerVS_7AnyView_: 0x106b9cf00>.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalScreenTests testActualDeviceScreensAndAccessibilityLayouts]' passed (5.047 seconds).
+Test Suite 'PioProductionFinalScreenTests' passed at 2026-10-24 15:14:03.960.
+	 Executed 1 test, with 0 failures (0 unexpected) in 5.047 (5.048) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-24 15:14:03.961.
+	 Executed 1 test, with 0 failures (0 unexpected) in 5.047 (5.049) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 15:14:03.961.
+	 Executed 1 test, with 0 failures (0 unexpected) in 5.047 (5.049) seconds
+2026-10-24 15:14:04.012 xcodebuild[10835:2333505] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 15:14:04.014 xcodebuild[10835:2333505] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 15:14:04.015 xcodebuild[10835:2333505] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 15:14:04.305 xcodebuild[10835:2333505] [MT] IDETestOperationsObserverDebug: 52.027 elapsed -- Testing started completed.
+2026-10-24 15:14:04.305 xcodebuild[10835:2333505] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 15:14:04.305 xcodebuild[10835:2333505] [MT] IDETestOperationsObserverDebug: 52.027 sec, +52.027 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioProductionFinal-iPad-final-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

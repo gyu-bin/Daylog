@@ -1,0 +1,37 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioScenesIOSReview-20261023.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never "-only-testing:DaylogStoreKitTests/PioScenesIOSReviewTests" -resultBundlePath /tmp/PioScenesIOSReview-20261023-v2.xcresult
+
+Writing result bundle at path:
+	/tmp/PioScenesIOSReview-20261023-v2.xcresult
+
+2026-10-23 22:06:19.511 xcodebuild[27265:1112999] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 22:06:25.857581+0900 Daylog[27275:1113310] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 22:06:27.811837+0900 Daylog[27275:1113310] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 22:06:27.854897+0900 Daylog[27275:1113310] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 22:06:27.860895+0900 Daylog[27275:1113310] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 22:06:28.421.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 22:06:28.423.
+Test Suite 'PioScenesIOSReviewTests' started at 2026-10-23 22:06:28.423.
+Test Case '-[DaylogStoreKitTests.PioScenesIOSReviewTests testNativeCloudAndVacationCurrentOutfits]' started.
+objc[27275]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x108fcc398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x10f314310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+IOSurfaceClientSetSurfaceNotify failed e00002c7
+Test Case '-[DaylogStoreKitTests.PioScenesIOSReviewTests testNativeCloudAndVacationCurrentOutfits]' passed (6.854 seconds).
+Test Suite 'PioScenesIOSReviewTests' passed at 2026-10-23 22:06:35.291.
+	 Executed 1 test, with 0 failures (0 unexpected) in 6.854 (6.868) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-23 22:06:35.293.
+	 Executed 1 test, with 0 failures (0 unexpected) in 6.854 (6.870) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 22:06:35.293.
+	 Executed 1 test, with 0 failures (0 unexpected) in 6.854 (6.872) seconds
+2026-10-23 22:06:35.340 xcodebuild[27265:1112999] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 22:06:35.340 xcodebuild[27265:1112999] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 22:06:35.341 xcodebuild[27265:1112999] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 22:06:35.599 xcodebuild[27265:1112999] [MT] IDETestOperationsObserverDebug: 16.168 elapsed -- Testing started completed.
+2026-10-23 22:06:35.599 xcodebuild[27265:1112999] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 22:06:35.599 xcodebuild[27265:1112999] [MT] IDETestOperationsObserverDebug: 16.168 sec, +16.168 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioScenesIOSReview-20261023-v2.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

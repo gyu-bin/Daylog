@@ -1,0 +1,187 @@
+{
+  "count": 26,
+  "files": [
+    {
+      "file": "closed-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1228912,
+      "sha256": "19ea4b0b0665883aee6ca4e88685230b4f5ed319bc4b4076411dde5f5a3e81a6"
+    },
+    {
+      "file": "closed-dark.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1181408,
+      "sha256": "a7a1e459e0c178159e62a9b5ec70a383aecf23d3d743e82f9a9550b053cd02db"
+    },
+    {
+      "file": "closed-light.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1175579,
+      "sha256": "873972f354e7c30a308aaf284e0701311038b160a8ead88ff39950483209f312"
+    },
+    {
+      "file": "comparison-220pt-3x-dark.png",
+      "width": 2220,
+      "height": 828,
+      "bytes": 834752,
+      "sha256": "a56aec0f74453ab627d0270ae4dc85311418fb9535c3cbef269754793133cb5c"
+    },
+    {
+      "file": "comparison-220pt-3x-light.png",
+      "width": 2220,
+      "height": 828,
+      "bytes": 826562,
+      "sha256": "ab6b5a12207e4026f1185885c783d5f3dd5bce2848652114d578fc2d5370cc31"
+    },
+    {
+      "file": "comparison-64pt-3x-dark.png",
+      "width": 816,
+      "height": 360,
+      "bytes": 98217,
+      "sha256": "a48f88128e51d6494617e4568af5b97b380fbd78c73720283a69e4fe1a805330"
+    },
+    {
+      "file": "comparison-64pt-3x-light.png",
+      "width": 816,
+      "height": 360,
+      "bytes": 96136,
+      "sha256": "ed903edfc3bc6aaa6592370bf77231faad9e494aa69d1122b3204187aa78031a"
+    },
+    {
+      "file": "half-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1237643,
+      "sha256": "72cc45b5671f02c0ac2b282cc21352031048c655aefad1c253fe8e59b1bbad32"
+    },
+    {
+      "file": "half-dark.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1190421,
+      "sha256": "f4c30bcd1ec37a5d86707fe9429def90d072a40c857286e02cb949f1368b2b6b"
+    },
+    {
+      "file": "half-light.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1184412,
+      "sha256": "30dce5933299a86a34705bcd8a29adac01982a9235cae195c46a0296fef95089"
+    },
+    {
+      "file": "neutral-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1235260,
+      "sha256": "e3813b00405e30c053e0e37ef01f90462cc8e717184d537a6f6f607491355adf"
+    },
+    {
+      "file": "neutral-dark.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1187486,
+      "sha256": "40532d49adf43454f7e85a9074e98fbcfbbe63ca99ecaf29e9b20aa08472ce9d"
+    },
+    {
+      "file": "neutral-light.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1182201,
+      "sha256": "c8c28e23775ddb685f1a8a219c2632f4e8355fa7f664f7a9ba82dbb3f0e06dfb"
+    },
+    {
+      "file": "poses-220pt-3x-dark.png",
+      "width": 3660,
+      "height": 828,
+      "bytes": 583199,
+      "sha256": "16085c2d40408f5cb6dda9a5d58118fbd46a4952130652847beb7cafe466703b"
+    },
+    {
+      "file": "poses-220pt-3x-light.png",
+      "width": 3660,
+      "height": 828,
+      "bytes": 574110,
+      "sha256": "aa424c957b63651ffdf8ee8b392df8eb9611b4656afeed1e8757a6396ddfdf75"
+    },
+    {
+      "file": "poses-64pt-3x-dark.png",
+      "width": 1320,
+      "height": 360,
+      "bytes": 76989,
+      "sha256": "5c5265e1edaa62fc07cedee43c580eef321cb9f8ef59fce30a5d5b0c58f33ec2"
+    },
+    {
+      "file": "poses-64pt-3x-light.png",
+      "width": 1320,
+      "height": 360,
+      "bytes": 75163,
+      "sha256": "7ca62a53d9c2e90b56af6f3c6536e8303848ad2c1a9970975b7b30af75fbbc4e"
+    },
+    {
+      "file": "signature-static-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1260880,
+      "sha256": "6492967c7dccd12c917fcb650a3b3acbe4e14ba2547fd2c39573decb30fc3749"
+    },
+    {
+      "file": "signature-static-dark.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1213616,
+      "sha256": "97823366fdc68dadc7885558e0a8cdf0ecfecb08d6a6a3c3c98b785fa5e2a768"
+    },
+    {
+      "file": "signature-static-light.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1204991,
+      "sha256": "2b03f88af30885bcb7cc3f0494005e6e40f6f695c29c667cc4785be21d1ecc1c"
+    },
+    {
+      "file": "wings-minus12-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1226442,
+      "sha256": "a17433ebdae0946b655f69af5c8deabacd588c47c7aea02f3d47b8396b53e643"
+    },
+    {
+      "file": "wings-minus12-dark.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1178027,
+      "sha256": "6df4b9891634043144753d5a78257fd860a44b31f4e936484b87e2268120b4cd"
+    },
+    {
+      "file": "wings-minus12-light.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1174123,
+      "sha256": "3d384f2be87334781347fcd7fde348347774af9ac6268aee5847d07ad45c183a"
+    },
+    {
+      "file": "wings-plus12-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1241652,
+      "sha256": "c699b80b07b557e140dd3b5bc2a23c39e160af1f0e414a72478c24fe2cce5411"
+    },
+    {
+      "file": "wings-plus12-dark.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1193566,
+      "sha256": "22a6ccdf81b3a871e856469d8bd91a4e35d0f8ddea4c9436059598f468b5c15a"
+    },
+    {
+      "file": "wings-plus12-light.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1187331,
+      "sha256": "434f53e322c55427ebad7d8efe7a8fa65d40c2317d1fb82f74e4e26f349795c0"
+    }
+  ]
+}

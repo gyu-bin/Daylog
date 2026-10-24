@@ -1,0 +1,345 @@
+{
+  "basicRegistration" : "basic-production-hands-v2",
+  "candidateEyesFlag" : false,
+  "candidateHandsFlag" : false,
+  "final" : {
+    "cpuSeconds" : 2.6310169999999999,
+    "monotonicSeconds" : 104739.19692654168,
+    "rssBytes" : 159055872
+  },
+  "initial" : {
+    "cpuSeconds" : 2.5104220000000002,
+    "monotonicSeconds" : 104702.87657575002,
+    "rssBytes" : 303169536
+  },
+  "limitations" : "Debug XCTest host; RSS is not a leak assertion. Includes shared image\/cache\/allocator\/renderer residency. Not app cold-launch, production entitlement flow, actual OS backgrounding, full home\/vacation profiling, Instruments allocations, compositor\/GPU\/battery or long-term leak proof. No arbitrary memory threshold or retry sleep.",
+  "os" : "버전 27.0.1(빌드 26A434)",
+  "processorCount" : 10,
+  "rows" : [
+    {
+      "cpuPercentOneCore" : 1.7479974814436157,
+      "cpuSeconds" : 0.035473999999999783,
+      "finalRSS" : 302858240,
+      "initialRSS" : 303169536,
+      "phase" : "empty-host",
+      "samples" : [
+        {
+          "cpuSeconds" : 2.543895,
+          "monotonicSeconds" : 104703.89866433336,
+          "rssBytes" : 303153152,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.5458790000000002,
+          "monotonicSeconds" : 104704.90596700003,
+          "rssBytes" : 302858240,
+          "visible" : true
+        }
+      ],
+      "seconds" : 2.0294079583400162
+    },
+    {
+      "cpuPercentOneCore" : 0.24672475371577868,
+      "cpuSeconds" : 0.004970000000000141,
+      "finalRSS" : 231407616,
+      "initialRSS" : 303104000,
+      "phase" : "first-resource-warmup",
+      "samples" : [
+        {
+          "cpuSeconds" : 2.557877,
+          "monotonicSeconds" : 104705.92233625002,
+          "rssBytes" : 243433472,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.5600389999999997,
+          "monotonicSeconds" : 104706.92898408335,
+          "rssBytes" : 231407616,
+          "visible" : true
+        }
+      ],
+      "seconds" : 2.0143905000004452
+    },
+    {
+      "cpuPercentOneCore" : 0.22696435701566206,
+      "cpuSeconds" : 0.011439000000000199,
+      "finalRSS" : 211582976,
+      "hasNativePresentation" : true,
+      "initialRSS" : 231407616,
+      "pair" : 1,
+      "phase" : "active",
+      "samples" : [
+        {
+          "cpuSeconds" : 2.5628630000000001,
+          "monotonicSeconds" : 104707.93620966669,
+          "rssBytes" : 231325696,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.5654339999999998,
+          "monotonicSeconds" : 104708.94323333335,
+          "rssBytes" : 214499328,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.5677460000000001,
+          "monotonicSeconds" : 104709.95342075003,
+          "rssBytes" : 214401024,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.569598,
+          "monotonicSeconds" : 104710.96217325002,
+          "rssBytes" : 211582976,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.5716730000000001,
+          "monotonicSeconds" : 104711.96917750002,
+          "rssBytes" : 211582976,
+          "visible" : true
+        }
+      ],
+      "seconds" : 5.0399984166724607,
+      "trackCount" : 9
+    },
+    {
+      "cpuPercentOneCore" : 0.21106770323241442,
+      "cpuSeconds" : 0.010616999999999877,
+      "finalRSS" : 211550208,
+      "hasNativePresentation" : true,
+      "initialRSS" : 211582976,
+      "pair" : 1,
+      "phase" : "stopped",
+      "samples" : [
+        {
+          "cpuSeconds" : 2.5744720000000001,
+          "monotonicSeconds" : 104712.97218725002,
+          "rssBytes" : 211582976,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.5765989999999999,
+          "monotonicSeconds" : 104713.98021408336,
+          "rssBytes" : 211582976,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.5786699999999998,
+          "monotonicSeconds" : 104714.98653091669,
+          "rssBytes" : 211566592,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.580533,
+          "monotonicSeconds" : 104715.99098120835,
+          "rssBytes" : 211550208,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.5825969999999998,
+          "monotonicSeconds" : 104716.99960920836,
+          "rssBytes" : 211550208,
+          "visible" : true
+        }
+      ],
+      "seconds" : 5.0301395416754531,
+      "trackCount" : 0
+    },
+    {
+      "cpuPercentOneCore" : 0.23120433469995061,
+      "cpuSeconds" : 0.011715999999999838,
+      "finalRSS" : 211582976,
+      "hasNativePresentation" : true,
+      "initialRSS" : 211550208,
+      "pair" : 2,
+      "phase" : "stopped",
+      "samples" : [
+        {
+          "cpuSeconds" : 2.584692,
+          "monotonicSeconds" : 104718.00109075003,
+          "rssBytes" : 211550208,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.5886019999999998,
+          "monotonicSeconds" : 104719.04103783336,
+          "rssBytes" : 211582976,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.5906409999999997,
+          "monotonicSeconds" : 104720.04862587502,
+          "rssBytes" : 211582976,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.5925549999999999,
+          "monotonicSeconds" : 104721.05854400003,
+          "rssBytes" : 211582976,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.5945279999999999,
+          "monotonicSeconds" : 104722.06719225002,
+          "rssBytes" : 211582976,
+          "visible" : true
+        }
+      ],
+      "seconds" : 5.0673790416622069,
+      "trackCount" : 0
+    },
+    {
+      "cpuPercentOneCore" : 0.19959335027542874,
+      "cpuSeconds" : 0.010066999999999826,
+      "finalRSS" : 211566592,
+      "hasNativePresentation" : true,
+      "initialRSS" : 211582976,
+      "pair" : 2,
+      "phase" : "active",
+      "samples" : [
+        {
+          "cpuSeconds" : 2.5972140000000001,
+          "monotonicSeconds" : 104723.07529287503,
+          "rssBytes" : 211566592,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.599189,
+          "monotonicSeconds" : 104724.08474520835,
+          "rssBytes" : 211566592,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.601178,
+          "monotonicSeconds" : 104725.09364587502,
+          "rssBytes" : 211566592,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.6032009999999999,
+          "monotonicSeconds" : 104726.10215795836,
+          "rssBytes" : 211566592,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.6050339999999998,
+          "monotonicSeconds" : 104727.11137395835,
+          "rssBytes" : 211566592,
+          "visible" : true
+        }
+      ],
+      "seconds" : 5.0437552083312767,
+      "trackCount" : 9
+    },
+    {
+      "cpuPercentOneCore" : 0.20464945671736359,
+      "cpuSeconds" : 0.010316000000000436,
+      "finalRSS" : 211566592,
+      "hasNativePresentation" : true,
+      "initialRSS" : 211566592,
+      "pair" : 3,
+      "phase" : "active",
+      "samples" : [
+        {
+          "cpuSeconds" : 2.6071179999999998,
+          "monotonicSeconds" : 104728.11684491669,
+          "rssBytes" : 211566592,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.6093349999999997,
+          "monotonicSeconds" : 104729.12565987502,
+          "rssBytes" : 211566592,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.611577,
+          "monotonicSeconds" : 104730.13507091669,
+          "rssBytes" : 211566592,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.6136330000000001,
+          "monotonicSeconds" : 104731.1432400417,
+          "rssBytes" : 211566592,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.6155629999999999,
+          "monotonicSeconds" : 104732.15238887502,
+          "rssBytes" : 211566592,
+          "visible" : true
+        }
+      ],
+      "seconds" : 5.0408147499983897,
+      "trackCount" : 9
+    },
+    {
+      "cpuPercentOneCore" : 0.20709935419460562,
+      "cpuSeconds" : 0.010413999999999923,
+      "finalRSS" : 211582976,
+      "hasNativePresentation" : true,
+      "initialRSS" : 211566592,
+      "pair" : 3,
+      "phase" : "stopped",
+      "samples" : [
+        {
+          "cpuSeconds" : 2.6179869999999998,
+          "monotonicSeconds" : 104733.15900033335,
+          "rssBytes" : 211566592,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.6198999999999999,
+          "monotonicSeconds" : 104734.16890216668,
+          "rssBytes" : 211566592,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.6222630000000002,
+          "monotonicSeconds" : 104735.17511229169,
+          "rssBytes" : 211582976,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.624091,
+          "monotonicSeconds" : 104736.17584666669,
+          "rssBytes" : 211582976,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.6262819999999998,
+          "monotonicSeconds" : 104737.1811941667,
+          "rssBytes" : 211582976,
+          "visible" : true
+        }
+      ],
+      "seconds" : 5.0285043333424255,
+      "trackCount" : 0
+    },
+    {
+      "cpuPercentOneCore" : 0.21430545565004977,
+      "cpuSeconds" : 0.0043189999999997397,
+      "finalRSS" : 159055872,
+      "initialRSS" : 211582976,
+      "phase" : "after-release",
+      "samples" : [
+        {
+          "cpuSeconds" : 2.6291060000000002,
+          "monotonicSeconds" : 104738.19012412502,
+          "rssBytes" : 159055872,
+          "visible" : true
+        },
+        {
+          "cpuSeconds" : 2.6309490000000002,
+          "monotonicSeconds" : 104739.19685858335,
+          "rssBytes" : 159055872,
+          "visible" : true
+        }
+      ],
+      "seconds" : 2.0153476666746428
+    }
+  ],
+  "scope" : "Same Basic selected path and native window; empty2s, warmup2s, three counterbalanced active\/stopped pairs of5s each, released2s. Process CPU includes XCTest; excludes GPU\/compositor"
+}

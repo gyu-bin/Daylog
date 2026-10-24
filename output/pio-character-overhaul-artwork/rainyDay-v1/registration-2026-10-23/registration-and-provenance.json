@@ -1,0 +1,640 @@
+{
+  "canvas": [
+    1254,
+    1254
+  ],
+  "grip": {
+    "parts": [
+      "umbrellaCanopy",
+      "umbrellaShaft",
+      "wingRight"
+    ],
+    "pivot": [
+      745,
+      875
+    ],
+    "endpointDegrees": [
+      0,
+      -5
+    ]
+  },
+  "notes": [
+    "Eyes/open/half/closed alternatives are mutually exclusive",
+    "Complete generated source alpha preserved",
+    "Body0.88 scale offset20,100; no upscale, masks or painting",
+    "Hood baked into body, not independent",
+    "One boot source reused twice without mirroring",
+    "Sprout shared from Cherry-v2; not new source",
+    "Canopy rear, shaft/J foreground and hand frontmost; all3 share gripworldpivot",
+    "Derivative registered PNGs are not new source artwork"
+  ],
+  "origin": "topLeft",
+  "original": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_rainyDay.imageset/pio_outfit_rainyDay.png",
+  "parts": [
+    {
+      "file": "footLeft.png",
+      "id": "footLeft",
+      "neutralAngleDegrees": 0,
+      "offset": [
+        350.15330188679246,
+        996.9280660377358
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        480,
+        1115
+      ],
+      "scale": 0.18278301886792453,
+      "sha256": "dc46c3f70119533571c79d4c05cd6fbf237a10d9c34a8ab96480ce91e7067107",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/boot-candidate.png",
+      "sourcePixels": [
+        1254,
+        1254
+      ],
+      "sourceSHA256": "6b20affb2e364ef5298fdcd9e3c070815d5e08729b6c5fc7f6f75163a783b97c",
+      "z": 0,
+      "matrixTopLeft": [
+        0.18278301886792453,
+        -0.0,
+        350.15330188679246,
+        0.0,
+        0.18278301886792453,
+        996.9280660377358
+      ]
+    },
+    {
+      "file": "footRight.png",
+      "id": "footRight",
+      "neutralAngleDegrees": 0,
+      "offset": [
+        595.1533018867924,
+        996.9280660377358
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        730,
+        1115
+      ],
+      "scale": 0.18278301886792453,
+      "sha256": "eba6c7ff1756e21da7a15e2a55b771242f23962f4f9339094dc4a072a24417bd",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/boot-candidate.png",
+      "sourcePixels": [
+        1254,
+        1254
+      ],
+      "sourceSHA256": "6b20affb2e364ef5298fdcd9e3c070815d5e08729b6c5fc7f6f75163a783b97c",
+      "z": 1,
+      "matrixTopLeft": [
+        0.18278301886792453,
+        -0.0,
+        595.1533018867924,
+        0.0,
+        0.18278301886792453,
+        996.9280660377358
+      ]
+    },
+    {
+      "file": "wingLeft.png",
+      "id": "wingLeft",
+      "neutralAngleDegrees": 0,
+      "offset": [
+        101.5,
+        696.5
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        320,
+        800
+      ],
+      "scale": 0.23,
+      "sha256": "0c81cc1bab395adb66c93b8b85f0c27c5d0d1b22945514b7ea5c2974e6941f34",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/wing-left-candidate.png",
+      "sourcePixels": [
+        1254,
+        1254
+      ],
+      "sourceSHA256": "96f2a03ae85e043649fc97ac5de7f5cbb87eb86f25d186c348c12384e25d58ed",
+      "z": 2,
+      "matrixTopLeft": [
+        0.23,
+        -0.0,
+        101.5,
+        0.0,
+        0.23,
+        696.5
+      ]
+    },
+    {
+      "file": "umbrellaCanopy.png",
+      "id": "umbrellaCanopy",
+      "neutralAngleDegrees": -16,
+      "offset": [
+        662,
+        221
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        745,
+        875
+      ],
+      "scale": 0.56,
+      "sha256": "430eced95bf881b416bf4bcb6daadf5740ed179c2e2a4d60a4b47a69a37239ed",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/umbrella-canopy-candidate.png",
+      "sourcePixels": [
+        1254,
+        1254
+      ],
+      "sourceSHA256": "680ceaa4ddd4dab1422e1fcfdc6de02b04185f6cd307e8f41d624768ddb22425",
+      "z": 3,
+      "matrixTopLeft": [
+        0.5383065497254587,
+        0.15435691925751954,
+        484.94844853280205,
+        -0.15435691925751954,
+        0.5383065497254587,
+        269.2127513891504
+      ]
+    },
+    {
+      "file": "body.png",
+      "id": "body",
+      "neutralAngleDegrees": 0,
+      "offset": [
+        20,
+        100
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        600,
+        800
+      ],
+      "scale": 0.88,
+      "sha256": "e934e3637fd2f1c2c72b475ab3529ff5733cb9b7e9573f3fc41b6c44ea048bae",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/body-candidate.png",
+      "sourcePixels": [
+        1254,
+        1254
+      ],
+      "sourceSHA256": "7d988e5d46c8ad6d8bde8d2a2ca7156666e89f71a9adbc130aa036178babf2c3",
+      "z": 4,
+      "matrixTopLeft": [
+        0.88,
+        -0.0,
+        20.0,
+        0.0,
+        0.88,
+        100.0
+      ]
+    },
+    {
+      "file": "eyeLeft.png",
+      "id": "eyeLeft",
+      "neutralAngleDegrees": 0,
+      "offset": [
+        371.64397905759165,
+        580.4973821989529
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        451,
+        658
+      ],
+      "scale": 0.12041884816753927,
+      "sha256": "a0edeb582038e3e429ab275bfdc9562f2817fcfd701354bf773c7b8f43c91b22",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+      "sourcePixels": [
+        1319,
+        1192
+      ],
+      "sourceSHA256": "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "z": 5,
+      "matrixTopLeft": [
+        0.12041884816753927,
+        -0.0,
+        371.64397905759165,
+        0.0,
+        0.12041884816753927,
+        580.4973821989529
+      ]
+    },
+    {
+      "file": "eyeRight.png",
+      "id": "eyeRight",
+      "neutralAngleDegrees": 0,
+      "offset": [
+        636.6439790575917,
+        545.4973821989529
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        716,
+        623
+      ],
+      "scale": 0.12041884816753927,
+      "sha256": "195f84985e1cc8d2015a2506ea1825ed80d6fcb56dc369d03aad99684bc24c94",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+      "sourcePixels": [
+        1319,
+        1192
+      ],
+      "sourceSHA256": "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "z": 6,
+      "matrixTopLeft": [
+        0.12041884816753927,
+        -0.0,
+        636.6439790575917,
+        0.0,
+        0.12041884816753927,
+        545.4973821989529
+      ]
+    },
+    {
+      "file": "sprout.png",
+      "id": "sprout",
+      "neutralAngleDegrees": 0,
+      "offset": [
+        195.91259640102828,
+        20.552699228791774
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        500,
+        300
+      ],
+      "scale": 0.3341902313624679,
+      "sha256": "9b2c0515bad1f942999370ad125b145c91ec68457017af30578c004d83f2edb2",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cherryBlossom-v2/source/sprout-v3-review.png",
+      "sourcePixels": [
+        1536,
+        1024
+      ],
+      "sourceSHA256": "639387f2916fb32af0ab30ebb8f43b09ed5e88366c052b7c7b8b91f51f893199",
+      "z": 7,
+      "matrixTopLeft": [
+        0.3341902313624679,
+        -0.0,
+        195.91259640102828,
+        0.0,
+        0.3341902313624679,
+        20.552699228791766
+      ]
+    },
+    {
+      "file": "umbrellaShaft.png",
+      "id": "umbrellaShaft",
+      "neutralAngleDegrees": -16,
+      "offset": [
+        647.2,
+        177.7
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        745,
+        875
+      ],
+      "scale": 0.65,
+      "sha256": "eced258a4c996245556313107ff462f08fcde1a2dc0e18ea869ddd6b1c364c43",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/umbrella-shaft-v2-candidate.png",
+      "sourcePixels": [
+        1254,
+        1254
+      ],
+      "sourceSHA256": "36ad11174ed579763ce563afe5073df6ab35922299295df4cc153276af78929e",
+      "z": 8,
+      "matrixTopLeft": [
+        0.6248201023599073,
+        0.17916428128104947,
+        458.7866779260389,
+        -0.17916428128104947,
+        0.6248201023599073,
+        231.6695528211128
+      ]
+    },
+    {
+      "file": "wingRight.png",
+      "id": "wingRight",
+      "neutralAngleDegrees": 0,
+      "offset": [
+        670,
+        615
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        745,
+        875
+      ],
+      "scale": 0.25,
+      "sha256": "0b583fd41a2b2be87c8031df52561dd2993cb936d7e734856019f4f85d6c7465",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/wing-right-candidate.png",
+      "sourcePixels": [
+        1254,
+        1254
+      ],
+      "sourceSHA256": "2658715f4e4d11d78f30a8c63fc3f103035a8d2a32305a3ba9ad6bc379229f13",
+      "z": 9,
+      "matrixTopLeft": [
+        0.25,
+        -0.0,
+        670.0,
+        0.0,
+        0.25,
+        615.0
+      ]
+    },
+    {
+      "file": "halfLeft.png",
+      "id": "halfLeft",
+      "neutralAngleDegrees": 0,
+      "offset": [
+        387.82860824742266,
+        634.9702123927241
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        451,
+        658
+      ],
+      "scale": 0.08376288659793814,
+      "sha256": "941db7749325b54a9c1f00bf27c0b553a3efa9c6e2a197d018695bdcdb72af5d",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+      "sourcePixels": [
+        1254,
+        1254
+      ],
+      "sourceSHA256": "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+      "z": 10,
+      "matrixTopLeft": [
+        0.08376288659793814,
+        -0.0,
+        387.82860824742266,
+        0.0,
+        0.08376288659793814,
+        634.9702123927241
+      ]
+    },
+    {
+      "file": "lidLeft.png",
+      "id": "lidLeft",
+      "neutralAngleDegrees": 0,
+      "offset": [
+        375.43672456575683,
+        592.1496238940927
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        451,
+        658
+      ],
+      "scale": 0.1141439205955335,
+      "sha256": "907e03870cb8c2ed930c82ff59a9bf48cb1ccc079dc63859c3f4c85d2fe34377",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+      "sourcePixels": [
+        1319,
+        1192
+      ],
+      "sourceSHA256": "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "z": 11,
+      "matrixTopLeft": [
+        0.1141439205955335,
+        -0.0,
+        375.43672456575683,
+        0.0,
+        0.1141439205955335,
+        592.1496238940927
+      ]
+    },
+    {
+      "file": "halfRight.png",
+      "id": "halfRight",
+      "neutralAngleDegrees": 0,
+      "offset": [
+        652.8286082474227,
+        599.9702123927241
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        716,
+        623
+      ],
+      "scale": 0.08376288659793814,
+      "sha256": "5fa93eb42b5f9eaed6beb8df5f8d96082a253ade67c5efe1e622f1a90542a12d",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+      "sourcePixels": [
+        1254,
+        1254
+      ],
+      "sourceSHA256": "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+      "z": 12,
+      "matrixTopLeft": [
+        0.08376288659793814,
+        -0.0,
+        652.8286082474227,
+        0.0,
+        0.08376288659793814,
+        599.9702123927241
+      ]
+    },
+    {
+      "file": "lidRight.png",
+      "id": "lidRight",
+      "neutralAngleDegrees": 0,
+      "offset": [
+        640.4367245657568,
+        557.1496238940927
+      ],
+      "outsideAlpha16Pixels": 0,
+      "outsideAnyAlphaPixels": 0,
+      "pivot": [
+        716,
+        623
+      ],
+      "scale": 0.1141439205955335,
+      "sha256": "cdcd23edca966859cc4576e1565eb05e1588b195fbe49d98891b73a2d4096c26",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+      "sourcePixels": [
+        1319,
+        1192
+      ],
+      "sourceSHA256": "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "z": 13,
+      "matrixTopLeft": [
+        0.1141439205955335,
+        -0.0,
+        640.4367245657568,
+        0.0,
+        0.1141439205955335,
+        557.1496238940927
+      ]
+    }
+  ],
+  "status": "UNAPPROVED_ARTWORK_REVIEW",
+  "originalSHA256": "5bf7081494800cc37fade49caf0398a2d8e075667ea59a37cd10a8b843dcba31",
+  "sourceAudit": [
+    {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+      "sha256": "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaZero": 1077526,
+      "alphaPartial": 494755,
+      "alphaOpaque": 235,
+      "generationMetadata": null
+    },
+    {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+      "sha256": "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "size": [
+        1319,
+        1192
+      ],
+      "alphaZero": 1117569,
+      "alphaPartial": 453853,
+      "alphaOpaque": 826,
+      "generationMetadata": null
+    },
+    {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+      "sha256": "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "size": [
+        1319,
+        1192
+      ],
+      "alphaZero": 1417434,
+      "alphaPartial": 154588,
+      "alphaOpaque": 226,
+      "generationMetadata": null
+    },
+    {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cherryBlossom-v2/source/sprout-v3-review.png",
+      "sha256": "639387f2916fb32af0ab30ebb8f43b09ed5e88366c052b7c7b8b91f51f893199",
+      "size": [
+        1536,
+        1024
+      ],
+      "alphaZero": 1060151,
+      "alphaPartial": 512713,
+      "alphaOpaque": 0,
+      "generationMetadata": null
+    },
+    {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/body-candidate.png",
+      "sha256": "7d988e5d46c8ad6d8bde8d2a2ca7156666e89f71a9adbc130aa036178babf2c3",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaZero": 920783,
+      "alphaPartial": 651205,
+      "alphaOpaque": 528,
+      "generationMetadata": {
+        "prompt": "CreatecleanBODYlayer ofapproved RainyDayPio, preservingoriginal1254squareframing and character placement: roundcreamfurface, fixedrosycheeks and happyorangebeak, glossybutsoftyellow raincoat WITH hood, drawstrings/buttons/pockets. Keep hood and coat asonebodyassembly. Remove BOTHeyes, bothsleeves/projectinghands, umbrella/cane/handle, greenheadsprout, BOTHboots/feet. Reconstruct hiddencreameyesites, upperhoodwhere sprout attaches, yellowcoatshoulderunderlap behindhands/umbrella; continuoustexture,noleg/handstumps. Noeyes,wings/hands/boots/sprout/umbrellaorstrayparts. Do notenlarge/recenterbody; preserve uppertransparentheadroom. Finecreamfur, yellowsoftvinylshadingandstitchedmaterialmatchapprovedpremium2.5D. One completecleanhoodedbodyonly; true transparentRGBAexterior, nofloor shadow, text, halo,grid, flatgeometryornewdesign. Thisisactualrigcomponent, not wholecharacter.",
+        "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-787e3b7b-e182-4488-92b7-7bbe7805bc55.png",
+        "method": "built-in image_gen",
+        "status": "CANDIDATE_NOT_APPROVED"
+      }
+    },
+    {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/boot-candidate.png",
+      "sha256": "6b20affb2e364ef5298fdcd9e3c070815d5e08729b6c5fc7f6f75163a783b97c",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaZero": 1040765,
+      "alphaPartial": 531241,
+      "alphaOpaque": 510,
+      "generationMetadata": {
+        "prompt": "Reconstruct ONE complete small yellow rain boot from approved Rainy Day Pio, as an independent foot rig component. Match the original SCREEN-LEFT boot perspective: short rounded ankle opening at top, chubby rounded toe pointing gently down-right, thick cute low sole, glossy warm-yellow soft rubber and soft premium2.5D highlights. Include the full hidden ankle/root continuing upward to tuck naturally beneath coat. No orange toes/cream leg, body, hood, hands, umbrella, sprout, second boot or otherobjects. Complete uncropped boot with transparent padding and actual transparentRGBA exterior; no floor shadow, glow, text, logo, grid or new boot design. Preserve approved proportions and soft toy material. One genuine detailed boot source to register separately as two instances, not a sheet.",
+        "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-fd5c74ae-0e65-4da0-a9a7-5062b36f32e0.png",
+        "method": "built-in image_gen",
+        "status": "CANDIDATE_NOT_APPROVED"
+      }
+    },
+    {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/umbrella-canopy-candidate.png",
+      "sha256": "680ceaa4ddd4dab1422e1fcfdc6de02b04185f6cd307e8f41d624768ddb22425",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaZero": 1143023,
+      "alphaPartial": 428518,
+      "alphaOpaque": 975,
+      "generationMetadata": {
+        "mode": "built-in imagegen precise-object-edit",
+        "prompt": "Use case: precise-object-edit. Edit target: supplied standalone yellow umbrella. Produce ONLY the yellow canopy/roof component as a genuine independently layered transparent asset. Remove the entire silver shaft and yellow J-shaped handle. Preserve the canopy's exact shape, six rounded tips, curved dome, glossy yellow material, seams, bead tips, shade, warm highlights, perspective, scale and original location in the 1254-square composition. Maintain original empty margins below the canopy. Reconstruct the underside where the shaft was hidden, so the canopy has a complete natural underside for independent layering. No cropping, no new props, no text, no character, no flat geometric substitutions. Genuine transparent background, soft faithful high-resolution 2.5D plush game artwork, no glow/halo. Keep all canopy pixel placement as close as possible to the reference; this is component reconstruction, not umbrella redesign.",
+        "target": "source/umbrella-candidate.png",
+        "output": "source/umbrella-canopy-candidate.png",
+        "status": "UNAPPROVED_CANDIDATE"
+      }
+    },
+    {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/umbrella-shaft-v2-candidate.png",
+      "sha256": "36ad11174ed579763ce563afe5073df6ab35922299295df4cc153276af78929e",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaZero": 1514541,
+      "alphaPartial": 57733,
+      "alphaOpaque": 242,
+      "generationMetadata": {
+        "mode": "built-in imagegen precise-object-edit",
+        "prompt": "Use case: precise-object-edit. Edit target: supplied isolated silver pole and yellow J umbrella handle on1254\u00d71254 transparent canvas. Correct ONLY the length of the upper metal pole: the upper pole currently reaches near y70; instead shorten its upper endpoint to approximately (650,620) along the same existing diagonal axis, leaving a natural short rounded hidden attachment root there. The remaining shaft from y620 downward and the entire glossy yellow J-handle must stay the same shape, scale, original lower-canvas position and lighting. Do not move, shrink or redesign the J. Preserve J inner hole as genuine transparent alpha. Delete all metal above y620, leaving genuine transparency in that upper area. This is genuine artwork reconstruction of a shorter pole, not a mask supplied by me. No canopy, body, wings, text, objects, backdrop or halo. Keep1254-square framing with original margins. Premium realistic2.5D rounded glossy yellow plastic and silver highlights, original high-resolution material.",
+        "target": "source/umbrella-shaft-candidate.png",
+        "output": "source/umbrella-shaft-v2-candidate.png",
+        "status": "UNAPPROVED_CANDIDATE"
+      }
+    },
+    {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/wing-left-candidate.png",
+      "sha256": "96f2a03ae85e043649fc97ac5de7f5cbb87eb86f25d186c348c12384e25d58ed",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaZero": 1066019,
+      "alphaPartial": 506171,
+      "alphaOpaque": 326,
+      "generationMetadata": {
+        "prompt": "Reconstruct ONLY RainyDayPio's SCREEN-LEFT lowered creamwing/hand and its short yellowraincoatsleeve, independentrigcomponent. Exactapprovedsimpleovalchubbywing, ivoryfinefur protrudingfromsoftglossyyellowsleeve withstitchedroundedhem, nohumanfingers/longarm. Completehiddenroundedshoulderroot goesupper-right undercoat; handnaturallydown-left. Nohead/face/eyes/body/boots/sprout/hood/umbrella/otherhand. Fulluncroppedroot+tip withpadding,true transparentRGBA, nofloor shadow/halo/text/flatshape/sheet. Preserveoriginalpremium2.5D material/design.",
+        "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-487b22f0-0ea2-4595-bff4-e23339531bdb.png",
+        "method": "built-in image_gen",
+        "status": "CANDIDATE_NOT_APPROVED"
+      }
+    },
+    {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/wing-right-candidate.png",
+      "sha256": "2658715f4e4d11d78f30a8c63fc3f103035a8d2a32305a3ba9ad6bc379229f13",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaZero": 1195330,
+      "alphaPartial": 376915,
+      "alphaOpaque": 271,
+      "generationMetadata": {
+        "prompt": "Reconstruct only approved Rainy Day Pio's SCREEN-RIGHT small cream mitten wing and short yellow raincoat sleeve, as one independently riggable part. It is raised to hold an umbrella. Remove all umbrella/handle pixels and reconstruct the complete hand. Keep one soft smooth ivory oval hand, no human fingers; fine fur, soft glossy yellow vinyl sleeve with rounded stitched hem. The hidden shoulder root extends down-left as CONTINUOUS YELLOW SLEEVE FABRIC, no exposed cream forearm behind the cuff and no flat cut. Include a short rounded fabric underlap that fits beneath the body. Preserve approved proportions, not a long human arm. No body, face, eyes, hood, sprout, boots, umbrella or second hand. Complete uncropped component with transparent padding; real transparent RGBA exterior, no cast floor shadow, glow, text, grid or new design. Premium 2.5D material matching reference.",
+        "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-c642d461-10e7-4b34-adec-3d3f2ec6833d.png",
+        "method": "built-in image_gen",
+        "status": "CANDIDATE_NOT_APPROVED"
+      }
+    }
+  ],
+  "registrationMethod": "Whole native source via single uniform scale + rigid rotation and translation; no crop, masks, cleanup, painting, or upscale."
+}

@@ -1,0 +1,53 @@
+{
+  "outfit": "summerVacation",
+  "status": "PARTIAL_OFFLINE_STUDY",
+  "canonicalSourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/footLeft.png": "0a6f01f2d0dc29089d5ff2bbcb28f18c9420cd8f903246a6e73a1e603b1eed76",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/footRight.png": "0e2c67c52cfec06a79c44f1a58dcca20a1e7215c9c5e6bae50b50272419c8c7d",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/wingRight.png": "1f9f912bb7811f8046c4304236c3b137014d8ec4c9cdd87a126b12f68f8d0085",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/body.png": "8950fcdd2b249ee4b7e1de0ac68c1d7b0d1bd6d2b079d631681a43144e0d5f5e",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/eyeLeft.png": "35a645af86dac6f50a51b540558db97b1ae955408c6ab170bc406ec80dcd1900",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/eyeRight.png": "c77a1caef4bd41170d5feb6691deec6cd70fe5b6af5c5e85936eb80c4c13569b",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/sunglasses.png": "41310764ac14b5b275fcebd3f2cbbb53ec087c71e2f1cfb78a15605ef5cdbca9",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/wingLeft.png": "6a0473586970c66cedea3177ac1932bd8253294951a89fb6db185e30334c84d3",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/drink.png": "3ff97f521cd055bfa74e6f8d8fa3f764d0fd5a9a82610a73d01ceba6be8e3137",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/headwear.png": "61f16a62706a67b897e0a64bf4d82f5abbc2e637b397fe95fdd6666d107a2f8d",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/lidLeft.png": "fe0565780deadf22d1acbd65ddb9258ba733f2c123d27248f350fff7bb4cca7f",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/lidRight.png": "9e7b47dbf844639ad6f996a7108ec57ce7aa59e33a0a30b766f4a75fc5014b39",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/happyLeft.png": "80855f14e19168f371f528c0377e469dcc904e14b2930b1c8ec964ed1b615915",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/happyRight.png": "1dcd85b61c40731491c6cc47b53d5de73ffde480b1525cc2412091b8b4fd1640"
+  },
+  "actions": [
+    "idle",
+    "greet",
+    "walk",
+    "bounce",
+    "jump",
+    "celebrate",
+    "bow",
+    "sleepy",
+    "surprised",
+    "encourage",
+    "special"
+  ],
+  "specialAction": "held drink toast",
+  "framesPerAction": 32,
+  "durationMs": 70,
+  "maxAlphaOnFrameBorder": 0,
+  "canvas": [
+    480,
+    516
+  ],
+  "characterCanvas": [
+    350,
+    350
+  ],
+  "limits": [
+    "2D front-view stepping, no authored turn or gait occlusion change.",
+    "Bow is frontal lean/compression, not a reconstructed 3D head turn.",
+    "Hat and fabric stay rigid with torso.",
+    "Held props rigidly follow hands; no release or articulation.",
+    "No app/runtime/performance claim."
+  ]
+}

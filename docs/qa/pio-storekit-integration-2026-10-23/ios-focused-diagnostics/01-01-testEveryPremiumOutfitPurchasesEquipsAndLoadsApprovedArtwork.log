@@ -1,0 +1,176 @@
+Command: /usr/bin/xcodebuild -project /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination 'platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884' -derivedDataPath /private/tmp/PioStoreKit-20261023-ios -disableAutomaticPackageResolution -parallel-testing-enabled NO -only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests/testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-integration-2026-10-23/ios-focused-diagnostics/01-01-testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork.xcresult test-without-building
+
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -derivedDataPath /private/tmp/PioStoreKit-20261023-ios -disableAutomaticPackageResolution -parallel-testing-enabled NO "-only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests/testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-integration-2026-10-23/ios-focused-diagnostics/01-01-testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-integration-2026-10-23/ios-focused-diagnostics/01-01-testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork.xcresult
+
+2026-10-23 19:27:09.938 xcodebuild[70766:667682] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:27:14.834120+0900 Daylog[70786:668037] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 19:27:16.070899+0900 Daylog[70786:668037] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 19:27:16.071911+0900 Daylog[70786:668037] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 19:27:16.072945+0900 Daylog[70786:668037] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 19:27:16.145.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 19:27:16.146.
+Test Suite 'PioStoreKitIntegrationTests' started at 2026-10-23 19:27:16.146.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork]' started.
+PioStoreKit: Transaction.updates listener started
+PioStoreKit: client=43472CAF time=1792751236.234346 accepted id=20 product=outfit.cherryblossom revoked=false
+PioStoreKit: client=43472CAF time=1792751236.234468 finish requested id=20 cached=true inFlight=0
+PioStoreKit: client=43472CAF time=1792751236.2345018 finish begin id=20 product=outfit.cherryblossom revoked=false
+PioStoreKit: client=43472CAF time=1792751236.244021 finish returned id=20
+PioStoreKit: client=43472CAF time=1792751236.265574 accepted id=21 product=outfit.summer revoked=false
+PioStoreKit: client=43472CAF time=1792751236.26564 finish requested id=21 cached=true inFlight=0
+PioStoreKit: client=43472CAF time=1792751236.265664 finish begin id=21 product=outfit.summer revoked=false
+PioStoreKit: client=43472CAF time=1792751236.267006 finish returned id=21
+PioStoreKit: client=43472CAF time=1792751236.27851 accepted id=22 product=outfit.autumn revoked=false
+PioStoreKit: client=43472CAF time=1792751236.278554 finish requested id=22 cached=true inFlight=0
+PioStoreKit: client=43472CAF time=1792751236.2785912 finish begin id=22 product=outfit.autumn revoked=false
+PioStoreKit: client=43472CAF time=1792751236.279743 finish returned id=22
+PioStoreKit: client=43472CAF time=1792751236.289195 accepted id=23 product=outfit.winter revoked=false
+PioStoreKit: client=43472CAF time=1792751236.289223 finish requested id=23 cached=true inFlight=0
+PioStoreKit: client=43472CAF time=1792751236.2892451 finish begin id=23 product=outfit.winter revoked=false
+PioStoreKit: client=43472CAF time=1792751236.2907228 finish returned id=23
+PioStoreKit: client=43472CAF time=1792751236.299955 accepted id=24 product=outfit.halloween revoked=false
+PioStoreKit: client=43472CAF time=1792751236.299981 finish requested id=24 cached=true inFlight=0
+PioStoreKit: client=43472CAF time=1792751236.300002 finish begin id=24 product=outfit.halloween revoked=false
+PioStoreKit: client=43472CAF time=1792751236.301177 finish returned id=24
+PioStoreKit: client=43472CAF time=1792751236.310135 accepted id=25 product=outfit.christmas revoked=false
+PioStoreKit: client=43472CAF time=1792751236.310164 finish requested id=25 cached=true inFlight=0
+PioStoreKit: client=43472CAF time=1792751236.310184 finish begin id=25 product=outfit.christmas revoked=false
+PioStoreKit: client=43472CAF time=1792751236.311226 finish returned id=25
+PioStoreKit: client=43472CAF time=1792751236.3203192 accepted id=26 product=outfit.hanbok revoked=false
+PioStoreKit: client=43472CAF time=1792751236.320344 finish requested id=26 cached=true inFlight=0
+PioStoreKit: client=43472CAF time=1792751236.320363 finish begin id=26 product=outfit.hanbok revoked=false
+PioStoreKit: client=43472CAF time=1792751236.3215098 finish returned id=26
+PioStoreKit: client=43472CAF time=1792751236.330985 accepted id=27 product=outfit.cafe revoked=false
+PioStoreKit: client=43472CAF time=1792751236.331019 finish requested id=27 cached=true inFlight=0
+PioStoreKit: client=43472CAF time=1792751236.33104 finish begin id=27 product=outfit.cafe revoked=false
+PioStoreKit: client=43472CAF time=1792751236.332145 finish returned id=27
+PioStoreKit: client=43472CAF time=1792751236.340753 accepted id=28 product=outfit.student revoked=false
+PioStoreKit: client=43472CAF time=1792751236.3407788 finish requested id=28 cached=true inFlight=0
+PioStoreKit: client=43472CAF time=1792751236.340797 finish begin id=28 product=outfit.student revoked=false
+PioStoreKit: client=43472CAF time=1792751236.34192 finish returned id=28
+PioStoreKit: client=43472CAF time=1792751236.351431 accepted id=29 product=outfit.workout revoked=false
+PioStoreKit: client=43472CAF time=1792751236.351455 finish requested id=29 cached=true inFlight=0
+PioStoreKit: client=43472CAF time=1792751236.3514729 finish begin id=29 product=outfit.workout revoked=false
+PioStoreKit: client=43472CAF time=1792751236.352709 finish returned id=29
+PioStoreKit: client=43472CAF time=1792751236.361648 accepted id=30 product=outfit.rainy revoked=false
+PioStoreKit: client=43472CAF time=1792751236.3616772 finish requested id=30 cached=true inFlight=0
+PioStoreKit: client=43472CAF time=1792751236.361696 finish begin id=30 product=outfit.rainy revoked=false
+PioStoreKit: client=43472CAF time=1792751236.3627958 finish returned id=30
+PioStoreKit: client=43472CAF time=1792751236.371561 accepted id=31 product=outfit.pajamas revoked=false
+PioStoreKit: client=43472CAF time=1792751236.371591 finish requested id=31 cached=true inFlight=0
+PioStoreKit: client=43472CAF time=1792751236.371615 finish begin id=31 product=outfit.pajamas revoked=false
+PioStoreKit: client=43472CAF time=1792751236.372766 finish returned id=31
+PioStoreKit: client=43472CAF time=1792751236.3818321 accepted id=32 product=outfit.space revoked=false
+PioStoreKit: client=43472CAF time=1792751236.3818579 finish requested id=32 cached=true inFlight=0
+PioStoreKit: client=43472CAF time=1792751236.381881 finish begin id=32 product=outfit.space revoked=false
+PioStoreKit: client=43472CAF time=1792751236.382928 finish returned id=32
+PioStoreKit: acknowledgement observed=false elapsed=3.002911041 seconds snapshots=29
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:320: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed - All registered wardrobe transactions must disappear from Transaction.unfinished within 3 seconds without test-side acknowledgement.
+elapsed=0.003116708 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=0.111911958 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=0.220158666 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=0.328397416 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=0.4301975 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=0.538395541 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=0.641363625 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=0.744250541 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=0.846795583 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=0.948919 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=1.051107375 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=1.154122833 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=1.256025 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=1.358510833 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=1.467002291 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=1.57512125 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=1.677908583 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=1.780290666 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=1.882932541 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=1.984961708 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=2.08730675 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=2.189985458 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=2.292542041 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=2.394997833 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=2.496654916 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=2.59964275 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=2.704579875 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=2.810805791 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+
+elapsed=2.9179385 seconds registeredUnfinishedIDs=[32]
+id=32 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 10:27:16 +0000
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork]' failed (3.331 seconds).
+Test Suite 'PioStoreKitIntegrationTests' failed at 2026-10-23 19:27:19.479.
+	 Executed 1 test, with 1 failure (0 unexpected) in 3.331 (3.333) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 19:27:19.479.
+	 Executed 1 test, with 1 failure (0 unexpected) in 3.331 (3.333) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 19:27:19.479.
+	 Executed 1 test, with 1 failure (0 unexpected) in 3.331 (3.334) seconds
+2026-10-23 19:27:19.498 xcodebuild[70766:667682] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:27:19.499 xcodebuild[70766:667682] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:27:19.499 xcodebuild[70766:667682] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+** BUILD INTERRUPTED **

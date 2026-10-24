@@ -1,0 +1,133 @@
+{
+  "status": "CANDIDATE_ARTWORK_NOT_USER_APPROVED",
+  "native_generated_source_png_count": 10,
+  "sources": [
+    {
+      "path": "output/pio-character-overhaul-artwork/cherryBlossom-v2/source/petal-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bit_depth": 8,
+      "png_color_type": 6,
+      "has_alpha_channel": true,
+      "bytes": 630217,
+      "sha256": "5760095104f1ab5f713dd553ebe5ae758e0de5365478b2cb205751f318758dd4"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/cherryBlossom-v2/source/sprout-v3-review.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bit_depth": 8,
+      "png_color_type": 6,
+      "has_alpha_channel": true,
+      "bytes": 1572051,
+      "sha256": "639387f2916fb32af0ab30ebb8f43b09ed5e88366c052b7c7b8b91f51f893199"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/summerVacation-v1/source/body-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bit_depth": 8,
+      "png_color_type": 6,
+      "has_alpha_channel": true,
+      "bytes": 1015214,
+      "sha256": "342e0cb81ea9f080652e5b127dd55c43938ed1756767f2eb486ae71e2345d91d"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/summerVacation-v1/source/drink-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bit_depth": 8,
+      "png_color_type": 6,
+      "has_alpha_channel": true,
+      "bytes": 1043880,
+      "sha256": "4bddcb5e1a8ae6764af4a74daff8a2538acbb6bded8b59fcd351b5d7ce47e12b"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/summerVacation-v1/source/headwear-v1-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bit_depth": 8,
+      "png_color_type": 6,
+      "has_alpha_channel": true,
+      "bytes": 1486956,
+      "sha256": "c33e7679098fa4a43d41e364ae89fb49582cdc65d1b1ec98bf339c45593f7c39"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/summerVacation-v1/source/headwear-v2-candidate.png",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bit_depth": 8,
+      "png_color_type": 6,
+      "has_alpha_channel": true,
+      "bytes": 1716922,
+      "sha256": "09008d9182fbc5d9c78c4d14b79a86793a3ee9a4083653aa96c36fe693ea12fc"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/summerVacation-v1/source/sunglasses-candidate.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "bit_depth": 8,
+      "png_color_type": 6,
+      "has_alpha_channel": true,
+      "bytes": 713473,
+      "sha256": "f401e1ccdf582be82673287d9f80244354d6e5bb6f4f42590e76295dceeed65e"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/summerVacation-v1/source/sunglasses-frame-only-candidate.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "bit_depth": 8,
+      "png_color_type": 6,
+      "has_alpha_channel": true,
+      "bytes": 480931,
+      "sha256": "df1ddbbb6e6fe8401492dcd41fbabd03110833f3fc44fec3c901a3e604d030c5"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/summerVacation-v1/source/wing-left-candidate.png",
+      "dimensions": [
+        1402,
+        1122
+      ],
+      "bit_depth": 8,
+      "png_color_type": 6,
+      "has_alpha_channel": true,
+      "bytes": 836411,
+      "sha256": "73ccfddfe0e8e09cc506d02b64e89dc03eb446436009461f0bf76972ab14e2cb"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/summerVacation-v1/source/wing-right-candidate.png",
+      "dimensions": [
+        1374,
+        1145
+      ],
+      "bit_depth": 8,
+      "png_color_type": 6,
+      "has_alpha_channel": true,
+      "bytes": 984138,
+      "sha256": "973a43ab9b9666fb1f968490726df158e900f97bdaec2de8261304230005f7a0"
+    }
+  ],
+  "alpha_composite_measurement_evidence": [
+    "SPROUT-REVIEW.md",
+    "SUMMER-AND-CHERRY-REVIEW.md"
+  ],
+  "tracked_application_diff_unchanged_since_checkpoint": true,
+  "application_diff_sha256": "b588d3cb8aa79e0a873352bab9d835285cf1b287c15896d93dfc282199d78feb",
+  "app_builds_or_existing_tests_run_this_artwork_batch": false
+}

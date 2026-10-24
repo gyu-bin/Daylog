@@ -1,0 +1,21 @@
+{
+  "mode": "built-in image_gen",
+  "prompts": [
+    {
+      "key": "night-background",
+      "prompt": "Edit target: supplied Routimori nighttime vacation poster. Create ONLY the true nighttime BEACH BACKGROUND PLATE for an animated native app, same exact1024x1536portrait canvas and composition. KEEP original dark navy night sky, a real pale golden full moon atupperright, tiny stars, moonlight reflected across dark blue ocean, distant island and small amber shoreline lights; left-edge palm tree and warm string lights above, lantern/book/wooden table atlowerleft, soft beach sand and foliage. REMOVE the bird, drink, complete hammock cloth and suspension ropes including knot, reconstruct what was behind them. REMOVE ALL TEXT, brand logo, leaf wordmark, English/Korean lettering, button and UI borders. No character, no hammock, no ropes, no ghost silhouettes. Preserve the reference night scene and local amber lighting, not a daytime scene with a blue/gray overlay. Native UI text is added later. Keep environmental details but natural negative space upperandlowerareas; no newletters/watermark. Background must be fullyopaque. Exactreference framing and dimensions1024x1536, do not zoom/crop/recenter.",
+      "referenced_image_paths": [
+        "/var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/codex-clipboard-a2200b1d-e6dd-4ffe-a5d8-d653936f1260.png"
+      ],
+      "transparent_background": false
+    },
+    {
+      "key": "night-hammock",
+      "prompt": "Use case background-extraction, edit supplied night Routimori poster. Produce ONE standalone genuinely transparent PNG containing ONLY the original warm amber-lit cute fluffy ivory bird resting in green/cream striped HAMMOCK, its two sprout leaves, lemonade cup with straw/lemon, orange feet, wooden hammock spreader and ALL suspension ropes including LEFT knot. Preserve exact source1024x1536full-canvas registration, scale and pose. Left knot center approximately(56,443), character focus around(512,795), hammockclothbottomaroundy1020. Do not enlarge, center or crop: leave everything in same coordinates it occupied in original poster. Character must remain soft round extremelycute with smilingclosedeyes, warm cream feathers, peach cheeks, naturalgreen sprout, readable darkfeatures. Keep physically painted warm lantern lighting from lower left and cool moon rimlight, not a flatbluefilter. Remove ALL environment: palm tree, sea, sky, moon, lantern, table, book, sand, floor, text, logo, button, foliage and ground shadows. Everything outside precise character/drink/hammock/rope silhouette and every gap between ropes must have genuine alpha0. Noambient haze or background pixels. No text, sheet or board. Output complete assembly on SAME1024x1536transparent canvas; warm lighting stays on objects only.",
+      "referenced_image_paths": [
+        "/var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/codex-clipboard-a2200b1d-e6dd-4ffe-a5d8-d653936f1260.png"
+      ],
+      "transparent_background": true
+    }
+  ]
+}

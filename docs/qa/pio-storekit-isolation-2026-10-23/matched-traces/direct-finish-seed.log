@@ -1,0 +1,62 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /private/tmp/PioStoreKit-20261023-ios/Build/Products/PioIsolation-072cc632-0a49-4af2-86e0-14562f2cc41b-seed.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitIsolationTests/testScenario" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/direct-finish-seed.xcresult
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/direct-finish-seed.xcresult
+
+2026-10-23 21:02:41.778 xcodebuild[5495:926488] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:02:45.186029+0900 Daylog[5512:926603] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 21:02:45.536376+0900 Daylog[5512:926603] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 21:02:45.537745+0900 Daylog[5512:926603] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 21:02:45.537988+0900 Daylog[5512:926603] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 21:02:45.575.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 21:02:45.576.
+Test Suite 'PioStoreKitIsolationTests' started at 2026-10-23 21:02:45.576.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario]' started.
+PIO_ISOLATION {"appEnvironment":"Environment(rawValue: \"Xcode\")","elapsed":"0.058382792 seconds","event":"environment","mode":"direct","os":"Version 27.0 (Build 24A434)","phase":"seed","pid":5512,"run":"072cc632-0a49-4af2-86e0-14562f2cc41b","scenario":"finish","wallTime":1792756965.609071}
+PIO_ISOLATION {"elapsed":"0.069879208 seconds","event":"SKTestSession.init.return","wallTime":1792756965.620568}
+PIO_ISOLATION {"elapsed":"0.070423375 seconds","event":"resetToDefaultState.return","wallTime":1792756965.6211119}
+PIO_ISOLATION {"elapsed":"0.071258708 seconds","event":"clearTransactions.return","wallTime":1792756965.6219471}
+PIO_ISOLATION {"dialogsDisabled":true,"elapsed":"0.078598333 seconds","event":"fixture.ready","purchaseError":"nil","storefront":"KOR","wallTime":1792756965.629288}
+PIO_ISOLATION {"elapsed":"0.079033042 seconds","event":"Product.products.begin","requested":["outfit.autumn","outfit.cafe","outfit.cherryblossom","outfit.christmas","outfit.halloween","outfit.hanbok","outfit.pajamas","outfit.rainy","outfit.space","outfit.student","outfit.summer","outfit.winter","outfit.workout"],"wallTime":1792756965.6297231}
+PIO_ISOLATION {"elapsed":"0.082549292 seconds","event":"Product.products.return","returned":["outfit.autumn","outfit.cafe","outfit.cherryblossom","outfit.christmas","outfit.halloween","outfit.hanbok","outfit.pajamas","outfit.rainy","outfit.space","outfit.student","outfit.summer","outfit.winter","outfit.workout"],"wallTime":1792756965.633239}
+PIO_ISOLATION {"elapsed":"0.0828915 seconds","event":"raw.iterator.started","wallTime":1792756965.6335812}
+PIO_ISOLATION {"elapsed":"0.082928042 seconds","event":"snapshot.begin","label":"before-scenario","wallTime":1792756965.6336179}
+PIO_ISOLATION {"currentEntitlements":[],"driverLedger":[],"elapsed":"0.085764042 seconds","equipped":"not-applicable","event":"snapshot.return","label":"before-scenario","managerOwned":[],"unfinished":[],"wallTime":1792756965.6364541}
+PIO_ISOLATION {"elapsed":"0.085887333 seconds","event":"purchase.begin","product":"outfit.space","wallTime":1792756965.6365771}
+PIO_ISOLATION {"elapsed":"0.091832 seconds","environment":"Environment(rawValue: \"Xcode\")","event":"Product.purchase.return","id":"198","product":"outfit.space","revoked":false,"verification":"verified","wallTime":1792756965.6425209}
+PIO_ISOLATION {"elapsed":"0.091888833 seconds","event":"finish.begin","id":"198","product":"outfit.space","wallTime":1792756965.6425781}
+PIO_ISOLATION {"elapsed":"0.093190083 seconds","event":"finish.return","id":"198","product":"outfit.space","wallTime":1792756965.6438789}
+PIO_ISOLATION {"elapsed":"0.093223208 seconds","event":"snapshot.begin","label":"after-space-finish","wallTime":1792756965.643913}
+PIO_ISOLATION {"currentEntitlements":[{"environment":"Environment(rawValue: \"Xcode\")","id":"198","product":"outfit.space","revoked":false,"verification":"verified"}],"driverLedger":[{"id":"198","issue":false,"pending":false,"product":"outfit.space","state":"SKPaymentTransactionState(rawValue: 1)"}],"elapsed":"0.09907175 seconds","equipped":"not-applicable","event":"snapshot.return","label":"after-space-finish","managerOwned":[],"unfinished":[{"environment":"Environment(rawValue: \"Xcode\")","id":"198","product":"outfit.space","revoked":false,"verification":"verified"}],"wallTime":1792756965.64976}
+PIO_ISOLATION {"elapsed":"0.099234875 seconds","event":"purchase.begin","product":"outfit.cafe","wallTime":1792756965.649924}
+PIO_ISOLATION {"elapsed":"0.106157125 seconds","environment":"Environment(rawValue: \"Xcode\")","event":"Product.purchase.return","id":"199","product":"outfit.cafe","revoked":false,"verification":"verified","wallTime":1792756965.656846}
+PIO_ISOLATION {"elapsed":"0.106209208 seconds","event":"finish.begin","id":"199","product":"outfit.cafe","wallTime":1792756965.656899}
+PIO_ISOLATION {"elapsed":"0.107970292 seconds","event":"finish.return","id":"199","product":"outfit.cafe","wallTime":1792756965.658659}
+PIO_ISOLATION {"elapsed":"0.108019458 seconds","event":"snapshot.begin","label":"after-final-cafe-finish","wallTime":1792756965.658709}
+PIO_ISOLATION {"currentEntitlements":[{"environment":"Environment(rawValue: \"Xcode\")","id":"199","product":"outfit.cafe","revoked":false,"verification":"verified"},{"environment":"Environment(rawValue: \"Xcode\")","id":"198","product":"outfit.space","revoked":false,"verification":"verified"}],"driverLedger":[{"id":"198","issue":false,"pending":false,"product":"outfit.space","state":"SKPaymentTransactionState(rawValue: 1)"},{"id":"199","issue":false,"pending":false,"product":"outfit.cafe","state":"SKPaymentTransactionState(rawValue: 1)"}],"elapsed":"0.1121095 seconds","equipped":"not-applicable","event":"snapshot.return","label":"after-final-cafe-finish","managerOwned":[],"unfinished":[{"environment":"Environment(rawValue: \"Xcode\")","id":"199","product":"outfit.cafe","revoked":false,"verification":"verified"}],"wallTime":1792756965.6627989}
+PIO_ISOLATION {"elapsed":"0.11339775 seconds","event":"handoff.ready","ids":["199","198"],"mode":"direct","pid":5512,"run":"072cc632-0a49-4af2-86e0-14562f2cc41b","timestamp":1792756965.6629839,"wallTime":1792756965.6640871}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIsolationTests.swift:209: error: -[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario] : XCTAssertTrue failed - Immediate SDK unfinished readback remains nonempty
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario]' failed (0.113 seconds).
+Test Suite 'PioStoreKitIsolationTests' failed at 2026-10-23 21:02:45.692.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.113 (0.116) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 21:02:45.692.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.113 (0.116) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 21:02:45.692.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.113 (0.117) seconds
+2026-10-23 21:02:45.707 xcodebuild[5495:926488] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:02:45.707 xcodebuild[5495:926488] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:02:45.708 xcodebuild[5495:926488] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:02:45.980 xcodebuild[5495:926488] [MT] IDETestOperationsObserverDebug: 4.234 elapsed -- Testing started completed.
+2026-10-23 21:02:45.980 xcodebuild[5495:926488] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 21:02:45.980 xcodebuild[5495:926488] [MT] IDETestOperationsObserverDebug: 4.234 sec, +4.234 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/direct-finish-seed.xcresult
+
+Failing tests:
+	PioStoreKitIsolationTests.testScenario()
+
+** TEST EXECUTE FAILED **
+
+Testing started

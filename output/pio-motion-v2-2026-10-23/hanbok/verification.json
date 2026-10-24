@@ -1,0 +1,53 @@
+{
+  "outfit": "hanbok",
+  "status": "PARTIAL_OFFLINE_STUDY",
+  "canonicalSourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/wingRight.png": "354bea9a51a32c5f568d932c4fd854c581f6ee7c82eccce1a1d96f9699f4ad28",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/footLeft.png": "b67ee6f2bdf37e50c7b182fe44bb3ed2b658b3bc5f883503c2e7ced9906d1621",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/footRight.png": "03aa2fca18db46d9cccd27202f770baf20713ca84f5d4328e01e79259c018d24",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/sprout.png": "5236f727cc448eeb2edf257070310260c0362b04b0189254632da3c4b78aabe6",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/body.png": "820f68bad09300513bce038d9caa6cde1fb599a5a935aa1783871b80028f41a5",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/eyeLeft.png": "c9622e89176937548c1494e5433e9be5016486246c5af2cdf6b95bfe84b57468",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/eyeRight.png": "715f3a82a7f1904290d1357076d67662b70a1c89a472c0b7db2ffc7e96d45eb0",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/lidLeft.png": "9880562d66210f6b621f7ab6e3fe3a0a3cb3766c0cd1ae68707dcd6a30ea7b9e",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/lidRight.png": "c957cd16c3210942683dc2646471c7af8cd54d4786a4df3f0286d897dcbd3584",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/halfLeft.png": "dc94ea059e94e75feb24ff0dd424eb1af0f2af51210ae844939d412e148a7d33",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/halfRight.png": "c96c7eb185552886a62e8bc3ad849ff64d7aba437d3e0e8006a69540b37c052c",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/wingLeft.png": "8e3adc58b0d3dbc7ce7a32fcfa7c2933672193ce6ef7040702f6f21bdb80a0b1",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/happyLeft.png": "cbe73e135a21ee60ab110c2a79edff6d9fd428ff9e45f8ffa2472601cdbae91f",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/happyRight.png": "eb5cd9394129b462d584f34df5cb520d6ce98cef4edde30fb67c2836c0f50171"
+  },
+  "actions": [
+    "idle",
+    "greet",
+    "walk",
+    "bounce",
+    "jump",
+    "celebrate",
+    "bow",
+    "sleepy",
+    "surprised",
+    "encourage",
+    "special"
+  ],
+  "specialAction": "formal greeting bow",
+  "framesPerAction": 32,
+  "durationMs": 70,
+  "maxAlphaOnFrameBorder": 0,
+  "canvas": [
+    480,
+    516
+  ],
+  "characterCanvas": [
+    350,
+    350
+  ],
+  "limits": [
+    "2D front-view stepping, no authored turn or gait occlusion change.",
+    "Bow is frontal lean/compression, not a reconstructed 3D head turn.",
+    "Hat and fabric stay rigid with torso.",
+    "Held props rigidly follow hands; no release or articulation.",
+    "No app/runtime/performance claim."
+  ]
+}

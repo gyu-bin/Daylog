@@ -1,0 +1,7 @@
+{
+  "runID": "41b0bdb1-6349-440a-bfdb-3d810190f530",
+  "seedMethod": "product-purchase",
+  "status": "FAIL",
+  "error": "verify failed (65); inspect /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-stabilization-2026-10-23/instant-relaunch-1/verify.log",
+  "cleanup": "Temporary xctestrun files removed; inspect phase evidence for fixture ledger/preferences cleanup"
+}

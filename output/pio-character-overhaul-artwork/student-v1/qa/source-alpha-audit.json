@@ -1,0 +1,116 @@
+[
+  {
+    "file": "output/pio-character-overhaul-artwork/student-v1/source/body-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "zeroAlpha": 741699,
+    "alpha16Bounds": [
+      70,
+      153,
+      1123,
+      1182
+    ],
+    "sha256": "738ccd864e67220173a4e2815778b3e21c9b3a5196a9d1f0a1dfc72e604c5221"
+  },
+  {
+    "file": "output/pio-character-overhaul-artwork/student-v1/source/book-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "zeroAlpha": 1081364,
+    "alpha16Bounds": [
+      274,
+      258,
+      987,
+      1133
+    ],
+    "sha256": "3ed20290bf022600d535b0bda0e5a49f2d61c300b2c16af3bb1300d0fe7f9f05"
+  },
+  {
+    "file": "output/pio-character-overhaul-artwork/student-v1/source/glasses-candidate.png",
+    "size": [
+      1774,
+      887
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "zeroAlpha": 1261524,
+    "alpha16Bounds": [
+      131,
+      203,
+      1643,
+      729
+    ],
+    "sha256": "318cd2b4746121e5d6588d97bd7a9e8db2199e8189c5afdc5b8b450232783c7f"
+  },
+  {
+    "file": "output/pio-character-overhaul-artwork/student-v1/source/glasses-v2-candidate.png",
+    "size": [
+      1774,
+      887
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "zeroAlpha": 1393505,
+    "alpha16Bounds": [
+      130,
+      201,
+      1644,
+      731
+    ],
+    "sha256": "c85ed84fa2532db3717fda1560d257d3a597214034064d05f136ccea924d609f"
+  },
+  {
+    "file": "output/pio-character-overhaul-artwork/student-v1/source/left-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "zeroAlpha": 1070685,
+    "alpha16Bounds": [
+      93,
+      220,
+      1076,
+      1089
+    ],
+    "sha256": "a4e6daa2901e98299797863b853643e0aa5278507f64b8de2e13708155966fbf"
+  },
+  {
+    "file": "output/pio-character-overhaul-artwork/student-v1/source/right-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "zeroAlpha": 1102383,
+    "alpha16Bounds": [
+      239,
+      222,
+      1131,
+      1088
+    ],
+    "sha256": "89e8fbfdee6248bc633f6bbec56531381ce152668dfdd897fc1e5ea5a93ca40d"
+  }
+]

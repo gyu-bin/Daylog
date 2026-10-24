@@ -1,0 +1,76 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "0426CD78-3807-4650-9776-B649780E2884",
+        "deviceName" : "Pio StoreKit Local 2026-10-23",
+        "modelName" : "iPhone 17",
+        "osBuildNumber" : "24A434",
+        "osVersion" : "27.0",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 4,
+      "passedTests" : 7,
+      "skippedTests" : 8,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "DaylogiOSStoreKit · Built with macOS 27.0.1",
+  "expectedFailures" : 0,
+  "failedTests" : 4,
+  "finishTime" : 1792750814.585,
+  "passedTests" : 7,
+  "result" : "Failed",
+  "runtimeWarnings" : [
+
+  ],
+  "skippedTests" : 8,
+  "startTime" : 1792750774.704,
+  "statistics" : [
+
+  ],
+  "testFailures" : [
+    {
+      "failureText" : "XCTAssertEqual failed: (\"failed(message: \"App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.\")\") is not equal to (\"cancelled\")",
+      "targetName" : "DaylogStoreKitTests",
+      "testIdentifier" : 2,
+      "testIdentifierString" : "PioStoreKitIntegrationTests/testCancellationFromStoreKitDoesNotUnlockOrShowFailure()",
+      "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testCancellationFromStoreKitDoesNotUnlockOrShowFailure",
+      "testName" : "testCancellationFromStoreKitDoesNotUnlockOrShowFailure()"
+    },
+    {
+      "failureText" : "XCTAssertTrue failed - All registered wardrobe transactions must disappear from Transaction.unfinished within 3 seconds without test-side acknowledgement.\nelapsed=0.004607625 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.109864042 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.213420875 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.317137709 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.420004834 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.522397792 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.629988542 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.732824334 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.835356459 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.941748459 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.046135917 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.149834917 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.254861125 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.361215292 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.476444667 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.586758292 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.693832792 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.796614125 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.902206709 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.009155167 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.118162875 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.2234265 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.33170525 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.439234334 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.542954667 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.64755325 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.75330325 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.860088375 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.964205959 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000",
+      "targetName" : "DaylogStoreKitTests",
+      "testIdentifier" : 4,
+      "testIdentifierString" : "PioStoreKitIntegrationTests/testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()",
+      "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork",
+      "testName" : "testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()"
+    },
+    {
+      "failureText" : "XCTAssertFalse failed",
+      "targetName" : "DaylogStoreKitTests",
+      "testIdentifier" : 6,
+      "testIdentifierString" : "PioStoreKitIntegrationTests/testInterruptedPurchaseOnlyUnlocksAfterResolution()",
+      "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testInterruptedPurchaseOnlyUnlocksAfterResolution",
+      "testName" : "testInterruptedPurchaseOnlyUnlocksAfterResolution()"
+    },
+    {
+      "failureText" : "Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: \"Refund transaction update removes ownership\".",
+      "targetName" : "DaylogStoreKitTests",
+      "testIdentifier" : 11,
+      "testIdentifierString" : "PioStoreKitIntegrationTests/testRefundUpdateRevokesAccessAndRefreshResetsEquipment()",
+      "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testRefundUpdateRevokesAccessAndRefreshResetsEquipment",
+      "testName" : "testRefundUpdateRevokesAccessAndRefreshResetsEquipment()"
+    }
+  ],
+  "title" : "Test - DaylogiOSStoreKit",
+  "topInsights" : [
+
+  ],
+  "totalTestCount" : 19
+}

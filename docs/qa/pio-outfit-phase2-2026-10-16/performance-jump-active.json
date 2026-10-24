@@ -1,0 +1,65 @@
+{
+  "phase": "jump-active",
+  "pid": 82207,
+  "executable": "/tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog",
+  "build": "Debug verification, not release benchmark",
+  "method": "10 ps samples at1second intervals, whole process, RSS resident memory; CPU includes app background work",
+  "samples": [
+    {
+      "cpuPercent": 8.9,
+      "rssKiB": 141200,
+      "time": 1792112460.4401789
+    },
+    {
+      "cpuPercent": 16.4,
+      "rssKiB": 141136,
+      "time": 1792112461.449544
+    },
+    {
+      "cpuPercent": 24.9,
+      "rssKiB": 141136,
+      "time": 1792112462.4589598
+    },
+    {
+      "cpuPercent": 20.1,
+      "rssKiB": 141120,
+      "time": 1792112463.4654021
+    },
+    {
+      "cpuPercent": 12.7,
+      "rssKiB": 141072,
+      "time": 1792112464.473672
+    },
+    {
+      "cpuPercent": 17.7,
+      "rssKiB": 141088,
+      "time": 1792112465.481295
+    },
+    {
+      "cpuPercent": 20.6,
+      "rssKiB": 141088,
+      "time": 1792112466.490286
+    },
+    {
+      "cpuPercent": 12.4,
+      "rssKiB": 141072,
+      "time": 1792112467.4953878
+    },
+    {
+      "cpuPercent": 15.0,
+      "rssKiB": 141088,
+      "time": 1792112468.504095
+    },
+    {
+      "cpuPercent": 23.7,
+      "rssKiB": 141520,
+      "time": 1792112469.514444
+    }
+  ],
+  "meanCPUPercent": 17.24,
+  "maxCPUPercent": 24.9,
+  "rssMiBRange": [
+    137.765625,
+    138.203125
+  ]
+}

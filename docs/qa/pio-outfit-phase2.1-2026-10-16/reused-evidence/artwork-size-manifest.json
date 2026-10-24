@@ -1,0 +1,2340 @@
+{
+  "assets" : [
+    {
+      "boundsAlphaGreaterThan16" : [
+        185,
+        64,
+        1145,
+        1189
+      ],
+      "bytes" : 1202873,
+      "height" : 1254,
+      "id" : "cherryBlossom",
+      "imageCount" : 1,
+      "layerStructure" : "single flattened RGBA image; no independent body\/eyes\/wings\/accessory source layers",
+      "maximumEdgeAlpha" : 1,
+      "partialAlphaPixels" : 689578,
+      "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_cherryBlossom.imageset\/pio_outfit_cherryBlossom.png",
+      "sampling" : "full canvas aspectFit; no trim, recolor, mask repair, or upscaling",
+      "sha256" : "3f0bf2e0260c879286e03de4154379a5d19ca48cbe509813fd86f71e2857803d",
+      "significantAlphaEdgePixels" : 0,
+      "sourceAlphaInfo" : 3,
+      "title" : "벚꽃 피오",
+      "width" : 1254,
+      "zeroAlphaPixels" : 882286
+    },
+    {
+      "boundsAlphaGreaterThan16" : [
+        152,
+        37,
+        1185,
+        1222
+      ],
+      "bytes" : 1617371,
+      "height" : 1254,
+      "id" : "summerVacation",
+      "imageCount" : 1,
+      "layerStructure" : "single flattened RGBA image; no independent body\/eyes\/wings\/accessory source layers",
+      "maximumEdgeAlpha" : 1,
+      "partialAlphaPixels" : 805760,
+      "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_summerVacation.imageset\/pio_outfit_summerVacation.png",
+      "sampling" : "full canvas aspectFit; no trim, recolor, mask repair, or upscaling",
+      "sha256" : "c1602489cb1ca0e93d652613ac6662a17fcfaa5132f112cf9341493a7bbd1b9e",
+      "significantAlphaEdgePixels" : 0,
+      "sourceAlphaInfo" : 3,
+      "title" : "여름 휴가 피오",
+      "width" : 1254,
+      "zeroAlphaPixels" : 766046
+    },
+    {
+      "boundsAlphaGreaterThan16" : [
+        190,
+        34,
+        1143,
+        1208
+      ],
+      "bytes" : 1623339,
+      "height" : 1254,
+      "id" : "autumn",
+      "imageCount" : 1,
+      "layerStructure" : "single flattened RGBA image; no independent body\/eyes\/wings\/accessory source layers",
+      "maximumEdgeAlpha" : 1,
+      "partialAlphaPixels" : 779322,
+      "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_autumn.imageset\/pio_outfit_autumn.png",
+      "sampling" : "full canvas aspectFit; no trim, recolor, mask repair, or upscaling",
+      "sha256" : "10c80a3489506751730f0409023699d150a9760775a0cba9f1f53195fec9aa43",
+      "significantAlphaEdgePixels" : 0,
+      "sourceAlphaInfo" : 3,
+      "title" : "가을 피오",
+      "width" : 1254,
+      "zeroAlphaPixels" : 792378
+    },
+    {
+      "boundsAlphaGreaterThan16" : [
+        227,
+        46,
+        1163,
+        1196
+      ],
+      "bytes" : 1454215,
+      "height" : 1254,
+      "id" : "winter",
+      "imageCount" : 1,
+      "layerStructure" : "single flattened RGBA image; no independent body\/eyes\/wings\/accessory source layers",
+      "maximumEdgeAlpha" : 1,
+      "partialAlphaPixels" : 760527,
+      "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_winter.imageset\/pio_outfit_winter.png",
+      "sampling" : "full canvas aspectFit; no trim, recolor, mask repair, or upscaling",
+      "sha256" : "8ed794f01a9e1039f3ebc691a160907652aac6e79e979879ce13983a687953df",
+      "significantAlphaEdgePixels" : 0,
+      "sourceAlphaInfo" : 3,
+      "title" : "겨울 피오",
+      "width" : 1254,
+      "zeroAlphaPixels" : 811582
+    },
+    {
+      "boundsAlphaGreaterThan16" : [
+        205,
+        47,
+        1178,
+        1204
+      ],
+      "bytes" : 1445920,
+      "height" : 1254,
+      "id" : "halloween",
+      "imageCount" : 1,
+      "layerStructure" : "single flattened RGBA image; no independent body\/eyes\/wings\/accessory source layers",
+      "maximumEdgeAlpha" : 1,
+      "partialAlphaPixels" : 756511,
+      "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_halloween.imageset\/pio_outfit_halloween.png",
+      "sampling" : "full canvas aspectFit; no trim, recolor, mask repair, or upscaling",
+      "sha256" : "1307965335aaa25d5ca2a85d4467cb832f9a45a3671a47743f936a461394427e",
+      "significantAlphaEdgePixels" : 0,
+      "sourceAlphaInfo" : 3,
+      "title" : "할로윈 피오",
+      "width" : 1254,
+      "zeroAlphaPixels" : 815043
+    },
+    {
+      "boundsAlphaGreaterThan16" : [
+        104,
+        43,
+        1124,
+        1195
+      ],
+      "bytes" : 1539979,
+      "height" : 1254,
+      "id" : "christmas",
+      "imageCount" : 1,
+      "layerStructure" : "single flattened RGBA image; no independent body\/eyes\/wings\/accessory source layers",
+      "maximumEdgeAlpha" : 1,
+      "partialAlphaPixels" : 799751,
+      "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_christmas.imageset\/pio_outfit_christmas.png",
+      "sampling" : "full canvas aspectFit; no trim, recolor, mask repair, or upscaling",
+      "sha256" : "7df7b6c55397cc00486ed2c83a21ad1583d7f139307efa929d5219917c75b66d",
+      "significantAlphaEdgePixels" : 0,
+      "sourceAlphaInfo" : 3,
+      "title" : "크리스마스 피오",
+      "width" : 1254,
+      "zeroAlphaPixels" : 772482
+    },
+    {
+      "boundsAlphaGreaterThan16" : [
+        196,
+        47,
+        1149,
+        1220
+      ],
+      "bytes" : 1521207,
+      "height" : 1254,
+      "id" : "hanbok",
+      "imageCount" : 1,
+      "layerStructure" : "single flattened RGBA image; no independent body\/eyes\/wings\/accessory source layers",
+      "maximumEdgeAlpha" : 1,
+      "partialAlphaPixels" : 755070,
+      "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_hanbok.imageset\/pio_outfit_hanbok.png",
+      "sampling" : "full canvas aspectFit; no trim, recolor, mask repair, or upscaling",
+      "sha256" : "4ebb837cff050e50db901de0b63dc2221bb52fe52e18530f42901847b5a253e0",
+      "significantAlphaEdgePixels" : 0,
+      "sourceAlphaInfo" : 3,
+      "title" : "한복 피오",
+      "width" : 1254,
+      "zeroAlphaPixels" : 816788
+    },
+    {
+      "boundsAlphaGreaterThan16" : [
+        196,
+        26,
+        1132,
+        1214
+      ],
+      "bytes" : 1529936,
+      "height" : 1254,
+      "id" : "cafe",
+      "imageCount" : 1,
+      "layerStructure" : "single flattened RGBA image; no independent body\/eyes\/wings\/accessory source layers",
+      "maximumEdgeAlpha" : 1,
+      "partialAlphaPixels" : 746244,
+      "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_cafe.imageset\/pio_outfit_cafe.png",
+      "sampling" : "full canvas aspectFit; no trim, recolor, mask repair, or upscaling",
+      "sha256" : "74e139a71fd387accfaf518673544111a41894d6be7eceabeb76786603897aaa",
+      "significantAlphaEdgePixels" : 0,
+      "sourceAlphaInfo" : 3,
+      "title" : "카페 피오",
+      "width" : 1254,
+      "zeroAlphaPixels" : 825606
+    },
+    {
+      "boundsAlphaGreaterThan16" : [
+        149,
+        48,
+        1145,
+        1205
+      ],
+      "bytes" : 1406359,
+      "height" : 1254,
+      "id" : "student",
+      "imageCount" : 1,
+      "layerStructure" : "single flattened RGBA image; no independent body\/eyes\/wings\/accessory source layers",
+      "maximumEdgeAlpha" : 1,
+      "partialAlphaPixels" : 714038,
+      "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_student.imageset\/pio_outfit_student.png",
+      "sampling" : "full canvas aspectFit; no trim, recolor, mask repair, or upscaling",
+      "sha256" : "261d6e89132547e529c85b477490403e0eea4cf87667348dd1fe007da3ded247",
+      "significantAlphaEdgePixels" : 0,
+      "sourceAlphaInfo" : 3,
+      "title" : "학생 피오",
+      "width" : 1254,
+      "zeroAlphaPixels" : 857926
+    },
+    {
+      "boundsAlphaGreaterThan16" : [
+        157,
+        71,
+        1151,
+        1177
+      ],
+      "bytes" : 1343463,
+      "height" : 1254,
+      "id" : "fitness",
+      "imageCount" : 1,
+      "layerStructure" : "single flattened RGBA image; no independent body\/eyes\/wings\/accessory source layers",
+      "maximumEdgeAlpha" : 1,
+      "partialAlphaPixels" : 651279,
+      "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_fitness.imageset\/pio_outfit_fitness.png",
+      "sampling" : "full canvas aspectFit; no trim, recolor, mask repair, or upscaling",
+      "sha256" : "1f785e0305be4db016b5f68c1874849b0476026e7df0f4e569029afa70c199dd",
+      "significantAlphaEdgePixels" : 0,
+      "sourceAlphaInfo" : 3,
+      "title" : "운동 피오",
+      "width" : 1254,
+      "zeroAlphaPixels" : 920777
+    },
+    {
+      "boundsAlphaGreaterThan16" : [
+        157,
+        62,
+        1238,
+        1202
+      ],
+      "bytes" : 1350847,
+      "height" : 1254,
+      "id" : "rainyDay",
+      "imageCount" : 1,
+      "layerStructure" : "single flattened RGBA image; no independent body\/eyes\/wings\/accessory source layers",
+      "maximumEdgeAlpha" : 1,
+      "partialAlphaPixels" : 805707,
+      "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_rainyDay.imageset\/pio_outfit_rainyDay.png",
+      "sampling" : "full canvas aspectFit; no trim, recolor, mask repair, or upscaling",
+      "sha256" : "5bf7081494800cc37fade49caf0398a2d8e075667ea59a37cd10a8b843dcba31",
+      "significantAlphaEdgePixels" : 0,
+      "sourceAlphaInfo" : 3,
+      "title" : "비 오는 날 피오",
+      "width" : 1254,
+      "zeroAlphaPixels" : 765859
+    },
+    {
+      "boundsAlphaGreaterThan16" : [
+        176,
+        70,
+        1118,
+        1183
+      ],
+      "bytes" : 1259236,
+      "height" : 1254,
+      "id" : "pajamas",
+      "imageCount" : 1,
+      "layerStructure" : "single flattened RGBA image; no independent body\/eyes\/wings\/accessory source layers",
+      "maximumEdgeAlpha" : 1,
+      "partialAlphaPixels" : 699063,
+      "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_pajamas.imageset\/pio_outfit_pajamas.png",
+      "sampling" : "full canvas aspectFit; no trim, recolor, mask repair, or upscaling",
+      "sha256" : "d88e9c2b225434b34f4751914625ca23dd38c058e7812a2e5dd15068ee157249",
+      "significantAlphaEdgePixels" : 0,
+      "sourceAlphaInfo" : 3,
+      "title" : "잠옷 피오",
+      "width" : 1254,
+      "zeroAlphaPixels" : 873039
+    },
+    {
+      "boundsAlphaGreaterThan16" : [
+        234,
+        74,
+        1110,
+        1180
+      ],
+      "bytes" : 1162272,
+      "height" : 1254,
+      "id" : "astronaut",
+      "imageCount" : 1,
+      "layerStructure" : "single flattened RGBA image; no independent body\/eyes\/wings\/accessory source layers",
+      "maximumEdgeAlpha" : 1,
+      "partialAlphaPixels" : 651413,
+      "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_astronaut.imageset\/pio_outfit_astronaut.png",
+      "sampling" : "full canvas aspectFit; no trim, recolor, mask repair, or upscaling",
+      "sha256" : "6a9741d18e6ed00fc036dc82d9bf579e16694f20001ac7e17261db5784e31fc2",
+      "significantAlphaEdgePixels" : 0,
+      "sourceAlphaInfo" : 3,
+      "title" : "우주인 피오",
+      "width" : 1254,
+      "zeroAlphaPixels" : 920239
+    }
+  ],
+  "contactSheets" : [
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            408,
+            48,
+            48
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            229,
+            408,
+            48,
+            48
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            387,
+            408,
+            48,
+            48
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            545,
+            408,
+            48,
+            48
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            298,
+            48,
+            48
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            229,
+            298,
+            48,
+            48
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            387,
+            298,
+            48,
+            48
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            545,
+            298,
+            48,
+            48
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            188,
+            48,
+            48
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            229,
+            188,
+            48,
+            48
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            387,
+            188,
+            48,
+            48
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            545,
+            188,
+            48,
+            48
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            78,
+            48,
+            48
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-48pt-light-1x.png",
+      "heightPixels" : 530,
+      "pixelsPerPoint" : 1,
+      "sizePoints" : 48,
+      "theme" : "light",
+      "widthPixels" : 664
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            408,
+            48,
+            48
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            229,
+            408,
+            48,
+            48
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            387,
+            408,
+            48,
+            48
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            545,
+            408,
+            48,
+            48
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            298,
+            48,
+            48
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            229,
+            298,
+            48,
+            48
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            387,
+            298,
+            48,
+            48
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            545,
+            298,
+            48,
+            48
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            188,
+            48,
+            48
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            229,
+            188,
+            48,
+            48
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            387,
+            188,
+            48,
+            48
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            545,
+            188,
+            48,
+            48
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            78,
+            48,
+            48
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-48pt-light-2x.png",
+      "heightPixels" : 1060,
+      "pixelsPerPoint" : 2,
+      "sizePoints" : 48,
+      "theme" : "light",
+      "widthPixels" : 1328
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            408,
+            48,
+            48
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            229,
+            408,
+            48,
+            48
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            387,
+            408,
+            48,
+            48
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            545,
+            408,
+            48,
+            48
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            298,
+            48,
+            48
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            229,
+            298,
+            48,
+            48
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            387,
+            298,
+            48,
+            48
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            545,
+            298,
+            48,
+            48
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            188,
+            48,
+            48
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            229,
+            188,
+            48,
+            48
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            387,
+            188,
+            48,
+            48
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            545,
+            188,
+            48,
+            48
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            78,
+            48,
+            48
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-48pt-dark-1x.png",
+      "heightPixels" : 530,
+      "pixelsPerPoint" : 1,
+      "sizePoints" : 48,
+      "theme" : "dark",
+      "widthPixels" : 664
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            408,
+            48,
+            48
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            229,
+            408,
+            48,
+            48
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            387,
+            408,
+            48,
+            48
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            545,
+            408,
+            48,
+            48
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            298,
+            48,
+            48
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            229,
+            298,
+            48,
+            48
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            387,
+            298,
+            48,
+            48
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            545,
+            298,
+            48,
+            48
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            188,
+            48,
+            48
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            229,
+            188,
+            48,
+            48
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            387,
+            188,
+            48,
+            48
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            545,
+            188,
+            48,
+            48
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            71,
+            78,
+            48,
+            48
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-48pt-dark-2x.png",
+      "heightPixels" : 1060,
+      "pixelsPerPoint" : 2,
+      "sizePoints" : 48,
+      "theme" : "dark",
+      "widthPixels" : 1328
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            456,
+            64,
+            64
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            221,
+            456,
+            64,
+            64
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            379,
+            456,
+            64,
+            64
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            537,
+            456,
+            64,
+            64
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            330,
+            64,
+            64
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            221,
+            330,
+            64,
+            64
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            379,
+            330,
+            64,
+            64
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            537,
+            330,
+            64,
+            64
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            204,
+            64,
+            64
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            221,
+            204,
+            64,
+            64
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            379,
+            204,
+            64,
+            64
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            537,
+            204,
+            64,
+            64
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            78,
+            64,
+            64
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-64pt-light-1x.png",
+      "heightPixels" : 594,
+      "pixelsPerPoint" : 1,
+      "sizePoints" : 64,
+      "theme" : "light",
+      "widthPixels" : 664
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            456,
+            64,
+            64
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            221,
+            456,
+            64,
+            64
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            379,
+            456,
+            64,
+            64
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            537,
+            456,
+            64,
+            64
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            330,
+            64,
+            64
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            221,
+            330,
+            64,
+            64
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            379,
+            330,
+            64,
+            64
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            537,
+            330,
+            64,
+            64
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            204,
+            64,
+            64
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            221,
+            204,
+            64,
+            64
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            379,
+            204,
+            64,
+            64
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            537,
+            204,
+            64,
+            64
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            78,
+            64,
+            64
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-64pt-light-2x.png",
+      "heightPixels" : 1188,
+      "pixelsPerPoint" : 2,
+      "sizePoints" : 64,
+      "theme" : "light",
+      "widthPixels" : 1328
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            456,
+            64,
+            64
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            221,
+            456,
+            64,
+            64
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            379,
+            456,
+            64,
+            64
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            537,
+            456,
+            64,
+            64
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            330,
+            64,
+            64
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            221,
+            330,
+            64,
+            64
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            379,
+            330,
+            64,
+            64
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            537,
+            330,
+            64,
+            64
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            204,
+            64,
+            64
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            221,
+            204,
+            64,
+            64
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            379,
+            204,
+            64,
+            64
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            537,
+            204,
+            64,
+            64
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            78,
+            64,
+            64
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-64pt-dark-1x.png",
+      "heightPixels" : 594,
+      "pixelsPerPoint" : 1,
+      "sizePoints" : 64,
+      "theme" : "dark",
+      "widthPixels" : 664
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            456,
+            64,
+            64
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            221,
+            456,
+            64,
+            64
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            379,
+            456,
+            64,
+            64
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            537,
+            456,
+            64,
+            64
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            330,
+            64,
+            64
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            221,
+            330,
+            64,
+            64
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            379,
+            330,
+            64,
+            64
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            537,
+            330,
+            64,
+            64
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            204,
+            64,
+            64
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            221,
+            204,
+            64,
+            64
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            379,
+            204,
+            64,
+            64
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            537,
+            204,
+            64,
+            64
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            63,
+            78,
+            64,
+            64
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-64pt-dark-2x.png",
+      "heightPixels" : 1188,
+      "pixelsPerPoint" : 2,
+      "sizePoints" : 64,
+      "theme" : "dark",
+      "widthPixels" : 1328
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            624,
+            120,
+            120
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            196,
+            624,
+            120,
+            120
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            356,
+            624,
+            120,
+            120
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            516,
+            624,
+            120,
+            120
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            442,
+            120,
+            120
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            196,
+            442,
+            120,
+            120
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            356,
+            442,
+            120,
+            120
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            516,
+            442,
+            120,
+            120
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            260,
+            120,
+            120
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            196,
+            260,
+            120,
+            120
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            356,
+            260,
+            120,
+            120
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            516,
+            260,
+            120,
+            120
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            78,
+            120,
+            120
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-120pt-light-1x.png",
+      "heightPixels" : 818,
+      "pixelsPerPoint" : 1,
+      "sizePoints" : 120,
+      "theme" : "light",
+      "widthPixels" : 672
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            624,
+            120,
+            120
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            196,
+            624,
+            120,
+            120
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            356,
+            624,
+            120,
+            120
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            516,
+            624,
+            120,
+            120
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            442,
+            120,
+            120
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            196,
+            442,
+            120,
+            120
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            356,
+            442,
+            120,
+            120
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            516,
+            442,
+            120,
+            120
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            260,
+            120,
+            120
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            196,
+            260,
+            120,
+            120
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            356,
+            260,
+            120,
+            120
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            516,
+            260,
+            120,
+            120
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            78,
+            120,
+            120
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-120pt-light-2x.png",
+      "heightPixels" : 1636,
+      "pixelsPerPoint" : 2,
+      "sizePoints" : 120,
+      "theme" : "light",
+      "widthPixels" : 1344
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            624,
+            120,
+            120
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            196,
+            624,
+            120,
+            120
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            356,
+            624,
+            120,
+            120
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            516,
+            624,
+            120,
+            120
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            442,
+            120,
+            120
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            196,
+            442,
+            120,
+            120
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            356,
+            442,
+            120,
+            120
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            516,
+            442,
+            120,
+            120
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            260,
+            120,
+            120
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            196,
+            260,
+            120,
+            120
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            356,
+            260,
+            120,
+            120
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            516,
+            260,
+            120,
+            120
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            78,
+            120,
+            120
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-120pt-dark-1x.png",
+      "heightPixels" : 818,
+      "pixelsPerPoint" : 1,
+      "sizePoints" : 120,
+      "theme" : "dark",
+      "widthPixels" : 672
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            624,
+            120,
+            120
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            196,
+            624,
+            120,
+            120
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            356,
+            624,
+            120,
+            120
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            516,
+            624,
+            120,
+            120
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            442,
+            120,
+            120
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            196,
+            442,
+            120,
+            120
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            356,
+            442,
+            120,
+            120
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            516,
+            442,
+            120,
+            120
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            260,
+            120,
+            120
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            196,
+            260,
+            120,
+            120
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            356,
+            260,
+            120,
+            120
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            516,
+            260,
+            120,
+            120
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            78,
+            120,
+            120
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-120pt-dark-2x.png",
+      "heightPixels" : 1636,
+      "pixelsPerPoint" : 2,
+      "sizePoints" : 120,
+      "theme" : "dark",
+      "widthPixels" : 1344
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            924,
+            220,
+            220
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            296,
+            924,
+            220,
+            220
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            556,
+            924,
+            220,
+            220
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            816,
+            924,
+            220,
+            220
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            642,
+            220,
+            220
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            296,
+            642,
+            220,
+            220
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            556,
+            642,
+            220,
+            220
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            816,
+            642,
+            220,
+            220
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            360,
+            220,
+            220
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            296,
+            360,
+            220,
+            220
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            556,
+            360,
+            220,
+            220
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            816,
+            360,
+            220,
+            220
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            78,
+            220,
+            220
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-220pt-light-1x.png",
+      "heightPixels" : 1218,
+      "pixelsPerPoint" : 1,
+      "sizePoints" : 220,
+      "theme" : "light",
+      "widthPixels" : 1072
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            924,
+            220,
+            220
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            296,
+            924,
+            220,
+            220
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            556,
+            924,
+            220,
+            220
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            816,
+            924,
+            220,
+            220
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            642,
+            220,
+            220
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            296,
+            642,
+            220,
+            220
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            556,
+            642,
+            220,
+            220
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            816,
+            642,
+            220,
+            220
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            360,
+            220,
+            220
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            296,
+            360,
+            220,
+            220
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            556,
+            360,
+            220,
+            220
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            816,
+            360,
+            220,
+            220
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            78,
+            220,
+            220
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-220pt-light-2x.png",
+      "heightPixels" : 2436,
+      "pixelsPerPoint" : 2,
+      "sizePoints" : 220,
+      "theme" : "light",
+      "widthPixels" : 2144
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            924,
+            220,
+            220
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            296,
+            924,
+            220,
+            220
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            556,
+            924,
+            220,
+            220
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            816,
+            924,
+            220,
+            220
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            642,
+            220,
+            220
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            296,
+            642,
+            220,
+            220
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            556,
+            642,
+            220,
+            220
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            816,
+            642,
+            220,
+            220
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            360,
+            220,
+            220
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            296,
+            360,
+            220,
+            220
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            556,
+            360,
+            220,
+            220
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            816,
+            360,
+            220,
+            220
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            78,
+            220,
+            220
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-220pt-dark-1x.png",
+      "heightPixels" : 1218,
+      "pixelsPerPoint" : 1,
+      "sizePoints" : 220,
+      "theme" : "dark",
+      "widthPixels" : 1072
+    },
+    {
+      "cells" : [
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            924,
+            220,
+            220
+          ],
+          "id" : "cherryBlossom"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            296,
+            924,
+            220,
+            220
+          ],
+          "id" : "summerVacation"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            556,
+            924,
+            220,
+            220
+          ],
+          "id" : "autumn"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            816,
+            924,
+            220,
+            220
+          ],
+          "id" : "winter"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            642,
+            220,
+            220
+          ],
+          "id" : "halloween"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            296,
+            642,
+            220,
+            220
+          ],
+          "id" : "christmas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            556,
+            642,
+            220,
+            220
+          ],
+          "id" : "hanbok"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            816,
+            642,
+            220,
+            220
+          ],
+          "id" : "cafe"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            360,
+            220,
+            220
+          ],
+          "id" : "student"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            296,
+            360,
+            220,
+            220
+          ],
+          "id" : "fitness"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            556,
+            360,
+            220,
+            220
+          ],
+          "id" : "rainyDay"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            816,
+            360,
+            220,
+            220
+          ],
+          "id" : "pajamas"
+        },
+        {
+          "canvasBoundsPointsBottomLeft" : [
+            36,
+            78,
+            220,
+            220
+          ],
+          "id" : "astronaut"
+        }
+      ],
+      "file" : "artwork-220pt-dark-2x.png",
+      "heightPixels" : 2436,
+      "pixelsPerPoint" : 2,
+      "sizePoints" : 220,
+      "theme" : "dark",
+      "widthPixels" : 2144
+    }
+  ],
+  "limitation" : "Offline static size\/compositing diagnostic, not app screenshots, animation, four-stage compatibility, or GPU performance validation",
+  "renderer" : "CoreGraphics premultiplied-alpha source-over; AppKit labels; high interpolation; no source asset writes",
+  "scope" : "13 approved full-resolution static costume assets, 48\/64\/120\/220pt, ivory\/forest, 1x and 2x"
+}

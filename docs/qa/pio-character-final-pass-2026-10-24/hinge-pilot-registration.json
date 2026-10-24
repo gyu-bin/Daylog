@@ -1,0 +1,62 @@
+[
+  {
+    "source": "Daylog/RoutimoriTrial.xcassets/routimori_vacation_hammock.imageset/routimori_vacation_hammock.png",
+    "points": [
+      {
+        "point": [
+          968,
+          484
+        ],
+        "pixel": [
+          229,
+          191,
+          150,
+          252
+        ]
+      },
+      {
+        "point": [
+          0,
+          684
+        ],
+        "pixel": [
+          254,
+          246,
+          232,
+          250
+        ]
+      }
+    ],
+    "scope": "Visible authored attachment plus rope entry at canvas edge. Right geometric x1024 samples lastpixel1023. No hidden knot reconstructed."
+  },
+  {
+    "source": "Daylog/RoutimoriTrial.xcassets/routimori_vacation_hammock_night.imageset/routimori_vacation_hammock_night.png",
+    "points": [
+      {
+        "point": [
+          68,
+          465
+        ],
+        "pixel": [
+          178,
+          101,
+          45,
+          252
+        ]
+      },
+      {
+        "point": [
+          1023,
+          820
+        ],
+        "pixel": [
+          128,
+          79,
+          60,
+          250
+        ]
+      }
+    ],
+    "scope": "Visible authored attachment plus rope entry at canvas edge. Right geometric x1024 samples lastpixel1023. No hidden knot reconstructed."
+  }
+]

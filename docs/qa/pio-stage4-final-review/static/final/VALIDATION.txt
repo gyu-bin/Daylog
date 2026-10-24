@@ -1,0 +1,17 @@
+Stage 4 static validation; no application or source artwork modifications.
+Stage 1–3 use the approved catalog assets and fixed current application geometry.
+Shared rear shoulder targets: (480,995)/(1056,995), master 1536 coordinates.
+Wing scales: Stage2=.78, Stage3=.72, Stage4=0.72.
+Stage4 source roots: (481.95,940.05)/(1054.05,940.05).
+Stage4 crop allowance: 27.0 master pixels (padding max(2,ceil(size*allowance/1228.5))).
+Layer order: feet, rear crest, rear tails, rear wings, body, eyes; Stage1/2 crest stays in front.
+Static uniform wing scale uses CATransform3DMakeScale on a separate mount; action and perspective are source-root anchored.
+Crest pivot=(745.05,588), wing rest angle=0, inward limit=-3, perspective clamp=60 degrees.
+Per-image shared crop and vImage high-quality downsampling precede CALayer transforms, matching the app.
+Native jump reserves 512px headroom. Small pose tiles use the renderer tile bounds and can clip translated/rotated layers;
+the live host permits overflow, so those boundaries are diagnostic and are not proof of a live-view clip.
+Jump/landing use linear samples of existing action tracks at t=.32/.56. Animation easing, continuous idle motion,
+SwiftUI layout, display compositor, accessibility lifecycle, and real device performance require runtime verification.
+Registration controls affect Stage4 only: STAGE4_WING_SCALE, STAGE4_SOURCE_LEFT_X, STAGE4_SOURCE_RIGHT_X,
+STAGE4_SOURCE_Y, STAGE4_CROP_ALLOWANCE. The approved shoulder targets remain fixed.
+This renderer produces evidence, not an automatic artwork-quality PASS.

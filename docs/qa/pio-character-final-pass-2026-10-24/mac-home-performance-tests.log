@@ -1,0 +1,81 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioCharacterFinalHomePerformance.xctestrun -destination platform=macOS -parallel-testing-enabled NO -resultBundlePath /tmp/PioCharacterFinal-Mac-home-performance-20261024.xcresult "-only-testing:DaylogTests/PioCharacterHomePerformanceTests"
+
+Writing result bundle at path:
+	/tmp/PioCharacterFinal-Mac-home-performance-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 16:26:43.361877+0900 Daylog[25472:2481685] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:26:43.362689+0900 Daylog[25472:2481685] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:26:43.363829+0900 Daylog[25472:2481719] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:26:43.363869+0900 Daylog[25472:2481719] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:26:43.366154+0900 Daylog[25472:2481684] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:26:43.366270+0900 Daylog[25472:2481684] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:26:43.368998+0900 Daylog[25472:2481684] [Connection] Will NOT re-try to establish the connection
+2026-10-24 16:26:43.369097+0900 Daylog[25472:2481685] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:26:43.369145+0900 Daylog[25472:2481685] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:26:43.500127+0900 Daylog[25472:2481654] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 16:26:44.301684+0900 Daylog[25472:2481802] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 16:26:44.384.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 16:26:44.384.
+Test Suite 'PioCharacterHomePerformanceTests' started at 2026-10-24 16:26:44.384.
+Test Case '-[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop]' started.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20000>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift:54: error: -[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77fed20280>"
+Test Case '-[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop]' failed (70.988 seconds).
+Test Suite 'PioCharacterHomePerformanceTests' failed at 2026-10-24 16:27:55.373.
+	 Executed 1 test, with 28 failures (0 unexpected) in 70.988 (70.989) seconds
+Test Suite 'DaylogTests.xctest' failed at 2026-10-24 16:27:55.374.
+	 Executed 1 test, with 28 failures (0 unexpected) in 70.988 (70.990) seconds
+Test Suite 'Selected tests' failed at 2026-10-24 16:27:55.374.
+	 Executed 1 test, with 28 failures (0 unexpected) in 70.988 (70.991) seconds
+2026-10-24 16:28:02.530 xcodebuild[25466:2481538] [MT] IDETestOperationsObserverDebug: 79.622 elapsed -- Testing started completed.
+2026-10-24 16:28:02.530 xcodebuild[25466:2481538] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 16:28:02.530 xcodebuild[25466:2481538] [MT] IDETestOperationsObserverDebug: 79.622 sec, +79.622 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCharacterFinal-Mac-home-performance-20261024.xcresult
+
+Failing tests:
+	PioCharacterHomePerformanceTests.testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop()
+	PioCharacterHomePerformanceTests.testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop()
+
+** TEST EXECUTE FAILED **
+
+Testing started

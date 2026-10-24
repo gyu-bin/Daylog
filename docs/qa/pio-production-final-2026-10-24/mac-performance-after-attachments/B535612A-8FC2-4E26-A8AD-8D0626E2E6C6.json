@@ -1,0 +1,501 @@
+{
+  "basicRegistration" : "basic-production-hands-v2",
+  "candidateEyesFlag" : false,
+  "candidateHandsFlag" : false,
+  "final" : {
+    "cpuSeconds" : 2.8855439999999999,
+    "monotonicSeconds" : 94623.446424958354,
+    "rssBytes" : 158384128
+  },
+  "initial" : {
+    "cpuSeconds" : 2.7273309999999999,
+    "monotonicSeconds" : 94620.214980791687,
+    "rssBytes" : 158629888
+  },
+  "limitations" : "Debug XCTest host; RSS is not a leak assertion. Includes shared image\/cache\/allocator\/renderer residency. Not app cold-launch, production entitlement flow, actual OS backgrounding, full home\/vacation profiling, Instruments allocations, compositor\/GPU\/battery or long-term leak proof. No arbitrary memory threshold or retry sleep.",
+  "os" : "버전 27.0.1(빌드 26A434)",
+  "processorCount" : 10,
+  "rows" : [
+    {
+      "active" : {
+        "cpuSeconds" : 2.7546620000000002,
+        "monotonicSeconds" : 94620.402739958357,
+        "rssBytes" : 158859264
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.7555049999999999,
+        "monotonicSeconds" : 94620.403542250016,
+        "rssBytes" : 158875648
+      },
+      "before" : {
+        "cpuSeconds" : 2.727382,
+        "monotonicSeconds" : 94620.215023583354,
+        "rssBytes" : 158629888
+      },
+      "cycle" : 1,
+      "hostReleased" : true,
+      "label" : "cycle-1",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.7666779999999997,
+        "monotonicSeconds" : 94620.559643125016,
+        "rssBytes" : 158859264
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.7677499999999999,
+        "monotonicSeconds" : 94620.560595333358,
+        "rssBytes" : 158859264
+      },
+      "before" : {
+        "cpuSeconds" : 2.7555480000000001,
+        "monotonicSeconds" : 94620.40358662502,
+        "rssBytes" : 158875648
+      },
+      "cycle" : 2,
+      "hostReleased" : true,
+      "label" : "cycle-2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.7758409999999998,
+        "monotonicSeconds" : 94620.723412833351,
+        "rssBytes" : 158875648
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.7768359999999999,
+        "monotonicSeconds" : 94620.724241291682,
+        "rssBytes" : 158875648
+      },
+      "before" : {
+        "cpuSeconds" : 2.7678000000000003,
+        "monotonicSeconds" : 94620.560651250024,
+        "rssBytes" : 158859264
+      },
+      "cycle" : 3,
+      "hostReleased" : true,
+      "label" : "cycle-3",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.783601,
+        "monotonicSeconds" : 94620.886630166686,
+        "rssBytes" : 158875648
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.784503,
+        "monotonicSeconds" : 94620.887381291686,
+        "rssBytes" : 158875648
+      },
+      "before" : {
+        "cpuSeconds" : 2.7768739999999998,
+        "monotonicSeconds" : 94620.724279916685,
+        "rssBytes" : 158875648
+      },
+      "cycle" : 4,
+      "hostReleased" : true,
+      "label" : "cycle-4",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.7898579999999997,
+        "monotonicSeconds" : 94621.049275958358,
+        "rssBytes" : 158875648
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.7908900000000001,
+        "monotonicSeconds" : 94621.050196166689,
+        "rssBytes" : 158875648
+      },
+      "before" : {
+        "cpuSeconds" : 2.784538,
+        "monotonicSeconds" : 94620.887416875019,
+        "rssBytes" : 158875648
+      },
+      "cycle" : 5,
+      "hostReleased" : true,
+      "label" : "cycle-5",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.7972830000000002,
+        "monotonicSeconds" : 94621.205575583357,
+        "rssBytes" : 158892032
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.7981819999999997,
+        "monotonicSeconds" : 94621.206337666692,
+        "rssBytes" : 158892032
+      },
+      "before" : {
+        "cpuSeconds" : 2.7909310000000001,
+        "monotonicSeconds" : 94621.050238333351,
+        "rssBytes" : 158875648
+      },
+      "cycle" : 6,
+      "hostReleased" : true,
+      "label" : "cycle-6",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.8032059999999999,
+        "monotonicSeconds" : 94621.36762587502,
+        "rssBytes" : 158892032
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.8040620000000001,
+        "monotonicSeconds" : 94621.368323083356,
+        "rssBytes" : 158892032
+      },
+      "before" : {
+        "cpuSeconds" : 2.7982269999999998,
+        "monotonicSeconds" : 94621.206383833356,
+        "rssBytes" : 158892032
+      },
+      "cycle" : 7,
+      "hostReleased" : true,
+      "label" : "cycle-7",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.8091539999999999,
+        "monotonicSeconds" : 94621.521871291683,
+        "rssBytes" : 158908416
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.8100640000000001,
+        "monotonicSeconds" : 94621.52263154168,
+        "rssBytes" : 158908416
+      },
+      "before" : {
+        "cpuSeconds" : 2.8040970000000001,
+        "monotonicSeconds" : 94621.368357625019,
+        "rssBytes" : 158892032
+      },
+      "cycle" : 8,
+      "hostReleased" : true,
+      "label" : "cycle-8",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.8155030000000001,
+        "monotonicSeconds" : 94621.678008125018,
+        "rssBytes" : 158941184
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.8164389999999999,
+        "monotonicSeconds" : 94621.678783250027,
+        "rssBytes" : 158941184
+      },
+      "before" : {
+        "cpuSeconds" : 2.8101000000000003,
+        "monotonicSeconds" : 94621.522668083358,
+        "rssBytes" : 158908416
+      },
+      "cycle" : 9,
+      "hostReleased" : true,
+      "label" : "cycle-9",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.8220710000000002,
+        "monotonicSeconds" : 94621.841258208355,
+        "rssBytes" : 158924800
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.8230490000000001,
+        "monotonicSeconds" : 94621.84209270835,
+        "rssBytes" : 158924800
+      },
+      "before" : {
+        "cpuSeconds" : 2.8164759999999998,
+        "monotonicSeconds" : 94621.678820791683,
+        "rssBytes" : 158941184
+      },
+      "cycle" : 10,
+      "hostReleased" : true,
+      "label" : "cycle-10",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.8282400000000001,
+        "monotonicSeconds" : 94622.004366750014,
+        "rssBytes" : 158924800
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.829326,
+        "monotonicSeconds" : 94622.005327666688,
+        "rssBytes" : 158924800
+      },
+      "before" : {
+        "cpuSeconds" : 2.8230849999999998,
+        "monotonicSeconds" : 94621.842128875025,
+        "rssBytes" : 158924800
+      },
+      "cycle" : 11,
+      "hostReleased" : true,
+      "label" : "cycle-11",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.8350170000000001,
+        "monotonicSeconds" : 94622.167804041688,
+        "rssBytes" : 158924800
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.8360979999999998,
+        "monotonicSeconds" : 94622.168726666685,
+        "rssBytes" : 158924800
+      },
+      "before" : {
+        "cpuSeconds" : 2.8293680000000001,
+        "monotonicSeconds" : 94622.005369250022,
+        "rssBytes" : 158924800
+      },
+      "cycle" : 12,
+      "hostReleased" : true,
+      "label" : "cycle-12",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.8416510000000001,
+        "monotonicSeconds" : 94622.326457625022,
+        "rssBytes" : 158924800
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.842571,
+        "monotonicSeconds" : 94622.327260125021,
+        "rssBytes" : 158924800
+      },
+      "before" : {
+        "cpuSeconds" : 2.8361420000000002,
+        "monotonicSeconds" : 94622.16877045836,
+        "rssBytes" : 158924800
+      },
+      "cycle" : 13,
+      "hostReleased" : true,
+      "label" : "cycle-13",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.8478690000000002,
+        "monotonicSeconds" : 94622.486749416683,
+        "rssBytes" : 158924800
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.8488180000000001,
+        "monotonicSeconds" : 94622.487547375014,
+        "rssBytes" : 158924800
+      },
+      "before" : {
+        "cpuSeconds" : 2.8426089999999999,
+        "monotonicSeconds" : 94622.327298375021,
+        "rssBytes" : 158924800
+      },
+      "cycle" : 14,
+      "hostReleased" : true,
+      "label" : "cycle-14",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.854393,
+        "monotonicSeconds" : 94622.649794916681,
+        "rssBytes" : 158941184
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.8553259999999998,
+        "monotonicSeconds" : 94622.650596500025,
+        "rssBytes" : 158941184
+      },
+      "before" : {
+        "cpuSeconds" : 2.8488540000000002,
+        "monotonicSeconds" : 94622.487584208357,
+        "rssBytes" : 158924800
+      },
+      "cycle" : 15,
+      "hostReleased" : true,
+      "label" : "cycle-15",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.8607179999999999,
+        "monotonicSeconds" : 94622.80449033335,
+        "rssBytes" : 158924800
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.861583,
+        "monotonicSeconds" : 94622.805221666684,
+        "rssBytes" : 158924800
+      },
+      "before" : {
+        "cpuSeconds" : 2.855362,
+        "monotonicSeconds" : 94622.650632875026,
+        "rssBytes" : 158941184
+      },
+      "cycle" : 16,
+      "hostReleased" : true,
+      "label" : "cycle-16",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.8664779999999999,
+        "monotonicSeconds" : 94622.963124250018,
+        "rssBytes" : 158875648
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.8674919999999999,
+        "monotonicSeconds" : 94622.963991833356,
+        "rssBytes" : 158875648
+      },
+      "before" : {
+        "cpuSeconds" : 2.8616169999999999,
+        "monotonicSeconds" : 94622.80525575002,
+        "rssBytes" : 158924800
+      },
+      "cycle" : 17,
+      "hostReleased" : true,
+      "label" : "cycle-17",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.872646,
+        "monotonicSeconds" : 94623.123756791683,
+        "rssBytes" : 158564352
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.873634,
+        "monotonicSeconds" : 94623.124598791692,
+        "rssBytes" : 158564352
+      },
+      "before" : {
+        "cpuSeconds" : 2.8675350000000002,
+        "monotonicSeconds" : 94622.964036000019,
+        "rssBytes" : 158875648
+      },
+      "cycle" : 18,
+      "hostReleased" : true,
+      "label" : "cycle-18",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.8786879999999999,
+        "monotonicSeconds" : 94623.282503750015,
+        "rssBytes" : 158384128
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.879591,
+        "monotonicSeconds" : 94623.283273291687,
+        "rssBytes" : 158384128
+      },
+      "before" : {
+        "cpuSeconds" : 2.8736730000000001,
+        "monotonicSeconds" : 94623.124637708359,
+        "rssBytes" : 158564352
+      },
+      "cycle" : 19,
+      "hostReleased" : true,
+      "label" : "cycle-19",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.8846150000000002,
+        "monotonicSeconds" : 94623.445642750026,
+        "rssBytes" : 158384128
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.8855110000000002,
+        "monotonicSeconds" : 94623.446391166683,
+        "rssBytes" : 158384128
+      },
+      "before" : {
+        "cpuSeconds" : 2.8796249999999999,
+        "monotonicSeconds" : 94623.283307625024,
+        "rssBytes" : 158384128
+      },
+      "cycle" : 20,
+      "hostReleased" : true,
+      "label" : "cycle-20",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    }
+  ],
+  "scope" : "20 Basic visible attach\/150ms presentation\/detach cycles. Assertions cover visibility, active tracks, detached zero tracks, weak stage and host release"
+}

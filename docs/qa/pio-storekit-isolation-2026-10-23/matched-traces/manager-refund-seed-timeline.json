@@ -1,0 +1,258 @@
+[
+  {
+    "appEnvironment": "Environment(rawValue: \"Xcode\")",
+    "elapsed": "0.05777 seconds",
+    "event": "environment",
+    "mode": "manager",
+    "os": "Version 27.0 (Build 24A434)",
+    "phase": "seed",
+    "pid": 5631,
+    "run": "2e18e708-6bb8-4723-8021-be2ca6f21c3e",
+    "scenario": "refund",
+    "wallTime": 1792756995.6091108
+  },
+  {
+    "elapsed": "0.068522542 seconds",
+    "event": "SKTestSession.init.return",
+    "wallTime": 1792756995.619866
+  },
+  {
+    "elapsed": "0.069116917 seconds",
+    "event": "resetToDefaultState.return",
+    "wallTime": 1792756995.62046
+  },
+  {
+    "elapsed": "0.069898208 seconds",
+    "event": "clearTransactions.return",
+    "wallTime": 1792756995.621241
+  },
+  {
+    "dialogsDisabled": true,
+    "elapsed": "0.078824208 seconds",
+    "event": "fixture.ready",
+    "purchaseError": "nil",
+    "storefront": "KOR",
+    "wallTime": 1792756995.630168
+  },
+  {
+    "elapsed": "0.080073583 seconds",
+    "event": "manager.start.begin",
+    "wallTime": 1792756995.631417
+  },
+  {
+    "elapsed": "0.082601083 seconds",
+    "event": "manager.ownership",
+    "owned": [
+      "basic"
+    ],
+    "wallTime": 1792756995.633945
+  },
+  {
+    "elapsed": "0.087792083 seconds",
+    "event": "manager.start.return",
+    "wallTime": 1792756995.6391358
+  },
+  {
+    "elapsed": "0.087842208 seconds",
+    "event": "snapshot.begin",
+    "label": "before-scenario",
+    "wallTime": 1792756995.6391869
+  },
+  {
+    "currentEntitlements": [],
+    "driverLedger": [],
+    "elapsed": "0.091794833 seconds",
+    "equipped": "basic",
+    "event": "snapshot.return",
+    "label": "before-scenario",
+    "managerOwned": [
+      "basic"
+    ],
+    "unfinished": [],
+    "wallTime": 1792756995.643139
+  },
+  {
+    "elapsed": "0.091931792 seconds",
+    "event": "purchase.begin",
+    "product": "outfit.winter",
+    "wallTime": 1792756995.643276
+  },
+  {
+    "elapsed": "0.099962083 seconds",
+    "event": "manager.ownership",
+    "owned": [
+      "basic",
+      "winter"
+    ],
+    "wallTime": 1792756995.6513062
+  },
+  {
+    "busy": false,
+    "elapsed": "0.105070083 seconds",
+    "event": "manager.purchase.return",
+    "result": "purchased(Daylog.PioOutfitID.winter)",
+    "wallTime": 1792756995.6564121
+  },
+  {
+    "elapsed": "0.106178708 seconds",
+    "event": "snapshot.begin",
+    "label": "before-refund",
+    "wallTime": 1792756995.657522
+  },
+  {
+    "currentEntitlements": [
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "201",
+        "product": "outfit.winter",
+        "revoked": false,
+        "verification": "verified"
+      }
+    ],
+    "driverLedger": [
+      {
+        "id": "201",
+        "issue": false,
+        "pending": false,
+        "product": "outfit.winter",
+        "state": "SKPaymentTransactionState(rawValue: 1)"
+      }
+    ],
+    "elapsed": "0.114121167 seconds",
+    "equipped": "winter",
+    "event": "snapshot.return",
+    "label": "before-refund",
+    "managerOwned": [
+      "basic",
+      "winter"
+    ],
+    "unfinished": [
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "201",
+        "product": "outfit.winter",
+        "revoked": false,
+        "verification": "verified"
+      }
+    ],
+    "wallTime": 1792756995.665464
+  },
+  {
+    "elapsed": "0.115596125 seconds",
+    "event": "refund.begin",
+    "id": "201",
+    "product": "outfit.winter",
+    "wallTime": 1792756995.666939
+  },
+  {
+    "elapsed": "0.116600458 seconds",
+    "event": "refund.return",
+    "wallTime": 1792756995.667944
+  },
+  {
+    "elapsed": "0.126280792 seconds",
+    "event": "manager.ownership",
+    "owned": [
+      "basic"
+    ],
+    "wallTime": 1792756995.677624
+  },
+  {
+    "elapsed": "0.126723833 seconds",
+    "event": "refund.notification",
+    "received": true,
+    "wallTime": 1792756995.6780682
+  },
+  {
+    "elapsed": "0.126749625 seconds",
+    "event": "snapshot.begin",
+    "label": "after-notification-deadline-before-refresh",
+    "wallTime": 1792756995.678094
+  },
+  {
+    "currentEntitlements": [],
+    "driverLedger": [
+      {
+        "id": "201",
+        "issue": false,
+        "pending": false,
+        "product": "outfit.winter",
+        "state": "SKPaymentTransactionState(rawValue: 1)"
+      }
+    ],
+    "elapsed": "0.129507 seconds",
+    "equipped": "basic",
+    "event": "snapshot.return",
+    "label": "after-notification-deadline-before-refresh",
+    "managerOwned": [
+      "basic"
+    ],
+    "unfinished": [],
+    "wallTime": 1792756995.680851
+  },
+  {
+    "elapsed": "0.12956175 seconds",
+    "event": "manager.refresh.begin",
+    "wallTime": 1792756995.680906
+  },
+  {
+    "elapsed": "0.131912458 seconds",
+    "event": "manager.ownership",
+    "owned": [
+      "basic"
+    ],
+    "wallTime": 1792756995.683257
+  },
+  {
+    "elapsed": "0.132585 seconds",
+    "event": "manager.refresh.return",
+    "success": true,
+    "wallTime": 1792756995.683929
+  },
+  {
+    "elapsed": "0.132624208 seconds",
+    "event": "snapshot.begin",
+    "label": "after-explicit-refresh",
+    "wallTime": 1792756995.683969
+  },
+  {
+    "currentEntitlements": [],
+    "driverLedger": [
+      {
+        "id": "201",
+        "issue": false,
+        "pending": false,
+        "product": "outfit.winter",
+        "state": "SKPaymentTransactionState(rawValue: 1)"
+      }
+    ],
+    "elapsed": "0.135266042 seconds",
+    "equipped": "basic",
+    "event": "snapshot.return",
+    "label": "after-explicit-refresh",
+    "managerOwned": [
+      "basic"
+    ],
+    "unfinished": [],
+    "wallTime": 1792756995.68661
+  },
+  {
+    "elapsed": "0.135781333 seconds",
+    "event": "adapter.trace",
+    "events": [
+      "client=E87A86D6 time=1792756995.631563 raw listener started subscription=93D8FD6F-1ADF-48D8-A087-7BFB019B42FE",
+      "client=E87A86D6 time=1792756995.6512542 accepted id=201 product=outfit.winter revoked=false",
+      "client=E87A86D6 time=1792756995.6513538 finish requested id=201 cached=true inFlight=0",
+      "client=E87A86D6 time=1792756995.651387 finish begin id=201 product=outfit.winter revoked=false",
+      "client=E87A86D6 time=1792756995.6526089 finish returned id=201",
+      "client=E87A86D6 time=1792756995.674403 raw verified update id=201 product=outfit.winter environment=Environment(rawValue: \"Xcode\") revoked=true",
+      "client=E87A86D6 time=1792756995.674429 accepted id=201 product=outfit.winter revoked=true",
+      "client=E87A86D6 time=1792756995.6777759 finish requested id=201 cached=true inFlight=0",
+      "client=E87A86D6 time=1792756995.677808 finish begin id=201 product=outfit.winter revoked=true",
+      "client=E87A86D6 time=1792756995.678482 finish returned id=201",
+      "client=E87A86D6 time=1792756995.686998 raw listener ended subscription=93D8FD6F-1ADF-48D8-A087-7BFB019B42FE"
+    ],
+    "remainingListeners": 0,
+    "wallTime": 1792756995.687125
+  }
+]

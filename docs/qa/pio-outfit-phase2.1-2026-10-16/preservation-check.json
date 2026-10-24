@@ -1,0 +1,127 @@
+{
+  "baseline": "before-hashes.json",
+  "method": "SHA-256 comparison of every baseline path. Additional files found under baseline top-level roots are listed as unbaselined; absence from a partial baseline is not evidence they were newly created.",
+  "baseline_file_count": 553,
+  "unchanged_count": 550,
+  "changed": [
+    {
+      "path": "Daylog/App/RootView.swift",
+      "before_sha256": "402b19b6db6145ad2df5aebdcfbe49756f8f10358f72eee9cb842721b85cd663",
+      "current_sha256": "4f3d2f6bddd737664ba49484bf6ca41a2f880165cc1b20c9edc2c7d9436d6ca1"
+    },
+    {
+      "path": "Daylog/Components/PioOutfitMotion.swift",
+      "before_sha256": "00f61ef0ffe49728a059f40ffa099c1fb378dd882ffbe441f55f0e5e83dfee87",
+      "current_sha256": "024c3d546a84e4f5fffa596e6336aff92e38002f3d6798f1c52b1167596c7b3c"
+    },
+    {
+      "path": "DaylogTests/PioOutfitMotionTests.swift",
+      "before_sha256": "88b747b94c46b6a10a1724a459499fb9f768f3cc4cee3869b86649211321a4b5",
+      "current_sha256": "be3579dd5e65773edd52cf198a9b014ed3efe4daed73f9d956442c3b51335f1c"
+    }
+  ],
+  "missing": [],
+  "baseline_roots": [
+    "Config",
+    "Daylog",
+    "Daylog.xcodeproj",
+    "DaylogTests",
+    "Tools"
+  ],
+  "all_baseline_png_count": 130,
+  "all_baseline_pngs_unchanged": true,
+  "approved_wardrobe_png_count": 14,
+  "approved_wardrobe_pngs_unchanged": true,
+  "wardrobe_pngs": [
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_astronaut.imageset/pio_outfit_astronaut.png",
+      "sha256": "6a9741d18e6ed00fc036dc82d9bf579e16694f20001ac7e17261db5784e31fc2"
+    },
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_autumn.imageset/pio_outfit_autumn.png",
+      "sha256": "10c80a3489506751730f0409023699d150a9760775a0cba9f1f53195fec9aa43"
+    },
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_cafe.imageset/pio_outfit_cafe.png",
+      "sha256": "74e139a71fd387accfaf518673544111a41894d6be7eceabeb76786603897aaa"
+    },
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_cherryBlossom.imageset/pio_outfit_cherryBlossom.png",
+      "sha256": "3f0bf2e0260c879286e03de4154379a5d19ca48cbe509813fd86f71e2857803d"
+    },
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_christmas.imageset/pio_outfit_christmas.png",
+      "sha256": "7df7b6c55397cc00486ed2c83a21ad1583d7f139307efa929d5219917c75b66d"
+    },
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_fitness.imageset/pio_outfit_fitness.png",
+      "sha256": "1f785e0305be4db016b5f68c1874849b0476026e7df0f4e569029afa70c199dd"
+    },
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_halloween.imageset/pio_outfit_halloween.png",
+      "sha256": "1307965335aaa25d5ca2a85d4467cb832f9a45a3671a47743f936a461394427e"
+    },
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_hanbok.imageset/pio_outfit_hanbok.png",
+      "sha256": "4ebb837cff050e50db901de0b63dc2221bb52fe52e18530f42901847b5a253e0"
+    },
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_pajamas.imageset/pio_outfit_pajamas.png",
+      "sha256": "d88e9c2b225434b34f4751914625ca23dd38c058e7812a2e5dd15068ee157249"
+    },
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_rainyDay.imageset/pio_outfit_rainyDay.png",
+      "sha256": "5bf7081494800cc37fade49caf0398a2d8e075667ea59a37cd10a8b843dcba31"
+    },
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_student.imageset/pio_outfit_student.png",
+      "sha256": "261d6e89132547e529c85b477490403e0eea4cf87667348dd1fe007da3ded247"
+    },
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_summerVacation.imageset/pio_outfit_summerVacation.png",
+      "sha256": "c1602489cb1ca0e93d652613ac6662a17fcfaa5132f112cf9341493a7bbd1b9e"
+    },
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_winter.imageset/pio_outfit_winter.png",
+      "sha256": "8ed794f01a9e1039f3ebc691a160907652aac6e79e979879ce13983a687953df"
+    },
+    {
+      "path": "Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+      "sha256": "daf62f4863afde6d6cf48b4a2202c5a6c3dac45dddec72b88460d1363e4a97db"
+    }
+  ],
+  "snapshot_matches_baseline": {
+    "Daylog/App/RootView.swift": true,
+    "Daylog/Components/PioOutfitMotion.swift": true,
+    "DaylogTests/PioOutfitMotionTests.swift": true
+  },
+  "unbaselined_files_within_baseline_roots": [
+    {
+      "path": "Daylog.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved",
+      "sha256": "f562ccda2138c7710e2118be2fe231fd4561ae2cce10e7474e747326a072c244"
+    },
+    {
+      "path": "Daylog.xcodeproj/project.xcworkspace/xcuserdata/mungyubin.xcuserdatad/UserInterfaceState.xcuserstate",
+      "sha256": "72e2f5037ca5c8501defe13ac545d6ec5113bd740c78ea7f1830746de2faa052"
+    },
+    {
+      "path": "Daylog.xcodeproj/xcshareddata/xcschemes/Daylog.xcscheme",
+      "sha256": "dbc31cd21c779d796549a04928503833abdebf7c4f9641a5892e704e0fd412d9"
+    },
+    {
+      "path": "Daylog.xcodeproj/xcshareddata/xcschemes/DaylogiOS.xcscheme",
+      "sha256": "9b5b2a05ec6e6bdeefe97c142dd235c87a7e2dda87a08d74a20340e8fb591e9a"
+    },
+    {
+      "path": "Daylog.xcodeproj/xcuserdata/mungyubin.xcuserdatad/xcschemes/xcschememanagement.plist",
+      "sha256": "5ff61bd46d35da4966babcdd235a716b4db5cc0f3cb5f5cacd29cb778da77120"
+    },
+    {
+      "path": "Daylog/Components/PioOutfitDiagnosticsView.swift",
+      "sha256": "fdbc3023c218016210adf58f9354406403765162befe2f43a01ced9886716388"
+    }
+  ],
+  "new_application_source": "Daylog/Components/PioOutfitDiagnosticsView.swift",
+  "unbaselined_project_files_note": "The baseline includes project.pbxproj but not the entire Xcode workspace/scheme tree. Package.resolved and the two shared schemes are already Git-tracked. These five unbaselined project metadata paths are not classified as task changes.",
+  "checked_at": "2026-10-16T10:54:41.933198+09:00"
+}

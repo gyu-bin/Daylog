@@ -1,0 +1,72 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioProductionFinalMain.xctestrun -destination platform=macOS -parallel-testing-enabled NO -resultBundlePath /tmp/PioProductionFinal-Mac-art-lifetime-20261024.xcresult "-only-testing:DaylogTests/PioVacationFinalArtworkTests" "-only-testing:DaylogTests/PioProductionFinalLifecycleTests/testMacIntactScrollSubtreeReleasesNativeHost" "-only-testing:DaylogTests/PioProductionFinalLifecycleTests/testMacVacationSwiftUIScrollSubtreeReleasesNativeView" "-only-testing:DaylogTests/PioProductionFinalLifecycleTests/testMacPlainSwiftUIScrollSubtreeOwnershipControl"
+
+Writing result bundle at path:
+	/tmp/PioProductionFinal-Mac-art-lifetime-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 14:28:24.302397+0900 Daylog[99765:2226813] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:28:24.303090+0900 Daylog[99765:2226813] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:28:24.303763+0900 Daylog[99765:2226784] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:28:24.303807+0900 Daylog[99765:2226784] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:28:24.305644+0900 Daylog[99765:2226813] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:28:24.305699+0900 Daylog[99765:2226813] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:28:24.307622+0900 Daylog[99765:2226813] [Connection] Will NOT re-try to establish the connection
+2026-10-24 14:28:24.307679+0900 Daylog[99765:2226785] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:28:24.307706+0900 Daylog[99765:2226785] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:28:24.370475+0900 Daylog[99765:2226751] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 14:28:24.891810+0900 Daylog[99765:2226851] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 14:28:24.966.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 14:28:24.966.
+Test Suite 'PioProductionFinalLifecycleTests' started at 2026-10-24 14:28:24.966.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testMacIntactScrollSubtreeReleasesNativeHost]' started.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testMacIntactScrollSubtreeReleasesNativeHost]' passed (0.135 seconds).
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testMacPlainSwiftUIScrollSubtreeOwnershipControl]' started.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioProductionFinalLifecycleTests.swift:162: error: -[DaylogTests.PioProductionFinalLifecycleTests testMacPlainSwiftUIScrollSubtreeOwnershipControl] : XCTAssertTrue failed
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testMacPlainSwiftUIScrollSubtreeOwnershipControl]' failed (1.504 seconds).
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testMacVacationSwiftUIScrollSubtreeReleasesNativeView]' started.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testMacVacationSwiftUIScrollSubtreeReleasesNativeView]' passed (2.149 seconds).
+Test Suite 'PioProductionFinalLifecycleTests' failed at 2026-10-24 14:28:28.755.
+	 Executed 3 tests, with 1 failure (0 unexpected) in 3.788 (3.789) seconds
+Test Suite 'PioVacationFinalArtworkTests' started at 2026-10-24 14:28:28.756.
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testBasicDayProductionEyesNativePlayback]' started.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioVacationFinalArtworkTests.swift:59: error: -[DaylogTests.PioVacationFinalArtworkTests testBasicDayProductionEyesNativePlayback] : XCTAssertGreaterThan failed: ("1") is not greater than ("1")
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testBasicDayProductionEyesNativePlayback]' failed (11.370 seconds).
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testBasicDayProductionEyesPreserveNightPaidAndLifecycle]' started.
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testBasicDayProductionEyesPreserveNightPaidAndLifecycle]' passed (0.740 seconds).
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testNativeEyeCandidateActualPresentationSequence]' started.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioVacationFinalArtworkTests.swift:130: error: -[DaylogTests.PioVacationFinalArtworkTests testNativeEyeCandidateActualPresentationSequence] : XCTAssertGreaterThan failed: ("1") is not greater than ("1") - A sequence of identical closed-eye frames is not animation evidence
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testNativeEyeCandidateActualPresentationSequence]' failed (2.975 seconds).
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testNativePreciselyReconstructedEyeRegions]' started.
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testNativePreciselyReconstructedEyeRegions]' passed (1.312 seconds).
+Test Suite 'PioVacationFinalArtworkTests' failed at 2026-10-24 14:28:45.154.
+	 Executed 4 tests, with 2 failures (0 unexpected) in 16.397 (16.398) seconds
+Test Suite 'DaylogTests.xctest' failed at 2026-10-24 14:28:45.154.
+	 Executed 7 tests, with 3 failures (0 unexpected) in 20.184 (20.188) seconds
+Test Suite 'Selected tests' failed at 2026-10-24 14:28:45.154.
+	 Executed 7 tests, with 3 failures (0 unexpected) in 20.184 (20.189) seconds
+2026-10-24 14:28:52.100 xcodebuild[99758:2226625] [MT] IDETestOperationsObserverDebug: 28.455 elapsed -- Testing started completed.
+2026-10-24 14:28:52.100 xcodebuild[99758:2226625] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 14:28:52.100 xcodebuild[99758:2226625] [MT] IDETestOperationsObserverDebug: 28.455 sec, +28.455 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioProductionFinal-Mac-art-lifetime-20261024.xcresult
+
+Failing tests:
+	PioProductionFinalLifecycleTests.testMacPlainSwiftUIScrollSubtreeOwnershipControl()
+	PioVacationFinalArtworkTests.testBasicDayProductionEyesNativePlayback()
+	PioVacationFinalArtworkTests.testNativeEyeCandidateActualPresentationSequence()
+
+** TEST EXECUTE FAILED **
+
+Testing started

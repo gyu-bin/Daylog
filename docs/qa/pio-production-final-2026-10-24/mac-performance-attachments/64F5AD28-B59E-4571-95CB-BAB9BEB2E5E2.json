@@ -1,0 +1,581 @@
+{
+  "basicRegistration" : "basic-production-hands-v2",
+  "candidateEyesFlag" : false,
+  "candidateHandsFlag" : false,
+  "final" : {
+    "cpuSeconds" : 2.4129019999999999,
+    "monotonicSeconds" : 93613.544561875024,
+    "rssBytes" : 876281856
+  },
+  "initial" : {
+    "cpuSeconds" : 2.121632,
+    "monotonicSeconds" : 93608.950207000016,
+    "rssBytes" : 779845632
+  },
+  "limitations" : "Debug XCTest host; RSS is not a leak assertion. Includes shared image\/cache\/allocator\/renderer residency. Not app cold-launch, production entitlement flow, actual OS backgrounding, full home\/vacation profiling, Instruments allocations, compositor\/GPU\/battery or long-term leak proof. No arbitrary memory threshold or retry sleep.",
+  "os" : "버전 27.0.1(빌드 26A434)",
+  "processorCount" : 10,
+  "rows" : [
+    {
+      "active" : {
+        "cpuSeconds" : 2.147373,
+        "monotonicSeconds" : 93609.121509291683,
+        "rssBytes" : 780255232
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.147799,
+        "monotonicSeconds" : 93609.121920458347,
+        "rssBytes" : 780255232
+      },
+      "before" : {
+        "cpuSeconds" : 2.121696,
+        "monotonicSeconds" : 93608.950258791694,
+        "rssBytes" : 779845632
+      },
+      "outfit" : "basic",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.1739100000000002,
+        "monotonicSeconds" : 93609.293483708359,
+        "rssBytes" : 787464192
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1741669999999997,
+        "monotonicSeconds" : 93609.293723625015,
+        "rssBytes" : 787464192
+      },
+      "before" : {
+        "cpuSeconds" : 2.1478250000000001,
+        "monotonicSeconds" : 93609.121946291692,
+        "rssBytes" : 780255232
+      },
+      "outfit" : "cherryBlossom",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.196024,
+        "monotonicSeconds" : 93609.461746208355,
+        "rssBytes" : 795000832
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1965729999999999,
+        "monotonicSeconds" : 93609.462482208357,
+        "rssBytes" : 795000832
+      },
+      "before" : {
+        "cpuSeconds" : 2.1741799999999998,
+        "monotonicSeconds" : 93609.293737083353,
+        "rssBytes" : 787464192
+      },
+      "outfit" : "summerVacation",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.2198029999999997,
+        "monotonicSeconds" : 93609.637553000022,
+        "rssBytes" : 802553856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.2200880000000001,
+        "monotonicSeconds" : 93609.637817875016,
+        "rssBytes" : 802553856
+      },
+      "before" : {
+        "cpuSeconds" : 2.1966260000000002,
+        "monotonicSeconds" : 93609.462515666688,
+        "rssBytes" : 795000832
+      },
+      "outfit" : "autumn",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.2411840000000001,
+        "monotonicSeconds" : 93609.811469208347,
+        "rssBytes" : 809975808
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.2415440000000002,
+        "monotonicSeconds" : 93609.811810458355,
+        "rssBytes" : 809975808
+      },
+      "before" : {
+        "cpuSeconds" : 2.2201079999999997,
+        "monotonicSeconds" : 93609.637837625021,
+        "rssBytes" : 802553856
+      },
+      "outfit" : "winter",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.2570420000000002,
+        "monotonicSeconds" : 93609.974940375017,
+        "rssBytes" : 817414144
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.257301,
+        "monotonicSeconds" : 93609.975182041686,
+        "rssBytes" : 817414144
+      },
+      "before" : {
+        "cpuSeconds" : 2.241581,
+        "monotonicSeconds" : 93609.811847000019,
+        "rssBytes" : 809975808
+      },
+      "outfit" : "halloween",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.273774,
+        "monotonicSeconds" : 93610.147131208359,
+        "rssBytes" : 824934400
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.2740359999999997,
+        "monotonicSeconds" : 93610.147373833359,
+        "rssBytes" : 824934400
+      },
+      "before" : {
+        "cpuSeconds" : 2.25732,
+        "monotonicSeconds" : 93609.975200958361,
+        "rssBytes" : 817414144
+      },
+      "outfit" : "christmas",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.2899780000000001,
+        "monotonicSeconds" : 93610.318066791689,
+        "rssBytes" : 832405504
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.2903009999999999,
+        "monotonicSeconds" : 93610.318355833355,
+        "rssBytes" : 832405504
+      },
+      "before" : {
+        "cpuSeconds" : 2.2740520000000002,
+        "monotonicSeconds" : 93610.147390291691,
+        "rssBytes" : 824934400
+      },
+      "outfit" : "hanbok",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.3065869999999999,
+        "monotonicSeconds" : 93610.485599625026,
+        "rssBytes" : 839827456
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.306826,
+        "monotonicSeconds" : 93610.485819416688,
+        "rssBytes" : 839827456
+      },
+      "before" : {
+        "cpuSeconds" : 2.2903340000000001,
+        "monotonicSeconds" : 93610.318389250024,
+        "rssBytes" : 832405504
+      },
+      "outfit" : "cafe",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.3289979999999999,
+        "monotonicSeconds" : 93610.655776666681,
+        "rssBytes" : 847167488
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.329466,
+        "monotonicSeconds" : 93610.656217500014,
+        "rssBytes" : 847167488
+      },
+      "before" : {
+        "cpuSeconds" : 2.3068429999999998,
+        "monotonicSeconds" : 93610.485836958353,
+        "rssBytes" : 839827456
+      },
+      "outfit" : "student",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.3476980000000003,
+        "monotonicSeconds" : 93610.829757875021,
+        "rssBytes" : 854458368
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.3480099999999999,
+        "monotonicSeconds" : 93610.83005954168,
+        "rssBytes" : 854458368
+      },
+      "before" : {
+        "cpuSeconds" : 2.3295019999999997,
+        "monotonicSeconds" : 93610.656252708359,
+        "rssBytes" : 847167488
+      },
+      "outfit" : "fitness",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.3638319999999999,
+        "monotonicSeconds" : 93611.001490750015,
+        "rssBytes" : 861831168
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.3642919999999998,
+        "monotonicSeconds" : 93611.001908666687,
+        "rssBytes" : 861831168
+      },
+      "before" : {
+        "cpuSeconds" : 2.348036,
+        "monotonicSeconds" : 93610.83008545835,
+        "rssBytes" : 854458368
+      },
+      "outfit" : "rainyDay",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.3804460000000001,
+        "monotonicSeconds" : 93611.171801166682,
+        "rssBytes" : 869105664
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.3807390000000002,
+        "monotonicSeconds" : 93611.172074666683,
+        "rssBytes" : 869105664
+      },
+      "before" : {
+        "cpuSeconds" : 2.3643260000000001,
+        "monotonicSeconds" : 93611.001942750023,
+        "rssBytes" : 861831168
+      },
+      "outfit" : "pajamas",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.3959649999999999,
+        "monotonicSeconds" : 93611.340679750021,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.3963549999999998,
+        "monotonicSeconds" : 93611.341038458355,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.3807590000000003,
+        "monotonicSeconds" : 93611.172095875023,
+        "rssBytes" : 869105664
+      },
+      "outfit" : "astronaut",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.3975020000000002,
+        "monotonicSeconds" : 93611.501053625019,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.3977849999999998,
+        "monotonicSeconds" : 93611.501318500013,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.3963770000000002,
+        "monotonicSeconds" : 93611.341060583349,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "basic",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.3988560000000003,
+        "monotonicSeconds" : 93611.660622666692,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.3991739999999999,
+        "monotonicSeconds" : 93611.66091479169,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.3978029999999997,
+        "monotonicSeconds" : 93611.501336750021,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "cherryBlossom",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.4003550000000002,
+        "monotonicSeconds" : 93611.816571083356,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.4006540000000003,
+        "monotonicSeconds" : 93611.816853500015,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.3991929999999999,
+        "monotonicSeconds" : 93611.660934208354,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "summerVacation",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.4017179999999998,
+        "monotonicSeconds" : 93611.974878083347,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.4020330000000003,
+        "monotonicSeconds" : 93611.975178958353,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.4006790000000002,
+        "monotonicSeconds" : 93611.816879250022,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "autumn",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.4029689999999997,
+        "monotonicSeconds" : 93612.13099220836,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.4032489999999997,
+        "monotonicSeconds" : 93612.131252291685,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.4020520000000003,
+        "monotonicSeconds" : 93611.975197666688,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "winter",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.4040949999999999,
+        "monotonicSeconds" : 93612.287037833361,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.4043359999999998,
+        "monotonicSeconds" : 93612.287262833357,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.4032679999999997,
+        "monotonicSeconds" : 93612.131271791688,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "halloween",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.4052449999999999,
+        "monotonicSeconds" : 93612.444789875022,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.4054799999999998,
+        "monotonicSeconds" : 93612.445030500021,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.404353,
+        "monotonicSeconds" : 93612.287279125027,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "christmas",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.4063020000000002,
+        "monotonicSeconds" : 93612.604319458347,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.4065479999999999,
+        "monotonicSeconds" : 93612.604541041685,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.4055010000000001,
+        "monotonicSeconds" : 93612.445052875017,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "hanbok",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.4074819999999999,
+        "monotonicSeconds" : 93612.761852958356,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.4077890000000002,
+        "monotonicSeconds" : 93612.762136875026,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.4065690000000002,
+        "monotonicSeconds" : 93612.604562500026,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "cafe",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.4086479999999999,
+        "monotonicSeconds" : 93612.917284125026,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.408887,
+        "monotonicSeconds" : 93612.917523250027,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.4078150000000003,
+        "monotonicSeconds" : 93612.762163416686,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "student",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.4097299999999997,
+        "monotonicSeconds" : 93613.077632916684,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.4099490000000001,
+        "monotonicSeconds" : 93613.077834000025,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.4089119999999999,
+        "monotonicSeconds" : 93612.917544375014,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "fitness",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.4107089999999998,
+        "monotonicSeconds" : 93613.238213875025,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.4109080000000001,
+        "monotonicSeconds" : 93613.238396125016,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.409964,
+        "monotonicSeconds" : 93613.077849333349,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "rainyDay",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.4115880000000001,
+        "monotonicSeconds" : 93613.389949333359,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.4118110000000001,
+        "monotonicSeconds" : 93613.390157250018,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.4109210000000001,
+        "monotonicSeconds" : 93613.238407708355,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "pajamas",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.4126099999999999,
+        "monotonicSeconds" : 93613.544295333355,
+        "rssBytes" : 876281856
+      },
+      "afterCleanup" : {
+        "cpuSeconds" : 2.4128790000000002,
+        "monotonicSeconds" : 93613.544539458351,
+        "rssBytes" : 876281856
+      },
+      "before" : {
+        "cpuSeconds" : 2.4118310000000003,
+        "monotonicSeconds" : 93613.390172916683,
+        "rssBytes" : 876281856
+      },
+      "outfit" : "astronaut",
+      "pass" : 2,
+      "rigReleased" : true
+    }
+  ],
+  "scope" : "Normal home fallback PioOutfitMotionRig;14 outfits x2 passes, visible idle150ms and explicit stop\/release. No DEBUG overhaul, wardrobe equip, ownership or actual dashboard UI"
+}

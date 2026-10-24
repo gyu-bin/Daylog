@@ -1,0 +1,338 @@
+[
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "basic",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "basic",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "basic",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "basic",
+    "size" : 220
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "cherryBlossom",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "cherryBlossom",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "cherryBlossom",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "cherryBlossom",
+    "size" : 220
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "summerVacation",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "summerVacation",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "summerVacation",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "summerVacation",
+    "size" : 220
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "autumn",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "autumn",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "autumn",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "autumn",
+    "size" : 220
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "winter",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "winter",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "winter",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "winter",
+    "size" : 220
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "halloween",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "halloween",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "halloween",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "halloween",
+    "size" : 220
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "christmas",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "christmas",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "christmas",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "christmas",
+    "size" : 220
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "hanbok",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "hanbok",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "hanbok",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "hanbok",
+    "size" : 220
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "cafe",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "cafe",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "cafe",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "cafe",
+    "size" : 220
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "student",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "student",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "student",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "student",
+    "size" : 220
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "fitness",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "fitness",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "fitness",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "fitness",
+    "size" : 220
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "rainyDay",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "rainyDay",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "rainyDay",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "rainyDay",
+    "size" : 220
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "pajamas",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "pajamas",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "pajamas",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "pajamas",
+    "size" : 220
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "astronaut",
+    "size" : 64
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "astronaut",
+    "size" : 64
+  },
+  {
+    "action" : "idle",
+    "maxBorderAlpha" : 0,
+    "outfit" : "astronaut",
+    "size" : 220
+  },
+  {
+    "action" : "landing",
+    "maxBorderAlpha" : 0,
+    "outfit" : "astronaut",
+    "size" : 220
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "scope": "Actual built resources, Mac exact Bundle API assertion tested separately. iOS/widget resource inspection is not runtime UI evidence.",
+  "bundles": [
+    {
+      "bundleRoot": "/tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents",
+      "rawCFBundleName": "Daylog",
+      "CFBundleDisplayName": "RoutiMori",
+      "CFBundleIdentifier": "com.daylog.verify",
+      "CFBundleExecutable": "Daylog",
+      "localizedResource": "/tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Resources/ko.lproj/InfoPlist.strings",
+      "localizedValues": {
+        "CFBundleDisplayName": "RoutiMori",
+        "CFBundleName": "RoutiMori"
+      }
+    },
+    {
+      "bundleRoot": "/tmp/PioStoreKit-20261023-ios/Build/Products/Debug-iphonesimulator/Daylog.app",
+      "rawCFBundleName": "Daylog",
+      "CFBundleDisplayName": "RoutiMori",
+      "CFBundleIdentifier": "com.mungyubin.daylog.ios",
+      "CFBundleExecutable": "Daylog",
+      "localizedResource": "/tmp/PioStoreKit-20261023-ios/Build/Products/Debug-iphonesimulator/Daylog.app/ko.lproj/InfoPlist.strings",
+      "localizedValues": {
+        "CFBundleDisplayName": "RoutiMori",
+        "CFBundleName": "RoutiMori"
+      }
+    },
+    {
+      "bundleRoot": "/tmp/PioStoreKit-20261023-ios/Build/Products/Debug-iphonesimulator/DaylogWidgets.appex",
+      "rawCFBundleName": "DaylogWidgets",
+      "CFBundleDisplayName": "RoutiMori",
+      "CFBundleIdentifier": "com.mungyubin.daylog.ios.widgets",
+      "CFBundleExecutable": "DaylogWidgets",
+      "localizedResource": "/tmp/PioStoreKit-20261023-ios/Build/Products/Debug-iphonesimulator/DaylogWidgets.appex/ko.lproj/InfoPlist.strings",
+      "localizedValues": {
+        "CFBundleDisplayName": "RoutiMori",
+        "CFBundleName": "RoutiMori"
+      }
+    }
+  ]
+}

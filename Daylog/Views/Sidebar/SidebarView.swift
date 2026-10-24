@@ -52,13 +52,13 @@ struct SidebarBrandHeader: View {
             }
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Daylog, 하루를 기록하다.")
+        .accessibilityLabel("RoutiMori, 하루를 기록하다.")
         .accessibilityAddTraits(.isHeader)
     }
 
     private func titles(showsSlogan: Bool) -> some View {
         VStack(alignment: .leading, spacing: 1) {
-            Text("Daylog")
+            Text("RoutiMori")
                 .font(.system(size: 20, weight: .semibold))
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)

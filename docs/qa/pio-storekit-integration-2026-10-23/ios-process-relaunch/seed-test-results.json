@@ -1,0 +1,53 @@
+{
+  "devices": [
+    {
+      "architecture": "arm64",
+      "deviceId": "0426CD78-3807-4650-9776-B649780E2884",
+      "deviceName": "Pio StoreKit Local 2026-10-23",
+      "modelName": "iPhone 17",
+      "osBuildNumber": "24A434",
+      "osVersion": "27.0",
+      "platform": "iOS Simulator"
+    }
+  ],
+  "testNodes": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "duration": "0.074s",
+                  "durationInSeconds": 0.07387399673461914,
+                  "name": "testSeedVerifiedLedgerInFirstProcess()",
+                  "nodeIdentifier": "PioStoreKitProcessRelaunchTests/testSeedVerifiedLedgerInFirstProcess()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitProcessRelaunchTests/testSeedVerifiedLedgerInFirstProcess",
+                  "nodeType": "Test Case",
+                  "result": "Passed"
+                }
+              ],
+              "name": "PioStoreKitProcessRelaunchTests",
+              "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitProcessRelaunchTests",
+              "nodeType": "Test Suite",
+              "result": "Passed"
+            }
+          ],
+          "name": "DaylogStoreKitTests",
+          "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests",
+          "nodeType": "Unit test bundle",
+          "result": "Passed"
+        }
+      ],
+      "name": "DaylogiOSStoreKit",
+      "nodeType": "Test Plan",
+      "result": "Passed"
+    }
+  ],
+  "testPlanConfigurations": [
+    {
+      "configurationId": "1",
+      "configurationName": "Test Scheme Action"
+    }
+  ]
+}

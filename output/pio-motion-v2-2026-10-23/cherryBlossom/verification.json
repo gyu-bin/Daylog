@@ -1,0 +1,54 @@
+{
+  "outfit": "cherryBlossom",
+  "status": "PARTIAL_OFFLINE_STUDY",
+  "canonicalSourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/wingLeft.png": "f36f819d9648abf50f986dc904959d2bf62916051ed1815a425bf2a75c5fcc6b",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/wingRight.png": "631f59036552ce9872a9396c34a23518c36678ebd17f30b861037e02ce70e5e8",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/footLeft.png": "5223547dd1b1915743eb3dfa68bb1bbad8a00cf202f0adc59827dda1022d18f7",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/footRight.png": "523011ec729e6f4e14effc699d576afd565afa1340ab6e95f26b33372be0211e",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/sprout.png": "aca65a7b6b7c48538fefa9323940441e8dd735dedea9450cb14958ea1c41d979",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/body.png": "9113d44e76cc69c4a0e5f94aa2b6080a6d08f45a9f10a6e76f90f71f1780e007",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/eyeLeft.png": "59761e32ce89d99818940ceeee7233414d98a2ad2f2112ace9711f1ae2f0f37f",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/eyeRight.png": "8d34371b1e59be9c9ed7e7e19371cdee9761e5c7a43fd6ca2cd5118897c51644",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/lidLeft.png": "a9c21d6d9c058abebc98dc38e5c3120ed14d1975c2645f0ce5bebee812a66eb5",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/lidRight.png": "366bfe7bbe3ef55be584ba2c7cec545e1036a22084e4d5f812503daa1eff9dec",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/halfLeft.png": "57ecebb10e0c4c62f119ad76c58465c6b313fd0171549c8b4de99393207b013b",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/halfRight.png": "e3a36054b58d0b35918f553ac011ea5f2c852a42063e5f232b67f5db47b0ab95",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/headFlower.png": "26e194fc12540159a0c33de6c5074c48f590a4d7e395268be4bdc5aad2580cdb",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/happyLeft.png": "967e3449cf09f9f28850842dc09afffd88bf2d18489a6b65271a3666e54d307c",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/happyRight.png": "b6933ec13df8c89810ae85d30e9c617ffbccfe6c003be1a7ae1c6e218d5ba9f1"
+  },
+  "actions": [
+    "idle",
+    "greet",
+    "walk",
+    "bounce",
+    "jump",
+    "celebrate",
+    "bow",
+    "sleepy",
+    "surprised",
+    "encourage",
+    "special"
+  ],
+  "specialAction": "spring greeting",
+  "framesPerAction": 32,
+  "durationMs": 70,
+  "maxAlphaOnFrameBorder": 0,
+  "canvas": [
+    480,
+    516
+  ],
+  "characterCanvas": [
+    350,
+    350
+  ],
+  "limits": [
+    "2D front-view stepping, no authored turn or gait occlusion change.",
+    "Bow is frontal lean/compression, not a reconstructed 3D head turn.",
+    "Hat and fabric stay rigid with torso.",
+    "Held props rigidly follow hands; no release or articulation.",
+    "No app/runtime/performance claim."
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "fileChecks": "PASS",
+  "visualStatus": "PARTIAL",
+  "cloudOutfits": 13,
+  "cloudStateCandidates": 39,
+  "eyeProofGIFs": 13,
+  "independentHandMotion": false,
+  "approvedRuntimePNGsUnchanged": 69,
+  "trackedDiffUnchanged": true,
+  "newFolderPNGsDecoded": 336,
+  "applicationIntegration": "NOT_APPLIED_NOT_TESTED",
+  "rows": [
+    {
+      "outfit": "astronaut",
+      "source": "cloud/astronaut/source/seated-clean-face-v1.png",
+      "sourceSHA256": "74cd9b12b2eee9056de76bded44a46e17a0b80931cd671a3269c15a106596a54",
+      "independent": [
+        "eye states",
+        "concerned brows"
+      ],
+      "baked": [
+        "hands/tablet",
+        "clothing",
+        "feet",
+        "headwear"
+      ],
+      "gifDecodedFrames": 6,
+      "gifDurationMS": 3200,
+      "status": "PARTIAL_NOT_IN_APP"
+    },
+    {
+      "outfit": "autumn",
+      "source": "cloud/autumn/source/seated-clean-face-v1.png",
+      "sourceSHA256": "21084bc5fac03ace7836b07c7f6faa2976061c0344ed53d53d796a5c823d691f",
+      "independent": [
+        "eye states",
+        "concerned brows"
+      ],
+      "baked": [
+        "hands/tablet",
+        "clothing",
+        "feet",
+        "headwear"
+      ],
+      "gifDecodedFrames": 6,
+      "gifDurationMS": 3200,
+      "status": "PARTIAL_NOT_IN_APP"
+    },
+    {
+      "outfit": "cafe",
+      "source": "cloud/cafe/source/seated-clean-face-v1.png",
+      "sourceSHA256": "c3ca292b1c2a5b62783d824d55ed47326ac8ec04b5b754b9f24efb4cb201d093",
+      "independent": [
+        "eye states",
+        "concerned brows"
+      ],
+      "baked": [
+        "hands/tablet",
+        "clothing",
+        "feet",
+        "headwear"
+      ],
+      "gifDecodedFrames": 6,
+      "gifDurationMS": 3200,
+      "status": "PARTIAL_NOT_IN_APP"
+    },
+    {
+      "outfit": "cherryBlossom",
+      "source": "cloud/cherryBlossom/source/seated-clean-face-v1.png",
+      "sourceSHA256": "849ee8202cba5e5c892950c40ee68098582b3e01dd225bfe40656e70670cdd29",
+      "independent": [
+        "eye states",
+        "concerned brows"
+      ],
+      "baked": [
+        "hands/tablet",
+        "clothing",
+        "feet",
+        "headwear"
+      ],
+      "gifDecodedFrames": 6,
+      "gifDurationMS": 3200,
+      "status": "PARTIAL_NOT_IN_APP"
+    },
+    {
+      "outfit": "christmas",
+      "source": "cloud/christmas/source/seated-clean-face-v1.png",
+      "sourceSHA256": "2f127ffca6286c6624760baa7c16c59eed0a00fc69f2121674490fb67ba5f983",
+      "independent": [
+        "eye states",
+        "concerned brows"
+      ],
+      "baked": [
+        "hands/tablet",
+        "clothing",
+        "feet",
+        "headwear"
+      ],
+      "gifDecodedFrames": 6,
+      "gifDurationMS": 3200,
+      "status": "PARTIAL_NOT_IN_APP"
+    },
+    {
+      "outfit": "fitness",
+      "source": "cloud/fitness/source/seated-clean-face-v1.png",
+      "sourceSHA256": "70f1d89f4407ffde5a76b6876c9142dbb17ce9084410494c94e42b35f5ee615e",
+      "independent": [
+        "eye states",
+        "concerned brows"
+      ],
+      "baked": [
+        "hands/tablet",
+        "clothing",
+        "feet",
+        "headwear"
+      ],
+      "gifDecodedFrames": 6,
+      "gifDurationMS": 3200,
+      "status": "PARTIAL_NOT_IN_APP"
+    },
+    {
+      "outfit": "halloween",
+      "source": "cloud/halloween/source/seated-clean-face-v1.png",
+      "sourceSHA256": "08f0743dcef5fda7d1e13b0a7ed29be1792e7f66c1f8f11298333ced6d9cb2d7",
+      "independent": [
+        "eye states",
+        "concerned brows"
+      ],
+      "baked": [
+        "hands/tablet",
+        "clothing",
+        "feet",
+        "headwear"
+      ],
+      "gifDecodedFrames": 6,
+      "gifDurationMS": 3200,
+      "status": "PARTIAL_NOT_IN_APP"
+    },
+    {
+      "outfit": "hanbok",
+      "source": "cloud/hanbok/source/seated-clean-face-v1.png",
+      "sourceSHA256": "c1e85616889b101fb3df5612ae25b3441fcd3326280f4ed235bda089aafa7bd0",
+      "independent": [
+        "eye states",
+        "concerned brows"
+      ],
+      "baked": [
+        "hands/tablet",
+        "clothing",
+        "feet",
+        "headwear"
+      ],
+      "gifDecodedFrames": 6,
+      "gifDurationMS": 3200,
+      "status": "PARTIAL_NOT_IN_APP"
+    },
+    {
+      "outfit": "pajamas",
+      "source": "cloud/pajamas/source/seated-clean-face-v1.png",
+      "sourceSHA256": "6442366ab169c775e2d0f9636a4d892185ea0387e7bf621574a30ce0c098331c",
+      "independent": [
+        "eye states",
+        "concerned brows"
+      ],
+      "baked": [
+        "hands/tablet",
+        "clothing",
+        "feet",
+        "headwear"
+      ],
+      "gifDecodedFrames": 6,
+      "gifDurationMS": 3200,
+      "status": "PARTIAL_NOT_IN_APP"
+    },
+    {
+      "outfit": "rainyDay",
+      "source": "cloud/rainyDay/source/seated-clean-face-v1.png",
+      "sourceSHA256": "3854d9cfd07e452d287ab88232e4229f55b6f785c004830142485fdfa8fe8be7",
+      "independent": [
+        "eye states",
+        "concerned brows"
+      ],
+      "baked": [
+        "hands/tablet",
+        "clothing",
+        "feet",
+        "headwear"
+      ],
+      "gifDecodedFrames": 6,
+      "gifDurationMS": 3200,
+      "status": "PARTIAL_NOT_IN_APP"
+    },
+    {
+      "outfit": "student",
+      "source": "cloud/student/source/seated-clean-face-v1.png",
+      "sourceSHA256": "656cccb43f4b639dcdf828315b23d60c4c445369ef42192b8dd8ce1274c79cd4",
+      "independent": [
+        "eye states",
+        "concerned brows"
+      ],
+      "baked": [
+        "hands/tablet",
+        "clothing",
+        "feet",
+        "headwear"
+      ],
+      "gifDecodedFrames": 6,
+      "gifDurationMS": 3200,
+      "status": "PARTIAL_NOT_IN_APP"
+    },
+    {
+      "outfit": "summerVacation",
+      "source": "cloud/summerVacation/source/seated-clean-face-v1.png",
+      "sourceSHA256": "b7fb6760c59ca78adf4633219ecd984d15c712a81f8763a5b82e3b2f048475f7",
+      "independent": [
+        "eye states",
+        "concerned brows"
+      ],
+      "baked": [
+        "hands/tablet",
+        "clothing",
+        "feet",
+        "headwear"
+      ],
+      "gifDecodedFrames": 6,
+      "gifDurationMS": 3200,
+      "status": "PARTIAL_NOT_IN_APP"
+    },
+    {
+      "outfit": "winter",
+      "source": "cloud/winter/source/seated-clean-face-v1.png",
+      "sourceSHA256": "65b75d6b0140219a35a214e6157925486751f59a66c78400aeb2d514cc657265",
+      "independent": [
+        "eye states",
+        "concerned brows"
+      ],
+      "baked": [
+        "hands/tablet",
+        "clothing",
+        "feet",
+        "headwear"
+      ],
+      "gifDecodedFrames": 6,
+      "gifDurationMS": 3200,
+      "status": "PARTIAL_NOT_IN_APP"
+    }
+  ]
+}

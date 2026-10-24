@@ -1,0 +1,7 @@
+{
+  "mode": "built-in imagegen precise-object-edit",
+  "prompt": "Use case: precise-object-edit. Edit target: supplied standalone yellow umbrella. Produce ONLY the yellow canopy/roof component as a genuine independently layered transparent asset. Remove the entire silver shaft and yellow J-shaped handle. Preserve the canopy's exact shape, six rounded tips, curved dome, glossy yellow material, seams, bead tips, shade, warm highlights, perspective, scale and original location in the 1254-square composition. Maintain original empty margins below the canopy. Reconstruct the underside where the shaft was hidden, so the canopy has a complete natural underside for independent layering. No cropping, no new props, no text, no character, no flat geometric substitutions. Genuine transparent background, soft faithful high-resolution 2.5D plush game artwork, no glow/halo. Keep all canopy pixel placement as close as possible to the reference; this is component reconstruction, not umbrella redesign.",
+  "target": "source/umbrella-candidate.png",
+  "output": "source/umbrella-canopy-candidate.png",
+  "status": "UNAPPROVED_CANDIDATE"
+}

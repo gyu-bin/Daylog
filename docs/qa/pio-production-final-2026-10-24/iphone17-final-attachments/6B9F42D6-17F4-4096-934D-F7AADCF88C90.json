@@ -1,0 +1,192 @@
+{
+  "holdIDs" : [
+    "tablet",
+    "armLeft",
+    "armRight"
+  ],
+  "independent" : [
+    "eyes",
+    "lids",
+    "shared arms\/tablet hold joint"
+  ],
+  "limits" : "Native presentation-layer component captures; candidate geometry still requires visual approval. Held parts never detach or wave independently of the prop. No purchase, preference or whole-screen workflow verification.",
+  "observations" : [
+    {
+      "elapsed" : 0.1556774583295919,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00037469060012937291,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 0.19275941666273866,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00037469060012937291,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 1.6762005000055069,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026115705990837644,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.7233448333281558,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026115705990837644,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.8912501250015339,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.02464627885872802,
+      "lidOpacity" : 1,
+      "side" : 64,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 1.9310262083308771,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.02464627885872802,
+      "lidOpacity" : 1,
+      "side" : 220,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 2.3092054166627349,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.016150137318425396,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 2.3457405416702386,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.016150137318425396,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 4.834844458338921,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-negative"
+    },
+    {
+      "elapsed" : 4.8829124583280645,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-negative"
+    }
+  ],
+  "partAssets" : {
+    "armLeft" : "pio_cloud_prod_v2_astronaut_v2_armPairCompact",
+    "armRight" : "pio_cloud_prod_v2_astronaut_v2_armPairCompact",
+    "body" : "pio_cloud_prod_v2_astronaut_v2_torso",
+    "browLeft" : "pio_cloud_prod_v2_astronaut_browLeft",
+    "browRight" : "pio_cloud_prod_v2_astronaut_browRight",
+    "eyeLeft" : "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "eyeRight" : "pio_cloud_prod_v2_astronaut_eyeRight",
+    "halfLeft" : "pio_cloud_prod_v2_astronaut_halfLeft",
+    "halfRight" : "pio_cloud_prod_v2_astronaut_halfRight",
+    "lidLeft" : "pio_cloud_prod_v2_astronaut_lidLeft",
+    "lidRight" : "pio_cloud_prod_v2_astronaut_lidRight",
+    "optics" : "pio_cloud_prod_v2_astronaut_optics",
+    "tablet" : "pio_cloud_prod_v2_basic_v1_tablet"
+  },
+  "partRects" : {
+    "armLeft" : [
+      275,
+      850,
+      280,
+      210
+    ],
+    "armRight" : [
+      790,
+      850,
+      265,
+      210
+    ],
+    "body" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "browLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "browRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "eyeLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "eyeRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "halfLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "halfRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "lidLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "lidRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "optics" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "tablet" : [
+      493,
+      804,
+      366,
+      249
+    ]
+  },
+  "platform" : "iPhone Simulator",
+  "revision" : "astronaut-production-hands-v2"
+}

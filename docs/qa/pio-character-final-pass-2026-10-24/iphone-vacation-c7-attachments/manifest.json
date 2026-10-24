@@ -1,0 +1,557 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "23C21CD3-CDF1-4E0C-88CF-5BCB792FEAB3.json",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "actual-device-screen-observations_0_9781ACBE-6014-4073-BC53-A03986FE156C.json",
+        "timestamp" : 1792830325.75
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "9758485C-AF36-46BF-ADD2-1D12112C0C92.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "screen-vacation-night-AX5_0_C0FC8E33-4B0A-41F1-B83F-406992414B6B.png",
+        "timestamp" : 1792830325.748
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "DA413717-F233-43D1-9C8E-805641FFD9CF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "screen-vacation-night-normal_0_7A1C355E-228F-4B0A-B7CC-91689302F147.png",
+        "timestamp" : 1792830325.363
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "9D666A74-EEB1-4E9A-92B5-743B6557D453.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "screen-vacation-day-AX5_0_1F7118BD-1F59-4A19-BD95-103C9F8A8776.png",
+        "timestamp" : 1792830324.901
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "7598B161-A505-42A7-8B91-D7CB16DC34C6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "screen-vacation-day-normal_0_B7BE7BC3-6B18-475F-88B9-117EE3FD22D4.png",
+        "timestamp" : 1792830324.569
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "9F03E649-64E7-4CA3-9BD5-85A97163A256.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "screen-cloud-trouble-AX5_0_25791D53-25B7-417B-B449-7D2CE719310F.png",
+        "timestamp" : 1792830324.076
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "2BD81AE2-1188-4135-BCDF-E722DF54D0E1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "screen-cloud-trouble-normal_0_C91DC20D-1850-448F-9935-89945859A31F.png",
+        "timestamp" : 1792830323.741
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "AD3898FB-DDAA-4B6C-9B82-7F619997ACB2.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "screen-cloud-ready-AX5_0_53BEA6C2-A2A0-48FF-B9F3-7F7AE65C01A1.png",
+        "timestamp" : 1792830323.403
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "E47CB4FA-FB70-40C1-A43F-42DFB5D87D60.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "screen-cloud-ready-normal_0_2FF919BC-112C-423D-A02C-42BFEBE11960.png",
+        "timestamp" : 1792830323.087
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "C9D17D9D-C056-4AEC-89D3-642633C42084.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "screen-cloud-receiving-AX5_0_407B5080-773B-4A85-AD39-5F42DA640079.png",
+        "timestamp" : 1792830322.748
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "51BDCA48-1E4C-43B4-892F-C9AA5CBC73B0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "screen-cloud-receiving-normal_0_43E79318-12EA-4141-AF03-CAB82D2A2CDE.png",
+        "timestamp" : 1792830322.411
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "F9B7521A-0926-4D08-B94B-AC431ED3CBC0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "screen-home-AX5_0_D493BCE9-D305-4A9B-B3F8-A1B280839584.png",
+        "timestamp" : 1792830321.946
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "0A442264-4082-4033-93EA-8A252D708347.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "screen-home-normal_0_EC6EEC2B-A592-41A8-94EC-6B653F4D281B.png",
+        "timestamp" : 1792830321.503
+      }
+    ],
+    "testIdentifier" : "PioProductionFinalScreenTests/testActualDeviceScreensAndAccessibilityLayouts()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioProductionFinalScreenTests/testActualDeviceScreensAndAccessibilityLayouts"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "A9F0D6A8-D754-46D8-85C4-28EB829C3673.json",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-two-source-point-native-projection_0_31E6AE2B-709A-42CF-BA51-178661B82E55.json",
+        "timestamp" : 1792830341.756
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "E2414860-A74A-47EE-8990-270FB09E9FD8.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "hinge-basic-night-220pt-actual-2_0_12FE1B2A-F897-4633-AAF7-E20F2438B8F3.png",
+        "timestamp" : 1792830341.752
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "8B1E74C2-9EBF-46C0-8BE0-050A0463252F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "hinge-basic-night-220pt-actual-1_0_3DCD1308-C161-4804-94A4-68280246DF8D.png",
+        "timestamp" : 1792830339.771
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "A6A76611-C55F-4FB1-8121-34D99E903C99.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "hinge-basic-night-220pt-actual-0_0_DFAEDE00-18DD-4852-9B3F-9D1633C024BB.png",
+        "timestamp" : 1792830337.895
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "19B1BBA9-F155-4B77-B52E-2976D6B49CDE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "hinge-basic-day-220pt-actual-2_0_26537DF4-C6B1-46C2-B4FB-54B8FD060020.png",
+        "timestamp" : 1792830337.741
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "0D688B59-75EA-4BC8-8E13-010332E568BD.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "hinge-basic-day-220pt-actual-1_0_AA8BBCAB-A0DA-47B6-8C4D-BC2BE0DC0D7A.png",
+        "timestamp" : 1792830335.776
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "43BE130E-E4D6-4E04-B66B-C391A864006C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "hinge-basic-day-220pt-actual-0_0_E64855D2-5E2B-42E0-8688-1CEAB3264683.png",
+        "timestamp" : 1792830333.913
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "050665F5-1899-4DB0-9E00-0A2636046FF1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "hinge-basic-night-64pt-actual-2_0_B57232EC-C293-41D6-839B-E58DB072515C.png",
+        "timestamp" : 1792830333.722
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "C77A353F-A31F-432F-8998-84B4D4F830E3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "hinge-basic-night-64pt-actual-1_0_DC1AD0A0-3709-4BD7-B171-CF09D2C0207D.png",
+        "timestamp" : 1792830331.754
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "CDC27214-9AD4-4DA9-AB91-FD4DC26D3FAE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "hinge-basic-night-64pt-actual-0_0_F551D6C4-7934-4141-A452-07E0F9DA4E4E.png",
+        "timestamp" : 1792830329.863
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "9FAFD4B0-89E2-4108-AE26-DE20B47107FC.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "hinge-basic-day-64pt-actual-2_0_AA2A8086-598B-49AB-A770-B3C9196A3D05.png",
+        "timestamp" : 1792830329.737
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "E917448E-15CC-40C8-9C6A-82422CA303EF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "hinge-basic-day-64pt-actual-1_0_597FB11E-3DB6-4379-9D81-AC1CEAAB8BE0.png",
+        "timestamp" : 1792830327.785
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "3A434EA4-89E9-466B-84AD-D8686DF5B97C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "hinge-basic-day-64pt-actual-0_0_C2AF8617-2A97-4620-932E-4EE5FE26B1C2.png",
+        "timestamp" : 1792830325.925
+      }
+    ],
+    "testIdentifier" : "PioVacationHingeNativeTests/testBasicDayNightHingeKeepsBothVisibleSourcePointsFixed()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioVacationHingeNativeTests/testBasicDayNightHingeKeepsBothVisibleSourcePointsFixed"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "FF98C071-E0FA-4D15-A729-07713921B132.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-day-production-220pt-stopped_0_7849CC87-CE56-4FA5-9ECB-892FCFF4629A.png",
+        "timestamp" : 1792830346.056
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "8FFF5C9B-8F54-4B44-8A29-68FF01458E1C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-day-production-220pt-open_0_440D2BE4-7612-4D83-BE2E-C4046331C23D.png",
+        "timestamp" : 1792830345.992
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "0F45062C-4DC6-476E-8133-2AACE6ADD575.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-day-production-220pt-closed_0_CE14BEEF-227B-45D1-8A89-166ADAF6F36D.png",
+        "timestamp" : 1792830343.988
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "4757E4C4-5C77-455B-8DF9-012A247556EB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-day-production-64pt-stopped_0_D340AAD4-FC52-4EE1-A3A1-47DF6CB84A8B.png",
+        "timestamp" : 1792830343.883
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "88B08DE6-741A-45C5-BEE6-D737B6B0C395.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-day-production-64pt-open_0_1292845F-3C93-481A-9F8A-87D84070C621.png",
+        "timestamp" : 1792830343.872
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "413C5EFB-957E-4D80-ABEA-6A060B9719F2.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-day-production-64pt-closed_0_B718928C-9841-4B00-8A20-2A7ED4311F90.png",
+        "timestamp" : 1792830341.935
+      }
+    ],
+    "testIdentifier" : "PioVacationNightArtworkTests/testChristmasDayProductionLifecycleAndPresentation()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioVacationNightArtworkTests/testChristmasDayProductionLifecycleAndPresentation"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "337B8624-DB02-4780-97D2-2B7A00D37205.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-production-220pt-stopped_0_1F1DF088-B9BF-4307-8D6D-EF328995DFE7.png",
+        "timestamp" : 1792830350.294
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "F574788B-7F65-4C5C-AD32-2BD9729015B8.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-production-220pt-open_0_906055BE-33D5-4B04-B3EC-5377AAA33940.png",
+        "timestamp" : 1792830350.227
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "04B0F384-C25C-449C-9759-DB9ABBF18AD6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-production-220pt-closed_0_811EF904-860E-4A26-BE28-3C8AE910E755.png",
+        "timestamp" : 1792830348.222
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "48CF5E86-FC96-4E57-A0B7-26571F341AD9.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-production-64pt-stopped_0_D168B629-E3D1-4347-96DF-44EDEBD9F32C.png",
+        "timestamp" : 1792830348.113
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "7F881AB3-FDAE-49E9-AD2C-1754B07E9A52.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-production-64pt-open_0_8B88E06D-E61E-4EE4-8CCF-2E27B0884220.png",
+        "timestamp" : 1792830348.102
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "19A1D7D8-8480-4770-B2CB-B2485C89367C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-production-64pt-closed_0_06695D81-0227-400A-9122-A9633DEE7B97.png",
+        "timestamp" : 1792830346.162
+      }
+    ],
+    "testIdentifier" : "PioVacationNightArtworkTests/testChristmasNightProductionLifecycleAndPresentation()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioVacationNightArtworkTests/testChristmasNightProductionLifecycleAndPresentation"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "19D36217-5642-4295-AB3A-930909D3513B.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-1024pt-closed_0_92D1F8BF-641D-4B2D-943A-0C82089A3561.png",
+        "timestamp" : 1792830350.989
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "17940E83-485A-4812-9BC3-45701E4B3A7F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-1024pt-half_0_1999CF9E-9F5D-4A37-8BD9-46AAB0F05EBE.png",
+        "timestamp" : 1792830350.866
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "F57DFAF2-D88F-4B20-96E2-2C1B2685F6C7.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-1024pt-open_0_23BCB346-6511-478B-BFF0-FAAF6DA3316D.png",
+        "timestamp" : 1792830350.737
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "A9A8BF5B-E252-495D-ADB2-F4D4AA36B15D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-1024pt-clean_0_C7A23B5D-8BD9-40F0-BEBC-EB255E99A02F.png",
+        "timestamp" : 1792830350.586
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "3FD6DE1A-4BE5-4B04-BCC5-301BEFAFF410.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-1024pt-original_0_1C5E0F7A-574F-440A-8535-E26AFC6D22B3.png",
+        "timestamp" : 1792830350.456
+      }
+    ],
+    "testIdentifier" : "PioVacationNightArtworkTests/testNightCandidate1024StaticRegistration()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioVacationNightArtworkTests/testNightCandidate1024StaticRegistration"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "F0978E48-1C4C-4289-A5EC-6C2F5F6A75DE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-220pt-stopped_0_D1FBA348-F1C2-413F-A258-05A1A1FEEECA.png",
+        "timestamp" : 1792830355.187
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "60A2144D-E891-4CF5-A849-010EAD0695D5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-220pt-open_0_F9037E6F-4D80-4110-BC1B-A6C40064B1F7.png",
+        "timestamp" : 1792830355.108
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "DE302B98-7493-4E7E-B778-18DDA77C5874.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-220pt-half_0_404E2C91-991D-4AA0-8DC6-2F17BEF2D080.png",
+        "timestamp" : 1792830354.95
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "E1A2E459-EE27-428C-B016-F3173C54965B.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-220pt-closed_0_9F52B264-43C5-4329-8D69-02BE599FF742.png",
+        "timestamp" : 1792830353.106
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "B27E31CD-C8EC-4FEE-B327-D3CE75440648.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-64pt-stopped_0_357C861B-ADD9-47DE-8DCB-6EF09AD10A8E.png",
+        "timestamp" : 1792830352.999
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "A2A7A469-AA77-4283-9170-2B75729984DD.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-64pt-open_0_5800D02E-F428-4C4D-B941-8D8091919C9E.png",
+        "timestamp" : 1792830352.988
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "C3111E8F-504B-4240-AA1D-F55776934FCA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-64pt-half_0_FE117A8E-AD3A-4639-BB76-51EC0C93AAA1.png",
+        "timestamp" : 1792830352.856
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "12989AAF-712D-4A54-BE47-660864375EC3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-64pt-closed_0_F549466F-6566-429F-8A75-20ED68ACF30A.png",
+        "timestamp" : 1792830351.061
+      }
+    ],
+    "testIdentifier" : "PioVacationNightArtworkTests/testNightCandidateNativePresentationAt64And220()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioVacationNightArtworkTests/testNightCandidateNativePresentationAt64And220"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "FE8547E4-62AD-4A5D-9737-33F088018D85.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-winter-night-production-220pt-stopped_0_F13EC46C-1D29-42BE-A7FF-6B7D2EDEBA14.png",
+        "timestamp" : 1792830359.921
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "DB18BCE4-5D4D-448E-9651-87E9F7FCC7AF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-winter-night-production-220pt-open_0_8CE942D3-AFF1-4918-8FFA-43708A2EFEF1.png",
+        "timestamp" : 1792830359.853
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "7BCC4DBC-40CC-412E-B921-DA7E312580BE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-winter-night-production-220pt-closed_0_B0CC16EF-3BD8-4477-96C1-B84B5067DF78.png",
+        "timestamp" : 1792830357.854
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "2E228C2B-08EB-4A95-A884-1B32D1487F30.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-winter-night-production-64pt-stopped_0_BC4684D6-949E-4865-B375-5BF7CB59DE86.png",
+        "timestamp" : 1792830357.741
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "DA835154-9F31-4687-8399-18468246E0D6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-winter-night-production-64pt-open_0_51AFBC43-78FA-4A6B-9C3A-DFBFEB83AA4B.png",
+        "timestamp" : 1792830357.73
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "9FFB62CA-53B0-4815-9A7A-994D1591D071.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-winter-night-production-64pt-closed_0_E4105852-0C19-47BF-BF38-B1C67F6BCB7D.png",
+        "timestamp" : 1792830355.785
+      }
+    ],
+    "testIdentifier" : "PioVacationNightArtworkTests/testWinterNightProductionLifecycleAndPresentation()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioVacationNightArtworkTests/testWinterNightProductionLifecycleAndPresentation"
+  }
+]

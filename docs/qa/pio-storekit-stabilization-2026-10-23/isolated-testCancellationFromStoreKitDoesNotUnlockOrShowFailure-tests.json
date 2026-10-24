@@ -1,0 +1,63 @@
+{
+  "devices": [
+    {
+      "architecture": "arm64",
+      "deviceId": "0426CD78-3807-4650-9776-B649780E2884",
+      "deviceName": "Pio StoreKit Local 2026-10-23",
+      "modelName": "iPhone 17",
+      "osBuildNumber": "24A434",
+      "osVersion": "27.0",
+      "platform": "iOS Simulator"
+    }
+  ],
+  "testNodes": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "name": "XCTAssertEqual failed: (\"failed(message: \"App Store\uc5d0 \uc5f0\uacb0\ud558\uc9c0 \ubabb\ud588\uc5b4\uc694. \ub124\ud2b8\uc6cc\ud06c\ub97c \ud655\uc778\ud558\uace0 \uc7a0\uc2dc \ud6c4 \ub2e4\uc2dc \uc2dc\ub3c4\ud574 \uc8fc\uc138\uc694.\")\") is not equal to (\"cancelled\")",
+                      "nodeType": "Failure Message",
+                      "sourceLocation": {
+                        "filePath": "/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift",
+                        "lineNumber": 354
+                      }
+                    }
+                  ],
+                  "duration": "0.17s",
+                  "durationInSeconds": 0.1732180118560791,
+                  "name": "testCancellationFromStoreKitDoesNotUnlockOrShowFailure()",
+                  "nodeIdentifier": "PioStoreKitIntegrationTests/testCancellationFromStoreKitDoesNotUnlockOrShowFailure()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testCancellationFromStoreKitDoesNotUnlockOrShowFailure",
+                  "nodeType": "Test Case",
+                  "result": "Failed"
+                }
+              ],
+              "name": "PioStoreKitIntegrationTests",
+              "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests",
+              "nodeType": "Test Suite",
+              "result": "Failed"
+            }
+          ],
+          "name": "DaylogStoreKitTests",
+          "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests",
+          "nodeType": "Unit test bundle",
+          "result": "Failed"
+        }
+      ],
+      "name": "DaylogiOSStoreKit",
+      "nodeType": "Test Plan",
+      "result": "Failed"
+    }
+  ],
+  "testPlanConfigurations": [
+    {
+      "configurationId": "1",
+      "configurationName": "Test Scheme Action"
+    }
+  ]
+}

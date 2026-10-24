@@ -1,0 +1,52 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "0426CD78-3807-4650-9776-B649780E2884",
+        "deviceName" : "Pio StoreKit Local 2026-10-23",
+        "modelName" : "iPhone 17",
+        "osBuildNumber" : "24A434",
+        "osVersion" : "27.0",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 1,
+      "passedTests" : 0,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "DaylogiOSStoreKit · Built with macOS 27.0.1",
+  "expectedFailures" : 0,
+  "failedTests" : 1,
+  "finishTime" : 1792751501.73,
+  "passedTests" : 0,
+  "result" : "Failed",
+  "runtimeWarnings" : [
+
+  ],
+  "skippedTests" : 0,
+  "startTime" : 1792751497.641,
+  "statistics" : [
+
+  ],
+  "testFailures" : [
+    {
+      "failureText" : "XCTAssertGreaterThan failed: (\"0\") is not greater than (\"0\")",
+      "targetName" : "DaylogStoreKitTests",
+      "testIdentifier" : 1,
+      "testIdentifierString" : "PioStoreKitProcessRelaunchTests/testVerifyLedgerAndEquipmentInFreshProcess()",
+      "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitProcessRelaunchTests/testVerifyLedgerAndEquipmentInFreshProcess",
+      "testName" : "testVerifyLedgerAndEquipmentInFreshProcess()"
+    }
+  ],
+  "title" : "Test - DaylogiOSStoreKit",
+  "topInsights" : [
+
+  ],
+  "totalTestCount" : 1
+}

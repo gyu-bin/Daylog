@@ -1,0 +1,21 @@
+[
+  "xcodebuild",
+  "test-without-building",
+  "-xctestrun",
+  "/private/tmp/PioStoreKit-20261023-ios/Build/Products/PioProcessRelaunch-a2414e4d-e306-470a-b90b-00e148eafa51-seed.xctestrun",
+  "-destination",
+  "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884",
+  "-parallel-testing-enabled",
+  "NO",
+  "-collect-test-diagnostics",
+  "never",
+  "-test-timeouts-enabled",
+  "YES",
+  "-default-test-execution-time-allowance",
+  "60",
+  "-maximum-test-execution-time-allowance",
+  "90",
+  "-only-testing:DaylogStoreKitTests/PioStoreKitProcessRelaunchTests/testSeedVerifiedLedgerInFirstProcess",
+  "-resultBundlePath",
+  "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-polish-2026-10-23/verified-relaunch/seed.xcresult"
+]

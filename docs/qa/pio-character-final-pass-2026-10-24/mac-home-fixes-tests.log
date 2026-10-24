@@ -1,0 +1,73 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioCharacterFinalMain.xctestrun -destination platform=macOS -parallel-testing-enabled NO -resultBundlePath /tmp/PioCharacterFinal-Mac-home-fixes-20261024.xcresult "-only-testing:DaylogTests/PioHomeProductionTests"
+
+Writing result bundle at path:
+	/tmp/PioCharacterFinal-Mac-home-fixes-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 17:11:13.476921+0900 Daylog[36601:2575755] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:11:13.477610+0900 Daylog[36601:2575755] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:11:13.478807+0900 Daylog[36601:2575754] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:11:13.478854+0900 Daylog[36601:2575754] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:11:13.480536+0900 Daylog[36601:2575782] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:11:13.480575+0900 Daylog[36601:2575782] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:11:13.482028+0900 Daylog[36601:2575782] [Connection] Will NOT re-try to establish the connection
+2026-10-24 17:11:13.482112+0900 Daylog[36601:2575755] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:11:13.482144+0900 Daylog[36601:2575755] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:11:13.539439+0900 Daylog[36601:2575687] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 17:11:14.099276+0900 Daylog[36601:2575781] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 17:11:14.861.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 17:11:14.861.
+Test Suite 'DaylogTests.xctest' passed at 2026-10-24 17:11:14.862.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 17:11:14.862.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite PioHomeProductionTests started.
+◇ Test allFourteenRegistrationsHaveGenuineSizedLayers() started.
+✔ Test allFourteenRegistrationsHaveGenuineSizedLayers() passed after 0.036 seconds.
+◇ Test all140ProductionTimelinesMatchProtectedCanonicalRig() started.
+✔ Test all140ProductionTimelinesMatchProtectedCanonicalRig() passed after 0.092 seconds.
+◇ Test boundedActionsReturnToQuietIdleAndLifecycleStopsAllTracks() started.
+✔ Test boundedActionsReturnToQuietIdleAndLifecycleStopsAllTracks() passed after 0.045 seconds.
+◇ Test homeProductionDoesNotGrantPreviewOrUnverifiedPaidAccess() started.
+✔ Test homeProductionDoesNotGrantPreviewOrUnverifiedPaidAccess() passed after 0.001 seconds.
+◇ Test quietIdleHasIndependentSlowJointsWithoutTranslationHops() started.
+✔ Test quietIdleHasIndependentSlowJointsWithoutTranslationHops() passed after 0.001 seconds.
+◇ Test firstInactiveRequestStartsWhenVisibleButPlayedRequestDoesNotReplay() started.
+✔ Test firstInactiveRequestStartsWhenVisibleButPlayedRequestDoesNotReplay() passed after 2.811 seconds.
+◇ Test growthBubbleDismissalDoesNotCutOffAuthoredCelebration() started.
+✘ Test growthBubbleDismissalDoesNotCutOffAuthoredCelebration() recorded an issue at PioHomeProductionTests.swift:120:9: Expectation failed: stage.rig.movement.animation(forKey: "transform.translation.x")?.duration == 2.6
+↳ stage.rig.movement.animation(forKey: "transform.translation.x")?.duration == 2.6 → false
+↳   stage.rig.movement.animation(forKey: "transform.translation.x")?.duration → nil
+↳     some → 2.6
+✘ Test growthBubbleDismissalDoesNotCutOffAuthoredCelebration() failed after 2.604 seconds with 1 issue.
+◇ Test outfitSwitchCancelsOldDeadlineWithoutInterruptingNewAction() started.
+✔ Test outfitSwitchCancelsOldDeadlineWithoutInterruptingNewAction() passed after 3.817 seconds.
+✘ Suite PioHomeProductionTests failed after 9.409 seconds with 1 issue.
+✘ Test run with 8 tests in 1 suite failed after 9.410 seconds with 1 issue.
+2026-10-24 17:11:30.962 xcodebuild[36595:2575582] [MT] IDETestOperationsObserverDebug: 18.215 elapsed -- Testing started completed.
+2026-10-24 17:11:30.962 xcodebuild[36595:2575582] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 17:11:30.962 xcodebuild[36595:2575582] [MT] IDETestOperationsObserverDebug: 18.215 sec, +18.215 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCharacterFinal-Mac-home-fixes-20261024.xcresult
+
+Failing tests:
+	PioHomeProductionTests.growthBubbleDismissalDoesNotCutOffAuthoredCelebration()
+
+** TEST EXECUTE FAILED **
+
+Testing started

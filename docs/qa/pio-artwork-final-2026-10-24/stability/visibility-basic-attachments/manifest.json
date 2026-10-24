@@ -1,0 +1,59 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "FA8647A0-1FF2-4E80-BC75-336D4A199EAC.json",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "mac-window-native-transitions_0_AB45EFA3-5F04-46BC-B7EB-452C04948468.json",
+        "timestamp" : 1792810252.235
+      }
+    ],
+    "testIdentifier" : "PioMacStabilityReviewTests/testActualWindowVisibilityTransitions()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioMacStabilityReviewTests/testActualWindowVisibilityTransitions"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "72F0B017-95E4-4178-9C4D-294182DF2565.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-trouble-dark-app-parity_0_4DDCA096-0D58-4325-803A-E38FAA463EF0.png",
+        "timestamp" : 1792810252.314
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "B722DE10-877D-43FA-AE7A-34F962558AF7.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-trouble-light-app-parity_0_2871A3ED-DED2-403E-83E1-5F3E69985BA3.png",
+        "timestamp" : 1792810252.304
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "68EC331B-A39A-45A4-857D-1CDE9C9FED61.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-receiving-dark-app-parity_0_F58E36E3-E68D-43D9-BC4B-F128142E365C.png",
+        "timestamp" : 1792810252.285
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "30EAD5B5-F89A-4C0C-A136-BBBDD816595F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-receiving-light-app-parity_0_5DA360C5-59C9-4767-827B-A905B5AF1651.png",
+        "timestamp" : 1792810252.275
+      }
+    ],
+    "testIdentifier" : "PioMacStabilityReviewTests/testBasicSeatedFallbackMatchesApp()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioMacStabilityReviewTests/testBasicSeatedFallbackMatchesApp"
+  }
+]

@@ -1,0 +1,118 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioPolishLedger.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -resultBundlePath /tmp/PioPolish-ledger-final.xcresult
+
+Writing result bundle at path:
+	/tmp/PioPolish-ledger-final.xcresult
+
+2026-10-23 23:04:49.198 xcodebuild[34943:1223283] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 23:05:10.008452+0900 Daylog[35142:1225244] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 23:05:10.638088+0900 Daylog[35142:1225244] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 23:05:10.659882+0900 Daylog[35142:1225244] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 23:05:10.660377+0900 Daylog[35142:1225244] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 23:05:10.888.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 23:05:10.888.
+Test Suite 'PioStoreKitLedgerFixtureTests' started at 2026-10-23 23:05:10.889.
+Test Case '-[DaylogStoreKitTests.PioStoreKitLedgerFixtureTests testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions]' started.
+PIO_VERIFIED_SCENES outfit=basic contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+objc[35142]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x11934c398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x124df4310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+PIO_LEDGER_PROBE Method=SKTestSession.buyProduct(identifier:), NOT Product.purchase() | Seeded product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode")
+PioStoreKit: client=75C9A2AB time=1792764311.2162971 accepted id=0 product=outfit.cherryblossom revoked=false
+PIO_VERIFIED_SCENES outfit=cherryBlossom contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_LEDGER_PROBE Method=SKTestSession.buyProduct(identifier:), NOT Product.purchase() | Seeded product=outfit.summer id=1 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.summer id=1 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode")
+PioStoreKit: client=75C9A2AB time=1792764311.248526 accepted id=1 product=outfit.summer revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.2487988 accepted id=0 product=outfit.cherryblossom revoked=false
+PIO_VERIFIED_SCENES outfit=summerVacation contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_LEDGER_PROBE Method=SKTestSession.buyProduct(identifier:), NOT Product.purchase() | Seeded product=outfit.autumn id=2 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.autumn id=2 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.summer id=1 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode")
+PioStoreKit: client=75C9A2AB time=1792764311.278055 accepted id=2 product=outfit.autumn revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.278358 accepted id=1 product=outfit.summer revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.278683 accepted id=0 product=outfit.cherryblossom revoked=false
+PIO_VERIFIED_SCENES outfit=autumn contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_LEDGER_PROBE Method=SKTestSession.buyProduct(identifier:), NOT Product.purchase() | Seeded product=outfit.winter id=3 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.winter id=3 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.autumn id=2 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.summer id=1 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode")
+PioStoreKit: client=75C9A2AB time=1792764311.326213 accepted id=3 product=outfit.winter revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.326542 accepted id=2 product=outfit.autumn revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.326834 accepted id=1 product=outfit.summer revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.327128 accepted id=0 product=outfit.cherryblossom revoked=false
+PIO_VERIFIED_SCENES outfit=winter contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_LEDGER_PROBE Method=SKTestSession.buyProduct(identifier:), NOT Product.purchase() | Seeded product=outfit.halloween id=4 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.halloween id=4 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.winter id=3 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.autumn id=2 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.summer id=1 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode")
+PioStoreKit: client=75C9A2AB time=1792764311.36103 accepted id=4 product=outfit.halloween revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.361084 accepted id=3 product=outfit.winter revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.3611112 accepted id=2 product=outfit.autumn revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.361141 accepted id=1 product=outfit.summer revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.361164 accepted id=0 product=outfit.cherryblossom revoked=false
+PIO_VERIFIED_SCENES outfit=halloween contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_LEDGER_PROBE Method=SKTestSession.buyProduct(identifier:), NOT Product.purchase() | Seeded product=outfit.christmas id=5 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.christmas id=5 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.halloween id=4 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.winter id=3 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.autumn id=2 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.summer id=1 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode")
+PioStoreKit: client=75C9A2AB time=1792764311.389814 accepted id=5 product=outfit.christmas revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.390162 accepted id=4 product=outfit.halloween revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.390461 accepted id=3 product=outfit.winter revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.3907251 accepted id=2 product=outfit.autumn revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.3909922 accepted id=1 product=outfit.summer revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.391248 accepted id=0 product=outfit.cherryblossom revoked=false
+PIO_VERIFIED_SCENES outfit=christmas contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_LEDGER_PROBE Method=SKTestSession.buyProduct(identifier:), NOT Product.purchase() | Seeded product=outfit.hanbok id=6 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.hanbok id=6 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.christmas id=5 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.halloween id=4 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.winter id=3 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.autumn id=2 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.summer id=1 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode")
+PioStoreKit: client=75C9A2AB time=1792764311.429801 accepted id=6 product=outfit.hanbok revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.43007 accepted id=5 product=outfit.christmas revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.430378 accepted id=4 product=outfit.halloween revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.430688 accepted id=3 product=outfit.winter revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.430948 accepted id=2 product=outfit.autumn revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.431205 accepted id=1 product=outfit.summer revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.4314651 accepted id=0 product=outfit.cherryblossom revoked=false
+PIO_VERIFIED_SCENES outfit=hanbok contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_LEDGER_PROBE Method=SKTestSession.buyProduct(identifier:), NOT Product.purchase() | Seeded product=outfit.cafe id=7 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cafe id=7 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.hanbok id=6 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.christmas id=5 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.halloween id=4 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.winter id=3 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.autumn id=2 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.summer id=1 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode")
+PioStoreKit: client=75C9A2AB time=1792764311.45204 accepted id=7 product=outfit.cafe revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.452361 accepted id=6 product=outfit.hanbok revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.452668 accepted id=5 product=outfit.christmas revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.452927 accepted id=4 product=outfit.halloween revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.4532418 accepted id=3 product=outfit.winter revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.453515 accepted id=2 product=outfit.autumn revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.453793 accepted id=1 product=outfit.summer revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.454067 accepted id=0 product=outfit.cherryblossom revoked=false
+PIO_VERIFIED_SCENES outfit=cafe contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_LEDGER_PROBE Method=SKTestSession.buyProduct(identifier:), NOT Product.purchase() | Seeded product=outfit.student id=8 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.student id=8 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cafe id=7 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.hanbok id=6 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.christmas id=5 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.halloween id=4 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.winter id=3 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.autumn id=2 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.summer id=1 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode")
+PioStoreKit: client=75C9A2AB time=1792764311.471477 accepted id=8 product=outfit.student revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.471784 accepted id=7 product=outfit.cafe revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.472054 accepted id=6 product=outfit.hanbok revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.4723182 accepted id=5 product=outfit.christmas revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.4726 accepted id=4 product=outfit.halloween revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.4728642 accepted id=3 product=outfit.winter revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.473123 accepted id=2 product=outfit.autumn revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.4733849 accepted id=1 product=outfit.summer revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.4736838 accepted id=0 product=outfit.cherryblossom revoked=false
+PIO_VERIFIED_SCENES outfit=student contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_LEDGER_PROBE Method=SKTestSession.buyProduct(identifier:), NOT Product.purchase() | Seeded product=outfit.workout id=9 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.workout id=9 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.student id=8 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cafe id=7 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.hanbok id=6 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.christmas id=5 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.halloween id=4 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.winter id=3 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.autumn id=2 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.summer id=1 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode")
+PioStoreKit: client=75C9A2AB time=1792764311.489743 accepted id=9 product=outfit.workout revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.490017 accepted id=8 product=outfit.student revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.4902968 accepted id=7 product=outfit.cafe revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.490576 accepted id=6 product=outfit.hanbok revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.4908361 accepted id=5 product=outfit.christmas revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.491095 accepted id=4 product=outfit.halloween revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.491349 accepted id=3 product=outfit.winter revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.491605 accepted id=2 product=outfit.autumn revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.491864 accepted id=1 product=outfit.summer revoked=false
+PioStoreKit: client=75C9A2AB time=1792764311.4921288 accepted id=0 product=outfit.cherryblossom revoked=false
+PIO_VERIFIED_SCENES outfit=fitness contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_LEDGER_PROBE Method=SKTestSession.buyProduct(identifier:), NOT Product.purchase() | Seeded product=outfit.rainy id=10 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.workout id=9 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.student id=8 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cafe id=7 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.hanbok id=6 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.christmas id=5 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.halloween id=4 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.winter id=3 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.autumn id=2 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.summer id=1 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitLedgerFixtureTests.swift:45: error: -[DaylogStoreKitTests.PioStoreKitLedgerFixtureTests testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions] : XCTUnwrap failed: expected non-nil value of type "Transaction" - No verified currentEntitlements receipt for test-driven seed
+Test Case '-[DaylogStoreKitTests.PioStoreKitLedgerFixtureTests testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions]' failed (0.852 seconds).
+Test Suite 'PioStoreKitLedgerFixtureTests' failed at 2026-10-23 23:05:11.745.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.852 (0.857) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 23:05:11.746.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.852 (0.857) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 23:05:11.746.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.852 (0.858) seconds
+2026-10-23 23:05:11.781 xcodebuild[34943:1223283] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 23:05:11.782 xcodebuild[34943:1223283] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 23:05:11.782 xcodebuild[34943:1223283] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 23:15:12.063 xcodebuild[34943:1223288]  IDETestOperationsObserverDebug: Failure collecting diagnostics from simulator: Timed out after 600.0 seconds while waiting for a response from the invoked process
+2026-10-23 23:15:12.077 xcodebuild[34943:1223283] [MT] IDETestOperationsObserverDebug: 624.629 elapsed -- Testing started completed.
+2026-10-23 23:15:12.077 xcodebuild[34943:1223283] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 23:15:12.077 xcodebuild[34943:1223283] [MT] IDETestOperationsObserverDebug: 624.629 sec, +624.629 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioPolish-ledger-final.xcresult
+
+Failing tests:
+	PioStoreKitLedgerFixtureTests.testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions()
+
+** TEST EXECUTE FAILED **
+
+Testing started

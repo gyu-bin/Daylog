@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-16",
+  "status": "V1 system implemented and verified; production character art/payments/icon switching are not complete.",
+  "entry": "설정 → 피오 옷장",
+  "implemented": [
+    "Adaptive SwiftUI shop and 14-entry stable catalog",
+    "Browse/owned/icon sections and category filters",
+    "Transient preview sheet, local growth1–4 selection with explicit artwork/rigging readiness labels",
+    "Owned-only equip/unequip selection persistence; basic always available",
+    "Independent owned-theme icon preview selection and locked premium themes",
+    "Missing-art motifs and empty-owned-category recovery"
+  ],
+  "mockOnly": [
+    "DEBUG-only local purchase simulation, persistence and reset. No real money or App Store entitlement is created.",
+    "Premium outfit selection is saved but does not dress the existing dashboard character."
+  ],
+  "notYetImplemented": [
+    "13 premium outfit transparent assets; concept board is reference only, never cropped",
+    "Four growth-stage outfit art, layer registration, rigging and dashboard application",
+    "Final icon artwork and iOS registered alternate icons",
+    "StoreKit2 non-consumable verified transactions, real restoration, pending/cancel/failure flows and App Store localized prices",
+    "Device-spanning verified ownership and release readiness"
+  ],
+  "futurePreparation": "Separate PioWardrobeEntitlementProviding protocol/result states and unavailable V1 adapter; no StoreKit SDK connection or invented product identifiers.",
+  "qa": {
+    "macFocusedTests": {
+      "passed": 6,
+      "suite": "PioWardrobeTests",
+      "log": "mac-focused-tests.log",
+      "resultBundle": "/tmp/PioWardrobeV1-20261016.xcresult"
+    },
+    "settingsNavigationRegression": {
+      "passed": 1,
+      "log": "settings-navigation-test.log",
+      "resultBundle": "/tmp/PioWardrobeSettings-20261016.xcresult",
+      "note": "First combined filter omitted this method; rerun selected it with parentheses and positively executed 1 test."
+    },
+    "releaseModelCheck": {
+      "passed": true,
+      "log": "release-model-check.log",
+      "scope": "Exact model compiled without DEBUG; seeded debug ownership ignored and premium selections rejected. This is not a whole-app Release build."
+    },
+    "macFinalBuild": "BUILD SUCCEEDED: mac-final-build.log",
+    "iosFinalBuild": "BUILD SUCCEEDED: ios-final-build.log",
+    "runtime": {
+      "mac": [
+        "Light/dark shop and missing-art preview",
+        "1/4-stage picker states",
+        "DEBUG cherry purchase leaves current outfit basic until equip",
+        "Explicit equip cherry; select cherry icon; return outfit to basic keeps cherry icon",
+        "Relaunch retains cherry ownership, basic equipped and cherry icon selection",
+        "Owned category special shows empty state",
+        "Unowned icons disabled"
+      ],
+      "iphone17": [
+        "Dedicated simulator87EA3A43-121C-4FFA-A716-A79E614ABEFA; existing other-project simulators untouched",
+        "Settings back/list/wardrobe navigation",
+        "Light/dark layouts and stage4 preview readiness",
+        "DEBUG astronaut purchase and explicit equip; persists across install/relaunch",
+        "Return outfit to basic, independent astronaut icon selection; unowned icons locked",
+        "Restore action honestly reports App Store connection not configured",
+        "Primary action contrast corrected and visually rechecked in final light/dark build",
+        "Tabs below initial hero are reachable through scrolling; category filters and icon tab exercised"
+      ]
+    },
+    "visualReview": "Independent specialist review passed actual Mac/iPhone light/dark captures. No blocking clipping/alpha/contrast problem. Premium art is intentionally missing.",
+    "codeReview": "No actionable findings. MainActor writes, ownership guards, independent keys, debug/release boundary and no schema/cloud/growth/network changes verified.",
+    "diffCheck": "git diff --check passed",
+    "alternateIconsRegistered": false
+  },
+  "protection": {
+    "baseline": "preservation-results.json",
+    "baselineFiles": 524,
+    "onlyChangedExistingFiles": [
+      "Daylog/Views/Settings/SettingsView.swift",
+      "DaylogTests/ProductUXTests.swift"
+    ],
+    "missingBaselineFiles": 0,
+    "basicImageCopiedByteForByte": true,
+    "bundleIdentifiersSchemasCloudKitXPUnchanged": true,
+    "productionUserDataModified": false,
+    "productionAppReplaced": false,
+    "committed": false,
+    "pushed": false,
+    "deployed": false,
+    "head": "702e611aa1a95323bb1a78e27772d583972c383a"
+  },
+  "newSource": [
+    "Daylog/Services/PioWardrobe.swift",
+    "Daylog/Views/Wardrobe/PioWardrobeView.swift",
+    "DaylogTests/PioWardrobeTests.swift",
+    "Daylog/PioWardrobe.xcassets/"
+  ],
+  "evidence": "media-manifest.json",
+  "captureNotes": "mac-selected-cherry-light.jpg was a partial window capture and is excluded from curated review package; actual state was separately verified and final full-window captures are included."
+}

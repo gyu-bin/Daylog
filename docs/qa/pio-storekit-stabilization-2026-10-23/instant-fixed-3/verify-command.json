@@ -1,0 +1,21 @@
+[
+  "xcodebuild",
+  "test-without-building",
+  "-xctestrun",
+  "/private/tmp/PioStoreKit-20261023-ios/Build/Products/PioProcessRelaunch-09b03086-ef9c-4378-a96d-1eee70fc8d1b-verify.xctestrun",
+  "-destination",
+  "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884",
+  "-parallel-testing-enabled",
+  "NO",
+  "-collect-test-diagnostics",
+  "never",
+  "-test-timeouts-enabled",
+  "YES",
+  "-default-test-execution-time-allowance",
+  "60",
+  "-maximum-test-execution-time-allowance",
+  "90",
+  "-only-testing:DaylogStoreKitTests/PioStoreKitProcessRelaunchTests/testVerifyLedgerAndEquipmentInFreshProcess",
+  "-resultBundlePath",
+  "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-stabilization-2026-10-23/instant-fixed-3/verify.xcresult"
+]

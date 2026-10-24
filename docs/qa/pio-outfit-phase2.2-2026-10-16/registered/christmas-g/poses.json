@@ -1,0 +1,196 @@
+[
+  {
+    "anglesDegrees" : {
+      "gift" : -6,
+      "handLeft" : -6,
+      "handRight" : 12
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "leftGripRotationPivot" : [
+      513,
+      870
+    ],
+    "name" : "grip-flap-minus6",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "gift" : 6,
+      "handLeft" : 6,
+      "handRight" : -12
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "leftGripRotationPivot" : [
+      513,
+      870
+    ],
+    "name" : "grip-flap-plus6",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "leftGripRotationPivot" : [
+
+    ],
+    "name" : "neutral",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : true,
+    "leftGripRotationPivot" : [
+
+    ],
+    "name" : "closed",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "handRight" : -12
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "leftGripRotationPivot" : [
+
+    ],
+    "name" : "right-minus12",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "handRight" : 12
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "leftGripRotationPivot" : [
+
+    ],
+    "name" : "right-plus12",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "hat" : -4
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "leftGripRotationPivot" : [
+
+    ],
+    "name" : "hat-minus4",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "hat" : 4
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "leftGripRotationPivot" : [
+
+    ],
+    "name" : "hat-plus4",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "leftGripRotationPivot" : [
+
+    ],
+    "name" : "grip-up",
+    "translations" : {
+      "gift" : [
+        -4,
+        -8
+      ],
+      "handLeft" : [
+        -4,
+        -8
+      ]
+    }
+  },
+  {
+    "anglesDegrees" : {
+
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "leftGripRotationPivot" : [
+
+    ],
+    "name" : "grip-down",
+    "translations" : {
+      "gift" : [
+        4,
+        8
+      ],
+      "handLeft" : [
+        4,
+        8
+      ]
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "footLeft" : -8
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "leftGripRotationPivot" : [
+
+    ],
+    "name" : "step-left",
+    "translations" : {
+      "footLeft" : [
+        -5,
+        -18
+      ]
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "footRight" : 8
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "leftGripRotationPivot" : [
+
+    ],
+    "name" : "step-right",
+    "translations" : {
+      "footRight" : [
+        5,
+        -18
+      ]
+    }
+  }
+]

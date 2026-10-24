@@ -1,0 +1,54 @@
+[
+  {
+    "appEnvironment": "Environment(rawValue: \"Xcode\")",
+    "elapsed": "0.057019583 seconds",
+    "event": "environment",
+    "mode": "direct",
+    "os": "Version 27.0 (Build 24A434)",
+    "phase": "verify",
+    "pid": 5537,
+    "run": "072cc632-0a49-4af2-86e0-14562f2cc41b",
+    "scenario": "finish",
+    "wallTime": 1792756970.470006
+  },
+  {
+    "elapsed": "0.05800275 seconds",
+    "event": "snapshot.begin",
+    "label": "fresh-process-before-session-init",
+    "wallTime": 1792756970.47099
+  },
+  {
+    "currentEntitlements": [
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "199",
+        "product": "outfit.cafe",
+        "revoked": false,
+        "verification": "verified"
+      },
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "198",
+        "product": "outfit.space",
+        "revoked": false,
+        "verification": "verified"
+      }
+    ],
+    "driverLedger": [],
+    "elapsed": "0.062740958 seconds",
+    "equipped": "not-applicable",
+    "event": "snapshot.return",
+    "label": "fresh-process-before-session-init",
+    "managerOwned": [],
+    "unfinished": [
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "199",
+        "product": "outfit.cafe",
+        "revoked": false,
+        "verification": "verified"
+      }
+    ],
+    "wallTime": 1792756970.475728
+  }
+]

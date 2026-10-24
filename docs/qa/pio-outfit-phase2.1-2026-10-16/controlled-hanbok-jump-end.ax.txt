@@ -1,0 +1,33 @@
+Window: "Daylog", App: Daylog.
+0 표준 윈도우 Daylog, ID: main, Secondary Actions: Raise
+	1 스크롤 영역
+		2 text 피오 동작 검토 개발 검토 전용 · 원화와 실제 보유 내역을 바꾸지 않아요.
+		3 팝업 버튼 의상, Value: 한복 피오, ID: outfitQA.outfit
+		4 팝업 버튼 동작, Value: 점프, ID: outfitQA.motion
+		5 팝업 버튼 크기, Value: 220pt, ID: outfitQA.size
+		6 팝업 버튼 단계, Value: 1단계, ID: outfitQA.stage
+		7 체크상자 Description: 동작 켜기, Value: 1, ID: outfitQA.animate
+		8 체크상자 Description: 캐릭터 표시, Value: 1, ID: outfitQA.visible
+		9 체크상자 Description: 정지 요청 검토, Value: 0, ID: outfitQA.reduceMotion
+		10 체크상자 Description: 어두운 배경, Value: 0, ID: outfitQA.dark
+		11 text Value: 한복 피오 · 점프 · 220pt · 1단계 시스템 움직임 줄이기: 꺼짐 · 화면: 활성 세 의상은 한 장의 원화예요. 눈·날개·소품의 독립 동작과 단계별 외형은 지원하지 않아요., ID: outfitQA.selection
+		12 버튼 Description: 30회 의상 전환, ID: outfitQA.switch
+		13 텍스트 0회
+		14 버튼 Description: 측정값 초기화, ID: outfitQA.resetMetrics
+		15 버튼 Description: 측정값 새로고침, ID: outfitQA.metrics
+		16 텍스트 ID: outfitQA.metricValues, Value: activeAnimationTracks=0 · activeRigs=0 · cachedImages=4 · configurations=1 · effectiveLayouts=1 · hostUpdates=1 · layoutCalls=1 · layoutTransactions=1 · nativeRefreshes=1 · sourceLoads=4
+			17 텍스트 activeAnimationTracks=3 · activeRigs=1 · cachedImages=4 · configurations=1 · effectiveLayouts=2 · hostUpdates=2 · layoutCalls=4 · layoutTransactions=4 · nativeRefreshes=4 · sourceLoads=4
+	18 닫기 버튼
+	19 전체 화면 버튼 Help: 이 버튼을 누르면 윈도우를 확대/축소합니다., Secondary Actions: 윈도우 확대/축소
+	20 최소화 버튼
+	21 텍스트 Daylog
+22 menu bar
+	23 Daylog
+	24 파일
+	25 편집
+	26 보기
+	27 이동
+	28 윈도우
+	29 도움말
+
+The focused UI element is 0 표준 윈도우 Daylog, ID: main, Secondary Actions: Raise

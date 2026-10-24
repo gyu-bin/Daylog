@@ -1,0 +1,19 @@
+{
+  "scope": "Actual simulator framebuffer via simctl, isolated real SwiftUI vacation views; no edited PNGs, no physical iPhone or purchase flow",
+  "captures": [
+    {
+      "scene": "vacation-day",
+      "secondsFromDriverStart": 17.560073208005633,
+      "file": "docs/qa/pio-character-final-pass-2026-10-24/native-framebuffer/vacation-day-actual-simulator-framebuffer.png",
+      "returncode": 0,
+      "stderr": "Detected file type from extension: PNG\nNote: No display specified. Defaulting to display: 3E5B8657-1050-476F-8BA0-5C5BEF8171E8 (screenID: 1, name: LCD)\nWrote screenshot to: /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-character-final-pass-2026-10-24/native-framebuffer/vacation-day-actual-simulator-framebuffer.png\n"
+    },
+    {
+      "scene": "vacation-night",
+      "secondsFromDriverStart": 33.06000154200592,
+      "file": "docs/qa/pio-character-final-pass-2026-10-24/native-framebuffer/vacation-night-actual-simulator-framebuffer.png",
+      "returncode": 0,
+      "stderr": "Detected file type from extension: PNG\nNote: No display specified. Defaulting to display: 3E5B8657-1050-476F-8BA0-5C5BEF8171E8 (screenID: 1, name: LCD)\nWrote screenshot to: /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-character-final-pass-2026-10-24/native-framebuffer/vacation-night-actual-simulator-framebuffer.png\n"
+    }
+  ]
+}

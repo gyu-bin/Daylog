@@ -1,0 +1,47 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioFullLedger20261024.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -resultBundlePath /tmp/PioFullLedger-20261024.xcresult
+
+Writing result bundle at path:
+	/tmp/PioFullLedger-20261024.xcresult
+
+2026-10-24 11:42:03.903 xcodebuild[50358:1795351] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 11:42:35.785914+0900 Daylog[50601:1798178] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 11:42:36.852074+0900 Daylog[50601:1798638] [General] Failed to send CA Event for app launch measurements for ca_event_type: 0 event_name: com.apple.app_launch_measurement.FirstFramePresentationMetric
+2026-10-24 11:42:36.871524+0900 Daylog[50601:1798178] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 11:42:36.885805+0900 Daylog[50601:1798178] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 11:42:36.886675+0900 Daylog[50601:1798178] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 11:42:37.029075+0900 Daylog[50601:1798641] [General] Failed to send CA Event for app launch measurements for ca_event_type: 1 event_name: com.apple.app_launch_measurement.ExtendedLaunchMetrics
+Test Suite 'Selected tests' started at 2026-10-24 11:42:37.202.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 11:42:37.203.
+Test Suite 'PioStoreKitLedgerFixtureTests' started at 2026-10-24 11:42:37.203.
+Test Case '-[DaylogStoreKitTests.PioStoreKitLedgerFixtureTests testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions]' started.
+objc[50601]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x121904398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x121a38310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+PIO_VERIFIED_SCENES outfit=basic contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_LEDGER_PROBE Method=SKTestSession.buyProduct(identifier:), NOT Product.purchase() | Seeded product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode")
+PioStoreKit: client=673B0E3A time=1792809757.691831 accepted id=0 product=outfit.cherryblossom revoked=false
+PIO_VERIFIED_SCENES outfit=cherryBlossom contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_LEDGER_PROBE Method=SKTestSession.buyProduct(identifier:), NOT Product.purchase() | Seeded product=outfit.summer id=1 environment=Environment(rawValue: "Xcode") | currentEntitlements VERIFIED product=outfit.cherryblossom id=0 environment=Environment(rawValue: "Xcode")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitLedgerFixtureTests.swift:45: error: -[DaylogStoreKitTests.PioStoreKitLedgerFixtureTests testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions] : XCTUnwrap failed: expected non-nil value of type "Transaction" - No verified currentEntitlements receipt for test-driven seed
+Test Case '-[DaylogStoreKitTests.PioStoreKitLedgerFixtureTests testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions]' failed (0.786 seconds).
+Test Suite 'PioStoreKitLedgerFixtureTests' failed at 2026-10-24 11:42:37.993.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.786 (0.791) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-24 11:42:37.993.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.786 (0.791) seconds
+Test Suite 'Selected tests' failed at 2026-10-24 11:42:37.994.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.786 (0.792) seconds
+2026-10-24 11:42:38.030 xcodebuild[50358:1795351] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 11:42:38.031 xcodebuild[50358:1795351] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 11:42:38.037 xcodebuild[50358:1795351] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 11:43:18.725 xcodebuild[50358:1795351] [MT] IDETestOperationsObserverDebug: 77.524 elapsed -- Testing started completed.
+2026-10-24 11:43:18.725 xcodebuild[50358:1795351] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 11:43:18.725 xcodebuild[50358:1795351] [MT] IDETestOperationsObserverDebug: 77.524 sec, +77.524 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioFullLedger-20261024.xcresult
+
+Failing tests:
+	PioStoreKitLedgerFixtureTests.testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions()
+
+** TEST EXECUTE FAILED **
+
+Testing started

@@ -1,0 +1,13 @@
+{
+  "outfits": 14,
+  "standing_source_rect_pixel_matches": 213,
+  "cloud_byte_identical_app_copies": 120,
+  "vacation_byte_identical_sources_including_basic_self_reference": 28,
+  "reference_copies_verified": 16,
+  "gallery_pngs_existing": 56,
+  "blockers_resolved": 0,
+  "result": "PASS_FOR_FILE_AUDIT_ONLY",
+  "runtime": "NOT_TESTED",
+  "artwork_completion": "BLOCKED_ASSET_0_OF_6_RESOLVED",
+  "source_pngs_created_or_edited": 0
+}

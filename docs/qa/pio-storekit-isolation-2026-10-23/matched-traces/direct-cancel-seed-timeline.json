@@ -1,0 +1,137 @@
+[
+  {
+    "appEnvironment": "Environment(rawValue: \"Xcode\")",
+    "elapsed": "0.240559291 seconds",
+    "event": "environment",
+    "mode": "direct",
+    "os": "Version 27.0 (Build 24A434)",
+    "phase": "seed",
+    "pid": 5387,
+    "run": "4a915955-10da-4f12-a228-a792a81f3a34",
+    "scenario": "cancel",
+    "wallTime": 1792756939.3387098
+  },
+  {
+    "elapsed": "0.264712416 seconds",
+    "event": "SKTestSession.init.return",
+    "wallTime": 1792756939.362862
+  },
+  {
+    "elapsed": "0.267183916 seconds",
+    "event": "resetToDefaultState.return",
+    "wallTime": 1792756939.365335
+  },
+  {
+    "elapsed": "0.276228708 seconds",
+    "event": "clearTransactions.return",
+    "wallTime": 1792756939.3743792
+  },
+  {
+    "dialogsDisabled": true,
+    "elapsed": "0.299709208 seconds",
+    "event": "fixture.ready",
+    "purchaseError": "nil",
+    "storefront": "KOR",
+    "wallTime": 1792756939.39786
+  },
+  {
+    "elapsed": "0.3009695 seconds",
+    "event": "Product.products.begin",
+    "requested": [
+      "outfit.autumn",
+      "outfit.cafe",
+      "outfit.cherryblossom",
+      "outfit.christmas",
+      "outfit.halloween",
+      "outfit.hanbok",
+      "outfit.pajamas",
+      "outfit.rainy",
+      "outfit.space",
+      "outfit.student",
+      "outfit.summer",
+      "outfit.winter",
+      "outfit.workout"
+    ],
+    "wallTime": 1792756939.399121
+  },
+  {
+    "elapsed": "0.318577583 seconds",
+    "event": "Product.products.return",
+    "returned": [
+      "outfit.autumn",
+      "outfit.cafe",
+      "outfit.cherryblossom",
+      "outfit.christmas",
+      "outfit.halloween",
+      "outfit.hanbok",
+      "outfit.pajamas",
+      "outfit.rainy",
+      "outfit.space",
+      "outfit.student",
+      "outfit.summer",
+      "outfit.winter",
+      "outfit.workout"
+    ],
+    "wallTime": 1792756939.416729
+  },
+  {
+    "elapsed": "0.319608583 seconds",
+    "event": "raw.iterator.started",
+    "wallTime": 1792756939.41776
+  },
+  {
+    "elapsed": "0.319746625 seconds",
+    "event": "snapshot.begin",
+    "label": "before-scenario",
+    "wallTime": 1792756939.4178991
+  },
+  {
+    "currentEntitlements": [],
+    "driverLedger": [],
+    "elapsed": "0.3361225 seconds",
+    "equipped": "not-applicable",
+    "event": "snapshot.return",
+    "label": "before-scenario",
+    "managerOwned": [],
+    "unfinished": [],
+    "wallTime": 1792756939.434274
+  },
+  {
+    "configured": "Optional(StoreKitTest.SKTestFailures.Purchase.generic(StoreKit.StoreKitError.userCancelled))",
+    "elapsed": "0.352399041 seconds",
+    "event": "setSimulatedError.return",
+    "wallTime": 1792756939.45055
+  },
+  {
+    "elapsed": "0.352513125 seconds",
+    "event": "purchase.begin",
+    "product": "outfit.student",
+    "wallTime": 1792756939.450665
+  },
+  {
+    "code": 2,
+    "domain": "StoreKit.StoreKitError",
+    "elapsed": "0.395445875 seconds",
+    "error": "unknown",
+    "event": "Product.purchase.throw",
+    "underlying": "nil",
+    "wallTime": 1792756939.493597
+  },
+  {
+    "elapsed": "0.396480083 seconds",
+    "event": "snapshot.begin",
+    "label": "after-cancel",
+    "wallTime": 1792756939.494632
+  },
+  {
+    "currentEntitlements": [],
+    "driverLedger": [],
+    "elapsed": "0.412281708 seconds",
+    "equipped": "not-applicable",
+    "event": "snapshot.return",
+    "label": "after-cancel",
+    "managerOwned": [],
+    "unfinished": [],
+    "wallTime": 1792756939.510433
+  }
+]

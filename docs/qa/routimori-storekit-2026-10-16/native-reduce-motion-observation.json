@@ -1,0 +1,22 @@
+{
+  "region": [
+    200,
+    1100,
+    1000,
+    2100
+  ],
+  "bbox": [
+    0,
+    0,
+    800,
+    1000
+  ],
+  "changed_pixels": 800000,
+  "native_scene": "active",
+  "system_reduce_motion": true,
+  "active_rigs": 0,
+  "animation_tracks": 0,
+  "valid_pixel_comparison": false,
+  "reason": "Second capture occurred after review harness timeout and shows simulator Home. It does not test Reduce Motion.",
+  "evidence": "ios-native-reduce-motion-on-a.png and ios-native-motion-review.log show active scene, nativeReduce=true, activeRigs=0 tracks=0"
+}

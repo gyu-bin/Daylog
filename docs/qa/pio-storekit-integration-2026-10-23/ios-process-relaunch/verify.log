@@ -1,0 +1,41 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /private/tmp/PioStoreKit-20261023-ios/Build/Products/PioProcessRelaunch-d07819fc-3f1f-4322-a8d0-6ff88221f434-verify.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitProcessRelaunchTests/testVerifyLedgerAndEquipmentInFreshProcess" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-integration-2026-10-23/ios-process-relaunch/verify.xcresult
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-integration-2026-10-23/ios-process-relaunch/verify.xcresult
+
+2026-10-23 19:31:37.701 xcodebuild[71345:674809] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:31:40.940005+0900 Daylog[71355:674911] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 19:31:41.315911+0900 Daylog[71355:674911] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 19:31:41.347851+0900 Daylog[71355:674911] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 19:31:41.350938+0900 Daylog[71355:674911] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 19:31:41.357.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 19:31:41.357.
+Test Suite 'PioStoreKitProcessRelaunchTests' started at 2026-10-23 19:31:41.357.
+Test Case '-[DaylogStoreKitTests.PioStoreKitProcessRelaunchTests testVerifyLedgerAndEquipmentInFreshProcess]' started.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitProcessRelaunchTests.swift:76: error: -[DaylogStoreKitTests.PioStoreKitProcessRelaunchTests testVerifyLedgerAndEquipmentInFreshProcess] : XCTAssertGreaterThan failed: ("0") is not greater than ("0")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitProcessRelaunchTests.swift:78: error: -[DaylogStoreKitTests.PioStoreKitProcessRelaunchTests testVerifyLedgerAndEquipmentInFreshProcess] : XCTUnwrap failed: expected non-nil value of type "String"
+Test Case '-[DaylogStoreKitTests.PioStoreKitProcessRelaunchTests testVerifyLedgerAndEquipmentInFreshProcess]' failed (0.085 seconds).
+Test Suite 'PioStoreKitProcessRelaunchTests' failed at 2026-10-23 19:31:41.445.
+	 Executed 1 test, with 2 failures (0 unexpected) in 0.085 (0.088) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 19:31:41.445.
+	 Executed 1 test, with 2 failures (0 unexpected) in 0.085 (0.088) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 19:31:41.445.
+	 Executed 1 test, with 2 failures (0 unexpected) in 0.085 (0.089) seconds
+2026-10-23 19:31:41.460 xcodebuild[71345:674809] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:31:41.460 xcodebuild[71345:674809] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:31:41.461 xcodebuild[71345:674809] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:31:41.728 xcodebuild[71345:674809] [MT] IDETestOperationsObserverDebug: 4.061 elapsed -- Testing started completed.
+2026-10-23 19:31:41.728 xcodebuild[71345:674809] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 19:31:41.728 xcodebuild[71345:674809] [MT] IDETestOperationsObserverDebug: 4.061 sec, +4.061 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-integration-2026-10-23/ios-process-relaunch/verify.xcresult
+
+Failing tests:
+	PioStoreKitProcessRelaunchTests.testVerifyLedgerAndEquipmentInFreshProcess()
+	PioStoreKitProcessRelaunchTests.testVerifyLedgerAndEquipmentInFreshProcess()
+
+** TEST EXECUTE FAILED **
+
+Testing started

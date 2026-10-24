@@ -1,0 +1,62 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -derivedDataPath /tmp/PioStoreKit-20261023-ios -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitSDKContractTests/testDirectSDKRefundNotificationAndEntitlements" "-only-testing:DaylogStoreKitTests/PioStoreKitRefundOrderingTests/testProductsPreparedBeforeListener" -resultBundlePath /tmp/PioStoreKit-Stabilization-refund-final-control.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/PioStoreKit-Stabilization-refund-final-control.xcresult
+
+2026-10-23 20:42:06.086 xcodebuild[1465:878648] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:42:09.395083+0900 Daylog[1486:878985] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 20:42:09.779622+0900 Daylog[1486:878985] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 20:42:09.780692+0900 Daylog[1486:878985] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 20:42:09.780906+0900 Daylog[1486:878985] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 20:42:09.833.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 20:42:09.834.
+Test Suite 'PioStoreKitRefundOrderingTests' started at 2026-10-23 20:42:09.834.
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testProductsPreparedBeforeListener]' started.
+PioStoreKit: client=446A73FD time=1792755729.884449 raw listener started subscription=D8C88FBA-DB54-43ED-9FC8-13EBB375E23E
+PioStoreKit: client=446A73FD time=1792755729.899591 accepted id=193 product=outfit.winter revoked=false
+PioStoreKit: client=446A73FD time=1792755729.899641 finish requested id=193 cached=true inFlight=0
+PioStoreKit: client=446A73FD time=1792755729.899674 finish begin id=193 product=outfit.winter revoked=false
+PioStoreKit: client=446A73FD time=1792755729.900814 finish returned id=193
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitRefundOrderingTests.swift:50: error: -[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testProductsPreparedBeforeListener] : Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: "Prepared manager receives refund notification".
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitRefundOrderingTests.swift:51: error: -[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testProductsPreparedBeforeListener] : XCTAssertFalse failed
+PIO_REFUND_ORDER preload=true driverID=193 notified=false owned=true
+PioStoreKit: client=446A73FD time=1792755740.0373921 raw listener ended subscription=D8C88FBA-DB54-43ED-9FC8-13EBB375E23E
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testProductsPreparedBeforeListener]' failed (10.202 seconds).
+Test Suite 'PioStoreKitRefundOrderingTests' failed at 2026-10-23 20:42:20.041.
+	 Executed 1 test, with 2 failures (0 unexpected) in 10.202 (10.207) seconds
+Test Suite 'PioStoreKitSDKContractTests' started at 2026-10-23 20:42:20.041.
+Test Case '-[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKRefundNotificationAndEntitlements]' started.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitSDKContractTests.swift:127: error: -[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKRefundNotificationAndEntitlements] : Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: "Direct SDK verified revocation update".
+PIO_SDK_CONTROL Direct SDK refund id=194 rawUpdates=[] verifiedCurrentEntitlements=[] receivedRevocation=false
+Test Case '-[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKRefundNotificationAndEntitlements]' failed (10.091 seconds).
+Test Suite 'PioStoreKitSDKContractTests' failed at 2026-10-23 20:42:30.133.
+	 Executed 1 test, with 1 failure (0 unexpected) in 10.091 (10.091) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 20:42:30.133.
+	 Executed 2 tests, with 3 failures (0 unexpected) in 20.293 (20.299) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 20:42:30.133.
+	 Executed 2 tests, with 3 failures (0 unexpected) in 20.293 (20.300) seconds
+2026-10-23 20:42:30.150 xcodebuild[1465:878648] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:42:30.150 xcodebuild[1465:878648] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:42:30.151 xcodebuild[1465:878648] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:42:30.413 xcodebuild[1465:878648] [MT] IDETestOperationsObserverDebug: 24.365 elapsed -- Testing started completed.
+2026-10-23 20:42:30.413 xcodebuild[1465:878648] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 20:42:30.413 xcodebuild[1465:878648] [MT] IDETestOperationsObserverDebug: 24.365 sec, +24.365 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioStoreKit-Stabilization-refund-final-control.xcresult
+
+Failing tests:
+	PioStoreKitRefundOrderingTests.testProductsPreparedBeforeListener()
+	PioStoreKitRefundOrderingTests.testProductsPreparedBeforeListener()
+	PioStoreKitSDKContractTests.testDirectSDKRefundNotificationAndEntitlements()
+
+** TEST EXECUTE FAILED **
+
+Testing started

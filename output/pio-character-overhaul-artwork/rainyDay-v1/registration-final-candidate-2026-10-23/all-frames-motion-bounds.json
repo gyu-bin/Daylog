@@ -1,0 +1,1352 @@
+{
+  "method": "Bounds count from one padded raster then exact1254crop (not subtracting separately interpolated renders).",
+  "frames": 48,
+  "rows": [
+    {
+      "frame": 0,
+      "part": "wingLeft",
+      "angle": 0.0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 0,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 0,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 0,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 1,
+      "part": "wingLeft",
+      "angle": 1.5663143066406189,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 1,
+      "part": "umbrellaShaft",
+      "angle": -0.6526309611002579,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 1,
+      "part": "umbrellaCanopy",
+      "angle": -0.6526309611002579,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 1,
+      "part": "wingRight",
+      "angle": -0.6526309611002579,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 2,
+      "part": "wingLeft",
+      "angle": 3.105828541230249,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 2,
+      "part": "umbrellaShaft",
+      "angle": -1.2940952255126037,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 2,
+      "part": "umbrellaCanopy",
+      "angle": -1.2940952255126037,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 2,
+      "part": "wingRight",
+      "angle": -1.2940952255126037,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 3,
+      "part": "wingLeft",
+      "angle": 4.592201188381077,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 3,
+      "part": "umbrellaShaft",
+      "angle": -1.913417161825449,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 3,
+      "part": "umbrellaCanopy",
+      "angle": -1.913417161825449,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 3,
+      "part": "wingRight",
+      "angle": -1.913417161825449,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 4,
+      "part": "wingLeft",
+      "angle": 5.999999999999999,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 4,
+      "part": "umbrellaShaft",
+      "angle": -2.4999999999999996,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 4,
+      "part": "umbrellaCanopy",
+      "angle": -2.4999999999999996,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 4,
+      "part": "wingRight",
+      "angle": -2.4999999999999996,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 5,
+      "part": "wingLeft",
+      "angle": 7.305137148104648,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 5,
+      "part": "umbrellaShaft",
+      "angle": -3.043807145043603,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 5,
+      "part": "umbrellaCanopy",
+      "angle": -3.043807145043603,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 5,
+      "part": "wingRight",
+      "angle": -3.043807145043603,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 6,
+      "part": "wingLeft",
+      "angle": 8.48528137423857,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 6,
+      "part": "umbrellaShaft",
+      "angle": -3.5355339059327373,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 6,
+      "part": "umbrellaCanopy",
+      "angle": -3.5355339059327373,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 6,
+      "part": "wingRight",
+      "angle": -3.5355339059327373,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 7,
+      "part": "wingLeft",
+      "angle": 9.520240083494823,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 7,
+      "part": "umbrellaShaft",
+      "angle": -3.9667667014561756,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 7,
+      "part": "umbrellaCanopy",
+      "angle": -3.9667667014561756,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 7,
+      "part": "wingRight",
+      "angle": -3.9667667014561756,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 8,
+      "part": "wingLeft",
+      "angle": 10.392304845413264,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 8,
+      "part": "umbrellaShaft",
+      "angle": -4.330127018922193,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 8,
+      "part": "umbrellaCanopy",
+      "angle": -4.330127018922193,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 8,
+      "part": "wingRight",
+      "angle": -4.330127018922193,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 9,
+      "part": "wingLeft",
+      "angle": 11.08655439013544,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 9,
+      "part": "umbrellaShaft",
+      "angle": -4.619397662556434,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 9,
+      "part": "umbrellaCanopy",
+      "angle": -4.619397662556434,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 9,
+      "part": "wingRight",
+      "angle": -4.619397662556434,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 10,
+      "part": "wingLeft",
+      "angle": 11.59110991546882,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 10,
+      "part": "umbrellaShaft",
+      "angle": -4.8296291314453415,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 10,
+      "part": "umbrellaCanopy",
+      "angle": -4.8296291314453415,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 10,
+      "part": "wingRight",
+      "angle": -4.8296291314453415,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 11,
+      "part": "wingLeft",
+      "angle": 11.897338336485724,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 11,
+      "part": "umbrellaShaft",
+      "angle": -4.957224306869052,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 11,
+      "part": "umbrellaCanopy",
+      "angle": -4.957224306869052,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 11,
+      "part": "wingRight",
+      "angle": -4.957224306869052,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 12,
+      "part": "wingLeft",
+      "angle": 12.0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 12,
+      "part": "umbrellaShaft",
+      "angle": -5.0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 12,
+      "part": "umbrellaCanopy",
+      "angle": -5.0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 12,
+      "part": "wingRight",
+      "angle": -5.0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 13,
+      "part": "wingLeft",
+      "angle": 11.897338336485724,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 13,
+      "part": "umbrellaShaft",
+      "angle": -4.957224306869052,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 13,
+      "part": "umbrellaCanopy",
+      "angle": -4.957224306869052,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 13,
+      "part": "wingRight",
+      "angle": -4.957224306869052,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 14,
+      "part": "wingLeft",
+      "angle": 11.59110991546882,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 14,
+      "part": "umbrellaShaft",
+      "angle": -4.8296291314453415,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 14,
+      "part": "umbrellaCanopy",
+      "angle": -4.8296291314453415,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 14,
+      "part": "wingRight",
+      "angle": -4.8296291314453415,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 15,
+      "part": "wingLeft",
+      "angle": 11.086554390135442,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 15,
+      "part": "umbrellaShaft",
+      "angle": -4.619397662556434,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 15,
+      "part": "umbrellaCanopy",
+      "angle": -4.619397662556434,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 15,
+      "part": "wingRight",
+      "angle": -4.619397662556434,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 16,
+      "part": "wingLeft",
+      "angle": 10.392304845413264,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 16,
+      "part": "umbrellaShaft",
+      "angle": -4.330127018922194,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 16,
+      "part": "umbrellaCanopy",
+      "angle": -4.330127018922194,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 16,
+      "part": "wingRight",
+      "angle": -4.330127018922194,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 17,
+      "part": "wingLeft",
+      "angle": 9.520240083494823,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 17,
+      "part": "umbrellaShaft",
+      "angle": -3.9667667014561756,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 17,
+      "part": "umbrellaCanopy",
+      "angle": -3.9667667014561756,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 17,
+      "part": "wingRight",
+      "angle": -3.9667667014561756,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 18,
+      "part": "wingLeft",
+      "angle": 8.485281374238571,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 18,
+      "part": "umbrellaShaft",
+      "angle": -3.5355339059327378,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 18,
+      "part": "umbrellaCanopy",
+      "angle": -3.5355339059327378,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 18,
+      "part": "wingRight",
+      "angle": -3.5355339059327378,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 19,
+      "part": "wingLeft",
+      "angle": 7.3051371481046505,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 19,
+      "part": "umbrellaShaft",
+      "angle": -3.0438071450436044,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 19,
+      "part": "umbrellaCanopy",
+      "angle": -3.0438071450436044,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 19,
+      "part": "wingRight",
+      "angle": -3.0438071450436044,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 20,
+      "part": "wingLeft",
+      "angle": 5.999999999999999,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 20,
+      "part": "umbrellaShaft",
+      "angle": -2.4999999999999996,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 20,
+      "part": "umbrellaCanopy",
+      "angle": -2.4999999999999996,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 20,
+      "part": "wingRight",
+      "angle": -2.4999999999999996,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 21,
+      "part": "wingLeft",
+      "angle": 4.592201188381079,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 21,
+      "part": "umbrellaShaft",
+      "angle": -1.9134171618254494,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 21,
+      "part": "umbrellaCanopy",
+      "angle": -1.9134171618254494,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 21,
+      "part": "wingRight",
+      "angle": -1.9134171618254494,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 22,
+      "part": "wingLeft",
+      "angle": 3.1058285412302524,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 22,
+      "part": "umbrellaShaft",
+      "angle": -1.294095225512605,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 22,
+      "part": "umbrellaCanopy",
+      "angle": -1.294095225512605,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 22,
+      "part": "wingRight",
+      "angle": -1.294095225512605,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 23,
+      "part": "wingLeft",
+      "angle": 1.5663143066406238,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 23,
+      "part": "umbrellaShaft",
+      "angle": -0.65263096110026,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 23,
+      "part": "umbrellaCanopy",
+      "angle": -0.65263096110026,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 23,
+      "part": "wingRight",
+      "angle": -0.65263096110026,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 24,
+      "part": "wingLeft",
+      "angle": 1.4695761589768238e-15,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 24,
+      "part": "umbrellaShaft",
+      "angle": -6.123233995736766e-16,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 24,
+      "part": "umbrellaCanopy",
+      "angle": -6.123233995736766e-16,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 24,
+      "part": "wingRight",
+      "angle": -6.123233995736766e-16,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 25,
+      "part": "wingLeft",
+      "angle": -1.566314306640621,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 25,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 25,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 25,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 26,
+      "part": "wingLeft",
+      "angle": -3.1058285412302498,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 26,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 26,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 26,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 27,
+      "part": "wingLeft",
+      "angle": -4.592201188381076,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 27,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 27,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 27,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 28,
+      "part": "wingLeft",
+      "angle": -5.999999999999997,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 28,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 28,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 28,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 29,
+      "part": "wingLeft",
+      "angle": -7.305137148104648,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 29,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 29,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 29,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 30,
+      "part": "wingLeft",
+      "angle": -8.485281374238566,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 30,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 30,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 30,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 31,
+      "part": "wingLeft",
+      "angle": -9.52024008349482,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 31,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 31,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 31,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 32,
+      "part": "wingLeft",
+      "angle": -10.39230484541326,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 32,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 32,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 32,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 33,
+      "part": "wingLeft",
+      "angle": -11.086554390135442,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 33,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 33,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 33,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 34,
+      "part": "wingLeft",
+      "angle": -11.59110991546882,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 34,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 34,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 34,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 35,
+      "part": "wingLeft",
+      "angle": -11.897338336485724,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 35,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 35,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 35,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 36,
+      "part": "wingLeft",
+      "angle": -12.0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 36,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 36,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 36,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 37,
+      "part": "wingLeft",
+      "angle": -11.897338336485726,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 37,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 37,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 37,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 38,
+      "part": "wingLeft",
+      "angle": -11.59110991546882,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 38,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 38,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 38,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 39,
+      "part": "wingLeft",
+      "angle": -11.086554390135444,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 39,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 39,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 39,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 40,
+      "part": "wingLeft",
+      "angle": -10.392304845413264,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 40,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 40,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 40,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 41,
+      "part": "wingLeft",
+      "angle": -9.520240083494828,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 41,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 41,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 41,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 42,
+      "part": "wingLeft",
+      "angle": -8.485281374238571,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 42,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 42,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 42,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 43,
+      "part": "wingLeft",
+      "angle": -7.3051371481046505,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 43,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 43,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 43,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 44,
+      "part": "wingLeft",
+      "angle": -6.000000000000005,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 44,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 44,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 44,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 45,
+      "part": "wingLeft",
+      "angle": -4.5922011883810745,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 45,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 45,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 45,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 46,
+      "part": "wingLeft",
+      "angle": -3.1058285412302586,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 46,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 46,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 46,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 47,
+      "part": "wingLeft",
+      "angle": -1.5663143066406202,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 47,
+      "part": "umbrellaShaft",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 47,
+      "part": "umbrellaCanopy",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    },
+    {
+      "frame": 47,
+      "part": "wingRight",
+      "angle": 0,
+      "outsideAnyAlphaPixels": 0,
+      "outsideAlpha16Pixels": 0
+    }
+  ],
+  "maxOutsideAnyAlphaPixels": 0,
+  "maxOutsideAlpha16Pixels": 0
+}

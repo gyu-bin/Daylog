@@ -1,0 +1,53 @@
+{
+  "outfit": "student",
+  "status": "PARTIAL_OFFLINE_STUDY",
+  "canonicalSourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/footLeft.png": "de35a714329db0c142016d37920a4413bc9f9224f06481f3da19b241c80fe2bd",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/footRight.png": "75370d72e6de928f99b3f2ff6ea652118ac82e24917365c4a454c6107cda17bc",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/sprout.png": "ed761907b836b9697a882e1a0cb32fcba54b93f3d4424feaf980b9c4a1a58329",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/body.png": "62f164ee4c9b7fa92082a26b572449274ad29e866321d040c037b9a7aeebf86c",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/eyeLeft.png": "f1a78eab341ac8e52afbf51d6300ab3ba34d7ba22b772962046d301794304779",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/eyeRight.png": "1a3442f5388331c3800c37487a1c33867b93536c4323ec66bedb6ba2e45a0045",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/lidLeft.png": "1d7a1e476e4021eb29251692454cc7f7796cf3a22514025e424f35c7b0149e23",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/lidRight.png": "af66870f65f25b438bc7e62d0a38d1c4d594abdc6ca28273ccf458a0f4d4f5ad",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/prop.png": "b2b707e15abf2335adb8f6b3650bf43a846b2eb93ba5ba7375f0f9feb75a34fc",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/wingRight.png": "20b6f13db04e2f2917ce48e3f5521b2505ffad1cd8fdbc2f2f9e57fbe3d28cbe",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/wingLeft.png": "c7d283f96c13011ddb1f758b48dc81d6cbee5a5532d46cc9e1eb0478fd8b5214",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/glasses.png": "6fb4775e416dd5e9d86c7dea3ba647051a8d5a91d8cde8444882a74d54f75ccb",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/happyLeft.png": "1ff852a87ba2bd5c25bf661ec7ae563b361cc3a66045fbf295a98842ac425509",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/happyRight.png": "925ffd3c6dc2d8227639f0fe6a8c1c68771a92f8be77ea8a18968719d64065f2"
+  },
+  "actions": [
+    "idle",
+    "greet",
+    "walk",
+    "bounce",
+    "jump",
+    "celebrate",
+    "bow",
+    "sleepy",
+    "surprised",
+    "encourage",
+    "special"
+  ],
+  "specialAction": "present held book",
+  "framesPerAction": 32,
+  "durationMs": 70,
+  "maxAlphaOnFrameBorder": 0,
+  "canvas": [
+    480,
+    516
+  ],
+  "characterCanvas": [
+    350,
+    350
+  ],
+  "limits": [
+    "2D front-view stepping, no authored turn or gait occlusion change.",
+    "Bow is frontal lean/compression, not a reconstructed 3D head turn.",
+    "Hat and fabric stay rigid with torso.",
+    "Held props rigidly follow hands; no release or articulation.",
+    "No app/runtime/performance claim."
+  ]
+}

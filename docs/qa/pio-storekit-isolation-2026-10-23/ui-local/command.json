@@ -1,0 +1,15 @@
+[
+  "xcodebuild",
+  "test-without-building",
+  "-xctestrun",
+  "/tmp/PioStoreKit-20261023-ios/Build/Products/PioActualUI-3b914180-5bec-4c75-8ad5-067bf01cba9e.xctestrun",
+  "-destination",
+  "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884",
+  "-parallel-testing-enabled",
+  "NO",
+  "-collect-test-diagnostics",
+  "never",
+  "-only-testing:DaylogStoreKitTests/PioStoreKitReviewTests/testInteractivePurchaseReview",
+  "-resultBundlePath",
+  "docs/qa/pio-storekit-isolation-2026-10-23/ui-local/review.xcresult"
+]

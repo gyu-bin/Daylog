@@ -1,0 +1,232 @@
+{
+  "outfit": "halloween",
+  "canvas": 1254,
+  "revision": "runtime-v2-candidate",
+  "parts": [
+    {
+      "id": "footLeft",
+      "asset": "pio_home_production_fitness_footLeft",
+      "rect": [
+        423,
+        1072,
+        154,
+        135
+      ],
+      "pivot": [
+        500,
+        1150
+      ],
+      "z": 0
+    },
+    {
+      "id": "footRight",
+      "asset": "pio_home_production_fitness_footRight",
+      "rect": [
+        723,
+        1072,
+        148,
+        130
+      ],
+      "pivot": [
+        800,
+        1150
+      ],
+      "z": 1
+    },
+    {
+      "id": "wingLeft",
+      "asset": "pio_home_production_halloween_wingLeft",
+      "rect": [
+        183,
+        699,
+        148,
+        180
+      ],
+      "pivot": [
+        300,
+        850
+      ],
+      "z": 2
+    },
+    {
+      "id": "body",
+      "asset": "pio_home_production_halloween_body",
+      "rect": [
+        0,
+        54,
+        1232,
+        1128
+      ],
+      "pivot": [
+        640,
+        800
+      ],
+      "z": 3
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_home_production_cafe_eyeLeft",
+      "rect": [
+        473,
+        592,
+        105,
+        133
+      ],
+      "pivot": [
+        525,
+        662
+      ],
+      "z": 4
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_home_production_cafe_eyeLeft",
+      "rect": [
+        763,
+        550,
+        105,
+        133
+      ],
+      "pivot": [
+        815,
+        620
+      ],
+      "z": 5
+    },
+    {
+      "id": "headwear",
+      "asset": "pio_home_production_halloween_headwear",
+      "rect": [
+        187,
+        23,
+        749,
+        697
+      ],
+      "pivot": [
+        630,
+        470
+      ],
+      "z": 6
+    },
+    {
+      "id": "bag",
+      "asset": "pio_home_production_halloween_bag",
+      "rect": [
+        880,
+        738,
+        350,
+        354
+      ],
+      "pivot": [
+        970,
+        840
+      ],
+      "z": 7
+    },
+    {
+      "id": "wingRight",
+      "asset": "pio_home_production_halloween_wingRight",
+      "rect": [
+        898,
+        660,
+        191,
+        206
+      ],
+      "pivot": [
+        970,
+        840
+      ],
+      "z": 8
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_home_production_fitness_halfLeft",
+      "rect": [
+        473,
+        657,
+        76,
+        70
+      ],
+      "pivot": [
+        525,
+        662
+      ],
+      "z": 9
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_home_production_cafe_lidLeft",
+      "rect": [
+        473,
+        658,
+        105,
+        40
+      ],
+      "pivot": [
+        525,
+        662
+      ],
+      "z": 10
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_home_production_fitness_halfLeft",
+      "rect": [
+        763,
+        615,
+        76,
+        70
+      ],
+      "pivot": [
+        815,
+        620
+      ],
+      "z": 11
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_home_production_cafe_lidLeft",
+      "rect": [
+        763,
+        616,
+        105,
+        40
+      ],
+      "pivot": [
+        815,
+        620
+      ],
+      "z": 12
+    },
+    {
+      "id": "happyLeft",
+      "asset": "pio_home_production_cafe_happyLeft",
+      "rect": [
+        471,
+        638,
+        109,
+        53
+      ],
+      "pivot": [
+        525,
+        662
+      ],
+      "z": 4
+    },
+    {
+      "id": "happyRight",
+      "asset": "pio_home_production_cafe_happyLeft",
+      "rect": [
+        761,
+        596,
+        109,
+        53
+      ],
+      "pivot": [
+        815,
+        620
+      ],
+      "z": 5
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "mode": "built-in imagegen precise-object-edit",
+  "prompt": "Use case: precise-object-edit. Edit target: supplied standalone right wing/mitten with green knitted cuff, not the character. Change only the exposed cream-white forearm/root sticking out down-left behind the green striped cuff: replace this exposed cream root with a continuous deep forest-green knitted sleeve extension, same green and yarn texture as cuff, making a hidden shoulder attachment underlap. Keep the cream-white curled mitten at upper right, its pose, highlights, feather/knuckle folds, white stripe on cuff, stitch texture, lighting, scale, perspective and position exactly unchanged. Retain one single standalone part on a genuinely transparent background, complete hidden sleeve root with soft rounded end, no body, no dumbbell, no extra props, no text, no halo. Do not redraw the whole character. High-resolution original material, natural 2.5D plush Pio game artwork. Preserve full original framing and margins.",
+  "target": "source/wing-right-candidate.png",
+  "output": "source/wing-right-v2-candidate.png",
+  "status": "UNAPPROVED_CANDIDATE"
+}

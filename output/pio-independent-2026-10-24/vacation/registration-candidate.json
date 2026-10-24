@@ -1,0 +1,53 @@
+{
+  "status": "REJECTED_NATIVE_SEAMS_VISIBLE",
+  "canvas": [
+    1024,
+    1536
+  ],
+  "candidate": "basic-day-eye-fur-patches-candidate-v3.png",
+  "nativeRegistration": {
+    "scale": 0.77,
+    "translation": [
+      112,
+      122
+    ]
+  },
+  "originalEyeCenters": [
+    [
+      451,
+      711
+    ],
+    [
+      557,
+      671
+    ]
+  ],
+  "reusedApprovedEyes": [
+    {
+      "part": "eyeLeft",
+      "path": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_eyeLeft.imageset/pio_overhaul_basic_eyeLeft.png",
+      "frame": [
+        431,
+        689,
+        40,
+        44
+      ],
+      "sha256": "b84a58debf997486d813fe5e0cf0bea68a4fba7310699f7bd39dd2257fbe0a99",
+      "edited": false
+    },
+    {
+      "part": "eyeRight",
+      "path": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_eyeRight.imageset/pio_overhaul_basic_eyeRight.png",
+      "frame": [
+        538,
+        649,
+        38,
+        43
+      ],
+      "sha256": "9780d5d81ea425c1f0a1abcfada96a75a4bbb39517133b69143b678d8df1e6dd",
+      "edited": false
+    }
+  ],
+  "nightSupport": false,
+  "runtimeEnabled": false
+}

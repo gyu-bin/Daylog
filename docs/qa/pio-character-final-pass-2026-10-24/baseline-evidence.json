@@ -1,0 +1,34 @@
+{
+  "baseline": "Immediate preceding production-final pass; source/asset SHA fixed in this QA folder",
+  "previousTests": "docs/qa/pio-production-final-2026-10-24/test-inventory.json",
+  "previousReleasePackages": "docs/qa/pio-production-final-2026-10-24/release-package-validation.json",
+  "previousPerformance": "docs/qa/pio-production-final-2026-10-24/performance-comparison.json",
+  "previousActualUniqueTestCount": 123,
+  "prior77Regression": "PASS, previous pass; rerun pending new implementation",
+  "reusedCaptures": [
+    {
+      "source": "docs/qa/pio-production-final-2026-10-24/iphone17-final-attachments/43A51D80-7F61-4A3D-B7A3-B20E068CCE61.png",
+      "copy": "docs/qa/pio-character-final-pass-2026-10-24/before/43A51D80-7F61-4A3D-B7A3-B20E068CCE61.png",
+      "sha256": "b411e52a6f9cd6effc80af8448e1baedffe362b2f813d80eeeddace56e1c53b8",
+      "scope": "Previous pass native capture, byte-identical reuse before new modifications, not newly captured"
+    },
+    {
+      "source": "docs/qa/pio-production-final-2026-10-24/smallphone-attachments/BAB713AF-A8DF-47A0-9DAD-58D069808E83.png",
+      "copy": "docs/qa/pio-character-final-pass-2026-10-24/before/BAB713AF-A8DF-47A0-9DAD-58D069808E83.png",
+      "sha256": "aaf6757d4713f8c6a74113a5c08cfa42797a757542de22768bc7698315d7f804",
+      "scope": "Previous pass native capture, byte-identical reuse before new modifications, not newly captured"
+    },
+    {
+      "source": "docs/qa/pio-production-final-2026-10-24/ipad-attachments/68605963-44CD-4217-8BD6-0313E7397F1E.png",
+      "copy": "docs/qa/pio-character-final-pass-2026-10-24/before/68605963-44CD-4217-8BD6-0313E7397F1E.png",
+      "sha256": "43803b70485ef7f98d4cb087e3ad0459405ee98d6d17343bfed689cfec32be63",
+      "scope": "Previous pass native capture, byte-identical reuse before new modifications, not newly captured"
+    },
+    {
+      "source": "docs/qa/pio-production-final-2026-10-24/vacation-native/vacation-basic-day-production-025.png",
+      "copy": "docs/qa/pio-character-final-pass-2026-10-24/before/vacation-basic-day-production-025.png",
+      "sha256": "42f6dfcc961f2d275791c61418ef14ec657511bc9c032ed7848f743632602338",
+      "scope": "Previous pass native capture, byte-identical reuse before new modifications, not newly captured"
+    }
+  ]
+}

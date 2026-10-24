@@ -1,0 +1,42 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioProductionFinalMain.xctestrun -parallel-testing-enabled NO -destination "platform=iOS Simulator,id=87F27718-1575-4384-B7DB-1AF4601DBC86" -resultBundlePath /tmp/PioProductionFinal-SmallPhone-final-20261024.xcresult "-only-testing:DaylogStoreKitTests/PioProductionFinalScreenTests"
+
+Writing result bundle at path:
+	/tmp/PioProductionFinal-SmallPhone-final-20261024.xcresult
+
+2026-10-24 15:11:17.025 xcodebuild[10214:2325724] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 15:12:19.764119+0900 Daylog[10559:2328928] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 15:12:20.916654+0900 Daylog[10559:2328928] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 15:12:20.917937+0900 Daylog[10559:2328928] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 15:12:20.918345+0900 Daylog[10559:2328928] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-24 15:12:21.278.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 15:12:21.278.
+Test Suite 'PioProductionFinalScreenTests' started at 2026-10-24 15:12:21.278.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalScreenTests testActualDeviceScreensAndAccessibilityLayouts]' started.
+2026-10-24 15:12:21.622621+0900 Daylog[10559:2328928] Unbalanced calls to begin/end appearance transitions for <_TtGC7SwiftUI19UIHostingControllerVS_7AnyView_: 0x1270b4000>.
+IOSurfaceClientSetSurfaceNotify failed e00002c7
+2026-10-24 15:12:21.778455+0900 Daylog[10559:2330711] fopen failed for data file: errno = 2 (No such file or directory)
+2026-10-24 15:12:22.095924+0900 Daylog[10559:2328928] [error] image provider 0x1271cb480 timed out while waiting for phase 2 (1)
+2026-10-24 15:12:22.108320+0900 Daylog[10559:2330711] fopen failed for data file: errno = 2 (No such file or directory)
+2026-10-24 15:12:22.913400+0900 Daylog[10559:2328928] Unbalanced calls to begin/end appearance transitions for <_TtGC7SwiftUI19UIHostingControllerVS_7AnyView_: 0x1270b4000>.
+2026-10-24 15:12:23.759199+0900 Daylog[10559:2328928] Unbalanced calls to begin/end appearance transitions for <_TtGC7SwiftUI19UIHostingControllerVS_7AnyView_: 0x1270b4f00>.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalScreenTests testActualDeviceScreensAndAccessibilityLayouts]' passed (2.802 seconds).
+Test Suite 'PioProductionFinalScreenTests' passed at 2026-10-24 15:12:24.082.
+	 Executed 1 test, with 0 failures (0 unexpected) in 2.802 (2.804) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-24 15:12:24.084.
+	 Executed 1 test, with 0 failures (0 unexpected) in 2.802 (2.806) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 15:12:24.084.
+	 Executed 1 test, with 0 failures (0 unexpected) in 2.802 (2.807) seconds
+2026-10-24 15:12:24.121 xcodebuild[10214:2325724] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 15:12:24.122 xcodebuild[10214:2325724] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 15:12:24.127 xcodebuild[10214:2325724] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 15:12:24.411 xcodebuild[10214:2325724] [MT] IDETestOperationsObserverDebug: 72.600 elapsed -- Testing started completed.
+2026-10-24 15:12:24.412 xcodebuild[10214:2325724] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 15:12:24.412 xcodebuild[10214:2325724] [MT] IDETestOperationsObserverDebug: 72.600 sec, +72.600 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioProductionFinal-SmallPhone-final-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

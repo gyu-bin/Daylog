@@ -1,0 +1,18 @@
+{
+  "mac": {
+    "bundleIdentifier": "com.mungyubin.daylog",
+    "homeProductionNames": 160,
+    "cloudNames": 162,
+    "vacationProductionImageNames": 12,
+    "debugOverhaulNames": 0,
+    "trialNames": 0
+  },
+  "ios": {
+    "bundleIdentifier": "com.mungyubin.daylog.ios",
+    "homeProductionNames": 160,
+    "cloudNames": 162,
+    "vacationProductionImageNames": 12,
+    "debugOverhaulNames": 0,
+    "trialNames": 0
+  }
+}

@@ -1,0 +1,7 @@
+PASS pio_stage3_crest.png: 1536x1536 RGBA, delivered/catalog hashes identical
+PASS pio_stage3_tail_left.png: 1536x1536 RGBA, delivered/catalog hashes identical
+PASS pio_stage3_tail_right.png: 1536x1536 RGBA, delivered/catalog hashes identical
+PASS pio_stage3_wing_left.png: 1536x1536 RGBA, delivered/catalog hashes identical
+PASS pio_stage3_wing_right.png: 1536x1536 RGBA, delivered/catalog hashes identical
+PASS 42 original Pio PNGs match 6f722fe
+PASS git diff --check

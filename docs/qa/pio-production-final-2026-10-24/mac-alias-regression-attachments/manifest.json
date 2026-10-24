@@ -1,0 +1,17 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "EEE56C12-0C1F-42E0-9987-914EAD7AF32A.json",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "mac-window-native-transitions_0_68079312-3186-425E-8924-D7A56792A21C.json",
+        "timestamp" : 1792820944.902
+      }
+    ],
+    "testIdentifier" : "PioMacStabilityReviewTests/testActualWindowVisibilityTransitions()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioMacStabilityReviewTests/testActualWindowVisibilityTransitions"
+  }
+]

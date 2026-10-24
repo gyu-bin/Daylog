@@ -1,0 +1,17 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "331212A1-E42A-4708-B8E6-A37D3C0CA5F3.json",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "scene-120s-performance_0_28D247C9-F4AA-4C41-8A9C-76373B573C76.json",
+        "timestamp" : 1792763526.263
+      }
+    ],
+    "testIdentifier" : "PioPolishLifecycleTests/testTwoMinuteVisibleSceneSampling()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioPolishLifecycleTests/testTwoMinuteVisibleSceneSampling"
+  }
+]

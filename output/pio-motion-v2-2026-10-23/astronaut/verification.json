@@ -1,0 +1,55 @@
+{
+  "outfit": "astronaut",
+  "status": "PARTIAL_OFFLINE_STUDY",
+  "canonicalSourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/footLeft.png": "0ae377a17db48ef6bbeafec13bdab6f7af5b61b869e2f67698752c526a6fc9ce",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/footRight.png": "6552fdd5f6e571ce2f58c0a8a45bbe1ab701a6aa37873c0a2fd40cc0284181e2",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/wingRight.png": "090c7480be0db72430d443ff1c60fab2ce24ecb13b33d1c0f4fea9809b21ebd8",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/sprout.png": "b650212ff3ef120bbeb0ef6e0159a6d6a28e4e9341bc99d28f3be1fe86ce7055",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/body.png": "e54890da880d0c4fcc38e57f3e24f12fae12dd26aa0a799a5bf2c06a3d1ef938",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/eyeLeft.png": "ef8891ab0ae37605d8c40f26f00caed23aea65ed83dc1c1a59a01e8a9a4bb652",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/eyeRight.png": "6c3d042414a26193b336df08bf9a2d6781e8eaa4b0e99a6de86819bcb59e53b8",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/lidLeft.png": "cc467c07372c518d56ed050a05dccab2dff16c8da4e733dc665f8cc663032a3a",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/lidRight.png": "36efb41777022fc5885ecf3458f510a5519307b15865c6e2e1ac2d61f71b9e80",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/halfLeft.png": "36f1f17d54b38524dbbf116bf0ef33e0da9ca3124dbae91a9cda850c6c7beb8c",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/halfRight.png": "485ceee626843bc26b1cde344a455b0c399829e8b23bc8daa2c16cd398e77ada",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/wingLeft.png": "3a73ef59f58b147ab4ce62db5f323cc1fc3dce977ff934ac8a7f59a6a6cdbffb",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/visor.png": "ffbb82e6bebba63852db4641de5f3c01d5b20c1096d922d3436c2e1879153707",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/helmet.png": "bb3f9f86e0def7b7d751008b182319c1696f2d4e0d60fb708c8d3e60e2b2e58b",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/happyLeft.png": "74fadd91d7f49dfb59131b0195f1405edfe00fa3ebdfefda8fc7aa484a1ee9a7",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/happyRight.png": "4ce21b5ae91e494dce05acc46076df956569161a9c4f80aac8967227bc6ea0a6"
+  },
+  "actions": [
+    "idle",
+    "greet",
+    "walk",
+    "bounce",
+    "jump",
+    "celebrate",
+    "bow",
+    "sleepy",
+    "surprised",
+    "encourage",
+    "special"
+  ],
+  "specialAction": "weightless float",
+  "framesPerAction": 32,
+  "durationMs": 70,
+  "maxAlphaOnFrameBorder": 0,
+  "canvas": [
+    480,
+    516
+  ],
+  "characterCanvas": [
+    350,
+    350
+  ],
+  "limits": [
+    "2D front-view stepping, no authored turn or gait occlusion change.",
+    "Bow is frontal lean/compression, not a reconstructed 3D head turn.",
+    "Hat and fabric stay rigid with torso.",
+    "Held props rigidly follow hands; no release or articulation.",
+    "No app/runtime/performance claim."
+  ]
+}

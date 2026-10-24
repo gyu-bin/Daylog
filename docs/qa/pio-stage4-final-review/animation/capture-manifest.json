@@ -1,0 +1,23 @@
+[
+  {
+    "file": "flap-dark.mp4",
+    "frames": 55,
+    "seconds": 8.153,
+    "capture_fps": 6.623328836011284,
+    "source": "actual existing optimized DEBUG Mac app window screenshots; not an FPS benchmark"
+  },
+  {
+    "file": "jump-light.mp4",
+    "frames": 70,
+    "seconds": 10.088,
+    "capture_fps": 6.839809674861222,
+    "source": "actual existing optimized DEBUG Mac app window screenshots; not an FPS benchmark"
+  },
+  {
+    "file": "wave-light.mp4",
+    "frames": 55,
+    "seconds": 11.136,
+    "capture_fps": 4.849137931034483,
+    "source": "actual existing optimized DEBUG Mac app window screenshots; not an FPS benchmark"
+  }
+]

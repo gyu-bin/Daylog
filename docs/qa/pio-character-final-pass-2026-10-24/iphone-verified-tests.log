@@ -1,0 +1,52 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioCharacterFinalVerified.xctestrun -destination "platform=iOS Simulator,id=89B877BB-6094-4A27-B108-3A958EF23D9B" -parallel-testing-enabled NO -resultBundlePath /tmp/PioCharacterFinal-iPhone-verified-20261024.xcresult "-only-testing:DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests"
+
+Writing result bundle at path:
+	/tmp/PioCharacterFinal-iPhone-verified-20261024.xcresult
+
+2026-10-24 16:12:55.377 xcodebuild[22830:2449073] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:13:00.518188+0900 Daylog[22846:2449406] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 16:13:01.658760+0900 Daylog[22846:2449406] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 16:13:01.660558+0900 Daylog[22846:2449406] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 16:13:01.661631+0900 Daylog[22846:2449406] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-24 16:13:01.779.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 16:13:01.780.
+Test Suite 'PioCharacterVerifiedSceneIntegrationTests' started at 2026-10-24 16:13:01.780.
+Test Case '-[DaylogStoreKitTests.PioCharacterVerifiedSceneIntegrationTests testGenuineSavedSelectionRemainsHiddenUntilFreshManagerVerifies]' started.
+2026-10-24 16:13:02.084814+0900 Daylog[22846:2449623] [Default] Failed to verify certificate chain due to client recoverable failure:
+Error Domain=NSOSStatusErrorDomain Code=-67818 "‘StoreKit Testing in Xcode’ 인증서가 만료됨" UserInfo={NSLocalizedDescription=‘StoreKit Testing in Xcode’ 인증서가 만료됨, NSUnderlyingError=0x129f75110 {Error Domain=NSOSStatusErrorDomain Code=-67818 "인증서 0 ‘StoreKit Testing in Xcode’에 오류 있음: 인증서가 일시적으로 유효하지 않음;" UserInfo={NSLocalizedDescription=인증서 0 ‘StoreKit Testing in Xcode’에 오류 있음: 인증서가 일시적으로 유효하지 않음;}}}
+2026-10-24 16:13:02.087542+0900 Daylog[22846:2449619] [Default] Failed to verify signature for AppTransaction, will assume invalid: failedToVerifyCertificateChain
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:44: error: -[DaylogStoreKitTests.PioCharacterVerifiedSceneIntegrationTests testGenuineSavedSelectionRemainsHiddenUntilFreshManagerVerifies] : failed: caught error: "wrongEnvironment"
+<unknown>:0: -[DaylogStoreKitTests.PioCharacterVerifiedSceneIntegrationTests testGenuineSavedSelectionRemainsHiddenUntilFreshManagerVerifies] : Test skipped: threw error "작업을 완료할 수 없습니다.(Daylog.PioStoreClientError 오류 2.)"
+Test Case '-[DaylogStoreKitTests.PioCharacterVerifiedSceneIntegrationTests testGenuineSavedSelectionRemainsHiddenUntilFreshManagerVerifies]' failed (0.564 seconds).
+Test Case '-[DaylogStoreKitTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes]' started.
+2026-10-24 16:13:02.357085+0900 Daylog[22846:2449624] [Default] Failed to verify certificate chain due to client recoverable failure:
+Error Domain=NSOSStatusErrorDomain Code=-67818 "‘StoreKit Testing in Xcode’ 인증서가 만료됨" UserInfo={NSLocalizedDescription=‘StoreKit Testing in Xcode’ 인증서가 만료됨, NSUnderlyingError=0x129f75ad0 {Error Domain=NSOSStatusErrorDomain Code=-67818 "인증서 0 ‘StoreKit Testing in Xcode’에 오류 있음: 인증서가 일시적으로 유효하지 않음;" UserInfo={NSLocalizedDescription=인증서 0 ‘StoreKit Testing in Xcode’에 오류 있음: 인증서가 일시적으로 유효하지 않음;}}}
+2026-10-24 16:13:02.359526+0900 Daylog[22846:2449643] [Default] Failed to verify signature for AppTransaction, will assume invalid: failedToVerifyCertificateChain
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:44: error: -[DaylogStoreKitTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed: caught error: "wrongEnvironment"
+<unknown>:0: -[DaylogStoreKitTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : Test skipped: threw error "작업을 완료할 수 없습니다.(Daylog.PioStoreClientError 오류 2.)"
+Test Case '-[DaylogStoreKitTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes]' failed (0.018 seconds).
+Test Suite 'PioCharacterVerifiedSceneIntegrationTests' failed at 2026-10-24 16:13:02.364.
+	 Executed 2 tests, with 2 tests skipped and 2 failures (2 unexpected) in 0.581 (0.583) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-24 16:13:02.365.
+	 Executed 2 tests, with 2 tests skipped and 2 failures (2 unexpected) in 0.581 (0.584) seconds
+Test Suite 'Selected tests' failed at 2026-10-24 16:13:02.365.
+	 Executed 2 tests, with 2 tests skipped and 2 failures (2 unexpected) in 0.581 (0.586) seconds
+2026-10-24 16:13:02.381 xcodebuild[22830:2449073] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:13:02.382 xcodebuild[22830:2449073] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:13:02.383 xcodebuild[22830:2449073] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:23:02.716 xcodebuild[22830:2449148]  IDETestOperationsObserverDebug: Failure collecting diagnostics from simulator: Timed out after 600.0 seconds while waiting for a response from the invoked process
+2026-10-24 16:23:02.765 xcodebuild[22830:2449073] [MT] IDETestOperationsObserverDebug: 607.462 elapsed -- Testing started completed.
+2026-10-24 16:23:02.765 xcodebuild[22830:2449073] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 16:23:02.765 xcodebuild[22830:2449073] [MT] IDETestOperationsObserverDebug: 607.464 sec, +607.464 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCharacterFinal-iPhone-verified-20261024.xcresult
+
+Failing tests:
+	PioCharacterVerifiedSceneIntegrationTests.testGenuineSavedSelectionRemainsHiddenUntilFreshManagerVerifies()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+
+** TEST EXECUTE FAILED **
+
+Testing started

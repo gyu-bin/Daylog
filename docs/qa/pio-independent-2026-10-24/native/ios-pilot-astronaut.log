@@ -1,0 +1,40 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioCloudPilotFinaliOS-astronaut.xctestrun -destination "platform=iOS Simulator,id=89B877BB-6094-4A27-B108-3A958EF23D9B" -parallel-testing-enabled NO "-only-testing:DaylogStoreKitTests/PioCloudCandidateReviewTests/testCandidateRegistrationNeutralAndStop" "-only-testing:DaylogStoreKitTests/PioCloudCandidateReviewTests/testActualIndependentBlinkAndHeldPresentation" -resultBundlePath /tmp/PioCloudPilot-iOS-astronaut-20261024.xcresult
+
+Writing result bundle at path:
+	/tmp/PioCloudPilot-iOS-astronaut-20261024.xcresult
+
+2026-10-24 13:10:56.542 xcodebuild[75995:2022263] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 13:11:28.293377+0900 Daylog[76239:2025118] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 13:11:28.900090+0900 Daylog[76239:2025710] [General] Failed to send CA Event for app launch measurements for ca_event_type: 0 event_name: com.apple.app_launch_measurement.FirstFramePresentationMetric
+2026-10-24 13:11:28.905084+0900 Daylog[76239:2025118] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 13:11:28.935330+0900 Daylog[76239:2025118] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 13:11:28.938471+0900 Daylog[76239:2025118] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 13:11:28.986273+0900 Daylog[76239:2025707] [General] Failed to send CA Event for app launch measurements for ca_event_type: 1 event_name: com.apple.app_launch_measurement.ExtendedLaunchMetrics
+Test Suite 'Selected tests' started at 2026-10-24 13:11:29.234.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 13:11:29.235.
+Test Suite 'PioCloudCandidateReviewTests' started at 2026-10-24 13:11:29.235.
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testActualIndependentBlinkAndHeldPresentation]' started.
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testActualIndependentBlinkAndHeldPresentation]' passed (4.971 seconds).
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testCandidateRegistrationNeutralAndStop]' started.
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testCandidateRegistrationNeutralAndStop]' passed (0.238 seconds).
+Test Suite 'PioCloudCandidateReviewTests' passed at 2026-10-24 13:11:34.448.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 5.209 (5.213) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-24 13:11:34.448.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 5.209 (5.213) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 13:11:34.448.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 5.209 (5.214) seconds
+IOSurfaceClientSetSurfaceNotify failed e00002c7
+2026-10-24 13:11:34.478 xcodebuild[75995:2022263] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 13:11:34.478 xcodebuild[75995:2022263] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 13:11:34.481 xcodebuild[75995:2022263] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 13:11:34.747 xcodebuild[75995:2022263] [MT] IDETestOperationsObserverDebug: 42.910 elapsed -- Testing started completed.
+2026-10-24 13:11:34.747 xcodebuild[75995:2022263] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 13:11:34.747 xcodebuild[75995:2022263] [MT] IDETestOperationsObserverDebug: 42.910 sec, +42.910 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCloudPilot-iOS-astronaut-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

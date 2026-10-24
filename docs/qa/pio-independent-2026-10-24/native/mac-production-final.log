@@ -1,0 +1,60 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioCloudProductionFinal.xctestrun -destination platform=macOS -parallel-testing-enabled NO "-only-testing:DaylogTests/PioCloudProductionTests/testSmallProductionPackAndIndependentEyeFrames" "-only-testing:DaylogTests/PioCloudProductionTests/testProductionReduceMotionSuppressionAndSceneStop" "-only-testing:DaylogTests/PioCloudProductionTests/testProductionOffscreenWindowDetachStopsTracks" "-only-testing:DaylogTests/PioCloudCandidateReviewTests/testActualIndependentBlinkAndHeldPresentation" "-only-testing:DaylogTests/PioCloudCandidateReviewTests/testActualPresentationSequence" -resultBundlePath /tmp/PioCloudProduction-Mac-final-20261024.xcresult
+
+Writing result bundle at path:
+	/tmp/PioCloudProduction-Mac-final-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 12:48:30.293189+0900 Daylog[70744:1964219] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:48:30.293418+0900 Daylog[70744:1964219] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:48:30.294426+0900 Daylog[70744:1964220] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:48:30.294481+0900 Daylog[70744:1964220] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:48:30.295521+0900 Daylog[70744:1964218] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:48:30.295575+0900 Daylog[70744:1964218] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:48:30.296694+0900 Daylog[70744:1964218] [Connection] Will NOT re-try to establish the connection
+2026-10-24 12:48:30.296770+0900 Daylog[70744:1964219] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:48:30.296801+0900 Daylog[70744:1964219] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:48:30.368962+0900 Daylog[70744:1964193] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 12:48:30.926621+0900 Daylog[70744:1964330] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 12:48:31.006.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 12:48:31.006.
+Test Suite 'PioCloudCandidateReviewTests' started at 2026-10-24 12:48:31.007.
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testActualIndependentBlinkAndHeldPresentation]' started.
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testActualIndependentBlinkAndHeldPresentation]' passed (4.884 seconds).
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testActualPresentationSequence]' started.
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testActualPresentationSequence]' passed (5.188 seconds).
+Test Suite 'PioCloudCandidateReviewTests' passed at 2026-10-24 12:48:41.080.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 10.072 (10.073) seconds
+Test Suite 'PioCloudProductionTests' started at 2026-10-24 12:48:41.080.
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionOffscreenWindowDetachStopsTracks]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionOffscreenWindowDetachStopsTracks]' passed (0.053 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionReduceMotionSuppressionAndSceneStop]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionReduceMotionSuppressionAndSceneStop]' passed (0.002 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testSmallProductionPackAndIndependentEyeFrames]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testSmallProductionPackAndIndependentEyeFrames]' passed (0.001 seconds).
+Test Suite 'PioCloudProductionTests' passed at 2026-10-24 12:48:41.137.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.056 (0.057) seconds
+Test Suite 'DaylogTests.xctest' passed at 2026-10-24 12:48:41.137.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 10.128 (10.131) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 12:48:41.137.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 10.128 (10.131) seconds
+2026-10-24 12:48:41.413 xcodebuild[70737:1964083] [MT] IDETestOperationsObserverDebug: 11.794 elapsed -- Testing started completed.
+2026-10-24 12:48:41.413 xcodebuild[70737:1964083] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 12:48:41.413 xcodebuild[70737:1964083] [MT] IDETestOperationsObserverDebug: 11.794 sec, +11.794 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCloudProduction-Mac-final-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

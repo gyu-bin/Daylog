@@ -1,0 +1,29 @@
+{
+  "protectedFilesUnchanged": {
+    "Daylog/Services/PioPurchaseManager.swift": true,
+    "Daylog/Services/PioProductRegistry.swift": true,
+    "Routimori.storekit": true,
+    "Daylog/Services/PioWardrobe.swift": true,
+    "Daylog/Services/PioWardrobeSelection.swift": true,
+    "Daylog/Models/DaylogStore.swift": true,
+    "Daylog/Models/DaylogSchemaV1.swift": true,
+    "Daylog/Models/DaylogSchemaV2.swift": true,
+    "Daylog/Models/DaylogSchemaV3.swift": true,
+    "DaylogShared/WidgetBridge.swift": true,
+    "Config/Daylog.entitlements": true,
+    "Config/DaylogiOS.entitlements": true,
+    "Config/DaylogWidgets.entitlements": true,
+    "Daylog/Services/UpdateConfiguration.swift": true,
+    "Daylog/Services/MobileConfig/MobileUIConfigStore.swift": true
+  },
+  "projectTechnicalSettingsUnchanged": true,
+  "plistOnlyApprovedDisplayKeysChanged": {
+    "Config/Daylog-Info.plist": true,
+    "Config/DaylogiOS-Info.plist": true,
+    "Config/DaylogWidgets-Info.plist": true
+  },
+  "ordinaryPurchaseOptInAbsent": true,
+  "explicitBundleDisplayNames": 6,
+  "explicitBundleNames": 0,
+  "localizedBundleNames": "DaylogShared/ko.lproj/InfoPlist.strings"
+}

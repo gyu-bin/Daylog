@@ -1,0 +1,167 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioRemainingDiagnostic.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -resultBundlePath /tmp/PioRemainingDiagnostic-20261024.xcresult
+
+Writing result bundle at path:
+	/tmp/PioRemainingDiagnostic-20261024.xcresult
+
+2026-10-24 11:39:22.330 xcodebuild[49847:1788164] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 11:39:56.439543+0900 Daylog[50080:1790801] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 11:39:57.656855+0900 Daylog[50080:1790801] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 11:39:57.687285+0900 Daylog[50080:1790801] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 11:39:57.692297+0900 Daylog[50080:1790801] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-24 11:39:58.014.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 11:39:58.014.
+Test Suite 'PioRemainingLedgerDiagnosticTests' started at 2026-10-24 11:39:58.015.
+Test Case '-[DaylogStoreKitTests.PioRemainingLedgerDiagnosticTests testIsolatedPajamasVerifiedSceneFlow]' started.
+objc[50080]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x10eac4398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x121274310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+PIO_MINIMAL isolated buyProduct returned product=outfit.pajamas id=0 time=1792809598.191671
+PIO_MINIMAL entitlement verified product=outfit.pajamas id=0 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL latest verified product=outfit.pajamas id=0
+PIO_MINIMAL unfinished verified product=outfit.pajamas id=0
+PioStoreKit: client=93BAFDCE time=1792809598.299766 accepted id=0 product=outfit.pajamas revoked=false
+PIO_VERIFIED_SCENES outfit=pajamas contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_MINIMAL finish completed product=outfit.pajamas id=0
+Test Case '-[DaylogStoreKitTests.PioRemainingLedgerDiagnosticTests testIsolatedPajamasVerifiedSceneFlow]' passed (0.304 seconds).
+Test Case '-[DaylogStoreKitTests.PioRemainingLedgerDiagnosticTests testIsolatedRainyVerifiedSceneFlow]' started.
+PIO_MINIMAL isolated buyProduct returned product=outfit.rainy id=1 time=1792809598.339144
+PIO_MINIMAL entitlement verified product=outfit.rainy id=1 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL latest verified product=outfit.rainy id=1
+PIO_MINIMAL unfinished verified product=outfit.rainy id=1
+PioStoreKit: client=60C2DA97 time=1792809598.372407 accepted id=1 product=outfit.rainy revoked=false
+PIO_VERIFIED_SCENES outfit=rainyDay contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_MINIMAL finish completed product=outfit.rainy id=1
+Test Case '-[DaylogStoreKitTests.PioRemainingLedgerDiagnosticTests testIsolatedRainyVerifiedSceneFlow]' passed (0.067 seconds).
+Test Case '-[DaylogStoreKitTests.PioRemainingLedgerDiagnosticTests testIsolatedSpaceVerifiedSceneFlow]' started.
+PIO_MINIMAL isolated buyProduct returned product=outfit.space id=2 time=1792809598.408186
+PIO_MINIMAL entitlement verified product=outfit.space id=2 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL latest verified product=outfit.space id=2
+PIO_MINIMAL unfinished verified product=outfit.space id=2
+PioStoreKit: client=CF06D029 time=1792809598.438082 accepted id=2 product=outfit.space revoked=false
+PIO_VERIFIED_SCENES outfit=astronaut contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_MINIMAL finish completed product=outfit.space id=2
+Test Case '-[DaylogStoreKitTests.PioRemainingLedgerDiagnosticTests testIsolatedSpaceVerifiedSceneFlow]' passed (0.051 seconds).
+Test Case '-[DaylogStoreKitTests.PioRemainingLedgerDiagnosticTests testMinimalSequentialImmediateReadback]' started.
+PIO_MINIMAL entitlement verified product=outfit.cherryblossom id=3 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL sequential product=outfit.cherryblossom seeded=3 immediate=3
+PIO_MINIMAL entitlement verified product=outfit.summer id=4 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cherryblossom id=3 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL sequential product=outfit.summer seeded=4 immediate=4
+PIO_MINIMAL entitlement verified product=outfit.autumn id=5 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.summer id=4 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cherryblossom id=3 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL sequential product=outfit.autumn seeded=5 immediate=5
+PIO_MINIMAL entitlement verified product=outfit.winter id=6 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.autumn id=5 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.summer id=4 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cherryblossom id=3 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL sequential product=outfit.winter seeded=6 immediate=6
+PIO_MINIMAL entitlement verified product=outfit.halloween id=7 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.winter id=6 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.autumn id=5 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.summer id=4 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cherryblossom id=3 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL sequential product=outfit.halloween seeded=7 immediate=7
+PIO_MINIMAL entitlement verified product=outfit.christmas id=8 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.halloween id=7 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.winter id=6 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.autumn id=5 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.summer id=4 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cherryblossom id=3 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL sequential product=outfit.christmas seeded=8 immediate=8
+PIO_MINIMAL entitlement verified product=outfit.hanbok id=9 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.christmas id=8 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.halloween id=7 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.winter id=6 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.autumn id=5 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.summer id=4 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cherryblossom id=3 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL sequential product=outfit.hanbok seeded=9 immediate=9
+PIO_MINIMAL entitlement verified product=outfit.cafe id=10 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.hanbok id=9 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.christmas id=8 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.halloween id=7 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.winter id=6 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.autumn id=5 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.summer id=4 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cherryblossom id=3 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL sequential product=outfit.cafe seeded=10 immediate=10
+PIO_MINIMAL entitlement verified product=outfit.student id=11 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cafe id=10 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.hanbok id=9 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.christmas id=8 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.halloween id=7 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.winter id=6 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.autumn id=5 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.summer id=4 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cherryblossom id=3 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL sequential product=outfit.student seeded=11 immediate=11
+PIO_MINIMAL entitlement verified product=outfit.workout id=12 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.student id=11 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cafe id=10 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.hanbok id=9 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.christmas id=8 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.halloween id=7 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.winter id=6 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.autumn id=5 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.summer id=4 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cherryblossom id=3 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL sequential product=outfit.workout seeded=12 immediate=12
+PIO_MINIMAL entitlement verified product=outfit.rainy id=13 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.workout id=12 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.student id=11 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cafe id=10 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.hanbok id=9 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.christmas id=8 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.halloween id=7 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.winter id=6 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.autumn id=5 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.summer id=4 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cherryblossom id=3 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL sequential product=outfit.rainy seeded=13 immediate=13
+PIO_MINIMAL entitlement verified product=outfit.pajamas id=14 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.rainy id=13 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.workout id=12 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.student id=11 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cafe id=10 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.hanbok id=9 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.christmas id=8 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.halloween id=7 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.winter id=6 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.autumn id=5 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.summer id=4 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cherryblossom id=3 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL sequential product=outfit.pajamas seeded=14 immediate=14
+PIO_MINIMAL entitlement verified product=outfit.space id=15 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.pajamas id=14 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.rainy id=13 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.workout id=12 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.student id=11 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cafe id=10 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.hanbok id=9 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.christmas id=8 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.halloween id=7 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.winter id=6 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.autumn id=5 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.summer id=4 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL entitlement verified product=outfit.cherryblossom id=3 environment=Environment(rawValue: "Xcode")
+PIO_MINIMAL sequential product=outfit.space seeded=15 immediate=15
+Test Case '-[DaylogStoreKitTests.PioRemainingLedgerDiagnosticTests testMinimalSequentialImmediateReadback]' passed (0.120 seconds).
+Test Suite 'PioRemainingLedgerDiagnosticTests' passed at 2026-10-24 11:39:58.563.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.542 (0.549) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-24 11:39:58.563.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.542 (0.549) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 11:39:58.564.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.542 (0.550) seconds
+2026-10-24 11:39:58.592 xcodebuild[49847:1788164] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 11:39:58.594 xcodebuild[49847:1788164] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 11:39:58.603 xcodebuild[49847:1788164] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 11:39:58.891 xcodebuild[49847:1788164] [MT] IDETestOperationsObserverDebug: 41.066 elapsed -- Testing started completed.
+2026-10-24 11:39:58.891 xcodebuild[49847:1788164] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 11:39:58.891 xcodebuild[49847:1788164] [MT] IDETestOperationsObserverDebug: 41.066 sec, +41.066 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioRemainingDiagnostic-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

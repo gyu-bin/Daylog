@@ -1,0 +1,17 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "BAF046FF-01D3-4099-BF61-D06A18516510.json",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "production-basic-20-cycle-lifecycle-observations_0_B7407EB1-30BA-4798-8953-A1DF2D6050CE.json",
+        "timestamp" : 1792815651.914
+      }
+    ],
+    "testIdentifier" : "PioCloudProductionTests/testProductionRepeatedAttachDetachObservations()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioCloudProductionTests/testProductionRepeatedAttachDetachObservations"
+  }
+]

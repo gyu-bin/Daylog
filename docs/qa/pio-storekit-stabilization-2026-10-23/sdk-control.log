@@ -1,0 +1,68 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -derivedDataPath /tmp/PioStoreKit-20261023-ios -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitSDKContractTests" -resultBundlePath /tmp/PioStoreKit-Stabilization-sdk-control.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/PioStoreKit-Stabilization-sdk-control.xcresult
+
+2026-10-23 20:10:56.886 xcodebuild[83311:754890] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:11:03.159125+0900 Daylog[83401:755399] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 20:11:04.481948+0900 Daylog[83401:755399] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 20:11:04.482998+0900 Daylog[83401:755399] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 20:11:04.483488+0900 Daylog[83401:755399] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 20:11:04.658.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 20:11:04.658.
+Test Suite 'PioStoreKitSDKContractTests' started at 2026-10-23 20:11:04.659.
+Test Case '-[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKCancellationErrorInjection]' started.
+2026-10-23 20:11:04.767301+0900 Daylog[83401:755875] [StoreKit] Making a purchase without listening for transaction updates risks missing successful purchases. Create a Task to iterate Transaction.updates at launch.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitSDKContractTests.swift:75: warning: -[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKCancellationErrorInjection] : Making a purchase without listening for transaction updates risks missing successful purchases. Create a Task to iterate Transaction.updates at launch.
+2026-10-23 20:11:04.844373+0900 Daylog[83401:755839] [Default] Received error that does not have a corresponding StoreKit Error: Error Domain=ASDServerErrorDomain Code=907 "(null)" UserInfo={storefront-country-code=KOR, client-environment-type=XcodeTest}
+2026-10-23 20:11:04.853560+0900 Daylog[83401:755839] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=907 "(null)" UserInfo={storefront-country-code=KOR, client-environment-type=XcodeTest}
+PIO_SDK_CONTROL type=StoreKit.StoreKitError error=unknown domain=StoreKit.StoreKitError code=2 underlying=nil
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitSDKContractTests.swift:82: error: -[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKCancellationErrorInjection] : failed - The public cancellation injection did not surface as a public cancellation result/error
+Test Case '-[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKCancellationErrorInjection]' failed (0.198 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKFinishReadbackWithSpaceFirstAndCafeLast]' started.
+2026-10-23 20:11:04.873820+0900 Daylog[83401:755839] [StoreKit] Making a purchase without listening for transaction updates risks missing successful purchases. Create a Task to iterate Transaction.updates at launch.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitSDKContractTests.swift:36: warning: -[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKFinishReadbackWithSpaceFirstAndCafeLast] : Making a purchase without listening for transaction updates risks missing successful purchases. Create a Task to iterate Transaction.updates at launch.
+2026-10-23 20:11:04.889103+0900 Daylog[83401:755812] [StoreKit] Making a purchase without listening for transaction updates risks missing successful purchases. Create a Task to iterate Transaction.updates at launch.
+PIO_SDK_CONTROL Direct SDK only. spaceFirst=77 afterFirstFinish=[] cafeLast=78 afterLastFinish=[[78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78], [78]]
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitSDKContractTests.swift:67: error: -[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKFinishReadbackWithSpaceFirstAndCafeLast] : XCTAssertTrue failed - Even without Pio code, each awaited finish must clear the last transaction within the original three-second acceptance limit
+Test Case '-[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKFinishReadbackWithSpaceFirstAndCafeLast]' failed (3.051 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKInterruptedReceiptBeforeResolution]' started.
+2026-10-23 20:11:07.924904+0900 Daylog[83401:755835] [StoreKit] Making a purchase without listening for transaction updates risks missing successful purchases. Create a Task to iterate Transaction.updates at launch.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitSDKContractTests.swift:88: warning: -[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKInterruptedReceiptBeforeResolution] : Making a purchase without listening for transaction updates risks missing successful purchases. Create a Task to iterate Transaction.updates at launch.
+2026-10-23 20:11:07.930518+0900 Daylog[83401:755836] [Default] Received error that does not have a corresponding StoreKit Error: Error Domain=ASDErrorDomain Code=825 "No transactions in response" UserInfo={storefront-country-code=KOR, NSLocalizedFailureReason=No transactions in response, client-environment-type=XcodeTest}
+2026-10-23 20:11:07.930627+0900 Daylog[83401:755836] [Default] Purchase did not return a transaction: Error Domain=ASDErrorDomain Code=825 "No transactions in response" UserInfo={storefront-country-code=KOR, NSLocalizedFailureReason=No transactions in response, client-environment-type=XcodeTest}
+PIO_SDK_CONTROL Interrupted purchase error=unknown
+PIO_SDK_CONTROL Before resolve: driverID=79 hasPurchaseIssue=true verifiedEntitlements=[79]
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitSDKContractTests.swift:97: error: -[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKInterruptedReceiptBeforeResolution] : XCTAssertTrue failed - An unresolved interrupted purchase must not already have a verified entitlement
+Test Case '-[DaylogStoreKitTests.PioStoreKitSDKContractTests testDirectSDKInterruptedReceiptBeforeResolution]' failed (0.028 seconds).
+Test Suite 'PioStoreKitSDKContractTests' failed at 2026-10-23 20:11:07.939.
+	 Executed 3 tests, with 3 failures (0 unexpected) in 3.277 (3.280) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 20:11:07.940.
+	 Executed 3 tests, with 3 failures (0 unexpected) in 3.277 (3.282) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 20:11:07.940.
+	 Executed 3 tests, with 3 failures (0 unexpected) in 3.277 (3.282) seconds
+2026-10-23 20:11:07.961 xcodebuild[83311:754890] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:11:07.961 xcodebuild[83311:754890] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:11:07.962 xcodebuild[83311:754890] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:11:08.233 xcodebuild[83311:754890] [MT] IDETestOperationsObserverDebug: 11.425 elapsed -- Testing started completed.
+2026-10-23 20:11:08.233 xcodebuild[83311:754890] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 20:11:08.233 xcodebuild[83311:754890] [MT] IDETestOperationsObserverDebug: 11.425 sec, +11.425 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioStoreKit-Stabilization-sdk-control.xcresult
+
+Failing tests:
+	PioStoreKitSDKContractTests.testDirectSDKCancellationErrorInjection()
+	PioStoreKitSDKContractTests.testDirectSDKFinishReadbackWithSpaceFirstAndCafeLast()
+	PioStoreKitSDKContractTests.testDirectSDKInterruptedReceiptBeforeResolution()
+
+** TEST EXECUTE FAILED **
+
+Testing started

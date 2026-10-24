@@ -1,0 +1,41 @@
+Window: "Daylog", App: Daylog.
+0 표준 윈도우 Daylog, ID: main, Secondary Actions: Raise
+	1 스크롤 영역 Secondary Actions: Scroll Up, Scroll Down
+		2 text 피오 부품 동작 검토 기본 피오·크리스마스 피오·한복 피오·우주인 피오 각각 한 가지 체형의 시험용 리그예요. 성장 1–4단계와 다른 의상은 아직 지원하지 않아요.
+		3 팝업 버튼 의상, Value: 우주인 피오, ID: layeredQA.outfit
+		4 팝업 버튼 동작, Value: 오른 날개만 움직이기, ID: layeredQA.motion
+		5 팝업 버튼 크기, Value: 220pt, ID: layeredQA.size
+		6 체크상자 Description: 동작 켜기, Value: 1, ID: layeredQA.animate
+		7 체크상자 Description: 캐릭터 표시, Value: 1, ID: layeredQA.visible
+		8 체크상자 Description: 원본 한 장 비교, Value: 0, ID: layeredQA.flat
+		9 체크상자 Description: 정지 요청 검토, Value: 0, ID: layeredQA.reduceMotion
+		10 체크상자 Description: 어두운 배경, Value: 1, ID: layeredQA.dark
+		11 text ID: layeredQA.selection, Value: 우주인 피오 · 오른 날개만 움직이기 · 220pt · 독립 부품 시스템 움직임 줄이기: 꺼짐 · 화면: 활성 눈만·오른 날개만 모드에서는 몸통과 상위 레이어가 고정돼요. 크리스마스 모자와 새싹은 한 부품이며 선물은 왼손과 함께 움직여요. 크리스마스 펄럭임은 선물을 든 쪽 ±6°, 오른쪽 ±12°예요.
+		12 버튼 Description: 30회 의상 전환, ID: layeredQA.switch
+		13 텍스트 0회
+		14 버튼 Description: 측정값 초기화, ID: layeredQA.resetMetrics
+		15 버튼 Description: 측정값 새로고침, ID: layeredQA.metrics
+		16 unknown ID: layeredQA.metricValues, Description: accessoryTracks=0 · activeAnimationTracks=1 · activeRigs=1 · bodyTracks=0 · cachedImages=55 · configurations=1 · decodedBytes=56144964 · effectiveLayouts=2 · eyesTracks=0 · feetTracks=0 · hostUpdates=2 · layouts=4 · liveRigs=1 · sourceLoads=55 · wingsTracks=1
+		17 unknown ID: layeredQA.presentation, Description: [{"body.opacity":1,"body.rotation":0,"body.scaleX":1,"body.scaleY":1,"body.translationX":0,"body.translationY":0,"body.x":650,"body.y":454,"canvas.opacity":1,"canvas.rotation":0,"canvas.scaleX":0.17543859649122806,"canvas.scaleY":0.17543859649122806,"canvas.translationX":0,"canvas.translationY":0,"canvas.x":110,"canvas.y":110,"eyeLeft.opacity":1,"eyeLeft.rotation":0,"eyeLeft.scaleX":1,"eyeLeft.scaleY":1,"eyeLeft.translationX":0,"eyeLeft.translationY":0,"eyeLeft.x":550,"eyeLeft.y":575,"eyeRight.opacity":1,"e
+		18 unknown Description: /Users/mungyubin/Library/Containers/com.daylog.verify/Data/tmp/pio-layered-evidence.json, ID: layeredQA.evidencePath
+		19 텍스트 아래 여백으로 스크롤해 캐릭터가 화면 밖으로 나간 상태를 검토할 수 있어요.
+		20 스크롤 막대 (settable, float) 0
+			21 값 표시기 (settable, float) 0
+			22 화살표 증가 버튼
+			23 화살표 감소 버튼
+			24 페이지 증가 버튼
+			25 페이지 감소 버튼
+	26 닫기 버튼
+	27 전체 화면 버튼 Help: 이 버튼을 누르면 윈도우를 확대/축소합니다., Secondary Actions: 윈도우 확대/축소
+	28 최소화 버튼
+	29 텍스트 Daylog
+30 menu bar
+	31 Daylog
+	32 파일
+	33 편집
+	34 보기
+	35 이동
+	36 윈도우
+	37 도움말
+
+The focused UI element is 0 표준 윈도우 Daylog, ID: main, Secondary Actions: Raise

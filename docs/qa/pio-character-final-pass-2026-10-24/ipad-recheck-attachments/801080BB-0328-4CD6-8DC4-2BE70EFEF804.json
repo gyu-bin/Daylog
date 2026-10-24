@@ -1,0 +1,82 @@
+[
+  {
+    "actualOffset" : 2535.5,
+    "bottomOffset" : 2535.5,
+    "content" : [
+      744,
+      3648.5
+    ],
+    "method" : "public UIScrollView.setContentOffset(animated:false), actual screen capture",
+    "reduceMotionOS" : false,
+    "scene" : "home",
+    "viewport" : [
+      744,
+      1133
+    ],
+    "VoiceOverOperated" : false
+  },
+  {
+    "actualOffset" : -1,
+    "bottomOffset" : -1,
+    "content" : [
+      744,
+      1112
+    ],
+    "method" : "public UIScrollView.setContentOffset(animated:false), actual screen capture",
+    "reduceMotionOS" : false,
+    "scene" : "cloud-ready",
+    "viewport" : [
+      744,
+      1133
+    ],
+    "VoiceOverOperated" : false
+  },
+  {
+    "actualOffset" : 474.5,
+    "bottomOffset" : 474.5,
+    "content" : [
+      744,
+      1587.5
+    ],
+    "method" : "public UIScrollView.setContentOffset(animated:false), actual screen capture",
+    "reduceMotionOS" : false,
+    "scene" : "cloud-trouble",
+    "viewport" : [
+      744,
+      1133
+    ],
+    "VoiceOverOperated" : false
+  },
+  {
+    "actualOffset" : -32,
+    "bottomOffset" : -32,
+    "content" : [
+      744,
+      1081
+    ],
+    "method" : "public UIScrollView.setContentOffset(animated:false), actual screen capture",
+    "reduceMotionOS" : false,
+    "scene" : "vacation-day",
+    "viewport" : [
+      744,
+      1133
+    ],
+    "VoiceOverOperated" : false
+  },
+  {
+    "actualOffset" : -32,
+    "bottomOffset" : -32,
+    "content" : [
+      744,
+      1081
+    ],
+    "method" : "public UIScrollView.setContentOffset(animated:false), actual screen capture",
+    "reduceMotionOS" : false,
+    "scene" : "vacation-night",
+    "viewport" : [
+      744,
+      1133
+    ],
+    "VoiceOverOperated" : false
+  }
+]

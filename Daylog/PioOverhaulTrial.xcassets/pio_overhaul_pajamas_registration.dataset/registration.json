@@ -1,0 +1,232 @@
+{
+  "outfit": "pajamas",
+  "canvas": 1254,
+  "revision": "runtime-v2-candidate",
+  "parts": [
+    {
+      "id": "footLeft",
+      "asset": "pio_overhaul_pajamas_footLeft",
+      "rect": [
+        462,
+        1072,
+        135,
+        118
+      ],
+      "pivot": [
+        535,
+        1120
+      ],
+      "z": 0
+    },
+    {
+      "id": "footRight",
+      "asset": "pio_overhaul_pajamas_footRight",
+      "rect": [
+        738,
+        1072,
+        131,
+        116
+      ],
+      "pivot": [
+        810,
+        1120
+      ],
+      "z": 1
+    },
+    {
+      "id": "body",
+      "asset": "pio_overhaul_pajamas_body",
+      "rect": [
+        150,
+        235,
+        967,
+        963
+      ],
+      "pivot": [
+        650,
+        800
+      ],
+      "z": 2
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_overhaul_pajamas_eyeLeft",
+      "rect": [
+        510,
+        622,
+        105,
+        133
+      ],
+      "pivot": [
+        562,
+        694
+      ],
+      "z": 3
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_overhaul_pajamas_eyeRight",
+      "rect": [
+        770,
+        559,
+        105,
+        133
+      ],
+      "pivot": [
+        822,
+        631
+      ],
+      "z": 4
+    },
+    {
+      "id": "headwear",
+      "asset": "pio_overhaul_pajamas_headwear",
+      "rect": [
+        126,
+        22,
+        878,
+        859
+      ],
+      "pivot": [
+        650,
+        430
+      ],
+      "z": 5
+    },
+    {
+      "id": "pillow",
+      "asset": "pio_overhaul_pajamas_pillow",
+      "rect": [
+        584,
+        592,
+        504,
+        500
+      ],
+      "pivot": [
+        820,
+        900
+      ],
+      "z": 6
+    },
+    {
+      "id": "wingLeft",
+      "asset": "pio_overhaul_pajamas_wingLeft",
+      "rect": [
+        433,
+        784,
+        326,
+        306
+      ],
+      "pivot": [
+        456,
+        844
+      ],
+      "z": 7
+    },
+    {
+      "id": "wingRight",
+      "asset": "pio_overhaul_pajamas_wingRight",
+      "rect": [
+        833,
+        779,
+        289,
+        249
+      ],
+      "pivot": [
+        1100,
+        860
+      ],
+      "z": 8
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_overhaul_pajamas_halfLeft",
+      "rect": [
+        496,
+        618,
+        134,
+        148
+      ],
+      "pivot": [
+        562.0000000000001,
+        689.0837696335078
+      ],
+      "z": 9
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_overhaul_pajamas_lidLeft",
+      "rect": [
+        510,
+        688,
+        104,
+        40
+      ],
+      "pivot": [
+        562.0000000000001,
+        689.0837696335078
+      ],
+      "z": 10
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_overhaul_pajamas_halfRight",
+      "rect": [
+        756,
+        555,
+        134,
+        148
+      ],
+      "pivot": [
+        822.0000000000001,
+        626.0837696335078
+      ],
+      "z": 11
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_overhaul_pajamas_lidRight",
+      "rect": [
+        770,
+        625,
+        104,
+        40
+      ],
+      "pivot": [
+        822.0000000000001,
+        626.0837696335078
+      ],
+      "z": 12
+    },
+    {
+      "id": "happyLeft",
+      "asset": "pio_overhaul_pajamas_happyLeft",
+      "rect": [
+        508,
+        668,
+        109,
+        53
+      ],
+      "pivot": [
+        562,
+        694
+      ],
+      "z": 3
+    },
+    {
+      "id": "happyRight",
+      "asset": "pio_overhaul_pajamas_happyRight",
+      "rect": [
+        768,
+        605,
+        109,
+        53
+      ],
+      "pivot": [
+        822,
+        631
+      ],
+      "z": 4
+    }
+  ]
+}

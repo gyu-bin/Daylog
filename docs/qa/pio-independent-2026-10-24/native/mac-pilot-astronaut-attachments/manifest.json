@@ -1,0 +1,275 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "7D94EA5E-1F06-4729-B419-64249D97702A.json",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-actual-native-observations_0_5C686281-F9EB-4C68-9216-BF6FE139B21C.json",
+        "timestamp" : 1792814977.616
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "F0CC071A-5CC5-4FE8-8EBA-D5C0759423DA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-dark-hold-negative-actual-presentation_0_919CE7E9-5D82-428F-A77B-814B170D5BD5.png",
+        "timestamp" : 1792814977.615
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "0969232A-01EF-4F84-A7DF-1071C56AB816.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-light-hold-negative-actual-presentation_0_AC46969B-9CC8-4D89-8C87-0088475279FB.png",
+        "timestamp" : 1792814977.6
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "147AB2FA-E31F-4E36-92ED-ACDC5AB7D8A4.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-dark-hold-negative-actual-presentation_0_99F6CB24-CFB7-45FD-8F4F-1F13AC45DA41.png",
+        "timestamp" : 1792814977.576
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "08DCE40E-00B3-46FF-9225-EC045C391AB9.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-light-hold-negative-actual-presentation_0_7A226968-2011-48CB-B1E9-3F2A2AEFFB84.png",
+        "timestamp" : 1792814977.572
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "387BDAEA-F441-4784-A25B-C087BA989812.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-dark-reopened-actual-presentation_0_384626B5-BEE1-4F28-AA63-0F06A754748E.png",
+        "timestamp" : 1792814975.069
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "C37B15FB-BA60-4B98-9E86-CE9C99DDBECA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-light-reopened-actual-presentation_0_22013999-881E-44C2-8BA2-8507054267EF.png",
+        "timestamp" : 1792814975.053
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "5507AD23-0BF6-4D22-AE4D-289FB9531FA1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-dark-reopened-actual-presentation_0_7A016E9B-FF11-4594-9D80-7A9F646031B1.png",
+        "timestamp" : 1792814975.029
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "E7FF23AF-C654-474A-BC2C-B73EE7D59F81.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-light-reopened-actual-presentation_0_54176D33-4609-498C-9BC1-EEFD599E49CB.png",
+        "timestamp" : 1792814975.025
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "ECB5D91F-3827-4D63-9103-D06CFB67D05D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-dark-closed-actual-presentation_0_49608FD6-0909-4115-AB8C-BAED28BB3E66.png",
+        "timestamp" : 1792814974.661
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "82F24F98-28AC-43E0-9CD7-5B14293ECBAF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-light-closed-actual-presentation_0_5D428298-9D9D-4461-99D6-EE8AE514A730.png",
+        "timestamp" : 1792814974.648
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "8AC53DBC-84D1-46C2-8588-9517CCE90315.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-dark-closed-actual-presentation_0_72F71459-8747-416D-900B-D8506C48CDBC.png",
+        "timestamp" : 1792814974.63
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "36D7A2FF-D8A1-4C31-ABBD-75663C791C99.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-light-closed-actual-presentation_0_5C28BC85-2DDB-412B-9AC2-6B625EF527D0.png",
+        "timestamp" : 1792814974.626
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "18786287-04B7-42AF-8CFA-E9618D25C1D2.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-dark-hold-positive-actual-presentation_0_4740739C-748B-40AC-9A66-B33CEBBA7987.png",
+        "timestamp" : 1792814974.358
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "01620CB0-17B6-4423-BF8A-6FF37FBFEAE2.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-light-hold-positive-actual-presentation_0_49490807-BD71-4235-B49A-C1B3EDF3C353.png",
+        "timestamp" : 1792814974.347
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "7AAF35BF-44E1-4F49-9536-8C0DF07CE160.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-dark-hold-positive-actual-presentation_0_F9E8902F-CEEB-4431-9668-30F3B7FB0A02.png",
+        "timestamp" : 1792814974.313
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "053EDC0D-A451-4D18-BB45-8A91B5E80A99.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-light-hold-positive-actual-presentation_0_207569D6-77F5-4E74-8E89-D22E3CBD744F.png",
+        "timestamp" : 1792814974.309
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "9AB0C298-0D3B-4EC0-B5C4-10E17152EF77.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-dark-open-actual-presentation_0_D31457B3-D29A-4877-94A0-3004D972AE1C.png",
+        "timestamp" : 1792814972.91
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "7B8E938C-8DD2-4364-AA16-D614166A9850.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-light-open-actual-presentation_0_7C76EFD8-1BF5-4D8C-8076-47B86EF5FFE7.png",
+        "timestamp" : 1792814972.899
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "1AADB304-6267-4093-93B5-0F8FBF212198.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-dark-open-actual-presentation_0_862B1CA8-0601-41C7-992F-DFB6DCC534D3.png",
+        "timestamp" : 1792814972.879
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "D8DBA56F-4908-44B6-BE43-E51B0A224B41.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-light-open-actual-presentation_0_27CDBD70-34AC-483D-9A51-042B81DA1A5E.png",
+        "timestamp" : 1792814972.877
+      }
+    ],
+    "testIdentifier" : "PioCloudCandidateReviewTests/testActualIndependentBlinkAndHeldPresentation()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioCloudCandidateReviewTests/testActualIndependentBlinkAndHeldPresentation"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "69BC4A93-FDA3-4E06-AAEC-92AEAB6B59C3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-trouble-dark-neutral-model_0_556F6852-FE7C-4E9B-AECE-779013DD4951.png",
+        "timestamp" : 1792814977.697
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "CEE50154-614F-4363-8346-B266FD0A0C0B.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-trouble-light-neutral-model_0_F1A36B95-BDC2-43A3-891E-45A3610DD29F.png",
+        "timestamp" : 1792814977.687
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "2D142DC6-768B-461B-BA6F-665F60E93D7E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-receiving-dark-neutral-model_0_E2C6A0D1-26D6-48AC-8E80-FA5FCC27F180.png",
+        "timestamp" : 1792814977.671
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "2BD9373A-021F-4218-9090-49D5911710CE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-220pt-receiving-light-neutral-model_0_5F324E0C-72B9-4710-94D6-29CEB349CF99.png",
+        "timestamp" : 1792814977.661
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "021117D2-70BF-4C24-A358-21820D06A369.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-trouble-dark-neutral-model_0_BBAC4129-E59D-4283-BFFF-278B8A0E8492.png",
+        "timestamp" : 1792814977.649
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "C22A9794-61E8-444C-BF3B-C822A5A57127.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-trouble-light-neutral-model_0_8FF15DA0-2030-4C6B-8598-8DAE606C8D3A.png",
+        "timestamp" : 1792814977.648
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "7198FC7C-D3EF-4189-AFE6-7526124B6FFB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-receiving-dark-neutral-model_0_2BDAC649-0168-46E6-B386-FE01C686B9D7.png",
+        "timestamp" : 1792814977.629
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "0ED9F5F4-1946-4ADD-B96B-D0364D715F15.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "astronaut-hands-v2-64pt-receiving-light-neutral-model_0_0304296B-464C-4A84-8C81-BB64D6B310D2.png",
+        "timestamp" : 1792814977.627
+      }
+    ],
+    "testIdentifier" : "PioCloudCandidateReviewTests/testCandidateRegistrationNeutralAndStop()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioCloudCandidateReviewTests/testCandidateRegistrationNeutralAndStop"
+  }
+]

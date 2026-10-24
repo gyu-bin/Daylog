@@ -1,0 +1,913 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme Daylog -configuration Debug -destination platform=macOS -derivedDataPath /tmp/PioStoreKit-20261023-mac -clonedSourcePackagesDirPath /tmp/PioOverhaul-v2-build/SourcePackages "-only-testing:DaylogTests/PioPurchaseTests" "-only-testing:DaylogTests/PioProductRegistryTests" "-only-testing:DaylogTests/PioWardrobeTests" "-only-testing:DaylogTests/PioAppearanceTests" "-only-testing:DaylogTests/PioAppIconTests" "-only-testing:DaylogTests/PioOverhaulRigTests" "-only-testing:DaylogTests/PioOutfitMotionTests" -resultBundlePath /tmp/PioStoreKit-Stabilization-unit-final.xcresult test CODE_SIGNING_ALLOWED=NO PRODUCT_BUNDLE_IDENTIFIER=com.daylog.verify
+
+Build settings from command line:
+    CODE_SIGNING_ALLOWED = NO
+    PRODUCT_BUNDLE_IDENTIFIER = com.daylog.verify
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/PioStoreKit-Stabilization-unit-final.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (3 targets)
+    Target 'DaylogTests' in project 'Daylog'
+        ➜ Explicit dependency on target 'Daylog' in project 'Daylog'
+    Target 'Daylog' in project 'Daylog'
+        ➜ Explicit dependency on target 'Sparkle-product' in project 'Sparkle'
+    Target 'Sparkle-product' in project 'Sparkle' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: e29634107fcafa939223dac966ddaef6
+Build description path: /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/XCBuildData/e29634107fcafa939223dac966ddaef6.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk /tmp/PioStoreKit-20261023-mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -o /tmp/PioStoreKit-20261023-mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+
+WriteAuxiliaryFile /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList
+
+WriteAuxiliaryFile /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftConstValuesFileList (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.LinkFileList (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.LinkFileList
+
+WriteAuxiliaryFile /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-OutputFileMap.json (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-OutputFileMap.json
+
+ProcessInfoPlistFile /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Info.plist /Users/mungyubin/Desktop/Coding/Daylog/Config/Daylog-Info.plist (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-infoPlistUtility /Users/mungyubin/Desktop/Coding/Daylog/Config/Daylog-Info.plist -producttype com.apple.product-type.application -genpkginfo /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PkgInfo -expandbuildsettings -platform macosx -additionalcontentfile /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist -scanforprivacyfile /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks/Sparkle.framework -o /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Info.plist
+
+SwiftDriver Daylog normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Daylog -Onone @/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-macos14.0 -g -module-cache-path /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/PioStoreKit-20261023-mac/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /tmp/PioStoreKit-20261023-mac/Build/Products/Debug -F /tmp/PioStoreKit-20261023-mac/Build/Products/Debug -emit-localized-strings -emit-localized-strings-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64 -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/PioStoreKit-20261023-mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache -output-file-map /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex -sdk-module-cache-path /tmp/PioStoreKit-20261023-mac/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-generated-files.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-own-target-headers.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-project-headers.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Products/Debug/include -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources-normal/arm64 -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/arm64 -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-Swift.h -working-directory /Users/mungyubin/Desktop/Coding/Daylog -experimental-emit-module-separately -disable-cmo
+
+SwiftCompile normal arm64 Compiling\ PioWardrobeSelection.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/PioWardrobeSelection.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/PioWardrobeSelection.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioWardrobeSelection.swift
+
+SwiftCompile normal arm64 Compiling\ PioWardrobe.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/PioWardrobe.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ Daylog (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling PioWardrobeSelection.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling PioWardrobe.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 Compiling\ RestartCard.swift,\ RoutimoriVacationScene.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RestartCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RoutimoriVacationScene.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RestartCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RestartCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RoutimoriVacationScene.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutimoriVacationScene.swift
+
+SwiftCompile normal arm64 Compiling\ Saessagi.swift,\ DevicePreferences.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/Saessagi.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DevicePreferences.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/Saessagi.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile Saessagi.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DevicePreferences.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DevicePreferences.swift
+
+SwiftCompile normal arm64 Compiling\ PioAppearanceCoordinator.swift,\ PioAppIconService.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/PioAppearanceCoordinator.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/PioAppIconService.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/PioAppearanceCoordinator.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioAppearanceCoordinator.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/PioAppIconService.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioAppIconService.swift
+
+SwiftCompile normal arm64 Compiling\ SaessagiGrowthCard.swift,\ VacationRestView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/SaessagiGrowthCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/VacationRestView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/SaessagiGrowthCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SaessagiGrowthCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/VacationRestView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationRestView.swift
+
+SwiftCompile normal arm64 Compiling\ WeeklyReviewCard.swift,\ FirstSyncView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/WeeklyReviewCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/FirstSyncView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/WeeklyReviewCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WeeklyReviewCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/FirstSyncView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile FirstSyncView.swift
+
+SwiftCompile normal arm64 Compiling\ RoutimoriSyncScene.swift,\ SettingsView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/RoutimoriSyncScene.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/SettingsView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/RoutimoriSyncScene.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutimoriSyncScene.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/SettingsView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SettingsView.swift
+
+SwiftCompile normal arm64 Compiling\ SplashView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Splash/SplashView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Splash/SplashView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SplashView.swift
+
+SwiftCompile normal arm64 Compiling\ RoutimoriSplashView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Splash/RoutimoriSplashView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Splash/RoutimoriSplashView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutimoriSplashView.swift
+
+SwiftCompile normal arm64 Compiling\ PioWardrobeView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Wardrobe/PioWardrobeView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Wardrobe/PioWardrobeView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioWardrobeView.swift
+
+SwiftCompile normal arm64 Compiling\ AppSection.swift,\ RootView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppSection.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/RootView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppSection.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppSection.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/RootView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RootView.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling PioAppearanceCoordinator.swift, PioAppIconService.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling RoutimoriSplashView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SplashView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling RestartCard.swift, RoutimoriVacationScene.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling Saessagi.swift, DevicePreferences.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling WeeklyReviewCard.swift, FirstSyncView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SaessagiGrowthCard.swift, VacationRestView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling AppSection.swift, RootView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling RoutimoriSyncScene.swift, SettingsView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling PioWardrobeView.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for Daylog (in target 'Daylog' from project 'Daylog')
+
+SwiftDriver\ Compilation\ Requirements Daylog normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Daylog -Onone @/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-macos14.0 -g -module-cache-path /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/PioStoreKit-20261023-mac/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /tmp/PioStoreKit-20261023-mac/Build/Products/Debug -F /tmp/PioStoreKit-20261023-mac/Build/Products/Debug -emit-localized-strings -emit-localized-strings-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64 -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/PioStoreKit-20261023-mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache -output-file-map /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex -sdk-module-cache-path /tmp/PioStoreKit-20261023-mac/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-generated-files.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-own-target-headers.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-project-headers.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Products/Debug/include -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources-normal/arm64 -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/arm64 -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-Swift.h -working-directory /Users/mungyubin/Desktop/Coding/Daylog -experimental-emit-module-separately -disable-cmo
+
+SwiftDriver\ Compilation Daylog normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Daylog -Onone @/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-macos14.0 -g -module-cache-path /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/PioStoreKit-20261023-mac/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /tmp/PioStoreKit-20261023-mac/Build/Products/Debug -F /tmp/PioStoreKit-20261023-mac/Build/Products/Debug -emit-localized-strings -emit-localized-strings-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64 -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/PioStoreKit-20261023-mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache -output-file-map /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex -sdk-module-cache-path /tmp/PioStoreKit-20261023-mac/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-generated-files.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-own-target-headers.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-project-headers.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Products/Debug/include -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources-normal/arm64 -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/arm64 -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-Swift.h -working-directory /Users/mungyubin/Desktop/Coding/Daylog -experimental-emit-module-separately -disable-cmo
+
+Copy /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.swiftmodule/arm64-apple-macos.swiftdoc /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftdoc (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftdoc /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.swiftmodule/arm64-apple-macos.swiftdoc
+
+Copy /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.swiftmodule/arm64-apple-macos.swiftmodule /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftmodule (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftmodule /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.swiftmodule/arm64-apple-macos.swiftmodule
+
+Copy /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.swiftmodule/arm64-apple-macos.abi.json /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.abi.json (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.abi.json /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.swiftmodule/arm64-apple-macos.abi.json
+
+Copy /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftsourceinfo (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftsourceinfo /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo
+
+SwiftDriver DaylogTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name DaylogTests -Onone @/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-macos14.0 -g -module-cache-path /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/PioStoreKit-20261023-mac/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /tmp/PioStoreKit-20261023-mac/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /tmp/PioStoreKit-20261023-mac/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/PioStoreKit-20261023-mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache -output-file-map /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex -sdk-module-cache-path /tmp/PioStoreKit-20261023-mac/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-generated-files.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-own-target-headers.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-project-headers.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Products/Debug/include -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources/arm64 -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-Swift.h -working-directory /Users/mungyubin/Desktop/Coding/Daylog -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib normal (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -L/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -F/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -F/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -filelist /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.LinkFileList -install_name @rpath/Daylog.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/../Frameworks -Xlinker -object_path_lto -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftmodule -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -framework Sparkle -o /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib
+
+ConstructStubExecutorLinkFileList /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-ExecutorLinkFileList-normal-arm64.txt (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    construct-stub-executor-link-file-list /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'Daylog' from project 'Daylog')
+
+Ld /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog normal (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -F/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/../Frameworks -rdynamic -Xlinker -no_deduplicate -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-ExecutorLinkFileList-normal-arm64.txt /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib -o /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog
+
+CopySwiftLibs /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Library/SystemExtensions --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Extensions --platform macosx --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+Ignoring --strip-bitcode because --sign was not passed
+
+ExtractAppIntentsMetadata (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name Daylog --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk --xcode-version 27A9275 --platform-family macOS --deployment-target 14.0 --bundle-identifier com.daylog.verify --output /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/Resources --target-triple arm64-apple-macos14.0 --binary-file /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog --dependency-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_dependency_info.dat --stringsdata-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList --metadata-file-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.DependencyMetadataFileList --static-metadata-file-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-23 20:23:13.281 appintentsmetadataprocessor[95922:820043] Starting appintentsmetadataprocessor export
+2026-10-23 20:23:13.286 appintentsmetadataprocessor[95922:820043] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+SwiftCompile normal arm64 Compiling\ GroupMigrationTests.swift,\ IncomingChangeTests.swift,\ LargeTextLayoutTests.swift,\ MealHistoryTests.swift,\ MigrationTests.swift,\ MobileUIConfigTests.swift,\ NotificationTests.swift,\ OnboardingNotificationTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/GroupMigrationTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/IncomingChangeTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/LargeTextLayoutTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/MealHistoryTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/MigrationTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/MobileUIConfigTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/NotificationTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/OnboardingNotificationTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/GroupMigrationTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile GroupMigrationTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/IncomingChangeTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile IncomingChangeTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/LargeTextLayoutTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile LargeTextLayoutTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/MealHistoryTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MealHistoryTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/MigrationTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MigrationTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/MobileUIConfigTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MobileUIConfigTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/NotificationTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile NotificationTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/OnboardingNotificationTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile OnboardingNotificationTests.swift
+
+SwiftCompile normal arm64 Compiling\ PeriodStatsTests.swift,\ PersistenceTests.swift,\ PioAppearanceTests.swift,\ PioAppIconTests.swift,\ PioLayeredRigTests.swift,\ PioOutfitMotionTests.swift,\ PioOverhaulNativeReviewTests.swift,\ PioOverhaulRigTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PeriodStatsTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PersistenceTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioAppearanceTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioAppIconTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioLayeredRigTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioOutfitMotionTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioOverhaulNativeReviewTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioOverhaulRigTests.swift (in target 'DaylogTests' from project 'Daylog')
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioOutfitMotionTests.swift:48:18: warning: weak variable 'weakRig' was never mutated; consider changing to 'let' constant [#VariableNeverMutated::WeakMutability]
+ 46 |         let baseline = PioOutfitMotionDiagnostics.snapshot
+ 47 |         var rig: PioOutfitMotionRig? = PioOutfitMotionRig()
+ 48 |         weak var weakRig = rig
+    |                  `- warning: weak variable 'weakRig' was never mutated; consider changing to 'let' constant [#VariableNeverMutated::WeakMutability]
+ 49 |         rig?.configure(outfit: .halloween, stage: 1, motion: .jump)
+ 50 |         rig?.setAnimating(true)
+
+[#VariableNeverMutated]: <https://docs.swift.org/compiler/documentation/diagnostics/variable-never-mutated>
+[#WeakMutability]: <https://docs.swift.org/compiler/documentation/diagnostics/weak-mutability>
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PeriodStatsTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PeriodStatsTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PersistenceTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PersistenceTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioAppearanceTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioAppearanceTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioAppIconTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioAppIconTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioLayeredRigTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioLayeredRigTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioOutfitMotionTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioOutfitMotionTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioOverhaulNativeReviewTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioOverhaulNativeReviewTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioOverhaulRigTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioOverhaulRigTests.swift
+
+SwiftCompile normal arm64 Compiling\ PioProductRegistryTests.swift,\ PioPurchaseTests.swift,\ PioWardrobeTests.swift,\ ProductUXTests.swift,\ QualityAuditTests.swift,\ RestartPromptTests.swift,\ RoutimoriSplashTests.swift,\ RoutimoriSyncTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioProductRegistryTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioPurchaseTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioWardrobeTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/ProductUXTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/QualityAuditTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RestartPromptTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutimoriSplashTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutimoriSyncTests.swift (in target 'DaylogTests' from project 'Daylog')
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioPurchaseTests.swift:512:18: warning: weak variable 'released' was never mutated; consider changing to 'let' constant [#VariableNeverMutated::WeakMutability]
+510 |         let client = FixturePioStoreClient()
+511 |         var sut: PioPurchaseManager? = manager(client)
+512 |         weak var released = sut
+    |                  `- warning: weak variable 'released' was never mutated; consider changing to 'let' constant [#VariableNeverMutated::WeakMutability]
+513 |         await sut?.start()
+514 |         client.updateContinuation?.yield(.verified(transaction(.cafe)))
+
+[#VariableNeverMutated]: <https://docs.swift.org/compiler/documentation/diagnostics/variable-never-mutated>
+[#WeakMutability]: <https://docs.swift.org/compiler/documentation/diagnostics/weak-mutability>
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioProductRegistryTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioProductRegistryTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioPurchaseTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioPurchaseTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/PioWardrobeTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioWardrobeTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/ProductUXTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile ProductUXTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/QualityAuditTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile QualityAuditTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RestartPromptTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RestartPromptTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutimoriSplashTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutimoriSplashTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutimoriSyncTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutimoriSyncTests.swift
+
+SwiftCompile normal arm64 Compiling\ AchievementTests.swift,\ AppearanceModeTests.swift,\ AppStoreTests.swift,\ CheckSyncTests.swift,\ CheckToggleTests.swift,\ ComebackNotificationTests.swift,\ PioGlobalReviewView.swift,\ PioStoreKitIntegrationTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/AchievementTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/AppearanceModeTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/AppStoreTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/CheckSyncTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/CheckToggleTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/ComebackNotificationTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioGlobalReviewView.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/AchievementTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AchievementTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/AppearanceModeTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppearanceModeTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/AppStoreTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppStoreTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/CheckSyncTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CheckSyncTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/CheckToggleTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CheckToggleTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/ComebackNotificationTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile ComebackNotificationTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioGlobalReviewView.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioGlobalReviewView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioStoreKitIntegrationTests.swift
+
+SwiftCompile normal arm64 Compiling\ PioStoreKitLedgerFixtureTests.swift,\ PioStoreKitProcessRelaunchTests.swift,\ PioStoreKitReviewTests.swift,\ PioStoreKitSDKContractTests.swift,\ CommunityTests.swift,\ CompanionTestSupport.swift,\ ConcurrentFieldEditTests.swift,\ DashboardCustomizationTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitLedgerFixtureTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitProcessRelaunchTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitReviewTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitSDKContractTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/CommunityTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/CompanionTestSupport.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/ConcurrentFieldEditTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/DashboardCustomizationTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitLedgerFixtureTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioStoreKitLedgerFixtureTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitProcessRelaunchTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioStoreKitProcessRelaunchTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitReviewTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioStoreKitReviewTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitSDKContractTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile PioStoreKitSDKContractTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/CommunityTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CommunityTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/CompanionTestSupport.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CompanionTestSupport.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/ConcurrentFieldEditTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile ConcurrentFieldEditTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/DashboardCustomizationTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DashboardCustomizationTests.swift
+
+SwiftCompile normal arm64 Compiling\ DataExportTests.swift,\ DayRecordTests.swift,\ DayTests.swift,\ DesignRefinementTests.swift,\ DevicePreferencesTests.swift,\ FirstSyncTests.swift,\ FixtureGenerator.swift,\ GroupColorTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/DataExportTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/DayRecordTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/DayTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/DesignRefinementTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/DevicePreferencesTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/FirstSyncTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/FixtureGenerator.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/GroupColorTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/DataExportTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DataExportTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/DayRecordTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DayRecordTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/DayTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DayTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/DesignRefinementTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DesignRefinementTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/DevicePreferencesTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DevicePreferencesTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/FirstSyncTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile FirstSyncTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/FixtureGenerator.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile FixtureGenerator.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/GroupColorTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile GroupColorTests.swift
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ DaylogTests (in target 'DaylogTests' from project 'Daylog')
+
+SwiftCompile normal arm64 (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+
+SwiftCompile normal arm64 Compiling\ VacationRoutineTests.swift,\ VacationSceneTests.swift,\ VacationTests.swift,\ VerificationSeed.swift,\ WeeklyGrowthTests.swift,\ WeeklyReviewTests.swift,\ WidgetAndMenuBarTests.swift,\ WidgetReliabilityTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/VacationRoutineTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/VacationSceneTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/VacationTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/VerificationSeed.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/WeeklyGrowthTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/WeeklyReviewTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/WidgetAndMenuBarTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/WidgetReliabilityTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/VacationRoutineTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationRoutineTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/VacationSceneTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationSceneTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/VacationTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/VerificationSeed.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VerificationSeed.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/WeeklyGrowthTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WeeklyGrowthTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/WeeklyReviewTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WeeklyReviewTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/WidgetAndMenuBarTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WidgetAndMenuBarTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/WidgetReliabilityTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WidgetReliabilityTests.swift
+
+SwiftCompile normal arm64 Compiling\ SaessagiTests.swift,\ SettingsPreviewTests.swift,\ SoftDeleteTests.swift,\ SplashTests.swift,\ StatsComparisonTests.swift,\ StatsTests.swift,\ StoreReseedTests.swift,\ SyncReconcilerTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SaessagiTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SettingsPreviewTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SoftDeleteTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SplashTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/StatsComparisonTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/StatsTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/StoreReseedTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SyncReconcilerTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SaessagiTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SaessagiTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SettingsPreviewTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SettingsPreviewTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SoftDeleteTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SoftDeleteTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SplashTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SplashTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/StatsComparisonTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StatsComparisonTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/StatsTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StatsTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/StoreReseedTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StoreReseedTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SyncReconcilerTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SyncReconcilerTests.swift
+
+SwiftCompile normal arm64 Compiling\ SyncSceneTests.swift,\ SyncTestSupport.swift,\ TemplateFileTests.swift,\ TemplateTests.swift,\ TestSupport.swift,\ TimeLabelTests.swift,\ UpdateConfigurationTests.swift,\ VacationRestTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SyncSceneTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SyncTestSupport.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/TemplateFileTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/TemplateTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/TestSupport.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/TimeLabelTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/UpdateConfigurationTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/VacationRestTests.swift (in target 'DaylogTests' from project 'Daylog')
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/TemplateTests.swift:232:22: warning: no calls to throwing functions occur within 'try' expression [#UnnecessaryEffectMarker]
+230 |         try env.log(monday.adding(days: 1), done: 2)
+231 |         let (store, _) = makeStore(env, today: monday.adding(days: 3))
+232 |         let before = try store.stats.trend.suffix(4).map { ($0.day, $0.done, $0.total) }.map { "\($0)" }
+    |                      `- warning: no calls to throwing functions occur within 'try' expression [#UnnecessaryEffectMarker]
+233 |         let pastChecks = try #require(try env.records.record(on: monday)).checkList.map(\.title)
+234 | 
+
+[#UnnecessaryEffectMarker]: <https://docs.swift.org/compiler/documentation/diagnostics/unnecessary-effect-marker>
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SyncSceneTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SyncSceneTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SyncTestSupport.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SyncTestSupport.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/TemplateFileTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TemplateFileTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/TemplateTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TemplateTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/TestSupport.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TestSupport.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/TimeLabelTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TimeLabelTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/UpdateConfigurationTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile UpdateConfigurationTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/VacationRestTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationRestTests.swift
+
+SwiftCompile normal arm64 Compiling\ RoutimoriVacationTests.swift,\ RoutineGroupTests.swift,\ RoutineManagementTests.swift,\ RoutineRevisionTests.swift,\ RoutineSkipTests.swift,\ RoutineSnapshotTests.swift,\ RoutineTransferTests.swift,\ SaessagiGrowthTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutimoriVacationTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutineGroupTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutineManagementTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutineRevisionTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutineSkipTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutineSnapshotTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutineTransferTests.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SaessagiGrowthTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutimoriVacationTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutimoriVacationTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutineGroupTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineGroupTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutineManagementTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineManagementTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutineRevisionTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineRevisionTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutineSkipTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineSkipTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutineSnapshotTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineSnapshotTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/RoutineTransferTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineTransferTests.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogTests/SaessagiGrowthTests.swift (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SaessagiGrowthTests.swift
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for DaylogTests (in target 'DaylogTests' from project 'Daylog')
+
+SwiftDriver\ Compilation\ Requirements DaylogTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name DaylogTests -Onone @/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-macos14.0 -g -module-cache-path /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/PioStoreKit-20261023-mac/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /tmp/PioStoreKit-20261023-mac/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /tmp/PioStoreKit-20261023-mac/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/PioStoreKit-20261023-mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache -output-file-map /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex -sdk-module-cache-path /tmp/PioStoreKit-20261023-mac/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-generated-files.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-own-target-headers.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-project-headers.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Products/Debug/include -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources/arm64 -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-Swift.h -working-directory /Users/mungyubin/Desktop/Coding/Daylog -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Compiling SyncSceneTests.swift, SyncTestSupport.swift, TemplateFileTests.swift, TemplateTests.swift, TestSupport.swift, TimeLabelTests.swift, UpdateConfigurationTests.swift, VacationRestTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+Copy /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/DaylogTests.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftsourceinfo (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftsourceinfo /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/DaylogTests.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo
+
+ProcessInfoPlistFile /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Info.plist /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/empty-DaylogTests.plist (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-infoPlistUtility /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/empty-DaylogTests.plist -producttype com.apple.product-type.bundle.unit-test -expandbuildsettings -platform macosx -o /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Info.plist
+
+Copy /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/DaylogTests.swiftmodule/arm64-apple-macos.swiftmodule /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftmodule (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftmodule /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/DaylogTests.swiftmodule/arm64-apple-macos.swiftmodule
+
+Copy /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/DaylogTests.swiftmodule/arm64-apple-macos.abi.json /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.abi.json (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.abi.json /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/DaylogTests.swiftmodule/arm64-apple-macos.abi.json
+
+SwiftDriverJobDiscovery normal arm64 Compiling DataExportTests.swift, DayRecordTests.swift, DayTests.swift, DesignRefinementTests.swift, DevicePreferencesTests.swift, FirstSyncTests.swift, FixtureGenerator.swift, GroupColorTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling PeriodStatsTests.swift, PersistenceTests.swift, PioAppearanceTests.swift, PioAppIconTests.swift, PioLayeredRigTests.swift, PioOutfitMotionTests.swift, PioOverhaulNativeReviewTests.swift, PioOverhaulRigTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling PioStoreKitLedgerFixtureTests.swift, PioStoreKitProcessRelaunchTests.swift, PioStoreKitReviewTests.swift, PioStoreKitSDKContractTests.swift, CommunityTests.swift, CompanionTestSupport.swift, ConcurrentFieldEditTests.swift, DashboardCustomizationTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling AchievementTests.swift, AppearanceModeTests.swift, AppStoreTests.swift, CheckSyncTests.swift, CheckToggleTests.swift, ComebackNotificationTests.swift, PioGlobalReviewView.swift, PioStoreKitIntegrationTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling VacationRoutineTests.swift, VacationSceneTests.swift, VacationTests.swift, VerificationSeed.swift, WeeklyGrowthTests.swift, WeeklyReviewTests.swift, WidgetAndMenuBarTests.swift, WidgetReliabilityTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling PioProductRegistryTests.swift, PioPurchaseTests.swift, PioWardrobeTests.swift, ProductUXTests.swift, QualityAuditTests.swift, RestartPromptTests.swift, RoutimoriSplashTests.swift, RoutimoriSyncTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SaessagiTests.swift, SettingsPreviewTests.swift, SoftDeleteTests.swift, SplashTests.swift, StatsComparisonTests.swift, StatsTests.swift, StoreReseedTests.swift, SyncReconcilerTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling GroupMigrationTests.swift, IncomingChangeTests.swift, LargeTextLayoutTests.swift, MealHistoryTests.swift, MigrationTests.swift, MobileUIConfigTests.swift, NotificationTests.swift, OnboardingNotificationTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling RoutimoriVacationTests.swift, RoutineGroupTests.swift, RoutineManagementTests.swift, RoutineRevisionTests.swift, RoutineSkipTests.swift, RoutineSnapshotTests.swift, RoutineTransferTests.swift, SaessagiGrowthTests.swift (in target 'DaylogTests' from project 'Daylog')
+
+SwiftDriver\ Compilation DaylogTests normal arm64 com.apple.xcode.tools.swift.compiler (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name DaylogTests -Onone @/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.SwiftFileList -DDEBUG -plugin-path /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-macos14.0 -g -module-cache-path /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/PioStoreKit-20261023-mac/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /tmp/PioStoreKit-20261023-mac/Build/Products/Debug -Isystem /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F /tmp/PioStoreKit-20261023-mac/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/PioStoreKit-20261023-mac/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache -output-file-map /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex -sdk-module-cache-path /tmp/PioStoreKit-20261023-mac/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/PioStoreKit-20261023-mac/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-generated-files.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-own-target-headers.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests-project-headers.hmap -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Products/Debug/include -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources-normal/arm64 -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources/arm64 -Xcc -I/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests-Swift.h -working-directory /Users/mungyubin/Desktop/Coding/Daylog -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/MacOS/DaylogTests normal (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -bundle -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -L/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -L/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib -F/tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -F/tmp/PioStoreKit-20261023-mac/Build/Products/Debug -iframework /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -filelist /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.LinkFileList -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @loader_path/../Frameworks -Xlinker -rpath -Xlinker @executable_path/../Frameworks -bundle_loader /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog -Xlinker -object_path_lto -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.swiftmodule -Xlinker -needed_framework -Xlinker XCTest -framework XCTest -Xlinker -needed-lXCTestSwiftSupport -lXCTestSwiftSupport /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib -o /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/MacOS/DaylogTests
+
+ExtractAppIntentsMetadata (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name DaylogTests --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk --xcode-version 27A9275 --platform-family macOS --deployment-target 14.0 --bundle-identifier com.daylog.verify --output /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Resources --target-triple arm64-apple-macos14.0 --binary-file /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/MacOS/DaylogTests --dependency-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests_dependency_info.dat --stringsdata-file /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.SwiftFileList --metadata-file-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.DependencyMetadataFileList --static-metadata-file-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/DaylogTests.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/Objects-normal/arm64/DaylogTests.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-23 20:24:07.809 appintentsmetadataprocessor[96374:824406] Starting appintentsmetadataprocessor export
+2026-10-23 20:24:07.815 appintentsmetadataprocessor[96374:824406] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+CopySwiftLibs /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest (in target 'DaylogTests' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-swiftStdLibTool --copy --verbose --scan-executable /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/MacOS/DaylogTests --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Frameworks --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/PlugIns --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Library/SystemExtensions --scan-folder /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Extensions --platform macosx --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app/Contents/PlugIns/DaylogTests.xctest/Contents/Frameworks --strip-bitcode --scan-executable /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libXCTestSwiftSupport.dylib --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/Daylog.build/Debug/DaylogTests.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+Ignoring --strip-bitcode because --sign was not passed
+
+Validate /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-validationUtility /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app -no-validate-extension -infoplist-subpath Contents/Info.plist
+
+RegisterWithLaunchServices /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-lsregisterurl --record-path /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/XCBuildData/registered-launchservices.txt -- /System/Library/Frameworks/CoreServices.framework/Versions/Current/Frameworks/LaunchServices.framework/Versions/Current/Support/lsregister -f -R -trusted /tmp/PioStoreKit-20261023-mac/Build/Products/Debug/Daylog.app
+
+PruneExplicitPrecompiledModules /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/PioStoreKit-20261023-mac/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/PioStoreKit-20261023-mac/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+2026-10-23 20:24:09.961978+0900 Daylog[96381:824637] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 20:24:09.963660+0900 Daylog[96381:824706] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 20:24:09.963677+0900 Daylog[96381:824706] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 20:24:09.962839+0900 Daylog[96381:824637] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 20:24:09.965527+0900 Daylog[96381:824696] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 20:24:09.965581+0900 Daylog[96381:824696] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 20:24:09.967569+0900 Daylog[96381:824696] [Connection] Will NOT re-try to establish the connection
+2026-10-23 20:24:09.967689+0900 Daylog[96381:824706] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 20:24:09.967729+0900 Daylog[96381:824706] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-23 20:24:10.140797+0900 Daylog[96381:824532] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-23 20:24:11.135453+0900 Daylog[96381:824706] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-23 20:24:12.117.
+Test Suite 'DaylogTests.xctest' started at 2026-10-23 20:24:12.117.
+Test Suite 'DaylogTests.xctest' passed at 2026-10-23 20:24:12.118.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 20:24:12.118.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite PioWardrobeTests started.
+◇ Suite PioPurchaseTests started.
+◇ Suite PioAppearanceTests started.
+◇ Suite PioOverhaulRigTests started.
+◇ Suite PioOutfitMotionTests started.
+◇ Test invalidOrUnownedStoredSelectionsFallBackSafely() started.
+◇ Suite PioAppIconTests started.
+◇ Test failedDurableWriteRejectsEquipAndPreservesPreviousPreference() started.
+◇ Test outfitTestingPreferencesAreSeparateAndSurviveEntitlementRepair() started.
+◇ Suite PioProductRegistryTests started.
+◇ Test stagePreviewAndLevelBoundariesNeverClearAnOwnedOutfit() started.
+◇ Test mockOwnershipPersistsWhileOutfitAndIconStayIndependent() started.
+◇ Test rejectedUnownedEquipNeverTouchesDurableOrLegacyPreferences() started.
+◇ Test unavailableShopNeverGrantsPaidWearingAndPreservesPreferences() started.
+◇ Test catalogHasFourteenUniqueHonestEntries() started.
+◇ Test everyCatalogArtworkLoadsFromTheAppBundleAtFullResolution() started.
+◇ Test unknownMockIDsCannotBecomeOwnedAndResetRepairsOnlyUnownedSelections() started.
+◇ Test outfitTestingRequiresExactExplicitFlag() started.
+◇ Test productionEntitlementBoundaryIsUnavailable() started.
+◇ Test corruptOrUnsupportedSelectionFallsBackWithoutGrantingOwnership() started.
+◇ Test basicIsAlwaysFreeAndUnownedSelectionsAreRejected() started.
+◇ Test outfitTestingAllowsEveryCostumeWithoutOwnershipOrIcons() started.
+◇ Test allFourteenCatalogEntriesResolveTheirApprovedArtwork() started.
+◇ Test growthSourceIsLiveAndAllScreenReadsUseIt() started.
+◇ Test appearanceReadsTrackWardrobeAndLiveGrowthChanges() started.
+◇ Test standingOutfitsAreNeverCompositedAsRecliningOrSleeping() started.
+◇ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() started.
+◇ Test previewStagePersistsWithoutChangingOwnershipOrOutfit() started.
+◇ Test testingModeAuthorizesAllCostumesWithoutVerifiedAccess() started.
+◇ Test fallbackMotionsNeverClaimIndependentWingsOrWalking() started.
+◇ Test durableSelectionProfilesCannotOverwriteOneAnother() started.
+◇ Test durableLastSelectionSurvivesReopenButRequiresFreshVerifiedOwnership() started.
+◇ Test previewsNeverAuthorizeEquipOrChangeGlobalAppearance() started.
+◇ Test legacyMockOwnershipCannotAuthorizeGlobalAppearance() started.
+◇ Test stageBoundariesMatchApprovedGrowthWithoutChangingCostume() started.
+◇ Test approvedLayeredPilotRemainsExplicitAndDoesNotInventGrowthStages() started.
+◇ Test unknownPreferencesNeverGrantPaidAppearanceOrEraseSelection() started.
+◇ Test missingSourceArtworkAndAbsentWidgetSurfacesAreExplicit() started.
+◇ Test heldPropsShareTheirHandJointAndAnimation() started.
+◇ Test twoHandedPropsStayWithinValidatedRotation() started.
+◇ Test motionChangesDoNotRebuildLayersAndStoppingRemovesAllTracks() started.
+◇ Test visibilityPauseAndReduceMotionRemoveAllTracksIncludingTheBasicWing() started.
+◇ Test jumpBounceAndGreetingHaveDifferentVisibleTrajectories() started.
+◇ Test decodedArtworkIsReusedAndUnsupportedWaveFallsBackHonestly() started.
+◇ Test activeTelemetrySurvivesResetAndDoesNotRetainDestroyedRigs() started.
+◇ Test outfitAndAppIconStayIndependentAfterRefreshAndReopen() started.
+◇ Test eyeStatesAreExclusiveAndStayBehindOpticalLayers() started.
+◇ Test allFourteenOutfitsResolveWithoutReplacingOriginalPilots() started.
+◇ Test landingRecoversWithoutStartingAnotherJump() started.
+◇ Test capabilitiesNeverPretendCostumesHaveIndependentPartsOrGrowthArt() started.
+◇ Test cancellationIsSilentAndPendingNeverSaysOwned() started.
+◇ Test unchangedUpdatesAndPartialStageChangesDoNotReconfigureOrDecode() started.
+◇ Test missingPremiumIconFilesCannotBeSelected() started.
+◇ Test stalePurchaseResultForPreviouslyRevokedIDNeverReportsPurchased() started.
+◇ Test disabledGateNeverTouchesStoreOrImportsMocks() started.
+◇ Test duplicateTapsAndRestoreDuringPaymentAreRejected() started.
+◇ Test unverifiedSnapshotCannotGrantOrReportSuccessfulRestore() started.
+◇ Test confirmedAbsenceRevokesAndPreservesOtherPreferences() started.
+◇ Test transactionUpdatesDeliverPendingPurchaseAndRefund() started.
+◇ Test concurrentFinishCallersWaitForOneAcknowledgementAndCleanUp() started.
+◇ Test restoreIsExplicitHandlesEmptySuccessAndCancellation() started.
+◇ Test unconfirmedOrUnknownCatalogConfigurationStaysDisabled() started.
+◇ Test environmentPoliciesNeverMixLocalAndAppleTransactions() started.
+◇ Test purchaseErrorsClearBusyStateAndCanRetry() started.
+◇ Test refreshFailureRetainsPreviouslyVerifiedOwnership() started.
+◇ Test stopWaitsForAnAlreadyDeliveredVerifiedTransactionToFinish() started.
+◇ Test productFailureCanBeRetried() started.
+◇ Test revokedSnapshotCannotBeUndoneByDelayedVerifiedUpdate() started.
+◇ Test restoreJoiningRefreshWaitsForStableSnapshotAfterUpdate() started.
+◇ Test reopenWaitsForVerifiedLedgerAndNeverTrustsMockDefaults() started.
+◇ Test localTestingPreferencesNeverChangeProductionSelections() started.
+◇ Test publicNestedCancellationIsRecognizedWithoutPrivateServerCodeMapping() started.
+◇ Test managerLifetimeDoesNotRetainOldTransactionListener() started.
+◇ Test productsUseLocalizedPricesAndMissingProductsCannotBePurchased() started.
+◇ Test lateRefundOfOldTransactionPreservesRepurchasedOutfitAndPreference() started.
+◇ Test registryMatchesApprovedCatalogAndOnlyNonBasicProducts() started.
+◇ Test explicitStopIsIdempotentAndManagerCanRestartItsListener() started.
+◇ Test successfulPurchaseGrantsAndFinishesOnlyVerifiedTransaction() started.
+◇ Test mismatchedOrRevokedPurchaseResultNeverUnlocks() started.
+◇ Test everyPaidOutfitMapsOnceAndBasicIsNotAProduct() started.
+◇ Test artworkAndPreferenceKeysRemainIndependentOfRegisteredProductNames() started.
+◇ Test cancellationPendingAndVerificationFailureNeverUnlock() started.
+◇ Test purchaseRevokedWhileFinishingCannotReportSuccess() started.
+◇ Test restoreRequiresPostSyncSnapshotEvenWithoutTransactionUpdate() started.
+✔ Test productionEntitlementBoundaryIsUnavailable() passed after 0.023 seconds.
+✔ Test rejectedUnownedEquipNeverTouchesDurableOrLegacyPreferences() passed after 0.023 seconds.
+✔ Test artworkAndPreferenceKeysRemainIndependentOfRegisteredProductNames() passed after 0.001 seconds.
+✔ Test everyPaidOutfitMapsOnceAndBasicIsNotAProduct() passed after 0.001 seconds.
+✔ Suite PioProductRegistryTests passed after 0.030 seconds.
+✔ Test corruptOrUnsupportedSelectionFallsBackWithoutGrantingOwnership() passed after 0.025 seconds.
+✔ Test durableSelectionProfilesCannotOverwriteOneAnother() passed after 0.033 seconds.
+✔ Test previewsNeverAuthorizeEquipOrChangeGlobalAppearance() passed after 0.021 seconds.
+✔ Test missingSourceArtworkAndAbsentWidgetSurfacesAreExplicit() passed after 0.023 seconds.
+✔ Test disabledGateNeverTouchesStoreOrImportsMocks() passed after 0.022 seconds.
+✔ Test legacyMockOwnershipCannotAuthorizeGlobalAppearance() passed after 0.040 seconds.
+✔ Test productFailureCanBeRetried() passed after 0.022 seconds.
+✔ Test productsUseLocalizedPricesAndMissingProductsCannotBePurchased() passed after 0.022 seconds.
+✔ Test purchaseErrorsClearBusyStateAndCanRetry() passed after 0.023 seconds.
+✔ Test successfulPurchaseGrantsAndFinishesOnlyVerifiedTransaction() passed after 0.024 seconds.
+✔ Test mismatchedOrRevokedPurchaseResultNeverUnlocks() passed after 0.024 seconds.
+✔ Test publicNestedCancellationIsRecognizedWithoutPrivateServerCodeMapping() passed after 0.025 seconds.
+✔ Test cancellationPendingAndVerificationFailureNeverUnlock() passed after 0.025 seconds.
+✔ Test failedDurableWriteRejectsEquipAndPreservesPreviousPreference() passed after 0.055 seconds.
+✔ Test growthSourceIsLiveAndAllScreenReadsUseIt() passed after 0.049 seconds.
+✔ Test standingOutfitsAreNeverCompositedAsRecliningOrSleeping() passed after 0.067 seconds.
+✔ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() passed after 0.068 seconds.
+✔ Test invalidOrUnownedStoredSelectionsFallBackSafely() passed after 0.078 seconds.
+✔ Test fallbackMotionsNeverClaimIndependentWingsOrWalking() passed after 0.074 seconds.
+✔ Test testingModeAuthorizesAllCostumesWithoutVerifiedAccess() passed after 0.074 seconds.
+✔ Test appearanceReadsTrackWardrobeAndLiveGrowthChanges() passed after 0.075 seconds.
+✔ Test allFourteenCatalogEntriesResolveTheirApprovedArtwork() passed after 0.080 seconds.
+✔ Test stageBoundariesMatchApprovedGrowthWithoutChangingCostume() passed after 0.120 seconds.
+✔ Test stagePreviewAndLevelBoundariesNeverClearAnOwnedOutfit() passed after 0.128 seconds.
+✔ Test outfitTestingPreferencesAreSeparateAndSurviveEntitlementRepair() passed after 0.134 seconds.
+✔ Test outfitTestingAllowsEveryCostumeWithoutOwnershipOrIcons() passed after 0.128 seconds.
+✔ Test everyCatalogArtworkLoadsFromTheAppBundleAtFullResolution() passed after 0.128 seconds.
+✔ Test mockOwnershipPersistsWhileOutfitAndIconStayIndependent() passed after 0.128 seconds.
+✔ Test catalogHasFourteenUniqueHonestEntries() passed after 0.134 seconds.
+✔ Test unknownMockIDsCannotBecomeOwnedAndResetRepairsOnlyUnownedSelections() passed after 0.128 seconds.
+✔ Test unavailableShopNeverGrantsPaidWearingAndPreservesPreferences() passed after 0.128 seconds.
+✔ Test previewStagePersistsWithoutChangingOwnershipOrOutfit() passed after 0.127 seconds.
+✔ Test localTestingPreferencesNeverChangeProductionSelections() passed after 0.127 seconds.
+✔ Test stalePurchaseResultForPreviouslyRevokedIDNeverReportsPurchased() passed after 0.133 seconds.
+✔ Test approvedLayeredPilotRemainsExplicitAndDoesNotInventGrowthStages() passed after 0.135 seconds.
+✔ Test outfitTestingRequiresExactExplicitFlag() passed after 0.151 seconds.
+✔ Test basicIsAlwaysFreeAndUnownedSelectionsAreRejected() passed after 0.157 seconds.
+✔ Test heldPropsShareTheirHandJointAndAnimation() passed after 0.141 seconds.
+✔ Test twoHandedPropsStayWithinValidatedRotation() passed after 0.141 seconds.
+✔ Test jumpBounceAndGreetingHaveDifferentVisibleTrajectories() passed after 0.141 seconds.
+✔ Test unchangedUpdatesAndPartialStageChangesDoNotReconfigureOrDecode() passed after 0.140 seconds.
+✔ Test landingRecoversWithoutStartingAnotherJump() passed after 0.140 seconds.
+✔ Test decodedArtworkIsReusedAndUnsupportedWaveFallsBackHonestly() passed after 0.141 seconds.
+✔ Test motionChangesDoNotRebuildLayersAndStoppingRemovesAllTracks() passed after 0.141 seconds.
+✔ Test activeTelemetrySurvivesResetAndDoesNotRetainDestroyedRigs() passed after 0.140 seconds.
+✔ Test capabilitiesNeverPretendCostumesHaveIndependentPartsOrGrowthArt() passed after 0.140 seconds.
+✔ Test eyeStatesAreExclusiveAndStayBehindOpticalLayers() passed after 0.140 seconds.
+✔ Test cancellationIsSilentAndPendingNeverSaysOwned() passed after 0.140 seconds.
+✔ Test visibilityPauseAndReduceMotionRemoveAllTracksIncludingTheBasicWing() passed after 0.141 seconds.
+✔ Test missingPremiumIconFilesCannotBeSelected() passed after 0.140 seconds.
+✔ Suite PioOutfitMotionTests passed after 0.163 seconds.
+✔ Suite PioAppIconTests passed after 0.163 seconds.
+✔ Test allFourteenOutfitsResolveWithoutReplacingOriginalPilots() passed after 0.142 seconds.
+✔ Test unconfirmedOrUnknownCatalogConfigurationStaysDisabled() passed after 0.136 seconds.
+✔ Test environmentPoliciesNeverMixLocalAndAppleTransactions() passed after 0.136 seconds.
+✔ Test duplicateTapsAndRestoreDuringPaymentAreRejected() passed after 0.142 seconds.
+✔ Test registryMatchesApprovedCatalogAndOnlyNonBasicProducts() passed after 0.136 seconds.
+✔ Test durableLastSelectionSurvivesReopenButRequiresFreshVerifiedOwnership() passed after 0.158 seconds.
+✔ Test unverifiedSnapshotCannotGrantOrReportSuccessfulRestore() passed after 0.142 seconds.
+✔ Test refreshFailureRetainsPreviouslyVerifiedOwnership() passed after 0.136 seconds.
+✔ Test revokedSnapshotCannotBeUndoneByDelayedVerifiedUpdate() passed after 0.136 seconds.
+✔ Test unknownPreferencesNeverGrantPaidAppearanceOrEraseSelection() passed after 0.143 seconds.
+✔ Suite PioWardrobeTests passed after 0.165 seconds.
+✔ Test reopenWaitsForVerifiedLedgerAndNeverTrustsMockDefaults() passed after 0.137 seconds.
+✔ Test managerLifetimeDoesNotRetainOldTransactionListener() passed after 0.137 seconds.
+✔ Test outfitAndAppIconStayIndependentAfterRefreshAndReopen() passed after 0.143 seconds.
+✔ Test confirmedAbsenceRevokesAndPreservesOtherPreferences() passed after 0.138 seconds.
+✔ Suite PioOverhaulRigTests passed after 0.166 seconds.
+✔ Test restoreIsExplicitHandlesEmptySuccessAndCancellation() passed after 0.138 seconds.
+✔ Suite PioAppearanceTests passed after 0.166 seconds.
+✔ Test lateRefundOfOldTransactionPreservesRepurchasedOutfitAndPreference() passed after 0.138 seconds.
+✔ Test transactionUpdatesDeliverPendingPurchaseAndRefund() passed after 0.139 seconds.
+✔ Test explicitStopIsIdempotentAndManagerCanRestartItsListener() passed after 0.138 seconds.
+✔ Test concurrentFinishCallersWaitForOneAcknowledgementAndCleanUp() passed after 0.139 seconds.
+✔ Test restoreJoiningRefreshWaitsForStableSnapshotAfterUpdate() passed after 0.138 seconds.
+✔ Test purchaseRevokedWhileFinishingCannotReportSuccess() passed after 0.138 seconds.
+✔ Test restoreRequiresPostSyncSnapshotEvenWithoutTransactionUpdate() passed after 0.138 seconds.
+✔ Test stopWaitsForAnAlreadyDeliveredVerifiedTransactionToFinish() passed after 0.144 seconds.
+✔ Suite PioPurchaseTests passed after 0.167 seconds.
+✔ Test run with 77 tests in 7 suites passed after 0.169 seconds.
+2026-10-23 20:24:12.600 xcodebuild[95458:817254] [MT] IDETestOperationsObserverDebug: 4.320 elapsed -- Testing started completed.
+2026-10-23 20:24:12.600 xcodebuild[95458:817254] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 20:24:12.600 xcodebuild[95458:817254] [MT] IDETestOperationsObserverDebug: 4.320 sec, +4.320 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioStoreKit-Stabilization-unit-final.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started

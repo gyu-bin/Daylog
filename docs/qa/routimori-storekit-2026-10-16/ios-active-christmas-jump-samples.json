@@ -1,0 +1,123 @@
+{
+  "context": "Simulator iOS27; native scene active; Christmas220 jump; actual ReduceMotion off; DeviceHub native recording active; QA underlying dashboard present; not controlled baseline",
+  "samples": [
+    {
+      "t": 1792137011.225898,
+      "pid": 77001,
+      "cpu_time": "0:09.74",
+      "recent_cpu_percent": 0.1,
+      "rss_kib": 405008
+    },
+    {
+      "t": 1792137012.240252,
+      "pid": 77001,
+      "cpu_time": "0:09.75",
+      "recent_cpu_percent": 0.1,
+      "rss_kib": 405040
+    },
+    {
+      "t": 1792137013.253441,
+      "pid": 77001,
+      "cpu_time": "0:09.75",
+      "recent_cpu_percent": 0.0,
+      "rss_kib": 405040
+    },
+    {
+      "t": 1792137014.265901,
+      "pid": 77001,
+      "cpu_time": "0:09.75",
+      "recent_cpu_percent": 0.0,
+      "rss_kib": 405040
+    },
+    {
+      "t": 1792137015.2777019,
+      "pid": 77001,
+      "cpu_time": "0:09.75",
+      "recent_cpu_percent": 0.0,
+      "rss_kib": 405040
+    },
+    {
+      "t": 1792137016.288645,
+      "pid": 77001,
+      "cpu_time": "0:09.75",
+      "recent_cpu_percent": 0.0,
+      "rss_kib": 404384
+    },
+    {
+      "t": 1792137017.298445,
+      "pid": 77001,
+      "cpu_time": "0:09.76",
+      "recent_cpu_percent": 0.0,
+      "rss_kib": 404384
+    },
+    {
+      "t": 1792137018.3087602,
+      "pid": 77001,
+      "cpu_time": "0:09.76",
+      "recent_cpu_percent": 0.0,
+      "rss_kib": 404384
+    },
+    {
+      "t": 1792137019.321388,
+      "pid": 77001,
+      "cpu_time": "0:09.76",
+      "recent_cpu_percent": 0.0,
+      "rss_kib": 404384
+    },
+    {
+      "t": 1792137020.3328938,
+      "pid": 77001,
+      "cpu_time": "0:09.76",
+      "recent_cpu_percent": 0.0,
+      "rss_kib": 404352
+    },
+    {
+      "t": 1792137021.3395379,
+      "pid": 77001,
+      "cpu_time": "0:09.77",
+      "recent_cpu_percent": 0.0,
+      "rss_kib": 404352
+    },
+    {
+      "t": 1792137022.350827,
+      "pid": 77001,
+      "cpu_time": "0:09.77",
+      "recent_cpu_percent": 0.1,
+      "rss_kib": 404352
+    },
+    {
+      "t": 1792137023.362287,
+      "pid": 77001,
+      "cpu_time": "0:09.77",
+      "recent_cpu_percent": 0.0,
+      "rss_kib": 404352
+    },
+    {
+      "t": 1792137024.376493,
+      "pid": 77001,
+      "cpu_time": "0:09.77",
+      "recent_cpu_percent": 0.0,
+      "rss_kib": 404352
+    },
+    {
+      "t": 1792137025.390656,
+      "pid": 77001,
+      "cpu_time": "0:09.77",
+      "recent_cpu_percent": 0.0,
+      "rss_kib": 404352
+    },
+    {
+      "t": 1792137026.400939,
+      "pid": 77001,
+      "cpu_time": "0:09.87",
+      "recent_cpu_percent": 23.7,
+      "rss_kib": 407376
+    }
+  ],
+  "observation_summary": {
+    "elapsed_seconds": 15.17504096031189,
+    "cpu_percent_one_core": 0.8566698458343215,
+    "rss_min_kib": 404352,
+    "rss_max_kib": 407376
+  }
+}

@@ -1,0 +1,52 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioCharacterFinalMain.xctestrun -destination "platform=iOS Simulator,id=18A1DFA8-796C-4403-9CC0-C02FD790F40A" -parallel-testing-enabled NO -resultBundlePath /tmp/PioCharacterFinal-iPad-recheck-20261024.xcresult "-only-testing:DaylogStoreKitTests/PioCharacterDeviceLayoutTests"
+
+Writing result bundle at path:
+	/tmp/PioCharacterFinal-iPad-recheck-20261024.xcresult
+
+2026-10-24 16:53:44.030 xcodebuild[30472:2531741] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:54:19.828687+0900 Daylog[30721:2534438] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 16:54:20.702240+0900 Daylog[30721:2534438] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+Test Suite 'Selected tests' started at 2026-10-24 16:54:20.957.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 16:54:20.958.
+Test Suite 'PioCharacterDeviceLayoutTests' started at 2026-10-24 16:54:20.958.
+Test Case '-[DaylogStoreKitTests.PioCharacterDeviceLayoutTests testIPadActualPortraitLandscapeAndReturn]' started.
+IOSurfaceClientSetSurfaceNotify failed e00002c7
+2026-10-24 16:54:22.897096+0900 Daylog[30721:2534438] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x102f99900>.
+2026-10-24 16:54:22.905624+0900 Daylog[30721:2534438] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x102f99400>.
+2026-10-24 16:54:22.913329+0900 Daylog[30721:2534438] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x102f99e00>.
+2026-10-24 16:54:22.914553+0900 Daylog[30721:2534438] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x102f9a300>.
+2026-10-24 16:54:22.915076+0900 Daylog[30721:2534438] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x102f9a800>.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterDeviceLayoutTests.swift:60: error: -[DaylogStoreKitTests.PioCharacterDeviceLayoutTests testIPadActualPortraitLandscapeAndReturn] : failed - iPad scene must actually change orientation
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterDeviceLayoutTests.swift:61: error: -[DaylogStoreKitTests.PioCharacterDeviceLayoutTests testIPadActualPortraitLandscapeAndReturn] : failed: caught error: "Error Domain=PioCharacterDeviceLayout Code=1 "iPad scene must actually change orientation" UserInfo={NSLocalizedDescription=iPad scene must actually change orientation}"
+Test Case '-[DaylogStoreKitTests.PioCharacterDeviceLayoutTests testIPadActualPortraitLandscapeAndReturn]' failed (10.142 seconds).
+Test Case '-[DaylogStoreKitTests.PioCharacterDeviceLayoutTests testLargeTextScreensCanScrollToTheirContentEnd]' started.
+Test Case '-[DaylogStoreKitTests.PioCharacterDeviceLayoutTests testLargeTextScreensCanScrollToTheirContentEnd]' passed (3.508 seconds).
+Test Suite 'PioCharacterDeviceLayoutTests' failed at 2026-10-24 16:54:34.610.
+	 Executed 2 tests, with 2 failures (1 unexpected) in 13.650 (13.652) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-24 16:54:34.610.
+	 Executed 2 tests, with 2 failures (1 unexpected) in 13.650 (13.653) seconds
+Test Suite 'Selected tests' failed at 2026-10-24 16:54:34.611.
+	 Executed 2 tests, with 2 failures (1 unexpected) in 13.650 (13.653) seconds
+2026-10-24 16:54:34.628722+0900 Daylog[30721:2534438] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x102f9a800>.
+2026-10-24 16:54:34.634732+0900 Daylog[30721:2534438] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x102f98a00>.
+2026-10-24 16:54:34.635695+0900 Daylog[30721:2534438] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x102f99e00>.
+2026-10-24 16:54:34.636425+0900 Daylog[30721:2534438] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x102f99400>.
+2026-10-24 16:54:34.637126+0900 Daylog[30721:2534438] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x102f98f00>.
+2026-10-24 16:54:34.692 xcodebuild[30472:2531741] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:54:34.693 xcodebuild[30472:2531741] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:54:34.694 xcodebuild[30472:2531741] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:55:07.599 xcodebuild[30472:2531741] [MT] IDETestOperationsObserverDebug: 88.113 elapsed -- Testing started completed.
+2026-10-24 16:55:07.599 xcodebuild[30472:2531741] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 16:55:07.599 xcodebuild[30472:2531741] [MT] IDETestOperationsObserverDebug: 88.113 sec, +88.113 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCharacterFinal-iPad-recheck-20261024.xcresult
+
+Failing tests:
+	PioCharacterDeviceLayoutTests.testIPadActualPortraitLandscapeAndReturn()
+	PioCharacterDeviceLayoutTests.testIPadActualPortraitLandscapeAndReturn()
+
+** TEST EXECUTE FAILED **
+
+Testing started

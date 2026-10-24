@@ -1,0 +1,26 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "87EA3A43-121C-4FFA-A716-A79E614ABEFA",
+        "deviceName" : "Daylog Wardrobe iPhone 17",
+        "exportedFileName" : "9405B0E0-322A-4397-B100-C59BC0AA97C7.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Interactive review real local ledger_0_B4D9E329-7D15-4F5B-8B87-BFD486E496AB.txt",
+        "timestamp" : 1792131969.577
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "87EA3A43-121C-4FFA-A716-A79E614ABEFA",
+        "deviceName" : "Daylog Wardrobe iPhone 17",
+        "exportedFileName" : "2714AC23-5537-4B73-AC0B-46453957F5A0.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Review startup verified ledger and equipment_0_D7D6C0B7-2BC5-45EE-8088-31B7D11195B9.txt",
+        "timestamp" : 1792131559.145
+      }
+    ],
+    "testIdentifier" : "PioStoreKitReviewTests/testInteractivePurchaseReview()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitReviewTests/testInteractivePurchaseReview"
+  }
+]

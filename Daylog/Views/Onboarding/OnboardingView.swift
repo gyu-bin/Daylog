@@ -20,7 +20,7 @@ struct OnboardingView: View {
         VStack(alignment: .leading, spacing: 22) {
             HStack {
                 BrandIcon(size: 40)
-                Text("Daylog 시작하기").font(.headline)
+                Text("RoutiMori 시작하기").font(.headline)
                 Spacer()
                 // 안내 전체를 닫는다. 단계 하나를 넘기는 것은 아래의 단추다.
                 if step != .ready {

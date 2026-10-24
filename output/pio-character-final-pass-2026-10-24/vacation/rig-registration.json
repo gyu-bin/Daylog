@@ -1,0 +1,262 @@
+[
+  {
+    "profile": "basicNight",
+    "original": "Daylog/RoutimoriTrial.xcassets/routimori_vacation_hammock_night.imageset/routimori_vacation_hammock_night.png",
+    "clean_rects": [
+      [
+        419,
+        781,
+        65,
+        57
+      ],
+      [
+        547,
+        732,
+        63,
+        54
+      ]
+    ],
+    "open_source_rects": [
+      [
+        419,
+        781,
+        65,
+        57
+      ],
+      [
+        547,
+        732,
+        63,
+        54
+      ]
+    ],
+    "open_target_rects": [
+      [
+        419,
+        781,
+        65,
+        57
+      ],
+      [
+        547,
+        732,
+        63,
+        54
+      ]
+    ],
+    "half": "basic-night-half-eyes-v2.png",
+    "canvas": [
+      1024,
+      1536
+    ],
+    "coordinate_origin": "top-left",
+    "clean_pivots": [
+      [
+        451.5,
+        809.5
+      ],
+      [
+        578.5,
+        759.0
+      ]
+    ],
+    "scope": "interior face patches only; original foreground preserved",
+    "closed_source": "exact original clean_rects",
+    "feather_source_px": 0
+  },
+  {
+    "profile": "christmasNight",
+    "original": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_christmas.imageset/routimori_vacation_night_christmas.png",
+    "clean_rects": [
+      [
+        435,
+        743,
+        78,
+        72
+      ],
+      [
+        574,
+        704,
+        71,
+        62
+      ]
+    ],
+    "open_source_rects": [
+      [
+        452,
+        749,
+        45,
+        53
+      ],
+      [
+        576,
+        708,
+        40,
+        51
+      ]
+    ],
+    "open_target_rects": [
+      [
+        450.5,
+        755,
+        45,
+        53
+      ],
+      [
+        588,
+        712,
+        40,
+        51
+      ]
+    ],
+    "half": null,
+    "canvas": [
+      1024,
+      1536
+    ],
+    "coordinate_origin": "top-left",
+    "clean_pivots": [
+      [
+        474.0,
+        779.0
+      ],
+      [
+        609.5,
+        735.0
+      ]
+    ],
+    "scope": "interior face patches only; original foreground preserved",
+    "closed_source": "exact original clean_rects",
+    "feather_source_px": 3
+  },
+  {
+    "profile": "christmasDay",
+    "original": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_christmas.imageset/routimori_vacation_day_christmas.png",
+    "clean_rects": [
+      [
+        441,
+        720,
+        65,
+        57
+      ],
+      [
+        553,
+        682,
+        61,
+        50
+      ]
+    ],
+    "open_source_rects": [
+      [
+        450,
+        723,
+        48,
+        48
+      ],
+      [
+        557,
+        686,
+        43,
+        46
+      ]
+    ],
+    "open_target_rects": [
+      [
+        450,
+        727.5,
+        48,
+        48
+      ],
+      [
+        562.5,
+        686,
+        43,
+        46
+      ]
+    ],
+    "half": null,
+    "canvas": [
+      1024,
+      1536
+    ],
+    "coordinate_origin": "top-left",
+    "clean_pivots": [
+      [
+        473.5,
+        748.5
+      ],
+      [
+        583.5,
+        707.0
+      ]
+    ],
+    "scope": "interior face patches only; original foreground preserved",
+    "closed_source": "exact original clean_rects",
+    "feather_source_px": 3
+  },
+  {
+    "profile": "winterNight",
+    "original": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_winter.imageset/routimori_vacation_night_winter.png",
+    "clean_rects": [
+      [
+        446,
+        802,
+        77,
+        65
+      ],
+      [
+        588,
+        756,
+        69,
+        57
+      ]
+    ],
+    "open_source_rects": [
+      [
+        458,
+        803,
+        58,
+        60
+      ],
+      [
+        592,
+        761,
+        47,
+        51
+      ]
+    ],
+    "open_target_rects": [
+      [
+        455.5,
+        806.5,
+        58,
+        60
+      ],
+      [
+        599,
+        758.5,
+        47,
+        51
+      ]
+    ],
+    "half": null,
+    "canvas": [
+      1024,
+      1536
+    ],
+    "coordinate_origin": "top-left",
+    "clean_pivots": [
+      [
+        484.5,
+        834.5
+      ],
+      [
+        622.5,
+        784.5
+      ]
+    ],
+    "scope": "interior face patches only; original foreground preserved",
+    "closed_source": "exact original clean_rects",
+    "feather_source_px": 3
+  }
+]

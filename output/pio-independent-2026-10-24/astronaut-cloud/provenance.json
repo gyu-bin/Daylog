@@ -1,0 +1,52 @@
+[
+  {
+    "part": "torso",
+    "generatorOutput": "/Users/mungyubin/.codex/generated_images/01a167e0-d86f-7633-94a1-40ac5235c4f4/exec-aad30872-f766-4409-9e5c-cce581c1126f.png",
+    "source": "output/pio-independent-2026-10-24/astronaut-cloud/source/torso-candidate-v1.png",
+    "asset": "pio_cloud_astronaut_v2_torso",
+    "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_astronaut_v2_torso.imageset/pio_cloud_astronaut_v2_torso.png",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alpha16bbox": [
+      196,
+      47,
+      1109,
+      1216
+    ],
+    "sha256": "107c258f9b5125864cabde321ae009750ce01172defc9eb84541e69c6488e22e",
+    "pixelsChanged": false,
+    "approved": false
+  },
+  {
+    "part": "armPair",
+    "generatorOutput": "/Users/mungyubin/.codex/generated_images/01a167e0-d86f-7633-94a1-40ac5235c4f4/exec-1c0f2f6c-62f4-4c88-87df-b295b3c7555f.png",
+    "source": "output/pio-independent-2026-10-24/astronaut-cloud/source/armPair-candidate-v2.png",
+    "asset": "pio_cloud_astronaut_v2_armPairCompact",
+    "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_astronaut_v2_armPairCompact.imageset/pio_cloud_astronaut_v2_armPairCompact.png",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alpha16bbox": [
+      167,
+      856,
+      1087,
+      1121
+    ],
+    "sha256": "87419caa9ad026e7b184a473a91c8892f5161cab52d888ad7832564569511671",
+    "pixelsChanged": false,
+    "approved": false
+  }
+]

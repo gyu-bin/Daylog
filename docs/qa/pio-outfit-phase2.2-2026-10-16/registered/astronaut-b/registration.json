@@ -1,0 +1,209 @@
+{
+  "bakedDetails" : [
+    "suit panel buttons",
+    "gold star",
+    "hoses",
+    "boots"
+  ],
+  "canvas" : [
+    1254,
+    1254
+  ],
+  "fixedAssembly" : [
+    "helmet",
+    "visor"
+  ],
+  "glassOpacity" : "Original RGBA alpha, opacity1, unchanged",
+  "layers" : [
+    {
+      "id" : "footLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        473.36429308565533,
+        1010.0722394220846
+      ],
+      "pivot" : [
+        572,
+        1060
+      ],
+      "scale" : 0.14963880288957687,
+      "source" : "candidates\/base\/foot-v1.png",
+      "z" : 0
+    },
+    {
+      "id" : "footRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        674.33096926713949,
+        1011.1583924349882
+      ],
+      "pivot" : [
+        770,
+        1060
+      ],
+      "scale" : 0.14420803782505912,
+      "source" : "candidates\/base\/foot-v1.png",
+      "z" : 1
+    },
+    {
+      "id" : "wingRight",
+      "neutralAngleDegrees" : -5,
+      "offset" : [
+        878.20000000000005,
+        646.20000000000005
+      ],
+      "pivot" : [
+        955,
+        855
+      ],
+      "scale" : 0.23999999999999999,
+      "source" : "candidates\/astronaut\/glove-right-v1.png",
+      "z" : 2
+    },
+    {
+      "id" : "sprout",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        332.69999999999999,
+        54.050000000000011
+      ],
+      "pivot" : [
+        625,
+        400
+      ],
+      "scale" : 0.37,
+      "source" : "candidates\/base\/sprout-v1.png",
+      "z" : 3
+    },
+    {
+      "id" : "body",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        135,
+        150
+      ],
+      "pivot" : [
+        650,
+        800
+      ],
+      "scale" : 0.81999999999999995,
+      "source" : "candidates\/astronaut\/body-clean-v1.png",
+      "z" : 4
+    },
+    {
+      "id" : "eyeLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        468.91884816753929,
+        599.85602094240835
+      ],
+      "pivot" : [
+        550,
+        679
+      ],
+      "scale" : 0.12303664921465969,
+      "source" : "candidates\/base\/eye-open-v1.png",
+      "z" : 5
+    },
+    {
+      "id" : "eyeRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        721.00654450261777,
+        564.81806282722516
+      ],
+      "pivot" : [
+        799,
+        642
+      ],
+      "scale" : 0.11910994764397906,
+      "source" : "candidates\/base\/eye-open-v1.png",
+      "z" : 6
+    },
+    {
+      "id" : "lidLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        471.15136476426801,
+        602.25310173697267
+      ],
+      "pivot" : [
+        550,
+        685
+      ],
+      "scale" : 0.11910669975186104,
+      "source" : "candidates\/base\/eyelid-closed-v1.png",
+      "z" : 7
+    },
+    {
+      "id" : "lidRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        723.11538461538464,
+        567.30769230769226
+      ],
+      "pivot" : [
+        799,
+        648
+      ],
+      "scale" : 0.11538461538461539,
+      "source" : "candidates\/base\/eyelid-closed-v1.png",
+      "z" : 8
+    },
+    {
+      "id" : "wingLeft",
+      "neutralAngleDegrees" : -18,
+      "offset" : [
+        194.40000000000001,
+        730
+      ],
+      "pivot" : [
+        480,
+        870
+      ],
+      "scale" : 0.28000000000000003,
+      "source" : "candidates\/astronaut\/glove-left-v1.png",
+      "z" : 9
+    },
+    {
+      "id" : "visor",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        307.47474747474746,
+        238.69605142332415
+      ],
+      "pivot" : [
+        650,
+        650
+      ],
+      "scale" : 0.59687786960514233,
+      "source" : "candidates\/astronaut\/visor-v1.png",
+      "z" : 10
+    },
+    {
+      "id" : "helmet",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        220,
+        205
+      ],
+      "pivot" : [
+        650,
+        650
+      ],
+      "scale" : 0.63,
+      "source" : "candidates\/astronaut\/helmet-shell-v2.png",
+      "z" : 11
+    }
+  ],
+  "origin" : "topLeft",
+  "referenceOffset" : [
+    0,
+    0
+  ],
+  "referenceScale" : 1,
+  "registrationMethod" : "Independent uniform downscale\/translation; no painting, alpha cleanup or source deformation",
+  "schemaVersion" : 1,
+  "sourceReference" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/Daylog\/PioWardrobe.xcassets\/pio_outfit_astronaut.imageset\/pio_outfit_astronaut.png",
+  "status" : "ART_QA_CANDIDATE_NOT_APPROVED"
+}

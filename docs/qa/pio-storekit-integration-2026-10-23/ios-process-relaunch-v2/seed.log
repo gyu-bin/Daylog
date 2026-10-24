@@ -1,0 +1,75 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /private/tmp/PioStoreKit-20261023-ios/Build/Products/PioProcessRelaunch-3a65ba5c-bf5d-4b46-9644-3af6ab7ab10a-seed.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitProcessRelaunchTests/testSeedVerifiedLedgerInFirstProcess" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-integration-2026-10-23/ios-process-relaunch-v2/seed.xcresult
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-integration-2026-10-23/ios-process-relaunch-v2/seed.xcresult
+
+2026-10-23 19:37:36.851 xcodebuild[73018:685259] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:37:40.528553+0900 Daylog[73023:685525] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 19:37:40.988524+0900 Daylog[73023:685525] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 19:37:40.989707+0900 Daylog[73023:685525] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 19:37:40.990143+0900 Daylog[73023:685525] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 19:37:41.035.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 19:37:41.035.
+Test Suite 'PioStoreKitProcessRelaunchTests' started at 2026-10-23 19:37:41.035.
+Test Case '-[DaylogStoreKitTests.PioStoreKitProcessRelaunchTests testSeedVerifiedLedgerInFirstProcess]' started.
+PioStoreKit: Transaction.updates listener started
+PioStoreKit: client=84F6CCBC time=1792751861.123364 accepted id=35 product=outfit.cafe revoked=false
+PioStoreKit: client=84F6CCBC time=1792751861.123441 finish requested id=35 cached=true inFlight=0
+PioStoreKit: client=84F6CCBC time=1792751861.123478 finish begin id=35 product=outfit.cafe revoked=false
+PioStoreKit: client=84F6CCBC time=1792751861.125121 finish returned id=35
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitProcessRelaunchTests.swift:74: error: -[DaylogStoreKitTests.PioStoreKitProcessRelaunchTests testSeedVerifiedLedgerInFirstProcess] : XCTAssertEqual failed: ("nil") is not equal to ("Optional(73023)") - Fixture must prove its seed metadata reached disk before ending the process
+PIO_PROCESS_RELAUNCH {
+  "appPurchaseUI" : "Product.purchase result asserted",
+  "environment" : "Xcode",
+  "equipped" : "cafe",
+  "phase" : "seed",
+  "pid" : 73023,
+  "productID" : "outfit.cafe",
+  "seedMethod" : "product-purchase",
+  "storage" : {
+    "applicationSupport" : "\/Users\/mungyubin\/Library\/Developer\/CoreSimulator\/Devices\/0426CD78-3807-4650-9776-B649780E2884\/data\/Containers\/Data\/Application\/8BC52151-A065-4094-88CF-8BECD6B43BA4\/Library\/Application Support",
+    "bundleID" : "com.mungyubin.daylog.ios",
+    "bundlePath" : "\/Users\/mungyubin\/Library\/Developer\/CoreSimulator\/Devices\/0426CD78-3807-4650-9776-B649780E2884\/data\/Containers\/Bundle\/Application\/E352F9AE-F96F-4DBD-A379-58A58FFD7CA4\/Daylog.app",
+    "diskDomain" : {
+      "seedMethod" : "product-purchase"
+    },
+    "home" : "\/Users\/mungyubin\/Library\/Developer\/CoreSimulator\/Devices\/0426CD78-3807-4650-9776-B649780E2884\/data\/Containers\/Data\/Application\/8BC52151-A065-4094-88CF-8BECD6B43BA4",
+    "persistentDomain" : {
+      "PioWardrobe.equippedOutfit.v1" : "cafe",
+      "seedMethod" : "product-purchase",
+      "seedPID" : 73023,
+      "seedProductID" : "outfit.cafe",
+      "seedTransactionID" : "35"
+    },
+    "preferenceFileExists" : true,
+    "preferencePath" : "\/Users\/mungyubin\/Library\/Developer\/CoreSimulator\/Devices\/0426CD78-3807-4650-9776-B649780E2884\/data\/Containers\/Data\/Application\/8BC52151-A065-4094-88CF-8BECD6B43BA4\/Library\/Preferences\/PioStoreKitProcessRelaunchTests.3a65ba5c-bf5d-4b46-9644-3af6ab7ab10a.plist",
+    "suite" : "PioStoreKitProcessRelaunchTests.3a65ba5c-bf5d-4b46-9644-3af6ab7ab10a"
+  },
+  "suite" : "PioStoreKitProcessRelaunchTests.3a65ba5c-bf5d-4b46-9644-3af6ab7ab10a",
+  "transactionID" : "35"
+}
+Test Case '-[DaylogStoreKitTests.PioStoreKitProcessRelaunchTests testSeedVerifiedLedgerInFirstProcess]' failed (1.185 seconds).
+Test Suite 'PioStoreKitProcessRelaunchTests' failed at 2026-10-23 19:37:42.224.
+	 Executed 1 test, with 1 failure (0 unexpected) in 1.185 (1.188) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 19:37:42.224.
+	 Executed 1 test, with 1 failure (0 unexpected) in 1.185 (1.189) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 19:37:42.224.
+	 Executed 1 test, with 1 failure (0 unexpected) in 1.185 (1.189) seconds
+PioStoreKit: Transaction.updates listener ended
+2026-10-23 19:37:42.250 xcodebuild[73018:685259] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:37:42.251 xcodebuild[73018:685259] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:37:42.252 xcodebuild[73018:685259] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:37:42.516 xcodebuild[73018:685259] [MT] IDETestOperationsObserverDebug: 5.704 elapsed -- Testing started completed.
+2026-10-23 19:37:42.516 xcodebuild[73018:685259] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 19:37:42.516 xcodebuild[73018:685259] [MT] IDETestOperationsObserverDebug: 5.704 sec, +5.704 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-integration-2026-10-23/ios-process-relaunch-v2/seed.xcresult
+
+Failing tests:
+	PioStoreKitProcessRelaunchTests.testSeedVerifiedLedgerInFirstProcess()
+
+** TEST EXECUTE FAILED **
+
+Testing started

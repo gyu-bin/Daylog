@@ -1,0 +1,2351 @@
+{
+  "status": "PASS_VISIBLE_PIXEL_PRESERVATION",
+  "outfits": 14,
+  "parts": 213,
+  "method": "Crop alpha-zero padding only; source art untouched; full visible RGBA equality verified",
+  "items": [
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/footLeft.png",
+      "sourceSHA256": "0ae377a17db48ef6bbeafec13bdab6f7af5b61b869e2f67698752c526a6fc9ce",
+      "asset": "pio_overhaul_astronaut_footLeft",
+      "rect": [
+        499,
+        1040,
+        146,
+        127
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/footRight.png",
+      "sourceSHA256": "6552fdd5f6e571ce2f58c0a8a45bbe1ab701a6aa37873c0a2fd40cc0284181e2",
+      "asset": "pio_overhaul_astronaut_footRight",
+      "rect": [
+        699,
+        1040,
+        141,
+        123
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/wingRight.png",
+      "sourceSHA256": "090c7480be0db72430d443ff1c60fab2ce24ecb13b33d1c0f4fea9809b21ebd8",
+      "asset": "pio_overhaul_astronaut_wingRight",
+      "rect": [
+        890,
+        683,
+        238,
+        218
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/sprout.png",
+      "sourceSHA256": "b650212ff3ef120bbeb0ef6e0159a6d6a28e4e9341bc99d28f3be1fe86ce7055",
+      "asset": "pio_overhaul_astronaut_sprout",
+      "rect": [
+        365,
+        75,
+        514,
+        338
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/body.png",
+      "sourceSHA256": "e54890da880d0c4fcc38e57f3e24f12fae12dd26aa0a799a5bf2c06a3d1ef938",
+      "asset": "pio_overhaul_astronaut_body",
+      "rect": [
+        135,
+        190,
+        1015,
+        962
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/eyeLeft.png",
+      "sourceSHA256": "ef8891ab0ae37605d8c40f26f00caed23aea65ed83dc1c1a59a01e8a9a4bb652",
+      "asset": "pio_overhaul_astronaut_eyeLeft",
+      "rect": [
+        502,
+        613,
+        96,
+        111
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/eyeRight.png",
+      "sourceSHA256": "6c3d042414a26193b336df08bf9a2d6781e8eaa4b0e99a6de86819bcb59e53b8",
+      "asset": "pio_overhaul_astronaut_eyeRight",
+      "rect": [
+        753,
+        578,
+        93,
+        107
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/lidLeft.png",
+      "sourceSHA256": "cc467c07372c518d56ed050a05dccab2dff16c8da4e733dc665f8cc663032a3a",
+      "asset": "pio_overhaul_astronaut_lidLeft",
+      "rect": [
+        502,
+        668,
+        97,
+        36
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/lidRight.png",
+      "sourceSHA256": "36efb41777022fc5885ecf3458f510a5519307b15865c6e2e1ac2d61f71b9e80",
+      "asset": "pio_overhaul_astronaut_lidRight",
+      "rect": [
+        753,
+        631,
+        94,
+        34
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/halfLeft.png",
+      "sourceSHA256": "36f1f17d54b38524dbbf116bf0ef33e0da9ca3124dbae91a9cda850c6c7beb8c",
+      "asset": "pio_overhaul_astronaut_halfLeft",
+      "rect": [
+        462,
+        612,
+        149,
+        135
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/halfRight.png",
+      "sourceSHA256": "485ceee626843bc26b1cde344a455b0c399829e8b23bc8daa2c16cd398e77ada",
+      "asset": "pio_overhaul_astronaut_halfRight",
+      "rect": [
+        715,
+        576,
+        143,
+        131
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/wingLeft.png",
+      "sourceSHA256": "3a73ef59f58b147ab4ce62db5f323cc1fc3dce977ff934ac8a7f59a6a6cdbffb",
+      "asset": "pio_overhaul_astronaut_wingLeft",
+      "rect": [
+        311,
+        825,
+        254,
+        303
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/visor.png",
+      "sourceSHA256": "ffbb82e6bebba63852db4641de5f3c01d5b20c1096d922d3436c2e1879153707",
+      "asset": "pio_overhaul_astronaut_visor",
+      "rect": [
+        297,
+        279,
+        672,
+        668
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/helmet.png",
+      "sourceSHA256": "bb3f9f86e0def7b7d751008b182319c1696f2d4e0d60fb708c8d3e60e2b2e58b",
+      "asset": "pio_overhaul_astronaut_helmet",
+      "rect": [
+        220,
+        292,
+        781,
+        703
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/happyLeft.png",
+      "sourceSHA256": "74fadd91d7f49dfb59131b0195f1405edfe00fa3ebdfefda8fc7aa484a1ee9a7",
+      "asset": "pio_overhaul_astronaut_happyLeft",
+      "rect": [
+        499,
+        656,
+        103,
+        51
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/astronaut/layers/happyRight.png",
+      "sourceSHA256": "4ce21b5ae91e494dce05acc46076df956569161a9c4f80aac8967227bc6ea0a6",
+      "asset": "pio_overhaul_astronaut_happyRight",
+      "rect": [
+        750,
+        619,
+        98,
+        49
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/wingRight.png",
+      "sourceSHA256": "83129b0ab922d0bfb067deefb4785b852929f03a8d085f58b422fd9c7e384245",
+      "asset": "pio_overhaul_autumn_wingRight",
+      "rect": [
+        921,
+        735,
+        227,
+        224
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/wingLeft.png",
+      "sourceSHA256": "6b400cc9c22a94836424c41f5b4790615237b9a514d7ccec7d51e3e83ef1e37e",
+      "asset": "pio_overhaul_autumn_wingLeft",
+      "rect": [
+        138,
+        772,
+        350,
+        327
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/footLeft.png",
+      "sourceSHA256": "553736afc5a799caeca6cd7b4d3eda21d400f463b5754f2da1b48b120f8e328c",
+      "asset": "pio_overhaul_autumn_footLeft",
+      "rect": [
+        473,
+        1093,
+        142,
+        125
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/footRight.png",
+      "sourceSHA256": "f3910a0872b19318e762cbf138d564ded26bc89bf655c43c2b2fc06c20779034",
+      "asset": "pio_overhaul_autumn_footRight",
+      "rect": [
+        753,
+        1072,
+        131,
+        116
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/body.png",
+      "sourceSHA256": "eb13e3ab4c90a1352fc9ffb489aed5aaca610664b704a779a65df72d2ac02d98",
+      "asset": "pio_overhaul_autumn_body",
+      "rect": [
+        100,
+        208,
+        1034,
+        1044
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/eyeLeft.png",
+      "sourceSHA256": "40ed8d2b0ed5e9446a91963dca4ddeef587a393c023284620857170c0719cbad",
+      "asset": "pio_overhaul_autumn_eyeLeft",
+      "rect": [
+        492,
+        631,
+        109,
+        124
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/eyeRight.png",
+      "sourceSHA256": "40852418628283e60226edaf3e595d39b2fc4c25e71ecaf322f2d4ec85f1bca9",
+      "asset": "pio_overhaul_autumn_eyeRight",
+      "rect": [
+        782,
+        582,
+        108,
+        138
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/leaf.png",
+      "sourceSHA256": "dc7011fca2aa1812ca5edd7cfb2b57dbc0f485beeafdf54a3d6f76d9fec17c19",
+      "asset": "pio_overhaul_autumn_leaf",
+      "rect": [
+        148,
+        758,
+        235,
+        210
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/headwear.png",
+      "sourceSHA256": "93b3e53fbb1b7b1115b0025d129ba08208cd4cb7d287557d0c59acc877c115f6",
+      "asset": "pio_overhaul_autumn_headwear",
+      "rect": [
+        113,
+        19,
+        992,
+        663
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/halfLeft.png",
+      "sourceSHA256": "ec996e702a2287edf54bf3c88fbfa2dc645b72ca74796c6e5ef332f0c0c04ee8",
+      "asset": "pio_overhaul_autumn_halfLeft",
+      "rect": [
+        478,
+        627,
+        140,
+        155
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/lidLeft.png",
+      "sourceSHA256": "e6c712f6de4ee7262b6af4447145fcd99800716bece3a93e533f15ed6eb0362c",
+      "asset": "pio_overhaul_autumn_lidLeft",
+      "rect": [
+        492,
+        700,
+        108,
+        42
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/halfRight.png",
+      "sourceSHA256": "6a9a55a12934c479892d13a18a626a9ab296426e1c8e0bfe7df17ca755c2d2ff",
+      "asset": "pio_overhaul_autumn_halfRight",
+      "rect": [
+        768,
+        578,
+        138,
+        152
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/lidRight.png",
+      "sourceSHA256": "f294e87ff898ec0e6a91365c01c54dd845fa25cba9c27d386ddb215407b28ab4",
+      "asset": "pio_overhaul_autumn_lidRight",
+      "rect": [
+        782,
+        649,
+        107,
+        42
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/happyLeft.png",
+      "sourceSHA256": "218f2323a571e3837d47f9ac12849a8dc1402c24812e80532aa430b10d980c2b",
+      "asset": "pio_overhaul_autumn_happyLeft",
+      "rect": [
+        490,
+        678,
+        114,
+        56
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/happyRight.png",
+      "sourceSHA256": "2a71eac55ae6026a43bbed53fb9e2cd79af1795bfb112e1840cb3b3623713659",
+      "asset": "pio_overhaul_autumn_happyRight",
+      "rect": [
+        780,
+        630,
+        112,
+        55
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/wingLeft.png",
+      "sourceSHA256": "9b67a192ce4db06e75c9262f46e207aaa981b6b60837109c69872e21afb4e352",
+      "asset": "pio_overhaul_basic_wingLeft",
+      "rect": [
+        153,
+        716,
+        397,
+        351
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/wingRight.png",
+      "sourceSHA256": "dcd02a4f56fe36b0ee771712e8d91d49e7d84ae4ee41bc4c31c1e7f859ca0a95",
+      "asset": "pio_overhaul_basic_wingRight",
+      "rect": [
+        797,
+        586,
+        336,
+        324
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/footLeft.png",
+      "sourceSHA256": "7241c568adbc724773991038294420ded31c0046c041f04982cd61e966438f21",
+      "asset": "pio_overhaul_basic_footLeft",
+      "rect": [
+        490,
+        1000,
+        131,
+        115
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/footRight.png",
+      "sourceSHA256": "a7aba3320759372c2d4af1174dfb6ad0871956aa4c6e4b73cb7d581000bf9265",
+      "asset": "pio_overhaul_basic_footRight",
+      "rect": [
+        755,
+        965,
+        131,
+        115
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/sprout.png",
+      "sourceSHA256": "30abfcee10a9dd31221398eddb1f41c7c66b7da37354c2a29d750c46a1944038",
+      "asset": "pio_overhaul_basic_sprout",
+      "rect": [
+        397,
+        114,
+        501,
+        328
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/body.png",
+      "sourceSHA256": "e8bfb49026d6fab77f59013beda9c6694d1a7948215d51c0acfce9685f97aeb8",
+      "asset": "pio_overhaul_basic_body",
+      "rect": [
+        161,
+        247,
+        962,
+        947
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/eyeLeft.png",
+      "sourceSHA256": "5d374d475ad544884ad260739af1d3cedc90eba894bd4b667db6b5a79729a8b4",
+      "asset": "pio_overhaul_basic_eyeLeft",
+      "rect": [
+        503,
+        623,
+        94,
+        109
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/eyeRight.png",
+      "sourceSHA256": "f8a62ef14ffba3fee16f26732f2ac12483048b57cb8efb6768756fc62c767aef",
+      "asset": "pio_overhaul_basic_eyeRight",
+      "rect": [
+        771,
+        583,
+        88,
+        102
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/lidLeft.png",
+      "sourceSHA256": "5f1f71e89791c50b10b0c7096709487ac298238760afa8400c72fb737749701e",
+      "asset": "pio_overhaul_basic_lidLeft",
+      "rect": [
+        500,
+        676,
+        99,
+        37
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/lidRight.png",
+      "sourceSHA256": "8ad72baa92fefb3ebeb1c837623a18dc75f02306cace03f792ef915597fe0246",
+      "asset": "pio_overhaul_basic_lidRight",
+      "rect": [
+        767,
+        632,
+        95,
+        35
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/halfLeft.png",
+      "sourceSHA256": "2d5b3ebdb1e2c0ccf65b2e59ae478a1c7729bccf4d8e204a4828df87bc569849",
+      "asset": "pio_overhaul_basic_halfLeft",
+      "rect": [
+        464,
+        622,
+        147,
+        133
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/halfRight.png",
+      "sourceSHA256": "c502c3ea18334da11afd5f93715515661b63d917f70092ea461c79a4714b7ad5",
+      "asset": "pio_overhaul_basic_halfRight",
+      "rect": [
+        731,
+        578,
+        142,
+        129
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/happyLeft.png",
+      "sourceSHA256": "68c5ab66c8d4baf6976cebdf2b299422e0c527fc1c37830d35fd17f2dc17a218",
+      "asset": "pio_overhaul_basic_happyLeft",
+      "rect": [
+        500,
+        665,
+        100,
+        50
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/basic/layers/happyRight.png",
+      "sourceSHA256": "664b33b91c5aaf67aaba04a50c1d81159f481e544692f13fe5960c164829c024",
+      "asset": "pio_overhaul_basic_happyRight",
+      "rect": [
+        767,
+        622,
+        96,
+        48
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/footLeft.png",
+      "sourceSHA256": "8af1d494bf148e166d0b2da35c3281ec0ecb0f2441d38cf1876eb99eac869430",
+      "asset": "pio_overhaul_cafe_footLeft",
+      "rect": [
+        477,
+        1123,
+        114,
+        100
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/footRight.png",
+      "sourceSHA256": "879ec278415c185e69f945f37b47dba4f49b3d7dcad3b655c9c173a968a74e26",
+      "asset": "pio_overhaul_cafe_footRight",
+      "rect": [
+        778,
+        1113,
+        125,
+        115
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/body.png",
+      "sourceSHA256": "11a0e2a452031407ff45064bce77ee99cc8fcba963852df666e045a93d40513e",
+      "asset": "pio_overhaul_cafe_body",
+      "rect": [
+        125,
+        240,
+        1054,
+        1006
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/eyeLeft.png",
+      "sourceSHA256": "a0077346615263eb8e196212adfe1e03348e8721b5b57c717475ae88209d0e48",
+      "asset": "pio_overhaul_cafe_eyeLeft",
+      "rect": [
+        488,
+        597,
+        105,
+        133
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/eyeRight.png",
+      "sourceSHA256": "2311912df5c481df6d5308975fed69151716ca4a5e0ff31fa340cc61be259e36",
+      "asset": "pio_overhaul_cafe_eyeRight",
+      "rect": [
+        773,
+        554,
+        105,
+        133
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/lidLeft.png",
+      "sourceSHA256": "230c74c14df155d0d02c3a9b70b74250a8a00047c0ff61242a338e453396e042",
+      "asset": "pio_overhaul_cafe_lidLeft",
+      "rect": [
+        488,
+        657,
+        105,
+        40
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/lidRight.png",
+      "sourceSHA256": "14d7a81580b87a648f7b4f073afb85aeb02d231df3e503a9c1d5314a07f794e5",
+      "asset": "pio_overhaul_cafe_lidRight",
+      "rect": [
+        773,
+        614,
+        105,
+        40
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/wingRight.png",
+      "sourceSHA256": "01e072e18cde79acbb2ff1c3decae0ed9d7cf776a5ca916778ab3cf200e7efbc",
+      "asset": "pio_overhaul_cafe_wingRight",
+      "rect": [
+        927,
+        648,
+        255,
+        232
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/wingLeft.png",
+      "sourceSHA256": "de63639e1fb6437a258b625e9720bdff0e3d08cc7b1e9d21ec1044f226aa477e",
+      "asset": "pio_overhaul_cafe_wingLeft",
+      "rect": [
+        137,
+        763,
+        336,
+        349
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/prop.png",
+      "sourceSHA256": "c48ad81138a87dbe17cdddfe22ea1cb517b666e8c3424c06c5b5a0ec88a5a1b3",
+      "asset": "pio_overhaul_cafe_prop",
+      "rect": [
+        137,
+        694,
+        392,
+        360
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/headwear.png",
+      "sourceSHA256": "1b00b38495cb96d5f495a90e0def6ffe364d0447374394bfecd195f7a8c134df",
+      "asset": "pio_overhaul_cafe_headwear",
+      "rect": [
+        186,
+        0,
+        759,
+        714
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/happyLeft.png",
+      "sourceSHA256": "94a9095331ba4fa9d2b872b3716dcd611d7b30bf5ab41ff70ec04d9bfd3cbf62",
+      "asset": "pio_overhaul_cafe_happyLeft",
+      "rect": [
+        486,
+        643,
+        109,
+        53
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/happyRight.png",
+      "sourceSHA256": "ecb9f40af541877befc50afc8bd6a7303388429264f2567221c0e22c13d5f6e9",
+      "asset": "pio_overhaul_cafe_happyRight",
+      "rect": [
+        771,
+        600,
+        109,
+        53
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/wingLeft.png",
+      "sourceSHA256": "f36f819d9648abf50f986dc904959d2bf62916051ed1815a425bf2a75c5fcc6b",
+      "asset": "pio_overhaul_cherryBlossom_wingLeft",
+      "rect": [
+        97,
+        729,
+        318,
+        334
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/wingRight.png",
+      "sourceSHA256": "631f59036552ce9872a9396c34a23518c36678ebd17f30b861037e02ce70e5e8",
+      "asset": "pio_overhaul_cherryBlossom_wingRight",
+      "rect": [
+        922,
+        603,
+        279,
+        291
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/footLeft.png",
+      "sourceSHA256": "5223547dd1b1915743eb3dfa68bb1bbad8a00cf202f0adc59827dda1022d18f7",
+      "asset": "pio_overhaul_cherryBlossom_footLeft",
+      "rect": [
+        466,
+        1073,
+        131,
+        115
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/footRight.png",
+      "sourceSHA256": "523011ec729e6f4e14effc699d576afd565afa1340ab6e95f26b33372be0211e",
+      "asset": "pio_overhaul_cherryBlossom_footRight",
+      "rect": [
+        770,
+        1024,
+        136,
+        130
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/sprout.png",
+      "sourceSHA256": "aca65a7b6b7c48538fefa9323940441e8dd735dedea9450cb14958ea1c41d979",
+      "asset": "pio_overhaul_cherryBlossom_sprout",
+      "rect": [
+        262,
+        3,
+        683,
+        453
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/body.png",
+      "sourceSHA256": "9113d44e76cc69c4a0e5f94aa2b6080a6d08f45a9f10a6e76f90f71f1780e007",
+      "asset": "pio_overhaul_cherryBlossom_body",
+      "rect": [
+        19,
+        53,
+        1151,
+        1177
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/eyeLeft.png",
+      "sourceSHA256": "59761e32ce89d99818940ceeee7233414d98a2ad2f2112ace9711f1ae2f0f37f",
+      "asset": "pio_overhaul_cherryBlossom_eyeLeft",
+      "rect": [
+        474,
+        594,
+        102,
+        118
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/eyeRight.png",
+      "sourceSHA256": "8d34371b1e59be9c9ed7e7e19371cdee9761e5c7a43fd6ca2cd5118897c51644",
+      "asset": "pio_overhaul_cherryBlossom_eyeRight",
+      "rect": [
+        761,
+        556,
+        102,
+        117
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/lidLeft.png",
+      "sourceSHA256": "a9c21d6d9c058abebc98dc38e5c3120ed14d1975c2645f0ce5bebee812a66eb5",
+      "asset": "pio_overhaul_cherryBlossom_lidLeft",
+      "rect": [
+        474,
+        654,
+        104,
+        38
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/lidRight.png",
+      "sourceSHA256": "366bfe7bbe3ef55be584ba2c7cec545e1036a22084e4d5f812503daa1eff9dec",
+      "asset": "pio_overhaul_cherryBlossom_lidRight",
+      "rect": [
+        761,
+        616,
+        104,
+        38
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/halfLeft.png",
+      "sourceSHA256": "57ecebb10e0c4c62f119ad76c58465c6b313fd0171549c8b4de99393207b013b",
+      "asset": "pio_overhaul_cherryBlossom_halfLeft",
+      "rect": [
+        430,
+        590,
+        162,
+        148
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/halfRight.png",
+      "sourceSHA256": "e3a36054b58d0b35918f553ac011ea5f2c852a42063e5f232b67f5db47b0ab95",
+      "asset": "pio_overhaul_cherryBlossom_halfRight",
+      "rect": [
+        717,
+        553,
+        161,
+        146
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/headFlower.png",
+      "sourceSHA256": "26e194fc12540159a0c33de6c5074c48f590a4d7e395268be4bdc5aad2580cdb",
+      "asset": "pio_overhaul_cherryBlossom_headFlower",
+      "rect": [
+        666,
+        248,
+        200,
+        232
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/happyLeft.png",
+      "sourceSHA256": "967e3449cf09f9f28850842dc09afffd88bf2d18489a6b65271a3666e54d307c",
+      "asset": "pio_overhaul_cherryBlossom_happyLeft",
+      "rect": [
+        471,
+        640,
+        109,
+        53
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/layers/happyRight.png",
+      "sourceSHA256": "b6933ec13df8c89810ae85d30e9c617ffbccfe6c003be1a7ae1c6e218d5ba9f1",
+      "asset": "pio_overhaul_cherryBlossom_happyRight",
+      "rect": [
+        757,
+        601,
+        110,
+        54
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/footLeft.png",
+      "sourceSHA256": "cef48396db4e5cd0d56ebbc3914f5bba322dfdf4206c85a6490bb4e3563e45b3",
+      "asset": "pio_overhaul_christmas_footLeft",
+      "rect": [
+        441,
+        1050,
+        167,
+        144
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/footRight.png",
+      "sourceSHA256": "11134c83d36c68acb6af069b6c7bfff6f17749920d5c45b7ccdc40a03cbf6ff0",
+      "asset": "pio_overhaul_christmas_footRight",
+      "rect": [
+        739,
+        1060,
+        152,
+        132
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/body.png",
+      "sourceSHA256": "c538bac15879a1788d8df440811592587d0940d2b7ce23d11b8dd6c304cc3375",
+      "asset": "pio_overhaul_christmas_body",
+      "rect": [
+        131,
+        208,
+        978,
+        988
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/hat.png",
+      "sourceSHA256": "8a14b3407832adee4eaf9d4bdea5b7f10ae66780b46cebc446f3c9c8b81bb0d6",
+      "asset": "pio_overhaul_christmas_hat",
+      "rect": [
+        72,
+        0,
+        909,
+        848
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/eyeLeft.png",
+      "sourceSHA256": "7bf8fbdaab43d29cc32347ca83b331b5d8e53509111c908ff85a5036c5cdbf48",
+      "asset": "pio_overhaul_christmas_eyeLeft",
+      "rect": [
+        501,
+        585,
+        99,
+        114
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/eyeRight.png",
+      "sourceSHA256": "dc6b76bc8deb3103a44d0238b209bfbf60a38c930e1c16a61bcfeb763123d94c",
+      "asset": "pio_overhaul_christmas_eyeRight",
+      "rect": [
+        785,
+        552,
+        96,
+        113
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/lidLeft.png",
+      "sourceSHA256": "eb49044e29fd43446362ee1583597bee95c409b2fa9ff7709cab2a5af07cfc99",
+      "asset": "pio_overhaul_christmas_lidLeft",
+      "rect": [
+        500,
+        639,
+        103,
+        37
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/lidRight.png",
+      "sourceSHA256": "87467d2ffeb2db146b9406f5f18d047e700081d3edaaae07c6cc0eb6ce7fd942",
+      "asset": "pio_overhaul_christmas_lidRight",
+      "rect": [
+        782,
+        603,
+        102,
+        38
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/gift.png",
+      "sourceSHA256": "5de29c94d9a81a488ce7a970f1622456dfc27d6349d8375e5a443d838711da16",
+      "asset": "pio_overhaul_christmas_gift",
+      "rect": [
+        689,
+        665,
+        391,
+        382
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/handLeft.png",
+      "sourceSHA256": "9db133fb1112e7cc54824295d7319b861ca7f56b6425e8b86ff417b977733dad",
+      "asset": "pio_overhaul_christmas_handLeft",
+      "rect": [
+        402,
+        623,
+        402,
+        462
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/handRight.png",
+      "sourceSHA256": "1d6b809b5facb36900c2954ee7b20405b1f8672d45fb52e8d685db09d337bd5d",
+      "asset": "pio_overhaul_christmas_handRight",
+      "rect": [
+        940,
+        758,
+        175,
+        233
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/halfLeft.png",
+      "sourceSHA256": "d7dee635e47cb77b416e4588b60e3bb36073b241ddbff779884ea235f19eb353",
+      "asset": "pio_overhaul_christmas_halfLeft",
+      "rect": [
+        458,
+        580,
+        158,
+        144
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/halfRight.png",
+      "sourceSHA256": "9935d146eb84b78305444b4a0b7ec61aecab0383b86c0a636f90f334e339adca",
+      "asset": "pio_overhaul_christmas_halfRight",
+      "rect": [
+        742,
+        548,
+        155,
+        116
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/happyLeft.png",
+      "sourceSHA256": "e9c1310d5f82e0d627d2de05f380bafee6dbfa85f3255dfa68e57dfe3b825c16",
+      "asset": "pio_overhaul_christmas_happyLeft",
+      "rect": [
+        498,
+        628,
+        106,
+        52
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/christmas/layers/happyRight.png",
+      "sourceSHA256": "b3e865b61a4f313e806359ed5ce27589f41ba2f2c429b0f78813b1c4252133f5",
+      "asset": "pio_overhaul_christmas_happyRight",
+      "rect": [
+        782,
+        596,
+        104,
+        51
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/footLeft.png",
+      "sourceSHA256": "7eee7f705d72fe4de29a9a233bd6888767b1a6ea8ac3e9696771804b18791a52",
+      "asset": "pio_overhaul_fitness_footLeft",
+      "rect": [
+        423,
+        1047,
+        154,
+        135
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/footRight.png",
+      "sourceSHA256": "347f2a84c59e45a1e12b6eef367e5b18c7e2b23fc2977ec267dfe2ad5223e2f9",
+      "asset": "pio_overhaul_fitness_footRight",
+      "rect": [
+        723,
+        1047,
+        148,
+        130
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/body.png",
+      "sourceSHA256": "81e239108f4ee548481f175a5080521634f4524b0c93540ec265f9b04970ad64",
+      "asset": "pio_overhaul_fitness_body",
+      "rect": [
+        153,
+        211,
+        1017,
+        942
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/eyeLeft.png",
+      "sourceSHA256": "c9848357d412e40e8b9c2105748e283b543bcc58865a70d723cf169219d6dada",
+      "asset": "pio_overhaul_fitness_eyeLeft",
+      "rect": [
+        478,
+        567,
+        105,
+        133
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/eyeRight.png",
+      "sourceSHA256": "6921e5e87846d5348ff81e0a8f17a1aa52ccd3b26c260568a777e6303db75852",
+      "asset": "pio_overhaul_fitness_eyeRight",
+      "rect": [
+        763,
+        532,
+        105,
+        133
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/sprout.png",
+      "sourceSHA256": "db97dd32a04a1264a7cb0cd6ce37569a873393ab2503dbc31d11e119f8112c70",
+      "asset": "pio_overhaul_fitness_sprout",
+      "rect": [
+        336,
+        21,
+        570,
+        347
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/headwear.png",
+      "sourceSHA256": "c3c70fef55cccb180f5131639d5dac451fef4b6229ebf937323bcb2bf66f0437",
+      "asset": "pio_overhaul_fitness_headwear",
+      "rect": [
+        286,
+        147,
+        736,
+        675
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/dumbbellLeft.png",
+      "sourceSHA256": "9a949e0ebee6488b85d59c63e4df5504c13817374c769961b1a08a8547ec16be",
+      "asset": "pio_overhaul_fitness_dumbbellLeft",
+      "rect": [
+        140,
+        678,
+        328,
+        309
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/dumbbellRight.png",
+      "sourceSHA256": "a1e102ab24ce3ea22f2a729671f483407973317f6502a59c213915437a915bec",
+      "asset": "pio_overhaul_fitness_dumbbellRight",
+      "rect": [
+        840,
+        638,
+        328,
+        309
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/wingLeft.png",
+      "sourceSHA256": "38dfda04ae344e7b39ae67e86af191b069182b9d4e572a86bba2c1c87a76f5cd",
+      "asset": "pio_overhaul_fitness_wingLeft",
+      "rect": [
+        178,
+        685,
+        332,
+        324
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/wingRight.png",
+      "sourceSHA256": "a93dda35f740952aa9739e0460f694ba339a453fc445f791f924cce8fa3080b9",
+      "asset": "pio_overhaul_fitness_wingRight",
+      "rect": [
+        822,
+        681,
+        271,
+        292
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/halfLeft.png",
+      "sourceSHA256": "d1b316b58e820d0ba42c374fdb448ab69d8cc7283feeaaa41b74a1dee38fc013",
+      "asset": "pio_overhaul_fitness_halfLeft",
+      "rect": [
+        478,
+        632,
+        76,
+        70
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/lidLeft.png",
+      "sourceSHA256": "90833138a270713e3467cb3faa032577255610faae86f99a533670bdfaae2526",
+      "asset": "pio_overhaul_fitness_lidLeft",
+      "rect": [
+        478,
+        633,
+        105,
+        40
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/halfRight.png",
+      "sourceSHA256": "2e3a47761b95c8bed494c9cbc6f3977c5d7f8defaa8706c9f5961e47be705084",
+      "asset": "pio_overhaul_fitness_halfRight",
+      "rect": [
+        763,
+        597,
+        76,
+        70
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/lidRight.png",
+      "sourceSHA256": "636caf2bd9b97529aa97e393b1aba973128c6702e7b67aaa437158ca159c9838",
+      "asset": "pio_overhaul_fitness_lidRight",
+      "rect": [
+        763,
+        598,
+        105,
+        40
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/happyLeft.png",
+      "sourceSHA256": "b79e3b0b611383612025bac57f6eccb0aa8714c2077aaf25ef861404d8df54b6",
+      "asset": "pio_overhaul_fitness_happyLeft",
+      "rect": [
+        476,
+        613,
+        109,
+        53
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/happyRight.png",
+      "sourceSHA256": "6ffd929ab5254f0e9c57bb6b4b137ddee43a0cf3375d002b717277a32639c493",
+      "asset": "pio_overhaul_fitness_happyRight",
+      "rect": [
+        761,
+        578,
+        109,
+        53
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/footLeft.png",
+      "sourceSHA256": "d0ab0b1e53c5d8ca8adf4fec7e26bb5bbefa0576baf8968078ea99793caa0c4d",
+      "asset": "pio_overhaul_halloween_footLeft",
+      "rect": [
+        423,
+        1072,
+        154,
+        135
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/footRight.png",
+      "sourceSHA256": "941f5ff74523eeca39ad63c608f058b4445dee1e25aea43b12617f49046a2446",
+      "asset": "pio_overhaul_halloween_footRight",
+      "rect": [
+        723,
+        1072,
+        148,
+        130
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/wingLeft.png",
+      "sourceSHA256": "0617d475e4ebb28e9038fb08c1c43919857acda974c1cc77dc2d06f88a88a7eb",
+      "asset": "pio_overhaul_halloween_wingLeft",
+      "rect": [
+        183,
+        699,
+        148,
+        180
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/body.png",
+      "sourceSHA256": "3e319c52a7b95bdec38af56310ea021d0e590931fbd07c303076a9a33fc32a26",
+      "asset": "pio_overhaul_halloween_body",
+      "rect": [
+        0,
+        54,
+        1232,
+        1128
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/eyeLeft.png",
+      "sourceSHA256": "3d27d8581484bc16eb23bb5c2fe057f7c3686790d56335c65febc9023c337b71",
+      "asset": "pio_overhaul_halloween_eyeLeft",
+      "rect": [
+        473,
+        592,
+        105,
+        133
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/eyeRight.png",
+      "sourceSHA256": "ef2bc90eea4de20f82bff0bbc2fa6cdaf820bddebb56fb369abdfeffd669690c",
+      "asset": "pio_overhaul_halloween_eyeRight",
+      "rect": [
+        763,
+        550,
+        105,
+        133
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/headwear.png",
+      "sourceSHA256": "d85a746188528d52d0d3e2a627117cf08e071d83fac5c9dade059560ab2a2057",
+      "asset": "pio_overhaul_halloween_headwear",
+      "rect": [
+        187,
+        23,
+        749,
+        697
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/bag.png",
+      "sourceSHA256": "04eddd522616c216d73fcd0e41dd144fe07e4191a8190b11fb97a890845e7ac0",
+      "asset": "pio_overhaul_halloween_bag",
+      "rect": [
+        880,
+        738,
+        350,
+        354
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/wingRight.png",
+      "sourceSHA256": "48083c3c1bf942dfed89528e02f35ef400069f047c7db0d5502cdbc6bbfb52d6",
+      "asset": "pio_overhaul_halloween_wingRight",
+      "rect": [
+        898,
+        660,
+        191,
+        206
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/halfLeft.png",
+      "sourceSHA256": "4708222621228c020e19c610a4319f3341c1510892cbe2e0ff7d6ecb2ff5e3b2",
+      "asset": "pio_overhaul_halloween_halfLeft",
+      "rect": [
+        473,
+        657,
+        76,
+        70
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/lidLeft.png",
+      "sourceSHA256": "87b1392adc2dd2178653f9374efee37b686ea89529dd5451d14799516a5803fb",
+      "asset": "pio_overhaul_halloween_lidLeft",
+      "rect": [
+        473,
+        658,
+        105,
+        40
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/halfRight.png",
+      "sourceSHA256": "c4ebf447b025c3821dfa22b812b9103da3557d83044c6d946d78698af1dcf695",
+      "asset": "pio_overhaul_halloween_halfRight",
+      "rect": [
+        763,
+        615,
+        76,
+        70
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/lidRight.png",
+      "sourceSHA256": "60964a39d38c74f711b2faccab6693a5ed6208d540950ba97f9ebc3e1c06a37c",
+      "asset": "pio_overhaul_halloween_lidRight",
+      "rect": [
+        763,
+        616,
+        105,
+        40
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/happyLeft.png",
+      "sourceSHA256": "471edea2cb20e97785460047de876041f53044dbd011791bd35443fd3a8a7d65",
+      "asset": "pio_overhaul_halloween_happyLeft",
+      "rect": [
+        471,
+        638,
+        109,
+        53
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/happyRight.png",
+      "sourceSHA256": "440cb5dc576942a7ed7f6feb50774fac80915ac9b0b9361733a9519557f162de",
+      "asset": "pio_overhaul_halloween_happyRight",
+      "rect": [
+        761,
+        596,
+        109,
+        53
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/wingRight.png",
+      "sourceSHA256": "354bea9a51a32c5f568d932c4fd854c581f6ee7c82eccce1a1d96f9699f4ad28",
+      "asset": "pio_overhaul_hanbok_wingRight",
+      "rect": [
+        890,
+        566,
+        289,
+        289
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/footLeft.png",
+      "sourceSHA256": "b67ee6f2bdf37e50c7b182fe44bb3ed2b658b3bc5f883503c2e7ced9906d1621",
+      "asset": "pio_overhaul_hanbok_footLeft",
+      "rect": [
+        449,
+        1080,
+        162,
+        140
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/footRight.png",
+      "sourceSHA256": "03aa2fca18db46d9cccd27202f770baf20713ca84f5d4328e01e79259c018d24",
+      "asset": "pio_overhaul_hanbok_footRight",
+      "rect": [
+        744,
+        1080,
+        152,
+        132
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/sprout.png",
+      "sourceSHA256": "5236f727cc448eeb2edf257070310260c0362b04b0189254632da3c4b78aabe6",
+      "asset": "pio_overhaul_hanbok_sprout",
+      "rect": [
+        365,
+        40,
+        514,
+        338
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/body.png",
+      "sourceSHA256": "820f68bad09300513bce038d9caa6cde1fb599a5a935aa1783871b80028f41a5",
+      "asset": "pio_overhaul_hanbok_body",
+      "rect": [
+        102,
+        162,
+        1079,
+        1065
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/eyeLeft.png",
+      "sourceSHA256": "c9622e89176937548c1494e5433e9be5016486246c5af2cdf6b95bfe84b57468",
+      "asset": "pio_overhaul_hanbok_eyeLeft",
+      "rect": [
+        487,
+        561,
+        104,
+        120
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/eyeRight.png",
+      "sourceSHA256": "715f3a82a7f1904290d1357076d67662b70a1c89a472c0b7db2ffc7e96d45eb0",
+      "asset": "pio_overhaul_hanbok_eyeRight",
+      "rect": [
+        774,
+        524,
+        99,
+        114
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/lidLeft.png",
+      "sourceSHA256": "9880562d66210f6b621f7ab6e3fe3a0a3cb3766c0cd1ae68707dcd6a30ea7b9e",
+      "asset": "pio_overhaul_hanbok_lidLeft",
+      "rect": [
+        486,
+        619,
+        105,
+        40
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/lidRight.png",
+      "sourceSHA256": "c957cd16c3210942683dc2646471c7af8cd54d4786a4df3f0286d897dcbd3584",
+      "asset": "pio_overhaul_hanbok_lidRight",
+      "rect": [
+        773,
+        579,
+        102,
+        38
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/halfLeft.png",
+      "sourceSHA256": "dc94ea059e94e75feb24ff0dd424eb1af0f2af51210ae844939d412e148a7d33",
+      "asset": "pio_overhaul_hanbok_halfLeft",
+      "rect": [
+        444,
+        559,
+        161,
+        147
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/halfRight.png",
+      "sourceSHA256": "c96c7eb185552886a62e8bc3ad849ff64d7aba437d3e0e8006a69540b37c052c",
+      "asset": "pio_overhaul_hanbok_halfRight",
+      "rect": [
+        731,
+        519,
+        158,
+        144
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/wingLeft.png",
+      "sourceSHA256": "8e3adc58b0d3dbc7ce7a32fcfa7c2933672193ce6ef7040702f6f21bdb80a0b1",
+      "asset": "pio_overhaul_hanbok_wingLeft",
+      "rect": [
+        135,
+        679,
+        343,
+        326
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/happyLeft.png",
+      "sourceSHA256": "cbe73e135a21ee60ab110c2a79edff6d9fd428ff9e45f8ffa2472601cdbae91f",
+      "asset": "pio_overhaul_hanbok_happyLeft",
+      "rect": [
+        484,
+        608,
+        110,
+        54
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/hanbok/layers/happyRight.png",
+      "sourceSHA256": "eb5cd9394129b462d584f34df5cb520d6ce98cef4edde30fb67c2836c0f50171",
+      "asset": "pio_overhaul_hanbok_happyRight",
+      "rect": [
+        771,
+        567,
+        106,
+        52
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/footLeft.png",
+      "sourceSHA256": "c98245166380fa6a359a871931daa25ad3f891c98a51dab8ef313df9f8e8fa7d",
+      "asset": "pio_overhaul_pajamas_footLeft",
+      "rect": [
+        462,
+        1072,
+        135,
+        118
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/footRight.png",
+      "sourceSHA256": "461ed35ac2c9eb304d6c73c60a255f16a56f61239f754d662b4e0066a11f07ff",
+      "asset": "pio_overhaul_pajamas_footRight",
+      "rect": [
+        738,
+        1072,
+        131,
+        116
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/body.png",
+      "sourceSHA256": "6cdb4e509295bc22ad9614977025f059d6e472abfed813bbc60bae2589247c1a",
+      "asset": "pio_overhaul_pajamas_body",
+      "rect": [
+        150,
+        235,
+        967,
+        963
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/eyeLeft.png",
+      "sourceSHA256": "d0deb937c1d854df1bc1d0dd652e299676510968b30315da5e3b14ac263ce447",
+      "asset": "pio_overhaul_pajamas_eyeLeft",
+      "rect": [
+        510,
+        622,
+        105,
+        133
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/eyeRight.png",
+      "sourceSHA256": "92d2307366999d1fb45dcbcb561c30b4ac2b382e10957b89520bab73b39dfa58",
+      "asset": "pio_overhaul_pajamas_eyeRight",
+      "rect": [
+        770,
+        559,
+        105,
+        133
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/headwear.png",
+      "sourceSHA256": "296ead6c6c0b925f5f3ca682bafc5a83adffdedf28bd7c555617feee975b5e30",
+      "asset": "pio_overhaul_pajamas_headwear",
+      "rect": [
+        126,
+        22,
+        878,
+        859
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/pillow.png",
+      "sourceSHA256": "7a458c5feb4a91ea6a72ebfa9d1ef8f775f6732b2f189093421943247450cd20",
+      "asset": "pio_overhaul_pajamas_pillow",
+      "rect": [
+        584,
+        592,
+        504,
+        500
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/wingLeft.png",
+      "sourceSHA256": "f44218539735d04b71347cf61808c25e015d31231cc584a434af0e3a1fbb1ad5",
+      "asset": "pio_overhaul_pajamas_wingLeft",
+      "rect": [
+        433,
+        784,
+        326,
+        306
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/wingRight.png",
+      "sourceSHA256": "790be48f9083454810a8cc97a473136b905f00776a6b2b418f82b88f9416d527",
+      "asset": "pio_overhaul_pajamas_wingRight",
+      "rect": [
+        833,
+        779,
+        289,
+        249
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/halfLeft.png",
+      "sourceSHA256": "45135b206fa3556e4e90010fb75e77c3a0389882130ac286c6b99f53b305b176",
+      "asset": "pio_overhaul_pajamas_halfLeft",
+      "rect": [
+        496,
+        618,
+        134,
+        148
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/lidLeft.png",
+      "sourceSHA256": "c5cd99fee73e96f98d9143aa7d4bba2a6097f0ca8d1cd5cfc59cb4a937606861",
+      "asset": "pio_overhaul_pajamas_lidLeft",
+      "rect": [
+        510,
+        688,
+        104,
+        40
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/halfRight.png",
+      "sourceSHA256": "0aff4e56dd4bbc8de6072ecfb30c415388ed3173cdd289697b37782bda27eba6",
+      "asset": "pio_overhaul_pajamas_halfRight",
+      "rect": [
+        756,
+        555,
+        134,
+        148
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/lidRight.png",
+      "sourceSHA256": "f1eb83610702fd947013e0b8861cb3ceee831481967ec0b0bb70adc531851316",
+      "asset": "pio_overhaul_pajamas_lidRight",
+      "rect": [
+        770,
+        625,
+        104,
+        40
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/happyLeft.png",
+      "sourceSHA256": "dd7cc2ee5b348d4e515bff32e0595911e36c92d391e1820b0ff1dbe7ca28725d",
+      "asset": "pio_overhaul_pajamas_happyLeft",
+      "rect": [
+        508,
+        668,
+        109,
+        53
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/happyRight.png",
+      "sourceSHA256": "72589fc5d66e8fb40c640ec82e7b1d89b31acb4bcb8349bc20d3c5850c84fae5",
+      "asset": "pio_overhaul_pajamas_happyRight",
+      "rect": [
+        768,
+        605,
+        109,
+        53
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/footLeft.png",
+      "sourceSHA256": "dc46c3f70119533571c79d4c05cd6fbf237a10d9c34a8ab96480ce91e7067107",
+      "asset": "pio_overhaul_rainyDay_footLeft",
+      "rect": [
+        362,
+        1002,
+        207,
+        214
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/footRight.png",
+      "sourceSHA256": "eba6c7ff1756e21da7a15e2a55b771242f23962f4f9339094dc4a072a24417bd",
+      "asset": "pio_overhaul_rainyDay_footRight",
+      "rect": [
+        607,
+        1002,
+        207,
+        214
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/wingLeft.png",
+      "sourceSHA256": "0c81cc1bab395adb66c93b8b85f0c27c5d0d1b22945514b7ea5c2974e6941f34",
+      "asset": "pio_overhaul_rainyDay_wingLeft",
+      "rect": [
+        122,
+        696,
+        245,
+        269
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/umbrellaShaft.png",
+      "sourceSHA256": "945cb54e277c476991b0d486c8c037f41200d4261040e0ea5b6695e7e49ace0a",
+      "asset": "pio_overhaul_rainyDay_umbrellaShaft",
+      "rect": [
+        817,
+        460,
+        378,
+        456
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/umbrellaCanopy.png",
+      "sourceSHA256": "430eced95bf881b416bf4bcb6daadf5740ed179c2e2a4d60a4b47a69a37239ed",
+      "asset": "pio_overhaul_rainyDay_umbrellaCanopy",
+      "rect": [
+        621,
+        189,
+        624,
+        587
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/body.png",
+      "sourceSHA256": "e934e3637fd2f1c2c72b475ab3529ff5733cb9b7e9573f3fc41b6c44ea048bae",
+      "asset": "pio_overhaul_rainyDay_body",
+      "rect": [
+        20,
+        117,
+        1086,
+        1087
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/eyeLeft.png",
+      "sourceSHA256": "a0edeb582038e3e429ab275bfdc9562f2817fcfd701354bf773c7b8f43c91b22",
+      "asset": "pio_overhaul_rainyDay_eyeLeft",
+      "rect": [
+        405,
+        593,
+        92,
+        124
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/eyeRight.png",
+      "sourceSHA256": "195f84985e1cc8d2015a2506ea1825ed80d6fcb56dc369d03aad99684bc24c94",
+      "asset": "pio_overhaul_rainyDay_eyeRight",
+      "rect": [
+        670,
+        558,
+        92,
+        124
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/sprout.png",
+      "sourceSHA256": "9b2c0515bad1f942999370ad125b145c91ec68457017af30578c004d83f2edb2",
+      "asset": "pio_overhaul_rainyDay_sprout",
+      "rect": [
+        210,
+        27,
+        483,
+        299
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/wingRight.png",
+      "sourceSHA256": "0b583fd41a2b2be87c8031df52561dd2993cb936d7e734856019f4f85d6c7465",
+      "asset": "pio_overhaul_rainyDay_wingRight",
+      "rect": [
+        724,
+        635,
+        231,
+        290
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/halfLeft.png",
+      "sourceSHA256": "941db7749325b54a9c1f00bf27c0b553a3efa9c6e2a197d018695bdcdb72af5d",
+      "asset": "pio_overhaul_rainyDay_halfLeft",
+      "rect": [
+        404,
+        644,
+        75,
+        88
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/lidLeft.png",
+      "sourceSHA256": "907e03870cb8c2ed930c82ff59a9bf48cb1ccc079dc63859c3f4c85d2fe34377",
+      "asset": "pio_overhaul_rainyDay_lidLeft",
+      "rect": [
+        404,
+        655,
+        93,
+        35
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/halfRight.png",
+      "sourceSHA256": "5fa93eb42b5f9eaed6beb8df5f8d96082a253ade67c5efe1e622f1a90542a12d",
+      "asset": "pio_overhaul_rainyDay_halfRight",
+      "rect": [
+        669,
+        609,
+        75,
+        88
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/lidRight.png",
+      "sourceSHA256": "cdcd23edca966859cc4576e1565eb05e1588b195fbe49d98891b73a2d4096c26",
+      "asset": "pio_overhaul_rainyDay_lidRight",
+      "rect": [
+        669,
+        620,
+        93,
+        35
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/happyLeft.png",
+      "sourceSHA256": "dd4deb0da946ab3105a60f9585573970ef2e7faf76def5437458f9db0fad7fc6",
+      "asset": "pio_overhaul_rainyDay_happyLeft",
+      "rect": [
+        401,
+        635,
+        100,
+        50
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/happyRight.png",
+      "sourceSHA256": "410246ca12a705d2f1d2955e70bfdd8b41808e29fe9ba98cc73b9f5c47e54429",
+      "asset": "pio_overhaul_rainyDay_happyRight",
+      "rect": [
+        666,
+        600,
+        100,
+        50
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/footLeft.png",
+      "sourceSHA256": "de35a714329db0c142016d37920a4413bc9f9224f06481f3da19b241c80fe2bd",
+      "asset": "pio_overhaul_student_footLeft",
+      "rect": [
+        467,
+        1118,
+        114,
+        100
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/footRight.png",
+      "sourceSHA256": "75370d72e6de928f99b3f2ff6ea652118ac82e24917365c4a454c6107cda17bc",
+      "asset": "pio_overhaul_student_footRight",
+      "rect": [
+        779,
+        1093,
+        131,
+        120
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/sprout.png",
+      "sourceSHA256": "ed761907b836b9697a882e1a0cb32fcba54b93f3d4424feaf980b9c4a1a58329",
+      "asset": "pio_overhaul_student_sprout",
+      "rect": [
+        251,
+        16,
+        675,
+        366
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/body.png",
+      "sourceSHA256": "62f164ee4c9b7fa92082a26b572449274ad29e866321d040c037b9a7aeebf86c",
+      "asset": "pio_overhaul_student_body",
+      "rect": [
+        103,
+        320,
+        1023,
+        931
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/eyeLeft.png",
+      "sourceSHA256": "f1a78eab341ac8e52afbf51d6300ab3ba34d7ba22b772962046d301794304779",
+      "asset": "pio_overhaul_student_eyeLeft",
+      "rect": [
+        483,
+        587,
+        105,
+        133
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/eyeRight.png",
+      "sourceSHA256": "1a3442f5388331c3800c37487a1c33867b93536c4323ec66bedb6ba2e45a0045",
+      "asset": "pio_overhaul_student_eyeRight",
+      "rect": [
+        788,
+        547,
+        105,
+        133
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/lidLeft.png",
+      "sourceSHA256": "1d7a1e476e4021eb29251692454cc7f7796cf3a22514025e424f35c7b0149e23",
+      "asset": "pio_overhaul_student_lidLeft",
+      "rect": [
+        483,
+        648,
+        105,
+        40
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/lidRight.png",
+      "sourceSHA256": "af66870f65f25b438bc7e62d0a38d1c4d594abdc6ca28273ccf458a0f4d4f5ad",
+      "asset": "pio_overhaul_student_lidRight",
+      "rect": [
+        788,
+        608,
+        105,
+        40
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/prop.png",
+      "sourceSHA256": "b2b707e15abf2335adb8f6b3650bf43a846b2eb93ba5ba7375f0f9feb75a34fc",
+      "asset": "pio_overhaul_student_prop",
+      "rect": [
+        358,
+        746,
+        272,
+        301
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/wingRight.png",
+      "sourceSHA256": "20b6f13db04e2f2917ce48e3f5521b2505ffad1cd8fdbc2f2f9e57fbe3d28cbe",
+      "asset": "pio_overhaul_student_wingRight",
+      "rect": [
+        887,
+        634,
+        301,
+        236
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/wingLeft.png",
+      "sourceSHA256": "c7d283f96c13011ddb1f758b48dc81d6cbee5a5532d46cc9e1eb0478fd8b5214",
+      "asset": "pio_overhaul_student_wingLeft",
+      "rect": [
+        208,
+        763,
+        311,
+        310
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/glasses.png",
+      "sourceSHA256": "6fb4775e416dd5e9d86c7dea3ba647051a8d5a91d8cde8444882a74d54f75ccb",
+      "asset": "pio_overhaul_student_glasses",
+      "rect": [
+        302,
+        498,
+        667,
+        258
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/happyLeft.png",
+      "sourceSHA256": "1ff852a87ba2bd5c25bf661ec7ae563b361cc3a66045fbf295a98842ac425509",
+      "asset": "pio_overhaul_student_happyLeft",
+      "rect": [
+        481,
+        633,
+        109,
+        53
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/student/layers/happyRight.png",
+      "sourceSHA256": "925ffd3c6dc2d8227639f0fe6a8c1c68771a92f8be77ea8a18968719d64065f2",
+      "asset": "pio_overhaul_student_happyRight",
+      "rect": [
+        786,
+        593,
+        109,
+        53
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/footLeft.png",
+      "sourceSHA256": "0a6f01f2d0dc29089d5ff2bbcb28f18c9420cd8f903246a6e73a1e603b1eed76",
+      "asset": "pio_overhaul_summerVacation_footLeft",
+      "rect": [
+        443,
+        1087,
+        148,
+        130
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/footRight.png",
+      "sourceSHA256": "0e2c67c52cfec06a79c44f1a58dcca20a1e7215c9c5e6bae50b50272419c8c7d",
+      "asset": "pio_overhaul_summerVacation_footRight",
+      "rect": [
+        748,
+        1107,
+        125,
+        110
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/wingRight.png",
+      "sourceSHA256": "1f9f912bb7811f8046c4304236c3b137014d8ec4c9cdd87a126b12f68f8d0085",
+      "asset": "pio_overhaul_summerVacation_wingRight",
+      "rect": [
+        977,
+        758,
+        196,
+        217
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/body.png",
+      "sourceSHA256": "8950fcdd2b249ee4b7e1de0ac68c1d7b0d1bd6d2b079d631681a43144e0d5f5e",
+      "asset": "pio_overhaul_summerVacation_body",
+      "rect": [
+        0,
+        23,
+        1224,
+        1231
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/eyeLeft.png",
+      "sourceSHA256": "35a645af86dac6f50a51b540558db97b1ae955408c6ab170bc406ec80dcd1900",
+      "asset": "pio_overhaul_summerVacation_eyeLeft",
+      "rect": [
+        472,
+        570,
+        115,
+        131
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/eyeRight.png",
+      "sourceSHA256": "c77a1caef4bd41170d5feb6691deec6cd70fe5b6af5c5e85936eb80c4c13569b",
+      "asset": "pio_overhaul_summerVacation_eyeRight",
+      "rect": [
+        757,
+        520,
+        115,
+        131
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/sunglasses.png",
+      "sourceSHA256": "41310764ac14b5b275fcebd3f2cbbb53ec087c71e2f1cfb78a15605ef5cdbca9",
+      "asset": "pio_overhaul_summerVacation_sunglasses",
+      "rect": [
+        287,
+        447,
+        690,
+        319
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/wingLeft.png",
+      "sourceSHA256": "6a0473586970c66cedea3177ac1932bd8253294951a89fb6db185e30334c84d3",
+      "asset": "pio_overhaul_summerVacation_wingLeft",
+      "rect": [
+        165,
+        747,
+        243,
+        285
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/drink.png",
+      "sourceSHA256": "3ff97f521cd055bfa74e6f8d8fa3f764d0fd5a9a82610a73d01ceba6be8e3137",
+      "asset": "pio_overhaul_summerVacation_drink",
+      "rect": [
+        885,
+        584,
+        334,
+        316
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/headwear.png",
+      "sourceSHA256": "61f16a62706a67b897e0a64bf4d82f5abbc2e637b397fe95fdd6666d107a2f8d",
+      "asset": "pio_overhaul_summerVacation_headwear",
+      "rect": [
+        68,
+        37,
+        1077,
+        704
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/lidLeft.png",
+      "sourceSHA256": "fe0565780deadf22d1acbd65ddb9258ba733f2c123d27248f350fff7bb4cca7f",
+      "asset": "pio_overhaul_summerVacation_lidLeft",
+      "rect": [
+        473,
+        633,
+        108,
+        42
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/lidRight.png",
+      "sourceSHA256": "9e7b47dbf844639ad6f996a7108ec57ce7aa59e33a0a30b766f4a75fc5014b39",
+      "asset": "pio_overhaul_summerVacation_lidRight",
+      "rect": [
+        758,
+        583,
+        108,
+        42
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/happyLeft.png",
+      "sourceSHA256": "80855f14e19168f371f528c0377e469dcc904e14b2930b1c8ec964ed1b615915",
+      "asset": "pio_overhaul_summerVacation_happyLeft",
+      "rect": [
+        471,
+        620,
+        118,
+        58
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/summerVacation/layers/happyRight.png",
+      "sourceSHA256": "1dcd85b61c40731491c6cc47b53d5de73ffde480b1525cc2412091b8b4fd1640",
+      "asset": "pio_overhaul_summerVacation_happyRight",
+      "rect": [
+        756,
+        570,
+        118,
+        58
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/wingRight.png",
+      "sourceSHA256": "a04f120740b5e2534b449e811af4fc635a011958f9e65f0559a1c65770cfe10a",
+      "asset": "pio_overhaul_winter_wingRight",
+      "rect": [
+        888,
+        707,
+        286,
+        259
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/footLeft.png",
+      "sourceSHA256": "1ea8fb502ddef462111e63b8557c095379b234ae232d93237764af86b5df93df",
+      "asset": "pio_overhaul_winter_footLeft",
+      "rect": [
+        423,
+        1082,
+        148,
+        130
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/footRight.png",
+      "sourceSHA256": "e3d7bc03e3ce7e527feac105336f0e59c40c5e30f56ac69ccf63ee67f48a1f80",
+      "asset": "pio_overhaul_winter_footRight",
+      "rect": [
+        737,
+        1082,
+        141,
+        123
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/body.png",
+      "sourceSHA256": "ceee36d4b3c14498ddda40ed7e351a4ede2db75e6f81f606a3717e48f9b04eb1",
+      "asset": "pio_overhaul_winter_body",
+      "rect": [
+        45,
+        101,
+        1153,
+        1149
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/wingLeft.png",
+      "sourceSHA256": "aa905cec78b2d09ca522e9ab010eb4f289e57f937134143d7150c21e4021de96",
+      "asset": "pio_overhaul_winter_wingLeft",
+      "rect": [
+        189,
+        791,
+        301,
+        261
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/eyeLeft.png",
+      "sourceSHA256": "dfc5b0dc1e61af4718f5e78761338f9b353dfb73106c796fa59e0a2469e6f9eb",
+      "asset": "pio_overhaul_winter_eyeLeft",
+      "rect": [
+        457,
+        613,
+        108,
+        138
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/eyeRight.png",
+      "sourceSHA256": "c6b2db5d5685021995be3ff0acd49e66cbf640084f7f1b227011dc8c8ac63cf6",
+      "asset": "pio_overhaul_winter_eyeRight",
+      "rect": [
+        745,
+        577,
+        105,
+        133
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/headwear.png",
+      "sourceSHA256": "51223655a58dd427145d6a8d7802db272120b345c11ad8d33f009f1e5a49d4c1",
+      "asset": "pio_overhaul_winter_headwear",
+      "rect": [
+        57,
+        12,
+        1138,
+        713
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/halfLeft.png",
+      "sourceSHA256": "c46cec1e78e6aa02fcfb163b8d3f619716ca46b20f1dc41b1b8720c9697b129c",
+      "asset": "pio_overhaul_winter_halfLeft",
+      "rect": [
+        443,
+        609,
+        138,
+        152
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/lidLeft.png",
+      "sourceSHA256": "d5cf60bbce488f2ca6a1746fe91c7fcfcfdf8304c8f4282bf8e8f00bf594629d",
+      "asset": "pio_overhaul_winter_lidLeft",
+      "rect": [
+        457,
+        680,
+        107,
+        42
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/halfRight.png",
+      "sourceSHA256": "0ca6e5e87c13cb9b937912ab73e7c630218d273c4bf7be19521f256e8bb5a08a",
+      "asset": "pio_overhaul_winter_halfRight",
+      "rect": [
+        731,
+        573,
+        134,
+        148
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/lidRight.png",
+      "sourceSHA256": "4e27f20136e9449437a41907dd4fefd56f1e79f19e953b703f1a932245f309e5",
+      "asset": "pio_overhaul_winter_lidRight",
+      "rect": [
+        745,
+        643,
+        104,
+        40
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/happyLeft.png",
+      "sourceSHA256": "ddc1181c0e1de238d1d5c499a606806487390f1e2ccd7f8963f490ad5fa278f1",
+      "asset": "pio_overhaul_winter_happyLeft",
+      "rect": [
+        455,
+        661,
+        112,
+        55
+      ]
+    },
+    {
+      "source": "output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/happyRight.png",
+      "sourceSHA256": "16647bc008396ed06904290a1681fb94312715d477e0bfa0a1228f92d49811d0",
+      "asset": "pio_overhaul_winter_happyRight",
+      "rect": [
+        743,
+        623,
+        109,
+        53
+      ]
+    },
+    {
+      "source": "output/pio-completion-2026-10-23/expressions/cafe/layers/halfLeft.png",
+      "sourceSHA256": "fd210be45904bfd6a2eca6fda74c7670a20a095670a6fa81d818abe7b9cdee06",
+      "asset": "pio_overhaul_cafe_halfLeft",
+      "rect": [
+        488,
+        616,
+        105,
+        97
+      ]
+    },
+    {
+      "source": "output/pio-completion-2026-10-23/expressions/cafe/layers/halfRight.png",
+      "sourceSHA256": "ed54ad9573707b5eeb5d2f6adc72a6ff2c7ea577a9f39e114155fbdb4fe7c692",
+      "asset": "pio_overhaul_cafe_halfRight",
+      "rect": [
+        773,
+        573,
+        105,
+        97
+      ]
+    },
+    {
+      "source": "output/pio-completion-2026-10-23/expressions/student/layers/halfLeft.png",
+      "sourceSHA256": "7a0354f3a41006e8d00358ab7d786f9444f9b0126ace4e3ae4ed3e28cb68f16c",
+      "asset": "pio_overhaul_student_halfLeft",
+      "rect": [
+        483,
+        606,
+        105,
+        97
+      ]
+    },
+    {
+      "source": "output/pio-completion-2026-10-23/expressions/student/layers/halfRight.png",
+      "sourceSHA256": "e2b30a07949048d954a0614ad48fb7fce127cebd9b811a67cd602658a5506077",
+      "asset": "pio_overhaul_student_halfRight",
+      "rect": [
+        788,
+        566,
+        105,
+        97
+      ]
+    },
+    {
+      "source": "output/pio-completion-2026-10-23/expressions/summerVacation/layers/halfLeft.png",
+      "sourceSHA256": "580f0b1810d391910d932e7ba94cba78335304d5c1de21eee64affc90006a005",
+      "asset": "pio_overhaul_summerVacation_halfLeft",
+      "rect": [
+        473,
+        592,
+        115,
+        126
+      ]
+    },
+    {
+      "source": "output/pio-completion-2026-10-23/expressions/summerVacation/layers/halfRight.png",
+      "sourceSHA256": "800241d6a0230c74f817ea4f00a028962264b5b13e61d43d064b8e5d6615a0c4",
+      "asset": "pio_overhaul_summerVacation_halfRight",
+      "rect": [
+        758,
+        542,
+        115,
+        126
+      ]
+    }
+  ]
+}

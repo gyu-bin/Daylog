@@ -1,0 +1,230 @@
+{
+  "canvas" : 1254,
+  "outfit" : "christmas",
+  "parts" : [
+    {
+      "asset" : "pio_layered_christmas_footLeft",
+      "fullCanvasSHA256" : "608c193ebeffbec1bfb8fb2f2671094c2a8a2fab58a5bed1965142a25250a135",
+      "id" : "footLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        530,
+        1070
+      ],
+      "rect" : [
+        441,
+        1050,
+        167,
+        144
+      ],
+      "z" : 0
+    },
+    {
+      "asset" : "pio_layered_christmas_footRight",
+      "fullCanvasSHA256" : "c534212d84d514fad4767f66a136e7b80aefd79b6ebfe63d15fcecdddc85a413",
+      "id" : "footRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        817,
+        1070
+      ],
+      "rect" : [
+        739,
+        1060,
+        152,
+        132
+      ],
+      "z" : 1
+    },
+    {
+      "asset" : "pio_layered_christmas_body",
+      "fullCanvasSHA256" : "0daeef7e3cf59c17c7920d1d9105befdac3de04ce41d0df0cba97d40dbfd7e3e",
+      "id" : "body",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        650,
+        780
+      ],
+      "rect" : [
+        131,
+        208,
+        978,
+        988
+      ],
+      "z" : 2
+    },
+    {
+      "asset" : "pio_layered_christmas_hat",
+      "fullCanvasSHA256" : "d08dbc374dc09a383f7ba4cf2ff204e2dd8c2ee0099eab03a8a37827cb956aa7",
+      "id" : "hat",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        660,
+        450
+      ],
+      "rect" : [
+        72,
+        0,
+        909,
+        848
+      ],
+      "z" : 3
+    },
+    {
+      "asset" : "pio_layered_christmas_eyeLeft",
+      "fullCanvasSHA256" : "b3a2ea2ce0f44a706423b28c152896bcbc94c1cef8901bbf6772937dd4b17fe5",
+      "id" : "eyeLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        551,
+        652
+      ],
+      "rect" : [
+        501,
+        585,
+        99,
+        114
+      ],
+      "z" : 4
+    },
+    {
+      "asset" : "pio_layered_christmas_eyeRight",
+      "fullCanvasSHA256" : "d378c26d7b61c3e7edcb23897eeda22954ce246a192e0d7acbf055903517d83d",
+      "id" : "eyeRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        833,
+        618
+      ],
+      "rect" : [
+        785,
+        552,
+        96,
+        113
+      ],
+      "z" : 5
+    },
+    {
+      "asset" : "pio_layered_christmas_lidLeft",
+      "fullCanvasSHA256" : "57904182fc51405c92492e11dd583d7dfc52c5a8520165ccb986678221f7fcdb",
+      "id" : "lidLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        551,
+        658
+      ],
+      "rect" : [
+        500,
+        639,
+        103,
+        37
+      ],
+      "z" : 6
+    },
+    {
+      "asset" : "pio_layered_christmas_lidRight",
+      "fullCanvasSHA256" : "c14d8340c490528a65f9ef2d388a826b2c788685839aafa6c04172c8101bf230",
+      "id" : "lidRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        833,
+        622
+      ],
+      "rect" : [
+        782,
+        603,
+        102,
+        38
+      ],
+      "z" : 7
+    },
+    {
+      "asset" : "pio_layered_christmas_gift",
+      "fullCanvasSHA256" : "576882b061afb0574d79e1368bf5080e4afc40379c1a5a560deb6dd6921d9055",
+      "id" : "gift",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        790,
+        925
+      ],
+      "rect" : [
+        689,
+        665,
+        391,
+        382
+      ],
+      "z" : 8
+    },
+    {
+      "asset" : "pio_layered_christmas_handLeft",
+      "fullCanvasSHA256" : "bbe474e3eb01e44fa4504ebb4e55bd90e79ce203a0ec5c0387fd88c814b2040b",
+      "id" : "handLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        513,
+        870
+      ],
+      "rect" : [
+        402,
+        623,
+        402,
+        462
+      ],
+      "z" : 9
+    },
+    {
+      "asset" : "pio_layered_christmas_handRight",
+      "fullCanvasSHA256" : "11a239187646700205c6320b93d305dafb8eab05aa7a453b7cfb83e079fd9e3b",
+      "id" : "handRight",
+      "neutralAngleDegrees" : -60,
+      "pivot" : [
+        1050,
+        790
+      ],
+      "rect" : [
+        832,
+        687,
+        257,
+        218
+      ],
+      "z" : 10
+    },
+    {
+      "asset" : "pio_layered_christmas_halfLeft",
+      "fullCanvasSHA256" : "6aa14706070116ef90e270fe63fb054a276e0069edfa7342d8df484e90190a51",
+      "id" : "halfLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        551,
+        650
+      ],
+      "rect" : [
+        458,
+        580,
+        158,
+        144
+      ],
+      "z" : 11
+    },
+    {
+      "asset" : "pio_layered_christmas_halfRight",
+      "fullCanvasSHA256" : "8497c281feec9ac0df122d4eb98c553d01ac44d70c0f588607fff102a8f8b451",
+      "id" : "halfRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        833,
+        616
+      ],
+      "rect" : [
+        742,
+        548,
+        155,
+        116
+      ],
+      "z" : 12
+    }
+  ],
+  "revision" : "christmas-pilot-v1-blink3",
+  "stageArtID" : "pilot-neutral-only",
+  "supportsGrowthStages" : false
+}

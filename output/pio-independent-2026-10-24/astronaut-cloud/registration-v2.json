@@ -1,0 +1,273 @@
+{
+  "outfit": "astronaut",
+  "canvas": 1254,
+  "revision": "astronaut-hands-v2",
+  "parts": [
+    {
+      "id": "body",
+      "asset": "pio_cloud_astronaut_v2_torso",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 0
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_cloud_astronaut_eyeLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 1
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_cloud_astronaut_eyeRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 2
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_cloud_astronaut_lidLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 3
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_cloud_astronaut_lidRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 4
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_cloud_astronaut_halfLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 5
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_cloud_astronaut_halfRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 6
+    },
+    {
+      "id": "browLeft",
+      "asset": "pio_cloud_astronaut_browLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 7
+    },
+    {
+      "id": "browRight",
+      "asset": "pio_cloud_astronaut_browRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 8
+    },
+    {
+      "id": "tablet",
+      "asset": "pio_cloud_basic_v1_tablet",
+      "rect": [
+        493,
+        804,
+        366,
+        249
+      ],
+      "pivot": [
+        676,
+        930
+      ],
+      "z": 10,
+      "contentsRect": [
+        0.23046251993620415,
+        0.4059011164274322,
+        0.5422647527910686,
+        0.4354066985645933
+      ]
+    },
+    {
+      "id": "armLeft",
+      "asset": "pio_cloud_astronaut_v2_armPairCompact",
+      "rect": [
+        275,
+        850,
+        280,
+        210
+      ],
+      "pivot": [
+        676,
+        930
+      ],
+      "z": 11,
+      "contentsRect": [
+        0.12998405103668262,
+        0.6802232854864434,
+        0.32216905901116427,
+        0.21610845295055822
+      ]
+    },
+    {
+      "id": "armRight",
+      "asset": "pio_cloud_astronaut_v2_armPairCompact",
+      "rect": [
+        790,
+        850,
+        265,
+        210
+      ],
+      "pivot": [
+        676,
+        930
+      ],
+      "z": 12,
+      "contentsRect": [
+        0.5502392344497608,
+        0.6794258373205742,
+        0.3197767145135566,
+        0.21770334928229665
+      ]
+    },
+    {
+      "id": "optics",
+      "asset": "pio_cloud_astronaut_optics",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 9
+    }
+  ],
+  "holdGroup": {
+    "ids": [
+      "tablet",
+      "armLeft",
+      "armRight"
+    ],
+    "pivot": [
+      676,
+      930
+    ],
+    "degrees": 1.5
+  },
+  "approval": "CANDIDATE_PENDING_NATIVE_64_220_LIGHT_DARK_NEUTRAL_AND_EXTREME_QA",
+  "sourcePixelEdits": false,
+  "source": "output/pio-completion-2026-10-23/cloud/astronaut/layers/body.png",
+  "newActualParts": [
+    "restored torso",
+    "outfit-specific sleeve/cuff/mitten pair"
+  ],
+  "reusedActualParts": [
+    "existing genuine eyes/lids/half/brows",
+    "new complete green tablet"
+  ],
+  "candidateShoulderLocations": {
+    "Left": [
+      310,
+      865
+    ],
+    "Right": [
+      1020,
+      865
+    ]
+  },
+  "candidateShoulderLocationsApproved": false,
+  "originalTabletVisibleBBox": [
+    496,
+    807,
+    856,
+    1049
+  ],
+  "safeTransformRange": "shared occupied-hand/tablet group\u00b11.5deg; reject seams, no hand release or per-arm choreography claim",
+  "atlasNote": "Two genuine sleeves in a transparent atlas. Each runtime arm samples a separate measured rect. No claim of one-part-per-PNG files.",
+  "limits": [
+    "headwear/sprout and feet remain in torso",
+    "no free-hand release/waving",
+    "existing eye half-state sources reused but only open/closed animated by current rig"
+  ],
+  "notes": [
+    "Existing separate visor/optics layer and existing genuine eyes are preserved; helmet is not replaced by a Basic-Pio face.",
+    "Initial1388x1133long-arm atlas created miniature mitten proportions and duplicate-padding impression in native review; NOT promoted. New compact genuine1254arm atlas repairs proportions without erasing approved side/hip padding.",
+    "Optics z9 is above face/eyes but behind held tablet z10, preventing visor bottom rim from painting over the device. Source visor PNG unchanged.",
+    "No drink/straw/open visor or new suit controls added. Rounded padded suit roots/cuffs require native review."
+  ]
+}

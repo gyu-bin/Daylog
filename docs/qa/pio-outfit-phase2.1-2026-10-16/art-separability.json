@@ -1,0 +1,482 @@
+{
+  "date": "2026-10-16",
+  "scope": "Full-resolution read-only component audit of Christmas, Hanbok, Astronaut",
+  "decision": "No ready genuine independent moving layer is supplied for these three costumes. Do not ship a cutout that exposes holes. Preserve approved artwork and report missing layers.",
+  "sourceArtEdited": false,
+  "generatedArt": false,
+  "outfits": [
+    {
+      "alphaInfo": 3,
+      "height": 1254,
+      "id": "christmas",
+      "imageCount": 1,
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_christmas.imageset/pio_outfit_christmas.png",
+      "sha256": "7df7b6c55397cc00486ed2c83a21ad1583d7f139307efa929d5219917c75b66d",
+      "width": 1254,
+      "staticArtQuality": "PASS; no serious visible defect on individual full-resolution original and alpha-correct forest composite",
+      "structure": "One flattened RGBA image; imageCount=1 is consistent with the inspected catalog source, not a layered document",
+      "approvedIndependentComponentCount": 0,
+      "wholeCharacterMotion": "PARTIAL, supported by unchanged whole-image transform only",
+      "components": [
+        {
+          "component": "eyes / eyelids",
+          "existingPixels": "Two open eyes and highlights are fully baked into the face.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Clean face underneath both eyes",
+            "Approved closed/half-closed eyelids and eye-layer edges"
+          ],
+          "motionRisk": "Removing/scaling open eyes uncovers holes or leaves bright/dark remnants; a flat skin ellipse or black line would invent art.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "beak / mouth",
+          "existingPixels": "Open beak and tongue are visible.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Clean underlying face",
+            "Closed/intermediate mouth poses"
+          ],
+          "motionRisk": "Mouth scale or movement reveals the missing face; no phoneme/closed-mouth layer is supplied.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "sprout",
+          "existingPixels": "Visible green leaf surfaces and exposed stem can be masked.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Complete stem root and clean head/hat/helmet beneath original root",
+            "Overlapping leaf surfaces where leaves meet"
+          ],
+          "motionRisk": "Rigid separation uncovers original attachment gaps or duplicated leaf edges. A fixed-root mesh of only an exposed outer tip is an untested experiment, not a ready layer.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": true
+        },
+        {
+          "component": "gift and ribbon",
+          "existingPixels": "Visible front/side gift surfaces and red ribbon/bow.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Gift edges hidden by hands",
+            "Both complete hands/grips",
+            "Torso, belt and sleeve surfaces hidden by gift"
+          ],
+          "motionRisk": "Gift-only translation breaks both grips and uncovers unpainted torso. Moving gift plus both hands still uncovers cuffs/torso.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "left/right hands and sleeves",
+          "existingPixels": "Cream hands, white cuffs and visible red sleeves.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Full hand roots behind gift/cuffs",
+            "Clean coat/scarf below sleeves",
+            "Rear grip pixels"
+          ],
+          "motionRisk": "Cannot raise or wave either hand while preserving gift contact and original coat; palm-root cut reveals holes.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "hat and pompom",
+          "existingPixels": "Red drooping hat, brim and white pompom.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Head under brim and pompom overlap",
+            "Hat fabric hidden by leaf root/brim",
+            "Pompom attachment overlap"
+          ],
+          "motionRisk": "Rotating pompom or hat as a separate image exposes face/hat gaps. Free outside tip deformation could be experimented with only while original contact contour stays pinned.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": true
+        },
+        {
+          "component": "scarf / fringed tail",
+          "existingPixels": "Front neck band and left fringe.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Coat beneath scarf",
+            "Full tail root and occluded folds"
+          ],
+          "motionRisk": "Swinging scarf exposes missing coat and doubled fringe unless removal/underlay is solved.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "coat / belt / feet",
+          "existingPixels": "Outer red coat and two visible toe clusters.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Body beneath coat",
+            "Foot tops behind hem",
+            "Full legs/contact poses"
+          ],
+          "motionRisk": "Independent stepping needs missing foot roots and body coverage; body bounce remains whole-character motion.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        }
+      ],
+      "stages": {
+        "1": {
+          "costumeSpecificArtwork": "MISSING",
+          "completeRegisteredRig": "MISSING",
+          "compatibility": "NOT_CERTIFIED",
+          "allowedExistingDisplay": "same approved costume PNG, explicitly labeled not stage-specific"
+        },
+        "2": {
+          "costumeSpecificArtwork": "MISSING",
+          "completeRegisteredRig": "MISSING",
+          "compatibility": "NOT_CERTIFIED",
+          "allowedExistingDisplay": "same approved costume PNG, explicitly labeled not stage-specific"
+        },
+        "3": {
+          "costumeSpecificArtwork": "MISSING",
+          "completeRegisteredRig": "MISSING",
+          "compatibility": "NOT_CERTIFIED",
+          "allowedExistingDisplay": "same approved costume PNG, explicitly labeled not stage-specific"
+        },
+        "4": {
+          "costumeSpecificArtwork": "MISSING",
+          "completeRegisteredRig": "MISSING",
+          "compatibility": "NOT_CERTIFIED",
+          "allowedExistingDisplay": "same approved costume PNG, explicitly labeled not stage-specific"
+        }
+      }
+    },
+    {
+      "alphaInfo": 3,
+      "height": 1254,
+      "id": "hanbok",
+      "imageCount": 1,
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_hanbok.imageset/pio_outfit_hanbok.png",
+      "sha256": "4ebb837cff050e50db901de0b63dc2221bb52fe52e18530f42901847b5a253e0",
+      "width": 1254,
+      "staticArtQuality": "PASS; no serious visible defect on individual full-resolution original and alpha-correct forest composite",
+      "structure": "One flattened RGBA image; imageCount=1 is consistent with the inspected catalog source, not a layered document",
+      "approvedIndependentComponentCount": 0,
+      "wholeCharacterMotion": "PARTIAL, supported by unchanged whole-image transform only",
+      "components": [
+        {
+          "component": "eyes / eyelids",
+          "existingPixels": "Two open eyes and highlights are fully baked into the face.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Clean face underneath both eyes",
+            "Approved closed/half-closed eyelids and eye-layer edges"
+          ],
+          "motionRisk": "Removing/scaling open eyes uncovers holes or leaves bright/dark remnants; a flat skin ellipse or black line would invent art.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "beak / mouth",
+          "existingPixels": "Open beak and tongue are visible.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Clean underlying face",
+            "Closed/intermediate mouth poses"
+          ],
+          "motionRisk": "Mouth scale or movement reveals the missing face; no phoneme/closed-mouth layer is supplied.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "sprout",
+          "existingPixels": "Visible green leaf surfaces and exposed stem can be masked.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Complete stem root and clean head/hat/helmet beneath original root",
+            "Overlapping leaf surfaces where leaves meet"
+          ],
+          "motionRisk": "Rigid separation uncovers original attachment gaps or duplicated leaf edges. A fixed-root mesh of only an exposed outer tip is an untested experiment, not a ready layer.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": true
+        },
+        {
+          "component": "raised right sleeve and hand",
+          "existingPixels": "Right cream hand and embroidered sleeve outside torso silhouette.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Shoulder root under collar",
+            "Clean face/body contour beneath original sleeve overlap",
+            "Sleeve back and hidden cuff connection"
+          ],
+          "motionRisk": "Visible outside pixels are extractable, but rigid rotation changes exposed shoulder/cheek/skirt boundary. No hole-free range is certified. A pinned shoulder-tip deformation is only a test candidate.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": true
+        },
+        {
+          "component": "lowered left sleeve and hand",
+          "existingPixels": "Rounded sleeve over left torso/skirt and exposed cream hand.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Skirt/bodice underneath full original sleeve",
+            "Complete upper sleeve root and hand beneath cuff"
+          ],
+          "motionRisk": "Lifting or rotating this sleeve reveals large unpainted garment area, not merely transparency outside silhouette.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "skirt / pleats / ribbon",
+          "existingPixels": "Pink pleated skirt, navy ribbon and floral pendant.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Clean skirt under ribbon/pendant",
+            "Back of hem/pleats",
+            "Torso and leg roots under skirt"
+          ],
+          "motionRisk": "Whole skirt translation opens waist/foot gaps; ribbon movement exposes missing printed skirt and contact shadows.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "hair flower / tassel",
+          "existingPixels": "Pink flower, leaves and dangling tassel over right forehead.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Clean head fur and light under ornament",
+            "Flower/leaf occluded pixels",
+            "Tassel root and its background"
+          ],
+          "motionRisk": "Separating tassel or flower reveals their original colored imprint or a hole in head.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "feet",
+          "existingPixels": "Two visible yellow feet below hem.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Foot tops and legs behind skirt",
+            "New contact poses"
+          ],
+          "motionRisk": "Independent walk moves visible feet away from hidden roots; no approved leg layer.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        }
+      ],
+      "stages": {
+        "1": {
+          "costumeSpecificArtwork": "MISSING",
+          "completeRegisteredRig": "MISSING",
+          "compatibility": "NOT_CERTIFIED",
+          "allowedExistingDisplay": "same approved costume PNG, explicitly labeled not stage-specific"
+        },
+        "2": {
+          "costumeSpecificArtwork": "MISSING",
+          "completeRegisteredRig": "MISSING",
+          "compatibility": "NOT_CERTIFIED",
+          "allowedExistingDisplay": "same approved costume PNG, explicitly labeled not stage-specific"
+        },
+        "3": {
+          "costumeSpecificArtwork": "MISSING",
+          "completeRegisteredRig": "MISSING",
+          "compatibility": "NOT_CERTIFIED",
+          "allowedExistingDisplay": "same approved costume PNG, explicitly labeled not stage-specific"
+        },
+        "4": {
+          "costumeSpecificArtwork": "MISSING",
+          "completeRegisteredRig": "MISSING",
+          "compatibility": "NOT_CERTIFIED",
+          "allowedExistingDisplay": "same approved costume PNG, explicitly labeled not stage-specific"
+        }
+      }
+    },
+    {
+      "alphaInfo": 3,
+      "height": 1254,
+      "id": "astronaut",
+      "imageCount": 1,
+      "path": "Daylog/PioWardrobe.xcassets/pio_outfit_astronaut.imageset/pio_outfit_astronaut.png",
+      "sha256": "6a9741d18e6ed00fc036dc82d9bf579e16694f20001ac7e17261db5784e31fc2",
+      "width": 1254,
+      "staticArtQuality": "PASS; no serious visible defect on individual full-resolution original and alpha-correct forest composite",
+      "structure": "One flattened RGBA image; imageCount=1 is consistent with the inspected catalog source, not a layered document",
+      "approvedIndependentComponentCount": 0,
+      "wholeCharacterMotion": "PARTIAL, supported by unchanged whole-image transform only",
+      "components": [
+        {
+          "component": "eyes / eyelids",
+          "existingPixels": "Two open eyes and highlights are fully baked into the face.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Clean face underneath both eyes",
+            "Approved closed/half-closed eyelids and eye-layer edges"
+          ],
+          "motionRisk": "Removing/scaling open eyes uncovers holes or leaves bright/dark remnants; a flat skin ellipse or black line would invent art.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "beak / mouth",
+          "existingPixels": "Open beak and tongue are visible.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Clean underlying face",
+            "Closed/intermediate mouth poses"
+          ],
+          "motionRisk": "Mouth scale or movement reveals the missing face; no phoneme/closed-mouth layer is supplied.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "sprout",
+          "existingPixels": "Visible green leaf surfaces and exposed stem can be masked.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Complete stem root and clean head/hat/helmet beneath original root",
+            "Overlapping leaf surfaces where leaves meet"
+          ],
+          "motionRisk": "Rigid separation uncovers original attachment gaps or duplicated leaf edges. A fixed-root mesh of only an exposed outer tip is an untested experiment, not a ready layer.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": true
+        },
+        {
+          "component": "helmet visor / face",
+          "existingPixels": "Face, highlights, visor tint and inner rim shading are composited together.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Clean uncovered face",
+            "Independent transparent visor transmission/reflection layer",
+            "Helmet front/back shells and face occlusion mask"
+          ],
+          "motionRisk": "A face crop includes the visor; moving helmet/eyes/reflection independently drags or duplicates lighting. Original visor alpha cannot be recovered uniquely from composited pixels.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "helmet shell / ear modules",
+          "existingPixels": "White-lilac ring, side modules and rim occlude face/body.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Head behind shell",
+            "Complete rear shell and neck seal",
+            "Independent rim overlays"
+          ],
+          "motionRisk": "Helmet turn or bob uncovers unavailable head and neck and changes face framing.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "raised right glove / sleeve",
+          "existingPixels": "Right glove and lilac bands extend outside suit.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Shoulder attachment behind shell/body",
+            "Sleeve/glove underlap",
+            "Clean suit contour at root"
+          ],
+          "motionRisk": "Mask can isolate visible pixels, but swing can open shoulder gaps or carry rim/body fragments. Only a pinned-root tip experiment is plausible before rendering; no ready independent limb.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": true
+        },
+        {
+          "component": "left glove / sleeve",
+          "existingPixels": "Left glove and joint overlap torso/hose.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Torso and hose beneath glove",
+            "Full shoulder/hand roots"
+          ],
+          "motionRisk": "Independent motion uncovers missing suit/hose pixels and contact shadows.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "buttons / star / hoses",
+          "existingPixels": "Three chest buttons, yellow star and lower hoses.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Clean suit under each accessory",
+            "Complete hose routes beneath arms"
+          ],
+          "motionRisk": "Separating these surfaces leaves holes or double symbols. Pulsing entire pixels is an effect, not genuine reconstructed component motion.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        },
+        {
+          "component": "boots / feet",
+          "existingPixels": "Yellow toes emerge from suit cuffs.",
+          "visiblePixelMaskPossible": true,
+          "completeIndependentLayerAvailable": false,
+          "missing": [
+            "Toe roots and legs under cuff",
+            "Independent boot and contact poses"
+          ],
+          "motionRisk": "Toe motion exposes missing cuff underlap; stepping not supported by original layer structure.",
+          "independentMotionReady": false,
+          "nonReadyExperiment": false
+        }
+      ],
+      "stages": {
+        "1": {
+          "costumeSpecificArtwork": "MISSING",
+          "completeRegisteredRig": "MISSING",
+          "compatibility": "NOT_CERTIFIED",
+          "allowedExistingDisplay": "same approved costume PNG, explicitly labeled not stage-specific"
+        },
+        "2": {
+          "costumeSpecificArtwork": "MISSING",
+          "completeRegisteredRig": "MISSING",
+          "compatibility": "NOT_CERTIFIED",
+          "allowedExistingDisplay": "same approved costume PNG, explicitly labeled not stage-specific"
+        },
+        "3": {
+          "costumeSpecificArtwork": "MISSING",
+          "completeRegisteredRig": "MISSING",
+          "compatibility": "NOT_CERTIFIED",
+          "allowedExistingDisplay": "same approved costume PNG, explicitly labeled not stage-specific"
+        },
+        "4": {
+          "costumeSpecificArtwork": "MISSING",
+          "completeRegisteredRig": "MISSING",
+          "compatibility": "NOT_CERTIFIED",
+          "allowedExistingDisplay": "same approved costume PNG, explicitly labeled not stage-specific"
+        }
+      }
+    }
+  ],
+  "safeCurrentUse": [
+    "Original full artwork static display",
+    "Whole-character translate/scale/tilt with sufficient external motion padding; call it whole-character motion"
+  ],
+  "unprovenExperiments": [
+    "Pinned-root deformation of exposed leaf tips or outer raised sleeve tips may avoid new hidden pixels if every attachment contour remains fixed. Requires separate rendered extrema and actual runtime proof; not approved by this audit and not a complete rigid limb layer."
+  ],
+  "prohibitedShortcuts": [
+    "Duplicating an original under the moving part creates double contours",
+    "Complement mask with missing body creates a hole",
+    "Painting/cloning/inpainting hidden roots changes approved artwork and is outside authorization",
+    "Scaling open eyes to a line does not supply clean face or approved eyelids",
+    "Using retired orange Pio parts substitutes a different character"
+  ],
+  "stageSource": "docs/qa/routimori-growth-stages-2026-10-15/assets/stage1.png through stage4.png are four flattened review illustrations, not costume rigs or compatible layered body sources."
+}

@@ -1,0 +1,25 @@
+The following is a diff from the previous accessibility tree for Window: "" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 0-66
++75 시트 Secondary Actions: Raise
++	76 container
++		77 텍스트 Value: 의상 미리보기, Secondary Actions: Cancel
++		78 스크롤 영역 Secondary Actions: Scroll Up, Scroll Down, Cancel
++			79 text 몸 전체 움직임 미리보기 · 부위 동작 준비 중 일상 비 오는 날 피오 비 오는 날에도 피오와 즐겁게 한 걸음 나아가요. 성장 단계별 적용 안내
++			80 성장 단계, ID: wardrobe.preview.growthStage
++				81 라디오 버튼 Description: 1단계, Value: 0
++				82 라디오 버튼 Description: 2단계, Value: 0
++				83 라디오 버튼 Description: 3단계, Value: 0
++				84 라디오 버튼 Description: 4단계, Value: 1
++			85 text 4단계 전용 부위 원화는 준비 중이에요. 선택한 의상은 유지되며, 지금은 모든 단계에서 같은 의상 원화를 보여 줘요. 움직임 미리보기
++			86 팝업 버튼 동작, Value: 숨쉬기, ID: wardrobe.preview.motion
++			87 text 숨 쉬기·통통 뛰기·점프·착지·기쁨·쉬기는 몸 전체 움직임이에요. 눈·날개·소품을 따로 움직이려면 추가 원화가 필요해요. 출시 예정 · 약 ₩1,000
++			88 버튼 Description: 테스트 구매 · 결제 없음, ID: wardrobe.preview.mockPurchase
++			89 text 개발용 구매 시뮬레이션이에요. App Store 구매 내역에는 남지 않아요. 둘러보기와 단계 선택은 현재 의상을 변경하지 않아요.
++			90 스크롤 막대 (settable, float) 0
++				91 값 표시기 (settable, float) 0
++				92 화살표 증가 버튼
++				93 화살표 감소 버튼
++				94 페이지 증가 버튼
++				95 페이지 감소 버튼
++		96 버튼 Description: 닫기, ID: wardrobe.preview.close
+The focused UI element is 75 시트 Secondary Actions: Raise

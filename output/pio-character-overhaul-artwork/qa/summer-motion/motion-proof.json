@@ -1,0 +1,410 @@
+{
+  "status": "OFFLINE_CANDIDATE_PROOF_NOT_RUNTIME_QA",
+  "size": [
+    440,
+    440
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "shared_grip_angle": -0.0,
+      "shared_grip_translation": [
+        0,
+        -0.0
+      ]
+    },
+    {
+      "frame": 1,
+      "shared_grip_angle": -0.025665415878568854,
+      "shared_grip_translation": [
+        0,
+        -0.10693923282737022
+      ]
+    },
+    {
+      "frame": 2,
+      "shared_grip_angle": -0.10222252113279506,
+      "shared_grip_translation": [
+        0,
+        -0.4259271713866461
+      ]
+    },
+    {
+      "frame": 3,
+      "shared_grip_angle": -0.22836140246613978,
+      "shared_grip_translation": [
+        0,
+        -0.9515058436089158
+      ]
+    },
+    {
+      "frame": 4,
+      "shared_grip_angle": -0.4019237886466839,
+      "shared_grip_translation": [
+        0,
+        -1.674682452694516
+      ]
+    },
+    {
+      "frame": 5,
+      "shared_grip_angle": -0.6199399791262945,
+      "shared_grip_translation": [
+        0,
+        -2.5830832463595605
+      ]
+    },
+    {
+      "frame": 6,
+      "shared_grip_angle": -0.8786796564403573,
+      "shared_grip_translation": [
+        0,
+        -3.661165235168155
+      ]
+    },
+    {
+      "frame": 7,
+      "shared_grip_angle": -1.173715712973838,
+      "shared_grip_translation": [
+        0,
+        -4.8904821373909915
+      ]
+    },
+    {
+      "frame": 8,
+      "shared_grip_angle": -1.4999999999999996,
+      "shared_grip_translation": [
+        0,
+        -6.249999999999998
+      ]
+    },
+    {
+      "frame": 9,
+      "shared_grip_angle": -1.8519497029047305,
+      "shared_grip_translation": [
+        0,
+        -7.716457095436377
+      ]
+    },
+    {
+      "frame": 10,
+      "shared_grip_angle": -2.223542864692438,
+      "shared_grip_translation": [
+        0,
+        -9.264761936218491
+      ]
+    },
+    {
+      "frame": 11,
+      "shared_grip_angle": -2.608421423339845,
+      "shared_grip_translation": [
+        0,
+        -10.868422597249355
+      ]
+    },
+    {
+      "frame": 12,
+      "shared_grip_angle": -2.9999999999999996,
+      "shared_grip_translation": [
+        0,
+        -12.499999999999998
+      ]
+    },
+    {
+      "frame": 13,
+      "shared_grip_angle": -3.3915785766601543,
+      "shared_grip_translation": [
+        0,
+        -14.131577402750642
+      ]
+    },
+    {
+      "frame": 14,
+      "shared_grip_angle": -3.776457135307562,
+      "shared_grip_translation": [
+        0,
+        -15.735238063781509
+      ]
+    },
+    {
+      "frame": 15,
+      "shared_grip_angle": -4.148050297095269,
+      "shared_grip_translation": [
+        0,
+        -17.28354290456362
+      ]
+    },
+    {
+      "frame": 16,
+      "shared_grip_angle": -4.499999999999999,
+      "shared_grip_translation": [
+        0,
+        -18.749999999999996
+      ]
+    },
+    {
+      "frame": 17,
+      "shared_grip_angle": -4.826284287026162,
+      "shared_grip_translation": [
+        0,
+        -20.109517862609007
+      ]
+    },
+    {
+      "frame": 18,
+      "shared_grip_angle": -5.121320343559642,
+      "shared_grip_translation": [
+        0,
+        -21.338834764831844
+      ]
+    },
+    {
+      "frame": 19,
+      "shared_grip_angle": -5.380060020873705,
+      "shared_grip_translation": [
+        0,
+        -22.416916753640436
+      ]
+    },
+    {
+      "frame": 20,
+      "shared_grip_angle": -5.598076211353316,
+      "shared_grip_translation": [
+        0,
+        -23.325317547305485
+      ]
+    },
+    {
+      "frame": 21,
+      "shared_grip_angle": -5.77163859753386,
+      "shared_grip_translation": [
+        0,
+        -24.048494156391083
+      ]
+    },
+    {
+      "frame": 22,
+      "shared_grip_angle": -5.897777478867205,
+      "shared_grip_translation": [
+        0,
+        -24.574072828613353
+      ]
+    },
+    {
+      "frame": 23,
+      "shared_grip_angle": -5.974334584121431,
+      "shared_grip_translation": [
+        0,
+        -24.89306076717263
+      ]
+    },
+    {
+      "frame": 24,
+      "shared_grip_angle": -6.0,
+      "shared_grip_translation": [
+        0,
+        -25.0
+      ]
+    },
+    {
+      "frame": 25,
+      "shared_grip_angle": -5.974334584121431,
+      "shared_grip_translation": [
+        0,
+        -24.89306076717263
+      ]
+    },
+    {
+      "frame": 26,
+      "shared_grip_angle": -5.897777478867205,
+      "shared_grip_translation": [
+        0,
+        -24.574072828613357
+      ]
+    },
+    {
+      "frame": 27,
+      "shared_grip_angle": -5.771638597533861,
+      "shared_grip_translation": [
+        0,
+        -24.048494156391087
+      ]
+    },
+    {
+      "frame": 28,
+      "shared_grip_angle": -5.598076211353316,
+      "shared_grip_translation": [
+        0,
+        -23.32531754730548
+      ]
+    },
+    {
+      "frame": 29,
+      "shared_grip_angle": -5.380060020873707,
+      "shared_grip_translation": [
+        0,
+        -22.416916753640443
+      ]
+    },
+    {
+      "frame": 30,
+      "shared_grip_angle": -5.121320343559643,
+      "shared_grip_translation": [
+        0,
+        -21.338834764831844
+      ]
+    },
+    {
+      "frame": 31,
+      "shared_grip_angle": -4.826284287026162,
+      "shared_grip_translation": [
+        0,
+        -20.10951786260901
+      ]
+    },
+    {
+      "frame": 32,
+      "shared_grip_angle": -4.500000000000002,
+      "shared_grip_translation": [
+        0,
+        -18.750000000000007
+      ]
+    },
+    {
+      "frame": 33,
+      "shared_grip_angle": -4.148050297095271,
+      "shared_grip_translation": [
+        0,
+        -17.283542904563628
+      ]
+    },
+    {
+      "frame": 34,
+      "shared_grip_angle": -3.776457135307562,
+      "shared_grip_translation": [
+        0,
+        -15.735238063781509
+      ]
+    },
+    {
+      "frame": 35,
+      "shared_grip_angle": -3.3915785766601547,
+      "shared_grip_translation": [
+        0,
+        -14.131577402750645
+      ]
+    },
+    {
+      "frame": 36,
+      "shared_grip_angle": -3.000000000000001,
+      "shared_grip_translation": [
+        0,
+        -12.500000000000004
+      ]
+    },
+    {
+      "frame": 37,
+      "shared_grip_angle": -2.608421423339846,
+      "shared_grip_translation": [
+        0,
+        -10.86842259724936
+      ]
+    },
+    {
+      "frame": 38,
+      "shared_grip_angle": -2.223542864692439,
+      "shared_grip_translation": [
+        0,
+        -9.264761936218497
+      ]
+    },
+    {
+      "frame": 39,
+      "shared_grip_angle": -1.8519497029047298,
+      "shared_grip_translation": [
+        0,
+        -7.7164570954363745
+      ]
+    },
+    {
+      "frame": 40,
+      "shared_grip_angle": -1.4999999999999996,
+      "shared_grip_translation": [
+        0,
+        -6.249999999999998
+      ]
+    },
+    {
+      "frame": 41,
+      "shared_grip_angle": -1.173715712973838,
+      "shared_grip_translation": [
+        0,
+        -4.8904821373909915
+      ]
+    },
+    {
+      "frame": 42,
+      "shared_grip_angle": -0.878679656440358,
+      "shared_grip_translation": [
+        0,
+        -3.6611652351681583
+      ]
+    },
+    {
+      "frame": 43,
+      "shared_grip_angle": -0.6199399791262952,
+      "shared_grip_translation": [
+        0,
+        -2.583083246359563
+      ]
+    },
+    {
+      "frame": 44,
+      "shared_grip_angle": -0.4019237886466849,
+      "shared_grip_translation": [
+        0,
+        -1.6746824526945203
+      ]
+    },
+    {
+      "frame": 45,
+      "shared_grip_angle": -0.22836140246614045,
+      "shared_grip_translation": [
+        0,
+        -0.9515058436089185
+      ]
+    },
+    {
+      "frame": 46,
+      "shared_grip_angle": -0.10222252113279506,
+      "shared_grip_translation": [
+        0,
+        -0.4259271713866461
+      ]
+    },
+    {
+      "frame": 47,
+      "shared_grip_angle": -0.025665415878568854,
+      "shared_grip_translation": [
+        0,
+        -0.10693923282737022
+      ]
+    }
+  ],
+  "body_source_hash": "342e0cb81ea9f080652e5b127dd55c43938ed1756767f2eb486ae71e2345d91d",
+  "sources_unchanged": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/wing-right-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/body-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/sunglasses-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/wing-left-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/drink-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/headwear-v2-candidate.png": true
+  },
+  "limits": [
+    "Opaque sunglasses do not demonstrate visible blink",
+    "Hat and sprout remain combined",
+    "No native app performance or timing QA",
+    "Source source-over only; no alpha edits"
+  ]
+}

@@ -1,0 +1,45 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioPolishFinal.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -resultBundlePath /tmp/PioPolish-ios-final.xcresult
+
+Writing result bundle at path:
+	/tmp/PioPolish-ios-final.xcresult
+
+2026-10-23 23:03:48.566 xcodebuild[34670:1219314] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 23:04:10.910138+0900 Daylog[34857:1221068] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 23:04:11.753776+0900 Daylog[34857:1221068] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 23:04:11.894672+0900 Daylog[34857:1221068] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 23:04:11.899890+0900 Daylog[34857:1221068] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 23:04:12.003.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 23:04:12.004.
+Test Suite 'PioHomePolishReviewTests' started at 2026-10-23 23:04:12.004.
+Test Case '-[DaylogStoreKitTests.PioHomePolishReviewTests testHeaderNativeMotionFrames]' started.
+objc[34857]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x123fec398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x123e34310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+Test Case '-[DaylogStoreKitTests.PioHomePolishReviewTests testHeaderNativeMotionFrames]' passed (2.126 seconds).
+Test Case '-[DaylogStoreKitTests.PioHomePolishReviewTests testHeaderSnapshots]' started.
+Test Case '-[DaylogStoreKitTests.PioHomePolishReviewTests testHeaderSnapshots]' passed (1.359 seconds).
+Test Suite 'PioHomePolishReviewTests' passed at 2026-10-23 23:04:15.494.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 3.486 (3.490) seconds
+Test Suite 'PioStoreKitLedgerFixtureTests' started at 2026-10-23 23:04:15.494.
+Test Case '-[DaylogStoreKitTests.PioStoreKitLedgerFixtureTests testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions]' started.
+2026-10-23 23:04:15.495213+0900 Daylog[34857:1221068] Unbalanced calls to begin/end appearance transitions for <_TtGC7SwiftUI19UIHostingControllerGVS_15ModifiedContentGS1_GS1_GS1_GS1_GS1_V6Daylog16TodayCompactViewGVS_30_EnvironmentKeyWritingModifierOS_15DynamicTypeSize__GS4_GSqCS2_8AppStore___GS4_GSqCS2_17DevicePreferences___GS4_GSqCS2_14DashboardDecor___GS4_GSqCS2_16CloudSyncMonitor___GS4_OS_10ScenePhase___: 0x10f3f0f00>.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitLedgerFixtureTests.swift:12: -[DaylogStoreKitTests.PioStoreKitLedgerFixtureTests testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions] : Test skipped
+Test Case '-[DaylogStoreKitTests.PioStoreKitLedgerFixtureTests testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions]' skipped (0.029 seconds).
+Test Suite 'PioStoreKitLedgerFixtureTests' passed at 2026-10-23 23:04:15.523.
+	 Executed 1 test, with 1 test skipped and 0 failures (0 unexpected) in 0.029 (0.029) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-23 23:04:15.524.
+	 Executed 3 tests, with 1 test skipped and 0 failures (0 unexpected) in 3.514 (3.520) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 23:04:15.524.
+	 Executed 3 tests, with 1 test skipped and 0 failures (0 unexpected) in 3.514 (3.520) seconds
+2026-10-23 23:04:15.562 xcodebuild[34670:1219314] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 23:04:15.562 xcodebuild[34670:1219314] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 23:04:15.563 xcodebuild[34670:1219314] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 23:04:15.831 xcodebuild[34670:1219314] [MT] IDETestOperationsObserverDebug: 29.000 elapsed -- Testing started completed.
+2026-10-23 23:04:15.831 xcodebuild[34670:1219314] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 23:04:15.831 xcodebuild[34670:1219314] [MT] IDETestOperationsObserverDebug: 29.000 sec, +29.000 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioPolish-ios-final.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

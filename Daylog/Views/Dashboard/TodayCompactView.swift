@@ -16,7 +16,8 @@ struct TodayCompactView: View {
     var body: some View {
         ScrollViewReader { scroll in
         ScrollView {
-            VStack(alignment: .leading, spacing: ui.cardSpacing) {
+            VStack(alignment: .leading, spacing: min(ui.cardSpacing, 12)) {
+                VStack(alignment: .leading, spacing: min(ui.cardSpacing, 6)) {
                 header
                     // 사진이 있으면 머리말 뒤에 낮게 깐다. 머리말 높이만큼만 차지해 첫 카드가 거의 밀리지 않는다.
                     .dashboardHeaderBackdrop(padding: 12)
@@ -30,10 +31,11 @@ struct TodayCompactView: View {
                 } else if let prompt = store.restartPrompt(dismissedDay: preferences.restartDismissedDay) {
                     RestartCard(prompt: prompt)
                 }
+                }
                 DashboardCards(compact: true, wide: false, isEditing: isEditing)
             }
             .padding(.horizontal, Theme.compactPagePadding)
-            .padding(.top, 8)
+            .padding(.top, 4)
             .padding(.bottom, Theme.compactPagePadding)
             .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: preferences.cardOrder)
             .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: preferences.hiddenCards)
@@ -46,64 +48,85 @@ struct TodayCompactView: View {
         }
     }
 
-    /// 위: 앱 이름(휴가 중이면 작은 배지), 대시보드 편집과 루틴 추가. 아래: 날짜와 인사말, 새싹이, 날짜 이동.
-    @ViewBuilder
-    private var header: some View {
+    /// A compact brand/companion row followed by the date and its controls.
+    /// Large type moves controls to their own row rather than squeezing text.
+    @ViewBuilder private var header: some View {
         if dynamicTypeSize.isAccessibilitySize {
-            // 큰 글자 크기에서는 날짜 이동을 아랫줄로 내려 인사말이 잘리지 않게 한다.
-            VStack(alignment: .leading, spacing: 6) {
-                topRow(showsSaessagi: false)
-                VStack(alignment: .leading, spacing: 8) {
-                    HStack(alignment: .bottom, spacing: 8) {
-                        greeting(showsIcon: true)
-                        TodaySaessagi(size: 44)
-                            .layoutPriority(-1)
+            VStack(alignment: .leading, spacing: 8) {
+                brandTitle
+                HStack(alignment: .center, spacing: 12) {
+                    greeting(showsIcon: false).frame(maxWidth: .infinity, alignment: .leading)
+                    PioHeaderCompanion(size: 64)
+                }
+                ViewThatFits(in: .horizontal) {
+                    HStack(spacing: 8) {
+                        DateNavigator(showsDate: false, minimumTouchTarget: 44)
+                        Spacer(minLength: 4)
+                        headerActions
                     }
-                    DateNavigator(showsDate: false)
+                    VStack(alignment: .leading, spacing: 6) {
+                        DateNavigator(showsDate: false, minimumTouchTarget: 44)
+                        headerActions
+                    }
                 }
             }
         } else {
-            // 새싹이는 인사말 옆에 둔다. 날짜와 인사말 두 줄의 높이 안에 들어가 아래 카드를 밀지 않는다.
-            // 화면이 좁아 다 들어가지 않으면 해 아이콘을 빼고, 그래도 안 되면(iPhone SE) 윗줄의 앱 이름 옆으로 옮긴다.
-            // 인사말을 줄이거나 자르면서까지 끼워 넣지 않는다.
-            ViewThatFits(in: .horizontal) {
-                VStack(alignment: .leading, spacing: 6) {
-                    topRow(showsSaessagi: false)
-                    greetingRow(showsIcon: true, saessagi: 44)
+            VStack(alignment: .leading, spacing: 2) {
+                ViewThatFits(in: .horizontal) {
+                    topRow(pioSize: 64)
+                    topRow(pioSize: 52)
+                    VStack(alignment: .leading, spacing: 4) {
+                        brandTitle
+                        HStack {
+                            PioHeaderCompanion(size: 52)
+                            Spacer(minLength: 8)
+                            headerActions
+                        }
+                    }
                 }
-                VStack(alignment: .leading, spacing: 6) {
-                    topRow(showsSaessagi: false)
-                    greetingRow(showsIcon: false, saessagi: 40)
-                }
-                VStack(alignment: .leading, spacing: 6) {
-                    topRow(showsSaessagi: true)
-                    greetingRow(showsIcon: true, saessagi: nil)
+                ViewThatFits(in: .horizontal) {
+                    HStack(alignment: .center, spacing: 8) {
+                        greeting(showsIcon: false).fixedSize(horizontal: true, vertical: false)
+                        Spacer(minLength: 4)
+                        DateNavigator(showsDate: false, minimumTouchTarget: 44)
+                    }
+                    VStack(alignment: .leading, spacing: 6) {
+                        greeting(showsIcon: true)
+                        DateNavigator(showsDate: false, minimumTouchTarget: 44)
+                    }
                 }
             }
         }
     }
 
-    private func topRow(showsSaessagi: Bool) -> some View {
+    private var brandTitle: some View {
+        Text(verbatim: AppBrand.name)
+            .font(.title2.weight(.bold))
+            .accessibilityAddTraits(.isHeader)
+            .accessibilityIdentifier("dashboard.brand")
+    }
+
+    private func topRow(pioSize: CGFloat?) -> some View {
         HStack(spacing: 8) {
-            Text("Daylog")
-                .font(.title2.weight(.bold))
-                .accessibilityAddTraits(.isHeader)
+            brandTitle.fixedSize(horizontal: true, vertical: false)
             if store.isVacation(on: store.today) {
-                // 휴가 카드가 아래쪽에 있어도 오늘이 휴가라는 것은 위에서 알 수 있게 한다.
                 Label("휴가 중", systemImage: "beach.umbrella.fill")
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(GroupColor.coral.ink)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 3)
+                    .padding(.horizontal, 8).padding(.vertical, 3)
                     .background(Theme.vacationTint.opacity(0.16), in: Capsule())
             }
-            if showsSaessagi {
-                // 단추 높이(44) 안에 들어가는 크기. 단추까지의 빈자리를 새싹이가 차지하고 그 안에서 걷는다.
-                TodaySaessagi(size: 36, fillsWidth: true)
+            if let pioSize {
+                PioHeaderCompanion(size: pioSize)
+                    .frame(minWidth: pioSize, maxWidth: .infinity, alignment: .center)
                     .layoutPriority(-1)
-            } else {
-                Spacer(minLength: 8)
-            }
+            } else { Spacer(minLength: 4) }
+            headerActions
+        }
+    }
+
+    private var headerActions: some View {
+        HStack(spacing: 8) {
             Button {
                 isEditing.toggle()
             } label: {
@@ -143,22 +166,6 @@ struct TodayCompactView: View {
         }
     }
 
-    private func greetingRow(showsIcon: Bool, saessagi: CGFloat?) -> some View {
-        HStack(alignment: .bottom, spacing: 8) {
-            greeting(showsIcon: showsIcon)
-                .saessagiDebugFrame("title")
-            if let saessagi {
-                // 날짜 이동 단추까지의 빈자리를 새싹이가 차지하고 그 안에서 걷는다(글자와 단추가 먼저 자리를 잡는다).
-                TodaySaessagi(size: saessagi, fillsWidth: true)
-                    .layoutPriority(-1)
-            } else {
-                Spacer(minLength: 4)
-            }
-            DateNavigator(showsDate: false)
-                .saessagiDebugFrame("controls")
-        }
-    }
-
     /// 날짜와 인사말(지난 날짜를 볼 때는 "…의 기록").
     private func greeting(showsIcon: Bool) -> some View {
         VStack(alignment: .leading, spacing: 1) {
@@ -169,7 +176,7 @@ struct TodayCompactView: View {
             HStack(spacing: 6) {
                 Text(verbatim: store.isViewingToday ? ui.string(.dashboardGreeting) : "\(store.selectedDay.shortTitle)의 기록")
                     .font(.title3.weight(.bold))
-                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
+                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? nil : 1)
                     .minimumScaleFactor(0.8)
                 if showsIcon, store.isViewingToday, ui.showsGreetingIcon {
                     Image(systemName: "sun.max.fill")
@@ -313,7 +320,7 @@ struct NextRoutineCard: View {
                     .font(.footnote)
                     .monospacedDigit()
                     .foregroundStyle(.secondary)
-                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
+                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? nil : 1)
             }
             Spacer(minLength: 8)
             Button("완료") {

@@ -1,0 +1,25 @@
+from pathlib import Path
+import subprocess,sys,os,signal,json
+platform=sys.argv[1]; appearance=sys.argv[2]
+case_name=sys.argv[3] if len(sys.argv)>3 and not sys.argv[3].startswith('--') else 'layeredStatic'
+args=['-DaylogDebugLayeredCase',case_name,'-DaylogDebugLayeredRig','YES','-DaylogDebugLayeredEvidencePath','pio-layered-evidence.json','-DaylogDebugLayeredDiagnostics','YES','-DaylogStoreName','pio-outfit-phase22-20261016','-DaylogDebugCharacter','routimori','-DaylogDebugOutfitDiagnostics','NO','-DaylogDebugSplash','off','-DaylogDebugAppearance',appearance,'-DaylogDebugToday','2026-10-16','-DaylogDebugSettings','wardrobe','-DaylogDebugScript','onboardingDone;section:settings'+(';window:1040,900' if platform=='mac' else '')]
+for key in ['Size','Outfit','Motion']:
+ flag='--'+key.lower()
+ if flag in sys.argv: args += ['-DaylogDebugLayered'+key,sys.argv[sys.argv.index(flag)+1]]
+if platform=='mac':
+ app='/tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app'
+ exe=app+'/Contents/MacOS/Daylog'
+ for line in subprocess.check_output(['ps','-axo','pid=,comm='],text=True).splitlines():
+  parts=line.strip().split(None,1)
+  if len(parts)==2 and parts[1] in [exe,'/private'+exe]: os.kill(int(parts[0]),signal.SIGTERM)
+ subprocess.run(['open','-n',app,'--args',*args],check=True)
+else:
+ udid='87EA3A43-121C-4FFA-A716-A79E614ABEFA'
+ app=Path('/tmp/DaylogStage4.noindex/ios/Build/Products/Debug-iphonesimulator/Daylog.app')
+ if '--install' in sys.argv:
+  widget=app/'PlugIns/DaylogWidgets.appex'
+  subprocess.run(['/usr/libexec/PlistBuddy','-c','Set :CFBundleIdentifier com.daylog.verify.ios.widgets',str(widget/'Info.plist')],check=True)
+  for f in [widget,app]: subprocess.run(['codesign','--force','--sign','-',str(f)],check=True)
+  subprocess.run(['xcrun','simctl','install',udid,str(app)],check=True)
+ subprocess.run(['xcrun','simctl','terminate',udid,'com.daylog.verify.ios'],check=False,stderr=subprocess.DEVNULL)
+ subprocess.run(['xcrun','simctl','launch',udid,'com.daylog.verify.ios',*args],check=True)

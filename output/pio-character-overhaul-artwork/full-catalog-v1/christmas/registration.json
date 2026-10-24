@@ -1,0 +1,169 @@
+{
+  "outfit": "christmas",
+  "status": "UNAPPROVED_ARTWORK_CANDIDATE",
+  "sourceRegistration": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_registration.dataset/registration.json",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "happyEyeFits": {
+    "Left": {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/shared-expression-v1/source/eye-happy-v1.png",
+      "scale": 0.11549199084668192,
+      "offset": [
+        448.4431121281465,
+        599.3906064073227
+      ]
+    },
+    "Right": {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/shared-expression-v1/source/eye-happy-v1.png",
+      "scale": 0.11313501144164759,
+      "offset": [
+        732.536109839817,
+        566.5254919908467
+      ]
+    }
+  },
+  "normalizedParts": [
+    {
+      "id": "footLeft",
+      "file": "layers/footLeft.png",
+      "z": 0,
+      "pivot": [
+        530,
+        1070
+      ],
+      "neutralTransformBaked": true
+    },
+    {
+      "id": "footRight",
+      "file": "layers/footRight.png",
+      "z": 1,
+      "pivot": [
+        817,
+        1070
+      ],
+      "neutralTransformBaked": true
+    },
+    {
+      "id": "body",
+      "file": "layers/body.png",
+      "z": 2,
+      "pivot": [
+        650,
+        780
+      ],
+      "neutralTransformBaked": true
+    },
+    {
+      "id": "hat",
+      "file": "layers/hat.png",
+      "z": 3,
+      "pivot": [
+        660,
+        450
+      ],
+      "neutralTransformBaked": true
+    },
+    {
+      "id": "eyeLeft",
+      "file": "layers/eyeLeft.png",
+      "z": 4,
+      "pivot": [
+        551,
+        652
+      ],
+      "neutralTransformBaked": true
+    },
+    {
+      "id": "eyeRight",
+      "file": "layers/eyeRight.png",
+      "z": 5,
+      "pivot": [
+        833,
+        618
+      ],
+      "neutralTransformBaked": true
+    },
+    {
+      "id": "lidLeft",
+      "file": "layers/lidLeft.png",
+      "z": 6,
+      "pivot": [
+        551,
+        658
+      ],
+      "neutralTransformBaked": true
+    },
+    {
+      "id": "lidRight",
+      "file": "layers/lidRight.png",
+      "z": 7,
+      "pivot": [
+        833,
+        622
+      ],
+      "neutralTransformBaked": true
+    },
+    {
+      "id": "gift",
+      "file": "layers/gift.png",
+      "z": 8,
+      "pivot": [
+        790,
+        925
+      ],
+      "neutralTransformBaked": true
+    },
+    {
+      "id": "handLeft",
+      "file": "layers/handLeft.png",
+      "z": 9,
+      "pivot": [
+        513,
+        870
+      ],
+      "neutralTransformBaked": true
+    },
+    {
+      "id": "handRight",
+      "file": "layers/handRight.png",
+      "z": 10,
+      "pivot": [
+        1050,
+        790
+      ],
+      "neutralTransformBaked": true
+    },
+    {
+      "id": "halfLeft",
+      "file": "layers/halfLeft.png",
+      "z": 11,
+      "pivot": [
+        551,
+        650
+      ],
+      "neutralTransformBaked": true
+    },
+    {
+      "id": "halfRight",
+      "file": "layers/halfRight.png",
+      "z": 12,
+      "pivot": [
+        833,
+        616
+      ],
+      "neutralTransformBaked": true
+    }
+  ],
+  "primarySourcesUnchanged": true,
+  "neutralPoseNote": "Pajamas default remains sleepy in original kit; open is optional review expression",
+  "offlineOnly": true,
+  "decodedGIFFrames": 6,
+  "summerNote": null,
+  "exportedLayers": [
+    "happyLeft",
+    "happyRight"
+  ],
+  "expressionSourceCount": 1
+}

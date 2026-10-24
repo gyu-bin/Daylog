@@ -1,0 +1,9 @@
+The following is a diff from the previous accessibility tree for Window: "Daylog Store iPhone 17 Pro Max" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+~				7 switch Description: 동작 줄이기, Value: 0, ID: REDUCE_MOTION, Secondary Actions: Cancel
+~				9 switch
+~				10 element Description: 아이콘의 시차 효과를 포함한 사용자 인터페이스 동작을 감소시킵니다., Secondary Actions: Cancel
+~				11 switch Description: 움직이는 이미지 자동 재생, Value: 1, ID: REDUCE_MOTION_AUTOPLAY_ANIMATED_IMAGES
+~				12 switch
+~				13 switch
+~				15 switch
+The focused UI element is 0 standard window Daylog Store iPhone 17 Pro Max – iOS 27.0, ID: deviceWindow-AppWindow-1, Secondary Actions: Raise

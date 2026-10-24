@@ -1,0 +1,91 @@
+{
+  "independent" : [
+    "eyes",
+    "lids"
+  ],
+  "limits" : "Native presentation-layer component captures; candidate geometry still requires visual approval. Held parts never detach or wave independently of the prop. No purchase, preference or whole-screen workflow verification.",
+  "observations" : [
+    {
+      "elapsed" : 0.18408133334014565,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 0.20963708334602416,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 1.6217066250101198,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.6445971666689729,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.9209122083411785,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0,
+      "lidOpacity" : 1,
+      "side" : 64,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 1.9440855000138981,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0,
+      "lidOpacity" : 1,
+      "side" : 220,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 2.3358113333379151,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 2.3583894583425717,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 4.8534155000088504,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-negative"
+    },
+    {
+      "elapsed" : 4.8769252083438914,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-negative"
+    }
+  ],
+  "platform" : "iPhone Simulator",
+  "revision" : "basic-production-eyes-v1"
+}

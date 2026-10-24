@@ -1,0 +1,938 @@
+{
+  "scope": "Offline original-art candidates; not app integrated; all sources are flattened foregrounds, NOT independently rigged characters.",
+  "expected_source_count": 26,
+  "assets": [
+    {
+      "id": "christmas",
+      "mode": "day",
+      "path": "source/christmas-day-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1284822,
+      "semitransparent_pixels": 288042,
+      "alpha_bbox": [
+        0,
+        119,
+        1024,
+        1512
+      ],
+      "sha256": "95b721d351550d9054a6fde8f2c539186ccc1d7b2e0571281abcd64dd570235e",
+      "native_bytes": 1298082,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/christmas-day-v1.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_christmas.imageset/pio_outfit_christmas.png",
+        "sha256": "7df7b6c55397cc00486ed2c83a21ad1583d7f139307efa929d5219917c75b66d"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "hanbok",
+      "mode": "day",
+      "path": "source/hanbok-day-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1282641,
+      "semitransparent_pixels": 290223,
+      "alpha_bbox": [
+        0,
+        17,
+        1024,
+        1502
+      ],
+      "sha256": "cf186d3c256eb6857dcd82b93fbb579a04fabda29b2196715c35436ab6b8744c",
+      "native_bytes": 1342981,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/hanbok-day-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_hanbok.imageset/pio_outfit_hanbok.png",
+        "sha256": "4ebb837cff050e50db901de0b63dc2221bb52fe52e18530f42901847b5a253e0"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "astronaut",
+      "mode": "day",
+      "path": "source/astronaut-day-v2.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1271756,
+      "semitransparent_pixels": 301108,
+      "alpha_bbox": [
+        0,
+        47,
+        1024,
+        1448
+      ],
+      "sha256": "071987a2b6000b3475144720356469aeba75aa9aa216ad2626623c3ae22012c5",
+      "native_bytes": 1319308,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/astronaut-day-v2.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_astronaut.imageset/pio_outfit_astronaut.png",
+        "sha256": "6a9741d18e6ed00fc036dc82d9bf579e16694f20001ac7e17261db5784e31fc2"
+      },
+      "active_candidate_version": "v2",
+      "supersedes": {
+        "path": "source/astronaut-day-v1.png",
+        "status": "REJECTED for visor/straw logic; preserved unchanged"
+      }
+    },
+    {
+      "id": "cherryBlossom",
+      "mode": "day",
+      "path": "source/cherryBlossom-day-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1323516,
+      "semitransparent_pixels": 249348,
+      "alpha_bbox": [
+        0,
+        111,
+        1024,
+        1464
+      ],
+      "sha256": "9af0ff90d7cd7482827b7438d3e9e1fcbfc3c66ff8201531d670ec25cd405e38",
+      "native_bytes": 1244068,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/cherryBlossom-day-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_cherryBlossom.imageset/pio_outfit_cherryBlossom.png",
+        "sha256": "3f0bf2e0260c879286e03de4154379a5d19ca48cbe509813fd86f71e2857803d"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "summerVacation",
+      "mode": "day",
+      "path": "source/summerVacation-day-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1301282,
+      "semitransparent_pixels": 271582,
+      "alpha_bbox": [
+        0,
+        15,
+        1024,
+        1522
+      ],
+      "sha256": "9a8bacaef607704494d52986089d0905735049e400b3ee296be66ce5fe527ef2",
+      "native_bytes": 1283544,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/summerVacation-day-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_summerVacation.imageset/pio_outfit_summerVacation.png",
+        "sha256": "c1602489cb1ca0e93d652613ac6662a17fcfaa5132f112cf9341493a7bbd1b9e"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "autumn",
+      "mode": "day",
+      "path": "source/autumn-day-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1279929,
+      "semitransparent_pixels": 292935,
+      "alpha_bbox": [
+        0,
+        19,
+        1024,
+        1536
+      ],
+      "sha256": "29f370c0cf6c0e84bd2228c07e0dc6b4fa350456a89318a5254c0826672f3dc2",
+      "native_bytes": 1332811,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/autumn-day-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_autumn.imageset/pio_outfit_autumn.png",
+        "sha256": "10c80a3489506751730f0409023699d150a9760775a0cba9f1f53195fec9aa43"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "winter",
+      "mode": "day",
+      "path": "source/winter-day-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1296934,
+      "semitransparent_pixels": 275930,
+      "alpha_bbox": [
+        0,
+        101,
+        1024,
+        1512
+      ],
+      "sha256": "28954ce250520fd2d4c892f2ae8ee248f8a0b7dfeeb1916565fd9a67486312e7",
+      "native_bytes": 1316930,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/winter-day-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_winter.imageset/pio_outfit_winter.png",
+        "sha256": "8ed794f01a9e1039f3ebc691a160907652aac6e79e979879ce13983a687953df"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "halloween",
+      "mode": "day",
+      "path": "source/halloween-day-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1305627,
+      "semitransparent_pixels": 267237,
+      "alpha_bbox": [
+        0,
+        21,
+        1024,
+        1528
+      ],
+      "sha256": "69fabdccc6be0cabb050b2eb999ad67c44be9c90201fb9b448d4ffd5c711a8f7",
+      "native_bytes": 1292618,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/halloween-day-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_halloween.imageset/pio_outfit_halloween.png",
+        "sha256": "1307965335aaa25d5ca2a85d4467cb832f9a45a3671a47743f936a461394427e"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "cafe",
+      "mode": "day",
+      "path": "source/cafe-day-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1289258,
+      "semitransparent_pixels": 283606,
+      "alpha_bbox": [
+        0,
+        31,
+        1024,
+        1486
+      ],
+      "sha256": "f3f11907684e96f35ea69e7d18425b9bd930dcba8a0dff04bc6c04329c1c995b",
+      "native_bytes": 1315593,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/cafe-day-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_cafe.imageset/pio_outfit_cafe.png",
+        "sha256": "74e139a71fd387accfaf518673544111a41894d6be7eceabeb76786603897aaa"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "student",
+      "mode": "day",
+      "path": "source/student-day-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1286734,
+      "semitransparent_pixels": 286130,
+      "alpha_bbox": [
+        0,
+        73,
+        1024,
+        1512
+      ],
+      "sha256": "a969ca540efa24b52d6290f800f69a7e2aaf29c1fbc2c4220f9a19f6c2262a18",
+      "native_bytes": 1325141,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/student-day-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_student.imageset/pio_outfit_student.png",
+        "sha256": "261d6e89132547e529c85b477490403e0eea4cf87667348dd1fe007da3ded247"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "fitness",
+      "mode": "day",
+      "path": "source/fitness-day-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1289904,
+      "semitransparent_pixels": 282960,
+      "alpha_bbox": [
+        0,
+        69,
+        1024,
+        1496
+      ],
+      "sha256": "6383e8fecf6e7880df8b46e15eaf9b94d306b0dc246c99edbebcd9903bc569fc",
+      "native_bytes": 1312494,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/fitness-day-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_fitness.imageset/pio_outfit_fitness.png",
+        "sha256": "1f785e0305be4db016b5f68c1874849b0476026e7df0f4e569029afa70c199dd"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "rainyDay",
+      "mode": "day",
+      "path": "source/rainyDay-day-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1315006,
+      "semitransparent_pixels": 257858,
+      "alpha_bbox": [
+        0,
+        35,
+        1024,
+        1513
+      ],
+      "sha256": "305fd26bc8e975d57c9cc7ec4a857bac582f935295747e29f549e182e5ef3c5e",
+      "native_bytes": 1267045,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/rainyDay-day-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_rainyDay.imageset/pio_outfit_rainyDay.png",
+        "sha256": "5bf7081494800cc37fade49caf0398a2d8e075667ea59a37cd10a8b843dcba31"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "pajamas",
+      "mode": "day",
+      "path": "source/pajamas-day-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1296128,
+      "semitransparent_pixels": 276736,
+      "alpha_bbox": [
+        0,
+        43,
+        1024,
+        1518
+      ],
+      "sha256": "850e7f4051a04a014a68a4a1e7a295081a77083819d7a1fe602d85188c6f2b82",
+      "native_bytes": 1297265,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/pajamas-day-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_pajamas.imageset/pio_outfit_pajamas.png",
+        "sha256": "d88e9c2b225434b34f4751914625ca23dd38c058e7812a2e5dd15068ee157249"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "christmas",
+      "mode": "night",
+      "path": "source/christmas-night-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 953998,
+      "semitransparent_pixels": 618866,
+      "alpha_bbox": [
+        0,
+        4,
+        1024,
+        1536
+      ],
+      "sha256": "f10a1a440a0f0d1427372f7e7e5042a24cd5f98ab40fa0a991d72506ef38053e",
+      "native_bytes": 1699801,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/christmas-night-v1.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_christmas.imageset/pio_outfit_christmas.png",
+        "sha256": "7df7b6c55397cc00486ed2c83a21ad1583d7f139307efa929d5219917c75b66d"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "hanbok",
+      "mode": "night",
+      "path": "source/hanbok-night-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1161879,
+      "semitransparent_pixels": 410985,
+      "alpha_bbox": [
+        0,
+        63,
+        1024,
+        1514
+      ],
+      "sha256": "8c41f63bd384d5bebb6e299d39882f367807c0a73c1cb0ed077b0e9782aabcb8",
+      "native_bytes": 1623995,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/hanbok-night-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_hanbok.imageset/pio_outfit_hanbok.png",
+        "sha256": "4ebb837cff050e50db901de0b63dc2221bb52fe52e18530f42901847b5a253e0"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "astronaut",
+      "mode": "night",
+      "path": "source/astronaut-night-v2.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1109932,
+      "semitransparent_pixels": 462932,
+      "alpha_bbox": [
+        0,
+        37,
+        1024,
+        1450
+      ],
+      "sha256": "57050520ddd78d9d3a38fc0c2c473c45beb229358d7dae69d7bbb0ce05d1015c",
+      "native_bytes": 1714185,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/astronaut-night-v2.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_astronaut.imageset/pio_outfit_astronaut.png",
+        "sha256": "6a9741d18e6ed00fc036dc82d9bf579e16694f20001ac7e17261db5784e31fc2"
+      },
+      "active_candidate_version": "v2",
+      "supersedes": {
+        "path": "source/astronaut-night-v1.png",
+        "status": "REJECTED for visor/straw logic; preserved unchanged"
+      }
+    },
+    {
+      "id": "cherryBlossom",
+      "mode": "night",
+      "path": "source/cherryBlossom-night-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1229164,
+      "semitransparent_pixels": 343700,
+      "alpha_bbox": [
+        0,
+        55,
+        1024,
+        1496
+      ],
+      "sha256": "49d66ddb1874431cf26e9ca42f7c10da557a1a55b8dfd5e91bc85458049034d3",
+      "native_bytes": 1466350,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/cherryBlossom-night-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_cherryBlossom.imageset/pio_outfit_cherryBlossom.png",
+        "sha256": "3f0bf2e0260c879286e03de4154379a5d19ca48cbe509813fd86f71e2857803d"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "summerVacation",
+      "mode": "night",
+      "path": "source/summerVacation-night-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1212499,
+      "semitransparent_pixels": 360365,
+      "alpha_bbox": [
+        0,
+        33,
+        1024,
+        1512
+      ],
+      "sha256": "4973b74068787930dca2f50885d1dded19909d53a6235b64171ca8e52fca03f3",
+      "native_bytes": 1505767,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/summerVacation-night-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_summerVacation.imageset/pio_outfit_summerVacation.png",
+        "sha256": "c1602489cb1ca0e93d652613ac6662a17fcfaa5132f112cf9341493a7bbd1b9e"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "autumn",
+      "mode": "night",
+      "path": "source/autumn-night-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1281200,
+      "semitransparent_pixels": 291664,
+      "alpha_bbox": [
+        0,
+        21,
+        1024,
+        1416
+      ],
+      "sha256": "fc3a1a48b224e16297d46b527706383f77212aff4387876bb17ab67ad6d33d48",
+      "native_bytes": 1443070,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/autumn-night-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_autumn.imageset/pio_outfit_autumn.png",
+        "sha256": "10c80a3489506751730f0409023699d150a9760775a0cba9f1f53195fec9aa43"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "winter",
+      "mode": "night",
+      "path": "source/winter-night-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1206479,
+      "semitransparent_pixels": 366385,
+      "alpha_bbox": [
+        0,
+        20,
+        1024,
+        1536
+      ],
+      "sha256": "b1169d3b421b2dd0c1a6c7c16ec27000caeb3b840181efe27bb300d0002eb801",
+      "native_bytes": 1548659,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/winter-night-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_winter.imageset/pio_outfit_winter.png",
+        "sha256": "8ed794f01a9e1039f3ebc691a160907652aac6e79e979879ce13983a687953df"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "halloween",
+      "mode": "night",
+      "path": "source/halloween-night-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1265211,
+      "semitransparent_pixels": 307653,
+      "alpha_bbox": [
+        0,
+        28,
+        1024,
+        1508
+      ],
+      "sha256": "3eb58554760cfbf50aae563ab037e4b9519283800a5281619ea6bc959cfc7ccb",
+      "native_bytes": 1434857,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/halloween-night-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_halloween.imageset/pio_outfit_halloween.png",
+        "sha256": "1307965335aaa25d5ca2a85d4467cb832f9a45a3671a47743f936a461394427e"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "cafe",
+      "mode": "night",
+      "path": "source/cafe-night-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1243380,
+      "semitransparent_pixels": 329484,
+      "alpha_bbox": [
+        0,
+        53,
+        1024,
+        1512
+      ],
+      "sha256": "9dd14447e4740358071c96a0aaaf933bd87419b77626c8db4fabcbbf74aa4473",
+      "native_bytes": 1451391,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/cafe-night-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_cafe.imageset/pio_outfit_cafe.png",
+        "sha256": "74e139a71fd387accfaf518673544111a41894d6be7eceabeb76786603897aaa"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "student",
+      "mode": "night",
+      "path": "source/student-night-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1197434,
+      "semitransparent_pixels": 375430,
+      "alpha_bbox": [
+        0,
+        39,
+        1024,
+        1518
+      ],
+      "sha256": "d5da4030a75f1ad7388cde437a50d9e109d91b8a363e9e6b85c93dd452644649",
+      "native_bytes": 1535017,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/student-night-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_student.imageset/pio_outfit_student.png",
+        "sha256": "261d6e89132547e529c85b477490403e0eea4cf87667348dd1fe007da3ded247"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "fitness",
+      "mode": "night",
+      "path": "source/fitness-night-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1185178,
+      "semitransparent_pixels": 387686,
+      "alpha_bbox": [
+        0,
+        21,
+        1024,
+        1455
+      ],
+      "sha256": "1be2f9a8c0ca3652e81a65c7039a70838be4af7248a558b32e13cb9bcca831cb",
+      "native_bytes": 1547247,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/fitness-night-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_fitness.imageset/pio_outfit_fitness.png",
+        "sha256": "1f785e0305be4db016b5f68c1874849b0476026e7df0f4e569029afa70c199dd"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "rainyDay",
+      "mode": "night",
+      "path": "source/rainyDay-night-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1264727,
+      "semitransparent_pixels": 308137,
+      "alpha_bbox": [
+        0,
+        29,
+        1024,
+        1502
+      ],
+      "sha256": "d1f67dd9a71f6e3602fd786943594193f67afde5ec6faac87415a2658913f0cc",
+      "native_bytes": 1413348,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/rainyDay-night-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_rainyDay.imageset/pio_outfit_rainyDay.png",
+        "sha256": "5bf7081494800cc37fade49caf0398a2d8e075667ea59a37cd10a8b843dcba31"
+      },
+      "active_candidate_version": "v1"
+    },
+    {
+      "id": "pajamas",
+      "mode": "night",
+      "path": "source/pajamas-night-v1.png",
+      "native_size": [
+        1024,
+        1536
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1254963,
+      "semitransparent_pixels": 317901,
+      "alpha_bbox": [
+        0,
+        37,
+        1024,
+        1510
+      ],
+      "sha256": "4e8954a2657703c3417d19fad81757c5b5a95f1ef0f58279a1a9c3628712c94c",
+      "native_bytes": 1395822,
+      "canvas_matches": true,
+      "approval": "PARTIAL - authored candidate; exact rope registration and design fidelity need approval",
+      "independent_motion": false,
+      "generation_provenance": "source/pajamas-night-v1.png.generation.json",
+      "native_copy_unchanged": true,
+      "approved_costume_reference": {
+        "path": "Daylog/PioWardrobe.xcassets/pio_outfit_pajamas.imageset/pio_outfit_pajamas.png",
+        "sha256": "d88e9c2b225434b34f4751914625ca23dd38c058e7812a2e5dd15068ee157249"
+      },
+      "active_candidate_version": "v1"
+    }
+  ],
+  "missing": [],
+  "original_registration": {
+    "canvas": [
+      1024,
+      1536
+    ],
+    "day": {
+      "attachment": [
+        968,
+        484
+      ],
+      "focus": [
+        512,
+        740
+      ]
+    },
+    "night": {
+      "attachment": [
+        68,
+        465
+      ],
+      "focus": [
+        512,
+        845
+      ]
+    },
+    "note": "Generation can shift geometry despite same canvas. Original anchors are reference only; do not use as verified candidate pivots."
+  },
+  "backgrounds": {
+    "day": {
+      "path": "Daylog/RoutimoriTrial.xcassets/routimori_vacation_background.imageset/routimori_vacation_background.png",
+      "sha256": "a08b581b0f5752745512c478151ff748d4680caa438f8e63f033e9545f946c64"
+    },
+    "night": {
+      "path": "Daylog/RoutimoriTrial.xcassets/routimori_vacation_background_night.imageset/routimori_vacation_background_night.png",
+      "sha256": "24d608fa59da85b44249bb1fd004faf7d5285c2f2bae64b33159ecad84f4aea5"
+    }
+  },
+  "actual_source_count": 26,
+  "file_validation": "PASS"
+}

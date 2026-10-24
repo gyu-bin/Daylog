@@ -1,0 +1,212 @@
+[
+  {
+    "alpha" : {
+      "alpha0" : 812996,
+      "alpha1to254" : 759206,
+      "alpha255" : 314
+    },
+    "boundsAlpha1" : [
+      0,
+      19,
+      1252,
+      1235
+    ],
+    "boundsAlpha16" : [
+      108,
+      179,
+      1085,
+      1003
+    ],
+    "boundsAlpha128" : [
+      108,
+      180,
+      1084,
+      1001
+    ],
+    "height" : 1254,
+    "name" : "body-clean",
+    "sha256" : "eabdbf1f565f4ae8bae3659283922d392e52dd45805058837c0050cc70a1e54e",
+    "source" : "candidates\/hanbok\/body-clean-v1.png",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1127655,
+      "alpha1to254" : 444796,
+      "alpha255" : 65
+    },
+    "boundsAlpha1" : [
+      0,
+      20,
+      1234,
+      1210
+    ],
+    "boundsAlpha16" : [
+      314,
+      269,
+      750,
+      858
+    ],
+    "boundsAlpha128" : [
+      315,
+      271,
+      748,
+      853
+    ],
+    "height" : 1254,
+    "name" : "sleeve-left",
+    "sha256" : "473ab3e32d6724ac20fa1a128f8e5a06e706185a44213f5b332e0347a7089747",
+    "source" : "candidates\/hanbok\/sleeve-left-v3.png",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1078423,
+      "alpha1to254" : 493773,
+      "alpha255" : 320
+    },
+    "boundsAlpha1" : [
+      0,
+      27,
+      1238,
+      1227
+    ],
+    "boundsAlpha16" : [
+      227,
+      207,
+      999,
+      897
+    ],
+    "boundsAlpha128" : [
+      227,
+      212,
+      994,
+      891
+    ],
+    "height" : 1254,
+    "name" : "sleeve-right",
+    "sha256" : "df5262851cab2593a00c19f256fc92add8b16622a15d68b05031746995d90f72",
+    "source" : "candidates\/hanbok\/sleeve-right-v2.png",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1117569,
+      "alpha1to254" : 453853,
+      "alpha255" : 826
+    },
+    "boundsAlpha1" : [
+      33,
+      32,
+      1198,
+      1142
+    ],
+    "boundsAlpha16" : [
+      277,
+      245,
+      764,
+      750
+    ],
+    "boundsAlpha128" : [
+      278,
+      246,
+      762,
+      748
+    ],
+    "height" : 1192,
+    "name" : "eye-open",
+    "sha256" : "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+    "source" : "candidates\/base\/eye-open-v1.png",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1417434,
+      "alpha1to254" : 154588,
+      "alpha255" : 226
+    },
+    "boundsAlpha1" : [
+      37,
+      20,
+      1263,
+      1116
+    ],
+    "boundsAlpha16" : [
+      259,
+      552,
+      806,
+      293
+    ],
+    "boundsAlpha128" : [
+      267,
+      559,
+      793,
+      285
+    ],
+    "height" : 1192,
+    "name" : "eyelid-closed",
+    "sha256" : "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+    "source" : "candidates\/base\/eyelid-closed-v1.png",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1023245,
+      "alpha1to254" : 548821,
+      "alpha255" : 182
+    },
+    "boundsAlpha1" : [
+      0,
+      9,
+      1305,
+      1158
+    ],
+    "boundsAlpha16" : [
+      178,
+      200,
+      969,
+      846
+    ],
+    "boundsAlpha128" : [
+      179,
+      201,
+      967,
+      845
+    ],
+    "height" : 1192,
+    "name" : "foot",
+    "sha256" : "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+    "source" : "candidates\/base\/foot-v1.png",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1026182,
+      "alpha1to254" : 546682,
+      "alpha255" : 0
+    },
+    "boundsAlpha1" : [
+      49,
+      57,
+      1467,
+      967
+    ],
+    "boundsAlpha16" : [
+      91,
+      66,
+      1381,
+      896
+    ],
+    "boundsAlpha128" : [
+      92,
+      67,
+      1379,
+      894
+    ],
+    "height" : 1024,
+    "name" : "sprout",
+    "sha256" : "56b0770a054cf8b0423c844c8db8796a096cb232e9691c826ecf171ca6905673",
+    "source" : "candidates\/base\/sprout-v1.png",
+    "width" : 1536
+  }
+]

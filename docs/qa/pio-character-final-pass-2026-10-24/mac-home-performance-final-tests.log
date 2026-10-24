@@ -1,0 +1,49 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioCharacterFinalHomePerformance.xctestrun -destination platform=macOS -parallel-testing-enabled NO -resultBundlePath /tmp/PioCharacterFinal-Mac-home-performance-final-20261024.xcresult "-only-testing:DaylogTests/PioCharacterHomePerformanceTests"
+
+Writing result bundle at path:
+	/tmp/PioCharacterFinal-Mac-home-performance-final-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 16:39:37.156021+0900 Daylog[27965:2505673] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:39:37.156381+0900 Daylog[27965:2505673] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:39:37.157478+0900 Daylog[27965:2505674] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:39:37.157531+0900 Daylog[27965:2505674] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:39:37.159076+0900 Daylog[27965:2505696] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:39:37.159124+0900 Daylog[27965:2505696] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:39:37.161104+0900 Daylog[27965:2505696] [Connection] Will NOT re-try to establish the connection
+2026-10-24 16:39:37.161172+0900 Daylog[27965:2505673] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:39:37.161199+0900 Daylog[27965:2505673] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:39:37.202106+0900 Daylog[27965:2505658] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 16:39:37.636249+0900 Daylog[27965:2505696] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 16:39:37.697.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 16:39:37.697.
+Test Suite 'PioCharacterHomePerformanceTests' started at 2026-10-24 16:39:37.697.
+Test Case '-[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop]' started.
+Test Case '-[DaylogTests.PioCharacterHomePerformanceTests testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop]' passed (99.877 seconds).
+Test Suite 'PioCharacterHomePerformanceTests' passed at 2026-10-24 16:41:17.576.
+	 Executed 1 test, with 0 failures (0 unexpected) in 99.877 (99.878) seconds
+Test Suite 'DaylogTests.xctest' passed at 2026-10-24 16:41:17.576.
+	 Executed 1 test, with 0 failures (0 unexpected) in 99.877 (99.879) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 16:41:17.577.
+	 Executed 1 test, with 0 failures (0 unexpected) in 99.877 (99.880) seconds
+2026-10-24 16:41:17.880 xcodebuild[27953:2505533] [MT] IDETestOperationsObserverDebug: 101.040 elapsed -- Testing started completed.
+2026-10-24 16:41:17.880 xcodebuild[27953:2505533] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 16:41:17.880 xcodebuild[27953:2505533] [MT] IDETestOperationsObserverDebug: 101.040 sec, +101.040 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCharacterFinal-Mac-home-performance-final-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

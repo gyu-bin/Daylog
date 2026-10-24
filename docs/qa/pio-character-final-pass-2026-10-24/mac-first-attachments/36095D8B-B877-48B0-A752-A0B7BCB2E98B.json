@@ -1,0 +1,26 @@
+[
+  {
+    "action" : "greet",
+    "actualElapsed" : 2.8367179166671121,
+    "capturedFrames" : 43,
+    "note" : "PNG capture adds overhead; chronological frames are native, not guaranteed fixed-rate video",
+    "outfit" : "christmas",
+    "returnedToIdle" : true
+  },
+  {
+    "action" : "jump",
+    "actualElapsed" : 2.2265135416673729,
+    "capturedFrames" : 29,
+    "note" : "PNG capture adds overhead; chronological frames are native, not guaranteed fixed-rate video",
+    "outfit" : "hanbok",
+    "returnedToIdle" : true
+  },
+  {
+    "action" : "encourage",
+    "actualElapsed" : 4.2137786249950295,
+    "capturedFrames" : 59,
+    "note" : "PNG capture adds overhead; chronological frames are native, not guaranteed fixed-rate video",
+    "outfit" : "astronaut",
+    "returnedToIdle" : true
+  }
+]

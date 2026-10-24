@@ -1,0 +1,392 @@
+{
+  "status": "PARTIAL_ARTWORK_CANDIDATE",
+  "sourceHashesUnchanged": true,
+  "sources": [
+    {
+      "id": "footLeft",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+      "matchesRecordedSHA256": true
+    },
+    {
+      "id": "footRight",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+      "matchesRecordedSHA256": true
+    },
+    {
+      "id": "body",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/body-candidate.png",
+      "matchesRecordedSHA256": true
+    },
+    {
+      "id": "eyeLeft",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+      "matchesRecordedSHA256": true
+    },
+    {
+      "id": "eyeRight",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+      "matchesRecordedSHA256": true
+    },
+    {
+      "id": "headwear",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/headwear-candidate.png",
+      "matchesRecordedSHA256": true
+    },
+    {
+      "id": "pillow",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/pillow-candidate.png",
+      "matchesRecordedSHA256": true
+    },
+    {
+      "id": "wingLeft",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/wing-oval-compact-candidate-v5.png",
+      "matchesRecordedSHA256": true
+    },
+    {
+      "id": "wingRight",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/wing-oval-compact-candidate-v5.png",
+      "matchesRecordedSHA256": true
+    },
+    {
+      "id": "halfLeft",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+      "matchesRecordedSHA256": true
+    },
+    {
+      "id": "lidLeft",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+      "matchesRecordedSHA256": true
+    },
+    {
+      "id": "halfRight",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+      "matchesRecordedSHA256": true
+    },
+    {
+      "id": "lidRight",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+      "matchesRecordedSHA256": true
+    }
+  ],
+  "registeredLayerCount": 13,
+  "files": [
+    {
+      "file": "comparison-220pt-3x-dark.png",
+      "size": [
+        3468,
+        733
+      ],
+      "mode": "RGB",
+      "sha256": "3d83beed123a27bd3861de7b53ca197563a88f10bb5be5afe64ff15d8ff7e9dc"
+    },
+    {
+      "file": "comparison-220pt-3x-light.png",
+      "size": [
+        3468,
+        733
+      ],
+      "mode": "RGB",
+      "sha256": "d5eafd14fd1902f8ccfef8146518ad0a062f2bd2da5301b912b14ba7edbae212"
+    },
+    {
+      "file": "comparison-64pt-3x-dark.png",
+      "size": [
+        1128,
+        265
+      ],
+      "mode": "RGB",
+      "sha256": "f7856bc696d008d54a0e1a8e8aed003db1c4dfd0024a618e27ae73da70bc023a"
+    },
+    {
+      "file": "comparison-64pt-3x-light.png",
+      "size": [
+        1128,
+        265
+      ],
+      "mode": "RGB",
+      "sha256": "d112395bd839474ec033c291829e5f0562dc6e31daf7cd5a2c75cef4533ae3e7"
+    },
+    {
+      "file": "hug-minus3-alpha.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "cd5f091728426968042290228379d2318f3296f2e1da87da5f69c156db88b0dc"
+    },
+    {
+      "file": "hug-minus3-dark.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "e4f6ebf639e1b863d4e14ab55b4a1199f9d7205fd4aa691c309e31f99a95317c"
+    },
+    {
+      "file": "hug-minus3-light.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "a2b81be342f2b09edc717de4d6f3298a10741190d8cdd405e294611645884dec"
+    },
+    {
+      "file": "hug-plus3-alpha.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "304e5088bdaf381d4e9f652df98b3f01c0bca8b0feb48b310f15735b1a91d1d0"
+    },
+    {
+      "file": "hug-plus3-dark.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "8da107c9c753a0af34df25d6ae3ed0c8011e8fa8e1389b1e65064183dfdaf3b6"
+    },
+    {
+      "file": "hug-plus3-light.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "ec44561dcece6bc593b1fb4889a1c614ea2a341ab9c23ee3fc406ecc32234928"
+    },
+    {
+      "file": "neutral-alpha.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "f6312c6b7fc70288cc28d6aa7f5173a730b4f4980c12822f2f6576fde39a899d"
+    },
+    {
+      "file": "neutral-dark.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "7280752d52aaab9fb295f21e22d908ab1c3fbd311065725707eb88157e5d5109"
+    },
+    {
+      "file": "neutral-light.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "b9817ed9575dde74c662a15d6435688c878e05ec0770f53ba7075d8eecc1ee4a"
+    },
+    {
+      "file": "exports/body-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "c43cbfcbcb15d8875475b3d876694838228f372f1f49bd6af822c359b5c86bb7"
+    },
+    {
+      "file": "exports/eyeLeft-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "adb6f72062703de9d94b410726a8b7c1a3a9b9d4652e229a2725af333cb40ffa"
+    },
+    {
+      "file": "exports/eyeRight-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "52120ea60303ea175fc7db0d4584b08964bd5c293bf85eae0b992af01b094802"
+    },
+    {
+      "file": "exports/footLeft-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "e0e6698dc1a699b7132e4ae95bdb471708f789e4bf2734a26dc1669b56f92dae"
+    },
+    {
+      "file": "exports/footRight-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "557325b397a6792c5ec617fdcae4dfba7c1afa206ca66a2d3a8035c5b0f622e5"
+    },
+    {
+      "file": "exports/halfLeft-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "097558752ed95debf9f7193d1d38a0cb926eba7cdb18ec96cfd9db3b28d05e83"
+    },
+    {
+      "file": "exports/halfRight-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "84d17f33894c0a21096b518ba9027c49f37555b54898ed4e6f4e9a4d17f0fe73"
+    },
+    {
+      "file": "exports/headwear-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "12384eab01e86942115f4cd5bd82e31944516a05fa4b1c767fedb50ff875ac6a"
+    },
+    {
+      "file": "exports/lidLeft-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "6a2f4f6015795a548e6cff93e9375c609c8cc301df17e70728ec99d112b44586"
+    },
+    {
+      "file": "exports/lidRight-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "91e6e500596ea53690020ce4726ba860e40a57e7d0ea54a15baee412868df15c"
+    },
+    {
+      "file": "exports/pillow-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "fd281ae3bf653ee7d920f1c4e263ec7895f3fd424e34d182339018c410e9b4d0"
+    },
+    {
+      "file": "exports/wingLeft-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "0105217be2985863346934f32c5413020804cd3eee972b1a8512111a795fb7e9"
+    },
+    {
+      "file": "exports/wingRight-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "66daaf9a43ea1bf272e1b6960504adf240cbaf18a1bb7d982de66b37f51666bc"
+    }
+  ],
+  "gif": {
+    "size": [
+      440,
+      440
+    ],
+    "frames": 32,
+    "durationMilliseconds": [
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90,
+      90
+    ],
+    "distinctDecodedFrames": 18,
+    "frameSHA256": [
+      "a83b5a59abc2fa5decde93e241a1e1c74abf71d952d7bb88b7368485f43da1b0",
+      "cf66c94f50f0ff86d4e73a68d11963410877589d6f92892095c6b033f1c002fd",
+      "e691130a37425f3dbf4918d3d5671d23d29a69cb886da3b94ccbc0a2a4fab283",
+      "daec8ce04d9ffad8c4376fa1fbd135271fbc6aefc4d0187fc0c3660772a88c2a",
+      "88223e25fe2fa3970bc10cccd21856f6d84249e3d7a3455ad5df5f6b2efae16b",
+      "13469e4f4b5c918cef09f875a5c59ebb833671f3457fbcff371728fd3980c9f2",
+      "4d2f11b4e02e27ddea0fd008e1973beb892247ddae4ad0e7d04b4ade92ed3356",
+      "251a7ae1f9208ec2770b5e78e61a89b962c4151895f9fae38cea16f85ffbe6c6",
+      "c07e4f9f969b1fa4f79aa0980ff7531f4892865f1fc5d1e1240e72dc60d2d9f4",
+      "251a7ae1f9208ec2770b5e78e61a89b962c4151895f9fae38cea16f85ffbe6c6",
+      "4d2f11b4e02e27ddea0fd008e1973beb892247ddae4ad0e7d04b4ade92ed3356",
+      "13469e4f4b5c918cef09f875a5c59ebb833671f3457fbcff371728fd3980c9f2",
+      "88223e25fe2fa3970bc10cccd21856f6d84249e3d7a3455ad5df5f6b2efae16b",
+      "daec8ce04d9ffad8c4376fa1fbd135271fbc6aefc4d0187fc0c3660772a88c2a",
+      "e691130a37425f3dbf4918d3d5671d23d29a69cb886da3b94ccbc0a2a4fab283",
+      "cf66c94f50f0ff86d4e73a68d11963410877589d6f92892095c6b033f1c002fd",
+      "6b5083d9975d9775a51c89e78c116477d33889c75a0402eb3bda57657e0b34b3",
+      "1e00714ca8c48c5edfe2c58eae91c3aece28693686bf47d63b438cfac1ec371c",
+      "f83c4f326c657c7611d15fb7c4dd8fc6990c2ad0059234896a76d3284a9034c6",
+      "db66b79b68936e8a2c6a8551f966699d81be9f7b560177945367a87d70711634",
+      "757849a5baebc0ee4ec6340d9d05e05d3058c2d153cbb1831a1c6020e9d128d0",
+      "3d68b55f886edfd31a0678ad64a4f353f874ef9c8f01eded186b46c941f5dc3f",
+      "a894dd0a0a4f554fff58ae5c23e93e96d5cd7e07c197564689e62851ae9d71d0",
+      "42cb0736c7dfb7f315b1dcb043c9b02b0e6ab5b7602211b883334f73f5834811",
+      "e7cb27ed0a6d4d9e5a2120380eed9a9b2550abe956312a86061d4f2ea62feb4f",
+      "42cb0736c7dfb7f315b1dcb043c9b02b0e6ab5b7602211b883334f73f5834811",
+      "a894dd0a0a4f554fff58ae5c23e93e96d5cd7e07c197564689e62851ae9d71d0",
+      "3d68b55f886edfd31a0678ad64a4f353f874ef9c8f01eded186b46c941f5dc3f",
+      "757849a5baebc0ee4ec6340d9d05e05d3058c2d153cbb1831a1c6020e9d128d0",
+      "db66b79b68936e8a2c6a8551f966699d81be9f7b560177945367a87d70711634",
+      "f83c4f326c657c7611d15fb7c4dd8fc6990c2ad0059234896a76d3284a9034c6",
+      "1e00714ca8c48c5edfe2c58eae91c3aece28693686bf47d63b438cfac1ec371c"
+    ]
+  },
+  "notTested": [
+    "Mac app rendering",
+    "iPhone simulator",
+    "runtime performance",
+    "Reduce Motion",
+    "walking/jumping/landing"
+  ],
+  "method": "Pillow offline whole-image downscale, affine placement and mirror only; genuine native source alpha preserved; no masking, repainting, crop, upscaling or alpha cleanup."
+}

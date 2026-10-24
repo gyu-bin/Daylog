@@ -1,0 +1,22 @@
+[
+  {
+    "source": "output/pio-independent-2026-10-24/fitness-cloud/torso-candidate-v1.png",
+    "asset": "pio_cloud_fitness_v2_torso",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "0527bde4146a2c301ff2b3a5617a6ce3a7d410a941833705bbd0179dc4b9ffcb",
+    "sourcePixelsChanged": false
+  },
+  {
+    "source": "output/pio-independent-2026-10-24/fitness-cloud/armPair-candidate-v1.png",
+    "asset": "pio_cloud_fitness_v2_armPair",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "d9802ee63c742007e3b45e1d739c81e3cd552975e047394ea50184ff89148e65",
+    "sourcePixelsChanged": false
+  }
+]

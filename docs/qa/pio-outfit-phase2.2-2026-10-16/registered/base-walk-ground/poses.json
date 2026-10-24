@@ -1,0 +1,134 @@
+[
+  {
+    "anglesDegrees" : {
+
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "step-right-planted",
+    "sproutTransform" : "identity",
+    "translations" : {
+      "footRight" : [
+        0,
+        35
+      ]
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "footRight" : 8
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "step-right-ground-lift",
+    "sproutTransform" : "identity",
+    "translations" : {
+      "footRight" : [
+        0,
+        17
+      ]
+    }
+  },
+  {
+    "anglesDegrees" : {
+
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "neutral",
+    "sproutTransform" : "identity",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : true,
+    "name" : "closed",
+    "sproutTransform" : "identity",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "wingRight" : -12
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "right-minus12",
+    "sproutTransform" : "identity",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "wingRight" : 12
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "right-plus12",
+    "sproutTransform" : "identity",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "wingLeft" : -12
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "left-minus12",
+    "sproutTransform" : "identity",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "wingLeft" : 12
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "left-plus12",
+    "sproutTransform" : "identity",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "footLeft" : -12
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "step-left",
+    "sproutTransform" : "identity",
+    "translations" : {
+      "footLeft" : [
+        -10,
+        -24
+      ]
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "footRight" : 12
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "step-right",
+    "sproutTransform" : "identity",
+    "translations" : {
+      "footRight" : [
+        10,
+        -24
+      ]
+    }
+  }
+]

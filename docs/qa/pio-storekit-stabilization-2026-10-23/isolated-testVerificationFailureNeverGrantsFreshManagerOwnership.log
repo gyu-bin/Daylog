@@ -1,0 +1,35 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/DaylogiOSStoreKit_iphonesimulator27.1-arm64.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests/testVerificationFailureNeverGrantsFreshManagerOwnership" -resultBundlePath /tmp/PioStoreKit-Stabilization-isolated-testVerificationFailureNeverGrantsFreshManagerOwnership.xcresult
+
+Writing result bundle at path:
+	/tmp/PioStoreKit-Stabilization-isolated-testVerificationFailureNeverGrantsFreshManagerOwnership.xcresult
+
+2026-10-23 20:27:20.940 xcodebuild[97573:838370] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:27:24.314686+0900 Daylog[97578:838531] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 20:27:24.774782+0900 Daylog[97578:838531] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 20:27:24.776134+0900 Daylog[97578:838531] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 20:27:24.776363+0900 Daylog[97578:838531] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 20:27:24.859.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 20:27:24.859.
+Test Suite 'PioStoreKitIntegrationTests' started at 2026-10-23 20:27:24.860.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testVerificationFailureNeverGrantsFreshManagerOwnership]' started.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testVerificationFailureNeverGrantsFreshManagerOwnership]' passed (0.092 seconds).
+Test Suite 'PioStoreKitIntegrationTests' passed at 2026-10-23 20:27:24.955.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.092 (0.095) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-23 20:27:24.955.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.092 (0.095) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 20:27:24.955.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.092 (0.096) seconds
+2026-10-23 20:27:24.973 xcodebuild[97573:838370] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:27:24.974 xcodebuild[97573:838370] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:27:24.974 xcodebuild[97573:838370] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:27:25.239 xcodebuild[97573:838370] [MT] IDETestOperationsObserverDebug: 4.331 elapsed -- Testing started completed.
+2026-10-23 20:27:25.239 xcodebuild[97573:838370] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 20:27:25.239 xcodebuild[97573:838370] [MT] IDETestOperationsObserverDebug: 4.331 sec, +4.331 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioStoreKit-Stabilization-isolated-testVerificationFailureNeverGrantsFreshManagerOwnership.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

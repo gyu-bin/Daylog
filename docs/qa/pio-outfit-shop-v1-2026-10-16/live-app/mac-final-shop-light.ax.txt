@@ -1,0 +1,13 @@
+The following is a diff from the previous accessibility tree for Window: "피오 옷장" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 38-47
++				68 모음 Secondary Actions: AXScrollToTop, AXScrollToBottom
++					69 버튼 Description: 기본 피오, 기본, 무료 · 항상 보유. 자세히 보기, ID: wardrobe.outfit.basic
++					70 버튼 Description: 벚꽃 피오, 계절, 테스트 보유. 자세히 보기, ID: wardrobe.outfit.cherryBlossom
++					71 버튼 Description: 여름 휴가 피오, 계절, 출시 예정 · 약 ₩1,000. 자세히 보기, ID: wardrobe.outfit.summerVacation
++					72 버튼 Description: 가을 피오, 계절, 출시 예정 · 약 ₩1,000. 자세히 보기, ID: wardrobe.outfit.autumn
++					73 버튼 Description: 겨울 피오, 계절, 출시 예정 · 약 ₩1,000. 자세히 보기, ID: wardrobe.outfit.winter
++					74 버튼 Description: 할로윈 피오, 기념일, 출시 예정 · 약 ₩1,000. 자세히 보기, ID: wardrobe.outfit.halloween
++					75 버튼 Description: 크리스마스 피오, 기념일, 출시 예정 · 약 ₩1,000. 자세히 보기, ID: wardrobe.outfit.christmas
++					76 버튼 Description: 한복 피오, 기념일, 출시 예정 · 약 ₩1,000. 자세히 보기, ID: wardrobe.outfit.hanbok
++					77 버튼 Description: 카페 피오, 일상, 출시 예정 · 약 ₩1,000. 자세히 보기, ID: wardrobe.outfit.cafe
+The focused UI element is 0 표준 윈도우 피오 옷장, ID: main, Secondary Actions: Raise

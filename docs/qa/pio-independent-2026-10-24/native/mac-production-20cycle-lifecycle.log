@@ -1,0 +1,78 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioCloudLifecycleFinal.xctestrun -destination platform=macOS -parallel-testing-enabled NO "-only-testing:DaylogTests/PioCloudProductionTests/testProductionRepeatedAttachDetachObservations" -resultBundlePath /tmp/PioCloudProduction-20cycle-lifecycle-20261024.xcresult
+
+Writing result bundle at path:
+	/tmp/PioCloudProduction-20cycle-lifecycle-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 13:20:47.229390+0900 Daylog[79285:2054004] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:20:47.230312+0900 Daylog[79285:2054004] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:20:47.231513+0900 Daylog[79285:2054002] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:20:47.231825+0900 Daylog[79285:2054002] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:20:47.233320+0900 Daylog[79285:2054004] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:20:47.233372+0900 Daylog[79285:2054004] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:20:47.234511+0900 Daylog[79285:2054003] [Connection] Will NOT re-try to establish the connection
+2026-10-24 13:20:47.234567+0900 Daylog[79285:2054002] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:20:47.234581+0900 Daylog[79285:2054002] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:20:47.356943+0900 Daylog[79285:2053979] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 13:20:48.096680+0900 Daylog[79285:2054002] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 13:20:48.254.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 13:20:48.255.
+Test Suite 'PioCloudProductionTests' started at 2026-10-24 13:20:48.255.
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations]' started.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70a1e300>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd0500>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd1e00>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd0780>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd2080>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd1680>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd2300>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd0500>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd1e00>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd0780>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd2080>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd1680>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd2300>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd0500>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd1e00>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd0780>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd2080>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd1680>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd2300>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:228: error: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x7a70cd0500>"
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations]' failed (3.668 seconds).
+Test Suite 'PioCloudProductionTests' failed at 2026-10-24 13:20:51.924.
+	 Executed 1 test, with 20 failures (0 unexpected) in 3.668 (3.669) seconds
+Test Suite 'DaylogTests.xctest' failed at 2026-10-24 13:20:51.924.
+	 Executed 1 test, with 20 failures (0 unexpected) in 3.668 (3.670) seconds
+Test Suite 'Selected tests' failed at 2026-10-24 13:20:51.925.
+	 Executed 1 test, with 20 failures (0 unexpected) in 3.668 (3.671) seconds
+2026-10-24 13:20:58.627 xcodebuild[79265:2053823] [MT] IDETestOperationsObserverDebug: 12.074 elapsed -- Testing started completed.
+2026-10-24 13:20:58.627 xcodebuild[79265:2053823] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 13:20:58.627 xcodebuild[79265:2053823] [MT] IDETestOperationsObserverDebug: 12.074 sec, +12.074 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCloudProduction-20cycle-lifecycle-20261024.xcresult
+
+Failing tests:
+	PioCloudProductionTests.testProductionRepeatedAttachDetachObservations()
+	PioCloudProductionTests.testProductionRepeatedAttachDetachObservations()
+	PioCloudProductionTests.testProductionRepeatedAttachDetachObservations()
+	PioCloudProductionTests.testProductionRepeatedAttachDetachObservations()
+	PioCloudProductionTests.testProductionRepeatedAttachDetachObservations()
+	PioCloudProductionTests.testProductionRepeatedAttachDetachObservations()
+	PioCloudProductionTests.testProductionRepeatedAttachDetachObservations()
+
+** TEST EXECUTE FAILED **
+
+Testing started

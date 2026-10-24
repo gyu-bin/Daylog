@@ -1,0 +1,23 @@
+{
+  "navigation": "SettingsCategory.wardrobe via existing compact/wide settings navigation, no extra main tab.",
+  "catalog": "14 stable outfit identifiers; 1 free + 13 planned approx KRW1000 premium themes.",
+  "persistence": "Local UserDefaults wardrobe selections; DEBUG-only separate simulated entitlement key. SwiftData and CloudKit untouched.",
+  "ui": "Adaptive ivory/forest-green wardrobe with browse/owned/icon tabs, themed placeholder motifs and actual full-size basic character reference.",
+  "preview": "Transient outfit and stage1–4 selector; explicitly missing premium outfit art and stage rigs. Preview never equips until explicit owned action.",
+  "icons": "Independent owned-theme selection, visual preview only; no unregistered alternate-icon calls.",
+  "payments": "No StoreKit import, no real transactions, no invented product IDs; future provider interface returns unavailable in V1.",
+  "validation": [
+    "Focused wardrobe model tests and settings category regression test",
+    "Release-mode model harness ignores seeded mock ownership",
+    "Debug iOS simulator build",
+    "Native Mac and iPhone light/dark browse, preview, mock purchase, equip/reset, icon state, restore unavailable"
+  ],
+  "protected": [
+    "Existing dirty work",
+    "User data",
+    "XP and growth formulas",
+    "Production app installation",
+    "Bundle IDs and CloudKit configuration"
+  ],
+  "art": "Exact-byte existing basic source copy; board never cut into sprites."
+}

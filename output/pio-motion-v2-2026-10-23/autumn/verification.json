@@ -1,0 +1,54 @@
+{
+  "outfit": "autumn",
+  "status": "PARTIAL_OFFLINE_STUDY",
+  "canonicalSourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/wingRight.png": "83129b0ab922d0bfb067deefb4785b852929f03a8d085f58b422fd9c7e384245",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/wingLeft.png": "6b400cc9c22a94836424c41f5b4790615237b9a514d7ccec7d51e3e83ef1e37e",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/footLeft.png": "553736afc5a799caeca6cd7b4d3eda21d400f463b5754f2da1b48b120f8e328c",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/footRight.png": "f3910a0872b19318e762cbf138d564ded26bc89bf655c43c2b2fc06c20779034",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/body.png": "eb13e3ab4c90a1352fc9ffb489aed5aaca610664b704a779a65df72d2ac02d98",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/eyeLeft.png": "40ed8d2b0ed5e9446a91963dca4ddeef587a393c023284620857170c0719cbad",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/eyeRight.png": "40852418628283e60226edaf3e595d39b2fc4c25e71ecaf322f2d4ec85f1bca9",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/leaf.png": "dc7011fca2aa1812ca5edd7cfb2b57dbc0f485beeafdf54a3d6f76d9fec17c19",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/headwear.png": "93b3e53fbb1b7b1115b0025d129ba08208cd4cb7d287557d0c59acc877c115f6",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/halfLeft.png": "ec996e702a2287edf54bf3c88fbfa2dc645b72ca74796c6e5ef332f0c0c04ee8",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/lidLeft.png": "e6c712f6de4ee7262b6af4447145fcd99800716bece3a93e533f15ed6eb0362c",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/halfRight.png": "6a9a55a12934c479892d13a18a626a9ab296426e1c8e0bfe7df17ca755c2d2ff",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/lidRight.png": "f294e87ff898ec0e6a91365c01c54dd845fa25cba9c27d386ddb215407b28ab4",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/happyLeft.png": "218f2323a571e3837d47f9ac12849a8dc1402c24812e80532aa430b10d980c2b",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/autumn/layers/happyRight.png": "2a71eac55ae6026a43bbed53fb9e2cd79af1795bfb112e1840cb3b3623713659"
+  },
+  "actions": [
+    "idle",
+    "greet",
+    "walk",
+    "bounce",
+    "jump",
+    "celebrate",
+    "bow",
+    "sleepy",
+    "surprised",
+    "encourage",
+    "special"
+  ],
+  "specialAction": "show held maple leaf",
+  "framesPerAction": 32,
+  "durationMs": 70,
+  "maxAlphaOnFrameBorder": 0,
+  "canvas": [
+    480,
+    516
+  ],
+  "characterCanvas": [
+    350,
+    350
+  ],
+  "limits": [
+    "2D front-view stepping, no authored turn or gait occlusion change.",
+    "Bow is frontal lean/compression, not a reconstructed 3D head turn.",
+    "Hat and fabric stay rigid with torso.",
+    "Held props rigidly follow hands; no release or articulation.",
+    "No app/runtime/performance claim."
+  ]
+}

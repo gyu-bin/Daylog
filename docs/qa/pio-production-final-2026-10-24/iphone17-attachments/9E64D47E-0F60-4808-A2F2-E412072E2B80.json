@@ -1,0 +1,394 @@
+[
+  {
+    "anglesRadians" : [
+      0.00016061809153107529,
+      0.026028920868841347,
+      -0.00053523164464160675
+    ],
+    "mode" : "day",
+    "outfit" : "basic",
+    "pivot" : [
+      968,
+      484
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      0.00014171643410593597,
+      0.026040695993989237,
+      -0.00058982233456296386
+    ],
+    "mode" : "night",
+    "outfit" : "basic",
+    "pivot" : [
+      68,
+      465
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.330036610434963e-05,
+      0.0095420083522946286,
+      -0.00022048773434518425
+    ],
+    "mode" : "day",
+    "outfit" : "cherryBlossom",
+    "pivot" : [
+      968,
+      500
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.1678622260145492e-05,
+      0.0095596324010990656,
+      -0.00018147637425433742
+    ],
+    "mode" : "night",
+    "outfit" : "cherryBlossom",
+    "pivot" : [
+      58,
+      225
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.3227473366487213e-05,
+      0.009547012244079188,
+      -0.00021416396861114891
+    ],
+    "mode" : "day",
+    "outfit" : "summerVacation",
+    "pivot" : [
+      968,
+      500
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.2249820249659895e-05,
+      0.0095556369251603469,
+      -0.00019226875492412145
+    ],
+    "mode" : "night",
+    "outfit" : "summerVacation",
+    "pivot" : [
+      58,
+      225
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.2915000566613885e-05,
+      0.0095724897042510013,
+      -0.00014140801358914222
+    ],
+    "mode" : "day",
+    "outfit" : "autumn",
+    "pivot" : [
+      968,
+      500
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.1864664803214964e-05,
+      0.0095640588189755509,
+      -0.00014135828900362792
+    ],
+    "mode" : "night",
+    "outfit" : "autumn",
+    "pivot" : [
+      58,
+      225
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.2808850824416116e-05,
+      0.0095599574927864705,
+      -0.0001834821649781753
+    ],
+    "mode" : "day",
+    "outfit" : "winter",
+    "pivot" : [
+      968,
+      500
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.1303502025358215e-05,
+      0.0095511363137680064,
+      -0.00020503120185824764
+    ],
+    "mode" : "night",
+    "outfit" : "winter",
+    "pivot" : [
+      58,
+      225
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.2714269513296301e-05,
+      0.0095595068156774533,
+      -0.00022021935389622001
+    ],
+    "mode" : "day",
+    "outfit" : "halloween",
+    "pivot" : [
+      968,
+      500
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.1816316986159719e-05,
+      0.0095541251484617933,
+      -0.00020916393893031924
+    ],
+    "mode" : "night",
+    "outfit" : "halloween",
+    "pivot" : [
+      58,
+      225
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.3410239379425257e-05,
+      0.009538392229706703,
+      -0.00024082981016953161
+    ],
+    "mode" : "day",
+    "outfit" : "christmas",
+    "pivot" : [
+      968,
+      500
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.1442198037524476e-05,
+      0.0095484189706622983,
+      -0.00021603547970995538
+    ],
+    "mode" : "night",
+    "outfit" : "christmas",
+    "pivot" : [
+      58,
+      225
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.3592308068078851e-05,
+      0.009556783759876647,
+      -0.00019291862539700974
+    ],
+    "mode" : "day",
+    "outfit" : "hanbok",
+    "pivot" : [
+      968,
+      500
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.1505717127793979e-05,
+      0.0095271033675564734,
+      -0.0002522392334305052
+    ],
+    "mode" : "night",
+    "outfit" : "hanbok",
+    "pivot" : [
+      58,
+      225
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.3257869553245322e-05,
+      0.0095488103170967807,
+      -0.00020273239189406162
+    ],
+    "mode" : "day",
+    "outfit" : "cafe",
+    "pivot" : [
+      968,
+      500
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.158902949967598e-05,
+      0.0095366893816841852,
+      -0.00024396431858835711
+    ],
+    "mode" : "night",
+    "outfit" : "cafe",
+    "pivot" : [
+      58,
+      225
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.2787063910554496e-05,
+      0.009557851412526441,
+      -0.00018765270060248609
+    ],
+    "mode" : "day",
+    "outfit" : "student",
+    "pivot" : [
+      968,
+      500
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.1632710608058368e-05,
+      0.0095613063235738625,
+      -0.00019734139573108326
+    ],
+    "mode" : "night",
+    "outfit" : "student",
+    "pivot" : [
+      58,
+      225
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.2457220583954398e-05,
+      0.0095550307000356206,
+      -0.00019618414138076272
+    ],
+    "mode" : "day",
+    "outfit" : "fitness",
+    "pivot" : [
+      968,
+      500
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.0962725011580127e-05,
+      0.0095640388670079606,
+      -0.00018488017500772988
+    ],
+    "mode" : "night",
+    "outfit" : "fitness",
+    "pivot" : [
+      58,
+      225
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.3135945084125595e-05,
+      0.0095504064879138612,
+      -0.00028160829727783557
+    ],
+    "mode" : "day",
+    "outfit" : "rainyDay",
+    "pivot" : [
+      968,
+      500
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.1566116138893323e-05,
+      0.0095432024977816134,
+      -0.00022043157292012117
+    ],
+    "mode" : "night",
+    "outfit" : "rainyDay",
+    "pivot" : [
+      58,
+      225
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.2916319224715881e-05,
+      0.00954518297473992,
+      -0.0002148867362919271
+    ],
+    "mode" : "day",
+    "outfit" : "pajamas",
+    "pivot" : [
+      968,
+      500
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.2063035682031331e-05,
+      0.0095565519129621485,
+      -0.00021507419136367533
+    ],
+    "mode" : "night",
+    "outfit" : "pajamas",
+    "pivot" : [
+      58,
+      225
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.2583565910236438e-05,
+      0.0095563754094576889,
+      -0.00023259882675730393
+    ],
+    "mode" : "day",
+    "outfit" : "astronaut",
+    "pivot" : [
+      968,
+      500
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  },
+  {
+    "anglesRadians" : [
+      5.2742716768079911e-05,
+      0.0094923568785495478,
+      -0.0003166346100040355
+    ],
+    "mode" : "night",
+    "outfit" : "astronaut",
+    "pivot" : [
+      58,
+      225
+    ],
+    "scope" : "existing rigid foreground sway, not two fixed rope endpoints or independent sip"
+  }
+]

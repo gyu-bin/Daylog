@@ -1,0 +1,44 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme DaylogiOSWardrobePlayground -configuration Debug -destination "platform=iOS Simulator,id=87EA3A43-121C-4FFA-A716-A79E614ABEFA" -derivedDataPath /tmp/RoutimoriStoreKit.noindex/ios -clonedSourcePackagesDirPath /tmp/DaylogStage4.noindex/verify/SourcePackages -disableAutomaticPackageResolution -parallel-testing-enabled NO -resultBundlePath /tmp/Routimori-wardrobe-final-ios-ui.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/Routimori-wardrobe-final-ios-ui.xcresult
+
+2026-10-16 17:57:57.330499+0900 Daylog[53541:32009013] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-16 17:57:59.553270+0900 Daylog[53541:32009013] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-16 17:57:59.754778+0900 Daylog[53541:32009013] [API] cannot add handler to 0 from 0 - dropping
+2026-10-16 17:57:59.776300+0900 Daylog[53541:32009013] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-16 17:57:59.928.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-16 17:57:59.930.
+Test Suite 'PioWardrobePlaygroundReviewTests' started at 2026-10-16 17:57:59.930.
+Test Case '-[DaylogStoreKitTests.PioWardrobePlaygroundReviewTests testInteractiveWardrobePlayground]' started.
+PIO_WARDROBE_PLAYGROUND_READY stop=/Users/mungyubin/Library/Developer/CoreSimulator/Devices/87EA3A43-121C-4FFA-A716-A79E614ABEFA/data/Containers/Data/Application/532E57C2-2D7E-4EC0-BEEE-AC8B5B8D70CB/tmp/routimori-wardrobe-playground.stop
+objc[53541]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x1217a4398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x124ed0310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+2026-10-16 17:58:00.660729+0900 Daylog[53541:32009013] [API] cannot add handler to 0 from 0 - dropping
+2026-10-16 17:58:00.668753+0900 Daylog[53541:32009013] [API] cannot add handler to 0 from 0 - dropping
+2026-10-16 17:59:03.814692+0900 Daylog[53541:32009013] [API] cannot add handler to 0 from 0 - dropping
+2026-10-16 17:59:46.169412+0900 Daylog[53541:32009013] [API] cannot add handler to 0 from 0 - dropping
+2026-10-16 17:59:46.169506+0900 Daylog[53541:32009013] [API] cannot add handler to 0 from 0 - dropping
+Test Case '-[DaylogStoreKitTests.PioWardrobePlaygroundReviewTests testInteractiveWardrobePlayground]' passed (127.968 seconds).
+Test Suite 'PioWardrobePlaygroundReviewTests' passed at 2026-10-16 18:00:07.909.
+	 Executed 1 test, with 0 failures (0 unexpected) in 127.968 (127.979) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-16 18:00:07.913.
+	 Executed 1 test, with 0 failures (0 unexpected) in 127.968 (127.983) seconds
+Test Suite 'Selected tests' passed at 2026-10-16 18:00:07.913.
+	 Executed 1 test, with 0 failures (0 unexpected) in 127.968 (127.985) seconds
+2026-10-16 18:00:08.278 xcodebuild[53331:32007779] [MT] IDETestOperationsObserverDebug: 147.652 elapsed -- Testing started completed.
+2026-10-16 18:00:08.279 xcodebuild[53331:32007779] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-16 18:00:08.279 xcodebuild[53331:32007779] [MT] IDETestOperationsObserverDebug: 147.652 sec, +147.652 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/Routimori-wardrobe-final-ios-ui.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

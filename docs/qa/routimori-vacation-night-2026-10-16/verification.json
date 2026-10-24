@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "clientDate": "2026-10-16",
+  "scope": "Vacation dark appearance uses a registered real nighttime artwork pair, not a blanket tint.",
+  "runtime": {
+    "mac": "live-app/mac-vacation-night.jpg",
+    "iphone": "live-app/iphone-vacation-night.png",
+    "iphoneSimulator": "CF19DDA2-20F5-440C-9133-7A4594341DAE",
+    "video": "live-app/iphone-vacation-night-motion-review.mp4",
+    "videoDurationSeconds": 9.999127,
+    "videoSize": [
+      660,
+      1434
+    ],
+    "environment": "Local DEBUG verification apps with isolated routimori-runtime-20261016 store; no production replacement."
+  },
+  "validation": {
+    "focusedTests": {
+      "passed": 3,
+      "suite": "RoutimoriVacationTests",
+      "log": "mac-focused-tests-final.log",
+      "resultBundle": "/tmp/RoutimoriVacationNight-final-20261016.xcresult"
+    },
+    "iosBuild": {
+      "status": "BUILD SUCCEEDED",
+      "log": "ios-build.log"
+    },
+    "visualReview": "Actual native iPhone and Mac captures passed independent art review. Moon/water reflection/lantern lighting, character, rope attachment and native copy remain clear. iPhone moon sits close to right edge of heading without obscuring it.",
+    "offlineMotion": "native-render-previews/night-motion.gif; sampled native track, not a screen recording",
+    "existingLifecycleEvidence": "Reuse docs/qa/routimori-vacation-cloud-2026-10-16 results for Reduce Motion/visibility; lifecycle unchanged.",
+    "failedAttemptsResolved": "Initial new-test compilation cast diagnostics and later mutation of immutable registered CAAnimation were fixed in test code. Final focused test run passed.",
+    "diffCheck": "git diff --check passed",
+    "codeReview": "Independent focused review: no actionable findings; registered pair switch, original sway/lifecycle and DEBUG-only routing preserved."
+  },
+  "preservation": "preservation-results.json: 470 baseline files checked, only rig and focused test changed since mid-change snapshot; none missing. Day art unchanged. See baseline-provenance.json for baseline limitations.",
+  "debugOnly": "PioTrial/routimori feature flags false outside DEBUG; both trial catalogs excluded from Mac and iOS Release configurations.",
+  "imageGeneration": {
+    "mode": "Built-in image_gen",
+    "assets": "assets.json",
+    "prompts": "imagegen-prompts.json"
+  },
+  "releaseActions": {
+    "committed": false,
+    "pushed": false,
+    "deployed": false,
+    "productionAppReplaced": false
+  },
+  "mediaHashes": {
+    "iphone-vacation-night.png": {
+      "bytes": 3189733,
+      "sha256": "825db16b5a8c2b52e5325a7aeb98290fb9e3f4284c76cf80f591d169665e0fd9"
+    },
+    "mac-vacation-night.jpg": {
+      "bytes": 178914,
+      "sha256": "f4e0dd48dac50846d3bebcb96cddc84a070fe2a91bfe0bdcd8cca0c0c5a22925"
+    },
+    "iphone-vacation-night-motion-review.mp4": {
+      "bytes": 559469,
+      "sha256": "d7b2a01c522011d75872df6da60d15c393c747603fb6553a85932c8127805f7a"
+    }
+  }
+}

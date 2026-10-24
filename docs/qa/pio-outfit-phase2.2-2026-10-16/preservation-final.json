@@ -1,0 +1,17 @@
+{
+  "head": "702e611aa1a95323bb1a78e27772d583972c383a",
+  "baselineFiles": 554,
+  "changedBaselineFiles": [
+    "Daylog/App/RootView.swift",
+    "Daylog.xcodeproj/project.pbxproj"
+  ],
+  "missingBaselineFiles": [],
+  "unexpectedBaselineChanges": [],
+  "originalWardrobePNGs": 14,
+  "wardrobePNGsPreserved": true,
+  "allowedExistingEdits": [
+    "Daylog.xcodeproj/project.pbxproj",
+    "Daylog/App/RootView.swift"
+  ],
+  "diffCheck": ""
+}

@@ -1,0 +1,88 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioProductionFinalBatch.xctestrun -destination platform=macOS -resultBundlePath /tmp/PioProductionFinal-Mac-visual-20261024.xcresult "-only-testing:DaylogTests/PioCloudCandidateReviewTests/testBatchCandidateRegistrationNeutralAndStop" "-only-testing:DaylogTests/PioCloudCandidateReviewTests/testBatchActualIndependentBlinkAndHeldPresentation" "-only-testing:DaylogTests/PioCloudCandidateReviewTests/testActualPresentationSequence" "-only-testing:DaylogTests/PioProductionFinalVisualTests"
+
+Writing result bundle at path:
+	/tmp/PioProductionFinal-Mac-visual-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 14:19:58.518876+0900 Daylog[98753:2213030] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:19:58.519016+0900 Daylog[98753:2213030] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:19:58.519740+0900 Daylog[98753:2213029] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:19:58.519752+0900 Daylog[98753:2213029] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:19:58.520511+0900 Daylog[98753:2213030] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:19:58.520527+0900 Daylog[98753:2213030] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:19:58.521280+0900 Daylog[98753:2213030] [Connection] Will NOT re-try to establish the connection
+2026-10-24 14:19:58.521302+0900 Daylog[98753:2213062] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:19:58.521314+0900 Daylog[98753:2213062] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:19:58.564240+0900 Daylog[98753:2213022] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 14:19:58.962467+0900 Daylog[98753:2213062] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 14:19:59.013.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 14:19:59.014.
+Test Suite 'PioCloudCandidateReviewTests' started at 2026-10-24 14:19:59.014.
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testActualPresentationSequence]' started.
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testActualPresentationSequence]' passed (5.187 seconds).
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testBatchActualIndependentBlinkAndHeldPresentation]' started.
+PIO_CANDIDATE_BATCH_BEGIN presentation basic
+PIO_CANDIDATE_BATCH_BEGIN presentation cherryBlossom
+PIO_CANDIDATE_BATCH_BEGIN presentation summerVacation
+PIO_CANDIDATE_BATCH_BEGIN presentation autumn
+PIO_CANDIDATE_BATCH_BEGIN presentation winter
+PIO_CANDIDATE_BATCH_BEGIN presentation halloween
+PIO_CANDIDATE_BATCH_BEGIN presentation christmas
+PIO_CANDIDATE_BATCH_BEGIN presentation hanbok
+PIO_CANDIDATE_BATCH_BEGIN presentation cafe
+PIO_CANDIDATE_BATCH_BEGIN presentation student
+PIO_CANDIDATE_BATCH_BEGIN presentation fitness
+PIO_CANDIDATE_BATCH_BEGIN presentation rainyDay
+PIO_CANDIDATE_BATCH_BEGIN presentation pajamas
+PIO_CANDIDATE_BATCH_BEGIN presentation astronaut
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testBatchActualIndependentBlinkAndHeldPresentation]' passed (68.635 seconds).
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testBatchCandidateRegistrationNeutralAndStop]' started.
+PIO_CANDIDATE_BATCH_BEGIN neutral basic
+PIO_CANDIDATE_BATCH_BEGIN neutral cherryBlossom
+PIO_CANDIDATE_BATCH_BEGIN neutral summerVacation
+PIO_CANDIDATE_BATCH_BEGIN neutral autumn
+PIO_CANDIDATE_BATCH_BEGIN neutral winter
+PIO_CANDIDATE_BATCH_BEGIN neutral halloween
+PIO_CANDIDATE_BATCH_BEGIN neutral christmas
+PIO_CANDIDATE_BATCH_BEGIN neutral hanbok
+PIO_CANDIDATE_BATCH_BEGIN neutral cafe
+PIO_CANDIDATE_BATCH_BEGIN neutral student
+PIO_CANDIDATE_BATCH_BEGIN neutral fitness
+PIO_CANDIDATE_BATCH_BEGIN neutral rainyDay
+PIO_CANDIDATE_BATCH_BEGIN neutral pajamas
+PIO_CANDIDATE_BATCH_BEGIN neutral astronaut
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testBatchCandidateRegistrationNeutralAndStop]' passed (1.278 seconds).
+Test Suite 'PioCloudCandidateReviewTests' passed at 2026-10-24 14:21:14.115.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 75.100 (75.101) seconds
+Test Suite 'PioProductionFinalVisualTests' started at 2026-10-24 14:21:14.115.
+Test Case '-[DaylogTests.PioProductionFinalVisualTests testFourteenHomeProductionMotionFrames]' started.
+Test Case '-[DaylogTests.PioProductionFinalVisualTests testFourteenHomeProductionMotionFrames]' passed (11.988 seconds).
+Test Case '-[DaylogTests.PioProductionFinalVisualTests testFourteenVacationDayNightActualMotionFrames]' started.
+Test Case '-[DaylogTests.PioProductionFinalVisualTests testFourteenVacationDayNightActualMotionFrames]' passed (113.186 seconds).
+Test Suite 'PioProductionFinalVisualTests' passed at 2026-10-24 14:23:19.290.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 125.173 (125.174) seconds
+Test Suite 'DaylogTests.xctest' passed at 2026-10-24 14:23:19.290.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 200.274 (200.276) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 14:23:19.290.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 200.274 (200.277) seconds
+2026-10-24 14:23:19.585 xcodebuild[98748:2212901] [MT] IDETestOperationsObserverDebug: 201.359 elapsed -- Testing started completed.
+2026-10-24 14:23:19.585 xcodebuild[98748:2212901] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 14:23:19.585 xcodebuild[98748:2212901] [MT] IDETestOperationsObserverDebug: 201.359 sec, +201.359 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioProductionFinal-Mac-visual-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

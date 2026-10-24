@@ -1,0 +1,772 @@
+[
+  {
+    "file": "Daylog/App/DebugBackup.swift",
+    "line": 8,
+    "text": "///         -DaylogDebugScript \"verifyBackup:keep-pre-production;quit\""
+  },
+  {
+    "file": "Daylog/App/DebugBackup.swift",
+    "line": 42,
+    "text": "try? DaylogStore.storeURL(name: UserDefaults.standard.string(forKey: \"DaylogStoreName\") ?? \"Daylog\")"
+  },
+  {
+    "file": "Daylog/App/DebugBackup.swift",
+    "line": 47,
+    "text": "guard let label = UserDefaults.standard.string(forKey: \"DaylogDebugBackup\"), !label.isEmpty,"
+  },
+  {
+    "file": "Daylog/App/RootView.swift",
+    "line": 243,
+    "text": "switch UserDefaults.standard.string(forKey: \"DaylogDebugAppearance\") {"
+  },
+  {
+    "file": "Daylog/App/DebugScript.swift",
+    "line": 18,
+    "text": "///         -DaylogDebugScript \"add:운동;check:운동;text:breakfast=토스트;dump:A;quit\""
+  },
+  {
+    "file": "Daylog/App/DebugScript.swift",
+    "line": 34,
+    "text": "guard let script = UserDefaults.standard.string(forKey: \"DaylogDebugScript\"), !script.isEmpty else { return }"
+  },
+  {
+    "file": "Daylog/App/DebugScript.swift",
+    "line": 442,
+    "text": "let name = UserDefaults.standard.string(forKey: \"DaylogStoreName\") ?? \"Daylog\""
+  },
+  {
+    "file": "Daylog/App/DebugScript.swift",
+    "line": 459,
+    "text": "let name = UserDefaults.standard.string(forKey: \"DaylogStoreName\") ?? \"Daylog\""
+  },
+  {
+    "file": "Daylog/App/DebugScript.swift",
+    "line": 481,
+    "text": "guard UserDefaults.standard.bool(forKey: \"DaylogDebugPurge\") else { return }"
+  },
+  {
+    "file": "Daylog/App/DebugScript.swift",
+    "line": 488,
+    "text": "guard let name = UserDefaults.standard.string(forKey: \"DaylogStoreName\"), name != \"Daylog\","
+  },
+  {
+    "file": "Daylog/App/DaylogApp.swift",
+    "line": 27,
+    "text": "Window(\"RoutiMori\", id: \"main\") {"
+  },
+  {
+    "file": "Daylog/App/DaylogApp.swift",
+    "line": 45,
+    "text": ".accessibilityLabel(\"RoutiMori 오늘의 루틴\")"
+  },
+  {
+    "file": "Daylog/App/DaylogApp.swift",
+    "line": 143,
+    "text": "NSLog(\"Daylog: 원격 알림 등록 실패 - %@\", error.localizedDescription)"
+  },
+  {
+    "file": "Daylog/App/DaylogApp.swift",
+    "line": 158,
+    "text": "NSLog(\"Daylog: 원격 알림 등록 실패 - %@\", error.localizedDescription)"
+  },
+  {
+    "file": "Daylog/App/DaylogApp.swift",
+    "line": 178,
+    "text": "UserDefaults.standard.bool(forKey: \"DaylogReuploadAll\")"
+  },
+  {
+    "file": "Daylog/App/DaylogApp.swift",
+    "line": 190,
+    "text": "if let name = UserDefaults.standard.string(forKey: \"DaylogDebugAppearance\") {"
+  },
+  {
+    "file": "Daylog/App/DaylogApp.swift",
+    "line": 223,
+    "text": "if let step = UserDefaults.standard.string(forKey: \"DaylogDebugFirstSync\"), !step.isEmpty {"
+  },
+  {
+    "file": "Daylog/App/DaylogApp.swift",
+    "line": 275,
+    "text": "if let name = UserDefaults.standard.string(forKey: \"DaylogStoreName\"),"
+  },
+  {
+    "file": "Daylog/App/DaylogApp.swift",
+    "line": 280,
+    "text": "return .onDisk(name: \"Daylog\")"
+  },
+  {
+    "file": "Daylog/App/DaylogApp.swift",
+    "line": 291,
+    "text": "if UserDefaults.standard.string(forKey: \"DaylogStoreName\") != nil {"
+  },
+  {
+    "file": "Daylog/App/DaylogApp.swift",
+    "line": 309,
+    "text": "UserDefaults.standard.string(forKey: \"DaylogDebugToday\").flatMap(Day.init(key:)) ?? Day.today()"
+  },
+  {
+    "file": "Daylog/App/StoreComparison.swift",
+    "line": 84,
+    "text": "throw DaylogError.backupVerificationFailed(\"비교할 저장소를 열 수 없어요: \\(url.lastPathComponent)\")"
+  },
+  {
+    "file": "Daylog/Models/StoreReseed.swift",
+    "line": 39,
+    "text": "throw DaylogError.backupVerificationFailed(\"새 저장소의 내용이 원본과 달라 바꾸지 않았어요: \\(differing.joined(separator: \", \"))\")"
+  },
+  {
+    "file": "Daylog/Models/DaylogStore.swift",
+    "line": 88,
+    "text": "let directory = support.appendingPathComponent(\"Daylog\", isDirectory: true)"
+  },
+  {
+    "file": "Daylog/Models/DaylogStore.swift",
+    "line": 154,
+    "text": "let configuration = ModelConfiguration(\"Daylog\", schema: schema, url: url, cloudKitDatabase: database)"
+  },
+  {
+    "file": "Daylog/Models/StoreBackup.swift",
+    "line": 64,
+    "text": "throw DaylogError.backupVerificationFailed(\"원본(\\(sourceCounts.summary))과 사본(\\(copiedCounts.summary))이 다릅니다.\")"
+  },
+  {
+    "file": "Daylog/Models/StoreBackup.swift",
+    "line": 111,
+    "text": "throw DaylogError.backupVerificationFailed(\"무결성 검사 결과: \\(result)\")"
+  },
+  {
+    "file": "Daylog/Models/StoreBackup.swift",
+    "line": 133,
+    "text": "throw DaylogError.backupVerificationFailed(\"저장소 파일을 열 수 없습니다(\\(status)).\")"
+  },
+  {
+    "file": "Daylog/Utilities/DaylogError.swift",
+    "line": 21,
+    "text": "return \"다른 RoutiMori가 이미 이 기록을 열고 있어요. 그 앱을 먼저 종료한 뒤 다시 실행해 주세요.\""
+  },
+  {
+    "file": "Daylog/Utilities/DaylogError.swift",
+    "line": 26,
+    "text": "+ \"두 환경의 기록이 섞이지 않도록 열지 않았어요. 기록은 그대로입니다. 이전과 같은 방법으로 설치한 RoutiMori로 열어 주세요.\""
+  },
+  {
+    "file": "Daylog/Components/Saessagi.swift",
+    "line": 3,
+    "text": "/// Daylog의 캐릭터 \"새싹이\"의 모습. 그림은 `Assets.xcassets/Saessagi`의 1024×1024 투명 PNG다(받은 원본 그대로)."
+  },
+  {
+    "file": "Daylog/Components/PioLayeredDiagnosticsView.swift",
+    "line": 7,
+    "text": "PioLayeredTrial.isEnabled && UserDefaults.standard.bool(forKey: \"DaylogDebugLayeredDiagnostics\")"
+  },
+  {
+    "file": "Daylog/Components/PioLayeredDiagnosticsView.swift",
+    "line": 27,
+    "text": "let selected = PioOutfitID(rawValue: defaults.string(forKey: \"DaylogDebugLayeredOutfit\") ?? \"basic\") ?? .basic"
+  },
+  {
+    "file": "Daylog/Components/PioLayeredDiagnosticsView.swift",
+    "line": 29,
+    "text": "let requestedMotion = PioLayeredMotion(rawValue: defaults.string(forKey: \"DaylogDebugLayeredMotion\") ?? \"idle\") ?? .idle"
+  },
+  {
+    "file": "Daylog/Components/PioLayeredDiagnosticsView.swift",
+    "line": 31,
+    "text": "let points = defaults.integer(forKey: \"DaylogDebugLayeredSize\")"
+  },
+  {
+    "file": "Daylog/Components/PioLayeredDiagnosticsView.swift",
+    "line": 33,
+    "text": "let test = defaults.string(forKey: \"DaylogDebugLayeredCase\") ?? \"layeredStatic\""
+  },
+  {
+    "file": "Daylog/Components/PioLayeredDiagnosticsView.swift",
+    "line": 38,
+    "text": "_dark = State(initialValue: defaults.string(forKey: \"DaylogDebugAppearance\") == \"dark\")"
+  },
+  {
+    "file": "Daylog/Components/PioLayeredDiagnosticsView.swift",
+    "line": 139,
+    "text": "ProcessInfo.processInfo.arguments.contains(\"-DaylogDebugLayeredEvidencePath\"),"
+  },
+  {
+    "file": "Daylog/Components/PioLayeredDiagnosticsView.swift",
+    "line": 140,
+    "text": "let requested = UserDefaults.standard.string(forKey: \"DaylogDebugLayeredEvidencePath\"),"
+  },
+  {
+    "file": "Daylog/Components/PioTrial.swift",
+    "line": 11,
+    "text": "UserDefaults.standard.string(forKey: \"DaylogDebugCharacter\") == \"pio\""
+  },
+  {
+    "file": "Daylog/Components/PioTrial.swift",
+    "line": 20,
+    "text": "UserDefaults.standard.string(forKey: \"DaylogDebugPioArt\") == \"v2\""
+  },
+  {
+    "file": "Daylog/Components/PioTrial.swift",
+    "line": 220,
+    "text": "CGFloat(UserDefaults.standard.double(forKey: \"DaylogDebugPioStage\"))"
+  },
+  {
+    "file": "Daylog/Components/SaessagiIdleView.swift",
+    "line": 908,
+    "text": "switch UserDefaults.standard.string(forKey: \"DaylogDebugSaessagiAction\") {"
+  },
+  {
+    "file": "Daylog/Components/SaessagiIdleView.swift",
+    "line": 932,
+    "text": "UserDefaults.standard.bool(forKey: \"DaylogDebugSaessagiLog\")"
+  },
+  {
+    "file": "Daylog/Components/SaessagiIdleView.swift",
+    "line": 977,
+    "text": "let value = UserDefaults.standard.double(forKey: \"DaylogDebugSaessagiRest\")"
+  },
+  {
+    "file": "Daylog/Components/PioOutfitDiagnosticsView.swift",
+    "line": 8,
+    "text": "RoutimoriSplashTrial.isEnabled && UserDefaults.standard.bool(forKey: \"DaylogDebugOutfitDiagnostics\")"
+  },
+  {
+    "file": "Daylog/Components/PioOutfitDiagnosticsView.swift",
+    "line": 26,
+    "text": "let test = UserDefaults.standard.string(forKey: \"DaylogDebugOutfitCase\") ?? \"baseStatic\""
+  },
+  {
+    "file": "Daylog/Components/PioOutfitDiagnosticsView.swift",
+    "line": 34,
+    "text": "let requestedSize = UserDefaults.standard.integer(forKey: \"DaylogDebugOutfitSize\")"
+  },
+  {
+    "file": "Daylog/Components/PioOutfitDiagnosticsView.swift",
+    "line": 36,
+    "text": "let requestedStage = UserDefaults.standard.integer(forKey: \"DaylogDebugOutfitStage\")"
+  },
+  {
+    "file": "Daylog/Components/PioOutfitDiagnosticsView.swift",
+    "line": 38,
+    "text": "_dark = State(initialValue: UserDefaults.standard.string(forKey: \"DaylogDebugAppearance\") == \"dark\")"
+  },
+  {
+    "file": "Daylog/Components/PioOutfitMotion.swift",
+    "line": 57,
+    "text": "return UserDefaults.standard.string(forKey: \"DaylogDebugCharacter\") != \"saessagi\" && !PioTrial.isEnabled"
+  },
+  {
+    "file": "Daylog/Components/PioLayeredCharacter.swift",
+    "line": 13,
+    "text": "RoutimoriSplashTrial.isEnabled && UserDefaults.standard.bool(forKey: \"DaylogDebugLayeredRig\")"
+  },
+  {
+    "file": "Daylog/Services/SaessagiGrowth.swift",
+    "line": 152,
+    "text": "max(UserDefaults.standard.integer(forKey: \"DaylogDebugGrowthBonus\"), 0)"
+  },
+  {
+    "file": "Daylog/Services/UpdateConfiguration.swift",
+    "line": 17,
+    "text": "enabled = info[\"DaylogUpdatesEnabled\"] as? Bool ?? false"
+  },
+  {
+    "file": "Daylog/Services/UpdateConfiguration.swift",
+    "line": 35,
+    "text": "&& url.path == \"/gyu-bin/Daylog/releases/latest/download/appcast.xml\""
+  },
+  {
+    "file": "Daylog/Services/UpdateConfiguration.swift",
+    "line": 82,
+    "text": "static let releasesPage = URL(string: \"https://github.com/gyu-bin/Daylog/releases/latest\")"
+  },
+  {
+    "file": "Daylog/Services/TemplateFile.swift",
+    "line": 21,
+    "text": "case .tooLarge: return \"파일이 너무 커요. RoutiMori 템플릿 파일은 \\(TemplateFile.maximumBytes / 1_024)KB 이하예요.\""
+  },
+  {
+    "file": "Daylog/Services/TemplateFile.swift",
+    "line": 22,
+    "text": "case .unreadable: return \"파일을 읽을 수 없어요. RoutiMori에서 만든 템플릿 파일인지 확인해 주세요.\""
+  },
+  {
+    "file": "Daylog/Services/TemplateFile.swift",
+    "line": 23,
+    "text": "case .notATemplate: return \"RoutiMori 템플릿 파일이 아니에요.\""
+  },
+  {
+    "file": "Daylog/Services/TemplateFile.swift",
+    "line": 24,
+    "text": "case .unsupportedVersion: return \"이 파일은 더 새로운 RoutiMori에서 만든 것이라 읽을 수 없어요. 앱을 업데이트한 뒤 다시 시도해 주세요.\""
+  },
+  {
+    "file": "Daylog/Services/TemplateFile.swift",
+    "line": 104,
+    "text": "/// \"Daylog 템플릿 - 제목\". 파일 이름에 쓸 수 없는 글자는 뺀다."
+  },
+  {
+    "file": "Daylog/Services/TemplateFile.swift",
+    "line": 108,
+    "text": "return \"RoutiMori 템플릿 - \\(cleaned.isEmpty ? \"루틴\" : cleaned)\""
+  },
+  {
+    "file": "Daylog/Services/Community/CommunityStore.swift",
+    "line": 168,
+    "text": "if let mode = UserDefaults.standard.string(forKey: \"DaylogDebugCommunity\"), mode.hasPrefix(\"mock\") {"
+  },
+  {
+    "file": "Daylog/Services/Community/CommunityModels.swift",
+    "line": 8,
+    "text": "static let urlKey = \"DaylogCommunityURL\""
+  },
+  {
+    "file": "Daylog/Services/Community/CommunityModels.swift",
+    "line": 9,
+    "text": "static let anonKeyKey = \"DaylogCommunityAnonKey\""
+  },
+  {
+    "file": "Daylog/Services/Community/CommunityModels.swift",
+    "line": 10,
+    "text": "static let appleSignInKey = \"DaylogCommunityAppleSignIn\""
+  },
+  {
+    "file": "Daylog/Services/MobileConfig/MobileUIConfigStore.swift",
+    "line": 24,
+    "text": "static let production = \"https://github.com/gyu-bin/Daylog/releases/download/mobile-config/mobile-ui.json\""
+  },
+  {
+    "file": "Daylog/Services/MobileConfig/MobileUIConfigStore.swift",
+    "line": 26,
+    "text": "static let development = \"https://github.com/gyu-bin/Daylog/releases/download/mobile-config-dev/mobile-ui.json\""
+  },
+  {
+    "file": "Daylog/Services/MobileConfig/MobileUIConfigStore.swift",
+    "line": 31,
+    "text": "if let override = UserDefaults.standard.string(forKey: \"DaylogDebugConfigURL\"),"
+  },
+  {
+    "file": "Daylog/Services/MobileConfig/MobileUIConfig.swift",
+    "line": 146,
+    "text": "case .onboardingNotificationBody: return \"설정한 시간에 RoutiMori가 알려드려요.\""
+  },
+  {
+    "file": "Daylog/Services/Companion/RoutineNotificationPlan.swift",
+    "line": 28,
+    "text": "var notificationTitle: String { \"RoutiMori · 루틴 시간이에요\" }"
+  },
+  {
+    "file": "Daylog/Views/Sidebar/SidebarView.swift",
+    "line": 55,
+    "text": ".accessibilityLabel(\"RoutiMori, 하루를 기록하다.\")"
+  },
+  {
+    "file": "Daylog/Views/Sidebar/SidebarView.swift",
+    "line": 61,
+    "text": "Text(\"RoutiMori\")"
+  },
+  {
+    "file": "Daylog/Views/Sidebar/SidebarView.swift",
+    "line": 195,
+    "text": "static let tealTint = Color.adaptive(name: \"DaylogNavTeal\", light: (0.22, 0.69, 0.78), dark: (0.38, 0.80, 0.88))"
+  },
+  {
+    "file": "Daylog/Views/Sidebar/SidebarView.swift",
+    "line": 196,
+    "text": "static let tealInk = Color.adaptive(name: \"DaylogNavTealInk\", light: (0.13, 0.47, 0.55), dark: (0.38, 0.80, 0.88))"
+  },
+  {
+    "file": "Daylog/Views/Sidebar/SidebarView.swift",
+    "line": 199,
+    "text": "static let neutralTint = Color.adaptive(name: \"DaylogNavNeutral\", light: (0.50, 0.53, 0.57), dark: (0.66, 0.68, 0.72))"
+  },
+  {
+    "file": "Daylog/Views/Sidebar/SidebarView.swift",
+    "line": 200,
+    "text": "static let neutralInk = Color.adaptive(name: \"DaylogNavNeutralInk\", light: (0.30, 0.32, 0.36), dark: (0.84, 0.86, 0.89))"
+  },
+  {
+    "file": "Daylog/Views/Settings/SettingsView.swift",
+    "line": 107,
+    "text": "if let name = UserDefaults.standard.string(forKey: \"DaylogDebugSettings\") { return SettingsCategory(rawValue: name) }"
+  },
+  {
+    "file": "Daylog/Views/Settings/SettingsView.swift",
+    "line": 131,
+    "text": "guard UserDefaults.standard.string(forKey: \"DaylogDebugOpenPreview\") == \"sync\" else { return }"
+  },
+  {
+    "file": "Daylog/Views/Settings/SettingsView.swift",
+    "line": 156,
+    "text": "PageTitle(title: \"설정\", subtitle: \"RoutiMori를 내 방식에 맞게 바꿔요.\")"
+  },
+  {
+    "file": "Daylog/Views/Settings/SettingsView.swift",
+    "line": 326,
+    "text": "static let privacyPolicyURL = URL(string: \"https://gyu-bin.github.io/Daylog/privacy/\")"
+  },
+  {
+    "file": "Daylog/Views/Settings/SettingsView.swift",
+    "line": 333,
+    "text": "Text(\"RoutiMori\")"
+  },
+  {
+    "file": "Daylog/Views/Settings/SettingsView.swift",
+    "line": 461,
+    "text": "/// 같은 계정으로 Daylog를 쓰는 기기들. \"지금 연결됨\"이 아니라 각 기기가 마지막으로 앱을 쓴 때를 보여 준다."
+  },
+  {
+    "file": "Daylog/Views/Settings/SettingsView.swift",
+    "line": 499,
+    "text": "Text(\"각 기기가 마지막으로 RoutiMori를 쓴 때예요. 이 기능이 들어간 버전으로 업데이트한 기기만 나와요.\")"
+  },
+  {
+    "file": "Daylog/Views/Settings/SettingsView.swift",
+    "line": 548,
+    "text": "Text(\"라이트·다크를 고르면 RoutiMori만 그 모드로 보여요. \\(Platform.thisDevice)에만 적용돼요.\")"
+  },
+  {
+    "file": "Daylog/Views/Settings/CompanionSettings.swift",
+    "line": 29,
+    "text": "Label(\"시스템 설정에서 RoutiMori의 알림을 허용해야 울려요.\", systemImage: \"exclamationmark.triangle\")"
+  },
+  {
+    "file": "Daylog/Views/Settings/CompanionSettings.swift",
+    "line": 98,
+    "text": "Toggle(\"메뉴 막대에 RoutiMori 표시\", isOn: $showsMenuBar)"
+  },
+  {
+    "file": "Daylog/Views/Settings/CompanionSettings.swift",
+    "line": 102,
+    "text": "Text(\"아이콘을 누르면 창을 열지 않고 오늘의 루틴을 체크해요. 켜 두면 창을 닫아도 RoutiMori가 메뉴 막대에 남아요.\")"
+  },
+  {
+    "file": "Daylog/Views/Settings/CompanionSettings.swift",
+    "line": 113,
+    "text": "Label(\"RoutiMori를 찾아 크기를 고르고 추가해요.\", systemImage: \"3.circle\")"
+  },
+  {
+    "file": "Daylog/Views/Settings/CompanionSettings.swift",
+    "line": 117,
+    "text": "Text(\"큰 위젯에서는 루틴을 눌러 바로 체크해요. 저장 대기 표시가 남으면 RoutiMori를 열어 주세요. 위젯은 시스템이 정한 때에 갱신돼 조금 늦게 바뀔 수 있어요.\")"
+  },
+  {
+    "file": "Daylog/Views/Settings/CompanionSettings.swift",
+    "line": 160,
+    "text": "Label(\"시스템 설정에서 RoutiMori의 알림을 허용해야 울려요.\", systemImage: \"exclamationmark.triangle\")"
+  },
+  {
+    "file": "Daylog/Views/Settings/SyncPreview.swift",
+    "line": 19,
+    "text": "switch UserDefaults.standard.string(forKey: \"DaylogDebugSyncSample\") {"
+  },
+  {
+    "file": "Daylog/Views/Splash/SplashTimeline.swift",
+    "line": 14,
+    "text": "/// \"Routimori\"와 한 줄 문구가 나타난다."
+  },
+  {
+    "file": "Daylog/Views/Splash/SplashTimeline.swift",
+    "line": 108,
+    "text": "if UserDefaults.standard.string(forKey: \"DaylogDebugSplash\") == \"off\" { return false }"
+  },
+  {
+    "file": "Daylog/Views/Splash/SplashView.swift",
+    "line": 140,
+    "text": "if UserDefaults.standard.bool(forKey: \"DaylogDebugSplashLog\") {"
+  },
+  {
+    "file": "Daylog/Views/Splash/SplashView.swift",
+    "line": 144,
+    "text": "if let name = UserDefaults.standard.string(forKey: \"DaylogDebugSplashHold\") {"
+  },
+  {
+    "file": "Daylog/Views/Splash/SplashView.swift",
+    "line": 182,
+    "text": "if UserDefaults.standard.bool(forKey: \"DaylogDebugSplashLog\") {"
+  },
+  {
+    "file": "Daylog/Views/Splash/RoutimoriSplashView.swift",
+    "line": 12,
+    "text": "enabled(character: UserDefaults.standard.string(forKey: \"DaylogDebugCharacter\"),"
+  },
+  {
+    "file": "Daylog/Views/Splash/RoutimoriSplashView.swift",
+    "line": 26,
+    "text": "UserDefaults.standard.string(forKey: \"DaylogDebugSplashHold\") == \"routimori\""
+  },
+  {
+    "file": "Daylog/Views/Splash/RoutimoriSplashView.swift",
+    "line": 35,
+    "text": "UserDefaults.standard.string(forKey: \"DaylogDebugSplash\") != \"off\", !macClaimed else { return false }"
+  },
+  {
+    "file": "Daylog/Views/Splash/RoutimoriSplashView.swift",
+    "line": 71,
+    "text": "Text(\"RoutiMori\")"
+  },
+  {
+    "file": "Daylog/Views/Splash/RoutimoriSplashView.swift",
+    "line": 107,
+    "text": ".accessibilityLabel(\"RoutiMori. 작은 습관, 오래가는 성장. \\(appearance.outfit.title). \\(appearance.compatibilityNote ?? \"\")\")"
+  },
+  {
+    "file": "Daylog/Views/Splash/RoutimoriSplashView.swift",
+    "line": 317,
+    "text": "let rig = RoutimoriSplashRig(image: UIImage(named: \"routimori_splash_character\")?.cgImage)"
+  },
+  {
+    "file": "Daylog/Views/MenuBar/MenuBarView.swift",
+    "line": 81,
+    "text": "Text(\"RoutiMori\")"
+  },
+  {
+    "file": "Daylog/Views/MenuBar/MenuBarView.swift",
+    "line": 121,
+    "text": "? (total > 0 ? \"RoutiMori, 휴가, 유지하는 루틴 \\(total)개 중 \\(done)개 완료\" : \"RoutiMori, 휴가, 통계 제외\")"
+  },
+  {
+    "file": "Daylog/Views/MenuBar/MenuBarView.swift",
+    "line": 123,
+    "text": "? \"RoutiMori, \\(store.today.longTitle), 달성률 \\(Achievement.percent(done: done, total: total) ?? 0)%, \\(total)개 중 \\(done)개 완료\""
+  },
+  {
+    "file": "Daylog/Views/MenuBar/MenuBarView.swift",
+    "line": 124,
+    "text": ": \"RoutiMori, \\(store.today.longTitle)\""
+  },
+  {
+    "file": "Daylog/Views/MenuBar/MenuBarView.swift",
+    "line": 188,
+    "text": "Button(\"RoutiMori 열기\") {"
+  },
+  {
+    "file": "Daylog/Views/MenuBar/MenuBarView.swift",
+    "line": 195,
+    "text": "Button(\"RoutiMori 종료\") {"
+  },
+  {
+    "file": "Daylog/Views/Dashboard/RoutineCheckRow.swift",
+    "line": 195,
+    "text": "static let skipInk = Color.adaptive(name: \"DaylogSkipButtonInk\", light: (0.36, 0.25, 0.02), dark: (0.24, 0.17, 0.0))"
+  },
+  {
+    "file": "Daylog/Views/Dashboard/VacationScene.swift",
+    "line": 340,
+    "text": "switch UserDefaults.standard.string(forKey: \"DaylogDebugVacationAction\") {"
+  },
+  {
+    "file": "Daylog/Views/Dashboard/VacationScene.swift",
+    "line": 355,
+    "text": "let value = UserDefaults.standard.double(forKey: \"DaylogDebugSaessagiRest\")"
+  },
+  {
+    "file": "Daylog/Views/Dashboard/WeeklyReviewCard.swift",
+    "line": 68,
+    "text": "guard UserDefaults.standard.bool(forKey: \"DaylogDebugOpenWeeklyReview\") else { return }"
+  },
+  {
+    "file": "Daylog/Views/Vacation/VacationManagementView.swift",
+    "line": 39,
+    "text": "guard UserDefaults.standard.string(forKey: \"DaylogDebugOpenPreview\") == \"vacation\" else { return }"
+  },
+  {
+    "file": "Daylog/Views/Templates/TemplateShareSheet.swift",
+    "line": 286,
+    "text": "Text(\"받는 사람은 RoutiMori의 템플릿 화면에서 [파일에서 가져오기]로 열거나, 파일을 눌러 RoutiMori로 열 수 있어요.\")"
+  },
+  {
+    "file": "Daylog/Views/Templates/TemplateLibraryView.swift",
+    "line": 40,
+    "text": "? \"공식 템플릿과 다른 사람이 올린 템플릿을 미리 보고, 필요한 것만 내 RoutiMori에 추가해요.\""
+  },
+  {
+    "file": "Daylog/Views/Templates/TemplateLibraryView.swift",
+    "line": 41,
+    "text": ": \"공식 루틴 템플릿을 미리 보고, 필요한 것만 내 RoutiMori에 추가해요.\""
+  },
+  {
+    "file": "Daylog/Views/Templates/TemplateDetailSheet.swift",
+    "line": 25,
+    "text": "? SheetAction(title: \"내 RoutiMori에 추가\", isDisabled: !(preview?.canSave ?? false), action: save)"
+  },
+  {
+    "file": "Daylog/Views/Onboarding/OnboardingNotificationOffer.swift",
+    "line": 42,
+    "text": "return \"알림이 허용되지 않았어요. 앱은 그대로 쓸 수 있고, 나중에 설정 앱에서 RoutiMori의 알림을 허용하면 바로 울려요.\""
+  },
+  {
+    "file": "Daylog/Views/Onboarding/NotificationGuide.swift",
+    "line": 42,
+    "text": "Text(\"지금은 \\(Platform.thisDevice)의 설정에서 RoutiMori의 알림이 꺼져 있어요. 설정 앱에서 허용하면 루틴 시간에 알려드려요.\")"
+  },
+  {
+    "file": "Daylog/Views/Onboarding/FirstSyncView.swift",
+    "line": 101,
+    "text": "title: usesRoutimori ? \"동기화가 완료됐어요!\" : \"준비됐어요!\\n오늘도 함께해요.\","
+  },
+  {
+    "file": "Daylog/Views/Onboarding/FirstSyncView.swift",
+    "line": 102,
+    "text": "detail: usesRoutimori ? \"다른 기기의 기록을 확인했어요.\\n오늘도 RoutiMori와 함께해요.\" : \"다른 기기의 기록을 확인했어요.\\n이제 RoutiMori를 시작할 수 있어요.\""
+  },
+  {
+    "file": "Daylog/Views/Onboarding/FirstSyncView.swift",
+    "line": 105,
+    "text": "Text(usesRoutimori ? \"확인\" : \"RoutiMori 시작하기\").font(.headline).frame(maxWidth: .infinity)"
+  },
+  {
+    "file": "Daylog/Views/Onboarding/FirstSyncView.swift",
+    "line": 116,
+    "text": "title: usesRoutimori ? \"RoutiMori가 iCloud 기록을\\n확인하고 있어요\" : \"새싹이가 iCloud 기록을\\n확인하고 있어요!\","
+  },
+  {
+    "file": "Daylog/Views/Onboarding/FirstSyncView.swift",
+    "line": 174,
+    "text": "Text(isRechecking ? \"확인 중…\" : (usesRoutimori ? \"다시 시도하기\" : \"다시 확인하기\")).font(.headline).frame(maxWidth: .infinity)"
+  },
+  {
+    "file": "Daylog/Views/Onboarding/FirstSyncView.swift",
+    "line": 180,
+    "text": "Text(usesRoutimori ? \"나중에 하기\" : \"일단 시작하기\").frame(maxWidth: .infinity)"
+  },
+  {
+    "file": "Daylog/Views/Onboarding/RoutimoriSyncScene.swift",
+    "line": 82,
+    "text": "Text(\"RoutiMori\").font(.system(size: 34, weight: .bold, design: .rounded))"
+  },
+  {
+    "file": "Daylog/Views/Onboarding/OnboardingView.swift",
+    "line": 23,
+    "text": "Text(\"RoutiMori 시작하기\").font(.headline)"
+  },
+  {
+    "file": "DaylogShared/ToggleRoutineIntent.swift",
+    "line": 48,
+    "text": "WidgetCenter.shared.reloadTimelines(ofKind: \"DaylogToday\")"
+  },
+  {
+    "file": "DaylogShared/ToggleRoutineIntent.swift",
+    "line": 56,
+    "text": "\"RoutiMori와 위젯이 함께 쓰는 저장 공간을 열 수 없어요. RoutiMori를 열어 체크해 주세요.\""
+  },
+  {
+    "file": "DaylogShared/AppBrand.swift",
+    "line": 5,
+    "text": "static let name = \"RoutiMori\""
+  },
+  {
+    "file": "DaylogShared/AppBrand.swift",
+    "line": 11,
+    "text": "copy.replacingOccurrences(of: \"Daylog\", with: name)"
+  },
+  {
+    "file": "DaylogShared/AppBrand.swift",
+    "line": 12,
+    "text": ".replacingOccurrences(of: \"Routimori\", with: name)"
+  },
+  {
+    "file": "DaylogShared/AppBrand.swift",
+    "line": 13,
+    "text": ".replacingOccurrences(of: \"루티모리\", with: name)"
+  },
+  {
+    "file": "DaylogShared/GroupColor.swift",
+    "line": 89,
+    "text": "name: \"DaylogGroup-\\(rawValue)\","
+  },
+  {
+    "file": "DaylogShared/GroupColor.swift",
+    "line": 98,
+    "text": "name: \"DaylogGroupInk-\\(rawValue)\","
+  },
+  {
+    "file": "DaylogShared/GroupColor.swift",
+    "line": 109,
+    "text": "static let onAccent = Color.adaptive(name: \"DaylogOnAccent\", light: (1, 1, 1), dark: (0.08, 0.08, 0.08))"
+  },
+  {
+    "file": "DaylogWidgets/TodayWidgetView.swift",
+    "line": 11,
+    "text": "WidgetNotice(symbol: \"arrow.up.forward.app\", title: \"RoutiMori를 열어 주세요\", detail: \"오늘의 루틴을 불러와요.\")"
+  },
+  {
+    "file": "DaylogWidgets/TodayWidgetView.swift",
+    "line": 13,
+    "text": "WidgetNotice(symbol: \"checklist\", title: \"아직 루틴이 없어요\", detail: \"RoutiMori에서 루틴을 추가해 보세요.\")"
+  },
+  {
+    "file": "DaylogWidgets/TodayWidgetView.swift",
+    "line": 35,
+    "text": "Text(\"RoutiMori\")"
+  },
+  {
+    "file": "DaylogWidgets/TodayWidgetView.swift",
+    "line": 39,
+    "text": ".accessibilityLabel(\"RoutiMori\")"
+  },
+  {
+    "file": "DaylogWidgets/LargeTodayView.swift",
+    "line": 25,
+    "text": "Text(\"저장 대기 · RoutiMori를 열어 확인해 주세요\")"
+  },
+  {
+    "file": "DaylogWidgets/LargeTodayView.swift",
+    "line": 84,
+    "text": "Text(\"외 \\(fitted.hiddenItems)개 · 눌러서 RoutiMori에서 보기\")"
+  },
+  {
+    "file": "DaylogWidgets/DaylogWidgetBundle.swift",
+    "line": 13,
+    "text": "static let kind = \"DaylogToday\""
+  },
+  {
+    "file": "Config/DaylogWidgets-Info.plist",
+    "line": 5,
+    "text": "<key>CFBundleName</key><string>RoutiMori</string>"
+  },
+  {
+    "file": "Config/DaylogiOS-Info.plist",
+    "line": 5,
+    "text": "<key>CFBundleName</key><string>RoutiMori</string>"
+  },
+  {
+    "file": "Config/DaylogiOS-Info.plist",
+    "line": 22,
+    "text": "<key>UTTypeDescription</key><string>RoutiMori 루틴 템플릿</string>"
+  },
+  {
+    "file": "Config/DaylogiOS-Info.plist",
+    "line": 37,
+    "text": "<key>CFBundleTypeName</key><string>RoutiMori 루틴 템플릿</string>"
+  },
+  {
+    "file": "Config/Daylog-Info.plist",
+    "line": 5,
+    "text": "<key>CFBundleName</key><string>RoutiMori</string>"
+  },
+  {
+    "file": "Config/Daylog-Info.plist",
+    "line": 8,
+    "text": "<key>SUFeedURL</key><string>https://github.com/gyu-bin/Daylog/releases/latest/download/appcast.xml</string>"
+  },
+  {
+    "file": "Config/Daylog-Info.plist",
+    "line": 22,
+    "text": "<key>UTTypeDescription</key><string>RoutiMori 루틴 템플릿</string>"
+  },
+  {
+    "file": "Config/Daylog-Info.plist",
+    "line": 37,
+    "text": "<key>CFBundleTypeName</key><string>RoutiMori 루틴 템플릿</string>"
+  },
+  {
+    "file": "RemoteConfig/mobile-ui.dev.json",
+    "line": 39,
+    "text": "\"notificationBody\": \"설정한 시간에 RoutiMori가 알려드려요.\""
+  },
+  {
+    "file": "RemoteConfig/mobile-ui.json",
+    "line": 39,
+    "text": "\"notificationBody\": \"설정한 시간에 RoutiMori가 알려드려요.\""
+  }
+]

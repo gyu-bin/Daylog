@@ -1,0 +1,33 @@
+{
+  "basicRegistration" : "basic-production-hands-v2",
+  "candidateEyesFlag" : false,
+  "candidateHandsFlag" : false,
+  "final" : {
+    "cpuSeconds" : 0.90734400000000004,
+    "monotonicSeconds" : 92857.58895304169,
+    "rssBytes" : 343343104
+  },
+  "initial" : {
+    "cpuSeconds" : 0.89921600000000002,
+    "monotonicSeconds" : 92857.568446041681,
+    "rssBytes" : 343228416
+  },
+  "limitations" : "Debug XCTest host; RSS is not a leak assertion. Includes shared image\/cache\/allocator\/renderer residency. Not app cold-launch, production entitlement flow, actual OS backgrounding, full home\/vacation profiling, Instruments allocations, compositor\/GPU\/battery or long-term leak proof. No arbitrary memory threshold or retry sleep.",
+  "os" : "버전 27.0.1(빌드 26A434)",
+  "processorCount" : 10,
+  "rows" : [
+    {
+      "afterDrop" : {
+        "cpuSeconds" : 0.90730100000000002,
+        "monotonicSeconds" : 92857.588899583352,
+        "rssBytes" : 343343104
+      },
+      "clipReleased" : true,
+      "hostReleased" : true,
+      "scrollReleased" : true,
+      "seenVisible" : true,
+      "stageReleased" : true
+    }
+  ],
+  "scope" : "Visible scroll subtree dropped intact after stage halt; no explicit document detach before lifetime assertions"
+}

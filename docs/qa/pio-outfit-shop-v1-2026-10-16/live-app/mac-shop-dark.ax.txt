@@ -1,0 +1,13 @@
+The following is a diff from the previous accessibility tree for Window: "피오 옷장" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 2-12, 32
+~		13 자르기 도구 (disabled, settable, float) -1
+~				31 text ROUTIMORI · WARDROBE 오늘은 어떤 피오와
+함께할까요? 작은 취향을 모아, 나다운 하루를 만들어요. 현재 선택한 의상 기본 피오 초록 새싹과 동그란 볼.
+가장 피오다운 모습이에요.
++				75 버튼 Description: 자세히 보기, ID: wardrobe.current.preview
++				76 텍스트 기본 피오 참고 · 의상 원화 준비 중
++					77 버튼 Description: 크리스마스 피오, 기념일, 출시 예정 · 약 ₩1,000. 자세히 보기, ID: wardrobe.outfit.christmas
++					78 버튼 Description: 한복 피오, 기념일, 출시 예정 · 약 ₩1,000. 자세히 보기, ID: wardrobe.outfit.hanbok
++					79 버튼 Description: 카페 피오, 일상, 출시 예정 · 약 ₩1,000. 자세히 보기, ID: wardrobe.outfit.cafe
+~		62 버튼 Description: 사이드바 보기, Secondary Actions: Increment, Decrement, Delete, Cancel
+The focused UI element is 0 표준 윈도우 피오 옷장, ID: main, Secondary Actions: Raise

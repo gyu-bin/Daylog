@@ -1,0 +1,26 @@
+[
+  {
+    "method": "testDirectBaseline",
+    "exitCode": 65
+  },
+  {
+    "method": "testDirectWithChildTaskFinisher",
+    "exitCode": 65
+  },
+  {
+    "method": "testDirectWithEntitlementsReadAfterSubscription",
+    "exitCode": 65
+  },
+  {
+    "method": "testDirectWithFullCatalog",
+    "exitCode": 65
+  },
+  {
+    "method": "testDirectWithAppReceiptAfterSubscription",
+    "exitCode": 65
+  },
+  {
+    "method": "testAdapterOnlyAfterProductPreparation",
+    "exitCode": 0
+  }
+]

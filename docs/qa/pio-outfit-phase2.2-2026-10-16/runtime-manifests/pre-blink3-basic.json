@@ -1,0 +1,179 @@
+{
+  "canvas" : 1254,
+  "outfit" : "basic",
+  "parts" : [
+    {
+      "asset" : "pio_layered_basic_wingLeft",
+      "fullCanvasSHA256" : "26b3cc73e62a07dc1c754e05f9105afe4941ae50c2bef51d7610806e46f36513",
+      "id" : "wingLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        375,
+        810
+      ],
+      "rect" : [
+        153,
+        716,
+        397,
+        351
+      ],
+      "z" : 0
+    },
+    {
+      "asset" : "pio_layered_basic_wingRight",
+      "fullCanvasSHA256" : "38fbedae31b04fb97c29a34590838d6723cbd1f97284a9241c16635818380bd1",
+      "id" : "wingRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        940,
+        830
+      ],
+      "rect" : [
+        797,
+        586,
+        336,
+        324
+      ],
+      "z" : 1
+    },
+    {
+      "asset" : "pio_layered_basic_footLeft",
+      "fullCanvasSHA256" : "f353490759240102cf19010dd7d279cfef0435ef388abae184caaea6f4fa281a",
+      "id" : "footLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        550,
+        1010
+      ],
+      "rect" : [
+        490,
+        1000,
+        131,
+        115
+      ],
+      "z" : 2
+    },
+    {
+      "asset" : "pio_layered_basic_footRight",
+      "fullCanvasSHA256" : "0f0914620ecf04d2be6bc3fd382d197e61f64d8d17909ab9f03788701fd320f3",
+      "id" : "footRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        815,
+        975
+      ],
+      "rect" : [
+        755,
+        965,
+        131,
+        115
+      ],
+      "z" : 3
+    },
+    {
+      "asset" : "pio_layered_basic_sprout",
+      "fullCanvasSHA256" : "079d6e8d846f04d24c9aa4f639b7f75fc66a57ab00f4fa2a5c4c4281d703d936",
+      "id" : "sprout",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        650,
+        430
+      ],
+      "rect" : [
+        397,
+        114,
+        501,
+        328
+      ],
+      "z" : 4
+    },
+    {
+      "asset" : "pio_layered_basic_body",
+      "fullCanvasSHA256" : "183eb29ca31c9272c46cebc3b312bf54d37942af9329b6b8afde55b674133ec0",
+      "id" : "body",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        650,
+        740
+      ],
+      "rect" : [
+        161,
+        247,
+        962,
+        947
+      ],
+      "z" : 5
+    },
+    {
+      "asset" : "pio_layered_basic_eyeLeft",
+      "fullCanvasSHA256" : "65a04719ec2de52d3c162949a58012bb6065334f3c4ddbe0f6e958eb4681cba4",
+      "id" : "eyeLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        550,
+        689
+      ],
+      "rect" : [
+        503,
+        623,
+        94,
+        109
+      ],
+      "z" : 6
+    },
+    {
+      "asset" : "pio_layered_basic_eyeRight",
+      "fullCanvasSHA256" : "b1fd5143f6e3b3bdc4aa6f82fb2ea3170b4d75672dc9f614435483a3f84091a1",
+      "id" : "eyeRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        815,
+        644
+      ],
+      "rect" : [
+        771,
+        583,
+        88,
+        102
+      ],
+      "z" : 7
+    },
+    {
+      "asset" : "pio_layered_basic_lidLeft",
+      "fullCanvasSHA256" : "2f206a7d544605ca7dca42e67a15bc2f65542b5b10cf9694731073d59ae403c6",
+      "id" : "lidLeft",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        550,
+        695
+      ],
+      "rect" : [
+        500,
+        676,
+        99,
+        37
+      ],
+      "z" : 8
+    },
+    {
+      "asset" : "pio_layered_basic_lidRight",
+      "fullCanvasSHA256" : "a6e5f2d83043da969e195749ff576c0afdd5f9f9121be40cd1042794c80e135a",
+      "id" : "lidRight",
+      "neutralAngleDegrees" : 0,
+      "pivot" : [
+        815,
+        649
+      ],
+      "rect" : [
+        767,
+        632,
+        95,
+        35
+      ],
+      "z" : 9
+    }
+  ],
+  "revision" : "basic-pilot-v1",
+  "stageArtID" : "pilot-neutral-only",
+  "supportsGrowthStages" : false
+}

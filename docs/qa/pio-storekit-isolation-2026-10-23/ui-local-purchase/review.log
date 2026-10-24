@@ -1,0 +1,44 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioActualUI-7ffc73d4-9b8b-4034-8bca-942684faf9fa.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never "-only-testing:DaylogStoreKitTests/PioStoreKitReviewTests/testInteractivePurchaseReview" -resultBundlePath docs/qa/pio-storekit-isolation-2026-10-23/ui-local-purchase/review.xcresult
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/ui-local-purchase/review.xcresult
+
+2026-10-23 21:14:29.283 xcodebuild[9123:962801] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:14:36.038893+0900 Daylog[9149:963252] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 21:14:37.731893+0900 Daylog[9149:963252] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 21:14:37.751698+0900 Daylog[9149:963252] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 21:14:37.752078+0900 Daylog[9149:963252] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 21:14:38.104.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 21:14:38.106.
+Test Suite 'PioStoreKitReviewTests' started at 2026-10-23 21:14:38.106.
+Test Case '-[DaylogStoreKitTests.PioStoreKitReviewTests testInteractivePurchaseReview]' started.
+PioStoreKit: client=01293C3B time=1792757678.285537 raw listener started subscription=1B9AED9A-633B-4451-A802-86B5157A3DFF
+PIO_STOREKIT_REVIEW_READY stop=/Users/mungyubin/Library/Developer/CoreSimulator/Devices/0426CD78-3807-4650-9776-B649780E2884/data/Containers/Data/Application/3A16407B-9AF2-4D6F-8923-C3B7E3F8F50C/tmp/routimori-storekit-review.done
+objc[9149]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x10cbc4398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x113f90310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+2026-10-23 21:14:39.463984+0900 Daylog[9149:963252] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 21:14:39.465686+0900 Daylog[9149:963252] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 21:15:14.669732+0900 Daylog[9149:963252] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 21:20:26.402494+0900 Daylog[9149:963252] [HardwareKeyboard] -[UIApplication getKeyboardDevicePropertiesForSenderID:shouldUpdate:usingSyntheticEvent:], failed to fetch device property for senderID (300515573366801) use primary keyboard info instead.
+2026-10-23 21:20:26.403096+0900 Daylog[9149:963252] [HardwareKeyboard] -[UIApplication getKeyboardDevicePropertiesForSenderID:shouldUpdate:usingSyntheticEvent:], failed to fetch primary keyboard info.
+PIO_INTERACTIVE_RESULT purchaseState=completed(Daylog.PioWardrobeEntitlementResult.cancelled) owned=["basic"] equipped=basic busy=false
+Test Case '-[DaylogStoreKitTests.PioStoreKitReviewTests testInteractivePurchaseReview]' passed (399.049 seconds).
+Test Suite 'PioStoreKitReviewTests' passed at 2026-10-23 21:21:17.161.
+	 Executed 1 test, with 0 failures (0 unexpected) in 399.049 (399.055) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-23 21:21:17.164.
+	 Executed 1 test, with 0 failures (0 unexpected) in 399.049 (399.058) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 21:21:17.164.
+	 Executed 1 test, with 0 failures (0 unexpected) in 399.049 (399.061) seconds
+2026-10-23 21:21:17.253 xcodebuild[9123:962801] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:21:17.256 xcodebuild[9123:962801] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:21:17.262 xcodebuild[9123:962801] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:21:17.554 xcodebuild[9123:962801] [MT] IDETestOperationsObserverDebug: 408.367 elapsed -- Testing started completed.
+2026-10-23 21:21:17.554 xcodebuild[9123:962801] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 21:21:17.554 xcodebuild[9123:962801] [MT] IDETestOperationsObserverDebug: 408.367 sec, +408.367 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/ui-local-purchase/review.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

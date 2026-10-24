@@ -1,0 +1,247 @@
+{
+  "outfit": "student",
+  "canvas": 1254,
+  "revision": "runtime-v2-candidate",
+  "parts": [
+    {
+      "id": "footLeft",
+      "asset": "pio_home_production_cafe_footLeft",
+      "rect": [
+        467,
+        1118,
+        114,
+        100
+      ],
+      "pivot": [
+        545.0,
+        1167.5
+      ],
+      "z": 0
+    },
+    {
+      "id": "footRight",
+      "asset": "pio_home_production_student_footRight",
+      "rect": [
+        779,
+        1093,
+        131,
+        120
+      ],
+      "pivot": [
+        845.0,
+        1150.0
+      ],
+      "z": 0
+    },
+    {
+      "id": "sprout",
+      "asset": "pio_home_production_student_sprout",
+      "rect": [
+        251,
+        16,
+        675,
+        366
+      ],
+      "pivot": [
+        620,
+        380
+      ],
+      "z": 1
+    },
+    {
+      "id": "body",
+      "asset": "pio_home_production_student_body",
+      "rect": [
+        103,
+        320,
+        1023,
+        931
+      ],
+      "pivot": [
+        680,
+        800
+      ],
+      "z": 2
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_home_production_cafe_eyeLeft",
+      "rect": [
+        483,
+        587,
+        105,
+        133
+      ],
+      "pivot": [
+        535.0,
+        657.5
+      ],
+      "z": 3
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_home_production_cafe_eyeLeft",
+      "rect": [
+        788,
+        547,
+        105,
+        133
+      ],
+      "pivot": [
+        840.0,
+        617.5
+      ],
+      "z": 3
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_home_production_cafe_lidLeft",
+      "rect": [
+        483,
+        648,
+        105,
+        40
+      ],
+      "pivot": [
+        535.0,
+        657.5
+      ],
+      "z": 4
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_home_production_cafe_lidLeft",
+      "rect": [
+        788,
+        608,
+        105,
+        40
+      ],
+      "pivot": [
+        840.0,
+        617.5
+      ],
+      "z": 4
+    },
+    {
+      "id": "prop",
+      "asset": "pio_home_production_student_prop",
+      "rect": [
+        358,
+        746,
+        272,
+        301
+      ],
+      "pivot": [
+        310,
+        875
+      ],
+      "z": 5
+    },
+    {
+      "id": "wingRight",
+      "asset": "pio_home_production_student_wingRight",
+      "rect": [
+        887,
+        634,
+        301,
+        236
+      ],
+      "pivot": [
+        990,
+        850
+      ],
+      "z": 6
+    },
+    {
+      "id": "wingLeft",
+      "asset": "pio_home_production_student_wingLeft",
+      "rect": [
+        208,
+        763,
+        311,
+        310
+      ],
+      "pivot": [
+        310,
+        875
+      ],
+      "z": 7
+    },
+    {
+      "id": "glasses",
+      "asset": "pio_home_production_student_glasses",
+      "rect": [
+        302,
+        498,
+        667,
+        258
+      ],
+      "pivot": [
+        650,
+        625
+      ],
+      "z": 9
+    },
+    {
+      "id": "happyLeft",
+      "asset": "pio_home_production_cafe_happyLeft",
+      "rect": [
+        481,
+        633,
+        109,
+        53
+      ],
+      "pivot": [
+        535.0,
+        657.5
+      ],
+      "z": 3
+    },
+    {
+      "id": "happyRight",
+      "asset": "pio_home_production_cafe_happyLeft",
+      "rect": [
+        786,
+        593,
+        109,
+        53
+      ],
+      "pivot": [
+        840.0,
+        617.5
+      ],
+      "z": 3
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_home_production_cafe_halfLeft",
+      "rect": [
+        483,
+        606,
+        105,
+        97
+      ],
+      "pivot": [
+        535.0,
+        657.5
+      ],
+      "z": 3
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_home_production_cafe_halfLeft",
+      "rect": [
+        788,
+        566,
+        105,
+        97
+      ],
+      "pivot": [
+        840.0,
+        617.5
+      ],
+      "z": 3
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "source": "output/pio-independent-2026-10-24/student-cloud/torso-candidate-v1.png",
+    "asset": "pio_cloud_student_v2_torso",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "1b26b99a3e3a5a531d7e42f7e55e1d10fa7f72e566b681b8c4e8358d58ce7478",
+    "sourcePixelsChanged": false
+  },
+  {
+    "source": "output/pio-independent-2026-10-24/student-cloud/armPair-candidate-v1.png",
+    "asset": "pio_cloud_student_v2_armPair",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "5830d75e6d1d7b0eb072829f999444bd0d106b9e1576019c47d15526e2b2c5ca",
+    "sourcePixelsChanged": false
+  }
+]

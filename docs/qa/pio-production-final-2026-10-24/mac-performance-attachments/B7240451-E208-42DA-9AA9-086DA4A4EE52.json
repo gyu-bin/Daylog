@@ -1,0 +1,1001 @@
+{
+  "basicRegistration" : "basic-production-hands-v2",
+  "candidateEyesFlag" : false,
+  "candidateHandsFlag" : false,
+  "final" : {
+    "cpuSeconds" : 5.8055640000000004,
+    "monotonicSeconds" : 93666.333248291689,
+    "rssBytes" : 500301824
+  },
+  "initial" : {
+    "cpuSeconds" : 2.9601069999999998,
+    "monotonicSeconds" : 93654.864214958361,
+    "rssBytes" : 765739008
+  },
+  "limitations" : "Debug XCTest host; RSS is not a leak assertion. Includes shared image\/cache\/allocator\/renderer residency. Not app cold-launch, production entitlement flow, actual OS backgrounding, full home\/vacation profiling, Instruments allocations, compositor\/GPU\/battery or long-term leak proof. No arbitrary memory threshold or retry sleep.",
+  "os" : "버전 27.0.1(빌드 26A434)",
+  "processorCount" : 10,
+  "rows" : [
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 3.1257919999999997,
+        "monotonicSeconds" : 93655.319629875026,
+        "rssBytes" : 809762816
+      },
+      "before" : {
+        "cpuSeconds" : 2.960181,
+        "monotonicSeconds" : 93654.864268041681,
+        "rssBytes" : 765739008
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_hammock",
+          "memory" : {
+            "cpuSeconds" : 3.0896479999999999,
+            "monotonicSeconds" : 93655.145548541681,
+            "rssBytes" : 797245440
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_hammock_night",
+          "memory" : {
+            "cpuSeconds" : 3.1252979999999999,
+            "monotonicSeconds" : 93655.319105833347,
+            "rssBytes" : 810680320
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "basic",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 3.2423450000000003,
+        "monotonicSeconds" : 93655.74535300002,
+        "rssBytes" : 823754752
+      },
+      "before" : {
+        "cpuSeconds" : 3.1258210000000002,
+        "monotonicSeconds" : 93655.319658500026,
+        "rssBytes" : 809762816
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_cherryBlossom",
+          "memory" : {
+            "cpuSeconds" : 3.2264790000000003,
+            "monotonicSeconds" : 93655.572595875026,
+            "rssBytes" : 817561600
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_cherryBlossom",
+          "memory" : {
+            "cpuSeconds" : 3.2418079999999998,
+            "monotonicSeconds" : 93655.744847208349,
+            "rssBytes" : 824672256
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "cherryBlossom",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 3.3567849999999999,
+        "monotonicSeconds" : 93656.161106875021,
+        "rssBytes" : 837566464
+      },
+      "before" : {
+        "cpuSeconds" : 3.2423739999999999,
+        "monotonicSeconds" : 93655.745382291687,
+        "rssBytes" : 823754752
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_summerVacation",
+          "memory" : {
+            "cpuSeconds" : 3.3424490000000002,
+            "monotonicSeconds" : 93655.99912329168,
+            "rssBytes" : 831307776
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_summerVacation",
+          "memory" : {
+            "cpuSeconds" : 3.356417,
+            "monotonicSeconds" : 93656.160760541694,
+            "rssBytes" : 838483968
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "summerVacation",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 3.4665780000000002,
+        "monotonicSeconds" : 93656.574210916689,
+        "rssBytes" : 851312640
+      },
+      "before" : {
+        "cpuSeconds" : 3.3568030000000002,
+        "monotonicSeconds" : 93656.161125083352,
+        "rssBytes" : 837566464
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_autumn",
+          "memory" : {
+            "cpuSeconds" : 3.4529779999999999,
+            "monotonicSeconds" : 93656.408812000023,
+            "rssBytes" : 845152256
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_autumn",
+          "memory" : {
+            "cpuSeconds" : 3.4661409999999999,
+            "monotonicSeconds" : 93656.573693333354,
+            "rssBytes" : 852230144
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "autumn",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 3.5835360000000001,
+        "monotonicSeconds" : 93656.994861500018,
+        "rssBytes" : 865075200
+      },
+      "before" : {
+        "cpuSeconds" : 3.4666129999999997,
+        "monotonicSeconds" : 93656.57424604168,
+        "rssBytes" : 851312640
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_winter",
+          "memory" : {
+            "cpuSeconds" : 3.5632669999999997,
+            "monotonicSeconds" : 93656.823400500027,
+            "rssBytes" : 858816512
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_winter",
+          "memory" : {
+            "cpuSeconds" : 3.5831249999999999,
+            "monotonicSeconds" : 93656.994462875024,
+            "rssBytes" : 865992704
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "winter",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 3.6953329999999998,
+        "monotonicSeconds" : 93657.41460787502,
+        "rssBytes" : 878739456
+      },
+      "before" : {
+        "cpuSeconds" : 3.5835590000000002,
+        "monotonicSeconds" : 93656.994885000022,
+        "rssBytes" : 865075200
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_halloween",
+          "memory" : {
+            "cpuSeconds" : 3.680196,
+            "monotonicSeconds" : 93657.241959458348,
+            "rssBytes" : 872579072
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_halloween",
+          "memory" : {
+            "cpuSeconds" : 3.6949550000000002,
+            "monotonicSeconds" : 93657.414250791684,
+            "rssBytes" : 879656960
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "halloween",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 3.8123019999999999,
+        "monotonicSeconds" : 93657.839808500023,
+        "rssBytes" : 892747776
+      },
+      "before" : {
+        "cpuSeconds" : 3.6953510000000001,
+        "monotonicSeconds" : 93657.414626500016,
+        "rssBytes" : 878739456
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_christmas",
+          "memory" : {
+            "cpuSeconds" : 3.7977750000000001,
+            "monotonicSeconds" : 93657.670480666682,
+            "rssBytes" : 886276096
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_christmas",
+          "memory" : {
+            "cpuSeconds" : 3.8116979999999998,
+            "monotonicSeconds" : 93657.839139583361,
+            "rssBytes" : 893665280
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "christmas",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 3.9063720000000002,
+        "monotonicSeconds" : 93658.240436041684,
+        "rssBytes" : 906592256
+      },
+      "before" : {
+        "cpuSeconds" : 3.8123459999999998,
+        "monotonicSeconds" : 93657.839851500015,
+        "rssBytes" : 892747776
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_hanbok",
+          "memory" : {
+            "cpuSeconds" : 3.8916240000000002,
+            "monotonicSeconds" : 93658.072852041689,
+            "rssBytes" : 900251648
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_hanbok",
+          "memory" : {
+            "cpuSeconds" : 3.905653,
+            "monotonicSeconds" : 93658.239685250024,
+            "rssBytes" : 907509760
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "hanbok",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 4.0204050000000002,
+        "monotonicSeconds" : 93658.658365291689,
+        "rssBytes" : 920272896
+      },
+      "before" : {
+        "cpuSeconds" : 3.9064320000000001,
+        "monotonicSeconds" : 93658.24048370836,
+        "rssBytes" : 906592256
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_cafe",
+          "memory" : {
+            "cpuSeconds" : 4.0056609999999999,
+            "monotonicSeconds" : 93658.494171250015,
+            "rssBytes" : 914096128
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_cafe",
+          "memory" : {
+            "cpuSeconds" : 4.0200589999999998,
+            "monotonicSeconds" : 93658.658035208355,
+            "rssBytes" : 921190400
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "cafe",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 4.1056670000000004,
+        "monotonicSeconds" : 93659.053108416687,
+        "rssBytes" : 934019072
+      },
+      "before" : {
+        "cpuSeconds" : 4.0204240000000002,
+        "monotonicSeconds" : 93658.65838329168,
+        "rssBytes" : 920272896
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_student",
+          "memory" : {
+            "cpuSeconds" : 4.0939649999999999,
+            "monotonicSeconds" : 93658.884257666694,
+            "rssBytes" : 927744000
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_student",
+          "memory" : {
+            "cpuSeconds" : 4.1053059999999997,
+            "monotonicSeconds" : 93659.052772250026,
+            "rssBytes" : 934936576
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "student",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 4.2064060000000003,
+        "monotonicSeconds" : 93659.479313583361,
+        "rssBytes" : 771244032
+      },
+      "before" : {
+        "cpuSeconds" : 4.1056900000000001,
+        "monotonicSeconds" : 93659.053131958353,
+        "rssBytes" : 934019072
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_fitness",
+          "memory" : {
+            "cpuSeconds" : 4.1938940000000002,
+            "monotonicSeconds" : 93659.31202216669,
+            "rssBytes" : 764936192
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_fitness",
+          "memory" : {
+            "cpuSeconds" : 4.2060449999999996,
+            "monotonicSeconds" : 93659.478981083361,
+            "rssBytes" : 772161536
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "fitness",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 4.2941880000000001,
+        "monotonicSeconds" : 93659.879296458355,
+        "rssBytes" : 637665280
+      },
+      "before" : {
+        "cpuSeconds" : 4.2064260000000004,
+        "monotonicSeconds" : 93659.479334166681,
+        "rssBytes" : 771244032
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_rainyDay",
+          "memory" : {
+            "cpuSeconds" : 4.2830639999999995,
+            "monotonicSeconds" : 93659.714072625022,
+            "rssBytes" : 677789696
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_rainyDay",
+          "memory" : {
+            "cpuSeconds" : 4.2938790000000004,
+            "monotonicSeconds" : 93659.879004041693,
+            "rssBytes" : 638582784
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "rainyDay",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 4.3921030000000005,
+        "monotonicSeconds" : 93660.27840920836,
+        "rssBytes" : 525385728
+      },
+      "before" : {
+        "cpuSeconds" : 4.2942039999999997,
+        "monotonicSeconds" : 93659.879311875018,
+        "rssBytes" : 637665280
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_pajamas",
+          "memory" : {
+            "cpuSeconds" : 4.3748190000000005,
+            "monotonicSeconds" : 93660.105693625024,
+            "rssBytes" : 584417280
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_pajamas",
+          "memory" : {
+            "cpuSeconds" : 4.3917599999999997,
+            "monotonicSeconds" : 93660.278077250026,
+            "rssBytes" : 526303232
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "pajamas",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 4.5030070000000002,
+        "monotonicSeconds" : 93660.700033291694,
+        "rssBytes" : 521863168
+      },
+      "before" : {
+        "cpuSeconds" : 4.3921229999999998,
+        "monotonicSeconds" : 93660.278429000027,
+        "rssBytes" : 525385728
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_astronaut",
+          "memory" : {
+            "cpuSeconds" : 4.4872639999999997,
+            "monotonicSeconds" : 93660.527767583349,
+            "rssBytes" : 515457024
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_astronaut",
+          "memory" : {
+            "cpuSeconds" : 4.5026099999999998,
+            "monotonicSeconds" : 93660.699657500023,
+            "rssBytes" : 522780672
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "astronaut",
+      "pass" : 1,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 4.6007259999999999,
+        "monotonicSeconds" : 93661.111723208349,
+        "rssBytes" : 503169024
+      },
+      "before" : {
+        "cpuSeconds" : 4.5030359999999998,
+        "monotonicSeconds" : 93660.700062416683,
+        "rssBytes" : 521863168
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_hammock",
+          "memory" : {
+            "cpuSeconds" : 4.5979770000000002,
+            "monotonicSeconds" : 93660.952823375017,
+            "rssBytes" : 507232256
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_hammock_night",
+          "memory" : {
+            "cpuSeconds" : 4.6003930000000004,
+            "monotonicSeconds" : 93661.111407166682,
+            "rssBytes" : 504086528
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "basic",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 4.6879080000000002,
+        "monotonicSeconds" : 93661.516613375017,
+        "rssBytes" : 500203520
+      },
+      "before" : {
+        "cpuSeconds" : 4.6007439999999997,
+        "monotonicSeconds" : 93661.111741291694,
+        "rssBytes" : 503169024
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_cherryBlossom",
+          "memory" : {
+            "cpuSeconds" : 4.6857259999999998,
+            "monotonicSeconds" : 93661.359068666687,
+            "rssBytes" : 500891648
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_cherryBlossom",
+          "memory" : {
+            "cpuSeconds" : 4.6874450000000003,
+            "monotonicSeconds" : 93661.51617695835,
+            "rssBytes" : 501121024
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "cherryBlossom",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 4.7654490000000003,
+        "monotonicSeconds" : 93661.908936541688,
+        "rssBytes" : 500187136
+      },
+      "before" : {
+        "cpuSeconds" : 4.6879359999999997,
+        "monotonicSeconds" : 93661.516641750015,
+        "rssBytes" : 500203520
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_summerVacation",
+          "memory" : {
+            "cpuSeconds" : 4.763064,
+            "monotonicSeconds" : 93661.750990250017,
+            "rssBytes" : 500875264
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_summerVacation",
+          "memory" : {
+            "cpuSeconds" : 4.764977,
+            "monotonicSeconds" : 93661.908494875024,
+            "rssBytes" : 501104640
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "summerVacation",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 4.859699,
+        "monotonicSeconds" : 93662.317812416688,
+        "rssBytes" : 500203520
+      },
+      "before" : {
+        "cpuSeconds" : 4.7654750000000003,
+        "monotonicSeconds" : 93661.908962583359,
+        "rssBytes" : 500187136
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_autumn",
+          "memory" : {
+            "cpuSeconds" : 4.856554,
+            "monotonicSeconds" : 93662.15919166668,
+            "rssBytes" : 500891648
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_autumn",
+          "memory" : {
+            "cpuSeconds" : 4.8593039999999998,
+            "monotonicSeconds" : 93662.317435791687,
+            "rssBytes" : 501121024
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "autumn",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 4.9558929999999997,
+        "monotonicSeconds" : 93662.719939625022,
+        "rssBytes" : 500236288
+      },
+      "before" : {
+        "cpuSeconds" : 4.8597190000000001,
+        "monotonicSeconds" : 93662.317831666689,
+        "rssBytes" : 500203520
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_winter",
+          "memory" : {
+            "cpuSeconds" : 4.9532679999999996,
+            "monotonicSeconds" : 93662.561297291686,
+            "rssBytes" : 500924416
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_winter",
+          "memory" : {
+            "cpuSeconds" : 4.9554739999999997,
+            "monotonicSeconds" : 93662.719542541687,
+            "rssBytes" : 501153792
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "winter",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 5.0507089999999994,
+        "monotonicSeconds" : 93663.119728541686,
+        "rssBytes" : 500236288
+      },
+      "before" : {
+        "cpuSeconds" : 4.9559160000000002,
+        "monotonicSeconds" : 93662.719962833347,
+        "rssBytes" : 500236288
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_halloween",
+          "memory" : {
+            "cpuSeconds" : 5.0479810000000001,
+            "monotonicSeconds" : 93662.967189500021,
+            "rssBytes" : 500924416
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_halloween",
+          "memory" : {
+            "cpuSeconds" : 5.0501059999999995,
+            "monotonicSeconds" : 93663.119165250027,
+            "rssBytes" : 501153792
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "halloween",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 5.14283,
+        "monotonicSeconds" : 93663.519904458357,
+        "rssBytes" : 500269056
+      },
+      "before" : {
+        "cpuSeconds" : 5.0507379999999999,
+        "monotonicSeconds" : 93663.119758333356,
+        "rssBytes" : 500236288
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_christmas",
+          "memory" : {
+            "cpuSeconds" : 5.1404589999999999,
+            "monotonicSeconds" : 93663.358298875028,
+            "rssBytes" : 500940800
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_christmas",
+          "memory" : {
+            "cpuSeconds" : 5.1422270000000001,
+            "monotonicSeconds" : 93663.519227000026,
+            "rssBytes" : 501170176
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "christmas",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 5.2385020000000004,
+        "monotonicSeconds" : 93663.925655791681,
+        "rssBytes" : 500269056
+      },
+      "before" : {
+        "cpuSeconds" : 5.1428849999999997,
+        "monotonicSeconds" : 93663.51995354169,
+        "rssBytes" : 500269056
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_hanbok",
+          "memory" : {
+            "cpuSeconds" : 5.2361000000000004,
+            "monotonicSeconds" : 93663.765047708352,
+            "rssBytes" : 500957184
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_hanbok",
+          "memory" : {
+            "cpuSeconds" : 5.2381089999999997,
+            "monotonicSeconds" : 93663.925284125027,
+            "rssBytes" : 501186560
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "hanbok",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 5.3349650000000004,
+        "monotonicSeconds" : 93664.319669625023,
+        "rssBytes" : 500285440
+      },
+      "before" : {
+        "cpuSeconds" : 5.2385200000000003,
+        "monotonicSeconds" : 93663.925674458354,
+        "rssBytes" : 500269056
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_cafe",
+          "memory" : {
+            "cpuSeconds" : 5.3328410000000002,
+            "monotonicSeconds" : 93664.16485720835,
+            "rssBytes" : 500973568
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_cafe",
+          "memory" : {
+            "cpuSeconds" : 5.3345520000000004,
+            "monotonicSeconds" : 93664.319219583354,
+            "rssBytes" : 501202944
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "cafe",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 5.4272450000000001,
+        "monotonicSeconds" : 93664.721727666692,
+        "rssBytes" : 500252672
+      },
+      "before" : {
+        "cpuSeconds" : 5.3350119999999999,
+        "monotonicSeconds" : 93664.319716208352,
+        "rssBytes" : 500285440
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_student",
+          "memory" : {
+            "cpuSeconds" : 5.4240180000000002,
+            "monotonicSeconds" : 93664.559235166686,
+            "rssBytes" : 500973568
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_student",
+          "memory" : {
+            "cpuSeconds" : 5.4268640000000001,
+            "monotonicSeconds" : 93664.721365000019,
+            "rssBytes" : 501170176
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "student",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 5.5216989999999999,
+        "monotonicSeconds" : 93665.121603333348,
+        "rssBytes" : 500285440
+      },
+      "before" : {
+        "cpuSeconds" : 5.4272640000000001,
+        "monotonicSeconds" : 93664.721746000025,
+        "rssBytes" : 500252672
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_fitness",
+          "memory" : {
+            "cpuSeconds" : 5.5191800000000004,
+            "monotonicSeconds" : 93664.962942416692,
+            "rssBytes" : 500973568
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_fitness",
+          "memory" : {
+            "cpuSeconds" : 5.5212690000000002,
+            "monotonicSeconds" : 93665.121176083354,
+            "rssBytes" : 501202944
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "fitness",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 5.6205639999999999,
+        "monotonicSeconds" : 93665.525276041692,
+        "rssBytes" : 500301824
+      },
+      "before" : {
+        "cpuSeconds" : 5.5217179999999999,
+        "monotonicSeconds" : 93665.121622666687,
+        "rssBytes" : 500285440
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_rainyDay",
+          "memory" : {
+            "cpuSeconds" : 5.6170549999999997,
+            "monotonicSeconds" : 93665.368952250021,
+            "rssBytes" : 500989952
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_rainyDay",
+          "memory" : {
+            "cpuSeconds" : 5.6200369999999999,
+            "monotonicSeconds" : 93665.524721791691,
+            "rssBytes" : 501219328
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "rainyDay",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 5.7132990000000001,
+        "monotonicSeconds" : 93665.933104083349,
+        "rssBytes" : 500301824
+      },
+      "before" : {
+        "cpuSeconds" : 5.6206040000000002,
+        "monotonicSeconds" : 93665.525321000023,
+        "rssBytes" : 500301824
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_pajamas",
+          "memory" : {
+            "cpuSeconds" : 5.7107760000000001,
+            "monotonicSeconds" : 93665.771005458359,
+            "rssBytes" : 500989952
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_pajamas",
+          "memory" : {
+            "cpuSeconds" : 5.7128499999999995,
+            "monotonicSeconds" : 93665.932674250027,
+            "rssBytes" : 501219328
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "pajamas",
+      "pass" : 2,
+      "rigReleased" : true
+    },
+    {
+      "afterCleanup" : {
+        "cpuSeconds" : 5.8055289999999999,
+        "monotonicSeconds" : 93666.333213416685,
+        "rssBytes" : 500301824
+      },
+      "before" : {
+        "cpuSeconds" : 5.713317,
+        "monotonicSeconds" : 93665.933122916686,
+        "rssBytes" : 500301824
+      },
+      "dayNight" : [
+        {
+          "asset" : "routimori_vacation_day_astronaut",
+          "memory" : {
+            "cpuSeconds" : 5.8028960000000005,
+            "monotonicSeconds" : 93666.172530208351,
+            "rssBytes" : 500989952
+          },
+          "night" : false
+        },
+        {
+          "asset" : "routimori_vacation_night_astronaut",
+          "memory" : {
+            "cpuSeconds" : 5.8050090000000001,
+            "monotonicSeconds" : 93666.332669875017,
+            "rssBytes" : 501219328
+          },
+          "night" : true
+        }
+      ],
+      "outfit" : "astronaut",
+      "pass" : 2,
+      "rigReleased" : true
+    }
+  ],
+  "scope" : "Existing composed vacation rig;14 outfits x day\/night x2 passes. First-load includes two generated ambient backdrops per rig;150ms native visibility per state, explicit stop\/release. Not independent vacation artwork approval"
+}

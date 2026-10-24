@@ -1,0 +1,61 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioCharacterFinalLifecyclePerformance.xctestrun -destination platform=macOS -parallel-testing-enabled NO -resultBundlePath /tmp/PioCharacterFinal-Mac-performance-final-20261024.xcresult "-only-testing:DaylogTests/PioProductionFinalLifecycleTests/testTenVisibleCloudAttachDetachCycles" "-only-testing:DaylogTests/PioProductionFinalLifecycleTests/testTwentyVisibleCloudAttachDetachCycles" "-only-testing:DaylogTests/PioProductionFinalLifecycleTests/testFiftyVisibleCloudAttachDetachCycles" "-only-testing:DaylogTests/PioProductionFinalLifecycleTests/testFourteenOutfitsThreeVisibleSequentialPasses" "-only-testing:DaylogTests/PioProductionFinalLifecycleTests/testPairedVisibleActiveStoppedProcessObservations" "-only-testing:DaylogTests/PioProductionFinalLifecycleTests/testHomeReferenceFourteenOutfitsTwoVisiblePasses" "-only-testing:DaylogTests/PioProductionFinalLifecycleTests/testVacationFourteenDayNightTwoVisiblePasses"
+
+Writing result bundle at path:
+	/tmp/PioCharacterFinal-Mac-performance-final-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 17:35:05.264508+0900 Daylog[42026:2623830] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:35:05.265124+0900 Daylog[42026:2623830] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:35:05.267119+0900 Daylog[42026:2623896] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:35:05.267193+0900 Daylog[42026:2623896] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:35:05.270156+0900 Daylog[42026:2623829] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:35:05.270205+0900 Daylog[42026:2623829] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:35:05.272302+0900 Daylog[42026:2623829] [Connection] Will NOT re-try to establish the connection
+2026-10-24 17:35:05.272409+0900 Daylog[42026:2623830] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:35:05.272440+0900 Daylog[42026:2623830] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 17:35:05.310736+0900 Daylog[42026:2623812] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 17:35:05.870201+0900 Daylog[42026:2623858] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 17:35:05.958.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 17:35:05.958.
+Test Suite 'PioProductionFinalLifecycleTests' started at 2026-10-24 17:35:05.958.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testFiftyVisibleCloudAttachDetachCycles]' started.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testFiftyVisibleCloudAttachDetachCycles]' passed (8.078 seconds).
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testFourteenOutfitsThreeVisibleSequentialPasses]' started.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testFourteenOutfitsThreeVisibleSequentialPasses]' passed (7.126 seconds).
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testHomeReferenceFourteenOutfitsTwoVisiblePasses]' started.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testHomeReferenceFourteenOutfitsTwoVisiblePasses]' passed (4.502 seconds).
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testPairedVisibleActiveStoppedProcessObservations]' started.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testPairedVisibleActiveStoppedProcessObservations]' passed (36.337 seconds).
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testTenVisibleCloudAttachDetachCycles]' started.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testTenVisibleCloudAttachDetachCycles]' passed (1.619 seconds).
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testTwentyVisibleCloudAttachDetachCycles]' started.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testTwentyVisibleCloudAttachDetachCycles]' passed (3.240 seconds).
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testVacationFourteenDayNightTwoVisiblePasses]' started.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testVacationFourteenDayNightTwoVisiblePasses]' passed (11.176 seconds).
+Test Suite 'PioProductionFinalLifecycleTests' passed at 2026-10-24 17:36:18.040.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 72.078 (72.082) seconds
+Test Suite 'DaylogTests.xctest' passed at 2026-10-24 17:36:18.041.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 72.078 (72.083) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 17:36:18.041.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 72.078 (72.084) seconds
+2026-10-24 17:36:18.363 xcodebuild[42014:2623687] [MT] IDETestOperationsObserverDebug: 73.442 elapsed -- Testing started completed.
+2026-10-24 17:36:18.363 xcodebuild[42014:2623687] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 17:36:18.363 xcodebuild[42014:2623687] [MT] IDETestOperationsObserverDebug: 73.442 sec, +73.442 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCharacterFinal-Mac-performance-final-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

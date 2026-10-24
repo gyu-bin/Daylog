@@ -1,0 +1,311 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "3AA039D1-113B-499B-9012-D0F39E266AA3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-day-production-220pt-stopped_0_5AAB1A6E-88E3-41BB-9E07-C00347F5EC48.png",
+        "timestamp" : 1792830796.126
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "C153D336-0790-4E8C-80E8-89B7F63F6AEA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-day-production-220pt-open_0_ACC90A58-2661-450C-A222-B48B7DFA021D.png",
+        "timestamp" : 1792830796.076
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "0EDD73F8-B328-49E8-A129-F19FD5E9E7AE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-day-production-220pt-closed_0_D479D0A4-ECFC-468F-A128-3D56EB37783D.png",
+        "timestamp" : 1792830794.099
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "00D86190-F73A-4F1F-8B13-E8B311705C15.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-day-production-64pt-stopped_0_FB8E03F2-D1D0-471B-ABB0-6D4847891920.png",
+        "timestamp" : 1792830793.968
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "BC83EDBB-D057-4B83-B54C-398084B41AF0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-day-production-64pt-open_0_2B3E4C0F-ADAF-479B-A02D-A8B02275FE55.png",
+        "timestamp" : 1792830793.962
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "74DC7B75-C33D-4A35-804F-D802498D69DC.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-day-production-64pt-closed_0_44EC47D9-3849-44E2-9E32-18AB95C305C3.png",
+        "timestamp" : 1792830792.02
+      }
+    ],
+    "testIdentifier" : "PioVacationNightArtworkTests/testChristmasDayProductionLifecycleAndPresentation()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioVacationNightArtworkTests/testChristmasDayProductionLifecycleAndPresentation"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "CAB5A2FC-9F6B-499E-BB59-9F7F31990D5D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-production-220pt-stopped_0_DAB64E1E-3868-4D51-A5D9-31015566E14D.png",
+        "timestamp" : 1792830800.373
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "7D78CB01-5CFD-44DE-B59E-811369FC2D3D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-production-220pt-open_0_D555ADB0-161D-4F19-8E33-EFF0A817577F.png",
+        "timestamp" : 1792830800.319
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "0E036DF8-C162-4225-BB6F-6D6DB88AD35E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-production-220pt-closed_0_6F5F152A-4CC5-4B2F-890A-DCE9BA3A536F.png",
+        "timestamp" : 1792830798.342
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "8C824A49-E5FB-47EB-9101-234B2B64F2C5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-production-64pt-stopped_0_18EE6749-CF54-406B-B548-16DBC5613B76.png",
+        "timestamp" : 1792830798.214
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "B96383AD-155A-4164-8D4C-A514977E1288.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-production-64pt-open_0_9D5F95A8-603F-44CE-87D7-9D3399D9CB8E.png",
+        "timestamp" : 1792830798.204
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "20896BB8-5964-4CA4-9213-1C179EC22EFE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-christmas-production-64pt-closed_0_812AD40A-E826-4545-A1D6-0966CDA44F70.png",
+        "timestamp" : 1792830796.293
+      }
+    ],
+    "testIdentifier" : "PioVacationNightArtworkTests/testChristmasNightProductionLifecycleAndPresentation()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioVacationNightArtworkTests/testChristmasNightProductionLifecycleAndPresentation"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "15F65E24-C5B2-4626-ABCC-5EBBA5806A78.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-1024pt-closed_0_B12692BE-CE25-4C5E-974F-B291945C5F5D.png",
+        "timestamp" : 1792830801.021
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "84FC3155-AD36-4341-81AB-36411469CBCA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-1024pt-half_0_95053D93-5D35-4713-8858-61849D6CEA29.png",
+        "timestamp" : 1792830800.913
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "F759ADA6-950D-4623-B46B-4AF6BEAF6D95.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-1024pt-open_0_F0DB73D2-AC80-4D4E-8DD5-F02DB24D63D0.png",
+        "timestamp" : 1792830800.796
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "E7C68608-02F1-4060-AE6D-D1EBBA3B3ACA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-1024pt-clean_0_B4D377F8-21EA-4825-93D2-133D2F7C5448.png",
+        "timestamp" : 1792830800.675
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "2B57BA01-31A9-4147-8C9D-DE718A895A34.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-1024pt-original_0_62AC35BB-BB6F-4758-A5CC-C6F3274B5621.png",
+        "timestamp" : 1792830800.553
+      }
+    ],
+    "testIdentifier" : "PioVacationNightArtworkTests/testNightCandidate1024StaticRegistration()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioVacationNightArtworkTests/testNightCandidate1024StaticRegistration"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "52901E47-221F-403D-BE89-E812A93CD3E7.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-220pt-stopped_0_AB325CA1-3511-4EE5-8E05-0EF8E60028AD.png",
+        "timestamp" : 1792830805.202
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "FFBCA0E8-1937-4EC3-BCA9-3EA7216D00A4.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-220pt-open_0_D1AFF8E6-39CB-43DB-B389-48673CBBD82A.png",
+        "timestamp" : 1792830805.151
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "A06B971E-47FC-42A8-BC9B-961B55F223EE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-220pt-half_0_F523818F-7481-4BF4-92D2-EE2C5A8D3A1F.png",
+        "timestamp" : 1792830805.043
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "960AAF25-8AF7-4B68-AD46-A009D3BA97DB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-220pt-closed_0_9D8A3F1F-8555-40AF-963A-D16EF70C052A.png",
+        "timestamp" : 1792830803.196
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "AFFD16D8-9E08-4F49-B6B2-21E5CDBF5370.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-64pt-stopped_0_BE8B5EC5-C8B2-4D62-8030-21E54601EAE6.png",
+        "timestamp" : 1792830803.061
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "0F43E8CA-65D5-4932-BD8D-2E2B5EB419E0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-64pt-open_0_50C71184-D2AF-43E1-A7F6-E7A653BCDD3A.png",
+        "timestamp" : 1792830803.054
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "7CC85382-84ED-48A9-A6F6-A5CFD88CE9D6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-64pt-half_0_9436F3CC-FBE7-4375-9D1A-8DEB430D89BD.png",
+        "timestamp" : 1792830802.929
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "A25317B9-C663-4C53-9DCA-27C11321C309.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-night-64pt-closed_0_763CAB48-9239-43F4-9725-9BC9DAA26215.png",
+        "timestamp" : 1792830801.134
+      }
+    ],
+    "testIdentifier" : "PioVacationNightArtworkTests/testNightCandidateNativePresentationAt64And220()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioVacationNightArtworkTests/testNightCandidateNativePresentationAt64And220"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "541F1292-8350-4813-B031-9E98B064F228.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-winter-night-production-220pt-stopped_0_19A5EDF2-295F-4DFA-B969-F0F107423C32.png",
+        "timestamp" : 1792830810.173
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "FB256E47-D7EB-4D6F-808B-AC0DDE79C8B0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-winter-night-production-220pt-open_0_612384B1-4AD1-46D2-AD07-E637E61CD2A5.png",
+        "timestamp" : 1792830810.12
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "FACFD085-9060-4B38-9334-45C04C57AC4A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-winter-night-production-220pt-closed_0_93092DCE-EA90-499B-98D7-9BFA13D46BB9.png",
+        "timestamp" : 1792830808.145
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "13792227-F133-4D87-A9A2-95C227B9FC26.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-winter-night-production-64pt-stopped_0_39D9D80D-16C9-4464-8CCC-3D2C6CA6EA7B.png",
+        "timestamp" : 1792830808.033
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "342AE5C9-308F-428C-9567-5A74FB0F5F47.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-winter-night-production-64pt-open_0_C4D098E1-BF28-4455-93D3-D31917D05CD5.png",
+        "timestamp" : 1792830808.026
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "F0F5E070-8C3A-4C38-AA64-592DECC042A0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "vacation-winter-night-production-64pt-closed_0_A10165A4-1524-472E-AAA6-A7A12A52D3DC.png",
+        "timestamp" : 1792830806.106
+      }
+    ],
+    "testIdentifier" : "PioVacationNightArtworkTests/testWinterNightProductionLifecycleAndPresentation()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioVacationNightArtworkTests/testWinterNightProductionLifecycleAndPresentation"
+  }
+]

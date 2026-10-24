@@ -1,0 +1,91 @@
+{
+  "independent" : [
+    "eyes",
+    "lids"
+  ],
+  "limits" : "Native presentation-layer component captures; candidate geometry still requires visual approval. Held parts never detach or wave independently of the prop. No purchase, preference or whole-screen workflow verification.",
+  "observations" : [
+    {
+      "elapsed" : 0.17654766666237265,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 0.22255033333203755,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 1.6600727083277889,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.6891928333352553,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.9915140833327314,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0,
+      "lidOpacity" : 1,
+      "side" : 64,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 2.0159978333249455,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0,
+      "lidOpacity" : 1,
+      "side" : 220,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 2.3230582083342597,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 2.3526932083332213,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 4.8777690416609403,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-negative"
+    },
+    {
+      "elapsed" : 4.9082948333380045,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-negative"
+    }
+  ],
+  "platform" : "Mac",
+  "revision" : "basic-eyes-v1"
+}

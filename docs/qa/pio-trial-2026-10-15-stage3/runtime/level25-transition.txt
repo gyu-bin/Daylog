@@ -1,0 +1,13 @@
+The following is a diff from the previous accessibility tree for Window: "Daylog" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 26
+~			16 버튼 Description: 기본 루틴 그룹, 1개 중 1개 완료, Help: 누르면 접거나 펼칩니다., Value: 펼침
+~			18 unknown 이번 주의 성장. 목표 5일 중 1일 실천. 이번 주에 1일 실천했어요. 오늘도 한 걸음 나아갔어요.
+~			20 버튼 (selected) Description: Stage3-QA 완료, Help: 누르면 완료를 취소합니다., Value: 켜짐, ID: checkmark
+~			22 unknown 전체 달성률 100%, 1개 중 1개 완료
+~			27 unknown 새싹이 성장. 레벨 25, 꽃 단계. 다음 레벨까지 20 / 100 XP. 꽃이 활짝 피었어요. 꾸준함이 계속 쌓이고 있어요.
++			71 텍스트 필드 (settable) Description: 점심, Help: Enter로 다음 칸, Shift+Enter로 줄바꿈, Placeholder: 무엇을 드셨나요?
+~			35 unknown 전체 달성률 100%, 1개 중 1개 완료
+~			36 unknown 기본 루틴 그룹, 1개 중 1개 완료
+~			46 버튼 Description: 10월 15일 목요일, 1개 중 1개 완료, 달성률 100%, 기준 달성, Help: 이 날짜의 기록으로 이동
+~			47 unknown 이번 주 평균 100%, 집계한 1일 중 1일 달성
+The focused UI element is 0 표준 윈도우 Daylog, ID: main, Secondary Actions: Raise

@@ -1,0 +1,67 @@
+{
+  "scope": "PNG IHDR dimensions; RGBA8 estimate, not measured cache retention or actual CGImage cost",
+  "groups": [
+    {
+      "group": "cloud",
+      "images": 120,
+      "rgbaUncompressedTotalMiB": 719.8406982421875,
+      "largest": [
+        {
+          "name": "pio_cloud_student_eyeLeft.png",
+          "w": 1254,
+          "h": 1254,
+          "rgbaBytes": 6290064
+        },
+        {
+          "name": "pio_cloud_rainyDay_eyeRight.png",
+          "w": 1254,
+          "h": 1254,
+          "rgbaBytes": 6290064
+        },
+        {
+          "name": "pio_cloud_rainyDay_lidRight.png",
+          "w": 1254,
+          "h": 1254,
+          "rgbaBytes": 6290064
+        },
+        {
+          "name": "pio_cloud_winter_eyeLeft.png",
+          "w": 1254,
+          "h": 1254,
+          "rgbaBytes": 6290064
+        }
+      ]
+    },
+    {
+      "group": "overhaul",
+      "images": 213,
+      "rgbaUncompressedTotalMiB": 112.43344497680664,
+      "largest": [
+        {
+          "name": "pio_overhaul_summerVacation_body.png",
+          "w": 1224,
+          "h": 1231,
+          "rgbaBytes": 6026976
+        },
+        {
+          "name": "pio_overhaul_halloween_body.png",
+          "w": 1232,
+          "h": 1128,
+          "rgbaBytes": 5558784
+        },
+        {
+          "name": "pio_overhaul_cherryBlossom_body.png",
+          "w": 1151,
+          "h": 1177,
+          "rgbaBytes": 5418908
+        },
+        {
+          "name": "pio_overhaul_winter_body.png",
+          "w": 1153,
+          "h": 1149,
+          "rgbaBytes": 5299188
+        }
+      ]
+    }
+  ]
+}

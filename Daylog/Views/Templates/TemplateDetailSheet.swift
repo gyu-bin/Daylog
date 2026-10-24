@@ -22,7 +22,7 @@ struct TemplateDetailSheet: View {
             subtitle: "\(template.category.title) · 그룹 \(template.groups.count)개 · 루틴 \(template.routineCount)개",
             width: 520, cancelTitle: "닫기", cancel: { dismiss() },
             primary: result == nil
-                ? SheetAction(title: "내 Daylog에 추가", isDisabled: !(preview?.canSave ?? false), action: save)
+                ? SheetAction(title: "내 RoutiMori에 추가", isDisabled: !(preview?.canSave ?? false), action: save)
                 : SheetAction(title: "루틴 보기", action: showRoutines)
         ) {
             EmptyView()

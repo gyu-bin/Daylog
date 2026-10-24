@@ -1,0 +1,38 @@
+Window: "Daylog", App: Daylog.
+0 표준 윈도우 Daylog, ID: main, Secondary Actions: Raise
+	1 스크롤 영역 Secondary Actions: Scroll Up, Scroll Down
+		2 text 피오 부품 동작 검토 기본형·크리스마스 한 가지 체형의 시험용 리그예요. 성장 1–4단계와 다른 의상은 아직 지원하지 않아요.
+		3 팝업 버튼 의상, Value: 크리스마스 피오, ID: layeredQA.outfit
+		4 팝업 버튼 동작, Value: 오른 날개만 움직이기, ID: layeredQA.motion
+		5 팝업 버튼 크기, Value: 220pt, ID: layeredQA.size
+		6 체크상자 Description: 동작 켜기, Value: 1, ID: layeredQA.animate
+		7 체크상자 Description: 캐릭터 표시, Value: 1, ID: layeredQA.visible
+		8 체크상자 Description: 원본 한 장 비교, Value: 0, ID: layeredQA.flat
+		9 체크상자 Description: 정지 요청 검토, Value: 0, ID: layeredQA.reduceMotion
+		10 체크상자 Description: 어두운 배경, Value: 0, ID: layeredQA.dark
+		11 text ID: layeredQA.selection, Value: 크리스마스 피오 · 오른 날개만 움직이기 · 220pt · 독립 부품 시스템 움직임 줄이기: 꺼짐 · 화면: 활성 눈만·오른 날개만 모드에서는 몸통과 상위 레이어가 고정돼요. 크리스마스 모자와 새싹은 한 부품이며 선물은 왼손과 함께 움직여요. 크리스마스 펄럭임은 선물을 든 쪽 ±6°, 오른쪽 ±12°예요.
+		12 버튼 Description: 30회 의상 전환, ID: layeredQA.switch
+		13 텍스트 0회
+		14 버튼 Description: 측정값 초기화, ID: layeredQA.resetMetrics
+		15 버튼 Description: 측정값 새로고침, ID: layeredQA.metrics
+		16 text ID: layeredQA.metricValues, Value: accessoryTracks=0 · activeAnimationTracks=0 · activeRigs=0 · bodyTracks=0 · cachedImages=23 · configurations=1 · decodedBytes=26908264 · effectiveLayouts=1 · eyesTracks=0 · feetTracks=0 · hostUpdates=1 · layouts=1 · liveRigs=1 · sourceLoads=23 · wingsTracks=0 [{"body.opacity":1,"body.rotation":0,"body.scaleX":1,"body.scaleY":1,"body.translationX":0,"body.translationY":0,"body.x":650,"body.y":474,"canvas.opacity":1,"canvas.rotation":0,"canvas.scaleX":0,"canvas.scaleY":0,"canvas.translationX":0,"canvas.translationY":0,"canvas.x":0,"canvas.y":0,"eyeLeft.opacity":1,"eyeLeft.rotation":0,"eyeLeft.scaleX":1,"eyeLeft.scaleY":1,"eyeLeft.translationX":0,"eyeLeft.translationY":0,"eyeLeft.x":551,"eyeLeft.y":602,"eyeRight.opacity":1,"eyeRight.rotation":0,"eyeRight.scaleX":1,"eyeRight.scaleY":1,"eyeRight.translationX":0,"eyeRight.translationY":0,"eyeRight.x":833,"eyeRight.y":636,"footLeft.opacity":1,"footLeft.rotation":0,"footLeft.scaleX":1,"footLeft.scaleY":1,"footLeft.translationX":0,"footLeft.translationY":0,"footLeft.x":530,"footLeft.y":184,"footRight.opacity":1,"footRight.rotation":0,"footRight.scaleX":1,"footRight.scaleY":1,"footRight.translationX":0,"footRight.translationY":0,"footRight.x":817,"footRight.y":184,"gift.opacity":1,"gift.rotation":0,"gift.scaleX":1,"gift.scaleY":1,"gift.translationX":0,"gift.translationY":0,"gift.x":790,"gift.y":329,"handLeft.opacity":1,"handLeft.rotation":0,"handLeft.scaleX":1,"handLeft.scaleY":1,"handLeft.translationX":0,"handLeft.translationY":0,"handLeft.x":513,"handLeft.y":384,"handRight.opacity":1,"handRight.rotation":1.0471975511965976,"handRight.scaleX":1,"handRight.scaleY":1,"handRight.translationX":0,"handRight.translationY":0,"handRight.x":1050,"handRight.y":464,"hat.opacity":1,"hat.rotation":0,"hat.scaleX":1,"hat.scaleY":1,"hat.translationX":0,"hat.translationY":0,"hat.x":660,"hat.y":804,"leftGrip.opacity":1,"leftGrip.rotation":0,"leftGrip.scaleX":1,"leftGrip.scaleY":1,"leftGrip.translationX":0,"leftGrip.translationY":0,"leftGrip.x":513,"leftGrip.y":384,"lidLeft.opacity":0,"lidLeft.rotation":0,"lidLeft.scaleX":1,"lidLeft.scaleY":1,"lidLeft.translationX":0,"lidLeft.translationY":0,"lidLeft.x":551,"lidLeft.y":596,"lidRight.opacity":0,"lidRight.rotation":0,"lidRight.scaleX":1,"lidRight.scaleY":1,"lidRight.translationX":0,"lidRight.translationY":0,"lidRight.x":833,"lidRight.y":632,"movement.opacity":1,"movement.rotation":0,"movement.scaleX":1,"movement.scaleY":1,"movement.translationX":0,"movement.translationY":0,"movement.x":627,"movement.y":150.47999999999999,"root.opacity":1,"root.rotation":0,"root.scaleX":1,"root.scaleY":1,"root.translationX":0,"root.translationY":0,"root.x":0,"root.y":0}]
+		17 스크롤 막대 (settable, float) 0
+			18 값 표시기 (settable, float) 0
+			19 화살표 증가 버튼
+			20 화살표 감소 버튼
+			21 페이지 증가 버튼
+			22 페이지 감소 버튼
+	23 닫기 버튼
+	24 전체 화면 버튼 Help: 이 버튼을 누르면 윈도우를 확대/축소합니다., Secondary Actions: 윈도우 확대/축소
+	25 최소화 버튼
+	26 텍스트 Daylog
+27 menu bar
+	28 Daylog
+	29 파일
+	30 편집
+	31 보기
+	32 이동
+	33 윈도우
+	34 도움말
+
+The focused UI element is 0 표준 윈도우 Daylog, ID: main, Secondary Actions: Raise

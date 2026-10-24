@@ -1,0 +1,11 @@
+{
+  "Daylog/Services/PioPurchaseManager.swift": "6fc9d18177c56d62aa31363ed9fabdeed5ea56aed376dba9c93912636d8b460f",
+  "Daylog/Services/PioWardrobe.swift": "88dfb0a941d283a2b9075f1e70855d8f721fd5caa417d61a93d86350d4a5d332",
+  "Daylog/Services/PioWardrobeSelection.swift": "7d10b6806f3d11b1da1438897fa5385f09d59871cb7e3168339347f5e11543dc",
+  "DaylogTests/PioPurchaseTests.swift": "2e825d1249f3b4a37fda09d4936f5f08a6bf609a4beed5bf1f0f7e0c26eab06e",
+  "DaylogTests/PioWardrobeTests.swift": "4db2737d0b8baf626119134a5f421e938888f2a2822f1782a9952bee438cc018",
+  "DaylogStoreKitTests/PioStoreKitIntegrationTests.swift": "67156f834260db0faa7da1f4b90ae9a925250d9c882ffca8cd1caa2a91b1ae8c",
+  "DaylogStoreKitTests/PioStoreKitProcessRelaunchTests.swift": "fdf8fdebc5679756c8191d9f74c49230f3685c78ade0e06ca170e9175a226066",
+  "DaylogStoreKitTests/PioStoreKitSDKContractTests.swift": "75a246083dec67d1969afac36df4b78b36a5f752432c89625abf83b2fb35e94f",
+  "DaylogStoreKitTests/PioStoreKitRefundOrderingTests.swift": "adb77bdfa2695cef95be8cfef9abb3e8adf2b7313079e111caa98f13f0ee73ac"
+}

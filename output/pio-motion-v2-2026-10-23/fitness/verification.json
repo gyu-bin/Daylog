@@ -1,0 +1,56 @@
+{
+  "outfit": "fitness",
+  "status": "PARTIAL_OFFLINE_STUDY",
+  "canonicalSourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/footLeft.png": "7eee7f705d72fe4de29a9a233bd6888767b1a6ea8ac3e9696771804b18791a52",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/footRight.png": "347f2a84c59e45a1e12b6eef367e5b18c7e2b23fc2977ec267dfe2ad5223e2f9",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/body.png": "81e239108f4ee548481f175a5080521634f4524b0c93540ec265f9b04970ad64",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/eyeLeft.png": "c9848357d412e40e8b9c2105748e283b543bcc58865a70d723cf169219d6dada",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/eyeRight.png": "6921e5e87846d5348ff81e0a8f17a1aa52ccd3b26c260568a777e6303db75852",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/sprout.png": "db97dd32a04a1264a7cb0cd6ce37569a873393ab2503dbc31d11e119f8112c70",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/headwear.png": "c3c70fef55cccb180f5131639d5dac451fef4b6229ebf937323bcb2bf66f0437",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/dumbbellLeft.png": "9a949e0ebee6488b85d59c63e4df5504c13817374c769961b1a08a8547ec16be",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/dumbbellRight.png": "a1e102ab24ce3ea22f2a729671f483407973317f6502a59c213915437a915bec",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/wingLeft.png": "38dfda04ae344e7b39ae67e86af191b069182b9d4e572a86bba2c1c87a76f5cd",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/wingRight.png": "a93dda35f740952aa9739e0460f694ba339a453fc445f791f924cce8fa3080b9",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/halfLeft.png": "d1b316b58e820d0ba42c374fdb448ab69d8cc7283feeaaa41b74a1dee38fc013",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/lidLeft.png": "90833138a270713e3467cb3faa032577255610faae86f99a533670bdfaae2526",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/halfRight.png": "2e3a47761b95c8bed494c9cbc6f3977c5d7f8defaa8706c9f5961e47be705084",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/lidRight.png": "636caf2bd9b97529aa97e393b1aba973128c6702e7b67aaa437158ca159c9838",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/happyLeft.png": "b79e3b0b611383612025bac57f6eccb0aa8714c2077aaf25ef861404d8df54b6",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/fitness/layers/happyRight.png": "6ffd929ab5254f0e9c57bb6b4b137ddee43a0cf3375d002b717277a32639c493"
+  },
+  "actions": [
+    "idle",
+    "greet",
+    "walk",
+    "bounce",
+    "jump",
+    "celebrate",
+    "bow",
+    "sleepy",
+    "surprised",
+    "encourage",
+    "special"
+  ],
+  "specialAction": "paired weight lift",
+  "framesPerAction": 32,
+  "durationMs": 70,
+  "maxAlphaOnFrameBorder": 0,
+  "canvas": [
+    480,
+    516
+  ],
+  "characterCanvas": [
+    350,
+    350
+  ],
+  "limits": [
+    "2D front-view stepping, no authored turn or gait occlusion change.",
+    "Bow is frontal lean/compression, not a reconstructed 3D head turn.",
+    "Hat and fabric stay rigid with torso.",
+    "Held props rigidly follow hands; no release or articulation.",
+    "No app/runtime/performance claim."
+  ]
+}

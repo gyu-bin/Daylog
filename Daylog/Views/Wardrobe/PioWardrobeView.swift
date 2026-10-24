@@ -17,6 +17,9 @@ struct PioWardrobeView: View {
     @State private var motion: PioOutfitMotion = .idle
     @State private var notice: String?
     @State private var actionMessage: String?
+    #if DEBUG
+    @State private var showingMotionReview = false
+    #endif
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.dynamicTypeSize) private var dynamicType
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -83,6 +86,11 @@ struct PioWardrobeView: View {
         .foregroundStyle(palette.ink)
         .tint(palette.accent)
         .navigationTitle("피오 옷장")
+        #if DEBUG
+        .sheet(isPresented: $showingMotionReview) {
+            PioOverhaulMotionReview(outfit: selectedOutfit)
+        }
+        #endif
         .accessibilityIdentifier("wardrobe.screen")
         .task { if !RuntimeEnvironment.isRunningTests { await store.start() } }
         .onChange(of: selectedOutfit) { _, outfit in
@@ -123,6 +131,13 @@ struct PioWardrobeView: View {
                     .background(palette.accent.opacity(0.09), in: RoundedRectangle(cornerRadius: 14))
                     .accessibilityIdentifier("wardrobe.testingBanner")
             }
+            #if DEBUG
+            Button { showingMotionReview = true } label: {
+                Label("새 움직임 미리 보기", systemImage: "figure.wave")
+            }
+            .buttonStyle(.bordered)
+            .accessibilityIdentifier("wardrobe.motionReview")
+            #endif
             Picker("옷장 보기", selection: $section) {
                 ForEach(WardrobeSection.allCases) { Text($0.rawValue).tag($0) }
             }
@@ -195,7 +210,7 @@ struct PioWardrobeView: View {
                         .padding(7).background(palette.surface, in: Circle()).padding(6)
                 }
             }
-            Text(outfit.title)
+            Text(productTitle(outfit))
                 .font(.system(.subheadline, design: .rounded, weight: .semibold))
                 .foregroundStyle(palette.ink).fixedSize(horizontal: false, vertical: true)
             Text(stateText(outfit))
@@ -222,6 +237,10 @@ struct PioWardrobeView: View {
         return "현재 구매 불가"
     }
 
+    private func productTitle(_ outfit: PioOutfitID) -> String {
+        store.purchases.product(for: outfit)?.displayName ?? outfit.title
+    }
+
     private func previewPanel(artHeight: CGFloat) -> some View {
         VStack(alignment: .leading, spacing: 20) {
             HStack {
@@ -245,7 +264,7 @@ struct PioWardrobeView: View {
             VStack(alignment: .leading, spacing: 7) {
                 Text(selectedOutfit.category.title)
                     .font(.caption.weight(.semibold)).foregroundStyle(palette.accent)
-                Text(selectedOutfit.title)
+                Text(productTitle(selectedOutfit))
                     .font(.system(.title2, design: .rounded, weight: .bold))
                 Text(selectedOutfit.description)
                     .font(.subheadline).foregroundStyle(palette.secondary)
@@ -309,11 +328,16 @@ struct PioWardrobeView: View {
                     .opacity(store.equippedOutfit == selectedOutfit || !WardrobeArt.isAvailable(selectedOutfit) ? 0.55 : 1)
             }
             .buttonStyle(.plain)
-            .disabled(store.equippedOutfit == selectedOutfit || !WardrobeArt.isAvailable(selectedOutfit))
+            .disabled(store.purchases.isBusy || store.equippedOutfit == selectedOutfit || !WardrobeArt.isAvailable(selectedOutfit))
             .accessibilityIdentifier("wardrobe.preview.equip")
         } else {
             Button {
-                Task { actionMessage = (await store.purchase(selectedOutfit)).wardrobeMessage }
+                let requestedOutfit = selectedOutfit
+                Task {
+                    let result = await store.purchase(requestedOutfit)
+                    if selectedOutfit == requestedOutfit { actionMessage = result.wardrobeMessage }
+                    else { notice = result.wardrobeMessage }
+                }
             } label: {
                 Group {
                     if case .purchasing(let outfit) = store.purchases.purchaseState, outfit == selectedOutfit {
@@ -338,7 +362,8 @@ struct PioWardrobeView: View {
                 .fixedSize(horizontal: false, vertical: true)
         } else {
             VStack(alignment: .leading, spacing: 10) {
-                Label("Apple 로컬 구매 테스트 · 실제 청구 없음", systemImage: "testtube.2")
+                Label(store.purchases.availability.environmentLabel,
+                      systemImage: store.purchases.availability == .localTesting ? "testtube.2" : "bag")
                     .font(.caption).foregroundStyle(palette.secondary)
                 switch store.purchases.productLoadState {
                 case .idle, .loading:

@@ -1,0 +1,237 @@
+[
+  {
+    "appEnvironment": "Environment(rawValue: \"Xcode\")",
+    "elapsed": "0.106332708 seconds",
+    "event": "environment",
+    "mode": "manager",
+    "os": "Version 27.0 (Build 24A434)",
+    "phase": "seed",
+    "pid": 5678,
+    "run": "a8e8b5f3-802b-473a-8edb-5379aab98053",
+    "scenario": "finish",
+    "wallTime": 1792757000.952086
+  },
+  {
+    "elapsed": "0.120261375 seconds",
+    "event": "SKTestSession.init.return",
+    "wallTime": 1792757000.966017
+  },
+  {
+    "elapsed": "0.120792041 seconds",
+    "event": "resetToDefaultState.return",
+    "wallTime": 1792757000.966548
+  },
+  {
+    "elapsed": "0.12653075 seconds",
+    "event": "clearTransactions.return",
+    "wallTime": 1792757000.972286
+  },
+  {
+    "dialogsDisabled": true,
+    "elapsed": "0.153861 seconds",
+    "event": "fixture.ready",
+    "purchaseError": "nil",
+    "storefront": "KOR",
+    "wallTime": 1792757000.999617
+  },
+  {
+    "elapsed": "0.155186916 seconds",
+    "event": "manager.start.begin",
+    "wallTime": 1792757001.000941
+  },
+  {
+    "elapsed": "0.174237125 seconds",
+    "event": "manager.ownership",
+    "owned": [
+      "basic"
+    ],
+    "wallTime": 1792757001.0199928
+  },
+  {
+    "elapsed": "0.192861166 seconds",
+    "event": "manager.start.return",
+    "wallTime": 1792757001.0386171
+  },
+  {
+    "elapsed": "0.192936666 seconds",
+    "event": "snapshot.begin",
+    "label": "before-scenario",
+    "wallTime": 1792757001.038693
+  },
+  {
+    "currentEntitlements": [],
+    "driverLedger": [],
+    "elapsed": "0.200850333 seconds",
+    "equipped": "basic",
+    "event": "snapshot.return",
+    "label": "before-scenario",
+    "managerOwned": [
+      "basic"
+    ],
+    "unfinished": [],
+    "wallTime": 1792757001.046606
+  },
+  {
+    "elapsed": "0.200995333 seconds",
+    "event": "purchase.begin",
+    "product": "outfit.space",
+    "wallTime": 1792757001.046752
+  },
+  {
+    "elapsed": "0.21830975 seconds",
+    "event": "manager.ownership",
+    "owned": [
+      "astronaut",
+      "basic"
+    ],
+    "wallTime": 1792757001.064066
+  },
+  {
+    "busy": false,
+    "elapsed": "0.238782291 seconds",
+    "event": "manager.purchase.return",
+    "result": "purchased(Daylog.PioOutfitID.astronaut)",
+    "wallTime": 1792757001.084536
+  },
+  {
+    "elapsed": "0.238868375 seconds",
+    "event": "snapshot.begin",
+    "label": "after-space-finish",
+    "wallTime": 1792757001.084625
+  },
+  {
+    "currentEntitlements": [
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "202",
+        "product": "outfit.space",
+        "revoked": false,
+        "verification": "verified"
+      }
+    ],
+    "driverLedger": [
+      {
+        "id": "202",
+        "issue": false,
+        "pending": false,
+        "product": "outfit.space",
+        "state": "SKPaymentTransactionState(rawValue: 1)"
+      }
+    ],
+    "elapsed": "0.261685166 seconds",
+    "equipped": "basic",
+    "event": "snapshot.return",
+    "label": "after-space-finish",
+    "managerOwned": [
+      "astronaut",
+      "basic"
+    ],
+    "unfinished": [],
+    "wallTime": 1792757001.107441
+  },
+  {
+    "elapsed": "0.26179275 seconds",
+    "event": "purchase.begin",
+    "product": "outfit.cafe",
+    "wallTime": 1792757001.107549
+  },
+  {
+    "elapsed": "0.282973875 seconds",
+    "event": "manager.ownership",
+    "owned": [
+      "astronaut",
+      "basic",
+      "cafe"
+    ],
+    "wallTime": 1792757001.12873
+  },
+  {
+    "busy": false,
+    "elapsed": "0.304388041 seconds",
+    "event": "manager.purchase.return",
+    "result": "purchased(Daylog.PioOutfitID.cafe)",
+    "wallTime": 1792757001.150144
+  },
+  {
+    "elapsed": "0.304428166 seconds",
+    "event": "snapshot.begin",
+    "label": "after-final-cafe-finish",
+    "wallTime": 1792757001.150185
+  },
+  {
+    "currentEntitlements": [
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "203",
+        "product": "outfit.cafe",
+        "revoked": false,
+        "verification": "verified"
+      },
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "202",
+        "product": "outfit.space",
+        "revoked": false,
+        "verification": "verified"
+      }
+    ],
+    "driverLedger": [
+      {
+        "id": "202",
+        "issue": false,
+        "pending": false,
+        "product": "outfit.space",
+        "state": "SKPaymentTransactionState(rawValue: 1)"
+      },
+      {
+        "id": "203",
+        "issue": false,
+        "pending": false,
+        "product": "outfit.cafe",
+        "state": "SKPaymentTransactionState(rawValue: 1)"
+      }
+    ],
+    "elapsed": "0.330366541 seconds",
+    "equipped": "basic",
+    "event": "snapshot.return",
+    "label": "after-final-cafe-finish",
+    "managerOwned": [
+      "astronaut",
+      "basic",
+      "cafe"
+    ],
+    "unfinished": [],
+    "wallTime": 1792757001.176122
+  },
+  {
+    "elapsed": "0.331461291 seconds",
+    "event": "handoff.ready",
+    "ids": [
+      "203",
+      "202"
+    ],
+    "mode": "manager",
+    "pid": 5678,
+    "run": "a8e8b5f3-802b-473a-8edb-5379aab98053",
+    "timestamp": 1792757001.17632,
+    "wallTime": 1792757001.177217
+  },
+  {
+    "elapsed": "0.332087416 seconds",
+    "event": "adapter.trace",
+    "events": [
+      "client=B75F0219 time=1792757001.0012898 raw listener started subscription=F50A4491-9121-4A82-AAD1-9256EC324327",
+      "client=B75F0219 time=1792757001.064008 accepted id=202 product=outfit.space revoked=false",
+      "client=B75F0219 time=1792757001.0641189 finish requested id=202 cached=true inFlight=0",
+      "client=B75F0219 time=1792757001.064153 finish begin id=202 product=outfit.space revoked=false",
+      "client=B75F0219 time=1792757001.07752 finish returned id=202",
+      "client=B75F0219 time=1792757001.128686 accepted id=203 product=outfit.cafe revoked=false",
+      "client=B75F0219 time=1792757001.1287708 finish requested id=203 cached=true inFlight=0",
+      "client=B75F0219 time=1792757001.128796 finish begin id=203 product=outfit.cafe revoked=false",
+      "client=B75F0219 time=1792757001.1500602 finish returned id=203",
+      "client=B75F0219 time=1792757001.177722 raw listener ended subscription=F50A4491-9121-4A82-AAD1-9256EC324327"
+    ],
+    "remainingListeners": 0,
+    "wallTime": 1792757001.177844
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "appEnvironment": "Environment(rawValue: \"Xcode\")",
+    "elapsed": "0.072137667 seconds",
+    "event": "environment",
+    "mode": "manager",
+    "os": "Version 27.0 (Build 24A434)",
+    "phase": "seed",
+    "pid": 5571,
+    "run": "42ca7c82-0277-4c37-8bf2-35b238122cd0",
+    "scenario": "cancel",
+    "wallTime": 1792756975.5360389
+  },
+  {
+    "elapsed": "0.08359075 seconds",
+    "event": "SKTestSession.init.return",
+    "wallTime": 1792756975.5474901
+  },
+  {
+    "elapsed": "0.084277125 seconds",
+    "event": "resetToDefaultState.return",
+    "wallTime": 1792756975.5481791
+  },
+  {
+    "elapsed": "0.08519125 seconds",
+    "event": "clearTransactions.return",
+    "wallTime": 1792756975.549093
+  },
+  {
+    "dialogsDisabled": true,
+    "elapsed": "0.09494575 seconds",
+    "event": "fixture.ready",
+    "purchaseError": "nil",
+    "storefront": "KOR",
+    "wallTime": 1792756975.558848
+  },
+  {
+    "elapsed": "0.096498708 seconds",
+    "event": "manager.start.begin",
+    "wallTime": 1792756975.5604
+  },
+  {
+    "elapsed": "0.103367708 seconds",
+    "event": "manager.ownership",
+    "owned": [
+      "basic"
+    ],
+    "wallTime": 1792756975.56727
+  },
+  {
+    "elapsed": "0.110345458 seconds",
+    "event": "manager.start.return",
+    "wallTime": 1792756975.574247
+  },
+  {
+    "elapsed": "0.11040875 seconds",
+    "event": "snapshot.begin",
+    "label": "before-scenario",
+    "wallTime": 1792756975.574312
+  },
+  {
+    "currentEntitlements": [],
+    "driverLedger": [],
+    "elapsed": "0.114951292 seconds",
+    "equipped": "basic",
+    "event": "snapshot.return",
+    "label": "before-scenario",
+    "managerOwned": [
+      "basic"
+    ],
+    "unfinished": [],
+    "wallTime": 1792756975.5788531
+  },
+  {
+    "configured": "Optional(StoreKitTest.SKTestFailures.Purchase.generic(StoreKit.StoreKitError.userCancelled))",
+    "elapsed": "0.120843917 seconds",
+    "event": "setSimulatedError.return",
+    "wallTime": 1792756975.584746
+  },
+  {
+    "elapsed": "0.120941458 seconds",
+    "event": "purchase.begin",
+    "product": "outfit.student",
+    "wallTime": 1792756975.584844
+  },
+  {
+    "busy": false,
+    "elapsed": "0.142941333 seconds",
+    "event": "manager.purchase.return",
+    "result": "failed(message: \"App Store\uc5d0 \uc5f0\uacb0\ud558\uc9c0 \ubabb\ud588\uc5b4\uc694. \ub124\ud2b8\uc6cc\ud06c\ub97c \ud655\uc778\ud558\uace0 \uc7a0\uc2dc \ud6c4 \ub2e4\uc2dc \uc2dc\ub3c4\ud574 \uc8fc\uc138\uc694.\")",
+    "wallTime": 1792756975.606842
+  },
+  {
+    "elapsed": "0.14301675 seconds",
+    "event": "snapshot.begin",
+    "label": "after-cancel",
+    "wallTime": 1792756975.60692
+  },
+  {
+    "currentEntitlements": [],
+    "driverLedger": [],
+    "elapsed": "0.146610208 seconds",
+    "equipped": "basic",
+    "event": "snapshot.return",
+    "label": "after-cancel",
+    "managerOwned": [
+      "basic"
+    ],
+    "unfinished": [],
+    "wallTime": 1792756975.6105099
+  },
+  {
+    "elapsed": "0.169864125 seconds",
+    "event": "adapter.trace",
+    "events": [
+      "client=653B6B72 time=1792756975.561063 raw listener started subscription=A9F0B7D9-EDAF-4C34-8E58-8053CDAED583",
+      "client=653B6B72 time=1792756975.6336231 raw listener ended subscription=A9F0B7D9-EDAF-4C34-8E58-8053CDAED583"
+    ],
+    "remainingListeners": 0,
+    "wallTime": 1792756975.6337662
+  }
+]

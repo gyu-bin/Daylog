@@ -1,0 +1,242 @@
+{
+  "sources": [
+    {
+      "id": "body",
+      "asset": "pio_cloud_basic_v1_body",
+      "original": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-cc957b0d-fa8a-416b-ab58-275d51b12a33.png",
+      "workspace": "output/pio-independent-2026-10-24/basic-cloud/source/body-v1.png",
+      "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_body.imageset/pio_cloud_basic_v1_body.png",
+      "sha256": "acb6052c7c539110edeae3a263fb03c5be7ed50b8dfa9d1911a06b3c5eb8581f",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha16_bbox": [
+        220,
+        77,
+        1044,
+        1181
+      ],
+      "method": "built-in imagegen artwork; source PNG copied unchanged",
+      "pixel_edits": false,
+      "approved": false
+    },
+    {
+      "id": "openPair",
+      "asset": "pio_cloud_basic_v1_openPair",
+      "original": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-ec8dd001-6239-489d-9c83-cb8b5a39c2b6.png",
+      "workspace": "output/pio-independent-2026-10-24/basic-cloud/source/openPair-v1.png",
+      "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_openPair.imageset/pio_cloud_basic_v1_openPair.png",
+      "sha256": "16d55cbd39b8be2f91af59d7c866db352cb8e14d71988fbdeea350aba8609a18",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha16_bbox": [
+        436,
+        752,
+        917,
+        887
+      ],
+      "method": "built-in imagegen artwork; source PNG copied unchanged",
+      "pixel_edits": false,
+      "approved": false
+    },
+    {
+      "id": "closedPair",
+      "asset": "pio_cloud_basic_v1_closedPair",
+      "original": "/Users/mungyubin/.codex/generated_images/01a167e0-d86f-7633-94a1-40ac5235c4f4/exec-ef710958-dda3-4053-9e9a-dba250a55ad4.png",
+      "workspace": "output/pio-independent-2026-10-24/basic-cloud/source/closedPair-v1.png",
+      "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_closedPair.imageset/pio_cloud_basic_v1_closedPair.png",
+      "sha256": "9107ae63aa885f8b85403f2e86c30f62286b0daceeda12adce56265502b83fd9",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha16_bbox": [
+        375,
+        791,
+        938,
+        880
+      ],
+      "method": "built-in imagegen artwork; source PNG copied unchanged",
+      "pixel_edits": false,
+      "approved": false
+    },
+    {
+      "id": "browLeft",
+      "asset": "pio_cloud_basic_v1_browLeft",
+      "original": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-completion-2026-10-23/cloud/christmas/layers/browLeft.png",
+      "workspace": "output/pio-independent-2026-10-24/basic-cloud/source/browLeft-v1.png",
+      "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_browLeft.imageset/pio_cloud_basic_v1_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha16_bbox": [
+        453,
+        575,
+        566,
+        634
+      ],
+      "method": "existing genuine donor copy",
+      "pixel_edits": false,
+      "approved": false
+    },
+    {
+      "id": "browRight",
+      "asset": "pio_cloud_basic_v1_browRight",
+      "original": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-completion-2026-10-23/cloud/christmas/layers/browRight.png",
+      "workspace": "output/pio-independent-2026-10-24/basic-cloud/source/browRight-v1.png",
+      "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_browRight.imageset/pio_cloud_basic_v1_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha16_bbox": [
+        773,
+        566,
+        882,
+        623
+      ],
+      "method": "existing genuine donor copy",
+      "pixel_edits": false,
+      "approved": false
+    },
+    {
+      "id": "torso",
+      "asset": "pio_cloud_basic_v1_torso",
+      "original": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-0b6287d5-3b86-422c-a82a-3fe7a7cf42cb.png",
+      "workspace": "output/pio-independent-2026-10-24/basic-cloud/source/torso-v1.png",
+      "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_torso.imageset/pio_cloud_basic_v1_torso.png",
+      "sha256": "041c4f3ee5b1e33fba0b725cccfa820a04ee5e402b2ab14c939d7afc1acf4080",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha16_bbox": [
+        219,
+        77,
+        1042,
+        1183
+      ],
+      "method": "built-in imagegen artwork; source PNG copied unchanged",
+      "pixel_edits": false,
+      "approved": false
+    },
+    {
+      "id": "tablet",
+      "asset": "pio_cloud_basic_v1_tablet",
+      "original": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-534f3cda-8438-48ac-8ff4-62721dafb006.png",
+      "workspace": "output/pio-independent-2026-10-24/basic-cloud/source/tablet-v1.png",
+      "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_tablet.imageset/pio_cloud_basic_v1_tablet.png",
+      "sha256": "4e1d558ffa3cb3a94e2cfe1a3c9fc375b4394475b9b688ecc591376f7470477a",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha16_bbox": [
+        294,
+        514,
+        963,
+        1050
+      ],
+      "method": "built-in imagegen artwork; source PNG copied unchanged",
+      "pixel_edits": false,
+      "approved": false
+    },
+    {
+      "id": "armPair",
+      "asset": "pio_cloud_basic_v1_armPair",
+      "original": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-f802b01b-15fb-4301-b3f2-7685c6004118.png",
+      "workspace": "output/pio-independent-2026-10-24/basic-cloud/source/armPair-v1.png",
+      "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_armPair.imageset/pio_cloud_basic_v1_armPair.png",
+      "sha256": "b1465818dfa059b1406bbcc2f7408d0f9545b420cef4dd5805f0f8e810d6c815",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha16_bbox": [
+        35,
+        572,
+        1223,
+        1009
+      ],
+      "method": "built-in imagegen artwork; source PNG copied unchanged",
+      "pixel_edits": false,
+      "approved": false
+    },
+    {
+      "id": "feetPair",
+      "asset": "pio_cloud_basic_v1_feetPair",
+      "original": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-independent-2026-10-24/basic-cloud/source/feetPair-v1.png",
+      "workspace": "output/pio-independent-2026-10-24/basic-cloud/source/feetPair-v1.png",
+      "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_feetPair.imageset/pio_cloud_basic_v1_feetPair.png",
+      "sha256": "d19d435181acd1c020eecfb5952074ae4cc5a46163e8062126cc6d2713e76345",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha16_bbox": [
+        291,
+        993,
+        1010,
+        1169
+      ],
+      "method": "built-in imagegen artwork; source PNG copied unchanged",
+      "pixel_edits": false,
+      "approved": false
+    }
+  ],
+  "sourcePngPixelEdits": false,
+  "approved": false,
+  "newGenerationTool": "built-in image_gen",
+  "existingProtectedPngOverwrites": 0
+}

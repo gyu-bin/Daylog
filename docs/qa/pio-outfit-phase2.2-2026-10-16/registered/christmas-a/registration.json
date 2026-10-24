@@ -1,0 +1,187 @@
+{
+  "canvas" : [
+    1254,
+    1254
+  ],
+  "giftConstraint" : "gift and handLeft share translation; handRight may move independently only while leftgrip continues to carry gift",
+  "layers" : [
+    {
+      "id" : "footLeft",
+      "offset" : [
+        411.69040247678021,
+        1015.9442724458204
+      ],
+      "pivot" : [
+        530,
+        1070
+      ],
+      "scale" : 0.17027863777089783,
+      "source" : "foot-v1.png",
+      "z" : 0
+    },
+    {
+      "id" : "footRight",
+      "offset" : [
+        712.44582043343655,
+        1029.0402476780187
+      ],
+      "pivot" : [
+        817,
+        1070
+      ],
+      "scale" : 0.15479876160990713,
+      "source" : "foot-v1.png",
+      "z" : 1
+    },
+    {
+      "id" : "body",
+      "offset" : [
+        130.65354330708661,
+        193.33464566929135
+      ],
+      "pivot" : [
+        650,
+        780
+      ],
+      "scale" : 0.79921259842519687,
+      "source" : "body-clean-v1.png",
+      "z" : 2
+    },
+    {
+      "id" : "hat",
+      "offset" : [
+        102.87286063569682,
+        -30.244498777506124
+      ],
+      "pivot" : [
+        660,
+        450
+      ],
+      "scale" : 0.75794621026894871,
+      "source" : "hat-v1.png",
+      "z" : 3
+    },
+    {
+      "id" : "sprout",
+      "offset" : [
+        405.10000000000002,
+        40.149999999999977
+      ],
+      "pivot" : [
+        650,
+        330
+      ],
+      "scale" : 0.31,
+      "source" : "sprout-v1.png",
+      "z" : 4
+    },
+    {
+      "id" : "eyeLeft",
+      "offset" : [
+        466.46858638743458,
+        570.57329842931938
+      ],
+      "pivot" : [
+        551,
+        652
+      ],
+      "scale" : 0.12827225130890052,
+      "source" : "eye-open-v1.png",
+      "z" : 5
+    },
+    {
+      "id" : "eyeRight",
+      "offset" : [
+        750.19371727748694,
+        538.21465968586392
+      ],
+      "pivot" : [
+        833,
+        618
+      ],
+      "scale" : 0.1256544502617801,
+      "source" : "eye-open-v1.png",
+      "z" : 6
+    },
+    {
+      "id" : "lidLeft",
+      "offset" : [
+        467.22332506203475,
+        569.14392059553347
+      ],
+      "pivot" : [
+        551,
+        658
+      ],
+      "scale" : 0.12655086848635236,
+      "source" : "eyelid-closed-v1.png",
+      "z" : 7
+    },
+    {
+      "id" : "lidRight",
+      "offset" : [
+        750.86600496277913,
+        535.51364764267987
+      ],
+      "pivot" : [
+        833,
+        622
+      ],
+      "scale" : 0.12406947890818859,
+      "source" : "eyelid-closed-v1.png",
+      "z" : 8
+    },
+    {
+      "id" : "gift",
+      "offset" : [
+        688.75,
+        655
+      ],
+      "pivot" : [
+        790,
+        925
+      ],
+      "scale" : 0.3125,
+      "source" : "gift-v1.png",
+      "z" : 9
+    },
+    {
+      "id" : "handLeft",
+      "offset" : [
+        322.32558139534882,
+        681.63720930232557
+      ],
+      "pivot" : [
+        430,
+        820
+      ],
+      "scale" : 0.37674418604651161,
+      "source" : "hand-left-v1.png",
+      "z" : 10
+    },
+    {
+      "id" : "handRight",
+      "offset" : [
+        929.26183844011143,
+        733.11977715877435
+      ],
+      "pivot" : [
+        1100,
+        780
+      ],
+      "scale" : 0.16713091922005571,
+      "source" : "hand-right-v1.png",
+      "z" : 11
+    }
+  ],
+  "origin" : "topLeft",
+  "referenceOffset" : [
+    0,
+    0
+  ],
+  "referenceScale" : 1,
+  "registrationMethod" : "Independent uniform downscale\/translation; no painting, alpha cleanup or source deformation",
+  "schemaVersion" : 1,
+  "sourceReference" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/Daylog\/PioWardrobe.xcassets\/pio_outfit_christmas.imageset\/pio_outfit_christmas.png",
+  "status" : "ART_QA_CANDIDATE_NOT_APPROVED"
+}

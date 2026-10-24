@@ -1,0 +1,185 @@
+{
+  "holdIDs" : [
+    "tablet",
+    "armLeft",
+    "armRight"
+  ],
+  "independent" : [
+    "eyes",
+    "lids",
+    "shared arms\/tablet hold joint"
+  ],
+  "limits" : "Native presentation-layer component captures; candidate geometry still requires visual approval. Held parts never detach or wave independently of the prop. No purchase, preference or whole-screen workflow verification.",
+  "observations" : [
+    {
+      "elapsed" : 0.15432516667351592,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00039010144243376498,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 0.18505091666884255,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00039010144243376498,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 1.655174250001437,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026148265811084852,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.6940152083261637,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026148265811084852,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.8915954999974929,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.024594533300651159,
+      "lidOpacity" : 1,
+      "side" : 64,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 1.9258959166618297,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.024594533300651159,
+      "lidOpacity" : 1,
+      "side" : 220,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 2.3224175833311165,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.015677061600732393,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 2.3567216666706372,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.015677061600732393,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 4.84626295833732,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-negative"
+    },
+    {
+      "elapsed" : 4.8767543750000186,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-negative"
+    }
+  ],
+  "partAssets" : {
+    "armLeft" : "pio_cloud_prod_v2_fitness_v2_armPair",
+    "armRight" : "pio_cloud_prod_v2_fitness_v2_armPair",
+    "body" : "pio_cloud_prod_v2_fitness_v2_torso",
+    "browLeft" : "pio_cloud_prod_v2_fitness_browLeft",
+    "browRight" : "pio_cloud_prod_v2_fitness_browRight",
+    "eyeLeft" : "pio_cloud_prod_v2_fitness_eyeLeft",
+    "eyeRight" : "pio_cloud_prod_v2_fitness_eyeRight",
+    "halfLeft" : "pio_cloud_prod_v2_fitness_halfLeft",
+    "halfRight" : "pio_cloud_prod_v2_fitness_halfRight",
+    "lidLeft" : "pio_cloud_prod_v2_fitness_lidLeft",
+    "lidRight" : "pio_cloud_prod_v2_fitness_lidRight",
+    "tablet" : "pio_cloud_prod_v2_basic_v1_tablet"
+  },
+  "partRects" : {
+    "armLeft" : [
+      278,
+      850,
+      274,
+      210
+    ],
+    "armRight" : [
+      800,
+      850,
+      255,
+      210
+    ],
+    "body" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "browLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "browRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "eyeLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "eyeRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "halfLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "halfRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "lidLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "lidRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "tablet" : [
+      496,
+      808,
+      360,
+      242
+    ]
+  },
+  "platform" : "iPhone Simulator",
+  "revision" : "fitness-production-hands-v2"
+}

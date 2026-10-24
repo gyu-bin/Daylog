@@ -1,0 +1,7 @@
+{
+  "method": "built-in image_gen; genuine transparent reconstruction, no subsequent pixel edits",
+  "originalGeneratedPath": "/Users/mungyubin/.codex/generated_images/01a166e4-2320-7882-aa79-bfc32c01828b/exec-b44f85c8-59e4-40c1-a03e-02a1be512f5b.png",
+  "reference": "umbrella-shaft-v2-candidate.png",
+  "date": "2026-10-23",
+  "prompt": "Use case: precise-object-edit. Asset type: independent transparent umbrella shaft and yellow J handle for a premium cute 2.5D character rig. Input image is the edit target. Reconstruct this exact isolated silver shaft plus glossy golden yellow J handle, same proportions, same slant from lower-left J toward upper-right shaft, same rounded shapes and soft warm material shading. Preserve the shape, highlight placements and overall object scale and position on a square canvas. Change ONLY background contamination: remove all stray pixels, haze or floating fragments beyond the actual object, providing true transparent alpha everywhere outside its clean antialiased silhouette. No canopy, hands, character, text or new objects. The complete J handle and the full silver shaft including its hidden upper root must remain present, not cut off. Genuine production sprite artwork, no white rectangle, no checkerboard baked in."
+}

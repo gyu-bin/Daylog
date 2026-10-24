@@ -1,0 +1,1 @@
+Early capture drafts. Device Hub saves screenshots asynchronously; these filenames are not authoritative scene evidence. Use the verified captures listed in the final report. The tiny Mac capture predates window expansion.

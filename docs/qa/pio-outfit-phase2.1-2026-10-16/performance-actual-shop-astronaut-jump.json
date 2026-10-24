@@ -1,0 +1,156 @@
+{
+  "case": "actual-shop-astronaut-jump",
+  "pid": 31068,
+  "environment": "Actual wardrobe shop, Astronaut detail sheet jump selected,260pt preview,1040x900 parentwindow. Isolated Debugverifybundle. No CUA capture or recording during timed sample. Not same diagnostic root as controlled cases.",
+  "method": "3ssettle then process CPUtime delta andRSS each1s;100percent=oneCPUcore. ps%cpu retained forcomparison toolder report. Wholeapp,notGPU",
+  "seconds": 20.216839167056605,
+  "meanCPUPercent": 0.0,
+  "maxIntervalCPUPercent": 0.0,
+  "meanPsCPUPercent": 0.0,
+  "rssMiBRange": [
+    139.109375,
+    139.109375
+  ],
+  "samples": [
+    {
+      "at": 852808.7517975,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852809.763540125,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852810.774672541,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852811.787601041,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852812.797530625,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852813.806139291,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852814.816056375,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852815.828059333,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852816.840530291,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852817.847213625,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852818.860646625,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852819.873256375,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852820.8862815,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852821.893040208,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852822.905619416,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852823.917039791,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852824.926615041,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852825.9370515,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852826.949611541,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 852827.960832125,
+      "cpuSeconds": 4.91,
+      "rssKiB": 142448,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    }
+  ]
+}

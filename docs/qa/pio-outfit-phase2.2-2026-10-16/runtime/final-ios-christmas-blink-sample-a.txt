@@ -1,0 +1,109 @@
+Window: "Daylog Wardrobe iPhone 17", App: Device Hub.
+0 standard window Daylog Wardrobe iPhone 17 – iOS 27.0, ID: com.apple.dt.DeviceKit.DeviceManagementWindow-AppWindow-1, Secondary Actions: Raise
+	1 split group
+		2 split group com.apple.dt.DeviceKit.DeviceManagementWindow-AppWindow-1, SidebarNavigationSplitView
+			3 scroll area
+				4 list Sidebar
+					5 row (selectable) Description: Available, Value: Expanded
+					6 row (selected) Description: Iphone, Third Generation, Value: Daylog Wardrobe iPhone 17
+27.0
+Simulator
+					7 row (selectable) Description: Iphone, Third Generation, Value: Daylog Store iPhone 17 Pro Max
+27.0
+Simulator
+					8 row (selectable) Description: Iphone, Third Generation, Value: iPhone 17
+27.0
+Simulator
+					9 row (selectable) Description: Iphone, Third Generation, Value: iPhone
+27.0.1
+iPhone 14 Pro
+					10 row (selectable) Description: Iphone, First Generation, Value: Daylog QA iPhone-SE-3rd-generation
+27.0
+Simulator
+					11 row (selectable) Description: Ipad, Value: Daylog Store iPad Pro 13
+27.0
+Simulator
+					12 row (selectable) Description: Ipad, Value: iPad Pro 13-inch (M5)
+27.0
+Simulator
+			13 search text field (settable) Search
+				14 button Search
+			15 splitter (disabled, settable, float) 240
+			16 container
+				17 container
+					18 text Description: 피오 부품 동작 검토, Secondary Actions: Cancel
+					19 text Description: 기본 피오·크리스마스 피오·한복 피오·우주인 피오 각각 한 가지 체형의 시험용 리그예요. 성장 1–4단계와 다른 의상은 아직 지원하지 않아요., Secondary Actions: Cancel
+					20 pop up button Description: 의상, 크리스마스 피오, ID: layeredQA.outfit, Secondary Actions: Cancel
+					21 pop up button Description: 동작, 눈만 깜빡이기, ID: layeredQA.motion, Secondary Actions: Cancel
+					22 pop up button Description: 크기, 220pt, ID: layeredQA.size, Secondary Actions: Cancel
+					23 switch Description: 동작 켜기, Value: 1, ID: layeredQA.animate, Secondary Actions: Cancel
+					24 switch Description: 캐릭터 표시, Value: 1, ID: layeredQA.visible, Secondary Actions: Cancel
+					25 switch Description: 원본 한 장 비교, Value: 0, ID: layeredQA.flat, Secondary Actions: Cancel
+					26 switch Description: 정지 요청 검토, Value: 0, ID: layeredQA.reduceMotion, Secondary Actions: Cancel
+					27 switch Description: 어두운 배경, Value: 1, ID: layeredQA.dark, Secondary Actions: Cancel
+					28 text Description: 크리스마스 피오 · 눈만 깜빡이기 · 220pt · 독립 부품, ID: layeredQA.selection, Secondary Actions: Cancel
+					29 text Description: 시스템 움직임 줄이기: 꺼짐 · 화면: 활성, ID: layeredQA.scene, Secondary Actions: Cancel
+					30 text Secondary Actions: Cancel, Description: 눈만·오른 날개만 모드에서는 몸통과 상위 레이어가 고정돼요. 크리스마스 모자와 새싹은 한 부품이며 선물은 왼손과 함께 움직여요. 크리스마스 펄럭임은 선물을 든 쪽 ±6°, 오른쪽 ±12°예요.
+					31 button Description: 30회 의상 전환, ID: layeredQA.switch, Secondary Actions: Cancel
+					32 text Description: 30회, Secondary Actions: Cancel
+					33 button Description: 측정값 초기화, ID: layeredQA.resetMetrics, Secondary Actions: Cancel
+					34 button Description: 측정값 새로고침, ID: layeredQA.metrics, Secondary Actions: Cancel
+					35 element ID: layeredQA.metricValues, Secondary Actions: Cancel, Description: accessoryTracks=0 · activeAnimationTracks=6 · activeRigs=1 · bodyTracks=0 · cachedImages=55 · configurations=34 · decodedBytes=56144964 · effectiveLayouts=4 · eyesTracks=6 · feetTracks=0 · hostUpdates=35 · layouts=39 · liveRigs=1 · sourceLoads=55 · wingsTracks=0
+					36 element ID: layeredQA.presentation, Secondary Actions: Cancel, Description: [{"body.opacity":1,"body.rotation":0,"body.scaleX":1,"body.scaleY":1,"body.translationX":0,"body.translationY":0,"body.x":650,"body.y":780,"canvas.opacity":1,"canvas.rotation":0,"canvas.scaleX":0.17543859649122806,"canvas.scaleY":0.17543859649122806,"canvas.translationX":0,"canvas.translationY":0,"canvas.x":110,"canvas.y":110,"eyeLeft.opacity":1,"eyeLeft.rotation":0,"eyeLeft.scaleX":1,"eyeLeft.scaleY":1,"eyeLeft.translationX":0,"eyeLeft.translationY":0,"eyeLeft.x":551,"eyeLeft.y":652,"eyeRight.opacity":1,"e
+					37 element ID: layeredQA.evidencePath, Secondary Actions: Cancel, Description: /Users/mungyubin/Library/Developer/CoreSimulator/Devices/87EA3A43-121C-4FFA-A716-A79E614ABEFA/data/Containers/Data/Application/551584EA-8F79-4F97-BFC0-E3B0CA9029DB/tmp/pio-layered-evidence.json
+					38 text Description: 아래 여백으로 스크롤해 캐릭터가 화면 밖으로 나간 상태를 검토할 수 있어요., Secondary Actions: Cancel
+				39 button Description: Home, ID: app.grid.3x3
+				40 button Description: Screenshot, ID: camera.viewfinder
+				41 text 0:02
+				42 button Description: Stop, ID: stop.fill
+				43 button Rotate Left
+		44 splitter (disabled, settable, float) 799
+		45 container
+			46 tab group Inspector Subcategory
+				47 tab Description: Info, Value: 1, ID: InspectorButton.com.apple.devicekit.inspector.info
+				48 tab Description: Apps, Value: 0, ID: InspectorButton.com.apple.devicekit.inspector.apps
+				49 tab Description: Profiles, Value: 0, ID: InspectorButton.com.apple.devicekit.inspector.profiles
+			50 scroll area Description: Info, ID: Inspector.com.apple.devicekit.inspector.info
+				51 container
+					52 text Name, Help: Daylog Wardrobe iPhone 17, Value: iPhone 17 iOS 27.0, ID: info.inspector.item.name.value
+				53 container
+					54 text Model, Help: iPhone 17, Value: iPhone 17 66B81EA7-8132-4677-A443-2C5F96FB06ED
+				55 heading Paired Simulators
+				56 container
+					57 scroll area
+						58 list
+							59 row (selectable) No Paired Watch Simulators
+					60 button (disabled) Description: Add, Help: Pair Apple Watch
+					61 button (disabled) Description: Remove, Help: Unpair Apple Watch
+				62 button Edit Visibility
+			63 container Description: Info, ID: Inspector.com.apple.devicekit.inspector.info
+	64 toolbar
+		65 menu button Add Device, ID: plus
+		66 toggle button Description: Filter, Help: Sort and Filter, Value: off
+		67 button Description: Hide Sidebar, Secondary Actions: Increment, Decrement, Delete, Cancel
+		68 toggle button Description: Capture Keyboard, Value: off
+		69 toggle button Description: Resize mode, Help: Enter resize mode, Value: off
+		70 Zoom
+			71 radio button Description: Zoom Out, Value: 0, ID: minus.magnifyingglass
+			72 radio button Description: Up, Right, Down, And Left Triangles In A Magnifying Glass, Help: Zoom to Fit, Value: 0, ID: arrowtriangles.up.right.down.left.magnifyingglass
+			73 radio button Description: Zoom To Actual Size, Help: Physical Size, Value: 1, ID: 1.magnifyingglass
+			74 radio button Description: Zoom In, Value: 0, ID: plus.magnifyingglass
+		75 button Description: Open in New Window, Help: Switch to compact window, Secondary Actions: Increment, Decrement, Delete, Cancel, Move previous, Move next, Remove from toolbar
+		76 menu button More Actions, ID: ellipsis
+		77 Inspector Category
+			78 radio button Description: Edit, Help: Settings, Value: 0, ID: slider.horizontal.3
+			79 radio button Description: Text Document, Help: Reports, Value: 0, ID: text.document
+			80 radio button Description: Info, Value: 1, ID: info
+	81 close button
+	82 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	83 minimize button
+	84 text Daylog Wardrobe iPhone 17 iOS 27.0
+85 menu bar
+	86 Device Hub
+	87 File
+	88 Edit
+	89 View
+	90 Device
+	91 Controls
+	92 Window
+	93 Help

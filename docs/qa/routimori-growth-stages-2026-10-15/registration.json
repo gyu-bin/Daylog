@@ -1,0 +1,39 @@
+{
+  "referenceBodyWidth" : 648,
+  "referenceSpan" : 1025,
+  "registrationMethod" : "Uniform scale from torso alpha width at pupil-center line; feet baseline aligned. Generated source PNGs unchanged.",
+  "stages" : [
+    {
+      "bodyWidth" : 649,
+      "eyeLineY" : 673,
+      "feetX" : 627,
+      "feetY" : 1119,
+      "file" : "assets\/stage1.png",
+      "stage" : 1
+    },
+    {
+      "bodyWidth" : 611,
+      "eyeLineY" : 696,
+      "feetX" : 625,
+      "feetY" : 1117,
+      "file" : "assets\/stage2.png",
+      "stage" : 2
+    },
+    {
+      "bodyWidth" : 661,
+      "eyeLineY" : 672,
+      "feetX" : 627.5,
+      "feetY" : 1118,
+      "file" : "assets\/stage3.png",
+      "stage" : 3
+    },
+    {
+      "bodyWidth" : 648,
+      "eyeLineY" : 672,
+      "feetX" : 626,
+      "feetY" : 1116,
+      "file" : "assets\/stage4.png",
+      "stage" : 4
+    }
+  ]
+}

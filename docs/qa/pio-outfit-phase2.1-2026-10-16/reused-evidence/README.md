@@ -1,0 +1,3 @@
+# Reused evidence
+
+Copies are byte-identical to the original Phase 2 files; see manifest.json. They remain prior evidence, not new Phase 2.1 captures. Only the six requested 64/120/220pt @1x sheets and three representative video/contact pairs are copied. Original reports also reference additional 48pt/Retina/all-outfit captures retained in ../pio-outfit-phase2-2026-10-16 in the project; those extra links are not all included in this subset. Original approved PNGs and renderer track/layout behavior are unchanged. Prior performance numbers are historical and not a matched before/after optimization comparison.

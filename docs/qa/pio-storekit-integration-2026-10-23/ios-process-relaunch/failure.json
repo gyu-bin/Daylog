@@ -1,0 +1,8 @@
+{
+  "status": "FAIL",
+  "runID": "d07819fc-3f1f-4322-a8d0-6ff88221f434",
+  "seedMethod": "product-purchase",
+  "seed": "PASS: verified Xcode cafe purchase and equip in OS process71326",
+  "verify": "FAIL: custom UserDefaults fixture metadata absent in process71355; currentEntitlements comparison not reached in v1",
+  "cleanup": "Verify defer cleared only local ledger and UUID suite; temporary xctestrun files removed"
+}

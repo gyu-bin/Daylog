@@ -1,0 +1,30 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme Daylog -configuration Release -destination "generic/platform=iOS Simulator" -derivedDataPath /tmp/PioCloudRelease-ios-20261024 -clonedSourcePackagesDirPath /tmp/PioOverhaul-v2-build/SourcePackages build CODE_SIGNING_ALLOWED=NO
+
+Build settings from command line:
+    CODE_SIGNING_ALLOWED = NO
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+2026-10-24 17:22:43.203 xcodebuild[38962:2594499] Writing error result bundle to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/ResultBundle_2026-24-10_17-22-0043.xcresult
+xcodebuild: error: Unable to find a destination matching the provided destination specifier:
+		{ generic:1, platform:iOS Simulator }
+
+	Destinations compatible with the "Daylog" scheme:
+		{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+		{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+		{ platform:macOS, name:Any Mac }
+
+	Destinations incompatible with the "Daylog" scheme:
+		{ platform:iOS, arch:arm64e, id:00008120-00146DC03CA2201E, name:iPhone, error:iPhone’s iOS platform doesn’t match Daylog.app’s supported platforms. You can change Daylog.app’s Base SDK or Supported Platforms to support iPhone. }
+		{ platform:iOS Simulator, arch:arm64, id:CEC37127-A4BF-4C98-985F-99C170232A80, OS:27.0, name:DM RC QA, error:DM RC QA’s iOS Simulator platform doesn’t match Daylog.app’s supported platforms. You can change Daylog.app’s Base SDK or Supported Platforms to support DM RC QA. }
+		{ platform:iOS Simulator, arch:arm64, id:658B0623-C58F-41B3-A15C-08C7ADB6BCD4, OS:27.0, name:Don't Move Visual QA, error:Don't Move Visual QA’s iOS Simulator platform doesn’t match Daylog.app’s supported platforms. You can change Daylog.app’s Base SDK or Supported Platforms to support Don't Move Visual QA. }
+		{ platform:iOS Simulator, arch:arm64, id:89B877BB-6094-4A27-B108-3A958EF23D9B, OS:27.0, name:Pio Motion Review 2026-10-23, error:Pio Motion Review 2026-10-23’s iOS Simulator platform doesn’t match Daylog.app’s supported platforms. You can change Daylog.app’s Base SDK or Supported Platforms to support Pio Motion Review 2026-10-23. }
+		{ platform:iOS Simulator, arch:arm64, id:87F27718-1575-4384-B7DB-1AF4601DBC86, OS:27.0, name:Pio Small Phone QA 2026-10-24, error:Pio Small Phone QA 2026-10-24’s iOS Simulator platform doesn’t match Daylog.app’s supported platforms. You can change Daylog.app’s Base SDK or Supported Platforms to support Pio Small Phone QA 2026-10-24. }
+		{ platform:iOS Simulator, arch:arm64, id:0426CD78-3807-4650-9776-B649780E2884, OS:27.0, name:Pio StoreKit Local 2026-10-23, error:Pio StoreKit Local 2026-10-23’s iOS Simulator platform doesn’t match Daylog.app’s supported platforms. You can change Daylog.app’s Base SDK or Supported Platforms to support Pio StoreKit Local 2026-10-23. }
+		{ platform:iOS Simulator, arch:arm64, id:18A1DFA8-796C-4403-9CC0-C02FD790F40A, OS:27.0, name:Pio iPad QA 2026-10-24, error:Pio iPad QA 2026-10-24’s iOS Simulator platform doesn’t match Daylog.app’s supported platforms. You can change Daylog.app’s Base SDK or Supported Platforms to support Pio iPad QA 2026-10-24. }
+		{ platform:iOS Simulator, arch:arm64, id:66B81EA7-8132-4677-A443-2C5F96FB06ED, OS:27.0, name:iPhone 17, error:iPhone 17’s iOS Simulator platform doesn’t match Daylog.app’s supported platforms. You can change Daylog.app’s Base SDK or Supported Platforms to support iPhone 17. }

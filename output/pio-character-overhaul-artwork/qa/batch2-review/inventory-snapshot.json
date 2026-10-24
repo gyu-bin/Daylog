@@ -1,0 +1,488 @@
+[
+  {
+    "outfit": "halloween",
+    "generatedSourcePNGCount": 5,
+    "generatedSourceFiles": [
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/halloween-v1/source/basket-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "0ad1d3dfa7f27c2b699da572b2c46e398268fa411a360177903d129dbabf9b1d"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/halloween-v1/source/body-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "fa1949e341772c0ca616a8fab4b0b06134c03b00f4630044b17bb54990183adf"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/halloween-v1/source/headwear-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "67a55c51dceb26e3ce6e1289224d263c83a77930693dc7aaaaeabfe10bc69cb2"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/halloween-v1/source/wing-left-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "ed9dce0230e3dcad3bc2bbbd0a8315b6a946b9267639e64ad1b12b52d77f3c96"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/halloween-v1/source/wing-right-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "e8d2f477db44de69d83216efe2adf16848a19a032c3a9186eca5dc97cba1fcbd"
+      }
+    ],
+    "registeredDerivativePNGCount": 13,
+    "registeredSizes": [
+      [
+        1254,
+        1254
+      ]
+    ],
+    "uniqueManifestSources": 9,
+    "neutralAvailable": true,
+    "approvedReferenceExists": true,
+    "approvedReferenceSHA256": "1307965335aaa25d5ca2a85d4467cb832f9a45a3671a47743f936a461394427e",
+    "registrationSHA256": "2eb951419230a517fc95885c5d47dba14c2b255829e9c4c57bc282525e46cc89"
+  },
+  {
+    "outfit": "fitness",
+    "generatedSourcePNGCount": 6,
+    "generatedSourceFiles": [
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/fitness-v1/source/body-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "953aab085836b3c59188bc50a122deda09a2e991acf30f9498d2f921a41d2eb1"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/fitness-v1/source/dumbbell-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "0e856c31a4bfe0673199d8aa23125ac71af8bc218066879beb003c1cb28b6126"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/fitness-v1/source/headband-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "4bda7397eaba9b9f8a4e2e0d04a658bd3f0dddd905136a05f9a0de73ad6de2d5"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/fitness-v1/source/wing-left-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "245582f816e46132a289051beb226499b61bceb5ad8691e112750db42c647916"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/fitness-v1/source/wing-right-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "b06c203edd37e1dd905805f07199ff342e6cb2aa5c94a66da21a5a61db2907b8"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/fitness-v1/source/wing-right-v2-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "fc51aadd06a3b6d04fad7de37f14e4510c42f77e2364092be39dea063e7ae443"
+      }
+    ],
+    "registeredDerivativePNGCount": 15,
+    "registeredSizes": [
+      [
+        1254,
+        1254
+      ]
+    ],
+    "uniqueManifestSources": 10,
+    "neutralAvailable": true,
+    "approvedReferenceExists": true,
+    "approvedReferenceSHA256": "1f785e0305be4db016b5f68c1874849b0476026e7df0f4e569029afa70c199dd",
+    "registrationSHA256": "f2c7f08116955a36792f2f32f9a2500a21ca849e235c64ccc1109d56e9f8b109"
+  },
+  {
+    "outfit": "autumn",
+    "generatedSourcePNGCount": 5,
+    "generatedSourceFiles": [
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/autumn-v1/source/body-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "9b89a35e51eaea9c3bff06b608d6ad9fd56eb11283c7cab1246301465833093e"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/autumn-v1/source/headwear-candidate.png",
+        "size": [
+          1536,
+          1024
+        ],
+        "sha256": "2acb87246c27b8e56ebab81f418678597efccf4c8b4b432863818d7af4014201"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/autumn-v1/source/leaf-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "6a1d627a14701725d8d8a844160423fc9b52c8c0a8095dd38ee2f0b92b9a8c6b"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/autumn-v1/source/wing-left-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "1c51bd934bfc7fff0bb49958d6cb86fca5b14805d72f9e51ec7c3f090178ddcc"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/autumn-v1/source/wing-right-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "7018a694ce8ff8aee8b29f05592a3b5f178779911c14efadcc2be8e041ef5962"
+      }
+    ],
+    "registeredDerivativePNGCount": 13,
+    "registeredSizes": [
+      [
+        1254,
+        1254
+      ]
+    ],
+    "uniqueManifestSources": 9,
+    "neutralAvailable": true,
+    "approvedReferenceExists": true,
+    "approvedReferenceSHA256": "10c80a3489506751730f0409023699d150a9760775a0cba9f1f53195fec9aa43",
+    "registrationSHA256": "b9e2b1478d51d1a624bc8071675de7ac29d756b1399e8b06a32d13b7b45c98db"
+  },
+  {
+    "outfit": "winter",
+    "generatedSourcePNGCount": 4,
+    "generatedSourceFiles": [
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/winter-v1/source/body-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "9f0004960f6ec602243e5b38f88a43b56f3a7cce65acf6447e9bd1a4b2658a87"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/winter-v1/source/headwear-candidate.png",
+        "size": [
+          1536,
+          1024
+        ],
+        "sha256": "a24476def2dff7d1b8e4fbd74b47c79c70b51ebf3ab6c09f3151b9a93332feac"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/winter-v1/source/wing-left-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "677b1b36f2701e095196f23578ace7e26c325bdb645fbd7ff9e594bedce75873"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/winter-v1/source/wing-right-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "7cccb35e949bd5a6702dfd065e6259d8a49e9f8f31aecfbbedd3931a89db44fa"
+      }
+    ],
+    "registeredDerivativePNGCount": 12,
+    "registeredSizes": [
+      [
+        1254,
+        1254
+      ]
+    ],
+    "uniqueManifestSources": 8,
+    "neutralAvailable": true,
+    "approvedReferenceExists": true,
+    "approvedReferenceSHA256": "8ed794f01a9e1039f3ebc691a160907652aac6e79e979879ce13983a687953df",
+    "registrationSHA256": "86bf1f921d1791b842d7321900457fb068643e6a9f3cf75f74f25d5453fca674"
+  },
+  {
+    "outfit": "cafe",
+    "generatedSourcePNGCount": 7,
+    "generatedSourceFiles": [
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/body-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "5005ce65eab26ae679c0acf63f7ce4348edcdf64d78dce3de3bd7684ace6311e"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/body-v2-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "2f02ae13cee78f6f3b967fa72da21349acc16c48c35b57e4098a881b79bc0cb6"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/cup-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "5691fd855231178d3a0efd347c94531bf85745898ae37f5ffbf0dc94f0468ff4"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/hat-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "d64f13dfeb4fbe6accb49b521602df3d627a4855fa4d73670287b181908a63d1"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/left-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "528f2ae916e183b5fef6537e48127f585b2c17403f89d0316851a678fa18414f"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/right-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "268e9a2f18291b5b5b2588df56d3a366d3b21f19afb8fa86ff153f34c2b30353"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/right-v2-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "1e3214a0acb4b9044a3594d8d7f0179ba035172f3500dc3770858211ecd8320a"
+      }
+    ],
+    "registeredDerivativePNGCount": 11,
+    "registeredSizes": [
+      [
+        1254,
+        1254
+      ]
+    ],
+    "uniqueManifestSources": 8,
+    "neutralAvailable": true,
+    "approvedReferenceExists": true,
+    "approvedReferenceSHA256": "74e139a71fd387accfaf518673544111a41894d6be7eceabeb76786603897aaa",
+    "registrationSHA256": "fd7c371a5dbefcf246a2e81277a35502b4a43b0156373ee76af665a96823362b"
+  },
+  {
+    "outfit": "student",
+    "generatedSourcePNGCount": 6,
+    "generatedSourceFiles": [
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/body-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "738ccd864e67220173a4e2815778b3e21c9b3a5196a9d1f0a1dfc72e604c5221"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/book-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "3ed20290bf022600d535b0bda0e5a49f2d61c300b2c16af3bb1300d0fe7f9f05"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/glasses-candidate.png",
+        "size": [
+          1774,
+          887
+        ],
+        "sha256": "318cd2b4746121e5d6588d97bd7a9e8db2199e8189c5afdc5b8b450232783c7f"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/glasses-v2-candidate.png",
+        "size": [
+          1774,
+          887
+        ],
+        "sha256": "c85ed84fa2532db3717fda1560d257d3a597214034064d05f136ccea924d609f"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/left-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "a4e6daa2901e98299797863b853643e0aa5278507f64b8de2e13708155966fbf"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/right-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "89e8fbfdee6248bc633f6bbec56531381ce152668dfdd897fc1e5ea5a93ca40d"
+      }
+    ],
+    "registeredDerivativePNGCount": 12,
+    "registeredSizes": [
+      [
+        1254,
+        1254
+      ]
+    ],
+    "uniqueManifestSources": 9,
+    "neutralAvailable": true,
+    "approvedReferenceExists": true,
+    "approvedReferenceSHA256": "261d6e89132547e529c85b477490403e0eea4cf87667348dd1fe007da3ded247",
+    "registrationSHA256": "4561028fb7eaa3cbcb8307c671bd88fa2d15c94e4d0b1ff1776052f906cb2169"
+  },
+  {
+    "outfit": "rainyDay",
+    "generatedSourcePNGCount": 6,
+    "generatedSourceFiles": [
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/body-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "7d988e5d46c8ad6d8bde8d2a2ca7156666e89f71a9adbc130aa036178babf2c3"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/boot-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "6b20affb2e364ef5298fdcd9e3c070815d5e08729b6c5fc7f6f75163a783b97c"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/umbrella-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "3a8f4c520f2acf16b3316ac1664fb95a12fc9575147e02f2ec7b74be0a0c8417"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/umbrella-canopy-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "680ceaa4ddd4dab1422e1fcfdc6de02b04185f6cd307e8f41d624768ddb22425"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/wing-left-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "96f2a03ae85e043649fc97ac5de7f5cbb87eb86f25d186c348c12384e25d58ed"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/wing-right-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "2658715f4e4d11d78f30a8c63fc3f103035a8d2a32305a3ba9ad6bc379229f13"
+      }
+    ],
+    "registeredDerivativePNGCount": 0,
+    "registeredSizes": [],
+    "uniqueManifestSources": 0,
+    "neutralAvailable": false,
+    "approvedReferenceExists": true,
+    "approvedReferenceSHA256": "5bf7081494800cc37fade49caf0398a2d8e075667ea59a37cd10a8b843dcba31",
+    "registrationSHA256": null
+  },
+  {
+    "outfit": "pajamas",
+    "generatedSourcePNGCount": 5,
+    "generatedSourceFiles": [
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/body-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "b12029ead08697f54f3720f494cc24d7c8af8cb430ae7fc97913ef27b78e9f2f"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/headwear-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "e9e315e9c668ccfcb715de512b1113152fa1f68248750abc1b7be97614e5582a"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/pillow-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "8dde4bc43a68c3af3990fbb3f4c395ef39e525ba41459e19ef21cd877aeb5e6d"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/wing-left-candidate.png",
+        "size": [
+          1304,
+          1206
+        ],
+        "sha256": "a8459664deae1f7ae0689e7e4438cfeb24918c2e714c079f36313ebe59c032ce"
+      },
+      {
+        "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/wing-right-candidate.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "sha256": "8b5b24530f2f37589bde1694a5462747cf13bbbabe81a485e65470cb0ef666ba"
+      }
+    ],
+    "registeredDerivativePNGCount": 0,
+    "registeredSizes": [],
+    "uniqueManifestSources": 9,
+    "neutralAvailable": true,
+    "approvedReferenceExists": true,
+    "approvedReferenceSHA256": "d88e9c2b225434b34f4751914625ca23dd38c058e7812a2e5dd15068ee157249",
+    "registrationSHA256": "328461910ca76e0ce720efca03245c5fc73fc668b5bb3ebcf7b2edd6c75a472e"
+  }
+]

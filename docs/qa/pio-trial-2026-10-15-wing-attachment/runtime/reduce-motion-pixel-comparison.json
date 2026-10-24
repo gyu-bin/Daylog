@@ -1,0 +1,26 @@
+{
+  "2": {
+    "header": {
+      "max_mean_absolute_RGB_difference_0_255": 1.7924444444444445,
+      "reference_frame": "001",
+      "crop_w_h_x_y": "100:60:110:125"
+    },
+    "card": {
+      "max_mean_absolute_RGB_difference_0_255": 0.0,
+      "reference_frame": "001",
+      "crop_w_h_x_y": "75:70:35:485"
+    }
+  },
+  "3": {
+    "header": {
+      "max_mean_absolute_RGB_difference_0_255": 1.7662222222222221,
+      "reference_frame": "001",
+      "crop_w_h_x_y": "100:60:110:125"
+    },
+    "card": {
+      "max_mean_absolute_RGB_difference_0_255": 0.0,
+      "reference_frame": "001",
+      "crop_w_h_x_y": "75:70:35:485"
+    }
+  }
+}

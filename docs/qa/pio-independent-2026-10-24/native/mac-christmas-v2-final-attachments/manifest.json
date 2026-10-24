@@ -1,0 +1,275 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "87BB78B6-C3B4-41DA-85CC-68C068D4C9EF.json",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-actual-native-observations_0_F3BBC346-481A-4114-A729-EFA803A6400F.json",
+        "timestamp" : 1792813836.963
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "68797256-15CE-4887-B440-95BD3B255750.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-dark-hold-negative-actual-presentation_0_D4517A67-995E-49EB-98CC-5626AD145239.png",
+        "timestamp" : 1792813836.963
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "DB4EDDE8-0532-484B-8655-0198ADA3D4A7.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-light-hold-negative-actual-presentation_0_29B52886-DF6B-42E3-B318-4D073ED4C779.png",
+        "timestamp" : 1792813836.95
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "5637B61A-FCCC-45AD-BD27-1C9E743ABB0F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-dark-hold-negative-actual-presentation_0_F51F9366-8172-4668-9ED9-9F4136A7D7B2.png",
+        "timestamp" : 1792813836.929
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "FAB7FDB4-2255-4445-A97E-98724D3D86B3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-light-hold-negative-actual-presentation_0_AD6F230A-B531-4787-8848-70FD976A2E12.png",
+        "timestamp" : 1792813836.926
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "5199391F-2290-4C52-A52F-00907220BEA5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-dark-reopened-actual-presentation_0_D01C5B66-2C58-4CD2-A458-913D232AFB34.png",
+        "timestamp" : 1792813834.407
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "2C6D12E5-A5C2-457C-923D-60AE7B833DBF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-light-reopened-actual-presentation_0_E1A554D3-F92A-46D9-9FA4-E9940F72467E.png",
+        "timestamp" : 1792813834.392
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "78329BCF-50BB-41F9-8D41-3ABEE863FEEF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-dark-reopened-actual-presentation_0_A760A6F1-0395-416F-ACD0-D766D285D517.png",
+        "timestamp" : 1792813834.377
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "6828D329-F6B5-4FA8-B8A5-13DA5C8BBF01.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-light-reopened-actual-presentation_0_D02E2178-D7E7-42CA-8B13-51E55E96C104.png",
+        "timestamp" : 1792813834.375
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "0A526206-A35C-4DD3-A033-89671FBA864F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-dark-closed-actual-presentation_0_22FF8D75-C21E-41F9-9776-7E7D43978913.png",
+        "timestamp" : 1792813833.98
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "16957E9F-F4E8-4C07-AA86-EF26FCC8FDCE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-light-closed-actual-presentation_0_0606BC8E-B940-4289-BA7C-4374766AE83E.png",
+        "timestamp" : 1792813833.969
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "B4EA17E4-6EF0-40F0-8E57-9B6D6EEE1E41.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-dark-closed-actual-presentation_0_2B1C2DB5-3AB1-4C33-AFD6-EA1AC4BA83D4.png",
+        "timestamp" : 1792813833.95
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "A6AE631C-CC0D-4595-8E1C-FF66101BA349.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-light-closed-actual-presentation_0_2016AF5C-1718-496A-B56C-8F9A1C2974DF.png",
+        "timestamp" : 1792813833.947
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "7515AD4A-0C46-4694-A850-FF3E0E8B2DD5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-dark-hold-positive-actual-presentation_0_725D9343-D4D0-4B5D-A340-3FB963D6E7C2.png",
+        "timestamp" : 1792813833.737
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "D4F586DB-D962-4E66-B359-9AD5ABBD09C6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-light-hold-positive-actual-presentation_0_DF54E9E7-6F6A-40CF-A384-37C56ABFFDD1.png",
+        "timestamp" : 1792813833.726
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "9066779C-4D19-4039-A589-5C85B2CA76BC.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-dark-hold-positive-actual-presentation_0_DC88878A-E803-4437-8487-03B7DF85EA51.png",
+        "timestamp" : 1792813833.7
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "84486C8B-9FC9-4F4E-A4C2-6B1C2D2D99B7.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-light-hold-positive-actual-presentation_0_559169B0-E7BA-44CB-B064-66F4C653524D.png",
+        "timestamp" : 1792813833.696
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "D7DA9DF3-4FF5-446D-917B-B344B1B4BDBE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-dark-open-actual-presentation_0_F639D37D-3A80-41E6-9CB4-145D55B65D84.png",
+        "timestamp" : 1792813832.268
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "8F24408A-09C2-41CB-8BF4-5C30BE5CFFFE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-light-open-actual-presentation_0_CC3D0530-B44C-46F5-ADDF-8CFFB21C0F20.png",
+        "timestamp" : 1792813832.257
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "1B958A6E-0B53-40E7-91C8-13C2E67FC1FC.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-dark-open-actual-presentation_0_5549B788-9F46-47B8-9C87-78FA90688E09.png",
+        "timestamp" : 1792813832.228
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "34846C6E-5ACD-47AD-96F1-CA572E2BE616.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-light-open-actual-presentation_0_52E6E05D-6B0A-4CBA-9CE4-1450C6850CBF.png",
+        "timestamp" : 1792813832.226
+      }
+    ],
+    "testIdentifier" : "PioCloudCandidateReviewTests/testActualIndependentBlinkAndHeldPresentation()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioCloudCandidateReviewTests/testActualIndependentBlinkAndHeldPresentation"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "76589EB4-91D4-4E68-B430-EE7239A9103F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-trouble-dark-neutral-model_0_3D5BE4A3-8A22-46FF-A024-6275F26594DF.png",
+        "timestamp" : 1792813837.1
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "A87CC139-2557-4651-933E-36A593EDE265.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-trouble-light-neutral-model_0_D281DFC3-FC3A-4888-954C-3E07FB1DFCFE.png",
+        "timestamp" : 1792813837.083
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "8FFAC053-D443-4A7E-BA5B-F535F82E5F65.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-receiving-dark-neutral-model_0_10388FC1-91AE-4EA5-96F0-5C66B31769F1.png",
+        "timestamp" : 1792813837.056
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "9609B884-E735-4A4F-9C59-3C22B61BF03B.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-220pt-receiving-light-neutral-model_0_737DB674-33D8-4FC4-8615-62DF8768782D.png",
+        "timestamp" : 1792813837.037
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "41D93E60-AFFE-4BB1-9F0F-901378646112.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-trouble-dark-neutral-model_0_00B0C704-E9EE-45D2-8088-A92D7735176F.png",
+        "timestamp" : 1792813837.015
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "3F7A967A-CEB5-45F4-AE97-AD93C7AC6129.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-trouble-light-neutral-model_0_6DCC88BA-56BF-4340-BDAE-14C02430E20B.png",
+        "timestamp" : 1792813837.003
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "E2D54094-D70F-4568-8CE6-A50D53DF952A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-receiving-dark-neutral-model_0_0A703401-66FB-4F1C-90C5-B7087529A7FE.png",
+        "timestamp" : 1792813836.974
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "F35F47D4-5E21-4BEA-9928-F757ED8726CF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "christmas-hands-v2-64pt-receiving-light-neutral-model_0_5D5D5DB7-8F6E-49F5-ABB7-77752CF1DE09.png",
+        "timestamp" : 1792813836.972
+      }
+    ],
+    "testIdentifier" : "PioCloudCandidateReviewTests/testCandidateRegistrationNeutralAndStop()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioCloudCandidateReviewTests/testCandidateRegistrationNeutralAndStop"
+  }
+]

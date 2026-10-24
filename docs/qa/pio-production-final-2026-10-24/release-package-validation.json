@@ -1,0 +1,26 @@
+{
+  "mac": {
+    "bundleID": "com.mungyubin.daylog",
+    "assetsCar": "/tmp/PioCloudRelease-mac-20261024/Build/Products/Release/Daylog.app/Contents/Resources/Assets.car",
+    "requiredCount": 165,
+    "missing": [],
+    "debugOverhaulOrLayered": [],
+    "catalogEntries": {
+      "Daylog/PioCloudProduction.xcassets": 162,
+      "Daylog/PioVacationProduction.xcassets": 3
+    },
+    "scope": "Compiled ordinary production assets. DEBUG native runs exercise same ordinary renderer; signed Release runtime not run."
+  },
+  "iosSimulator": {
+    "bundleID": "com.mungyubin.daylog.ios",
+    "assetsCar": "/tmp/PioCloudRelease-ios-20261024/Build/Products/Release-iphonesimulator/Daylog.app/Assets.car",
+    "requiredCount": 165,
+    "missing": [],
+    "debugOverhaulOrLayered": [],
+    "catalogEntries": {
+      "Daylog/PioCloudProduction.xcassets": 162,
+      "Daylog/PioVacationProduction.xcassets": 3
+    },
+    "scope": "Compiled ordinary production assets. DEBUG native runs exercise same ordinary renderer; signed Release runtime not run."
+  }
+}

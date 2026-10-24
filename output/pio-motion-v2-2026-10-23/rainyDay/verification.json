@@ -1,0 +1,55 @@
+{
+  "outfit": "rainyDay",
+  "status": "PARTIAL_OFFLINE_STUDY",
+  "canonicalSourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/footLeft.png": "dc46c3f70119533571c79d4c05cd6fbf237a10d9c34a8ab96480ce91e7067107",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/footRight.png": "eba6c7ff1756e21da7a15e2a55b771242f23962f4f9339094dc4a072a24417bd",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/wingLeft.png": "0c81cc1bab395adb66c93b8b85f0c27c5d0d1b22945514b7ea5c2974e6941f34",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/umbrellaShaft.png": "945cb54e277c476991b0d486c8c037f41200d4261040e0ea5b6695e7e49ace0a",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/umbrellaCanopy.png": "430eced95bf881b416bf4bcb6daadf5740ed179c2e2a4d60a4b47a69a37239ed",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/body.png": "e934e3637fd2f1c2c72b475ab3529ff5733cb9b7e9573f3fc41b6c44ea048bae",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/eyeLeft.png": "a0edeb582038e3e429ab275bfdc9562f2817fcfd701354bf773c7b8f43c91b22",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/eyeRight.png": "195f84985e1cc8d2015a2506ea1825ed80d6fcb56dc369d03aad99684bc24c94",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/sprout.png": "9b2c0515bad1f942999370ad125b145c91ec68457017af30578c004d83f2edb2",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/wingRight.png": "0b583fd41a2b2be87c8031df52561dd2993cb936d7e734856019f4f85d6c7465",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/halfLeft.png": "941db7749325b54a9c1f00bf27c0b553a3efa9c6e2a197d018695bdcdb72af5d",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/lidLeft.png": "907e03870cb8c2ed930c82ff59a9bf48cb1ccc079dc63859c3f4c85d2fe34377",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/halfRight.png": "5fa93eb42b5f9eaed6beb8df5f8d96082a253ade67c5efe1e622f1a90542a12d",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/lidRight.png": "cdcd23edca966859cc4576e1565eb05e1588b195fbe49d98891b73a2d4096c26",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/happyLeft.png": "dd4deb0da946ab3105a60f9585573970ef2e7faf76def5437458f9db0fad7fc6",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/rainyDay/layers/happyRight.png": "410246ca12a705d2f1d2955e70bfdd8b41808e29fe9ba98cc73b9f5c47e54429"
+  },
+  "actions": [
+    "idle",
+    "greet",
+    "walk",
+    "bounce",
+    "jump",
+    "celebrate",
+    "bow",
+    "sleepy",
+    "surprised",
+    "encourage",
+    "special"
+  ],
+  "specialAction": "umbrella shelter",
+  "framesPerAction": 32,
+  "durationMs": 70,
+  "maxAlphaOnFrameBorder": 0,
+  "canvas": [
+    480,
+    516
+  ],
+  "characterCanvas": [
+    350,
+    350
+  ],
+  "limits": [
+    "2D front-view stepping, no authored turn or gait occlusion change.",
+    "Bow is frontal lean/compression, not a reconstructed 3D head turn.",
+    "Hat and fabric stay rigid with torso.",
+    "Held props rigidly follow hands; no release or articulation.",
+    "No app/runtime/performance claim."
+  ]
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "877C9120-BF8F-4513-9565-A61B1B79554B.json",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "mac-cloud-cold-warm-memory_0_07C525C6-B5AF-4749-BC86-0F425D96D41A.json",
+        "timestamp" : 1792810185.294
+      }
+    ],
+    "testIdentifier" : "PioMacStabilityReviewTests/testColdThenIdenticalWarmCloudPasses()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioMacStabilityReviewTests/testColdThenIdenticalWarmCloudPasses"
+  }
+]

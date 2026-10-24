@@ -1,0 +1,50 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme DaylogiOSGlobalPioReview -configuration Debug -destination "platform=iOS Simulator,id=87EA3A43-121C-4FFA-A716-A79E614ABEFA" -derivedDataPath /tmp/RoutimoriStoreKit.noindex/ios -clonedSourcePackagesDirPath /tmp/DaylogStage4.noindex/verify/SourcePackages -disableAutomaticPackageResolution -parallel-testing-enabled NO -resultBundlePath /tmp/Routimori-ios-native-motion.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/Routimori-ios-native-motion.xcresult
+
+2026-10-16 16:45:56.019751+0900 Daylog[77001:31693371] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-16 16:45:56.920644+0900 Daylog[77001:31693371] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-16 16:45:57.052093+0900 Daylog[77001:31693371] [API] cannot add handler to 0 from 0 - dropping
+2026-10-16 16:45:57.058908+0900 Daylog[77001:31693371] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-16 16:45:57.071.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-16 16:45:57.071.
+Test Suite 'PioStoreKitReviewTests' started at 2026-10-16 16:45:57.071.
+Test Case '-[DaylogStoreKitTests.PioStoreKitReviewTests testInteractivePurchaseReview]' started.
+PioStoreKit: Transaction.updates listener started
+objc[77001]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x10dde4398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x10ded8310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+PIO_STOREKIT_REVIEW_READY stop=/Users/mungyubin/Library/Developer/CoreSimulator/Devices/87EA3A43-121C-4FFA-A716-A79E614ABEFA/data/Containers/Data/Application/8B36C7B3-CA16-4A1C-AED2-FEB4087DC788/tmp/routimori-storekit-review.done
+2026-10-16 16:45:57.674131+0900 Daylog[77001:31693371] [API] cannot add handler to 0 from 0 - dropping
+PIO_GLOBAL_MOTION scene=growth outfit=christmas requestedMotion=idle inherited=background native=active environmentReduce=false activeRigs=1 tracks=1 nativeReduce=false counters=["activeAnimationTracks": 1, "layoutCalls": 36, "sourceLoads": 2, "nativeRefreshes": 36, "effectiveLayouts": 19, "hostUpdates": 22, "layoutTransactions": 36, "configurations": 10, "cachedImages": 2, "activeRigs": 1]
+2026-10-16 16:47:01.640673+0900 Daylog[77001:31693371] [API] cannot add handler to 0 from 0 - dropping
+2026-10-16 16:47:19.007989+0900 Daylog[77001:31693371] [API] cannot add handler to 0 from 0 - dropping
+2026-10-16 16:47:34.275778+0900 Daylog[77001:31693371] [API] cannot add handler to 0 from 0 - dropping
+2026-10-16 16:48:20.004579+0900 Daylog[77001:31693371] [API] cannot add handler to 0 from 0 - dropping
+PIO_GLOBAL_MOTION scene=upright outfit=christmas requestedMotion=jump inherited=background native=active environmentReduce=false activeRigs=1 tracks=3 nativeReduce=false counters=["configurations": 12, "activeRigs": 1, "activeAnimationTracks": 3, "layoutTransactions": 44, "layoutCalls": 44, "cachedImages": 2, "sourceLoads": 2, "nativeRefreshes": 44, "hostUpdates": 27, "effectiveLayouts": 22]
+2026-10-16 16:53:47.575903+0900 Daylog[77001:31693371] [API] cannot add handler to 0 from 0 - dropping
+PIO_GLOBAL_MOTION scene=upright outfit=christmas requestedMotion=jump inherited=background native=active environmentReduce=true activeRigs=0 tracks=0 nativeReduce=true counters=["hostUpdates": 28, "effectiveLayouts": 22, "configurations": 12, "nativeRefreshes": 45, "layoutTransactions": 45, "sourceLoads": 2, "activeAnimationTracks": 0, "layoutCalls": 45, "cachedImages": 2, "activeRigs": 0]
+Test Case '-[DaylogStoreKitTests.PioStoreKitReviewTests testInteractivePurchaseReview]' passed (600.734 seconds).
+Test Suite 'PioStoreKitReviewTests' passed at 2026-10-16 16:55:57.807.
+	 Executed 1 test, with 0 failures (0 unexpected) in 600.734 (600.736) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-16 16:55:57.807.
+	 Executed 1 test, with 0 failures (0 unexpected) in 600.734 (600.736) seconds
+Test Suite 'Selected tests' passed at 2026-10-16 16:55:57.808.
+	 Executed 1 test, with 0 failures (0 unexpected) in 600.734 (600.737) seconds
+2026-10-16 16:55:57.885495+0900 Daylog[77001:31693371] [API] cannot add handler to 0 from 0 - dropping
+2026-10-16 16:55:58.256 xcodebuild[76969:31693047] [MT] IDETestOperationsObserverDebug: 605.771 elapsed -- Testing started completed.
+2026-10-16 16:55:58.256 xcodebuild[76969:31693047] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-16 16:55:58.256 xcodebuild[76969:31693047] [MT] IDETestOperationsObserverDebug: 605.771 sec, +605.771 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/Routimori-ios-native-motion.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

@@ -1,0 +1,277 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -derivedDataPath /tmp/PioStoreKit-20261023-ios -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests" -resultBundlePath /tmp/PioStoreKit-Stabilization-baseline.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/PioStoreKit-Stabilization-baseline.xcresult
+
+2026-10-23 19:59:57.225 xcodebuild[79388:735100] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:00:08.790988+0900 Daylog[79443:735824] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 20:00:09.997877+0900 Daylog[79443:735824] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 20:00:10.000980+0900 Daylog[79443:735824] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 20:00:10.002690+0900 Daylog[79443:735824] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 20:00:10.242.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 20:00:10.244.
+Test Suite 'PioStoreKitIntegrationTests' started at 2026-10-23 20:00:10.244.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testCancellationFromStoreKitDoesNotUnlockOrShowFailure]' started.
+PioStoreKit: Transaction.updates listener started
+2026-10-23 20:00:10.364713+0900 Daylog[79443:736160] [Default] Received error that does not have a corresponding StoreKit Error: Error Domain=ASDServerErrorDomain Code=907 "(null)" UserInfo={storefront-country-code=KOR, client-environment-type=XcodeTest}
+2026-10-23 20:00:10.370447+0900 Daylog[79443:736160] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=907 "(null)" UserInfo={storefront-country-code=KOR, client-environment-type=XcodeTest}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:339: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testCancellationFromStoreKitDoesNotUnlockOrShowFailure] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("cancelled")
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testCancellationFromStoreKitDoesNotUnlockOrShowFailure]' failed (0.324 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testConfigurationLoadsThirteenNonConsumablesAtKoreanDisplayPrice]' started.
+PioStoreKit: Transaction.updates listener started
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testConfigurationLoadsThirteenNonConsumablesAtKoreanDisplayPrice]' passed (0.039 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork]' started.
+PioStoreKit: Transaction.updates listener started
+PioStoreKit: client=EDCBDCC7 time=1792753210.6429272 accepted id=37 product=outfit.cherryblossom revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.6438599 finish requested id=37 cached=true inFlight=0
+PioStoreKit: client=EDCBDCC7 time=1792753210.643909 finish begin id=37 product=outfit.cherryblossom revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.646984 finish returned id=37
+PioStoreKit: client=EDCBDCC7 time=1792753210.668621 accepted id=38 product=outfit.summer revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.668647 finish requested id=38 cached=true inFlight=0
+PioStoreKit: client=EDCBDCC7 time=1792753210.6686668 finish begin id=38 product=outfit.summer revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.669715 finish returned id=38
+PioStoreKit: client=EDCBDCC7 time=1792753210.678833 accepted id=39 product=outfit.autumn revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.678863 finish requested id=39 cached=true inFlight=0
+PioStoreKit: client=EDCBDCC7 time=1792753210.678886 finish begin id=39 product=outfit.autumn revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.680358 finish returned id=39
+PioStoreKit: client=EDCBDCC7 time=1792753210.6891189 accepted id=40 product=outfit.winter revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.689143 finish requested id=40 cached=true inFlight=0
+PioStoreKit: client=EDCBDCC7 time=1792753210.689162 finish begin id=40 product=outfit.winter revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.690376 finish returned id=40
+PioStoreKit: client=EDCBDCC7 time=1792753210.699232 accepted id=41 product=outfit.halloween revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.699257 finish requested id=41 cached=true inFlight=0
+PioStoreKit: client=EDCBDCC7 time=1792753210.6992779 finish begin id=41 product=outfit.halloween revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.700361 finish returned id=41
+PioStoreKit: client=EDCBDCC7 time=1792753210.709118 accepted id=42 product=outfit.christmas revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.709144 finish requested id=42 cached=true inFlight=0
+PioStoreKit: client=EDCBDCC7 time=1792753210.709169 finish begin id=42 product=outfit.christmas revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.710309 finish returned id=42
+PioStoreKit: client=EDCBDCC7 time=1792753210.718861 accepted id=43 product=outfit.hanbok revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.718888 finish requested id=43 cached=true inFlight=0
+PioStoreKit: client=EDCBDCC7 time=1792753210.7206001 finish begin id=43 product=outfit.hanbok revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.740816 finish returned id=43
+PioStoreKit: client=EDCBDCC7 time=1792753210.750317 accepted id=44 product=outfit.cafe revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.750344 finish requested id=44 cached=true inFlight=0
+PioStoreKit: client=EDCBDCC7 time=1792753210.750366 finish begin id=44 product=outfit.cafe revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.751493 finish returned id=44
+PioStoreKit: client=EDCBDCC7 time=1792753210.767441 accepted id=45 product=outfit.student revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.7674708 finish requested id=45 cached=true inFlight=0
+PioStoreKit: client=EDCBDCC7 time=1792753210.7674909 finish begin id=45 product=outfit.student revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.7690039 finish returned id=45
+PioStoreKit: client=EDCBDCC7 time=1792753210.7775621 accepted id=46 product=outfit.workout revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.77759 finish requested id=46 cached=true inFlight=0
+PioStoreKit: client=EDCBDCC7 time=1792753210.777608 finish begin id=46 product=outfit.workout revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.778585 finish returned id=46
+PioStoreKit: client=EDCBDCC7 time=1792753210.787662 accepted id=47 product=outfit.rainy revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.7876859 finish requested id=47 cached=true inFlight=0
+PioStoreKit: client=EDCBDCC7 time=1792753210.787704 finish begin id=47 product=outfit.rainy revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.788867 finish returned id=47
+PioStoreKit: client=EDCBDCC7 time=1792753210.797749 accepted id=48 product=outfit.pajamas revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.797776 finish requested id=48 cached=true inFlight=0
+PioStoreKit: client=EDCBDCC7 time=1792753210.797797 finish begin id=48 product=outfit.pajamas revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.798922 finish returned id=48
+PioStoreKit: client=EDCBDCC7 time=1792753210.807306 accepted id=49 product=outfit.space revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.807334 finish requested id=49 cached=true inFlight=0
+PioStoreKit: client=EDCBDCC7 time=1792753210.8073559 finish begin id=49 product=outfit.space revoked=false
+PioStoreKit: client=EDCBDCC7 time=1792753210.8085032 finish returned id=49
+PioStoreKit: acknowledgement observed=false elapsed=3.00148875 seconds snapshots=30
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:320: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork] : XCTAssertTrue failed - All registered wardrobe transactions must disappear from Transaction.unfinished within 3 seconds without test-side acknowledgement.
+elapsed=0.002814833 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=0.104791167 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=0.210437333 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=0.313318792 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=0.419590333 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=0.524446917 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=0.627500083 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=0.729945583 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=0.832550417 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=0.934147625 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=1.039387167 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=1.142133167 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=1.24428775 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=1.346219542 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=1.4481375 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=1.550122625 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=1.651488375 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=1.752925583 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=1.854735958 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=1.956134958 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=2.057775292 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=2.15934375 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=2.261178083 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=2.364593042 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=2.472450667 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=2.575355667 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=2.683599792 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=2.787266542 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=2.892940708 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+
+elapsed=2.995152125 seconds registeredUnfinishedIDs=[49]
+id=49 product=outfit.space verification=verified environment=Environment(rawValue: "Xcode") purchased=2026-10-23 11:00:10 +0000
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork]' failed (3.220 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testExplicitRestoreRecoversExternalPurchase]' started.
+PioStoreKit: client=FFCCC870 time=1792753213.866905 accepted id=50 product=outfit.space revoked=false
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testExplicitRestoreRecoversExternalPurchase]' passed (0.046 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testInterruptedPurchaseOnlyUnlocksAfterResolution]' started.
+PioStoreKit: Transaction.updates listener started
+PioStoreKit: raw verified update id=51 product=outfit.rainy environment=Environment(rawValue: "Xcode") revoked=false
+PioStoreKit: client=DC79C97A time=1792753213.910613 accepted id=51 product=outfit.rainy revoked=false
+PioStoreKit: client=DC79C97A time=1792753213.910697 finish requested id=51 cached=true inFlight=0
+PioStoreKit: client=DC79C97A time=1792753213.910726 finish begin id=51 product=outfit.rainy revoked=false
+PioStoreKit: client=DC79C97A time=1792753213.912809 finish returned id=51
+2026-10-23 20:00:13.914291+0900 Daylog[79443:736163] [Default] Received error that does not have a corresponding StoreKit Error: Error Domain=ASDErrorDomain Code=825 "No transactions in response" UserInfo={client-environment-type=XcodeTest, NSLocalizedFailureReason=No transactions in response, storefront-country-code=KOR}
+2026-10-23 20:00:13.921050+0900 Daylog[79443:736163] [Default] Purchase did not return a transaction: Error Domain=ASDErrorDomain Code=825 "No transactions in response" UserInfo={client-environment-type=XcodeTest, NSLocalizedFailureReason=No transactions in response, storefront-country-code=KOR}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:384: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testInterruptedPurchaseOnlyUnlocksAfterResolution] : XCTAssertFalse failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:395: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testInterruptedPurchaseOnlyUnlocksAfterResolution] : Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: "Resolved interrupted purchase updates verified ownership".
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testInterruptedPurchaseOnlyUnlocksAfterResolution]' failed (10.177 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate]' started.
+PioStoreKit: Transaction.updates listener started
+PioStoreKit: raw verified update id=52 product=outfit.hanbok environment=Environment(rawValue: "Xcode") revoked=false
+PioStoreKit: client=64A01B81 time=1792753224.094586 accepted id=52 product=outfit.hanbok revoked=false
+PioStoreKit: client=64A01B81 time=1792753224.0946321 finish requested id=52 cached=true inFlight=0
+PioStoreKit: client=64A01B81 time=1792753224.094657 finish begin id=52 product=outfit.hanbok revoked=false
+PioStoreKit: client=64A01B81 time=1792753224.0982041 finish returned id=52
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate]' passed (0.053 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testProductLoadFailureAndRetryUseRealStoreKitAPI]' started.
+PioStoreKit: Transaction.updates listener started
+2026-10-23 20:00:24.138487+0900 Daylog[79443:736668] [Default] Error in products service call: StoreKitServiceError(error: StoreKit.StoreKitServiceError.ErrorType.system(StoreKit.StoreKitInternalError.notAvailableInStorefront), environment: Optional("XcodeTest"), storefront: Optional("KOR"))
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testProductLoadFailureAndRetryUseRealStoreKitAPI]' passed (0.043 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger]' started.
+PioStoreKit: Transaction.updates listener started
+PioStoreKit: client=BCF20ACD time=1792753224.174351 accepted id=53 product=outfit.cafe revoked=false
+PioStoreKit: client=BCF20ACD time=1792753224.1743832 finish requested id=53 cached=true inFlight=0
+PioStoreKit: client=BCF20ACD time=1792753224.174405 finish begin id=53 product=outfit.cafe revoked=false
+PioStoreKit: client=BCF20ACD time=1792753224.175549 finish returned id=53
+PioStoreKit: Transaction.updates listener started
+PioStoreKit: client=B9B84B53 time=1792753224.180965 accepted id=53 product=outfit.cafe revoked=false
+PioStoreKit: Transaction.updates listener ended
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger]' passed (0.043 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testPurchaseFailureLeavesLockedAndAllowsRetry]' started.
+PioStoreKit: Transaction.updates listener started
+2026-10-23 20:00:24.216544+0900 Daylog[79443:736667] [Default] Received error that does not have a corresponding StoreKit Error: Error Domain=ASDServerErrorDomain Code=1054 "(null)" UserInfo={storefront-country-code=KOR, client-environment-type=XcodeTest}
+2026-10-23 20:00:24.216653+0900 Daylog[79443:736667] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=1054 "(null)" UserInfo={storefront-country-code=KOR, client-environment-type=XcodeTest}
+PioStoreKit: client=C9E9113E time=1792753224.223126 accepted id=54 product=outfit.workout revoked=false
+PioStoreKit: client=C9E9113E time=1792753224.2231588 finish requested id=54 cached=true inFlight=0
+PioStoreKit: client=C9E9113E time=1792753224.2231832 finish begin id=54 product=outfit.workout revoked=false
+PioStoreKit: client=C9E9113E time=1792753224.224271 finish returned id=54
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testPurchaseFailureLeavesLockedAndAllowsRetry]' passed (0.038 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment]' started.
+PioStoreKit: Transaction.updates listener started
+PioStoreKit: client=C586D834 time=1792753224.255301 accepted id=55 product=outfit.winter revoked=false
+PioStoreKit: client=C586D834 time=1792753224.255327 finish requested id=55 cached=true inFlight=0
+PioStoreKit: client=C586D834 time=1792753224.2553558 finish begin id=55 product=outfit.winter revoked=false
+PioStoreKit: client=C586D834 time=1792753224.256454 finish returned id=55
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:214: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment] : Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: "Refund transaction update removes ownership".
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:216: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment] : XCTAssertFalse failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:217: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment] : XCTAssertEqual failed: ("winter") is not equal to ("basic")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:218: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment] : XCTAssertFalse failed
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment]' failed (10.156 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testVerificationFailureNeverGrantsFreshManagerOwnership]' started.
+PioStoreKit: client=3B997B04 time=1792753234.409357 accepted id=56 product=outfit.christmas revoked=false
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:375: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testVerificationFailureNeverGrantsFreshManagerOwnership] : XCTAssertFalse failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:376: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testVerificationFailureNeverGrantsFreshManagerOwnership] : XCTAssertFalse failed
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testVerificationFailureNeverGrantsFreshManagerOwnership]' failed (0.028 seconds).
+Test Suite 'PioStoreKitIntegrationTests' failed at 2026-10-23 20:00:34.417.
+	 Executed 11 tests, with 10 failures (0 unexpected) in 24.167 (24.173) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 20:00:34.419.
+	 Executed 11 tests, with 10 failures (0 unexpected) in 24.167 (24.175) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 20:00:34.419.
+	 Executed 11 tests, with 10 failures (0 unexpected) in 24.167 (24.177) seconds
+2026-10-23 20:00:34.437 xcodebuild[79388:735100] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:00:34.438 xcodebuild[79388:735100] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:00:34.439 xcodebuild[79388:735100] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:00:34.710 xcodebuild[79388:735100] [MT] IDETestOperationsObserverDebug: 38.099 elapsed -- Testing started completed.
+2026-10-23 20:00:34.710 xcodebuild[79388:735100] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 20:00:34.710 xcodebuild[79388:735100] [MT] IDETestOperationsObserverDebug: 38.099 sec, +38.099 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioStoreKit-Stabilization-baseline.xcresult
+
+Failing tests:
+	PioStoreKitIntegrationTests.testCancellationFromStoreKitDoesNotUnlockOrShowFailure()
+	PioStoreKitIntegrationTests.testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()
+	PioStoreKitIntegrationTests.testInterruptedPurchaseOnlyUnlocksAfterResolution()
+	PioStoreKitIntegrationTests.testInterruptedPurchaseOnlyUnlocksAfterResolution()
+	PioStoreKitIntegrationTests.testRefundUpdateRevokesAccessAndRefreshResetsEquipment()
+	PioStoreKitIntegrationTests.testRefundUpdateRevokesAccessAndRefreshResetsEquipment()
+	PioStoreKitIntegrationTests.testRefundUpdateRevokesAccessAndRefreshResetsEquipment()
+	PioStoreKitIntegrationTests.testRefundUpdateRevokesAccessAndRefreshResetsEquipment()
+	PioStoreKitIntegrationTests.testVerificationFailureNeverGrantsFreshManagerOwnership()
+	PioStoreKitIntegrationTests.testVerificationFailureNeverGrantsFreshManagerOwnership()
+
+** TEST EXECUTE FAILED **
+
+Testing started

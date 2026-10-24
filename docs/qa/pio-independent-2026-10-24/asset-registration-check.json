@@ -1,0 +1,75 @@
+{
+  "checks": [
+    {
+      "outfit": "astronaut",
+      "parts": 13,
+      "issues": []
+    },
+    {
+      "outfit": "autumn",
+      "parts": 12,
+      "issues": []
+    },
+    {
+      "outfit": "basic",
+      "parts": 12,
+      "issues": []
+    },
+    {
+      "outfit": "cafe",
+      "parts": 12,
+      "issues": []
+    },
+    {
+      "outfit": "cherryBlossom",
+      "parts": 12,
+      "issues": []
+    },
+    {
+      "outfit": "christmas",
+      "parts": 12,
+      "issues": []
+    },
+    {
+      "outfit": "fitness",
+      "parts": 12,
+      "issues": []
+    },
+    {
+      "outfit": "halloween",
+      "parts": 12,
+      "issues": []
+    },
+    {
+      "outfit": "hanbok",
+      "parts": 12,
+      "issues": []
+    },
+    {
+      "outfit": "pajamas",
+      "parts": 12,
+      "issues": []
+    },
+    {
+      "outfit": "rainyDay",
+      "parts": 12,
+      "issues": []
+    },
+    {
+      "outfit": "student",
+      "parts": 13,
+      "issues": []
+    },
+    {
+      "outfit": "summerVacation",
+      "parts": 13,
+      "issues": []
+    },
+    {
+      "outfit": "winter",
+      "parts": 12,
+      "issues": []
+    }
+  ],
+  "scope": "source metadata/asset lookup only, not visual approval"
+}

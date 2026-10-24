@@ -1,0 +1,17 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "0426CD78-3807-4650-9776-B649780E2884",
+        "deviceName" : "Pio StoreKit Local 2026-10-23",
+        "exportedFileName" : "B45FDD8C-0D69-4D79-8034-6E359524BAD7.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "iphone-home-header_0_0718357B-63CD-4816-BC2A-87F19073755D.png",
+        "timestamp" : 1792761802.103
+      }
+    ],
+    "testIdentifier" : "PioHomePolishReviewTests/testHeaderSnapshots()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioHomePolishReviewTests/testHeaderSnapshots"
+  }
+]

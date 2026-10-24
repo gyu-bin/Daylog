@@ -1,0 +1,197 @@
+[
+  {
+    "file": "output/pio-character-final-pass-2026-10-24/vacation/basic-day-clean-torso-v1.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_min_max": [
+      4,
+      252
+    ],
+    "alpha_zero_pixels": 0,
+    "alpha_opaque_pixels": 0,
+    "sha256": "e7e59f58c66729410373f017c473cab129cb599b8864e91c89868361e3cb5cab"
+  },
+  {
+    "file": "output/pio-character-final-pass-2026-10-24/vacation/basic-day-hand-drink-assembly-v1.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_min_max": [
+      0,
+      255
+    ],
+    "alpha_zero_pixels": 1026438,
+    "alpha_opaque_pixels": 266,
+    "sha256": "8cde10d8caf616ae746528a1db32a34c2b00a60b363a3b78e0e6991e39723c69"
+  },
+  {
+    "file": "output/pio-character-final-pass-2026-10-24/vacation/basic-day-hand-drink-assembly-v2.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_min_max": [
+      0,
+      255
+    ],
+    "alpha_zero_pixels": 1103030,
+    "alpha_opaque_pixels": 324,
+    "sha256": "16dc98ff0a8736fd87d56b495a521bc795f3ac68bd3faed5584792b80befe2c0"
+  },
+  {
+    "file": "output/pio-character-final-pass-2026-10-24/vacation/basic-night-clean-eyes-v1.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_min_max": [
+      8,
+      252
+    ],
+    "alpha_zero_pixels": 0,
+    "alpha_opaque_pixels": 0,
+    "sha256": "7eec1cf518a84a9b365967b2ef38ffbe52ca903b1986df4d915a59408fe1a4da"
+  },
+  {
+    "file": "output/pio-character-final-pass-2026-10-24/vacation/basic-night-half-eyes-v1.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_min_max": [
+      7,
+      252
+    ],
+    "alpha_zero_pixels": 0,
+    "alpha_opaque_pixels": 0,
+    "sha256": "e236653f482d5af846fae42f92a7a1cdbea8c5e2026fb45368bc625cae19d369"
+  },
+  {
+    "file": "output/pio-character-final-pass-2026-10-24/vacation/basic-night-half-eyes-v2.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_min_max": [
+      99,
+      252
+    ],
+    "alpha_zero_pixels": 0,
+    "alpha_opaque_pixels": 0,
+    "sha256": "be97d6412d427f8cde357dbdb49aed102db3a5ab65e6c96000dffe500ed691af"
+  },
+  {
+    "file": "output/pio-character-final-pass-2026-10-24/vacation/basic-night-open-eyes-v1.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_min_max": [
+      1,
+      253
+    ],
+    "alpha_zero_pixels": 0,
+    "alpha_opaque_pixels": 0,
+    "sha256": "26e50521bb34b76bc7ae6256aae825408a2e9e06515c1542f24410dd445075da"
+  },
+  {
+    "file": "output/pio-character-final-pass-2026-10-24/vacation/christmas-day-clean-eyes-v1.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_min_max": [
+      3,
+      253
+    ],
+    "alpha_zero_pixels": 0,
+    "alpha_opaque_pixels": 0,
+    "sha256": "a546472f417fb3f47a36e97339e8cf604369b87b77f7be5e504aea98c444c1eb"
+  },
+  {
+    "file": "output/pio-character-final-pass-2026-10-24/vacation/christmas-day-open-eyes-v1.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_min_max": [
+      5,
+      252
+    ],
+    "alpha_zero_pixels": 0,
+    "alpha_opaque_pixels": 0,
+    "sha256": "bb9b461ee498b1ac16853ce2e06e8744632483a68efff1443affdcb141e1169d"
+  },
+  {
+    "file": "output/pio-character-final-pass-2026-10-24/vacation/christmas-night-clean-eyes-v1.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_min_max": [
+      37,
+      252
+    ],
+    "alpha_zero_pixels": 0,
+    "alpha_opaque_pixels": 0,
+    "sha256": "0ac1a153c912acde444361b3b0db87be7215949b7aad372a1366f345f94d0c1b"
+  },
+  {
+    "file": "output/pio-character-final-pass-2026-10-24/vacation/christmas-night-open-eyes-v1.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_min_max": [
+      2,
+      253
+    ],
+    "alpha_zero_pixels": 0,
+    "alpha_opaque_pixels": 0,
+    "sha256": "98f239c7c72714fc5fc1aeffb707cd29512cfec37496c6b064153c618ab5f043"
+  },
+  {
+    "file": "output/pio-character-final-pass-2026-10-24/vacation/winter-night-clean-eyes-v1.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_min_max": [
+      2,
+      253
+    ],
+    "alpha_zero_pixels": 0,
+    "alpha_opaque_pixels": 0,
+    "sha256": "baa03939774aa971bcb2377b63ce5c1b50b62505527154298db57716e761073e"
+  },
+  {
+    "file": "output/pio-character-final-pass-2026-10-24/vacation/winter-night-open-eyes-v1.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_min_max": [
+      2,
+      253
+    ],
+    "alpha_zero_pixels": 0,
+    "alpha_opaque_pixels": 0,
+    "sha256": "feef3b6a4b0454e814c47358ef224e8e6a59cd5bf0004234d3ca4bd5a8249cf6"
+  }
+]

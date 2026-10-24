@@ -37,8 +37,8 @@ struct TemplateLibraryView: View {
                     PageTitle(
                         title: "템플릿",
                         subtitle: community.isAvailable
-                            ? "공식 템플릿과 다른 사람이 올린 템플릿을 미리 보고, 필요한 것만 내 Daylog에 추가해요."
-                            : "공식 루틴 템플릿을 미리 보고, 필요한 것만 내 Daylog에 추가해요."
+                            ? "공식 템플릿과 다른 사람이 올린 템플릿을 미리 보고, 필요한 것만 내 RoutiMori에 추가해요."
+                            : "공식 루틴 템플릿을 미리 보고, 필요한 것만 내 RoutiMori에 추가해요."
                     )
                     Spacer(minLength: 8)
                     if let onClose {

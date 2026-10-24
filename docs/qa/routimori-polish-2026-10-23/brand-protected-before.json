@@ -1,0 +1,140 @@
+{
+  "files": {
+    "Daylog/Services/PioPurchaseManager.swift": "6fc9d18177c56d62aa31363ed9fabdeed5ea56aed376dba9c93912636d8b460f",
+    "Daylog/Services/PioProductRegistry.swift": "09058a41019ad3b23fe79af19d0cea924b22abf09c2cdfed0dcceab8c14040f1",
+    "Routimori.storekit": "24cc8a9cd4bbf561d450bff1ea72edc419021de982df5369b926eabbeabc97c2",
+    "Daylog/Services/PioWardrobe.swift": "88dfb0a941d283a2b9075f1e70855d8f721fd5caa417d61a93d86350d4a5d332",
+    "Daylog/Services/PioWardrobeSelection.swift": "7d10b6806f3d11b1da1438897fa5385f09d59871cb7e3168339347f5e11543dc",
+    "Daylog/Models/DaylogStore.swift": "ae24d05a2d71bf9c6c4500c44b47b258a132f731cc34a09835472477b898b60f",
+    "Daylog/Models/DaylogSchemaV1.swift": "0664acf30075f0c27f4949b2518dc79f858a8998695b2d3723cd9e4df131c27d",
+    "Daylog/Models/DaylogSchemaV2.swift": "b94ad4b5bf194d679b8656cc78efe5a6485067e50fef0b05bdf508f71a9afa45",
+    "Daylog/Models/DaylogSchemaV3.swift": "fc649a4915965c02ec3f9e6726e0c91e118eefa781d5fbf83abef76bf0617c54",
+    "DaylogShared/WidgetBridge.swift": "bafe977420b9d878aeb02a22e61b310369abc6400b802d7fb956c767ab2511b3",
+    "Config/Daylog.entitlements": "7381d952d2c7a4f7c5ada9514085cf607dfa97c58e44d884967ff64843dee055",
+    "Config/DaylogiOS.entitlements": "c4535d232dc4c8c0d6bf482c9289274f616388e2280ea78581f59cdac8042a17",
+    "Config/DaylogWidgets.entitlements": "cfb5a363cf70979f54690fc982dd1f26ecec4359d0dcd4a27d490ad0e6af8536",
+    "Daylog/Services/UpdateConfiguration.swift": "faf758d545f7904101727b566f45c9c41a8ce03c163a5310a544ea10afd49bdd",
+    "Daylog/Services/MobileConfig/MobileUIConfigStore.swift": "f6e2369bb03da88908b790ff4f92027ede8ba5db9786b681779c7cceaf751d64"
+  },
+  "projectIdentifiers": [
+    "CODE_SIGN_ENTITLEMENTS = Config/Daylog.entitlements;",
+    "DEVELOPMENT_TEAM = 6YASPU77L7;",
+    "PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog;",
+    "PRODUCT_NAME = \"$(TARGET_NAME)\";",
+    "CODE_SIGN_ENTITLEMENTS = Config/Daylog.entitlements;",
+    "DEVELOPMENT_TEAM = 6YASPU77L7;",
+    "PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog;",
+    "PRODUCT_NAME = \"$(TARGET_NAME)\";",
+    "DEVELOPMENT_TEAM = 6YASPU77L7;",
+    "PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.tests;",
+    "PRODUCT_NAME = \"$(TARGET_NAME)\";",
+    "DEVELOPMENT_TEAM = 6YASPU77L7;",
+    "PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.tests;",
+    "PRODUCT_NAME = \"$(TARGET_NAME)\";",
+    "CODE_SIGN_ENTITLEMENTS = Config/DaylogiOS.entitlements;",
+    "DEVELOPMENT_TEAM = 6YASPU77L7;",
+    "PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios;",
+    "PRODUCT_MODULE_NAME = Daylog;",
+    "PRODUCT_NAME = Daylog;",
+    "CODE_SIGN_ENTITLEMENTS = Config/DaylogiOS.entitlements;",
+    "DEVELOPMENT_TEAM = 6YASPU77L7;",
+    "PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios;",
+    "PRODUCT_MODULE_NAME = Daylog;",
+    "PRODUCT_NAME = Daylog;",
+    "CODE_SIGN_ENTITLEMENTS = Config/DaylogWidgets.entitlements;",
+    "DEVELOPMENT_TEAM = 6YASPU77L7;",
+    "PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios.widgets;",
+    "PRODUCT_NAME = \"$(TARGET_NAME)\";",
+    "CODE_SIGN_ENTITLEMENTS = Config/DaylogWidgets.entitlements;",
+    "DEVELOPMENT_TEAM = 6YASPU77L7;",
+    "PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios.widgets;",
+    "PRODUCT_NAME = \"$(TARGET_NAME)\";",
+    "DEVELOPMENT_TEAM = 6YASPU77L7;",
+    "PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios.storekittests;",
+    "PRODUCT_NAME = \"$(TARGET_NAME)\";",
+    "DEVELOPMENT_TEAM = 6YASPU77L7;",
+    "PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios.storekittests;",
+    "PRODUCT_NAME = \"$(TARGET_NAME)\";"
+  ],
+  "plistBefore": {
+    "Config/Daylog-Info.plist": {
+      "DaylogUpdatesEnabled": true,
+      "SUFeedURL": "https://github.com/gyu-bin/Daylog/releases/latest/download/appcast.xml",
+      "SUPublicEDKey": "rKafcD0rs6p4xr+T3+dW+Sz88gg2sQUO7MKmL/+xTQs=",
+      "SUEnableInstallerLauncherService": true,
+      "SUEnableDownloaderService": true,
+      "SUVerifyUpdateBeforeExtraction": true,
+      "SUEnableAutomaticChecks": true,
+      "SUScheduledCheckInterval": 86400,
+      "SUAutomaticallyUpdate": false,
+      "UTExportedTypeDeclarations": [
+        {
+          "UTTypeIdentifier": "com.mungyubin.daylog.template",
+          "UTTypeDescription": "Daylog 루틴 템플릿",
+          "UTTypeConformsTo": [
+            "public.json"
+          ],
+          "UTTypeTagSpecification": {
+            "public.filename-extension": [
+              "daylogtemplate"
+            ],
+            "public.mime-type": [
+              "application/vnd.daylog.template+json"
+            ]
+          }
+        }
+      ],
+      "CFBundleDocumentTypes": [
+        {
+          "CFBundleTypeName": "Daylog 루틴 템플릿",
+          "CFBundleTypeRole": "Viewer",
+          "LSHandlerRank": "Owner",
+          "LSItemContentTypes": [
+            "com.mungyubin.daylog.template"
+          ]
+        }
+      ]
+    },
+    "Config/DaylogiOS-Info.plist": {
+      "UILaunchScreen": {
+        "UIColorName": "SplashBackground"
+      },
+      "UIBackgroundModes": [
+        "remote-notification"
+      ],
+      "UTExportedTypeDeclarations": [
+        {
+          "UTTypeIdentifier": "com.mungyubin.daylog.template",
+          "UTTypeDescription": "Daylog 루틴 템플릿",
+          "UTTypeConformsTo": [
+            "public.json"
+          ],
+          "UTTypeTagSpecification": {
+            "public.filename-extension": [
+              "daylogtemplate"
+            ],
+            "public.mime-type": [
+              "application/vnd.daylog.template+json"
+            ]
+          }
+        }
+      ],
+      "CFBundleDocumentTypes": [
+        {
+          "CFBundleTypeName": "Daylog 루틴 템플릿",
+          "CFBundleTypeRole": "Viewer",
+          "LSHandlerRank": "Owner",
+          "LSItemContentTypes": [
+            "com.mungyubin.daylog.template"
+          ]
+        }
+      ],
+      "LSSupportsOpeningDocumentsInPlace": false
+    },
+    "Config/DaylogWidgets-Info.plist": {
+      "NSExtension": {
+        "NSExtensionPointIdentifier": "com.apple.widgetkit-extension"
+      }
+    }
+  }
+}

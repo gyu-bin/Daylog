@@ -1,0 +1,3213 @@
+{
+  "partCount": 51,
+  "htmlDependenciesVerified": [
+    "registered/christmas-f/christmas-assembled-comparison-220pt-3x-light.png",
+    "registered/hanbok-e/hanbok-assembled-comparison-220pt-3x-light.png",
+    "registered/astronaut-c/astronaut-assembled-comparison-220pt-3x-light.png",
+    "RESULTS.md",
+    "RIGGING.md",
+    "PERFORMANCE.md",
+    "runtime/preview-christmas-blink-8s.mp4",
+    "runtime/preview-hanbok-flap-8s.mp4",
+    "runtime/preview-astronaut-flap-8s.mp4"
+  ],
+  "videos": [
+    {
+      "file": "runtime/preview-astronaut-flap-8s.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 604,
+          "height": 1312
+        }
+      ],
+      "format": {
+        "duration": "8.000000"
+      }
+    },
+    {
+      "file": "runtime/preview-christmas-blink-8s.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 604,
+          "height": 1312
+        }
+      ],
+      "format": {
+        "duration": "7.933333"
+      }
+    },
+    {
+      "file": "runtime/preview-hanbok-flap-8s.mp4",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 604,
+          "height": 1312
+        }
+      ],
+      "format": {
+        "duration": "8.000000"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "PERFORMANCE.md",
+      "bytes": 5147,
+      "sha256": "bea8379019d8eb696d26c81e989941a380e7c30d6e6b9c802fe1409cd6ae0ed4"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 7141,
+      "sha256": "a8abe5eb3e41aa2025b4bc3387abf7d42ccb5934e5ebff2f09dc570eddf14862"
+    },
+    {
+      "path": "RIGGING.md",
+      "bytes": 4348,
+      "sha256": "81a135711838721cffb2c3a7033dfb2a7e9fe42f0dfe044e1d027671a1c9ee1a"
+    },
+    {
+      "path": "START-HERE.md",
+      "bytes": 1952,
+      "sha256": "b6ba4e69289a9248b8664b3c6a7dd56188e647e6b357c19582ca3a3ef9bc0bf5"
+    },
+    {
+      "path": "after-status.txt",
+      "bytes": 4386,
+      "sha256": "18332ccde6da19df140a549a31e45d53022ece7a27e2e12bcc9c1ddca667d725"
+    },
+    {
+      "path": "astronaut-art-review.md",
+      "bytes": 5102,
+      "sha256": "6e93bc1dd6afca2b9807185361b44058171c829257100a839a8f796ae2c77daa"
+    },
+    {
+      "path": "base-art-audit.md",
+      "bytes": 5436,
+      "sha256": "e47ff773d3f3f5b448ee60dea67dabce77620bed7129e996034f4e1b6f238734"
+    },
+    {
+      "path": "base-candidate-review.md",
+      "bytes": 6876,
+      "sha256": "c19d5f2baae38276c5f1c2aadd1e9fbe029ba62e0dd28a1e819ad7fd24541ccb"
+    },
+    {
+      "path": "before-hashes.json",
+      "bytes": 70074,
+      "sha256": "7583295a78c809908383b26e5251e22cabf532151aa9e08cdec1950aff1c1a13"
+    },
+    {
+      "path": "before-status.txt",
+      "bytes": 4184,
+      "sha256": "746060d2ddf4284b0fc66e86a8df95a625ef12b890fdf8a89870c33606fcb3e2"
+    },
+    {
+      "path": "candidates/astronaut/body-clean-v1.png",
+      "bytes": 844196,
+      "sha256": "92623c6b6911e0c5094b19b54db6835c4988e7e40913242cf88c033a4db1b520"
+    },
+    {
+      "path": "candidates/astronaut/glove-left-v1.png",
+      "bytes": 792517,
+      "sha256": "7253c02713087f71e9f3763b71b352a1a77d4dc70da6157ef1231b242baa6bca"
+    },
+    {
+      "path": "candidates/astronaut/glove-right-v1.png",
+      "bytes": 893333,
+      "sha256": "92fd74ea6cc19692876b870c985cda5dc08d016316c847e6d94081f8496ed5be"
+    },
+    {
+      "path": "candidates/astronaut/helmet-shell-v2.png",
+      "bytes": 602466,
+      "sha256": "600625f57e219d44ba302ab3158132dbadeb4d87bdec3f892c3ddc9bccab8f04"
+    },
+    {
+      "path": "candidates/astronaut/visor-v1.png",
+      "bytes": 1000305,
+      "sha256": "b00071c4e504aaffdf788422aad3c43c29d43e22bda4c2d19255457bdd81b954"
+    },
+    {
+      "path": "candidates/base/body-clean-v1.png",
+      "bytes": 965164,
+      "sha256": "83bcdf815b8b1c1312dc0fcd0eea9b004423cf660f034bd5e95f9604988b1594"
+    },
+    {
+      "path": "candidates/base/eye-half-v1.png",
+      "bytes": 811145,
+      "sha256": "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013"
+    },
+    {
+      "path": "candidates/base/eye-open-v1.png",
+      "bytes": 630952,
+      "sha256": "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2"
+    },
+    {
+      "path": "candidates/base/eyelid-closed-v1.png",
+      "bytes": 378489,
+      "sha256": "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4"
+    },
+    {
+      "path": "candidates/base/foot-v1.png",
+      "bytes": 822957,
+      "sha256": "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5"
+    },
+    {
+      "path": "candidates/base/sprout-v1.png",
+      "bytes": 1676078,
+      "sha256": "56b0770a054cf8b0423c844c8db8796a096cb232e9691c826ecf171ca6905673"
+    },
+    {
+      "path": "candidates/base/wing-left-v1.png",
+      "bytes": 479969,
+      "sha256": "4f4620bdd501d394ca1e2101e8de94bf0a4d340212f11a0fecb1737c52181cfa"
+    },
+    {
+      "path": "candidates/base/wing-right-v1.png",
+      "bytes": 1109969,
+      "sha256": "6e304377636d2056c6cfdc492343ee51db3ed17133eb7798f1b4db22bd299d46"
+    },
+    {
+      "path": "candidates/christmas/body-clean-v1.png",
+      "bytes": 1623438,
+      "sha256": "fa5fb8c1b7bfa066ddf27413b5e239278e69f5b1c3169cc559794aadfa7c91c7"
+    },
+    {
+      "path": "candidates/christmas/gift-v1.png",
+      "bytes": 1652556,
+      "sha256": "64e3cc78dedbdd5a4eb3b4c8728f7af5d05b000f000acdca1b6b07e3f9f84332"
+    },
+    {
+      "path": "candidates/christmas/hand-left-v2.png",
+      "bytes": 688910,
+      "sha256": "674bd989b4fc04b15aa02571053682299e503bcc7be05c5588d5a0f099c77af4"
+    },
+    {
+      "path": "candidates/christmas/hand-right-v2.png",
+      "bytes": 833787,
+      "sha256": "0053b39bd34888a570a4b8a4b096296940f11e49cc996a994f68cab2bc18ec2f"
+    },
+    {
+      "path": "candidates/christmas/headwear-v2.png",
+      "bytes": 1197064,
+      "sha256": "31607c643dc76f43ae64e415952e80993be2b4905b93464525e3aa240f9da6fa"
+    },
+    {
+      "path": "candidates/hanbok/body-clean-v1.png",
+      "bytes": 1528405,
+      "sha256": "eabdbf1f565f4ae8bae3659283922d392e52dd45805058837c0050cc70a1e54e"
+    },
+    {
+      "path": "candidates/hanbok/sleeve-left-v3.png",
+      "bytes": 991722,
+      "sha256": "473ab3e32d6724ac20fa1a128f8e5a06e706185a44213f5b332e0347a7089747"
+    },
+    {
+      "path": "candidates/hanbok/sleeve-right-v2.png",
+      "bytes": 1042522,
+      "sha256": "df5262851cab2593a00c19f256fc92add8b16622a15d68b05031746995d90f72"
+    },
+    {
+      "path": "christmas-assembly-review.md",
+      "bytes": 8789,
+      "sha256": "d938c636fedc8852efe64b5b7bfbb9bd5e8b342838f72e065e1d38d4d0cb197b"
+    },
+    {
+      "path": "code-review.md",
+      "bytes": 13330,
+      "sha256": "4b60df7142952e230c08b5a9e5aa9970a54ed755948ed202b2421c819a3bc725"
+    },
+    {
+      "path": "exact-existing-diff-check.txt",
+      "bytes": 155,
+      "sha256": "c09123d75f6f896e93d24644214dffd999efee4ca2ab8dccc0a393e31c210919"
+    },
+    {
+      "path": "final-art-gate.md",
+      "bytes": 1234,
+      "sha256": "25a3e6de2225d3a47d8b0d39144a3566bb2b8949e3aca86ab63e7eefc759d0b5"
+    },
+    {
+      "path": "focused-tests-final.log",
+      "bytes": 45760,
+      "sha256": "4317d9059979710b806538699b22a8f6f7b8d37ac862ea5afc3f94d9f3d659d5"
+    },
+    {
+      "path": "generation-prompts.json",
+      "bytes": 42491,
+      "sha256": "bbd401a4ca9e87596c8cc6162ec7ec8a0f0c7c7515e74b5200ecdcbb132edce7"
+    },
+    {
+      "path": "growth-stage-readiness.md",
+      "bytes": 10207,
+      "sha256": "b73e5a9b5bfaf5a0b3870c6876b4f07d5a442c38208ea20baec26712685db50d"
+    },
+    {
+      "path": "half-eye-art-review.md",
+      "bytes": 1758,
+      "sha256": "07ea88aba0c5d47d1f00b9566fbcff90670d57c0497ab89b6e793125b6a9569c"
+    },
+    {
+      "path": "hanbok-art-review.md",
+      "bytes": 6681,
+      "sha256": "645a4c7c3513efd2419375b5e209de666be89402e96dd98cacd8c2ab08808be2"
+    },
+    {
+      "path": "implementation/Daylog/Components/PioLayeredCharacter.swift",
+      "bytes": 20734,
+      "sha256": "83c1c0b0a65037c6a2a4658f3bcab89c9af9e3e7910013e4f31f1d82f57abfb8"
+    },
+    {
+      "path": "implementation/Daylog/Components/PioLayeredDiagnosticsView.swift",
+      "bytes": 10599,
+      "sha256": "d9e796976866e2da077a34704681b1dd7a301ee3894b1819551819ae274c38ef"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/Contents.json",
+      "bytes": 62,
+      "sha256": "3068ae11b833a8ea03990d2ea2a2b5fe7b3c47fbda56de956a4b84888f6c6af8"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_body.imageset/Contents.json",
+      "bytes": 175,
+      "sha256": "d480f43e308236b660fde4d407c90bbc4509d57e79b0e43b995815a048f347a5"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_body.imageset/pio_layered_astronaut_body.png",
+      "bytes": 620975,
+      "sha256": "6a72fd97fb6c67aad6e7a035a7dd5fc812c11a54046fcf80238648465ea1ccee"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_eyeLeft.imageset/Contents.json",
+      "bytes": 178,
+      "sha256": "fbf1274d60772fde5695f038909139934af229590b21733d437c843b2f4a4e1a"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_eyeLeft.imageset/pio_layered_astronaut_eyeLeft.png",
+      "bytes": 14927,
+      "sha256": "46fd7fe4a6f85c31bca82f9ee3c1b9871f030b7977f2b93780f750910196ea66"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_eyeRight.imageset/Contents.json",
+      "bytes": 179,
+      "sha256": "15e065b3b446e0a19db16ccfb3e34b5433d3755f762fa5b24f941fe062d15f65"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_eyeRight.imageset/pio_layered_astronaut_eyeRight.png",
+      "bytes": 14063,
+      "sha256": "a2d64e26b7831486255b442ccf8f1668fdd9d7cf5121ff3f41e7f144382df249"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_footLeft.imageset/Contents.json",
+      "bytes": 179,
+      "sha256": "5f9b238c38f1f3ae8f7bdb3779fb61d314f85ba669b5867aadc442f101e3f67f"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_footLeft.imageset/pio_layered_astronaut_footLeft.png",
+      "bytes": 24272,
+      "sha256": "dc13ccdbf28e48c057ecdf3cbe70f9979123e0cb09216ae7dca0910a4275e03a"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_footRight.imageset/Contents.json",
+      "bytes": 180,
+      "sha256": "3e81cba1f3fd6c4c9954908c7c77ecc52a206def65299dc7e47414ad40935220"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_footRight.imageset/pio_layered_astronaut_footRight.png",
+      "bytes": 22829,
+      "sha256": "a17d7b3e6345be7884aea54dfa24faa50dc8e51872d4edae02a6af2b12c9ef1f"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_halfLeft.imageset/Contents.json",
+      "bytes": 179,
+      "sha256": "8447171adec1f34fde75e3f51dc475cd9ee99f7859ebdd424a1cadfe62b3959b"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_halfLeft.imageset/pio_layered_astronaut_halfLeft.png",
+      "bytes": 21341,
+      "sha256": "fa2190d0535a672dd17321af30ee7e245d0abba892bc15ee1135e2cb9ca14680"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_halfRight.imageset/Contents.json",
+      "bytes": 180,
+      "sha256": "df5b4c45ffeb5372b3f56f966114faf89514eec7726d7b046cdb310b7a820faa"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_halfRight.imageset/pio_layered_astronaut_halfRight.png",
+      "bytes": 20167,
+      "sha256": "a55d0dfdef10d3ddaf852978bc2d3efabbdde86fc13ae632670bb9618cf5b26e"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_helmet.imageset/Contents.json",
+      "bytes": 177,
+      "sha256": "db0996a16536a3cd2a4e5cb2923dea6e10bd3134dae8d85e4b57abc009302d58"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_helmet.imageset/pio_layered_astronaut_helmet.png",
+      "bytes": 287384,
+      "sha256": "e332222438f265c3e35956debf6811f75e105a485c868fa592fedfab3666db94"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_lidLeft.imageset/Contents.json",
+      "bytes": 178,
+      "sha256": "4e64276ce88629dede0161e7f884b1317d70404609bb769b33cf56ed4fa90952"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_lidLeft.imageset/pio_layered_astronaut_lidLeft.png",
+      "bytes": 6532,
+      "sha256": "c5b95ceac315a6e5c28e4f0254c4b3a3e9a614140c99039446fc28e050a1f729"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_lidRight.imageset/Contents.json",
+      "bytes": 179,
+      "sha256": "b07ea227736f4ff7bab645e7d8cedd3cfdf35a79c28db240a97eae3873fe6b88"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_lidRight.imageset/pio_layered_astronaut_lidRight.png",
+      "bytes": 6015,
+      "sha256": "63406041869776850009872ee6b8697e076cdbbce89051057ccbcf3d3d7d630a"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_reference.imageset/Contents.json",
+      "bytes": 180,
+      "sha256": "184a14141b3479b2be84dddf5ee5b3287bbce4a43835e59685a78124ebe9579c"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_reference.imageset/pio_layered_astronaut_reference.png",
+      "bytes": 1266952,
+      "sha256": "06eacd0b240b178188c88a1506c991ef58d2f9e7656d484b83c54e0854bb5ce8"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_registration.dataset/Contents.json",
+      "bytes": 160,
+      "sha256": "04a398c7e5b24265a63377ac22d4a9a3f483864b677dcec6127b407c3af19790"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_registration.dataset/registration.json",
+      "bytes": 5197,
+      "sha256": "832f19fbb934df8629e101b73612922dead0b75a4a785591c7e3705811a626ce"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_sprout.imageset/Contents.json",
+      "bytes": 177,
+      "sha256": "66aef8ccb59b4ede3632d6fea8e1e6d8b983cba3815b7b11cb0e369784457592"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_sprout.imageset/pio_layered_astronaut_sprout.png",
+      "bytes": 159223,
+      "sha256": "2d1b8d857574a56aeb65c75e8833267f15bd48940069f7759d037dff7426a4d8"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_visor.imageset/Contents.json",
+      "bytes": 176,
+      "sha256": "aad96529b83fb441301b08ed946f19c897c446d58e5ea0823eb884c22987f3d9"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_visor.imageset/pio_layered_astronaut_visor.png",
+      "bytes": 364520,
+      "sha256": "979dac361bd40ac8ff5af3f18a784805b2985c093a16e3a0468f4cdbbaed56b9"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_wingLeft.imageset/Contents.json",
+      "bytes": 179,
+      "sha256": "00d5dfdefe95c22b9e87e33fe1d79bc732c243e264f1e6b71af9a9e1f3d153b1"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_wingLeft.imageset/pio_layered_astronaut_wingLeft.png",
+      "bytes": 71156,
+      "sha256": "4a6c16e4fcc6d7ae68d37d11c8e608033c79f9ac46507edcb5ea6ea542b45458"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_wingRight.imageset/Contents.json",
+      "bytes": 180,
+      "sha256": "e59911b51791f1bc5f07080f1767394867f8f346335bcfb72c959cbf7f50e7cf"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_astronaut_wingRight.imageset/pio_layered_astronaut_wingRight.png",
+      "bytes": 56903,
+      "sha256": "186ad78fbdf3d141f63f65095b75a68bc2e0e731f9c241e6882b888530f42bf2"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_body.imageset/Contents.json",
+      "bytes": 171,
+      "sha256": "4373bfc80291b19f946815991577a9d93292293455cc4a0ae0b73ee46140cd6f"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_body.imageset/pio_layered_basic_body.png",
+      "bytes": 640190,
+      "sha256": "16ea9fdd126100c7d79368d99b7a5ea87a36c02c69375d34fbe00a0c6f26fcf0"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_eyeLeft.imageset/Contents.json",
+      "bytes": 174,
+      "sha256": "908f836a9c625971eb769941fde01fb29569633f35ddf27f34cc524f948be2cd"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_eyeLeft.imageset/pio_layered_basic_eyeLeft.png",
+      "bytes": 14301,
+      "sha256": "0c07b696a6d08cb781eb9d0471f875688b7abe2445284352aa2dcd36e8770a9a"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_eyeRight.imageset/Contents.json",
+      "bytes": 175,
+      "sha256": "8b18d4a8787f28caabcdaadd85487d84d669548b7be1ba8cc01a22a2f9adbd83"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_eyeRight.imageset/pio_layered_basic_eyeRight.png",
+      "bytes": 13095,
+      "sha256": "45df3ca1aa13d7b1d2640e3e88279a079559c0db4ce8a642fc703e4f0c90ce21"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_footLeft.imageset/Contents.json",
+      "bytes": 175,
+      "sha256": "6e5c83509f1455c919fad6b6df91c6ee93ada0171c2c736bdd8da55f9b45131e"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_footLeft.imageset/pio_layered_basic_footLeft.png",
+      "bytes": 20440,
+      "sha256": "66ed53afa893bd0f0b39957dc1ae77b273e15471a764721e1b929352e7d7c2d3"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_footRight.imageset/Contents.json",
+      "bytes": 176,
+      "sha256": "ce75374b5d84db2ea2215b0ab146604cfbd0cf7ea790960f23845661cbb30ee7"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_footRight.imageset/pio_layered_basic_footRight.png",
+      "bytes": 20440,
+      "sha256": "66ed53afa893bd0f0b39957dc1ae77b273e15471a764721e1b929352e7d7c2d3"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_halfLeft.imageset/Contents.json",
+      "bytes": 175,
+      "sha256": "ad6a8bfbc8a907f551a581c2060677952e2a30c27369fa00c150f624e9cb7402"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_halfLeft.imageset/pio_layered_basic_halfLeft.png",
+      "bytes": 20821,
+      "sha256": "b5f7f0a16ba57b6b8a6033672be0d4b64603568cd7f887ac026018a65f2a0874"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_halfRight.imageset/Contents.json",
+      "bytes": 176,
+      "sha256": "8d5234bf8c4483aa42075f98947b0e7a9b2e8ace35aa83e68009acaf0c293325"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_halfRight.imageset/pio_layered_basic_halfRight.png",
+      "bytes": 19581,
+      "sha256": "19141450520c57285dfac5108d939427f865d842e15ecacccfd757b64992a245"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_lidLeft.imageset/Contents.json",
+      "bytes": 174,
+      "sha256": "b3ea6dcff82d7cc1bf3eb1493707631e7401fb49ce586f463c98d324c872acbf"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_lidLeft.imageset/pio_layered_basic_lidLeft.png",
+      "bytes": 6668,
+      "sha256": "0e4a3a65fd14f5052a7cdc0e757b6bdee3c5c413046f4f9753cbf7ee418c2600"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_lidRight.imageset/Contents.json",
+      "bytes": 175,
+      "sha256": "e1cc103a2041ecc4fb9d4b9c7593bf16a301b24e528c8cf286340588a3173434"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_lidRight.imageset/pio_layered_basic_lidRight.png",
+      "bytes": 6145,
+      "sha256": "7e77d2fdbe12842c312c28332adc604f21d2859bc6466008b1deb414b76dde0a"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_reference.imageset/Contents.json",
+      "bytes": 176,
+      "sha256": "2b81fe688d96ae7768a59c3b3735b8f3e4c1eb548f76f3d5de33e8a5dd02a647"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_reference.imageset/pio_layered_basic_reference.png",
+      "bytes": 898643,
+      "sha256": "d2df390c59f14d220e6f091742616aea4af61e40fa7c9002c7825f521c78e4b9"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_registration.dataset/Contents.json",
+      "bytes": 160,
+      "sha256": "04a398c7e5b24265a63377ac22d4a9a3f483864b677dcec6127b407c3af19790"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_registration.dataset/registration.json",
+      "bytes": 4426,
+      "sha256": "da6135deb1e6af07badd20ac2795818840e5727f2c9c6594ff6965d5c407ec3a"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_sprout.imageset/Contents.json",
+      "bytes": 173,
+      "sha256": "d2c391aa3953785338a2fc1e32b40a43fac25938662778bd10567468520f7b63"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_sprout.imageset/pio_layered_basic_sprout.png",
+      "bytes": 151522,
+      "sha256": "b29c0fd8d6f1425cbf887ccd63c384c79757ada62431fce37b8a9e7431eb6f0c"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_wingLeft.imageset/Contents.json",
+      "bytes": 175,
+      "sha256": "4d9f4b96bc989bf08f737ce51f59bd3496d1cfb4a0c8ad90fe85abfe9ef50abb"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_wingLeft.imageset/pio_layered_basic_wingLeft.png",
+      "bytes": 58316,
+      "sha256": "2e1c37ec0c39a39f9c4d760f41f802253ef1d976be52074a9912e7a450197194"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_wingRight.imageset/Contents.json",
+      "bytes": 176,
+      "sha256": "58cd7b5c23d9a753ec0fb9175f5471079a5708dd9f573fa7cf3685ad62f5405c"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_basic_wingRight.imageset/pio_layered_basic_wingRight.png",
+      "bytes": 93872,
+      "sha256": "5d225b862633f6c17ec44b070270ab7b7f50eb1c10dea940acd79fd2d98bb4f6"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_body.imageset/Contents.json",
+      "bytes": 175,
+      "sha256": "8354f5a3b02237dcf6366d0165ba240658b9766aa8ab259537dc20693e38acfa"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_body.imageset/pio_layered_christmas_body.png",
+      "bytes": 1094626,
+      "sha256": "296b1c3796bd9535fe0830378fda286905e73b4b41d13d6a1f059b1d50b51526"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_eyeLeft.imageset/Contents.json",
+      "bytes": 178,
+      "sha256": "e4b30b3371f1e453c36aa18a3117eebbba0673e5b8cb9f65da64777d9cc84d4d"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_eyeLeft.imageset/pio_layered_christmas_eyeLeft.png",
+      "bytes": 15653,
+      "sha256": "00a895ae2008524c3f7ecd65bb1830fedd1db36cc8e8cb8876413dc063e117a8"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_eyeRight.imageset/Contents.json",
+      "bytes": 179,
+      "sha256": "9781b82441ff00339664a412dcf4cc91761848453e793b5e28780279de457674"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_eyeRight.imageset/pio_layered_christmas_eyeRight.png",
+      "bytes": 14831,
+      "sha256": "b972bf49f3b09eec6301e1df13a07401c048e4feb993ac9484f168745992db7e"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_footLeft.imageset/Contents.json",
+      "bytes": 179,
+      "sha256": "c24555fbc3acd4673ede2e010744819fdb439cca81270ddf7c939f80848919f8"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_footLeft.imageset/pio_layered_christmas_footLeft.png",
+      "bytes": 30324,
+      "sha256": "e561a9dfcd402fc111986d39ff5141b88e5a250b368907bc473973a7d24c6de6"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_footRight.imageset/Contents.json",
+      "bytes": 180,
+      "sha256": "1ad8b6693d6dff803b922b5b4dad712a408e46c93d45a746dce7566d0d872ca1"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_footRight.imageset/pio_layered_christmas_footRight.png",
+      "bytes": 25867,
+      "sha256": "4da654399bdafbe117c93ee4b579b009812fe1507e364474abca13669ed9af28"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_gift.imageset/Contents.json",
+      "bytes": 175,
+      "sha256": "f9029d204c30d9d9e87919f9a3aa235116db57c450db7edaf2e20cfbd5ef601e"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_gift.imageset/pio_layered_christmas_gift.png",
+      "bytes": 154195,
+      "sha256": "bd92db7def27276d0b97be185095e066497f5cc5f66e93cca878f77ccafc0da9"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_halfLeft.imageset/Contents.json",
+      "bytes": 179,
+      "sha256": "e578fb1ea969815495795e6983a7e8c1a48f0d78d7f0dafb322baa011d4c94a5"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_halfLeft.imageset/pio_layered_christmas_halfLeft.png",
+      "bytes": 23646,
+      "sha256": "7a401056d2ef61d94b77415c8739981ea32f32b128b9583ff1748bfc94bf0740"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_halfRight.imageset/Contents.json",
+      "bytes": 180,
+      "sha256": "a41ce8fd122b535ddfe30934236313e5a922a63f11133e3ac3ef2a9e90dde2b2"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_halfRight.imageset/pio_layered_christmas_halfRight.png",
+      "bytes": 22679,
+      "sha256": "3e2ac0d3a9c10b43337213fa4533f3add002629eab498d77df15742caeeb5205"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_handLeft.imageset/Contents.json",
+      "bytes": 179,
+      "sha256": "e95eb0e6c44e3b78e284a10000741670e8d73239543061e06a934bf9cf6f0b8d"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_handLeft.imageset/pio_layered_christmas_handLeft.png",
+      "bytes": 109155,
+      "sha256": "b8236afdcb1b4cd7d7088560e66eee298db8aa2cd7535d177439874d022eb046"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_handRight.imageset/Contents.json",
+      "bytes": 180,
+      "sha256": "8a117ee0d826a121833f7277a2b86dc439c79ab25ec916e5a7e6f206410ad361"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_handRight.imageset/pio_layered_christmas_handRight.png",
+      "bytes": 60876,
+      "sha256": "514907f1e9b611f2f2b498e4aa6df124b68f27bce1bc601448b1eb75039982fa"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_hat.imageset/Contents.json",
+      "bytes": 174,
+      "sha256": "1cf52bd786910ca6cde048ceb7f493eca4896c323ebf99a4836473b25567ff37"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_hat.imageset/pio_layered_christmas_hat.png",
+      "bytes": 671388,
+      "sha256": "b21ef0f1e10ce99213365ebebd08b395842e62cd51e767b7a7b277afca529a62"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_lidLeft.imageset/Contents.json",
+      "bytes": 178,
+      "sha256": "75ba1d2ae109a226617e259e0c8be1faf2c1288cc30cf9c4ff0a10562e7dc383"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_lidLeft.imageset/pio_layered_christmas_lidLeft.png",
+      "bytes": 6997,
+      "sha256": "41503e8536032408057d1dfae24aa6206f859d0cf9eaa6d06f8c678d9a66591f"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_lidRight.imageset/Contents.json",
+      "bytes": 179,
+      "sha256": "0a8cba70c66b0f0561a9133d0914f63d04a6bf8d9518715ad58675d39650dc37"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_lidRight.imageset/pio_layered_christmas_lidRight.png",
+      "bytes": 7045,
+      "sha256": "4f1f5ab4d6165c6513ffa0e54a36d73ad0ef2af67920a347b8bc398c9e70ab1a"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_reference.imageset/Contents.json",
+      "bytes": 180,
+      "sha256": "fdafc5f0d6db46dd2b1aa191e50b0ae7fa8d59a4ca4c9fca0c2c320fc5787c05"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_reference.imageset/pio_layered_christmas_reference.png",
+      "bytes": 1667656,
+      "sha256": "283aca5c7a1ac243c78a14358b9df4dcf01e0a66fdab5e947d017ef5a7f5f9c2"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_registration.dataset/Contents.json",
+      "bytes": 160,
+      "sha256": "04a398c7e5b24265a63377ac22d4a9a3f483864b677dcec6127b407c3af19790"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_christmas_registration.dataset/registration.json",
+      "bytes": 4828,
+      "sha256": "9635cbcff508da0c1fe5bee69602f28f87e5a2c81d73880e17279dacb0867d69"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_body.imageset/Contents.json",
+      "bytes": 172,
+      "sha256": "736c67627bdbbe33e60a46a63240fda024f22bd44d45202c2b713d4aad0fa5ad"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_body.imageset/pio_layered_hanbok_body.png",
+      "bytes": 1146550,
+      "sha256": "f5f6f207bcaa8fdb3ca40bf0541ea25630070831668fd7a2fbd65de895e46eab"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_eyeLeft.imageset/Contents.json",
+      "bytes": 175,
+      "sha256": "d1c66c0d2c3a74765c1e7701f3439bc71a0093191b49b6eb2a9e20f79098f074"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_eyeLeft.imageset/pio_layered_hanbok_eyeLeft.png",
+      "bytes": 16903,
+      "sha256": "a13d3bbd6ed78c8751becdc61733d63116e76a0b9c623a78dae2f0c9e778daf2"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_eyeRight.imageset/Contents.json",
+      "bytes": 176,
+      "sha256": "3d6d598066143916057db1cab4c172c60ebfb1ea1cc8c1cd000171e1b1088376"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_eyeRight.imageset/pio_layered_hanbok_eyeRight.png",
+      "bytes": 15653,
+      "sha256": "00a895ae2008524c3f7ecd65bb1830fedd1db36cc8e8cb8876413dc063e117a8"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_footLeft.imageset/Contents.json",
+      "bytes": 176,
+      "sha256": "602edf10449ffc49a18b885ebadbd27337c3d342d5b39cc944c9c398cd57a909"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_footLeft.imageset/pio_layered_hanbok_footLeft.png",
+      "bytes": 28658,
+      "sha256": "ac3378d76b9f72a76d6f3c541f911d8d59fdb18cf35fa3889cec5dde0e1e9bec"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_footRight.imageset/Contents.json",
+      "bytes": 177,
+      "sha256": "1e899a9c21a535f5eab71b75894bdbdf65f355b375335e1874fbfbbec2bcb5e0"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_footRight.imageset/pio_layered_hanbok_footRight.png",
+      "bytes": 25867,
+      "sha256": "4da654399bdafbe117c93ee4b579b009812fe1507e364474abca13669ed9af28"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_halfLeft.imageset/Contents.json",
+      "bytes": 176,
+      "sha256": "3eecebef9ccfd50d69d22c3e248f481a676c69068232065a5f942688bfb466a8"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_halfLeft.imageset/pio_layered_hanbok_halfLeft.png",
+      "bytes": 24619,
+      "sha256": "7de1c795319ebc5ecfc7f3b2e13e743bd9eb78d77bcf479bf793f6e6d4ab0108"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_halfRight.imageset/Contents.json",
+      "bytes": 177,
+      "sha256": "8a4a59bf6b365ba63733eb4c5ee40dbf2825ee686d41664dd89d220699292407"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_halfRight.imageset/pio_layered_hanbok_halfRight.png",
+      "bytes": 23646,
+      "sha256": "7a401056d2ef61d94b77415c8739981ea32f32b128b9583ff1748bfc94bf0740"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_lidLeft.imageset/Contents.json",
+      "bytes": 175,
+      "sha256": "dedb1d5958353adff08bcf16eff3e02ec71f655dbfa7528ba7787f9a4798e4d3"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_lidLeft.imageset/pio_layered_hanbok_lidLeft.png",
+      "bytes": 7444,
+      "sha256": "efc31cf6013cca0701fad7d58119a5e1356343a1911e5fbc5da12a693371ddf6"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_lidRight.imageset/Contents.json",
+      "bytes": 176,
+      "sha256": "77b2272ea94d1f43804c0415111673de2d50edd2348a8ecbffa921b6fc82c2f8"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_lidRight.imageset/pio_layered_hanbok_lidRight.png",
+      "bytes": 7045,
+      "sha256": "4f1f5ab4d6165c6513ffa0e54a36d73ad0ef2af67920a347b8bc398c9e70ab1a"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_reference.imageset/Contents.json",
+      "bytes": 177,
+      "sha256": "9c269f79b9acc0cbfc091c038ccb332c409917328cc1acd06ed50ee3406751de"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_reference.imageset/pio_layered_hanbok_reference.png",
+      "bytes": 1618005,
+      "sha256": "0466ad5ef890d6e9b5e89717aaa74e698d896452ec4d0b0825678aec33259af9"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_registration.dataset/Contents.json",
+      "bytes": 160,
+      "sha256": "04a398c7e5b24265a63377ac22d4a9a3f483864b677dcec6127b407c3af19790"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_registration.dataset/registration.json",
+      "bytes": 4444,
+      "sha256": "2248b2051707706420905caf73f8fb8536b9ba71d399e41af0076b67f62ba919"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_sprout.imageset/Contents.json",
+      "bytes": 174,
+      "sha256": "d1dfa340dd0fd83edf357ace4bcf657db5603576fa9b1fc96b2ae880f9e9bf59"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_sprout.imageset/pio_layered_hanbok_sprout.png",
+      "bytes": 159223,
+      "sha256": "2d1b8d857574a56aeb65c75e8833267f15bd48940069f7759d037dff7426a4d8"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_wingLeft.imageset/Contents.json",
+      "bytes": 176,
+      "sha256": "21e1d59587e9eb604c82032dbd400c065139d8c05cc8fa42990d227fb3666a75"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_wingLeft.imageset/pio_layered_hanbok_wingLeft.png",
+      "bytes": 84847,
+      "sha256": "6376dfbbbe75eb8f3f6f90922f8dc8ccf54f42160be77956d05656dced7e043d"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_wingRight.imageset/Contents.json",
+      "bytes": 177,
+      "sha256": "fb5f08d81a1525fcd5bb3a0e5f7cfd47ee35fbd5902ab7c82468c54838e1e499"
+    },
+    {
+      "path": "implementation/Daylog/PioLayeredTrial.xcassets/pio_layered_hanbok_wingRight.imageset/pio_layered_hanbok_wingRight.png",
+      "bytes": 82197,
+      "sha256": "779e0a8bd46a3afb9864b2a17d1f323931a720f29dec5c1276544fc9940f7ec1"
+    },
+    {
+      "path": "implementation/DaylogTests/PioLayeredRigTests.swift",
+      "bytes": 8305,
+      "sha256": "cf5bade3cb095d3e1de9f0bc6dd5b840e7216ccab6ff7794c37ca63f77de0454"
+    },
+    {
+      "path": "implementation/Tools/pio-layered-rig/README.md",
+      "bytes": 9149,
+      "sha256": "381bf7dd6057221dd627b89e409895ffae90b64421e8bc16b00b9880bb0b3a8e"
+    },
+    {
+      "path": "implementation/Tools/pio-layered-rig/assemble-astronaut.swift",
+      "bytes": 11811,
+      "sha256": "e153055d869999354f6f0f8cd7be03542e0c1617c8c52fde9623383fe99735df"
+    },
+    {
+      "path": "implementation/Tools/pio-layered-rig/assemble-base.swift",
+      "bytes": 10544,
+      "sha256": "7ccc2964f33b81dc6eac12cd67537b604f50d9cf7f571866c032f1f2ddef4fe2"
+    },
+    {
+      "path": "implementation/Tools/pio-layered-rig/assemble-christmas.swift",
+      "bytes": 12634,
+      "sha256": "c3b17200bb847dc5acd2eecbae1feef468d12f63c77d902b89353d1e3abe455a"
+    },
+    {
+      "path": "implementation/Tools/pio-layered-rig/assemble-hanbok.swift",
+      "bytes": 11663,
+      "sha256": "1be7a5e7ca7f62abdeb53b64a902b33df3838b8ec155eecfa819917e954585b6"
+    },
+    {
+      "path": "implementation/Tools/pio-layered-rig/audit-contacts.swift",
+      "bytes": 1872,
+      "sha256": "c4a0166c102dc7ef8d4e79d141d974933858ad6cec07fe1a3e127d59cd573ca2"
+    },
+    {
+      "path": "implementation/Tools/pio-layered-rig/pack-runtime.swift",
+      "bytes": 4907,
+      "sha256": "4153fdb557d1fd7df2a1f8e6e7553306608c9e1cd8c213c871e13f8c6e44bc93"
+    },
+    {
+      "path": "implementation/Tools/pio-layered-rig/register-half-eye.swift",
+      "bytes": 6905,
+      "sha256": "780e5f4880f691ec752ad94dabe312ad3b43ef8884957f30f2e066769e8990fa"
+    },
+    {
+      "path": "inspect-native-video.py",
+      "bytes": 1833,
+      "sha256": "7c606fa0c4008cd04959014ee5754e6093f6f938689b0cc73ee6af183b23810d"
+    },
+    {
+      "path": "ios-build-final.log",
+      "bytes": 64181,
+      "sha256": "a844fc2dbfece3287eca16256476fa761ee76efe2a27292723c4cc82608f6a26"
+    },
+    {
+      "path": "launch-layered-verification.py",
+      "bytes": 2025,
+      "sha256": "88ed4985e686a480cd3996df705d37fc42a42c01c7cdb95bc1177fe098c39b46"
+    },
+    {
+      "path": "mac-build-final.log",
+      "bytes": 37254,
+      "sha256": "926c0ebf9ae4b79c8175d9e01464964e10ee9c901aa74958bea9007067671960"
+    },
+    {
+      "path": "package-review.py",
+      "bytes": 7292,
+      "sha256": "dab24e80ad479aa3c7a31cb4ae3ba7de05a86449353665eb467065d2b90f1059"
+    },
+    {
+      "path": "performance-ios-astronaut-idle.json",
+      "bytes": 3680,
+      "sha256": "9f2e3daf7378226b6eaeab2a9e6fe6018d46b68638db21a1004096d3eba78b40"
+    },
+    {
+      "path": "performance-ios-base-idle.json",
+      "bytes": 3649,
+      "sha256": "2924155945214dffbe9ba505e78045d96619d70908b893146c5fd17e386abd7d"
+    },
+    {
+      "path": "performance-ios-christmas-idle.json",
+      "bytes": 3612,
+      "sha256": "c594aa5c76e5c954467be886aea117cd02287f852a94be9389f58697b6c46df6"
+    },
+    {
+      "path": "performance-ios-flat-static.json",
+      "bytes": 3704,
+      "sha256": "43ec4166a9c928e427688f537a075c3aa5ce6f9b28e5744fb9da63edcc6be02b"
+    },
+    {
+      "path": "performance-ios-hanbok-flap.json",
+      "bytes": 3657,
+      "sha256": "afd715334fda6a4578e7e14405591306cfb30a705ef663f1041a99dcabad77d5"
+    },
+    {
+      "path": "performance-ios-layered-static.json",
+      "bytes": 3677,
+      "sha256": "bb63f4b72656c026e0ae76d86a2477d4329acd794928afe6e08b78b77b42ac36"
+    },
+    {
+      "path": "performance-ios-switching.json",
+      "bytes": 6213,
+      "sha256": "ebdcd17e259a42b6680f393509d0c9ce3b3bec070fc8b7f8437816290a957b33"
+    },
+    {
+      "path": "performance-mac-astronaut-idle.json",
+      "bytes": 3689,
+      "sha256": "5ff5277f4dfe301179b09ebf1f565654db8cbc979106b5428f086fe8dca7db5e"
+    },
+    {
+      "path": "performance-mac-base-idle.json",
+      "bytes": 3657,
+      "sha256": "9163dfa5edb70e1851264347b00966b86f1e299d85adebc100219c26d76027df"
+    },
+    {
+      "path": "performance-mac-christmas-idle.json",
+      "bytes": 3646,
+      "sha256": "95871446da04903038c571fa1e6c0f05d27ab4c5411a0891960a8dc02717ff4e"
+    },
+    {
+      "path": "performance-mac-christmas-jump.json",
+      "bytes": 3632,
+      "sha256": "1fc7ac1e16124ccab60b553a31fa8186d64225ec062817b5cde2f1082d0e5108"
+    },
+    {
+      "path": "performance-mac-flat-static.json",
+      "bytes": 3663,
+      "sha256": "69c23371cdec1871e588045e3f4b3f4f3b5563478a7a82ec6dcacfd2b6ea7956"
+    },
+    {
+      "path": "performance-mac-hanbok-flap.json",
+      "bytes": 3697,
+      "sha256": "894b7a95c6ff733977816f8fe51120453d1c46c5b374625d118532a68dbf9ea9"
+    },
+    {
+      "path": "performance-mac-layered-static.json",
+      "bytes": 3635,
+      "sha256": "b97aa5bd593ea42958718fb26adb15c4e31ac95ad501e3da528f6dc67e859106"
+    },
+    {
+      "path": "performance-mac-removed-after-switching.json",
+      "bytes": 3663,
+      "sha256": "b03a29456659e8c00e7f78d2afa15e1680fae70fe5d9534a6996fd1c76a0c148"
+    },
+    {
+      "path": "performance-mac-scroll-offscreen.json",
+      "bytes": 3643,
+      "sha256": "3a214823c9daf6bde621fd0761a42d3ee7693f4fd472f863af0470ed00cfafc6"
+    },
+    {
+      "path": "performance-mac-switching.json",
+      "bytes": 6268,
+      "sha256": "7697cdffc4ae0bccb8ad1d3ec7caa0d93529df7173ca2ac0f24610527c503ab0"
+    },
+    {
+      "path": "performance-sample.py",
+      "bytes": 2315,
+      "sha256": "c3cb1795770465b0a8dbf72e700ae7dc7d0f046623152c00510c4020fc1e7da1"
+    },
+    {
+      "path": "preservation-check.py",
+      "bytes": 1302,
+      "sha256": "6c82f954fa15e3355612b1c6a6fb9339a843245c337f444191b6d6af091ca8d4"
+    },
+    {
+      "path": "preservation-final.json",
+      "bytes": 437,
+      "sha256": "1e259bd7d81812207757458cb09a8d966fedd03c8c904e37aa7da588edd97e4b"
+    },
+    {
+      "path": "registered/astronaut-c/alpha-audit.json",
+      "bytes": 4829,
+      "sha256": "b6500530ed647dea1d7185711d4259a2f3c462be3ae87299963cfa7ff6ddbde5"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-comparison-220pt-1x-dark.png",
+      "bytes": 110004,
+      "sha256": "939cdb9181ef3e8106b7a45cac0554421a0d42a49a05aa0239297de039dcfd31"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-comparison-220pt-1x-light.png",
+      "bytes": 107300,
+      "sha256": "e11bbbbfedf0732805041057de4eafdc92304c825dbfbaca9d581ccce66316b3"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-comparison-220pt-3x-dark.png",
+      "bytes": 787814,
+      "sha256": "297c844dc0d06f1f134dd9e3fa33315b6a0e48c50c1c4f1db818425bae053bf8"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-comparison-220pt-3x-light.png",
+      "bytes": 778688,
+      "sha256": "90cc55030f1963bd7a4a18ce163e40b6021996763deb0f36f187fd94c88d4abc"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-comparison-64pt-1x-dark.png",
+      "bytes": 17080,
+      "sha256": "595fe63871540777c12a68ce1390e0dde937216580768402e6d3abc9365c8f8f"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-comparison-64pt-1x-light.png",
+      "bytes": 16427,
+      "sha256": "970583c49fea4d0931c20f2a22e30265a2c4f2bfa3be93e07ec7c34fb0d29cc0"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-comparison-64pt-3x-dark.png",
+      "bytes": 101216,
+      "sha256": "e6965147240b7e36b2ccc91dfe82e18db009d75a337e5d10efcdcc0613b3ba00"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-comparison-64pt-3x-light.png",
+      "bytes": 99226,
+      "sha256": "419ddf9019ab05d11e32018de81b7b70db63199e4b5f41d0d9dbe31c0b56f5d4"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-closed-dark.png",
+      "bytes": 622993,
+      "sha256": "54f7e11b8b56a9fdb112c50130c044892ce5f1fd9bd22e65e8420d37f5178194"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-closed-light.png",
+      "bytes": 625598,
+      "sha256": "e22fffa5b1c45be85d5dfa5782377d597373be9d5cae1bb743c54677c3961afb"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-left-minus12-dark.png",
+      "bytes": 426377,
+      "sha256": "46bc640a437893ad7d29a24ed0b09f9a880093978e85ddcb883dacd6c07fcca0"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-left-minus12-light.png",
+      "bytes": 422595,
+      "sha256": "af9447d95a244c54bd25a36c767acb3436494cef9cbef6c33ee30cbe0f417625"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-left-plus12-dark.png",
+      "bytes": 430150,
+      "sha256": "82749413e38479ebcc0a4d8d1200508d6a4b0e6f3d2641be87d3f9f0a7763bf1"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-left-plus12-light.png",
+      "bytes": 426533,
+      "sha256": "03568da7394e692837fcd012ef6e8ad4ecd5fadb90a3f4c2f972437cc3b77b5c"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-neutral-dark.png",
+      "bytes": 636255,
+      "sha256": "fa97cd54b7f7b911eb7b2139c340f21eeb990a33b32ff187a744d9c4ff55c099"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-neutral-light.png",
+      "bytes": 638459,
+      "sha256": "b0ffd61367b271227b159b3bae74920db8d96745729c0e8eb700328b461fd933"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-right-minus12-dark.png",
+      "bytes": 428549,
+      "sha256": "751c579a92e743e45a968be73549bd3ab11fc8ddccc472ae28b9aad7aa67528b"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-right-minus12-light.png",
+      "bytes": 424737,
+      "sha256": "7e1ebac1917b075e8d53342bb194863877ff3398a4cc54e97052b4ea5da87c65"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-right-plus12-dark.png",
+      "bytes": 429468,
+      "sha256": "0f648743c4a6704908e33ea28d66ee34d1f99bf165867814b24806f4bb695f33"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-right-plus12-light.png",
+      "bytes": 425895,
+      "sha256": "f78c1fd50c0409379a7a0a19fd589672668acc892eb25889506687108caca0e6"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-sprout-minus4-dark.png",
+      "bytes": 510826,
+      "sha256": "5484d2510fc0dbd2644c81b5fcf4c01e465690058b4707a85b77c28ddb86c264"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-sprout-minus4-light.png",
+      "bytes": 507689,
+      "sha256": "1aaa4cf7ccca790415ee748a984dc275ae5ae9a0baaac75121e06a441dc4850b"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-sprout-plus4-dark.png",
+      "bytes": 515289,
+      "sha256": "378500cf2305b89ddb72e17225ba675be069595becac1ce0a429911e238caeee"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-sprout-plus4-light.png",
+      "bytes": 513074,
+      "sha256": "040591dc56885b0cb4f237917495fcee8f553fa10d8f5ef0bd1221c96f27a9e6"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-step-left-dark.png",
+      "bytes": 150541,
+      "sha256": "8eadb1ba13ebdcf06c517f2269ca674847d435a12e6e6a3c1111b8e243e18bda"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-step-left-light.png",
+      "bytes": 150076,
+      "sha256": "d3647323a05e5aadf941130ead937bbf3689288e4b74f073d4eb377cfe5ac755"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-step-right-dark.png",
+      "bytes": 151897,
+      "sha256": "1a97cf982d44fd878b81e58e97160facf5028960834465c1251b37c5dc79bc1c"
+    },
+    {
+      "path": "registered/astronaut-c/astronaut-assembled-joint-step-right-light.png",
+      "bytes": 151300,
+      "sha256": "59aa0cb224aac34f3c23232e70c217674334cdfa8eab299e1593dc82ce702123"
+    },
+    {
+      "path": "registered/astronaut-c/poses.json",
+      "bytes": 1856,
+      "sha256": "e24f2965af327ab161652796c6d7459493f4699c7d6745866be6aa2d677f650c"
+    },
+    {
+      "path": "registered/astronaut-c/registration.json",
+      "bytes": 4362,
+      "sha256": "0f78b5fe3639eb02a839a1b14fb0977f3f669c321db37f7dd02455102bd3b9a1"
+    },
+    {
+      "path": "registered/astronaut-half-a/alpha-audit.json",
+      "bytes": 293,
+      "sha256": "7d89d051805b0dcf03dc4adf06892f3b511e64eddc7bd77fbc81ee5000b13f50"
+    },
+    {
+      "path": "registered/astronaut-half-a/body.png",
+      "bytes": 634998,
+      "sha256": "deb0873ab1889c505a8b6440e57a4bf4e9e258b78583e8d450f7f9949d61e9ef"
+    },
+    {
+      "path": "registered/astronaut-half-a/closed-alpha.png",
+      "bytes": 1080165,
+      "sha256": "7e963f2dd1d093f4b44b97ce6a73a9f53631ab624639216810a8672f01cca627"
+    },
+    {
+      "path": "registered/astronaut-half-a/closed-dark.png",
+      "bytes": 1039123,
+      "sha256": "2d7c90779dffa22edc9154e8beb4089e17f6d1b1b435ff415c40696d0e7d2dce"
+    },
+    {
+      "path": "registered/astronaut-half-a/closed-light.png",
+      "bytes": 1034109,
+      "sha256": "2a017d5c09d0bbf7032e49dae10b4cc7a6eb32e7cd7157bc5ab8fd0da2196307"
+    },
+    {
+      "path": "registered/astronaut-half-a/comparison-220pt-1x-dark.png",
+      "bytes": 57414,
+      "sha256": "12c652ac82bf52c83d5ab0cf6b82cf26a9d00d2d106ff97e4db3a172884c5f42"
+    },
+    {
+      "path": "registered/astronaut-half-a/comparison-220pt-1x-light.png",
+      "bytes": 56019,
+      "sha256": "37c9570f3593a7b7fac8158d017bd553476050677913f2c9d4019c3c4dbf40e2"
+    },
+    {
+      "path": "registered/astronaut-half-a/comparison-220pt-3x-dark.png",
+      "bytes": 404587,
+      "sha256": "d877a36aa39c585a92b0ee50e49e755acb773623e2e462c112415be7bf111631"
+    },
+    {
+      "path": "registered/astronaut-half-a/comparison-220pt-3x-light.png",
+      "bytes": 402910,
+      "sha256": "97a187030864674d7760cdeec14d39a77542d346c27b159bea963296e9efb896"
+    },
+    {
+      "path": "registered/astronaut-half-a/comparison-64pt-1x-dark.png",
+      "bytes": 8934,
+      "sha256": "9eb54801d364c8d911c0ff0f7f3e3db9e95909da359820eda445f47180fdd418"
+    },
+    {
+      "path": "registered/astronaut-half-a/comparison-64pt-1x-light.png",
+      "bytes": 8572,
+      "sha256": "2803eaf6129725cdca28f548a4c7c74c495fb8db6d670f720cc7af7c42292f34"
+    },
+    {
+      "path": "registered/astronaut-half-a/comparison-64pt-3x-dark.png",
+      "bytes": 53244,
+      "sha256": "488f9ae0fea1b4fc94d32d79cbadb1c3bd805bbb57f24093839670ecdef32934"
+    },
+    {
+      "path": "registered/astronaut-half-a/comparison-64pt-3x-light.png",
+      "bytes": 52441,
+      "sha256": "dbc5c4fa81c2489e12596f7e04a4993c34ae07364a3ee3fe00bb65064bdebcdf"
+    },
+    {
+      "path": "registered/astronaut-half-a/eyeLeft.png",
+      "bytes": 45644,
+      "sha256": "fb9ebc5e3bdc3d0037a9e8f17e2040be080b5c657e029911f8b198523d0ddfc3"
+    },
+    {
+      "path": "registered/astronaut-half-a/eyeRight.png",
+      "bytes": 44681,
+      "sha256": "30266a2fbbf25a3a421c9af3b01330ba6b402da423f28eafa847eaa62de355b9"
+    },
+    {
+      "path": "registered/astronaut-half-a/face-closed-dark.png",
+      "bytes": 385395,
+      "sha256": "8b82ee622dc979e3c3fb22415d591cad1969565f4f30602736f340312d2202f8"
+    },
+    {
+      "path": "registered/astronaut-half-a/face-closed-light.png",
+      "bytes": 386723,
+      "sha256": "78367eea302468ea5ea3f547ba0f37aed1a7bbd3d97940bf5de78a9a61b3c49d"
+    },
+    {
+      "path": "registered/astronaut-half-a/face-half-dark.png",
+      "bytes": 393158,
+      "sha256": "57e8631f86580c03d20adfb8d08ecee805573b6b17ec458242e544aae5be814c"
+    },
+    {
+      "path": "registered/astronaut-half-a/face-half-light.png",
+      "bytes": 394222,
+      "sha256": "9747b6a242cb3ff21966eb637a4e9f6ab0d22efe0c51e7eaa63eb1f6e3dd8980"
+    },
+    {
+      "path": "registered/astronaut-half-a/face-open-dark.png",
+      "bytes": 393349,
+      "sha256": "336086f992f982e6b76b80058dd138de968b456c8bce574dc6533a987f3be033"
+    },
+    {
+      "path": "registered/astronaut-half-a/face-open-light.png",
+      "bytes": 394299,
+      "sha256": "d8a4374907b7dc94538c7808eb99e2d74dbf0b44e04d57fa8e7fb683d7ec18e2"
+    },
+    {
+      "path": "registered/astronaut-half-a/footLeft.png",
+      "bytes": 56345,
+      "sha256": "6ea400f2910a6fdd4afcc7fcdcf498c84760517455f342f35c72179e25dd968e"
+    },
+    {
+      "path": "registered/astronaut-half-a/footRight.png",
+      "bytes": 54688,
+      "sha256": "be405ddb5a56d117df08ae4abf41b6199127f0c49196b2c744b6321547b6ec1d"
+    },
+    {
+      "path": "registered/astronaut-half-a/half-alpha.png",
+      "bytes": 1084401,
+      "sha256": "32b015d025dd83de1d751497fbbc59ea721f23be4dee7ecee774516f40d74081"
+    },
+    {
+      "path": "registered/astronaut-half-a/half-dark.png",
+      "bytes": 1043780,
+      "sha256": "f4fc5e9ff46bef91dd016dfc40269eccf6766b4c0bbc43a1f5ef8a847ab5954a"
+    },
+    {
+      "path": "registered/astronaut-half-a/half-light.png",
+      "bytes": 1038563,
+      "sha256": "3b1bf186fce814db16aa3a02afebf52e18b8addcca9464e3128f3199479994a0"
+    },
+    {
+      "path": "registered/astronaut-half-a/halfLeft.png",
+      "bytes": 52664,
+      "sha256": "f638246164edf4f17429f02fc9f8a4ed253f2b3fc023657ce74c4cc672f5dd3e"
+    },
+    {
+      "path": "registered/astronaut-half-a/halfRight.png",
+      "bytes": 51461,
+      "sha256": "37a6a26e07748c8f22a1e5bd118f01f8758faf1fbdab5887318fd4cf5371dc53"
+    },
+    {
+      "path": "registered/astronaut-half-a/helmet.png",
+      "bytes": 313778,
+      "sha256": "8bdd1d9ad2152733ca625785965cf38def9c8a1fe5ec175ebb2a427809e84ba0"
+    },
+    {
+      "path": "registered/astronaut-half-a/lidLeft.png",
+      "bytes": 35399,
+      "sha256": "3592601acc49cc0880a35fa6b16cb855d2af9937e54baabbe80671f72b23dd88"
+    },
+    {
+      "path": "registered/astronaut-half-a/lidRight.png",
+      "bytes": 34767,
+      "sha256": "04747d19e91be01e4fd5de94530a045e7587f5b4e3449fcdbdd7d34da21a6e08"
+    },
+    {
+      "path": "registered/astronaut-half-a/open-alpha.png",
+      "bytes": 1084027,
+      "sha256": "526c82f15f3ed667367a25dc889ddda2dcc39393e81e205000686ba545c2b76e"
+    },
+    {
+      "path": "registered/astronaut-half-a/open-dark.png",
+      "bytes": 1043306,
+      "sha256": "cb147a507acb0f6d3e1b7dcac2d65b800f87170e238cf3ad35410a2be17ead6b"
+    },
+    {
+      "path": "registered/astronaut-half-a/open-light.png",
+      "bytes": 1038048,
+      "sha256": "f45282f25be1484b72327ba4b13dcd64405d5d5a05773a384b2d877ab44dea7c"
+    },
+    {
+      "path": "registered/astronaut-half-a/reference-registered.png",
+      "bytes": 1266952,
+      "sha256": "06eacd0b240b178188c88a1506c991ef58d2f9e7656d484b83c54e0854bb5ce8"
+    },
+    {
+      "path": "registered/astronaut-half-a/registration.json",
+      "bytes": 5385,
+      "sha256": "8fd3bc56d0b14bfa5be5561abed284030fb70fe68e12d83699aa181a795d9b60"
+    },
+    {
+      "path": "registered/astronaut-half-a/sprout.png",
+      "bytes": 191755,
+      "sha256": "552faaa7e5bc0b4d9c0b4d241869a05d041316df54ea7edd99e8f771cd6d0f12"
+    },
+    {
+      "path": "registered/astronaut-half-a/visor.png",
+      "bytes": 398435,
+      "sha256": "13f3986cbeaab881e3018d56b7e5362e8e6b4f2381047ca630fc75198bed4ff2"
+    },
+    {
+      "path": "registered/astronaut-half-a/wingLeft.png",
+      "bytes": 101114,
+      "sha256": "d4659ba4fe9b2a4db43e9d8eb3a1be87fe8a4802d3055bd91c37f9bb8e58f3ec"
+    },
+    {
+      "path": "registered/astronaut-half-a/wingRight.png",
+      "bytes": 88972,
+      "sha256": "d51c9399224175ccdb8b43dcf7e5cc2731d27161daa57f970d713d7df4625bb3"
+    },
+    {
+      "path": "registered/base-half-a/alpha-audit.json",
+      "bytes": 293,
+      "sha256": "7d89d051805b0dcf03dc4adf06892f3b511e64eddc7bd77fbc81ee5000b13f50"
+    },
+    {
+      "path": "registered/base-half-a/body.png",
+      "bytes": 658823,
+      "sha256": "183eb29ca31c9272c46cebc3b312bf54d37942af9329b6b8afde55b674133ec0"
+    },
+    {
+      "path": "registered/base-half-a/closed-alpha.png",
+      "bytes": 901330,
+      "sha256": "8aa7e360a949e757e9b16ce5eb6ae51902801b5ebc9765acd911f7cbdfca9622"
+    },
+    {
+      "path": "registered/base-half-a/closed-dark.png",
+      "bytes": 857606,
+      "sha256": "649413d79b95aec512120c33dbcae3679215ac2c21c04ff7c15a539714217b89"
+    },
+    {
+      "path": "registered/base-half-a/closed-light.png",
+      "bytes": 848393,
+      "sha256": "647d4a4f6a49e0ba5a571b04ec8670c302017adc90079384fd0eb8c7ef0f2217"
+    },
+    {
+      "path": "registered/base-half-a/comparison-220pt-1x-dark.png",
+      "bytes": 47141,
+      "sha256": "27b71e49e337a61e87bc77910d031b99a6f94065bc7b21f3790a4944b0f38cd6"
+    },
+    {
+      "path": "registered/base-half-a/comparison-220pt-1x-light.png",
+      "bytes": 46280,
+      "sha256": "8648c7a0f31f175a2de2810432c1dee045d0f45c536693c94edae1d2e59b43ef"
+    },
+    {
+      "path": "registered/base-half-a/comparison-220pt-3x-dark.png",
+      "bytes": 348110,
+      "sha256": "68ed60f5dccb09a69fd8ea9e91285e097400844206dd2cfbdccca0f4465cff37"
+    },
+    {
+      "path": "registered/base-half-a/comparison-220pt-3x-light.png",
+      "bytes": 346738,
+      "sha256": "194b7fe2cd3efd8568e0f95329fe11a05f53746940155476855b4156a5a9df27"
+    },
+    {
+      "path": "registered/base-half-a/comparison-64pt-1x-dark.png",
+      "bytes": 7856,
+      "sha256": "e9bf4fb2e8a2fd56db06c457457610f232fc1ee3e529a32251ccb3685124d8c4"
+    },
+    {
+      "path": "registered/base-half-a/comparison-64pt-1x-light.png",
+      "bytes": 7602,
+      "sha256": "792a967313e403421f0e130bc9913106c2ecfd329a12c59e0c7ca38e51cbb7eb"
+    },
+    {
+      "path": "registered/base-half-a/comparison-64pt-3x-dark.png",
+      "bytes": 45367,
+      "sha256": "55ad96dbe46a9f5c66f60c9180b79ef784851a31d00d81ce50202d6743562711"
+    },
+    {
+      "path": "registered/base-half-a/comparison-64pt-3x-light.png",
+      "bytes": 44778,
+      "sha256": "bc4248b8c57f5cdc1f3409e718a6a5e7e5a8f9ee664be145132bebbfae6a4f5a"
+    },
+    {
+      "path": "registered/base-half-a/eyeLeft.png",
+      "bytes": 44989,
+      "sha256": "65a04719ec2de52d3c162949a58012bb6065334f3c4ddbe0f6e958eb4681cba4"
+    },
+    {
+      "path": "registered/base-half-a/eyeRight.png",
+      "bytes": 43580,
+      "sha256": "b1fd5143f6e3b3bdc4aa6f82fb2ea3170b4d75672dc9f614435483a3f84091a1"
+    },
+    {
+      "path": "registered/base-half-a/face-closed-dark.png",
+      "bytes": 347458,
+      "sha256": "170762d54a34a6899cf23da0854aa955c6734b4a8dea4944825969f9ffc6b8ea"
+    },
+    {
+      "path": "registered/base-half-a/face-closed-light.png",
+      "bytes": 347940,
+      "sha256": "72e99d1787b8dcbaf21dd69c380597af46dd3ebcd81e22d3087956818ec3a4af"
+    },
+    {
+      "path": "registered/base-half-a/face-half-dark.png",
+      "bytes": 356655,
+      "sha256": "899e299179b2eea50b5cd9013cfdee3556015c103f949ad22606e969f711c888"
+    },
+    {
+      "path": "registered/base-half-a/face-half-light.png",
+      "bytes": 356791,
+      "sha256": "b8763eaefb45d5d97a7262e05018728cdfca077c1e4fd4e559f5a7991bb47cef"
+    },
+    {
+      "path": "registered/base-half-a/face-open-dark.png",
+      "bytes": 355260,
+      "sha256": "fa7663d0c16380baefecf7c967099604434f5d840ae652b00c96a53c0859b45c"
+    },
+    {
+      "path": "registered/base-half-a/face-open-light.png",
+      "bytes": 355339,
+      "sha256": "4e48324142981f94019d5e16666ec1228f26612ee53df5551a26d1781e42373b"
+    },
+    {
+      "path": "registered/base-half-a/footLeft.png",
+      "bytes": 51819,
+      "sha256": "f353490759240102cf19010dd7d279cfef0435ef388abae184caaea6f4fa281a"
+    },
+    {
+      "path": "registered/base-half-a/footRight.png",
+      "bytes": 51575,
+      "sha256": "0f0914620ecf04d2be6bc3fd382d197e61f64d8d17909ab9f03788701fd320f3"
+    },
+    {
+      "path": "registered/base-half-a/half-alpha.png",
+      "bytes": 905997,
+      "sha256": "1ad4c64c271dd7e8f6c814465ecec1867c0b427a68f126d4ff661a05918f3874"
+    },
+    {
+      "path": "registered/base-half-a/half-dark.png",
+      "bytes": 863281,
+      "sha256": "2c7f4d3085aba2f9d1e076b25121b45540a1ec5445fcf477533b4e09d9b683b2"
+    },
+    {
+      "path": "registered/base-half-a/half-light.png",
+      "bytes": 854650,
+      "sha256": "19b77d12c15a2c8f911c3cdcea79d532a6aa952dced32573b55b8f8e33284744"
+    },
+    {
+      "path": "registered/base-half-a/halfLeft.png",
+      "bytes": 52079,
+      "sha256": "edeec9df49461258c39edbc94ac4dfb139338cf1228ebe48785db3820eb9c2c8"
+    },
+    {
+      "path": "registered/base-half-a/halfRight.png",
+      "bytes": 50702,
+      "sha256": "6e284e0e6d7a333e91eeca4b82ced764f8f4edc26932dee1fc66f479021ac5f4"
+    },
+    {
+      "path": "registered/base-half-a/lidLeft.png",
+      "bytes": 35571,
+      "sha256": "2f206a7d544605ca7dca42e67a15bc2f65542b5b10cf9694731073d59ae403c6"
+    },
+    {
+      "path": "registered/base-half-a/lidRight.png",
+      "bytes": 34962,
+      "sha256": "a6e5f2d83043da969e195749ff576c0afdd5f9f9121be40cd1042794c80e135a"
+    },
+    {
+      "path": "registered/base-half-a/open-alpha.png",
+      "bytes": 904652,
+      "sha256": "1149c3af0d25325e04787fd3a4308b8ebd004532b628951f8981ce671580b73f"
+    },
+    {
+      "path": "registered/base-half-a/open-dark.png",
+      "bytes": 861718,
+      "sha256": "efae32e58363124e13545ca92d6b6630b422a4b8b534d599cf64d390567ee628"
+    },
+    {
+      "path": "registered/base-half-a/open-light.png",
+      "bytes": 852882,
+      "sha256": "d44e7ed7795877b45825df2aa2544e1ae56601677b60f615d71e71c7432e5d52"
+    },
+    {
+      "path": "registered/base-half-a/reference-registered.png",
+      "bytes": 898643,
+      "sha256": "d2df390c59f14d220e6f091742616aea4af61e40fa7c9002c7825f521c78e4b9"
+    },
+    {
+      "path": "registered/base-half-a/registration.json",
+      "bytes": 4191,
+      "sha256": "24dcba5c2f1f79219783e743cdf4374d7603363684fad3623cf72e2029e44168"
+    },
+    {
+      "path": "registered/base-half-a/sprout.png",
+      "bytes": 184514,
+      "sha256": "079d6e8d846f04d24c9aa4f639b7f75fc66a57ab00f4fa2a5c4c4281d703d936"
+    },
+    {
+      "path": "registered/base-half-a/wingLeft.png",
+      "bytes": 86949,
+      "sha256": "26b3cc73e62a07dc1c754e05f9105afe4941ae50c2bef51d7610806e46f36513"
+    },
+    {
+      "path": "registered/base-half-a/wingRight.png",
+      "bytes": 126918,
+      "sha256": "38fbedae31b04fb97c29a34590838d6723cbd1f97284a9241c16635818380bd1"
+    },
+    {
+      "path": "registered/base-walk-ground/alpha-audit.json",
+      "bytes": 3357,
+      "sha256": "a772d59c6c93a2eddff8d0f0257a95f888f36b44721024393514f3a737a26f7a"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-comparison-220pt-1x-dark.png",
+      "bytes": 83877,
+      "sha256": "43f69f7641b589710ddb68582b80823dc3796c23405fa393242e9c7800bdd93f"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-comparison-220pt-1x-light.png",
+      "bytes": 82508,
+      "sha256": "2d242dea65f42ad2548d7754fc9d233cae6607bd735d65e8163c9c9092623d9a"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-comparison-220pt-3x-dark.png",
+      "bytes": 615584,
+      "sha256": "8b89cd598a99d060f235cde89d01febc35f678cfdb8b5c1c5f3e188136d5648c"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-comparison-220pt-3x-light.png",
+      "bytes": 609439,
+      "sha256": "65ecb246a2129ebdee9dec3cea38983aa4856219bf9b056e20be2500ef7a974c"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-comparison-64pt-1x-dark.png",
+      "bytes": 14564,
+      "sha256": "0ab6bec8a44204363a1cde1336ccd230a6a312cce9ce4c314ff11dff56336aeb"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-comparison-64pt-1x-light.png",
+      "bytes": 13871,
+      "sha256": "07064a163cf1ad786f6fbef1371b5e3d2f7e45238ca54ea87ac09a05e61e21d7"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-comparison-64pt-3x-dark.png",
+      "bytes": 81045,
+      "sha256": "3d89ac1d8a8b06c21c4e913920705ea7264aaa07be6db38e5ce818513721606a"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-comparison-64pt-3x-light.png",
+      "bytes": 79074,
+      "sha256": "bcf4e4a8bc0dc054eca69085505b1e28dc8a2c8d5b427352751b55c70f80e510"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-closed-dark.png",
+      "bytes": 443398,
+      "sha256": "92113a63ac207a99058e187b32b556ea69921a3e8a8b6d3ff43b3cbf69429c23"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-closed-light.png",
+      "bytes": 445948,
+      "sha256": "262d4db57d6c6213b46cb18126f4121c32149a691c17c79d4b2ff520fe6da8e4"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-left-minus12-dark.png",
+      "bytes": 271125,
+      "sha256": "9316af1c3e838e3bdd7f4f6b4363478faea31f971363a8b6577a51d2c4a31665"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-left-minus12-light.png",
+      "bytes": 267845,
+      "sha256": "4500dac401f6be93ea176dad8cfb8ff56f3044f104a0506a009c74d26a09ea51"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-left-plus12-dark.png",
+      "bytes": 298209,
+      "sha256": "0d4d074b12e3fc399b0bec2892373e86302fe6d62d3825152815c2a1c33cf1ac"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-left-plus12-light.png",
+      "bytes": 294772,
+      "sha256": "f2047e6ba1146ba56fa7be513252d4c8cc572aba8d8e040b5c76935a99abb88b"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-neutral-dark.png",
+      "bytes": 450307,
+      "sha256": "0a4d1210cdf941da66ed22acd7a74f858e3fc10ada03bc987f09aa015dede496"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-neutral-light.png",
+      "bytes": 452614,
+      "sha256": "dd6818b7cc142c0724e5f638c0552be26000604ad8ab8507f704f52176acff34"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-right-minus12-dark.png",
+      "bytes": 276435,
+      "sha256": "cdd391453d973847728a41802b046d46b26600d483848e56f9334b0c44db4e70"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-right-minus12-light.png",
+      "bytes": 269985,
+      "sha256": "83e36071b62f73c352da75e89333383cebf551d174ac756e45adc835c3c1554e"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-right-plus12-dark.png",
+      "bytes": 288617,
+      "sha256": "71bdb15a5141c9744c8867d8e36ecf24d16de5d7e702d2fef4d1cd7eb20c207c"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-right-plus12-light.png",
+      "bytes": 280711,
+      "sha256": "473fbc569573c9329ff6eee0905f8c806a8c640a65a6d99e704dddbe8a735770"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-step-left-dark.png",
+      "bytes": 158396,
+      "sha256": "00ffec87a83d913f975aa47775aba927531b4ef277df0776b660fe90f3ccab0d"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-step-left-light.png",
+      "bytes": 158191,
+      "sha256": "73d66e349256d6e6c6609cb1f8f53338b363076c7c5815122382e477bdabe967"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-step-right-dark.png",
+      "bytes": 161251,
+      "sha256": "976a8e0f24271995a701622dce00d26874b30e9ae1606f6d2134642b81972051"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-step-right-ground-lift-dark.png",
+      "bytes": 170079,
+      "sha256": "db56d64dadaec7399bf25e2f005246d78c0511b49ff50b6de78e772db7483021"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-step-right-ground-lift-light.png",
+      "bytes": 170264,
+      "sha256": "7f71df0562e34e14000e398c739bd390ba8469d4665be682bcf93605209fb49b"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-step-right-light.png",
+      "bytes": 161361,
+      "sha256": "c63d09e479d6317b32438b9c12e82f8a434d94e405e46da2989c47387e5473d4"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-step-right-planted-dark.png",
+      "bytes": 163406,
+      "sha256": "7bd463201b89ab9e04bffbb1c48abd7ed8802cc5354110eed8d03e18fb818b12"
+    },
+    {
+      "path": "registered/base-walk-ground/base-assembled-joint-step-right-planted-light.png",
+      "bytes": 163348,
+      "sha256": "29625d8d2444e0330caa64f79a7b00f8607a5ba7be38fff349c6b47bcab5bb53"
+    },
+    {
+      "path": "registered/base-walk-ground/poses.json",
+      "bytes": 2322,
+      "sha256": "5abecb64e6ddce4368bd975f1c45ebba639dced5c127b583ff9c9f6907d79001"
+    },
+    {
+      "path": "registered/base-walk-ground/registration.json",
+      "bytes": 3165,
+      "sha256": "06273b0e17ef17fdc04e25067b282d0d70a3547e73cf7f211da726c7987d6f9b"
+    },
+    {
+      "path": "registered/christmas-f/alpha-audit.json",
+      "bytes": 4789,
+      "sha256": "8b1d510f59009e99e4ffd1a1842ac60f26d8e544c06807854e8492c40116aad6"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-comparison-220pt-1x-dark.png",
+      "bytes": 132987,
+      "sha256": "f6ca2b8fbf4cf18ba921dede487ff8150d182f1611ecef761370133466ca9b7b"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-comparison-220pt-1x-light.png",
+      "bytes": 131625,
+      "sha256": "9c63b5d176d2107dd75933b3629d8f814e98f82562cda006120ec7b83c3b39bd"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-comparison-220pt-3x-dark.png",
+      "bytes": 1030752,
+      "sha256": "40c6a37837cc8c28dfb602f9fba59ea588284324bd1778779c1f12268e2327a2"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-comparison-220pt-3x-light.png",
+      "bytes": 1027840,
+      "sha256": "b116c69e448c16222b9854974ecdafc703000610e13c465d12dfa3a106196100"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-comparison-64pt-1x-dark.png",
+      "bytes": 19552,
+      "sha256": "f41237d39580fcea78f62ea7051fded0dea0dd2119969c21ccb82175e5b5ba01"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-comparison-64pt-1x-light.png",
+      "bytes": 19118,
+      "sha256": "3aa3feb35659a1afd6a34157f02a498ab386c0c35978db4e7ec9a653d048a0ba"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-comparison-64pt-3x-dark.png",
+      "bytes": 119027,
+      "sha256": "8c405612c12656a2f132d6ed97471df086dd5bd949bdf47c7d45d1fcc4c4eca7"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-comparison-64pt-3x-light.png",
+      "bytes": 118079,
+      "sha256": "5107bea0f8f293f80386d184325f2bac382ee4261c7e4b24f202950651cac1bb"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-closed-dark.png",
+      "bytes": 720670,
+      "sha256": "53e9019f349b18ae9c5b425fc5515bb8ebe7f66c5f2857b975b95346cd273342"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-closed-light.png",
+      "bytes": 722430,
+      "sha256": "97af48154ae471ecaa899edb5b7f8a1afe2dc71f8052ae7e6b86582563063482"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-grip-down-dark.png",
+      "bytes": 615364,
+      "sha256": "583813323fa2be51cffd6e79546e3514a111756bda35f29a587ac819f1c3f5d6"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-grip-down-light.png",
+      "bytes": 614958,
+      "sha256": "7da32c60b24fecfe90d97ddc9bb6c68c6eb70a3990021095cf2de1025ac1862e"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-grip-up-dark.png",
+      "bytes": 615219,
+      "sha256": "bfec25a09e7e8fc846ac7334e4de8ef20a61576f630c6f42c6891c5bed1d33c5"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-grip-up-light.png",
+      "bytes": 614871,
+      "sha256": "f9927cd56bc88ecb33a48e047ef79f52618a2c8656422430b83bd6041318a703"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-hat-minus4-dark.png",
+      "bytes": 712023,
+      "sha256": "983dfa57f6073ae8d2a42980119e503b0bad5c84a2b8d0ceb20c5feb60116163"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-hat-minus4-light.png",
+      "bytes": 710784,
+      "sha256": "012c7c3863dee19f37776f3069748b770c10d8d322b8a1f9bae8137f992e6d34"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-hat-plus4-dark.png",
+      "bytes": 717931,
+      "sha256": "6bc53ed5d32b3189a9093ce1aa5d2a69155429ae6d396f303e465c26684febaf"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-hat-plus4-light.png",
+      "bytes": 717298,
+      "sha256": "4dba19f01d81baa6dcc898ce6b339b12e69b4d8e346af15d7884ac9ac48a6bf2"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-neutral-dark.png",
+      "bytes": 728831,
+      "sha256": "f44284190f67afa93d2ed11e4a5649dc96b45c30ed24fdd2234b9eca9dbacc25"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-neutral-light.png",
+      "bytes": 730277,
+      "sha256": "4f0a244e796b6bb90d40ada69a26687b395131eff6fbf69fc6a4c24cfb7343dd"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-right-minus12-dark.png",
+      "bytes": 618231,
+      "sha256": "3f6ae566c86431eeee76636aeda4a68bb180b9a8b1211c8f3f68e80c47a26547"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-right-minus12-light.png",
+      "bytes": 616767,
+      "sha256": "9db3fe6d7ec9e9dedf6b8504296c4deda976a2fd557d7c0e9c60397bd28b0359"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-right-plus12-dark.png",
+      "bytes": 613336,
+      "sha256": "2ac6d62eea51dfe81925518e48823b30d0543464fa6c4b373d1161ff1256e120"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-right-plus12-light.png",
+      "bytes": 612248,
+      "sha256": "5f61d06037721633854f4c63e92b596dfec9263d3a51d1a38f87a1a284446efb"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-step-left-dark.png",
+      "bytes": 248489,
+      "sha256": "3f444f40a07f16cfb7fdc14134294c199bd5187e17d0108b5d0e00cfd3898b83"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-step-left-light.png",
+      "bytes": 248010,
+      "sha256": "19814e3a41892aec1faa28b7b65f1d4af6134436576e5d0512886d25415b9741"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-step-right-dark.png",
+      "bytes": 248628,
+      "sha256": "e3b0fe570109fbb637fd68f821b84031709ed63bbffd492d67061eb4c97ffbba"
+    },
+    {
+      "path": "registered/christmas-f/christmas-assembled-joint-step-right-light.png",
+      "bytes": 247887,
+      "sha256": "c6ec1b501d506e9831401f1a953684db1e2b0c93e020b3d9c7562f8549f5e986"
+    },
+    {
+      "path": "registered/christmas-f/poses.json",
+      "bytes": 1991,
+      "sha256": "256473e6f8c9c545df2910a87baa2c355a912f062f8bf14efa4bf8520c430064"
+    },
+    {
+      "path": "registered/christmas-f/registration.json",
+      "bytes": 4154,
+      "sha256": "fa2300e4f2dd9a6e71f1498e60dc6998685601a6638dc186302be85a8fcacccd"
+    },
+    {
+      "path": "registered/christmas-g/alpha-audit.json",
+      "bytes": 4789,
+      "sha256": "8b1d510f59009e99e4ffd1a1842ac60f26d8e544c06807854e8492c40116aad6"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-comparison-220pt-1x-dark.png",
+      "bytes": 132987,
+      "sha256": "f6ca2b8fbf4cf18ba921dede487ff8150d182f1611ecef761370133466ca9b7b"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-comparison-220pt-1x-light.png",
+      "bytes": 131625,
+      "sha256": "9c63b5d176d2107dd75933b3629d8f814e98f82562cda006120ec7b83c3b39bd"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-comparison-220pt-3x-dark.png",
+      "bytes": 1030752,
+      "sha256": "40c6a37837cc8c28dfb602f9fba59ea588284324bd1778779c1f12268e2327a2"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-comparison-220pt-3x-light.png",
+      "bytes": 1027840,
+      "sha256": "b116c69e448c16222b9854974ecdafc703000610e13c465d12dfa3a106196100"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-comparison-64pt-1x-dark.png",
+      "bytes": 19552,
+      "sha256": "f41237d39580fcea78f62ea7051fded0dea0dd2119969c21ccb82175e5b5ba01"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-comparison-64pt-1x-light.png",
+      "bytes": 19118,
+      "sha256": "3aa3feb35659a1afd6a34157f02a498ab386c0c35978db4e7ec9a653d048a0ba"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-comparison-64pt-3x-dark.png",
+      "bytes": 119027,
+      "sha256": "8c405612c12656a2f132d6ed97471df086dd5bd949bdf47c7d45d1fcc4c4eca7"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-comparison-64pt-3x-light.png",
+      "bytes": 118079,
+      "sha256": "5107bea0f8f293f80386d184325f2bac382ee4261c7e4b24f202950651cac1bb"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-closed-dark.png",
+      "bytes": 720670,
+      "sha256": "53e9019f349b18ae9c5b425fc5515bb8ebe7f66c5f2857b975b95346cd273342"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-closed-light.png",
+      "bytes": 722430,
+      "sha256": "97af48154ae471ecaa899edb5b7f8a1afe2dc71f8052ae7e6b86582563063482"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-grip-down-dark.png",
+      "bytes": 615364,
+      "sha256": "583813323fa2be51cffd6e79546e3514a111756bda35f29a587ac819f1c3f5d6"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-grip-down-light.png",
+      "bytes": 614958,
+      "sha256": "7da32c60b24fecfe90d97ddc9bb6c68c6eb70a3990021095cf2de1025ac1862e"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-grip-flap-minus6-dark.png",
+      "bytes": 612863,
+      "sha256": "35239113bb5c7760909c94c5f7d7d472e7eb24012c8bdaf6e86916e4a617beeb"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-grip-flap-minus6-light.png",
+      "bytes": 611922,
+      "sha256": "31e76553257186762acb0a0b9495e75e628bc11fc93be0eb829d4bfca085ac71"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-grip-flap-plus6-dark.png",
+      "bytes": 614642,
+      "sha256": "518ae0986ff1fee235b2961a521f25e7f0ffb27708b7748ec2c5e8a09310157a"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-grip-flap-plus6-light.png",
+      "bytes": 614409,
+      "sha256": "e5e41d1e1b5fd8487ec783b685e10941f2fe91142de3ca4ae4cca879e7fdba95"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-grip-up-dark.png",
+      "bytes": 615219,
+      "sha256": "bfec25a09e7e8fc846ac7334e4de8ef20a61576f630c6f42c6891c5bed1d33c5"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-grip-up-light.png",
+      "bytes": 614871,
+      "sha256": "f9927cd56bc88ecb33a48e047ef79f52618a2c8656422430b83bd6041318a703"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-hat-minus4-dark.png",
+      "bytes": 712023,
+      "sha256": "983dfa57f6073ae8d2a42980119e503b0bad5c84a2b8d0ceb20c5feb60116163"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-hat-minus4-light.png",
+      "bytes": 710784,
+      "sha256": "012c7c3863dee19f37776f3069748b770c10d8d322b8a1f9bae8137f992e6d34"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-hat-plus4-dark.png",
+      "bytes": 717931,
+      "sha256": "6bc53ed5d32b3189a9093ce1aa5d2a69155429ae6d396f303e465c26684febaf"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-hat-plus4-light.png",
+      "bytes": 717298,
+      "sha256": "4dba19f01d81baa6dcc898ce6b339b12e69b4d8e346af15d7884ac9ac48a6bf2"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-neutral-dark.png",
+      "bytes": 728831,
+      "sha256": "f44284190f67afa93d2ed11e4a5649dc96b45c30ed24fdd2234b9eca9dbacc25"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-neutral-light.png",
+      "bytes": 730277,
+      "sha256": "4f0a244e796b6bb90d40ada69a26687b395131eff6fbf69fc6a4c24cfb7343dd"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-right-minus12-dark.png",
+      "bytes": 618231,
+      "sha256": "3f6ae566c86431eeee76636aeda4a68bb180b9a8b1211c8f3f68e80c47a26547"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-right-minus12-light.png",
+      "bytes": 616767,
+      "sha256": "9db3fe6d7ec9e9dedf6b8504296c4deda976a2fd557d7c0e9c60397bd28b0359"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-right-plus12-dark.png",
+      "bytes": 613336,
+      "sha256": "2ac6d62eea51dfe81925518e48823b30d0543464fa6c4b373d1161ff1256e120"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-right-plus12-light.png",
+      "bytes": 612248,
+      "sha256": "5f61d06037721633854f4c63e92b596dfec9263d3a51d1a38f87a1a284446efb"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-step-left-dark.png",
+      "bytes": 248489,
+      "sha256": "3f444f40a07f16cfb7fdc14134294c199bd5187e17d0108b5d0e00cfd3898b83"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-step-left-light.png",
+      "bytes": 248010,
+      "sha256": "19814e3a41892aec1faa28b7b65f1d4af6134436576e5d0512886d25415b9741"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-step-right-dark.png",
+      "bytes": 248628,
+      "sha256": "e3b0fe570109fbb637fd68f821b84031709ed63bbffd492d67061eb4c97ffbba"
+    },
+    {
+      "path": "registered/christmas-g/christmas-assembled-joint-step-right-light.png",
+      "bytes": 247887,
+      "sha256": "c6ec1b501d506e9831401f1a953684db1e2b0c93e020b3d9c7562f8549f5e986"
+    },
+    {
+      "path": "registered/christmas-g/poses.json",
+      "bytes": 2965,
+      "sha256": "ab2cc5266deecb90322c69bf7f6b18096dd8ba03464de4fb6180a596900e0113"
+    },
+    {
+      "path": "registered/christmas-g/registration.json",
+      "bytes": 4154,
+      "sha256": "fa2300e4f2dd9a6e71f1498e60dc6998685601a6638dc186302be85a8fcacccd"
+    },
+    {
+      "path": "registered/christmas-half-a/alpha-audit.json",
+      "bytes": 293,
+      "sha256": "7d89d051805b0dcf03dc4adf06892f3b511e64eddc7bd77fbc81ee5000b13f50"
+    },
+    {
+      "path": "registered/christmas-half-a/body.png",
+      "bytes": 1122444,
+      "sha256": "0daeef7e3cf59c17c7920d1d9105befdac3de04ce41d0df0cba97d40dbfd7e3e"
+    },
+    {
+      "path": "registered/christmas-half-a/closed-alpha.png",
+      "bytes": 1616948,
+      "sha256": "729019d738f7b52a9542a3acbc23a637a0d39e054bde38af0b58816be6e7d798"
+    },
+    {
+      "path": "registered/christmas-half-a/closed-dark.png",
+      "bytes": 1539407,
+      "sha256": "438b5864401910aef3a79e586deba85ad83c7f5b642e3c77035163d8f8294199"
+    },
+    {
+      "path": "registered/christmas-half-a/closed-light.png",
+      "bytes": 1547932,
+      "sha256": "ac7430f4df3102b0ec755963445d289c98e6a37245f91b5151f14b5826cd4a82"
+    },
+    {
+      "path": "registered/christmas-half-a/comparison-220pt-1x-dark.png",
+      "bytes": 72433,
+      "sha256": "9673d7ffed52bc0097eb2ca2d6da362688b30e47eb3fd23a2084196e6d048543"
+    },
+    {
+      "path": "registered/christmas-half-a/comparison-220pt-1x-light.png",
+      "bytes": 71603,
+      "sha256": "da2656842decf5f5f8f9ff1a6dd51f7af7314ddc6bb2f5111fd2177490fd7519"
+    },
+    {
+      "path": "registered/christmas-half-a/comparison-220pt-3x-dark.png",
+      "bytes": 556348,
+      "sha256": "6e873f4a46a8dc0b728b20ebb9ca21fa45e9b84ac8a2a42c81ea587a88222b5b"
+    },
+    {
+      "path": "registered/christmas-half-a/comparison-220pt-3x-light.png",
+      "bytes": 555147,
+      "sha256": "8d78a5923178f8962102e4ac4e5a279a3c7094b40d43d15ab9d19b26c1173f05"
+    },
+    {
+      "path": "registered/christmas-half-a/comparison-64pt-1x-dark.png",
+      "bytes": 10510,
+      "sha256": "822371215c20277938fed25fb7ad52c17be92acc59ec5dade54820678318ef43"
+    },
+    {
+      "path": "registered/christmas-half-a/comparison-64pt-1x-light.png",
+      "bytes": 10277,
+      "sha256": "57d7ca2342d68b5ad4b8f5a7daf8feb390c5e9da5beeddbbdbfebda3b9ddcef5"
+    },
+    {
+      "path": "registered/christmas-half-a/comparison-64pt-3x-dark.png",
+      "bytes": 65302,
+      "sha256": "735a6c08fc597faf828ab577a4309d2ded929546278e65d6ca8ce7e1a13ff8e9"
+    },
+    {
+      "path": "registered/christmas-half-a/comparison-64pt-3x-light.png",
+      "bytes": 64744,
+      "sha256": "dbd9b1b3dfdf41bec01000f98ebef97fd2d18bcd7879f25fa92e1ae515c0b568"
+    },
+    {
+      "path": "registered/christmas-half-a/eyeLeft.png",
+      "bytes": 46552,
+      "sha256": "b3a2ea2ce0f44a706423b28c152896bcbc94c1cef8901bbf6772937dd4b17fe5"
+    },
+    {
+      "path": "registered/christmas-half-a/eyeRight.png",
+      "bytes": 45511,
+      "sha256": "d378c26d7b61c3e7edcb23897eeda22954ce246a192e0d7acbf055903517d83d"
+    },
+    {
+      "path": "registered/christmas-half-a/face-closed-dark.png",
+      "bytes": 421995,
+      "sha256": "27286f4da98dad51a6462b5e6bbe414906dd6fe765e997a57372cb00a66e6190"
+    },
+    {
+      "path": "registered/christmas-half-a/face-closed-light.png",
+      "bytes": 422802,
+      "sha256": "91e1e126712c6b475d701de2df7a4d6ce0a22d57af7ba5051489d7938ccd3f5e"
+    },
+    {
+      "path": "registered/christmas-half-a/face-half-dark.png",
+      "bytes": 425635,
+      "sha256": "2857c0a806cb5a704fb632076871b4eadea9918bc996ee626e09b798e612989c"
+    },
+    {
+      "path": "registered/christmas-half-a/face-half-light.png",
+      "bytes": 426264,
+      "sha256": "53db6cf02a033e37254f509ce23839cc2941d7ddea5f613cb77a84fe0dc89a9b"
+    },
+    {
+      "path": "registered/christmas-half-a/face-open-dark.png",
+      "bytes": 427124,
+      "sha256": "0c7dda2932e57fb7097bdf47d5761129abd4d0c0fbc437b373004022a847fd81"
+    },
+    {
+      "path": "registered/christmas-half-a/face-open-light.png",
+      "bytes": 427957,
+      "sha256": "5f403b93499277ed63d0496c121c06d389d9999bbeedb2052f035242486c6092"
+    },
+    {
+      "path": "registered/christmas-half-a/footLeft.png",
+      "bytes": 62682,
+      "sha256": "608c193ebeffbec1bfb8fb2f2671094c2a8a2fab58a5bed1965142a25250a135"
+    },
+    {
+      "path": "registered/christmas-half-a/footRight.png",
+      "bytes": 58022,
+      "sha256": "c534212d84d514fad4767f66a136e7b80aefd79b6ebfe63d15fcecdddc85a413"
+    },
+    {
+      "path": "registered/christmas-half-a/gift.png",
+      "bytes": 188728,
+      "sha256": "576882b061afb0574d79e1368bf5080e4afc40379c1a5a560deb6dd6921d9055"
+    },
+    {
+      "path": "registered/christmas-half-a/half-alpha.png",
+      "bytes": 1618404,
+      "sha256": "6ebc9d0abc4053cf14e08cad9dbdce45dea3b151e582936fedc68929e77dc76c"
+    },
+    {
+      "path": "registered/christmas-half-a/half-dark.png",
+      "bytes": 1542374,
+      "sha256": "401f5016cbbe542c9b7b290fd4ba5ae08c3e5af3fc81929c199330b806af7291"
+    },
+    {
+      "path": "registered/christmas-half-a/half-light.png",
+      "bytes": 1550819,
+      "sha256": "42c4f7db86420b4df616451adc7e84c6492c9e31419c7b4939a5e43273a66d81"
+    },
+    {
+      "path": "registered/christmas-half-a/halfLeft.png",
+      "bytes": 55019,
+      "sha256": "6aa14706070116ef90e270fe63fb054a276e0069edfa7342d8df484e90190a51"
+    },
+    {
+      "path": "registered/christmas-half-a/halfRight.png",
+      "bytes": 54304,
+      "sha256": "8497c281feec9ac0df122d4eb98c553d01ac44d70c0f588607fff102a8f8b451"
+    },
+    {
+      "path": "registered/christmas-half-a/handLeft.png",
+      "bytes": 138367,
+      "sha256": "bbe474e3eb01e44fa4504ebb4e55bd90e79ce203a0ec5c0387fd88c814b2040b"
+    },
+    {
+      "path": "registered/christmas-half-a/handRight.png",
+      "bytes": 92591,
+      "sha256": "11a239187646700205c6320b93d305dafb8eab05aa7a453b7cfb83e079fd9e3b"
+    },
+    {
+      "path": "registered/christmas-half-a/hat.png",
+      "bytes": 695270,
+      "sha256": "d08dbc374dc09a383f7ba4cf2ff204e2dd8c2ee0099eab03a8a37827cb956aa7"
+    },
+    {
+      "path": "registered/christmas-half-a/lidLeft.png",
+      "bytes": 35896,
+      "sha256": "57904182fc51405c92492e11dd583d7dfc52c5a8520165ccb986678221f7fcdb"
+    },
+    {
+      "path": "registered/christmas-half-a/lidRight.png",
+      "bytes": 35946,
+      "sha256": "c14d8340c490528a65f9ef2d388a826b2c788685839aafa6c04172c8101bf230"
+    },
+    {
+      "path": "registered/christmas-half-a/open-alpha.png",
+      "bytes": 1619508,
+      "sha256": "784a9c01b2ecb3f36d135d56b315b05915b629755b2ce126fee178538074b784"
+    },
+    {
+      "path": "registered/christmas-half-a/open-dark.png",
+      "bytes": 1543769,
+      "sha256": "57d6fef5a8389c97daaf80e3f8a2b480f01e4c9be3e50ec315ef1773167a7af0"
+    },
+    {
+      "path": "registered/christmas-half-a/open-light.png",
+      "bytes": 1552371,
+      "sha256": "e41d073c72bf2ae5f0b36dd2c9877c82577c7326108effa5bed5f82b79dd6d13"
+    },
+    {
+      "path": "registered/christmas-half-a/reference-registered.png",
+      "bytes": 1667656,
+      "sha256": "283aca5c7a1ac243c78a14358b9df4dcf01e0a66fdab5e947d017ef5a7f5f9c2"
+    },
+    {
+      "path": "registered/christmas-half-a/registration.json",
+      "bytes": 5176,
+      "sha256": "fa0e48adf2c095754d3aab4e4d31bf5c8b9824b1cb57b764d2340a03e884376f"
+    },
+    {
+      "path": "registered/hanbok-e/alpha-audit.json",
+      "bytes": 3747,
+      "sha256": "efa1f052bda85605a0d2bdbec49c176dc3ef992f3f0f5029257f3f196e70c39c"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-comparison-220pt-1x-dark.png",
+      "bytes": 129456,
+      "sha256": "e0a986863b7f892afde2d35d15370106f21d0646d5294503d1470412b50d3030"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-comparison-220pt-1x-light.png",
+      "bytes": 127539,
+      "sha256": "8d6bbcd1fd947cdc06869bb513e8536fb26ceb00379a8f8b289e82ff3d46907d"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-comparison-220pt-3x-dark.png",
+      "bytes": 967602,
+      "sha256": "4eb1b0a46b014b85b48c9a384e16c39847815ae3109b1aa9121ad3e32efaa161"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-comparison-220pt-3x-light.png",
+      "bytes": 961929,
+      "sha256": "1f1c6b458c8ee31648b94f75579ec36a95cebf4ff789894415adc3ef9d9af317"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-comparison-64pt-1x-dark.png",
+      "bytes": 19256,
+      "sha256": "15d3572c4fb892cda33f57ef76f7aba93717d7b087b657d8d63bbd16420b675e"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-comparison-64pt-1x-light.png",
+      "bytes": 18606,
+      "sha256": "7af6e3da47980b3ca0337e28de9fb40ef3d51a071829830093ec5a44fc41191b"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-comparison-64pt-3x-dark.png",
+      "bytes": 116352,
+      "sha256": "8d2964faefd2293a4b9a9fe426aa193fadb4c01e3bc1ee6453d9a3a4adb0f900"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-comparison-64pt-3x-light.png",
+      "bytes": 114482,
+      "sha256": "e3305da966323fc7d4c08ef67f07785f46c5d87b503443e1472979b06d6f8ee5"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-closed-dark.png",
+      "bytes": 658346,
+      "sha256": "a97bf34962764d4015f920781ec5a4de12f5ac127009bb46264b7c5dc2dd28ad"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-closed-light.png",
+      "bytes": 659806,
+      "sha256": "a3e8b370535743ea51fe67a271307e54e50d895eb807550bdb1f81c0f9081b8f"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-left-minus12-dark.png",
+      "bytes": 576826,
+      "sha256": "913a75166f6ccbbb102f20a62ac0cfdc5b280216bb0d57149bec71c4cef9c943"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-left-minus12-light.png",
+      "bytes": 573186,
+      "sha256": "c75de170342a957829f23d00d643c356d19e9752652881234ac31470c02f106a"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-left-plus12-dark.png",
+      "bytes": 584822,
+      "sha256": "b451a93f4a5699c42df7251dfbaa879d3a5a5e6452f06a0070b7e97a5c0abed4"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-left-plus12-light.png",
+      "bytes": 581950,
+      "sha256": "28e26539cf8cb06b0de9404b0538bd77caaa0bc23493ec61a86e8e0d42bb4a2b"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-neutral-dark.png",
+      "bytes": 672050,
+      "sha256": "924839292388fd3c18c912ed3ccb382c71dd126597aca27d16cae72db517aa78"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-neutral-light.png",
+      "bytes": 673259,
+      "sha256": "b6a9d26de7a9aa06765f995897af9b918f90a08eb4a8b9b1a9fdb5eacc5b7aee"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-right-minus12-dark.png",
+      "bytes": 576536,
+      "sha256": "013b07f8595e2d6d720c9fc3ad17062d141eaa2fc5da022ce9157fc62dc73291"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-right-minus12-light.png",
+      "bytes": 574070,
+      "sha256": "66f0840ae670cd0f0d2b18f39efa2a990d2e5158f905bc2808eba24a66ba1366"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-right-plus12-dark.png",
+      "bytes": 580868,
+      "sha256": "2b93e73c4822fd40c83dbf8fa7321799b017bcd5803ff09090884f4adf4471b2"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-right-plus12-light.png",
+      "bytes": 577848,
+      "sha256": "ac2d4eb51b61792280cc955d70f06b981a6d50b6d028af24c8cb21b01e11e783"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-sprout-minus4-dark.png",
+      "bytes": 574047,
+      "sha256": "eff762839894ff194e7c5dcb865c6b307e1244c5503cc1a788c5551ebb223b56"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-sprout-minus4-light.png",
+      "bytes": 569791,
+      "sha256": "e12a3167594858d1f0364571f77e9d4f343db91d797011992e56f0595d946452"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-sprout-plus4-dark.png",
+      "bytes": 577429,
+      "sha256": "96b7c49c798a410c09de1e5b0c54dc9787781b2ef1dc050f699245ef55f3af1e"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-sprout-plus4-light.png",
+      "bytes": 573983,
+      "sha256": "fb97cfe99dd0428e45b5a1c3ced828617aa2ac627a697ce0008b028d80893eb4"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-step-left-dark.png",
+      "bytes": 310973,
+      "sha256": "897af0a137bada5664631104ef6a3515b5ca6e32a00cbe4d9a436a4ff8032ea4"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-step-left-light.png",
+      "bytes": 312223,
+      "sha256": "8e435bd548e10107c2d2c439a14b377e0da76332f5dfd5a9159517ce05c3756d"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-step-right-dark.png",
+      "bytes": 313127,
+      "sha256": "bd2086584b45dd84fc86428f36a28389bd169d70792c5e50dc50284a4b9fac41"
+    },
+    {
+      "path": "registered/hanbok-e/hanbok-assembled-joint-step-right-light.png",
+      "bytes": 313894,
+      "sha256": "60d107dcc4bdd42b841964b8514e15eb65ca8051ac408a0a598edfd1f3f76f18"
+    },
+    {
+      "path": "registered/hanbok-e/poses.json",
+      "bytes": 1856,
+      "sha256": "e24f2965af327ab161652796c6d7459493f4699c7d6745866be6aa2d677f650c"
+    },
+    {
+      "path": "registered/hanbok-e/registration.json",
+      "bytes": 3709,
+      "sha256": "320d5325f60ae3e63f1eb5f7c5f1134c498fcd8c9300e054d73544e4731be3c5"
+    },
+    {
+      "path": "registered/hanbok-half-a/alpha-audit.json",
+      "bytes": 293,
+      "sha256": "7d89d051805b0dcf03dc4adf06892f3b511e64eddc7bd77fbc81ee5000b13f50"
+    },
+    {
+      "path": "registered/hanbok-half-a/body.png",
+      "bytes": 1161136,
+      "sha256": "835a85c3644ec94a6568f66301411e658efb0c13926a2628c39f7dc0a48a6d46"
+    },
+    {
+      "path": "registered/hanbok-half-a/closed-alpha.png",
+      "bytes": 1434826,
+      "sha256": "dbaa0351288626ae2a695abfd3c008d5feb7a434b3d441be824bc0bef964d1c2"
+    },
+    {
+      "path": "registered/hanbok-half-a/closed-dark.png",
+      "bytes": 1379226,
+      "sha256": "65e2399031af17c893ba795483ea7af6b1ef15b3599b9701b828be09c1b0f1da"
+    },
+    {
+      "path": "registered/hanbok-half-a/closed-light.png",
+      "bytes": 1380195,
+      "sha256": "e7131f15648e56faff8441baeab256a2120a19f84d004ffc11dfe8b1c70c8cf1"
+    },
+    {
+      "path": "registered/hanbok-half-a/comparison-220pt-1x-dark.png",
+      "bytes": 69504,
+      "sha256": "f3fac5e7575f147b246c415e40030cd46e24b1c558e75ab1471091ba5e643007"
+    },
+    {
+      "path": "registered/hanbok-half-a/comparison-220pt-1x-light.png",
+      "bytes": 68507,
+      "sha256": "23fc68ff77f3de6db4b2de53848824a008e32d08a0bf3d5bf3cdfeaca2b54eb7"
+    },
+    {
+      "path": "registered/hanbok-half-a/comparison-220pt-3x-dark.png",
+      "bytes": 509218,
+      "sha256": "86ee79089d030fcc2643866c3e72044fb65aed0fe5be74cf8ce4d36db9d49c55"
+    },
+    {
+      "path": "registered/hanbok-half-a/comparison-220pt-3x-light.png",
+      "bytes": 508456,
+      "sha256": "720a6ec5d4f6d05aa12d925f573022f886baba5a30eea60ff1ae757bfd81ba49"
+    },
+    {
+      "path": "registered/hanbok-half-a/comparison-64pt-1x-dark.png",
+      "bytes": 10224,
+      "sha256": "a2bdc2493caf64cb5e368493d9641850a4d3f1e74de2fa6be3ec4fc06c741f89"
+    },
+    {
+      "path": "registered/hanbok-half-a/comparison-64pt-1x-light.png",
+      "bytes": 9874,
+      "sha256": "f4ea1ee0b3c149adc62d027085fbca7c6c79a6b7a3e67f3f6a09dcced06fd41e"
+    },
+    {
+      "path": "registered/hanbok-half-a/comparison-64pt-3x-dark.png",
+      "bytes": 62992,
+      "sha256": "10942ff2b72be7a843743d67ce74f500675d51e1d4aa843fdd559252a1e6c186"
+    },
+    {
+      "path": "registered/hanbok-half-a/comparison-64pt-3x-light.png",
+      "bytes": 62124,
+      "sha256": "45478755bf6269ec6fb29ec1feaf2525427d60961a0e1ecb7ce7248b99a7cb8b"
+    },
+    {
+      "path": "registered/hanbok-half-a/eyeLeft.png",
+      "bytes": 47882,
+      "sha256": "65ac8f029ca00e264de87d036af9e7fa3fba577fe66c0f32ad160620c41bc0d2"
+    },
+    {
+      "path": "registered/hanbok-half-a/eyeRight.png",
+      "bytes": 46545,
+      "sha256": "7c39bc0ca883f79dd7fab81d9f18d86ed8f4406fcf3aa4819eb935fe137aa1a3"
+    },
+    {
+      "path": "registered/hanbok-half-a/face-closed-dark.png",
+      "bytes": 376191,
+      "sha256": "af5a72118f579becb887a1014bef04e012fe76e3ccb4122cca899763901a2f46"
+    },
+    {
+      "path": "registered/hanbok-half-a/face-closed-light.png",
+      "bytes": 376884,
+      "sha256": "7ad4f185965b68ed4b3b19d135061cfe554ef1e4e411af987a94e55ecb859226"
+    },
+    {
+      "path": "registered/hanbok-half-a/face-half-dark.png",
+      "bytes": 385200,
+      "sha256": "1bd28fe8cbc5f4fa4258b44862e2074799af8de76fe4f6881393625c979ba367"
+    },
+    {
+      "path": "registered/hanbok-half-a/face-half-light.png",
+      "bytes": 385753,
+      "sha256": "22f9167d900bfa901e5f747fcd1c0f1fbdcd968b9acd43c0df5cdd330a557a05"
+    },
+    {
+      "path": "registered/hanbok-half-a/face-open-dark.png",
+      "bytes": 384257,
+      "sha256": "7c3ee51885e749bd281d379e64cc5fa93495dc874328fd7498948f29241583c9"
+    },
+    {
+      "path": "registered/hanbok-half-a/face-open-light.png",
+      "bytes": 384741,
+      "sha256": "27c12e27ef9008b30aa89b8bf85845841488639c716341d73bf85f2596d2f1c2"
+    },
+    {
+      "path": "registered/hanbok-half-a/footLeft.png",
+      "bytes": 60688,
+      "sha256": "7182cb23ea7468d417d9baa7ad221b02c9fd7f8632f2f1bb73bb64098b757501"
+    },
+    {
+      "path": "registered/hanbok-half-a/footRight.png",
+      "bytes": 57916,
+      "sha256": "86b122e1e7868fa36190dcdfda843181e7212f8aaf7ba8a51f165ec17ea2993f"
+    },
+    {
+      "path": "registered/hanbok-half-a/half-alpha.png",
+      "bytes": 1438991,
+      "sha256": "301101991f7c23d52e49abc738d723f96b6f9b26842405f46111418f97e62e59"
+    },
+    {
+      "path": "registered/hanbok-half-a/half-dark.png",
+      "bytes": 1383047,
+      "sha256": "44a76cf5ed2007aa44749516b5c008a810c7544430b860a3eb8d067845f9f5e8"
+    },
+    {
+      "path": "registered/hanbok-half-a/half-light.png",
+      "bytes": 1384339,
+      "sha256": "f94fa7f357dbcc8ec4315d272e373638970955d887dacaae62a869f209b95d4e"
+    },
+    {
+      "path": "registered/hanbok-half-a/halfLeft.png",
+      "bytes": 56151,
+      "sha256": "2a10df3ad51f11079c58968d0e0f4d42de7f211b2ac79477be4dce9c02c01a9f"
+    },
+    {
+      "path": "registered/hanbok-half-a/halfRight.png",
+      "bytes": 55249,
+      "sha256": "ac29c546269bab5cfdcc340a8b13b70205b81addc16bb2175de8b016595817c9"
+    },
+    {
+      "path": "registered/hanbok-half-a/lidLeft.png",
+      "bytes": 36452,
+      "sha256": "c6eff1c7188e74e811d0d75cfc22dff7ac7f44961c7e1065a7b97c68408dfd0b"
+    },
+    {
+      "path": "registered/hanbok-half-a/lidRight.png",
+      "bytes": 35948,
+      "sha256": "98ad047eb122ca5e7113852cad3d13a3a11d8ebfe7e8ffa6a2b163d60f75e2b3"
+    },
+    {
+      "path": "registered/hanbok-half-a/open-alpha.png",
+      "bytes": 1438409,
+      "sha256": "0b839ff0bc2452b7d554be8957ece347b75241968e5674907998d78bd0dfd981"
+    },
+    {
+      "path": "registered/hanbok-half-a/open-dark.png",
+      "bytes": 1382843,
+      "sha256": "515daeec3565db6ed827bc9863c0d717f55e28184f35aa6d39892a973bb961bc"
+    },
+    {
+      "path": "registered/hanbok-half-a/open-light.png",
+      "bytes": 1384522,
+      "sha256": "8579d75dc647549c9f22f8e69cda4babb47b61e5b63a81ecd846bceacb424377"
+    },
+    {
+      "path": "registered/hanbok-half-a/reference-registered.png",
+      "bytes": 1618005,
+      "sha256": "0466ad5ef890d6e9b5e89717aaa74e698d896452ec4d0b0825678aec33259af9"
+    },
+    {
+      "path": "registered/hanbok-half-a/registration.json",
+      "bytes": 4733,
+      "sha256": "5cbecce380dacde393da47338830cd35a031e5528b9d4fa4a1ba7a6c428a5427"
+    },
+    {
+      "path": "registered/hanbok-half-a/sprout.png",
+      "bytes": 191505,
+      "sha256": "bc6cc8e6ee6a19fd76d8d4eaee164bc021b09b9e0c52826eb4f55494fdf9fc13"
+    },
+    {
+      "path": "registered/hanbok-half-a/wingLeft.png",
+      "bytes": 116343,
+      "sha256": "62a8b7d07cef7fdca8d8a39fd015df3401b32cc913ee292aaef09b8183c2c337"
+    },
+    {
+      "path": "registered/hanbok-half-a/wingRight.png",
+      "bytes": 113429,
+      "sha256": "6f3c347d4464fa7d7e6dff453633bec7e186d367db1f549b6b8eced7f6ad8bb6"
+    },
+    {
+      "path": "review.html",
+      "bytes": 1919,
+      "sha256": "7fcdf335b996aa4b7be0999e74567d0fdc33068a248e50eacc9c764f41f051de"
+    },
+    {
+      "path": "runtime-manifests/astronaut-final.json",
+      "bytes": 5197,
+      "sha256": "832f19fbb934df8629e101b73612922dead0b75a4a785591c7e3705811a626ce"
+    },
+    {
+      "path": "runtime-manifests/basic-final.json",
+      "bytes": 4426,
+      "sha256": "da6135deb1e6af07badd20ac2795818840e5727f2c9c6594ff6965d5c407ec3a"
+    },
+    {
+      "path": "runtime-manifests/christmas-final.json",
+      "bytes": 4828,
+      "sha256": "9635cbcff508da0c1fe5bee69602f28f87e5a2c81d73880e17279dacb0867d69"
+    },
+    {
+      "path": "runtime-manifests/hanbok-final.json",
+      "bytes": 4444,
+      "sha256": "2248b2051707706420905caf73f8fb8536b9ba71d399e41af0076b67f62ba919"
+    },
+    {
+      "path": "runtime/final-ios-after-30-switches.jpg",
+      "bytes": 101708,
+      "sha256": "2d074224196af5fb07c078cbd777e8502586c05eeccd8b269801d0a9b518a30d"
+    },
+    {
+      "path": "runtime/final-ios-after-30-switches.json",
+      "bytes": 4391,
+      "sha256": "e5c8758eecb05476ac6bd5e4b12b43d36d08a69ce88a41f453b48851c4878ded"
+    },
+    {
+      "path": "runtime/final-ios-after-30-switches.txt",
+      "bytes": 7670,
+      "sha256": "4d9029e333432de0e0eab10379ce85e46922677e58ae161efb15a64ad4a0efd4"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-blink-220-dark.jpg",
+      "bytes": 91421,
+      "sha256": "f5ccf294e5ace1e48d47f51d04ae05181e1172c6d8662188282249993a23a2c7"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-blink-220-dark.json",
+      "bytes": 4860,
+      "sha256": "9048c7f19e278eac316da2d9c57e9186eb4b10fd4cdcc99da39b9f02acbe2bc8"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-blink-220-dark.txt",
+      "bytes": 7670,
+      "sha256": "a90d0947e3d9bcd127a14967c01fc3d2919d32a09ae18b3de6c783cb0eae1fbc"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-blink-220-light.jpg",
+      "bytes": 93039,
+      "sha256": "ed6546231b01c6787a8fc8989186b1b8a40a37382e76116ec2ed2b6d2ceb0d6c"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-blink-220-light.json",
+      "bytes": 4860,
+      "sha256": "f088c7f0808203901b9efefef5112f6506a05f12c9edba90869f5931f1e7cb4d"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-blink-220-light.txt",
+      "bytes": 7670,
+      "sha256": "638d37689406915144a7de8c801231a62a239da2539e48b51b8c4fee3df3cfa6"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-blink-64-dark.jpg",
+      "bytes": 87335,
+      "sha256": "8892d805a508665b5cf2d9de264579558fd089680827503b4cbd6c16d9842a5f"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-blink-64-dark.json",
+      "bytes": 4857,
+      "sha256": "ba253d6c3c063b428a4da7f349f2070f9ce305ff55c4d0a98ecb833a6fc06d24"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-blink-64-dark.txt",
+      "bytes": 7668,
+      "sha256": "ccae0fbb7d72d8ef46d5f3c6c4dcc0b9483118d3d5b66ce0daf5932bf7d17250"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-blink-64-light.jpg",
+      "bytes": 89509,
+      "sha256": "638200684d226099e308210ed312a2da4d7d1460b5cf4c159930e8fe7aa5f640"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-blink-64-light.json",
+      "bytes": 4858,
+      "sha256": "4db5d7255bcb27bd884c0b13a254b07e2b496481322361a6c91b4ad6aa85626d"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-blink-64-light.txt",
+      "bytes": 7668,
+      "sha256": "e62d632052c696820a4cd7dec3b74c4cc282bae26006e749c40476e675e162d8"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-flap-220-dark.jpg",
+      "bytes": 86165,
+      "sha256": "8f52a2e2b9d4be8c7b5724ce8351fe55c73af1eed043aa49d80342dd36f38631"
+    },
+    {
+      "path": "runtime/final-ios-astronaut-flap-220-dark.txt",
+      "bytes": 7666,
+      "sha256": "081eb8e75196e7ac3dd92c27e96d21ccc850887fd290b9e3066d93ffd1dc4b35"
+    },
+    {
+      "path": "runtime/final-ios-christmas-attachment-a.jpg",
+      "bytes": 95111,
+      "sha256": "33731bbd1af3effcf61153b5e5df91d8002ba328d3a4cb94e7fafbcb6b6bdc49"
+    },
+    {
+      "path": "runtime/final-ios-christmas-attachment-a.json",
+      "bytes": 4879,
+      "sha256": "269b72a77c2cc5bf8e86aff374ed5ddc39f81a083cc19a08c87e7dd9987bfe76"
+    },
+    {
+      "path": "runtime/final-ios-christmas-attachment-a.txt",
+      "bytes": 7704,
+      "sha256": "825fb238bbf67028af7bce6f6414c7cae63b0ddb4d57813f917d916b1c923d28"
+    },
+    {
+      "path": "runtime/final-ios-christmas-attachment-b.jpg",
+      "bytes": 95242,
+      "sha256": "c997afb74ea4044ec58bb39770d46fe5ac7c2a24326f91b80c8703b5972710ea"
+    },
+    {
+      "path": "runtime/final-ios-christmas-attachment-b.json",
+      "bytes": 4848,
+      "sha256": "5485f4829c85f5ec23adfe7288e426b869645a780ddc7a1f55d5d12bf4a02f31"
+    },
+    {
+      "path": "runtime/final-ios-christmas-attachment-b.txt",
+      "bytes": 7704,
+      "sha256": "825fb238bbf67028af7bce6f6414c7cae63b0ddb4d57813f917d916b1c923d28"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-220-dark.jpg",
+      "bytes": 92666,
+      "sha256": "a1f44a551b9240b63b0f78643b1ae36d6b60194e33a6828bfadcbfc0d045896b"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-220-dark.json",
+      "bytes": 4784,
+      "sha256": "45ca4b3372b551320192a7b1a7eaf297ef73b3ad8200791cfbc25ea17db215fd"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-220-dark.txt",
+      "bytes": 7682,
+      "sha256": "0b0beea136b0dda7045842096b703f9a884f879d03c03d85ae0a57068a034b5b"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-220-light.jpg",
+      "bytes": 94480,
+      "sha256": "28dbe928167e764f3d2429a5115886039402fab46b87bd2bde8561203735de44"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-220-light.json",
+      "bytes": 4785,
+      "sha256": "db097946c729ed8f4e98bcc3cbc0b23517862d833bbb68e18107885bf0196311"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-220-light.txt",
+      "bytes": 7682,
+      "sha256": "996456646f9b2f8f55e2a15ea76020c3c61dd5d82d4a5925514f7a4ad6ca8f6f"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-64-dark.jpg",
+      "bytes": 87711,
+      "sha256": "65e5a723950d380822f24b7a528be8e48a2cf81fe6553db1cd5a6ed9ae6ef4c1"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-64-dark.json",
+      "bytes": 4781,
+      "sha256": "f764a4f44908f031c4374540b0088e494efd77bfc43b9f2384ba2f2d6c0d98d7"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-64-dark.txt",
+      "bytes": 7680,
+      "sha256": "6dd5b7666470544425fb666a31d5fa0c9452abb9d3b00aa8449081f756f6c289"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-64-light.jpg",
+      "bytes": 89989,
+      "sha256": "ee428c7f184aaa9397e24095d3f8c0d7f07b269e8909cb3dcfb65a2c23b25837"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-64-light.json",
+      "bytes": 4782,
+      "sha256": "c973e21d499801e493635da30af97397394af916a729dcf9125dafd1541114de"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-64-light.txt",
+      "bytes": 7680,
+      "sha256": "dd7a536136c2db73e403c29ad50a6ca025f751118cf4310b189b883faa191891"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-sample-a.jpg",
+      "bytes": 93150,
+      "sha256": "f63278a66c1ba7a5d40abe6f685961fd744abf6e481494306ff578a5698f3012"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-sample-a.json",
+      "bytes": 4784,
+      "sha256": "337cdcca3c0a4403e452456c5a57dcd8e191070f612a104583ecbdc6f138a35f"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-sample-a.txt",
+      "bytes": 7693,
+      "sha256": "3f5d54e3a829f5ad3e936c13d809d16e5642a2cef0d60625746577ca0ca8f6a3"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-sample-b.jpg",
+      "bytes": 93144,
+      "sha256": "da28e3cb34fdaab808dacc03bec90bca411be24d6347449949802874706e7315"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-sample-b.json",
+      "bytes": 4784,
+      "sha256": "a4c9acc2391065d26de421b792b9e054075688d2e145c062bfe672ba759c5dd5"
+    },
+    {
+      "path": "runtime/final-ios-christmas-blink-sample-b.txt",
+      "bytes": 7693,
+      "sha256": "cbb9425408541480b101a3783b28e721c72e30a0b4cb334d08af4a7140a8b133"
+    },
+    {
+      "path": "runtime/final-ios-christmas-celebration.jpg",
+      "bytes": 94270,
+      "sha256": "9220b177dbb8e3211fefca985e0e89874cb9d086cfda839f9ab0d7ccb5f92a1a"
+    },
+    {
+      "path": "runtime/final-ios-christmas-celebration.json",
+      "bytes": 4791,
+      "sha256": "729933b7ef5f0d923694092606c0eb88c43c4805ebcb4dee0c9f1d7c9b897a6f"
+    },
+    {
+      "path": "runtime/final-ios-christmas-celebration.txt",
+      "bytes": 7668,
+      "sha256": "ef620b5f8b6b07f5dde6c13d210d03aa045102d1db8be7083eeccbcf5fa335b3"
+    },
+    {
+      "path": "runtime/final-ios-christmas-jump.jpg",
+      "bytes": 94296,
+      "sha256": "3a5a5a7850edadc499d4fb3530fc489eccb1071f1205f27eb7750fb0033df8a3"
+    },
+    {
+      "path": "runtime/final-ios-christmas-jump.json",
+      "bytes": 4784,
+      "sha256": "7de7222a824d1b92df4bceb2ee1b42b14178f3c61b00402121e62f8a2512e5c4"
+    },
+    {
+      "path": "runtime/final-ios-christmas-jump.txt",
+      "bytes": 7670,
+      "sha256": "a2dc1903a4623ca1d21e4cf0a5092f60a87e067163f8e56594246848533e645e"
+    },
+    {
+      "path": "runtime/final-ios-christmas-landing.jpg",
+      "bytes": 93935,
+      "sha256": "9f817505cfd00611dcce1a9926524bc1317f156ffe88e53650392d3972c8e21c"
+    },
+    {
+      "path": "runtime/final-ios-christmas-landing.json",
+      "bytes": 4787,
+      "sha256": "6d98ce491b5c14ea22843a9889031c5b2693191d9889485b5c84cbabd16041e2"
+    },
+    {
+      "path": "runtime/final-ios-christmas-landing.txt",
+      "bytes": 7656,
+      "sha256": "74fca1fc9f9824ac01117e0787c40061198a28d645f092251138dcfaa57942bf"
+    },
+    {
+      "path": "runtime/final-ios-christmas-walk-a.jpg",
+      "bytes": 94493,
+      "sha256": "ca9a797c97e4fc31001242543d74441c3f19b35c45276d9582a339cc7896e68b"
+    },
+    {
+      "path": "runtime/final-ios-christmas-walk-a.json",
+      "bytes": 4820,
+      "sha256": "23591dd01e9dc70c2d2e8c18b94ef02d10674800b3e03b492a9ada31255951af"
+    },
+    {
+      "path": "runtime/final-ios-christmas-walk-a.txt",
+      "bytes": 7682,
+      "sha256": "e7ef1c015058deb90768d927dabe079f47c941cfd5e20fb687c1b44aa8ceb548"
+    },
+    {
+      "path": "runtime/final-ios-christmas-walk-b.jpg",
+      "bytes": 94453,
+      "sha256": "e73517db88de9362f9d05ace776cabc972e4a6aee23cc7c7e91681394e79f8b3"
+    },
+    {
+      "path": "runtime/final-ios-christmas-walk-b.json",
+      "bytes": 4822,
+      "sha256": "bb8406b6bf5a7719fccd0795edea74b16d6e4af968b24d131625a72982062437"
+    },
+    {
+      "path": "runtime/final-ios-christmas-walk-b.txt",
+      "bytes": 7682,
+      "sha256": "e7ef1c015058deb90768d927dabe079f47c941cfd5e20fb687c1b44aa8ceb548"
+    },
+    {
+      "path": "runtime/final-ios-hanbok-flap-220-dark.jpg",
+      "bytes": 91922,
+      "sha256": "58d14331729b3beb1ecdeaa0ee8a38593ce2e9f8960a09be063d62b587263baf"
+    },
+    {
+      "path": "runtime/final-ios-hanbok-flap-220-dark.json",
+      "bytes": 4408,
+      "sha256": "68ed1b055dd4dea20af6defae491a247b7914926cf9b3df3dbbfcec1fbaae2f1"
+    },
+    {
+      "path": "runtime/final-ios-hanbok-flap-220-dark.txt",
+      "bytes": 7664,
+      "sha256": "5d263f1f6acd8f72331300a46f2d2690687dd6b73e3d0512ebbe87d37abf5444"
+    },
+    {
+      "path": "runtime/final-ios-hanbok-idle-220-dark.jpg",
+      "bytes": 92145,
+      "sha256": "e85ff6aecb65d6ba00967957c775bc9e78c0aefc936917de00219badcdc52793"
+    },
+    {
+      "path": "runtime/final-ios-hanbok-idle-220-dark.json",
+      "bytes": 4389,
+      "sha256": "a5524ed6d8b8b78856cf495e48673087b727a9a987d0b9beb7d5067ee3efe581"
+    },
+    {
+      "path": "runtime/final-ios-hanbok-idle-220-dark.txt",
+      "bytes": 7670,
+      "sha256": "2f670768a1857176dd13e88791afef7e834f5424eee37d5d80ce364f1d4d6df8"
+    },
+    {
+      "path": "runtime/final-ios-hanbok-idle-64-dark.jpg",
+      "bytes": 87486,
+      "sha256": "0d3d08c91baf6551aa16d43171b5eabf6046df8eb35e7f923d26f98f549fb554"
+    },
+    {
+      "path": "runtime/final-ios-hanbok-idle-64-dark.json",
+      "bytes": 4385,
+      "sha256": "05aeef534613bae14e9a8f6d1cd7f00a4adb73a19c3391389fc5e89bc350baff"
+    },
+    {
+      "path": "runtime/final-ios-hanbok-idle-64-dark.txt",
+      "bytes": 7668,
+      "sha256": "91ac21a901e1cb505ab957e81dd9376eb9032f0350b07b406d107bbc8435b61f"
+    },
+    {
+      "path": "runtime/final-ios-hanbok-idle-64-light.jpg",
+      "bytes": 89679,
+      "sha256": "5c341d3dbc59b41b8c037e54936f25e4d66c206286394cf8ab27a14e4c104222"
+    },
+    {
+      "path": "runtime/final-ios-hanbok-idle-64-light.json",
+      "bytes": 4388,
+      "sha256": "89577494571f642ee765bb6c5fe7b7dce2f94a6fa538cacb48378d225ee3fcb3"
+    },
+    {
+      "path": "runtime/final-ios-hanbok-idle-64-light.txt",
+      "bytes": 7668,
+      "sha256": "ed1e4518252c0249e3e9f53d6c1d89740a6f2a06579da435fe6b66a5099ad093"
+    },
+    {
+      "path": "runtime/final-mac-after-30-switches.jpg",
+      "bytes": 155291,
+      "sha256": "10ac5c443210d93a1eff15f31192b44da4fe285f92a466e0527fab26b240948e"
+    },
+    {
+      "path": "runtime/final-mac-after-30-switches.txt",
+      "bytes": 3392,
+      "sha256": "d5c797d33b41c7a2e81602503e61da9e42bbe929934203356c26dfbe555fa593"
+    },
+    {
+      "path": "runtime/final-mac-astronaut-jump-220-light.jpg",
+      "bytes": 152191,
+      "sha256": "869a623d694da6d6ec2ac0ce81c0ea04b5b8877f44c6e89a09ed8c552fee8b19"
+    },
+    {
+      "path": "runtime/final-mac-astronaut-jump-220-light.txt",
+      "bytes": 3376,
+      "sha256": "292d264a77ea4ca409013038baa2ee3ee414de1e0df3c8ba36ff0b1e73f6319a"
+    },
+    {
+      "path": "runtime/final-mac-astronaut-walk-64-dark.jpg",
+      "bytes": 142638,
+      "sha256": "6b620b8315a22f21de5ed13e641fee41f4344e5d506faedba9483ad420d0f1c1"
+    },
+    {
+      "path": "runtime/final-mac-astronaut-walk-64-dark.txt",
+      "bytes": 3386,
+      "sha256": "18814a463bca1ad55bbd6e6270a717394fedd85f2f0d62e1ac6f7d600ea82f2d"
+    },
+    {
+      "path": "runtime/final-mac-astronaut-walk-64-light.jpg",
+      "bytes": 144432,
+      "sha256": "501aae2e9c31c004496978ff0bdc3b5fc7831778fb7de3bc1cbf97f828eb368f"
+    },
+    {
+      "path": "runtime/final-mac-astronaut-walk-64-light.txt",
+      "bytes": 3386,
+      "sha256": "e86ac8000df25ac604be64fce6840eb6a9b7c47c9eafb6b1bebdae5eb9cb047c"
+    },
+    {
+      "path": "runtime/final-mac-astronaut-wave-220-dark.jpg",
+      "bytes": 154070,
+      "sha256": "cb2afa68da3ab744473981dc9689f3c6792727b134174a7bf29a60fc90289fad"
+    },
+    {
+      "path": "runtime/final-mac-astronaut-wave-220-dark.txt",
+      "bytes": 3408,
+      "sha256": "a1ef31817e90617a675e173ff6dca4898b9c2ca87a34a42a17fa71738a4d0f50"
+    },
+    {
+      "path": "runtime/final-mac-christmas-attachment-64-dark.jpg",
+      "bytes": 143199,
+      "sha256": "a5c2c701ac882e5e0b0c6fe3007a2a565e70d84956d2234a9354669b721c75ad"
+    },
+    {
+      "path": "runtime/final-mac-christmas-attachment-64-dark.txt",
+      "bytes": 3420,
+      "sha256": "e3a0a122c24bf5f651129dd9f76e83d39e4f778c791c70b20105081334f3a71a"
+    },
+    {
+      "path": "runtime/final-mac-christmas-attachment-64-light.jpg",
+      "bytes": 144825,
+      "sha256": "6a5def922545ef41950ec551668b049e5f9fb9e2fc71144c9a9bab70a6486a7d"
+    },
+    {
+      "path": "runtime/final-mac-christmas-attachment-64-light.txt",
+      "bytes": 3420,
+      "sha256": "b0caeb2b830b71021c649d207404f3994153b1245bc476578af30f448498e518"
+    },
+    {
+      "path": "runtime/final-mac-christmas-blink-220-light.jpg",
+      "bytes": 155259,
+      "sha256": "bc3e5045481a2fe5228dc51e2d01a136bed268787a6f19af5b26c6e80204584e"
+    },
+    {
+      "path": "runtime/final-mac-christmas-blink-220-light.txt",
+      "bytes": 3400,
+      "sha256": "0b96df1fca6d4c5bb90d22236f53fb8bd95543ec95abdd4594086ca566e8ba7c"
+    },
+    {
+      "path": "runtime/final-mac-christmas-flap-220-dark.jpg",
+      "bytes": 152473,
+      "sha256": "9465f9a79383a55c61fa42d14d33f60d2719d3ee31acb5b6424d2734479f26a3"
+    },
+    {
+      "path": "runtime/final-mac-christmas-flap-220-dark.txt",
+      "bytes": 3400,
+      "sha256": "441f664464c0af1a9477416410e80915e9512b3248a306a4d979841ad11bd096"
+    },
+    {
+      "path": "runtime/final-mac-hanbok-flap-64-dark.jpg",
+      "bytes": 143441,
+      "sha256": "25564e7cc8d9aeaab2d32d08d93eadee5f0a433b6e0d9ca2d50698f7f8aaa1ea"
+    },
+    {
+      "path": "runtime/final-mac-hanbok-flap-64-dark.txt",
+      "bytes": 3380,
+      "sha256": "dd0346210a4bf3ad3c3bad6b12c2631ff18f3ef2bdd0263ff5e25f8b6dfba1b2"
+    },
+    {
+      "path": "runtime/final-mac-hanbok-flap-64-light.jpg",
+      "bytes": 145127,
+      "sha256": "1a065d4a218c2cdf49bcf3f19401b96c5f7b48509a5358d168e0982b5de6d517"
+    },
+    {
+      "path": "runtime/final-mac-hanbok-flap-64-light.txt",
+      "bytes": 3380,
+      "sha256": "cccb0c9bf9bf2bd74a8eb4f306814ca8df0adbe572a5029ee96c83d7d8972db4"
+    },
+    {
+      "path": "runtime/final-mac-hanbok-landing-220-dark.jpg",
+      "bytes": 152374,
+      "sha256": "176ae8ae83924dd7f427b739ef6cbea1191871a0bdc398b453482f485c6d9af7"
+    },
+    {
+      "path": "runtime/final-mac-hanbok-landing-220-dark.txt",
+      "bytes": 3356,
+      "sha256": "c8cc7fb23fc3157390bb8ec74dc17f1f51fd5b6fc832ed9921d3b49f7188e142"
+    },
+    {
+      "path": "runtime/final-mac-removed.jpg",
+      "bytes": 83980,
+      "sha256": "3027594c0a9b0016b1066e6f93fc155de8c2734783cccd8ea4131a917bad4e40"
+    },
+    {
+      "path": "runtime/final-mac-removed.txt",
+      "bytes": 2882,
+      "sha256": "14f83a25bf1799c90f5001dd12f0a71d13805d50e47ed104d6d53c1a1f60b976"
+    },
+    {
+      "path": "runtime/final-mac-scroll-returned.txt",
+      "bytes": 3400,
+      "sha256": "bbb85982580636698dfa4e03e13a5a3dfe44ef7a1ce0b92f45ea60d51c68180b"
+    },
+    {
+      "path": "runtime/final-mac-scrolled-offscreen.jpg",
+      "bytes": 221376,
+      "sha256": "4005012ba298c316173147f49ced43281bad04ae83c006e5cba1949653614373"
+    },
+    {
+      "path": "runtime/final-mac-scrolled-offscreen.txt",
+      "bytes": 3434,
+      "sha256": "2fc17cdfe4553125a4b0cf612c889cebe46d60dd043a0c7aed4935e8d305e66a"
+    },
+    {
+      "path": "runtime/ios-system-reduce-motion-on.jpg",
+      "bytes": 89151,
+      "sha256": "06af83358ade69d7378e1930f9f48714c1c60a031d5cfa451e84768c2932e000"
+    },
+    {
+      "path": "runtime/ios-system-reduce-motion-on.txt",
+      "bytes": 7469,
+      "sha256": "8b098b7611182bb48927a004390d724dbcdcb77f96b14fdc6b2a92332d4ed87e"
+    },
+    {
+      "path": "runtime/ios-system-reduce-motion-restored.jpg",
+      "bytes": 89145,
+      "sha256": "f4463cf123bb5313c9433f0e6b4851440b0f4b7f83e638a6e5e246caa8d81120"
+    },
+    {
+      "path": "runtime/ios-system-reduce-motion-restored.txt",
+      "bytes": 7469,
+      "sha256": "c894b78cdc9dd23601bd4643b7aa32b6072867d6dace96510843f7e61d730773"
+    },
+    {
+      "path": "runtime/mac-system-reduce-motion-on.jpg",
+      "bytes": 142247,
+      "sha256": "dd575d4b1a036592c03165f98f06e8f0757415d082f16d94cd55dff3c76399d4"
+    },
+    {
+      "path": "runtime/mac-system-reduce-motion-on.txt",
+      "bytes": 3215,
+      "sha256": "b831019184664e04f7dfd2bcede9a3c007e248c9a2e9ad90198ba2900469c198"
+    },
+    {
+      "path": "runtime/mac-system-reduce-motion-restored.jpg",
+      "bytes": 142250,
+      "sha256": "f0f278e87b247220812784188acdf43acf83c096cba1ab443755ac481367bc79"
+    },
+    {
+      "path": "runtime/mac-system-reduce-motion-restored.txt",
+      "bytes": 3215,
+      "sha256": "4fa4151d956869a60d60689b3376ed10934d58f33d6beea7afe66aa3151f522b"
+    },
+    {
+      "path": "runtime/preview-astronaut-flap-8s.mp4",
+      "bytes": 125038,
+      "sha256": "d5bbe094e5673c9bd567ba6f8711b6611f7d97a2700df1f5514e6bba9c823e35"
+    },
+    {
+      "path": "runtime/preview-astronaut-flap-frame.png",
+      "bytes": 238542,
+      "sha256": "08e5233235c18e5c96a6c00066af26b698ec208c3ab97208bfaba88b956ca5ec"
+    },
+    {
+      "path": "runtime/preview-astronaut-motion-contact.png",
+      "bytes": 276180,
+      "sha256": "45fe443e5058fb6693d21872f9c37079c809328546e6c1e3e601b9d1eb0d3761"
+    },
+    {
+      "path": "runtime/preview-christmas-blink-8s.mp4",
+      "bytes": 99843,
+      "sha256": "7e181f60cfeeb1a6ce4313f9ab9caf2f0991c44cf65c2898d283e02602fc7add"
+    },
+    {
+      "path": "runtime/preview-christmas-blink-contact.png",
+      "bytes": 122937,
+      "sha256": "b160806eb692e2d7d40d2723bd7403b2ea8af2cdb35c2ee74cf22245386c1c94"
+    },
+    {
+      "path": "runtime/preview-christmas-blink-frame.png",
+      "bytes": 258433,
+      "sha256": "f830b003cf176e41283a76b29f601cf6b16f4ef596a4e6ffba571ad881234eac"
+    },
+    {
+      "path": "runtime/preview-hanbok-flap-8s.mp4",
+      "bytes": 140358,
+      "sha256": "ceb348460635310675d7fd51e6c55d098ebdf2c08e57df5629f5156d42dc824f"
+    },
+    {
+      "path": "runtime/preview-hanbok-flap-frame.png",
+      "bytes": 255446,
+      "sha256": "3a2968983a2bb90ee14a90c0df1674cb72c4934fa9bee13378a5252f595865ba"
+    },
+    {
+      "path": "runtime/preview-hanbok-motion-contact.png",
+      "bytes": 334520,
+      "sha256": "be446126bd95bf37c454cdb8fa593c9ba80c59b14e16a6ebdb2f676ccec64bad"
+    },
+    {
+      "path": "runtime/video-inspection.json",
+      "bytes": 352,
+      "sha256": "e6489c97ec1c8d270e8caefed0f6d1e16f4192b97e86c5c416ed35911b21511d"
+    },
+    {
+      "path": "selected-assets.json",
+      "bytes": 20715,
+      "sha256": "4ebe2c78b114cfa5803ea7ee53b7da593bc6dd3b12d18d818bb66d60aecaf746"
+    }
+  ]
+}

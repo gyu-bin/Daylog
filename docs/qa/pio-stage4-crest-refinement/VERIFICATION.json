@@ -1,0 +1,23 @@
+{
+  "only_preexisting_file_changed": [
+    "Daylog/PioTrial.xcassets/pio_stage4_crest.imageset/pio_stage4_crest.png"
+  ],
+  "preexisting_files_checked": 477,
+  "unchanged_stage1_to3_size_renders": 60,
+  "crest_pivot_master": [
+    745.05,
+    588
+  ],
+  "crest_pivot_1024": [
+    496.7,
+    392
+  ],
+  "new_crest_sha256": "e1bfb19ca5023baa9d39fadd108f72ad339eedab07bd60bc5dd51e593edab3dd",
+  "before_crest_sha256": "1fca6e76a2014d723d3d387d4dcbc790125a6b0da41fe743031c2d1286bdd07d",
+  "wings_tails_unchanged": true,
+  "app_and_test_source_unchanged": true,
+  "debug_only_unchanged": true,
+  "focused_tests_passed": 1,
+  "full_test_suite_rerun": false,
+  "user_visual_approval": "ON_HOLD"
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "role": "winterBody",
+    "prompt": "Use case: precise-object-edit. Edit target: supplied approved Winter Pio image. Create one CLEAN BODY rig layer on the SAME1254square canvas; preserve exact position and scale of original face/beak/scarf/torso. Keep existing smiling orange open beak at its ORIGINAL coordinates around(665,720), blush around(460,780)/(900,730), blue knit snowflake scarf and dangling front fringed tail, round cream plush body to bottom y1150. Remove both eyes and fill behind with natural continuous fur. Remove both hands/wings and feet, the entire knit cap/whitefur/pompom/green sprout. Reconstruct complete cream head under cap plus hidden shoulder and ankle fur, and missing blue scarf region behind removed left arm. A clean body layer with NO eyes, limbs, feet, hat, pompom or sprout remains. Do not enlarge,shift,recenter or redesign. Preserve approved snowflake patterns, blue palette, plushfur, soft premium2.5D lighting. True transparentRGBA exterior with no background,drop shadow,glow,text. No lowres extraction: genuinely reconstruct hidden surfaces at fullresolution.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-6f2daacb-6549-4335-a82f-43ef63d2363c.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  },
+  {
+    "role": "winterHat",
+    "prompt": "Use case: precise-object-edit. Reconstruct ONLY the combined approved Winter Pio headwear: blue knitted cap with thick fluffywhitefur brim, one round whitepompom on screenright, and green two-leaf sprout emerging topcenter. Use supplied approved exact design, textures, tilt and proportions. NO face/eyes/body/scarf/arms/feet. A complete single standalone genuine rigpart. Forehead/face region below the curved fur brim is COMPLETELY TRANSPARENT. The brim curves up in center to frame roundhead and falls at left/right; do not fillfaceopening withfur or a solid disk. Include natural hidden attachment behind upperheadseat. Fullleaves,pompom,fur inside generous transparentpadding, fineknit and tactile fur premium2.5D diffuse shading, original bluewhitegreen colors, no red or redesign. Actual highresolution transparentRGBA, no glow,background,shadow,text,watermark or conceptsheet.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-99d3a00f-d194-4679-a45b-736e8390568c.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  },
+  {
+    "role": "winterLeft",
+    "prompt": "Use case: precise-object-edit. Make ONLY SCREEN-LEFT LOWERED Winter Pio arm from supplied approved character: one soft rounded cream plush hand with its short blue knit cuff/hidden shoulderextension. Match original chubby mittenlike rounded hand, no fingers, same snowy whitefur/cream coloring and premium2.5D shading. Root extends upperright under scarf and body, hand points lowerleft. Natural compact anatomy, no longtube. Entirehand+cuffroot complete, uncropped with generous transparentpadding; root large enough for±12° rotation behind scarf. NO body, face,eyes,beak,hat,sprout, scarf ends,snowflakesfloating,feet or other objects. Genuine standalone highresolution transparentRGBA actual rigcomponent; no glow,outline,backdrop,groundshadow,text or flatgeometricreplacement.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-ec22700c-327b-43b4-9ea2-473412e6db6f.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  },
+  {
+    "role": "winterRight",
+    "prompt": "Use case: precise-object-edit. Reconstruct ONLY SCREEN-RIGHT RAISED Winter Pio arm: cream/white fluffy rounded mittenhand and thick blue knitted cuff continuing into complete hidden shoulderroot. Match supplied original short cute raised hand, rounded soft shape pointing upperright, root extends downleft naturally to tuck behind scarf/torso. Preserve tactile plushfur, detailed blueknit and soft premium2.5D highlights. No individual fingers, long skinnytube, extraarm or redesignedglove. Complete uncropped hiddenroot and hand withtransparentpadding to allow±12° rotations. NO face/body/eyes/hat/sprout/scarf/feet/otherobjects. One genuine highresolution standalone transparentRGBA component, no conceptsheet,glow,backdrop,castshadow,text oroutline.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-291baa0d-9952-4415-9df1-c844c201cdc1.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  }
+]

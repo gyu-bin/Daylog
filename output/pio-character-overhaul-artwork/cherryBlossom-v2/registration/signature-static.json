@@ -1,0 +1,32 @@
+{
+  "instances" : [
+    {
+      "id" : "petalA",
+      "offset" : [
+        79.992570579494796,
+        366.23328380386329
+      ],
+      "scale" : 0.11144130757800892
+    },
+    {
+      "id" : "petalB",
+      "offset" : [
+        1037.9940564635958,
+        442.98662704309066
+      ],
+      "scale" : 0.089153046062407135
+    },
+    {
+      "id" : "petalC",
+      "offset" : [
+        70.661218424962854,
+        1005.2377414561664
+      ],
+      "scale" : 0.081723625557206539
+    }
+  ],
+  "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/cherryBlossom-v2\/source\/petal-candidate.png",
+  "sourceSHA256" : "5760095104f1ab5f713dd553ebe5ae758e0de5365478b2cb205751f318758dd4",
+  "status" : "STATIC_COMPOSITION_ONLY_NOT_ANIMATION",
+  "uniquePetalSourceCount" : 1
+}

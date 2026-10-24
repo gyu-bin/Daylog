@@ -1,0 +1,35 @@
+{
+  "tool": "built-in image_gen",
+  "transparent_background": true,
+  "assetStatus": "CANDIDATE_PENDING_NATIVE_QA",
+  "pixelEdits": false,
+  "prompts": [
+    {
+      "purpose": "hanbokTorso",
+      "prompt": "Use case: precise-object-edit. Asset type: genuine hidden-torso reconstruction for an independently animated RoutiMori Pio cloud rig. Input image is the AUTHORITATIVE APPROVED seated Hanbok cloud Pio, already with a clean eyeless face. Edit ONLY by removing BOTH pink sleeved arms including white cuffs and cream hands, and removing the entire green tablet. Genuinely reconstruct the hidden torso/hanbok fabric underneath those removed pieces so there are no transparent holes or cut edges. Preserve EXACT1254x1254canvas, original body position and rounded silhouette, cream face fur, beak, blush, sprout, hair blossom+tassel, complete pink Hanbok skirt, floral fabric texture, darkblue waist ribbon and floral brooch/tassels, and both orange feet. Keep original colors, lighting, premium2.5D soft fabric/fur and cute proportions. No eyes, eyebrows, extra face, new buttons or redesigned costume. No arms, sleeves, cuffs, hands, tablet, text, background or floor. Do not change the head/body/feet size or re-center. Output ONE genuine transparent RGBA full-canvas clean torso asset with restored opaque fabric behind previously occluding hands/tablet, complete hidden shoulder-attachment regions. Do not flatten in an entire character sheet or use simple vector replacements."
+    },
+    {
+      "purpose": "hanbokArmsRetry",
+      "prompt": "Technical game-art accessory export for an adorable clothed cartoon chick mascot. From the reference image extract/reconstruct ONLY its two pink floral HANBOK SLEEVES with white cuffs and tiny round cream mitten-shaped cartoon wing tips. This is a soft plush-toy costume sprite, not a human subject. Preserve the reference sleeve colors, woven flower patterns, furry white cuff rims, small inward-facing wing tips, premium2.5D material and original tablet-holding shape. Show exactly one left sleeve and one right sleeve, separated on a genuine transparent1254x1254 PNG canvas at the same positions and approximately the same small sizes as the reference. Left sleeve original x280..557,y825..1040; right x796..1055,y825..1040. Extend the top fabric ends behind their attachment points so animation does not expose a cut edge. Do not include any other part of the mascot, any tablet, background, text, diagram, replacement costume, ornaments or extra objects. Do not enlarge or reposition the sleeves. Exactly two soft rounded pink floral sleeve sprites with matching ivory cuffs and round cartoon wing tips, authentic existing design."
+    },
+    {
+      "purpose": "hanbokArmsRefined",
+      "prompt": "Use case: precise-object-edit. Edit this isolated pair of pink floral Hanbok cartoon sleeves. Change ONLY the extra loose collar-like triangular cloth behind the top of each sleeve: remove those diagonal neckline/collar flaps and replace them with a simple complete rounded soft pink fabric sleeve attachment cap, a short natural hidden shoulder root. These must be TWO SHORT SLEEVES, NOT collars or jacket sections. Preserve the existing front cylindrical floral sleeve, pink border, ivory fluffy cuff and tiny rounded cream mitten tip exactly. No extra accessories or fabric strips. Keep original material, flower pattern, colors and soft2.5D lighting. Keep genuine transparent1254x1254canvas and the existing two separate parts' current positions and sizes. Do not produce a character, body, face, tablet, neckline, skirt, bow, text or background. Only replace the unnecessary upper diagonal collar-like flaps with plain rounded complete sleeve-root ends; all front cuff and mitten pixels/style unchanged."
+    }
+  ],
+  "failedAttempts": [
+    {
+      "purpose": "initial sleeve pair",
+      "httpStatus": 400,
+      "outputModerationCategory": "sexual",
+      "requestID": "e4d41034-e894-4c06-9126-aa168d1e24b6",
+      "assetProduced": false,
+      "interpretation": "False positive for clothed cartoon mascot sleeve request; one clarified plush-toy sleeve retry succeeded."
+    },
+    {
+      "purpose": "first produced sleeve pair",
+      "result": "NOT_REGISTERED",
+      "reason": "Unwanted loose diagonal collar-like flaps; subsequent targeted genuine artwork edit replaced with rounded sleeve roots."
+    }
+  ]
+}

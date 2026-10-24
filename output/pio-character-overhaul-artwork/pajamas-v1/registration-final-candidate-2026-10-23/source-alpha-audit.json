@@ -1,0 +1,138 @@
+[
+  {
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+    "sha256": "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+    "size": [
+      1254,
+      1254
+    ],
+    "alphaZero": 1077526,
+    "alphaPartial": 494755,
+    "alphaOpaque": 235,
+    "alpha16Bounds": [
+      205,
+      241,
+      1058,
+      1017
+    ]
+  },
+  {
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+    "sha256": "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+    "size": [
+      1319,
+      1192
+    ],
+    "alphaZero": 1117569,
+    "alphaPartial": 453853,
+    "alphaOpaque": 826,
+    "alpha16Bounds": [
+      277,
+      245,
+      1041,
+      995
+    ]
+  },
+  {
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+    "sha256": "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+    "size": [
+      1319,
+      1192
+    ],
+    "alphaZero": 1417434,
+    "alphaPartial": 154588,
+    "alphaOpaque": 226,
+    "alpha16Bounds": [
+      259,
+      552,
+      1065,
+      845
+    ]
+  },
+  {
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+    "sha256": "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+    "size": [
+      1319,
+      1192
+    ],
+    "alphaZero": 1023245,
+    "alphaPartial": 548821,
+    "alphaOpaque": 182,
+    "alpha16Bounds": [
+      178,
+      200,
+      1147,
+      1046
+    ]
+  },
+  {
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/body-candidate.png",
+    "sha256": "b12029ead08697f54f3720f494cc24d7c8af8cb430ae7fc97913ef27b78e9f2f",
+    "size": [
+      1254,
+      1254
+    ],
+    "alphaZero": 762782,
+    "alphaPartial": 809697,
+    "alphaOpaque": 37,
+    "alpha16Bounds": [
+      211,
+      167,
+      1140,
+      1196
+    ]
+  },
+  {
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/headwear-candidate.png",
+    "sha256": "e9e315e9c668ccfcb715de512b1113152fa1f68248750abc1b7be97614e5582a",
+    "size": [
+      1254,
+      1254
+    ],
+    "alphaZero": 960215,
+    "alphaPartial": 612003,
+    "alphaOpaque": 298,
+    "alpha16Bounds": [
+      61,
+      92,
+      1206,
+      1184
+    ]
+  },
+  {
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/pillow-candidate.png",
+    "sha256": "8dde4bc43a68c3af3990fbb3f4c395ef39e525ba41459e19ef21cd877aeb5e6d",
+    "size": [
+      1254,
+      1254
+    ],
+    "alphaZero": 899256,
+    "alphaPartial": 672738,
+    "alphaOpaque": 522,
+    "alpha16Bounds": [
+      67,
+      231,
+      1226,
+      1091
+    ]
+  },
+  {
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/wing-oval-compact-candidate-v5.png",
+    "sha256": "038b650dc4a41fa00538a276158fcd8feeba6fe6d34376f2c62c2231c32d1a8e",
+    "size": [
+      1402,
+      1122
+    ],
+    "alphaZero": 1071272,
+    "alphaPartial": 501707,
+    "alphaOpaque": 65,
+    "alpha16Bounds": [
+      236,
+      233,
+      1296,
+      937
+    ]
+  }
+]

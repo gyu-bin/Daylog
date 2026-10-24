@@ -1,0 +1,128 @@
+[
+  {
+    "access" : "free",
+    "activeTracks" : 15,
+    "asset" : "pio_wardrobe_basic_reference",
+    "context" : "dashboard",
+    "environment" : "Xcode",
+    "inactiveTracks" : 0,
+    "outfit" : "basic",
+    "result" : "PASS",
+    "scope" : "actual shared native scene component; scenePhase injection, not OS background or full navigation E2E",
+    "verifiedTransactionID" : "free-basic"
+  },
+  {
+    "access" : "free",
+    "activeTracks" : 9,
+    "asset" : "routimori_sync_loading",
+    "context" : "cloudDownloading",
+    "environment" : "Xcode",
+    "inactiveTracks" : 0,
+    "outfit" : "basic",
+    "result" : "PASS",
+    "scope" : "actual shared native scene component; scenePhase injection, not OS background or full navigation E2E",
+    "verifiedTransactionID" : "free-basic"
+  },
+  {
+    "access" : "free",
+    "activeTracks" : 5,
+    "asset" : "routimori_vacation_hammock",
+    "context" : "vacationDay",
+    "environment" : "Xcode",
+    "inactiveTracks" : 0,
+    "outfit" : "basic",
+    "result" : "PASS",
+    "scope" : "actual shared native scene component; scenePhase injection, not OS background or full navigation E2E",
+    "verifiedTransactionID" : "free-basic"
+  },
+  {
+    "access" : "free",
+    "activeTracks" : 1,
+    "asset" : "routimori_vacation_hammock_night",
+    "context" : "vacationNight",
+    "environment" : "Xcode",
+    "inactiveTracks" : 0,
+    "outfit" : "basic",
+    "result" : "PASS",
+    "scope" : "actual shared native scene component; scenePhase injection, not OS background or full navigation E2E",
+    "verifiedTransactionID" : "free-basic"
+  },
+  {
+    "error" : "notEntitled",
+    "nativeRendered" : false,
+    "outfit" : "cherryBlossom",
+    "result" : "FAIL"
+  },
+  {
+    "error" : "notEntitled",
+    "nativeRendered" : false,
+    "outfit" : "summerVacation",
+    "result" : "FAIL"
+  },
+  {
+    "error" : "notEntitled",
+    "nativeRendered" : false,
+    "outfit" : "autumn",
+    "result" : "FAIL"
+  },
+  {
+    "error" : "notEntitled",
+    "nativeRendered" : false,
+    "outfit" : "winter",
+    "result" : "FAIL"
+  },
+  {
+    "error" : "notEntitled",
+    "nativeRendered" : false,
+    "outfit" : "halloween",
+    "result" : "FAIL"
+  },
+  {
+    "error" : "notEntitled",
+    "nativeRendered" : false,
+    "outfit" : "christmas",
+    "result" : "FAIL"
+  },
+  {
+    "error" : "notEntitled",
+    "nativeRendered" : false,
+    "outfit" : "hanbok",
+    "result" : "FAIL"
+  },
+  {
+    "error" : "notEntitled",
+    "nativeRendered" : false,
+    "outfit" : "cafe",
+    "result" : "FAIL"
+  },
+  {
+    "error" : "notEntitled",
+    "nativeRendered" : false,
+    "outfit" : "student",
+    "result" : "FAIL"
+  },
+  {
+    "error" : "notEntitled",
+    "nativeRendered" : false,
+    "outfit" : "fitness",
+    "result" : "FAIL"
+  },
+  {
+    "error" : "notEntitled",
+    "nativeRendered" : false,
+    "outfit" : "rainyDay",
+    "result" : "FAIL"
+  },
+  {
+    "error" : "notEntitled",
+    "nativeRendered" : false,
+    "outfit" : "pajamas",
+    "result" : "FAIL"
+  },
+  {
+    "error" : "notEntitled",
+    "nativeRendered" : false,
+    "outfit" : "astronaut",
+    "result" : "FAIL"
+  }
+]

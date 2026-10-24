@@ -1,0 +1,337 @@
+{
+  "overall": "PARTIAL: reviewable body-motion prototype; not fully articulated costume system",
+  "statusTable": {
+    "OUTFIT_ARTWORK_QA": "PASS",
+    "OUTFIT_PREVIEW": "PASS",
+    "OUTFIT_EQUIP": "PASS",
+    "OUTFIT_ANIMATION": "PARTIAL",
+    "STAGE_1_COMPATIBILITY": "PARTIAL",
+    "STAGE_2_COMPATIBILITY": "PARTIAL",
+    "STAGE_3_COMPATIBILITY": "PARTIAL",
+    "STAGE_4_COMPATIBILITY": "PARTIAL",
+    "MAC_BUILD": "PASS",
+    "IOS_BUILD": "PASS",
+    "REDUCE_MOTION": "PARTIAL",
+    "PERFORMANCE": "PARTIAL",
+    "TESTS": "PASS",
+    "PRODUCTION_UNCHANGED": "PASS",
+    "READY_FOR_APPROVAL": "PARTIAL"
+  },
+  "artworkQA": "13/13 static originals PASS at48,64,120,220pt light/dark; all original PNG hashes unchanged",
+  "equipped": "Actual MacHalloween and iPhoneAstronaut observed in wardrobe and dashboard header/growth card; iPhone growth card lower portion partly below fold but outfit/accessibility confirmed",
+  "previews": "All13 native Mac details captured; representative5 native iPhone videos captured and120sampleframes reviewed",
+  "motionVerified": "Basic limited mask wave and whole body; Halloweenjump, Christmascelebration, Hanbokbounce, Astronautjump. Other8 source/art and previews checked, not every motion verified. No13fullyanimatedclaim.",
+  "growth": "Level boundary tests1/9/10/24/25/49/50/100 pass; preview stage retained across outfit sheets; sameartacrossstages PARTIAL, no actual XP or user level modified",
+  "tests": {
+    "macFocused": "13tests in2suites passed",
+    "suites": [
+      "PioWardrobeTests",
+      "PioOutfitMotionTests"
+    ],
+    "testsRunOnce": "No repeated unrelated suites",
+    "finalCardChange": "Mac/iOS rebuilt after growthcard view change; model/rig source unchanged after13test pass",
+    "releaseModel": "Actual non-DEBUG PioWardrobe.swift compiled/run; ignores seeded mock ownership and rejects premium selections",
+    "iosUnitTests": "NOT_TESTED; iOS build and runtime checked"
+  },
+  "builds": {
+    "mac": "BUILD SUCCEEDED",
+    "ios": "BUILD SUCCEEDED",
+    "macLog": "mac-final-build.log",
+    "iosLog": "ios-final-build.log"
+  },
+  "reduceMotion": "PARTIAL: rig removal/restart and zero animation tracks verified in focused tests; environment-to-view path inspected. OS accessibility toggle not exercised; oldOS scroll visibility not certified.",
+  "performance": {
+    "status": "PARTIAL",
+    "measurements": [
+      {
+        "phase": "jump-active",
+        "pid": 82207,
+        "executable": "/tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog",
+        "build": "Debug verification, not release benchmark",
+        "method": "10 ps samples at1second intervals, whole process, RSS resident memory; CPU includes app background work",
+        "samples": [
+          {
+            "cpuPercent": 8.9,
+            "rssKiB": 141200,
+            "time": 1792112460.4401789
+          },
+          {
+            "cpuPercent": 16.4,
+            "rssKiB": 141136,
+            "time": 1792112461.449544
+          },
+          {
+            "cpuPercent": 24.9,
+            "rssKiB": 141136,
+            "time": 1792112462.4589598
+          },
+          {
+            "cpuPercent": 20.1,
+            "rssKiB": 141120,
+            "time": 1792112463.4654021
+          },
+          {
+            "cpuPercent": 12.7,
+            "rssKiB": 141072,
+            "time": 1792112464.473672
+          },
+          {
+            "cpuPercent": 17.7,
+            "rssKiB": 141088,
+            "time": 1792112465.481295
+          },
+          {
+            "cpuPercent": 20.6,
+            "rssKiB": 141088,
+            "time": 1792112466.490286
+          },
+          {
+            "cpuPercent": 12.4,
+            "rssKiB": 141072,
+            "time": 1792112467.4953878
+          },
+          {
+            "cpuPercent": 15.0,
+            "rssKiB": 141088,
+            "time": 1792112468.504095
+          },
+          {
+            "cpuPercent": 23.7,
+            "rssKiB": 141520,
+            "time": 1792112469.514444
+          }
+        ],
+        "meanCPUPercent": 17.24,
+        "maxCPUPercent": 24.9,
+        "rssMiBRange": [
+          137.765625,
+          138.203125
+        ]
+      },
+      {
+        "phase": "jump-steady",
+        "pid": 82207,
+        "executable": "/tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog",
+        "build": "Debug verification, not release benchmark",
+        "method": "10 ps samples at1second intervals, whole process, RSS resident memory; CPU includes app background work",
+        "samples": [
+          {
+            "cpuPercent": 19.5,
+            "rssKiB": 136960,
+            "time": 1792112513.095217
+          },
+          {
+            "cpuPercent": 12.7,
+            "rssKiB": 136496,
+            "time": 1792112514.103598
+          },
+          {
+            "cpuPercent": 21.7,
+            "rssKiB": 136480,
+            "time": 1792112515.112849
+          },
+          {
+            "cpuPercent": 18.4,
+            "rssKiB": 136464,
+            "time": 1792112516.120501
+          },
+          {
+            "cpuPercent": 11.8,
+            "rssKiB": 136512,
+            "time": 1792112517.129205
+          },
+          {
+            "cpuPercent": 15.7,
+            "rssKiB": 136512,
+            "time": 1792112518.134814
+          },
+          {
+            "cpuPercent": 19.3,
+            "rssKiB": 136528,
+            "time": 1792112519.140779
+          },
+          {
+            "cpuPercent": 10.7,
+            "rssKiB": 136720,
+            "time": 1792112520.147357
+          },
+          {
+            "cpuPercent": 16.3,
+            "rssKiB": 136368,
+            "time": 1792112521.154465
+          },
+          {
+            "cpuPercent": 14.7,
+            "rssKiB": 136368,
+            "time": 1792112522.1620538
+          }
+        ],
+        "meanCPUPercent": 16.08,
+        "maxCPUPercent": 21.7,
+        "rssMiBRange": [
+          133.171875,
+          133.75
+        ]
+      },
+      {
+        "phase": "navigated-away",
+        "pid": 82207,
+        "executable": "/tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog",
+        "build": "Debug verification, not release benchmark",
+        "method": "10 ps samples at1second intervals, whole process, RSS resident memory; CPU includes app background work",
+        "samples": [
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 135584,
+            "time": 1792112594.7751548
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 135584,
+            "time": 1792112595.783125
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 135488,
+            "time": 1792112596.793879
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 135488,
+            "time": 1792112597.802649
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 135488,
+            "time": 1792112598.812073
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 135488,
+            "time": 1792112599.820151
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 135488,
+            "time": 1792112600.8330991
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 135488,
+            "time": 1792112601.841579
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 135488,
+            "time": 1792112602.851694
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 135488,
+            "time": 1792112603.860895
+          }
+        ],
+        "meanCPUPercent": 0.0,
+        "maxCPUPercent": 0.0,
+        "rssMiBRange": [
+          132.3125,
+          132.40625
+        ]
+      },
+      {
+        "phase": "wardrobe-active",
+        "pid": 82207,
+        "executable": "/tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog",
+        "build": "Debug verification, not release benchmark",
+        "method": "10 ps samples at1second intervals, whole process, RSS resident memory; CPU includes app background work",
+        "samples": [
+          {
+            "cpuPercent": 2.3,
+            "rssKiB": 152816,
+            "time": 1792112090.665594
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 150656,
+            "time": 1792112091.681277
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 149488,
+            "time": 1792112092.6955929
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 137488,
+            "time": 1792112093.71457
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 136592,
+            "time": 1792112094.7264278
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 130928,
+            "time": 1792112095.7342348
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 129840,
+            "time": 1792112096.7460742
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 129856,
+            "time": 1792112097.759114
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 129856,
+            "time": 1792112098.768922
+          },
+          {
+            "cpuPercent": 0.0,
+            "rssKiB": 129872,
+            "time": 1792112099.776153
+          }
+        ],
+        "meanCPUPercent": 0.22999999999999998,
+        "maxCPUPercent": 2.3,
+        "rssMiBRange": [
+          126.796875,
+          149.234375
+        ]
+      }
+    ],
+    "limits": "Debug Mac whole-process ps CPU/RSS samples, not isolated render cost; idle measurement includes launch/foreground changes. Jump16.08percent mean,21.7max steady; navigated-away0percent. CPU warrants optimized-build profiling before approval. No iPhone/Release/GPU/battery/FPS certification."
+  },
+  "preservation": {
+    "baselineFiles": 551,
+    "changedExistingFiles": [
+      "Daylog/Components/Saessagi.swift",
+      "Daylog/Services/PioWardrobe.swift",
+      "Daylog/Views/Wardrobe/PioWardrobeView.swift",
+      "Daylog/Views/Dashboard/SaessagiGrowthCard.swift",
+      "DaylogTests/PioWardrobeTests.swift"
+    ],
+    "missingExistingFiles": [],
+    "head": "702e611aa1a95323bb1a78e27772d583972c383a",
+    "approvedPNGChanged": []
+  },
+  "production": "No commands replaced installed production app; all runtime actions only com.daylog.verify or com.daylog.verify.ios and isolated store pio-wardrobe-v1-20261016; schema/cloud/XP/purchase configuration original hashes unchanged",
+  "runtime": {
+    "iphone17UDID": "87EA3A43-121C-4FFA-A716-A79E614ABEFA",
+    "ios": "27.0 Simulator",
+    "mac": "27.0.1",
+    "appearance": "Light representativevideos and13Macdetails; finaldark Macwardrobe/dashboard and iPhonewardrobe/dashboard screenshots"
+  },
+  "remaining": [
+    "Author properly registered clean body/eyes/lids/wings/feet/sprout source layers with complete hidden roots",
+    "Author character-relative headwear, clothing and handheld/accessory layers per artwork-findings.json",
+    "Register green stage1–4 body-relative attachment configuration and stage-specific art; no old red-crest rig reuse",
+    "Implement and verify independent blink/walk/run/wave/flap and costume accessory motion",
+    "Verify every outfit/motion/stage on both devices, actual OS Reduce Motion, optimized CPU/memory/FPS and repeated navigation"
+  ],
+  "noCommitPushDeploy": true
+}

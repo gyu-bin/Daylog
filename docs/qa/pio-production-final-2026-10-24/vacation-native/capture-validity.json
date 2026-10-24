@@ -1,0 +1,18 @@
+{
+  "production_sequence": {
+    "frames": 96,
+    "test_duration_seconds": 15.896,
+    "cadence": "100ms requested + rendering/capture overhead; not guaranteed10fps realtime",
+    "snapshot": "manual copy of immutable layer content and actual presentation opacity/geometry, actual native host attached"
+  },
+  "candidate_sequence": {
+    "frames": 44,
+    "test_duration_seconds": 4.719,
+    "cadence": "50ms requested + capture overhead"
+  },
+  "failed_sequences_retained": [
+    "before-sampler-fix",
+    "before-presentation-capture-fix",
+    "before-explicit-layer-copy-fix"
+  ]
+}

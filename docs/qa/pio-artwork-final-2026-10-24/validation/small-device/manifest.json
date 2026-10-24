@@ -1,0 +1,26 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "87F27718-1575-4384-B7DB-1AF4601DBC86",
+        "deviceName" : "Pio Small Phone QA 2026-10-24",
+        "exportedFileName" : "7D615C04-4600-4838-B9D1-33BA5D23C2F0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "actual-phone-dashboard-AX5_0_89A3EE9A-DB42-4F31-973A-50142FE2AD4F.png",
+        "timestamp" : 1792809838.026
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "87F27718-1575-4384-B7DB-1AF4601DBC86",
+        "deviceName" : "Pio Small Phone QA 2026-10-24",
+        "exportedFileName" : "277A7782-C4AB-4C76-8736-986A26961784.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "actual-phone-dashboard-normal_0_CC7EB82E-D275-4375-A62C-A76A041A1AB3.png",
+        "timestamp" : 1792809836.802
+      }
+    ],
+    "testIdentifier" : "PioDeviceSizeReviewTests/testActualDeviceDashboardAndLargeText()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioDeviceSizeReviewTests/testActualDeviceDashboardAndLargeText"
+  }
+]

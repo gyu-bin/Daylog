@@ -1,0 +1,47 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioCharacterFinalMain.xctestrun -destination "platform=iOS Simulator,id=87F27718-1575-4384-B7DB-1AF4601DBC86" -parallel-testing-enabled NO -resultBundlePath /tmp/PioCharacterFinal-SmallPhone-C7-20261024.xcresult "-only-testing:DaylogStoreKitTests/PioProductionFinalScreenTests" "-only-testing:DaylogStoreKitTests/PioCharacterDeviceLayoutTests/testLargeTextScreensCanScrollToTheirContentEnd"
+
+Writing result bundle at path:
+	/tmp/PioCharacterFinal-SmallPhone-C7-20261024.xcresult
+
+2026-10-24 17:26:58.789 xcodebuild[40272:2604722] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 17:27:45.168808+0900 Daylog[40701:2608991] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 17:27:46.101566+0900 Daylog[40701:2608991] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 17:27:46.104220+0900 Daylog[40701:2608991] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 17:27:46.104460+0900 Daylog[40701:2608991] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-24 17:27:46.531.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 17:27:46.532.
+Test Suite 'PioCharacterDeviceLayoutTests' started at 2026-10-24 17:27:46.532.
+Test Case '-[DaylogStoreKitTests.PioCharacterDeviceLayoutTests testLargeTextScreensCanScrollToTheirContentEnd]' started.
+IOSurfaceClientSetSurfaceNotify failed e00002c7
+Test Case '-[DaylogStoreKitTests.PioCharacterDeviceLayoutTests testLargeTextScreensCanScrollToTheirContentEnd]' passed (1.626 seconds).
+Test Suite 'PioCharacterDeviceLayoutTests' passed at 2026-10-24 17:27:48.159.
+	 Executed 1 test, with 0 failures (0 unexpected) in 1.626 (1.627) seconds
+Test Suite 'PioProductionFinalScreenTests' started at 2026-10-24 17:27:48.159.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalScreenTests testActualDeviceScreensAndAccessibilityLayouts]' started.
+2026-10-24 17:27:48.269360+0900 Daylog[40701:2608991] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x12a004000>.
+2026-10-24 17:27:48.278821+0900 Daylog[40701:2608991] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x12a004f00>.
+2026-10-24 17:27:48.280279+0900 Daylog[40701:2608991] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x12a004a00>.
+2026-10-24 17:27:48.281138+0900 Daylog[40701:2608991] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x12a005400>.
+2026-10-24 17:27:48.282264+0900 Daylog[40701:2608991] Unbalanced calls to begin/end appearance transitions for <_TtCC19DaylogStoreKitTests29PioCharacterDeviceLayoutTestsP33_ACA88C7A59B31A93FD4B1D3A54C384CB4Host: 0x12a005900>.
+2026-10-24 17:27:48.985621+0900 Daylog[40701:2608991] Unbalanced calls to begin/end appearance transitions for <_TtGC7SwiftUI19UIHostingControllerVS_7AnyView_: 0x12a005900>.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalScreenTests testActualDeviceScreensAndAccessibilityLayouts]' passed (2.252 seconds).
+Test Suite 'PioProductionFinalScreenTests' passed at 2026-10-24 17:27:50.412.
+	 Executed 1 test, with 0 failures (0 unexpected) in 2.252 (2.253) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-24 17:27:50.412.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 3.878 (3.880) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 17:27:50.412.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 3.878 (3.881) seconds
+2026-10-24 17:27:50.451 xcodebuild[40272:2604722] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 17:27:50.454 xcodebuild[40272:2604722] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 17:27:50.461 xcodebuild[40272:2604722] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 17:27:50.752 xcodebuild[40272:2604722] [MT] IDETestOperationsObserverDebug: 59.320 elapsed -- Testing started completed.
+2026-10-24 17:27:50.752 xcodebuild[40272:2604722] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 17:27:50.752 xcodebuild[40272:2604722] [MT] IDETestOperationsObserverDebug: 59.320 sec, +59.320 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCharacterFinal-SmallPhone-C7-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

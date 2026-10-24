@@ -1,0 +1,36 @@
+{
+  "source": "output/pio-character-overhaul-artwork/summerVacation-v1/source/lenses-v1-candidate.png",
+  "size": [
+    1774,
+    887
+  ],
+  "status": "TRANSLUCENT_CANDIDATE_NEEDS_ASSEMBLY",
+  "probes": [
+    {
+      "lens": "left",
+      "box": [
+        450,
+        470,
+        650,
+        600
+      ],
+      "min": 18,
+      "max": 57,
+      "median": 28.0,
+      "mean": 29.29646153846154
+    },
+    {
+      "lens": "right",
+      "box": [
+        1220,
+        350,
+        1420,
+        480
+      ],
+      "min": 22,
+      "max": 51,
+      "median": 33.0,
+      "mean": 33.466076923076926
+    }
+  ]
+}

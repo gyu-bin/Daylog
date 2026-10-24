@@ -1,0 +1,29 @@
+[
+  {
+    "alphaInfo" : 3,
+    "height" : 1254,
+    "id" : "christmas",
+    "imageCount" : 1,
+    "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_christmas.imageset\/pio_outfit_christmas.png",
+    "sha256" : "7df7b6c55397cc00486ed2c83a21ad1583d7f139307efa929d5219917c75b66d",
+    "width" : 1254
+  },
+  {
+    "alphaInfo" : 3,
+    "height" : 1254,
+    "id" : "hanbok",
+    "imageCount" : 1,
+    "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_hanbok.imageset\/pio_outfit_hanbok.png",
+    "sha256" : "4ebb837cff050e50db901de0b63dc2221bb52fe52e18530f42901847b5a253e0",
+    "width" : 1254
+  },
+  {
+    "alphaInfo" : 3,
+    "height" : 1254,
+    "id" : "astronaut",
+    "imageCount" : 1,
+    "path" : "Daylog\/PioWardrobe.xcassets\/pio_outfit_astronaut.imageset\/pio_outfit_astronaut.png",
+    "sha256" : "6a9741d18e6ed00fc036dc82d9bf579e16694f20001ac7e17261db5784e31fc2",
+    "width" : 1254
+  }
+]

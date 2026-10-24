@@ -1,0 +1,56 @@
+{
+  "overall": "PARTIAL",
+  "realSandbox": "NOT_TESTED",
+  "ascCatalog": {
+    "status": "PASS",
+    "confirmedProducts": 13,
+    "korPriceKRW": 2500,
+    "allASCStates": "MISSING_METADATA"
+  },
+  "macUnit": {
+    "status": "PASS",
+    "tests": 69,
+    "suites": 7,
+    "evidence": "mac-unit-v4.log"
+  },
+  "builds": {
+    "macRelease": "PASS",
+    "iosRelease": "PASS",
+    "iosDebugTestBuild": "PASS"
+  },
+  "iosFullLocal": {
+    "status": "FAIL",
+    "passed": 7,
+    "failed": 4,
+    "skippedOptIn": 8,
+    "evidence": "ios-ide-local-v1-summary.json"
+  },
+  "iosRefundIsolated": {
+    "status": "PASS",
+    "tests": 1,
+    "doesNotReplaceFullSuiteFailure": true
+  },
+  "allThirteenPurchasedRig": {
+    "status": "PARTIAL",
+    "purchaseEquipAndTenActionAssertions": "PASS",
+    "unfinishedFinalSpaceTransaction": "FAIL",
+    "testOverall": "FAIL"
+  },
+  "crossProcess": {
+    "status": "PARTIAL",
+    "immediateAutomatedRunner": "FAIL",
+    "delayedDiagnosticVerify": "PASS",
+    "seedPID": 73700,
+    "verifyPID": 76629,
+    "sameVerifiedXcodeTransactionID": "36",
+    "outfit": "cafe",
+    "ownershipOrPreferencesInjected": false,
+    "realAppleSandbox": false
+  },
+  "protectedAssetsAndMotion": {
+    "status": "PASS",
+    "files": 723
+  },
+  "shippingSalesEnabled": false,
+  "commitPushDeploy": false
+}

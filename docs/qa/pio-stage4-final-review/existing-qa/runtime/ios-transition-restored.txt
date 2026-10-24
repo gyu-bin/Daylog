@@ -1,0 +1,69 @@
+Window: "Daylog Store iPhone 17 Pro Max", App: Device Hub.
+0 standard window Daylog Store iPhone 17 Pro Max – iOS 27.0, ID: deviceWindow-AppWindow-1, Secondary Actions: Raise
+	1 container
+		2 text Daylog Store iPhone 17 Pro Max iOS 27.0
+		3 container
+			4 heading Description: Daylog, Secondary Actions: Cancel
+			5 button Description: 대시보드 편집, Help: 카드의 순서를 바꾸거나 숨깁니다., ID: square.grid.2x2, Secondary Actions: Cancel
+			6 button Description: 루틴 추가, Help: 오늘의 루틴에 새 항목을 적습니다., ID: plus, Secondary Actions: Cancel
+			7 text Description: 2026년 10월 15일 (목), 오늘도 좋은 하루예요, Secondary Actions: Cancel
+			8 button Description: 이전 날짜, Help: 이전 날짜 (⌘[), ID: chevron.left, Secondary Actions: Cancel
+			9 button (disabled) Description: 다음 날짜, Help: 다음 날짜 (⌘]), ID: chevron.right, Secondary Actions: Cancel
+			10 button (disabled) Description: 오늘로 이동, Help: 오늘로 이동 (⌘T), Secondary Actions: Cancel
+			11 element Description: 오늘의 진행률, 0%. 1개가 기다리고 있어요., Secondary Actions: Cancel
+			12 text Description: 이번 주의 성장, Secondary Actions: Cancel
+			13 pop up button Description: 주간 목표 5일, Help: 주간 목표를 1일에서 7일 사이로 바꿉니다., Secondary Actions: Cancel
+			14 element Description: 이번 주의 성장. 목표 5일 중 0일 실천. 이번 주는 아직 실천한 날이 없어요. 오늘도 작은 습관 하나부터 시작해 보세요., Secondary Actions: Cancel
+			15 text Description: 오늘의 루틴, Secondary Actions: Cancel
+			16 button Description: 루틴 관리, Secondary Actions: Cancel
+			17 button Description: 기본 루틴 그룹, 1개 중 0개 완료, Help: 누르면 접거나 펼칩니다., Value: 펼침, Secondary Actions: Cancel
+			18 button Description: 기본 루틴 그룹에 항목 추가, Help: 기본 루틴에 항목 추가, ID: plus, Secondary Actions: Cancel
+			19 text Description: Stage3-QA, Secondary Actions: Cancel
+			20 button (selected) Description: Stage3-QA 완료, Help: 누르면 완료로 기록합니다., Value: 꺼짐, ID: checkmark, Secondary Actions: Cancel
+			21 button Description: Stage3-QA 건너뛰기, Help: 누르면 건너뜀으로 기록합니다., Value: 꺼짐, ID: chevron.right.2, Secondary Actions: Cancel
+			22 element Description: 전체 달성률 0%, 1개 중 0개 완료, Secondary Actions: Cancel
+			23 text Description: 피오 성장, Secondary Actions: Cancel
+			24 element Description: 새싹이 성장. 레벨 49, 꽃 단계. 다음 레벨까지 90 / 100 XP. 꽃이 활짝 피었어요. 꾸준함이 계속 쌓이고 있어요., Secondary Actions: Cancel
+			25 text Description: 오늘의 식사, Secondary Actions: Cancel
+			26 button Description: 식사 적기, Secondary Actions: Cancel
+			27 element Description: 아침, 기록 없음, Help: 식사 탭에서 적습니다., Secondary Actions: Cancel
+			28 element Description: 점심, 기록 없음, Help: 식사 탭에서 적습니다., Secondary Actions: Cancel
+			29 element Description: 저녁, 기록 없음, Help: 식사 탭에서 적습니다., Secondary Actions: Cancel
+			30 element Description: 간식, 기록 없음, Help: 식사 탭에서 적습니다., Secondary Actions: Cancel
+			31 text Description: 최근 7일 기록, Secondary Actions: Cancel
+			32 button Description: 전체 보기, Secondary Actions: Cancel
+			33 button Description: 10월 9일 금요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+			34 button Description: 10월 10일 토요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+			35 button Description: 10월 11일 일요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+			36 button Description: 10월 12일 월요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+			37 button Description: 10월 13일 화요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+			38 button Description: 10월 14일 수요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+			39 button Description: 10월 15일 목요일, 1개 중 0개 완료, 달성률 0%, 기준 미달, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+			40 element Description: 이번 주 평균 0%, 집계한 1일 중 0일 달성, Secondary Actions: Cancel
+			41 text Description: 내일 오전 할 일, Secondary Actions: Cancel
+			42 text field (settable) Description: 내일 오전 할 일, Value: 한 줄로 적어 두세요, Secondary Actions: Cancel
+			43 heading Description: 휴가 설정, Secondary Actions: Cancel
+			44 button Description: 기간 추가, Secondary Actions: Cancel
+			45 container Description: 탭 막대, Secondary Actions: Cancel
+		46 button Description: Home, ID: app.grid.3x3
+		47 button Description: Screenshot, ID: camera.viewfinder
+		48 text 1:02
+		49 button Description: Stop, ID: stop.fill
+		50 button Rotate Left
+	51 toolbar
+		52 button Description: Show in Device Hub, Help: Expand to view all controls, Secondary Actions: Increment, Decrement, Delete, Cancel, Move previous, Move next, Remove from toolbar
+		53 menu button More, Help: View options, ID: ellipsis
+	54 close button
+	55 zoom button
+	56 minimize button
+57 menu bar
+	58 Device Hub
+	59 File
+	60 Edit
+	61 View
+	62 Device
+	63 Controls
+	64 Window
+	65 Help
+
+The focused UI element is 0 standard window Daylog Store iPhone 17 Pro Max – iOS 27.0, ID: deviceWindow-AppWindow-1, Secondary Actions: Raise

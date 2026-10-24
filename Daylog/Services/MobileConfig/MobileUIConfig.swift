@@ -143,7 +143,7 @@ struct MobileUISettings: Equatable, Sendable {
             switch self {
             case .onboardingIntroTitle: return "작은 루틴부터, 나만의 하루를."
             case .onboardingNotificationTitle: return "루틴 시간을 놓치지 마세요"
-            case .onboardingNotificationBody: return "설정한 시간에 Daylog가 알려드려요."
+            case .onboardingNotificationBody: return "설정한 시간에 RoutiMori가 알려드려요."
             case .dashboardGreeting: return "오늘도 좋은 하루예요"
             case .emptyNoRoutinesToday: return "오늘은 예정된 루틴이 없어요."
             case .emptyNoRoutinesYet: return "아직 등록된 루틴이 없어요."
@@ -159,7 +159,7 @@ struct MobileUISettings: Equatable, Sendable {
         }
     }
 
-    func string(_ key: TextKey) -> String { text[key] ?? key.builtIn }
+    func string(_ key: TextKey) -> String { AppBrand.displayCopy(text[key] ?? key.builtIn) }
 
     static let spacingRange: ClosedRange<Double> = 8...24
     static let paddingRange: ClosedRange<Double> = 10...24

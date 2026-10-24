@@ -1,0 +1,46 @@
+{
+  "scope": "DEBUG-only opt-in Routimori splash first implementation",
+  "gitHead": "702e611aa1a95323bb1a78e27772d583972c383a",
+  "changedPreviouslyExistingDaylogAndTestFiles": [
+    "Daylog/App/RootView.swift"
+  ],
+  "existingPioCodeAndArtPreserved": true,
+  "newCharacterAssetByteExactToUpload": true,
+  "assetSHA256": "daf62f4863afde6d6cf48b4a2202c5a6c3dac45dddec72b88460d1363e4a97db",
+  "releaseExclusions": {
+    "D10000000000000000000019": "PioTrial.xcassets RoutimoriTrial.xcassets",
+    "D20000000000000000000019": "PioTrial.xcassets RoutimoriTrial.xcassets"
+  },
+  "MacDebugBuild": "PASS via focused test build",
+  "iOSSimulatorDebugBuild": "PASS",
+  "focusedTests": {
+    "passed": 9,
+    "suites": [
+      "SplashTests",
+      "RoutimoriSplashTests"
+    ],
+    "xcresult": "/tmp/RoutimoriSplashTests-final-20261016.xcresult"
+  },
+  "offlineCALayerRenderCheck": {
+    "anglesDegrees": [
+      -10,
+      0,
+      8
+    ],
+    "result": "Attached wing; tapered mask avoids previous torso-strip artifact",
+    "files": [
+      "rig-render-checks/wing-minus10.png",
+      "rig-render-checks/neutral.png",
+      "rig-render-checks/wing-plus8.png"
+    ],
+    "isAppScreenshot": false
+  },
+  "codeReview": "PASS; no blocking finding",
+  "liveAppVisualQA": {
+    "status": "BLOCKED",
+    "reason": "CUA reported Mac locked and automatic unlock failed twice; requested manual unlock. Whole-screen layout, live timing, transitions, Reduce Motion UI and scene resume not yet verified."
+  },
+  "productionInstall": false,
+  "commit": false,
+  "push": false
+}

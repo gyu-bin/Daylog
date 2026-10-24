@@ -141,8 +141,8 @@ final class PioAppearanceCoordinator {
         let access: PioAppearanceAccess
         if requested == .basic { access = .free }
         else if wardrobe.purchases.owns(requested) { access = .verified }
-        else if wardrobe.isFreeWearing { access = .free }
         else if wardrobe.isOutfitTestingEnabled && wardrobe.canWear(requested) { access = .testing }
+        else if wardrobe.isFreeWearing { access = .free }
         else if !wardrobe.purchases.availability.isEnabled { access = .unavailable }
         else {
             switch wardrobe.purchases.entitlementState {
@@ -152,8 +152,8 @@ final class PioAppearanceCoordinator {
             }
         }
         let authorized = access == .verified || access == .free || access == .testing ? requested : .basic
-        // 무료로 입는 동안(기본 피오, 상점이 열리기 전의 무료 착용)과 구매를 쓸 수 없는 배포판에서는 화면마다
-        // "이 장면 전용 원화가 없어요" 같은 개발용 안내를 띄우지 않는다. 원화가 없는 장면은 기본 피오 장면을 그대로 보여 준다.
+        // 구매를 지원하지 않는 배포판에는 장면 원화 관련 개발용 안내를 띄우지 않는다.
+        // 유료 의상 권한은 위에서 확인하며, 전용 원화가 없는 장면은 기존 기본 피오 장면을 유지한다.
         return resolveArtwork(outfit: authorized, requested: requested, stage: Self.stage(forLevel: level ?? currentLevel),
                               context: context, requestedMotion: motion, requestedPose: pose, access: access,
                               showsNotes: access != .unavailable && !(access == .free && requested != .basic))
@@ -198,7 +198,23 @@ final class PioAppearanceCoordinator {
         if !context.hasCharacterSurface {
             notes.append("이 화면에는 현재 피오 표시 영역이 없어요.")
         } else if let original = context.originalSceneAsset {
-            if assetExists(original) {
+            let registeredScene: String?
+            #if DEBUG
+            registeredScene = PioCloudSceneResources.assetName(outfit: outfit, context: context)
+                ?? PioVacationSceneResources.assetName(outfit: outfit, context: context)
+            #else
+            registeredScene = PioVacationSceneResources.assetName(outfit: outfit, context: context)
+            #endif
+            if let scene = registeredScene, assetExists(scene) {
+                artwork = .existingScene(asset: scene)
+                renderer = .originalScene
+                applied = outfit == requested
+                animation = true
+                #if DEBUG
+                missing += PioCloudSceneResources.missingIndependentLayers(outfit: outfit, context: context)
+                #endif
+                missing += PioVacationSceneResources.missingIndependentLayers(outfit: outfit, context: context)
+            } else if assetExists(original) {
                 artwork = .existingScene(asset: original)
                 renderer = .originalScene
                 applied = requested == .basic
@@ -207,7 +223,7 @@ final class PioAppearanceCoordinator {
                 missing.append(original)
                 notes.append("이 장면의 원화를 불러오지 못했어요.")
             }
-            if requested != .basic {
+            if requested != .basic && outfit == requested && !(registeredScene.map(assetExists) ?? false) {
                 let expected = "\(original)_\(requested.rawValue)"
                 missing.append(expected)
                 notes.append("\(requested.title)의 이 장면 전용 원화가 없어 기본 장면을 유지해요. 착장 선택은 바뀌지 않아요.")
@@ -288,7 +304,8 @@ enum PioAppearanceResources {
     }
     static func hasEnabledLayeredArtwork(_ outfit: PioOutfitID) -> Bool {
         #if DEBUG
-        return PioLayeredTrial.isEnabled && PioLayeredResources.manifest(for: outfit) != nil
+        return (PioOverhaulTrial.isEnabled && PioOverhaulResources.manifest(outfit) != nil)
+            || (PioLayeredTrial.isEnabled && PioLayeredResources.manifest(for: outfit) != nil)
         #else
         return false
         #endif

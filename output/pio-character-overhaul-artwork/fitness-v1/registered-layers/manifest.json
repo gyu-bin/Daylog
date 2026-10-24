@@ -1,0 +1,403 @@
+{
+  "canvas" : [
+    1254,
+    1254
+  ],
+  "grips" : [
+    {
+      "endpointDegrees" : -12,
+      "parts" : [
+        "wingLeft",
+        "dumbbellLeft"
+      ],
+      "pivot" : [
+        410,
+        935
+      ]
+    },
+    {
+      "endpointDegrees" : 12,
+      "parts" : [
+        "wingRight",
+        "dumbbellRight"
+      ],
+      "pivot" : [
+        882,
+        875
+      ]
+    }
+  ],
+  "notes" : [
+    "Eyes\/open\/half\/closed alternatives are mutually exclusive",
+    "Complete generated source alpha preserved",
+    "Body uniformly registered at0.82 scale, offset153184; no upscale, masks or painting",
+    "One dumbbell source reused twice without mirrored lighting",
+    "Sprout reused from Cherry; not new Fitness source",
+    "Derivative registered PNGs are not new source artwork"
+  ],
+  "origin" : "topLeft",
+  "original" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/Daylog\/PioWardrobe.xcassets\/pio_outfit_fitness.imageset\/pio_outfit_fitness.png",
+  "parts" : [
+    {
+      "file" : "footLeft.png",
+      "id" : "footLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        397.64775413711584,
+        1019.2671394799054
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        500,
+        1120
+      ],
+      "scale" : 0.15366430260047281,
+      "sha256" : "362f7ad1e52d4e0de17b78bf06bed3062a67d2f5734d0fa78b1c329667c05a61",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/foot-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+      "z" : 0
+    },
+    {
+      "file" : "footRight.png",
+      "id" : "footRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        698.69976359338057,
+        1020.4491725768321
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        800,
+        1120
+      ],
+      "scale" : 0.14775413711583923,
+      "sha256" : "da95bc820f01b6cd755ec4e731fd29f9f194ff97c89d3909416f9593de8fc6e5",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/foot-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+      "z" : 1
+    },
+    {
+      "file" : "body.png",
+      "id" : "body",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        153,
+        184
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        640,
+        800
+      ],
+      "scale" : 0.81999999999999995,
+      "sha256" : "ae2567f3a4c8684504ecbc7f63358daa4b6678f5f6a3e84b6b5d153eade6a159",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/fitness-v1\/source\/body-candidate.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "953aab085836b3c59188bc50a122deda09a2e991acf30f9498d2f921a41d2eb1",
+      "z" : 2
+    },
+    {
+      "file" : "eyeLeft.png",
+      "id" : "eyeLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        443.74345549738223,
+        552.93193717277484
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        530,
+        637
+      ],
+      "scale" : 0.13089005235602094,
+      "sha256" : "0b3ea668013ec6bb200c3c498fd767e4a55ef7cff7a1610f0024ba2766d1d503",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-open-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "z" : 3
+    },
+    {
+      "file" : "eyeRight.png",
+      "id" : "eyeRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        728.74345549738223,
+        517.93193717277484
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        815,
+        602
+      ],
+      "scale" : 0.13089005235602094,
+      "sha256" : "4f6789eaa7b7f0058cedd79ce129faac454389a0e1d54d9c8d5596d53124487a",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-open-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "z" : 4
+    },
+    {
+      "file" : "sprout.png",
+      "id" : "sprout",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        320.66838046272494,
+        13.714652956298202
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        625,
+        360
+      ],
+      "scale" : 0.38560411311053983,
+      "sha256" : "10801113923b30de3dc922a9de5d7173565206198de71a99abf9205ad89fa009",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/cherryBlossom-v2\/source\/sprout-v3-review.png",
+      "sourcePixels" : [
+        1536,
+        1024
+      ],
+      "sourceSHA256" : "639387f2916fb32af0ab30ebb8f43b09ed5e88366c052b7c7b8b91f51f893199",
+      "z" : 5
+    },
+    {
+      "file" : "headwear.png",
+      "id" : "headwear",
+      "neutralAngleDegrees" : -6,
+      "offset" : [
+        279.65811965811963,
+        114.70085470085471
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        640,
+        480
+      ],
+      "scale" : 0.59829059829059827,
+      "sha256" : "6c00546e600e94113909926c59d78fd4fb4be5a82cd8a59293da817c4a152287",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/fitness-v1\/source\/headband-candidate.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "4bda7397eaba9b9f8a4e2e0d04a658bd3f0dddd905136a05f9a0de73ad6de2d5",
+      "z" : 6
+    },
+    {
+      "file" : "dumbbellLeft.png",
+      "id" : "dumbbellLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        118.33333333333334,
+        609.69696969696975
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        410,
+        935
+      ],
+      "scale" : 0.30303030303030304,
+      "sha256" : "b12aff979d205bb9a5fd3c1ebec143c6904f2fa2d89d14a4bb076c67895362e5",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/fitness-v1\/source\/dumbbell-candidate.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "0e856c31a4bfe0673199d8aa23125ac71af8bc218066879beb003c1cb28b6126",
+      "z" : 7
+    },
+    {
+      "file" : "dumbbellRight.png",
+      "id" : "dumbbellRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        818.33333333333337,
+        569.69696969696975
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        882,
+        875
+      ],
+      "scale" : 0.30303030303030304,
+      "sha256" : "a30a0783964d2bb4bcc6ad64efbc9607ed994a0275d901eb82cd7176c3e12a6b",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/fitness-v1\/source\/dumbbell-candidate.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "0e856c31a4bfe0673199d8aa23125ac71af8bc218066879beb003c1cb28b6126",
+      "z" : 8
+    },
+    {
+      "file" : "wingLeft.png",
+      "id" : "wingLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        163.50000000000003,
+        659.5
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        410,
+        935
+      ],
+      "scale" : 0.28999999999999998,
+      "sha256" : "1c3571db553698d0aca35d49968d3d1f340189daf763715d73a4aa0119de8875",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/fitness-v1\/source\/wing-left-candidate.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "245582f816e46132a289051beb226499b61bceb5ad8691e112750db42c647916",
+      "z" : 9
+    },
+    {
+      "file" : "wingRight.png",
+      "id" : "wingRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        763.10000000000002,
+        628.5
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        882,
+        875
+      ],
+      "scale" : 0.28999999999999998,
+      "sha256" : "057f2210f65b609858f1ca70125928f76576cab25b83aea4846590307d4d0271",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/fitness-v1\/source\/wing-right-v2-candidate.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "fc51aadd06a3b6d04fad7de37f14e4510c42f77e2364092be39dea063e7ae443",
+      "z" : 10
+    },
+    {
+      "file" : "halfLeft.png",
+      "id" : "halfLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        462.82860824742266,
+        613.8969139634047
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        530,
+        637
+      ],
+      "scale" : 0.083762886597938138,
+      "sha256" : "c0f51a75616b5df93d6bcbaac3753cda1b198a656c24d62c9994d55165a75822",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-half-v1.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+      "z" : 11
+    },
+    {
+      "file" : "lidLeft.png",
+      "id" : "lidLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        447.86600496277913,
+        565.59741727618768
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        530,
+        637
+      ],
+      "scale" : 0.12406947890818859,
+      "sha256" : "22483f82c2d15dcc9f9c73bc76bd273997cd7307a1715b2e6f0728f6f8a0ad17",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eyelid-closed-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "z" : 12
+    },
+    {
+      "file" : "halfRight.png",
+      "id" : "halfRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        747.82860824742272,
+        578.8969139634047
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        815,
+        602
+      ],
+      "scale" : 0.083762886597938138,
+      "sha256" : "dd0fd8b96342a3fa28c39ea3211a73d7eccde0fea9098034e59435bb11d10761",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-half-v1.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+      "z" : 13
+    },
+    {
+      "file" : "lidRight.png",
+      "id" : "lidRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        732.86600496277913,
+        530.59741727618768
+      ],
+      "outsideAlpha16Pixels" : 0,
+      "outsideAnyAlphaPixels" : 0,
+      "pivot" : [
+        815,
+        602
+      ],
+      "scale" : 0.12406947890818859,
+      "sha256" : "19ff870b191832753ca6c3753f0f841b501d4c7ec8c317c7a315bb3dbc447b84",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eyelid-closed-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "z" : 14
+    }
+  ],
+  "status" : "UNAPPROVED_ARTWORK_CANDIDATE"
+}

@@ -1,0 +1,440 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioProductionFinalMain.xctestrun -destination platform=macOS -parallel-testing-enabled NO "-only-testing:DaylogTests/PioPurchaseTests" "-only-testing:DaylogTests/PioProductRegistryTests" "-only-testing:DaylogTests/PioWardrobeTests" "-only-testing:DaylogTests/PioAppearanceTests" "-only-testing:DaylogTests/PioAppIconTests" "-only-testing:DaylogTests/PioOverhaulRigTests" "-only-testing:DaylogTests/PioOutfitMotionTests" "-only-testing:DaylogTests/PioCloudProductionTests/testSmallProductionPackAndIndependentEyeFrames" "-only-testing:DaylogTests/PioCloudProductionTests/testFourteenProductionRegistrationsAndIndependentHold" "-only-testing:DaylogTests/PioCloudProductionTests/testFourteenProductionTransitionsSuppressionAndReduceMotion" "-only-testing:DaylogTests/PioCloudProductionTests/testProductionAppearanceAdapterPreservesAuthorizationAndNotes" "-only-testing:DaylogTests/PioCloudProductionTests/testProductionReduceMotionSuppressionAndSceneStop" "-only-testing:DaylogTests/PioCloudProductionTests/testProductionOffscreenWindowDetachStopsTracks" "-only-testing:DaylogTests/PioVacationFinalArtworkTests" "-only-testing:DaylogTests/PioProductionFinalLifecycleTests/testMacIntactScrollSubtreeReleasesNativeHost" -resultBundlePath /tmp/PioProductionFinal-Mac-first-20261024.xcresult
+
+Writing result bundle at path:
+	/tmp/PioProductionFinal-Mac-first-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 14:10:27.925739+0900 Daylog[96992:2196636] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:10:27.926089+0900 Daylog[96992:2196636] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:10:27.927337+0900 Daylog[96992:2196635] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:10:27.927377+0900 Daylog[96992:2196635] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:10:27.929973+0900 Daylog[96992:2196680] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:10:27.930017+0900 Daylog[96992:2196680] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:10:27.932243+0900 Daylog[96992:2196680] [Connection] Will NOT re-try to establish the connection
+2026-10-24 14:10:27.932336+0900 Daylog[96992:2196636] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:10:27.932362+0900 Daylog[96992:2196636] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:10:27.991186+0900 Daylog[96992:2196603] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 14:10:28.442333+0900 Daylog[96992:2196748] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 14:10:29.078.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 14:10:29.079.
+Test Suite 'PioCloudProductionTests' started at 2026-10-24 14:10:29.079.
+Test Case '-[DaylogTests.PioCloudProductionTests testFourteenProductionRegistrationsAndIndependentHold]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testFourteenProductionRegistrationsAndIndependentHold]' passed (0.036 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testFourteenProductionTransitionsSuppressionAndReduceMotion]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testFourteenProductionTransitionsSuppressionAndReduceMotion]' passed (0.027 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionAppearanceAdapterPreservesAuthorizationAndNotes]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionAppearanceAdapterPreservesAuthorizationAndNotes]' passed (0.001 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionOffscreenWindowDetachStopsTracks]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionOffscreenWindowDetachStopsTracks]' passed (0.060 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionReduceMotionSuppressionAndSceneStop]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionReduceMotionSuppressionAndSceneStop]' passed (0.002 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testSmallProductionPackAndIndependentEyeFrames]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testSmallProductionPackAndIndependentEyeFrames]' passed (0.002 seconds).
+Test Suite 'PioCloudProductionTests' passed at 2026-10-24 14:10:29.208.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 0.128 (0.130) seconds
+Test Suite 'PioProductionFinalLifecycleTests' started at 2026-10-24 14:10:29.209.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testMacIntactScrollSubtreeReleasesNativeHost]' started.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioProductionFinalLifecycleTests.swift:68: error: -[DaylogTests.PioProductionFinalLifecycleTests testMacIntactScrollSubtreeReleasesNativeHost] : XCTAssertNil failed: "<Daylog.PioCloudSceneHost: 0x77b316b700>" - Document host must not retain its owning clip ancestor
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioProductionFinalLifecycleTests.swift:69: error: -[DaylogTests.PioProductionFinalLifecycleTests testMacIntactScrollSubtreeReleasesNativeHost] : XCTAssertNil failed: "<NSClipView: 0x77b131bc00>" - Owning clip and document must not form a retained cycle
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testMacIntactScrollSubtreeReleasesNativeHost]' failed (0.373 seconds).
+Test Suite 'PioProductionFinalLifecycleTests' failed at 2026-10-24 14:10:29.582.
+	 Executed 1 test, with 2 failures (0 unexpected) in 0.373 (0.373) seconds
+Test Suite 'PioVacationFinalArtworkTests' started at 2026-10-24 14:10:29.582.
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testNativeEyeCandidateActualPresentationSequence]' started.
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testNativeEyeCandidateActualPresentationSequence]' passed (4.067 seconds).
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testNativePreciselyReconstructedEyeRegions]' started.
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testNativePreciselyReconstructedEyeRegions]' passed (1.121 seconds).
+Test Suite 'PioVacationFinalArtworkTests' passed at 2026-10-24 14:10:34.771.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 5.188 (5.189) seconds
+Test Suite 'DaylogTests.xctest' failed at 2026-10-24 14:10:34.771.
+	 Executed 9 tests, with 2 failures (0 unexpected) in 5.690 (5.693) seconds
+Test Suite 'Selected tests' failed at 2026-10-24 14:10:34.771.
+	 Executed 9 tests, with 2 failures (0 unexpected) in 5.690 (5.693) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite PioAppIconTests started.
+◇ Test missingPremiumIconFilesCannotBeSelected() started.
+✔ Test missingPremiumIconFilesCannotBeSelected() passed after 0.001 seconds.
+◇ Test cancellationIsSilentAndPendingNeverSaysOwned() started.
+✔ Test cancellationIsSilentAndPendingNeverSaysOwned() passed after 0.001 seconds.
+✔ Suite PioAppIconTests passed after 0.001 seconds.
+◇ Suite PioAppearanceTests started.
+◇ Test stageBoundariesMatchApprovedGrowthWithoutChangingCostume() started.
+✔ Test stageBoundariesMatchApprovedGrowthWithoutChangingCostume() passed after 0.001 seconds.
+◇ Test allFourteenCatalogEntriesResolveTheirApprovedArtwork() started.
+✔ Test allFourteenCatalogEntriesResolveTheirApprovedArtwork() passed after 0.002 seconds.
+◇ Test unknownPreferencesNeverGrantPaidAppearanceOrEraseSelection() started.
+✔ Test unknownPreferencesNeverGrantPaidAppearanceOrEraseSelection() passed after 0.001 seconds.
+◇ Test previewsNeverAuthorizeEquipOrChangeGlobalAppearance() started.
+✔ Test previewsNeverAuthorizeEquipOrChangeGlobalAppearance() passed after 0.001 seconds.
+◇ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() started.
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:125:21: Expectation failed: appearance.artwork == .existingScene(asset: asset)
+↳ appearance.artwork == .existingScene(asset: asset) → false
+↳   appearance.artwork → .existingScene(asset: "routimori_vacation_day_christmas")
+↳     existingScene → (asset: "routimori_vacation_day_christmas")
+↳       asset → "routimori_vacation_day_christmas"
+↳   .existingScene(asset: asset) → .existingScene(asset: "routimori_vacation_hammock")
+↳     existingScene → (asset: "routimori_vacation_hammock")
+↳       asset → "routimori_vacation_hammock"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:127:21: Expectation failed: appearance.outfitApplied == (outfit == .basic)
+↳ appearance.outfitApplied == (outfit == .basic) → false
+↳   appearance.outfitApplied → true
+↳   (outfit == .basic) → false
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:130:25: Expectation failed: appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)")
+↳ appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)") → false
+↳   appearance.missingArtwork → ["routimori_vacation_day_christmas_cleanFace_eyes_eyelids", "routimori_vacation_day_christmas_arms_props_hiddenRoots", "routimori_vacation_day_christmas_front_back_hammock_occlusion", "pio_outfit_christmas_stage4"]
+↳   "\(asset)_\(outfit.rawValue)" → "routimori_vacation_hammock_christmas"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:131:25: Expectation failed: appearance.compatibilityNote?.contains("기본 장면") == true
+↳ appearance.compatibilityNote?.contains("기본 장면") == true → false
+↳   appearance.compatibilityNote?.contains("기본 장면") → nil
+↳     some → true
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:125:21: Expectation failed: appearance.artwork == .existingScene(asset: asset)
+↳ appearance.artwork == .existingScene(asset: asset) → false
+↳   appearance.artwork → .existingScene(asset: "routimori_vacation_night_christmas")
+↳     existingScene → (asset: "routimori_vacation_night_christmas")
+↳       asset → "routimori_vacation_night_christmas"
+↳   .existingScene(asset: asset) → .existingScene(asset: "routimori_vacation_hammock_night")
+↳     existingScene → (asset: "routimori_vacation_hammock_night")
+↳       asset → "routimori_vacation_hammock_night"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:127:21: Expectation failed: appearance.outfitApplied == (outfit == .basic)
+↳ appearance.outfitApplied == (outfit == .basic) → false
+↳   appearance.outfitApplied → true
+↳   (outfit == .basic) → false
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:130:25: Expectation failed: appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)")
+↳ appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)") → false
+↳   appearance.missingArtwork → ["routimori_vacation_night_christmas_cleanFace_eyes_eyelids", "routimori_vacation_night_christmas_arms_props_hiddenRoots", "routimori_vacation_night_christmas_front_back_hammock_occlusion", "pio_outfit_christmas_stage4"]
+↳   "\(asset)_\(outfit.rawValue)" → "routimori_vacation_hammock_night_christmas"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:131:25: Expectation failed: appearance.compatibilityNote?.contains("기본 장면") == true
+↳ appearance.compatibilityNote?.contains("기본 장면") == true → false
+↳   appearance.compatibilityNote?.contains("기본 장면") → nil
+↳     some → true
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:125:21: Expectation failed: appearance.artwork == .existingScene(asset: asset)
+↳ appearance.artwork == .existingScene(asset: asset) → false
+↳   appearance.artwork → .existingScene(asset: "routimori_vacation_day_halloween")
+↳     existingScene → (asset: "routimori_vacation_day_halloween")
+↳       asset → "routimori_vacation_day_halloween"
+↳   .existingScene(asset: asset) → .existingScene(asset: "routimori_vacation_hammock")
+↳     existingScene → (asset: "routimori_vacation_hammock")
+↳       asset → "routimori_vacation_hammock"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:127:21: Expectation failed: appearance.outfitApplied == (outfit == .basic)
+↳ appearance.outfitApplied == (outfit == .basic) → false
+↳   appearance.outfitApplied → true
+↳   (outfit == .basic) → false
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:130:25: Expectation failed: appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)")
+↳ appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)") → false
+↳   appearance.missingArtwork → ["routimori_vacation_day_halloween_cleanFace_eyes_eyelids", "routimori_vacation_day_halloween_arms_props_hiddenRoots", "routimori_vacation_day_halloween_front_back_hammock_occlusion", "pio_outfit_halloween_stage4"]
+↳   "\(asset)_\(outfit.rawValue)" → "routimori_vacation_hammock_halloween"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:131:25: Expectation failed: appearance.compatibilityNote?.contains("기본 장면") == true
+↳ appearance.compatibilityNote?.contains("기본 장면") == true → false
+↳   appearance.compatibilityNote?.contains("기본 장면") → nil
+↳     some → true
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:125:21: Expectation failed: appearance.artwork == .existingScene(asset: asset)
+↳ appearance.artwork == .existingScene(asset: asset) → false
+↳   appearance.artwork → .existingScene(asset: "routimori_vacation_night_halloween")
+↳     existingScene → (asset: "routimori_vacation_night_halloween")
+↳       asset → "routimori_vacation_night_halloween"
+↳   .existingScene(asset: asset) → .existingScene(asset: "routimori_vacation_hammock_night")
+↳     existingScene → (asset: "routimori_vacation_hammock_night")
+↳       asset → "routimori_vacation_hammock_night"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:127:21: Expectation failed: appearance.outfitApplied == (outfit == .basic)
+↳ appearance.outfitApplied == (outfit == .basic) → false
+↳   appearance.outfitApplied → true
+↳   (outfit == .basic) → false
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:130:25: Expectation failed: appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)")
+↳ appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)") → false
+↳   appearance.missingArtwork → ["routimori_vacation_night_halloween_cleanFace_eyes_eyelids", "routimori_vacation_night_halloween_arms_props_hiddenRoots", "routimori_vacation_night_halloween_front_back_hammock_occlusion", "pio_outfit_halloween_stage4"]
+↳   "\(asset)_\(outfit.rawValue)" → "routimori_vacation_hammock_night_halloween"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:131:25: Expectation failed: appearance.compatibilityNote?.contains("기본 장면") == true
+↳ appearance.compatibilityNote?.contains("기본 장면") == true → false
+↳   appearance.compatibilityNote?.contains("기본 장면") → nil
+↳     some → true
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:125:21: Expectation failed: appearance.artwork == .existingScene(asset: asset)
+↳ appearance.artwork == .existingScene(asset: asset) → false
+↳   appearance.artwork → .existingScene(asset: "routimori_vacation_day_hanbok")
+↳     existingScene → (asset: "routimori_vacation_day_hanbok")
+↳       asset → "routimori_vacation_day_hanbok"
+↳   .existingScene(asset: asset) → .existingScene(asset: "routimori_vacation_hammock")
+↳     existingScene → (asset: "routimori_vacation_hammock")
+↳       asset → "routimori_vacation_hammock"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:127:21: Expectation failed: appearance.outfitApplied == (outfit == .basic)
+↳ appearance.outfitApplied == (outfit == .basic) → false
+↳   appearance.outfitApplied → true
+↳   (outfit == .basic) → false
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:130:25: Expectation failed: appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)")
+↳ appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)") → false
+↳   appearance.missingArtwork → ["routimori_vacation_day_hanbok_cleanFace_eyes_eyelids", "routimori_vacation_day_hanbok_arms_props_hiddenRoots", "routimori_vacation_day_hanbok_front_back_hammock_occlusion", "pio_outfit_hanbok_stage4"]
+↳   "\(asset)_\(outfit.rawValue)" → "routimori_vacation_hammock_hanbok"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:131:25: Expectation failed: appearance.compatibilityNote?.contains("기본 장면") == true
+↳ appearance.compatibilityNote?.contains("기본 장면") == true → false
+↳   appearance.compatibilityNote?.contains("기본 장면") → nil
+↳     some → true
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:125:21: Expectation failed: appearance.artwork == .existingScene(asset: asset)
+↳ appearance.artwork == .existingScene(asset: asset) → false
+↳   appearance.artwork → .existingScene(asset: "routimori_vacation_night_hanbok")
+↳     existingScene → (asset: "routimori_vacation_night_hanbok")
+↳       asset → "routimori_vacation_night_hanbok"
+↳   .existingScene(asset: asset) → .existingScene(asset: "routimori_vacation_hammock_night")
+↳     existingScene → (asset: "routimori_vacation_hammock_night")
+↳       asset → "routimori_vacation_hammock_night"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:127:21: Expectation failed: appearance.outfitApplied == (outfit == .basic)
+↳ appearance.outfitApplied == (outfit == .basic) → false
+↳   appearance.outfitApplied → true
+↳   (outfit == .basic) → false
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:130:25: Expectation failed: appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)")
+↳ appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)") → false
+↳   appearance.missingArtwork → ["routimori_vacation_night_hanbok_cleanFace_eyes_eyelids", "routimori_vacation_night_hanbok_arms_props_hiddenRoots", "routimori_vacation_night_hanbok_front_back_hammock_occlusion", "pio_outfit_hanbok_stage4"]
+↳   "\(asset)_\(outfit.rawValue)" → "routimori_vacation_hammock_night_hanbok"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:131:25: Expectation failed: appearance.compatibilityNote?.contains("기본 장면") == true
+↳ appearance.compatibilityNote?.contains("기본 장면") == true → false
+↳   appearance.compatibilityNote?.contains("기본 장면") → nil
+↳     some → true
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:125:21: Expectation failed: appearance.artwork == .existingScene(asset: asset)
+↳ appearance.artwork == .existingScene(asset: asset) → false
+↳   appearance.artwork → .existingScene(asset: "routimori_vacation_day_astronaut")
+↳     existingScene → (asset: "routimori_vacation_day_astronaut")
+↳       asset → "routimori_vacation_day_astronaut"
+↳   .existingScene(asset: asset) → .existingScene(asset: "routimori_vacation_hammock")
+↳     existingScene → (asset: "routimori_vacation_hammock")
+↳       asset → "routimori_vacation_hammock"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:127:21: Expectation failed: appearance.outfitApplied == (outfit == .basic)
+↳ appearance.outfitApplied == (outfit == .basic) → false
+↳   appearance.outfitApplied → true
+↳   (outfit == .basic) → false
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:130:25: Expectation failed: appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)")
+↳ appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)") → false
+↳   appearance.missingArtwork → ["routimori_vacation_day_astronaut_cleanFace_eyes_eyelids", "routimori_vacation_day_astronaut_arms_props_hiddenRoots", "routimori_vacation_day_astronaut_front_back_hammock_occlusion", "pio_outfit_astronaut_stage4"]
+↳   "\(asset)_\(outfit.rawValue)" → "routimori_vacation_hammock_astronaut"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:131:25: Expectation failed: appearance.compatibilityNote?.contains("기본 장면") == true
+↳ appearance.compatibilityNote?.contains("기본 장면") == true → false
+↳   appearance.compatibilityNote?.contains("기본 장면") → nil
+↳     some → true
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:125:21: Expectation failed: appearance.artwork == .existingScene(asset: asset)
+↳ appearance.artwork == .existingScene(asset: asset) → false
+↳   appearance.artwork → .existingScene(asset: "routimori_vacation_night_astronaut")
+↳     existingScene → (asset: "routimori_vacation_night_astronaut")
+↳       asset → "routimori_vacation_night_astronaut"
+↳   .existingScene(asset: asset) → .existingScene(asset: "routimori_vacation_hammock_night")
+↳     existingScene → (asset: "routimori_vacation_hammock_night")
+↳       asset → "routimori_vacation_hammock_night"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:127:21: Expectation failed: appearance.outfitApplied == (outfit == .basic)
+↳ appearance.outfitApplied == (outfit == .basic) → false
+↳   appearance.outfitApplied → true
+↳   (outfit == .basic) → false
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:130:25: Expectation failed: appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)")
+↳ appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)") → false
+↳   appearance.missingArtwork → ["routimori_vacation_night_astronaut_cleanFace_eyes_eyelids", "routimori_vacation_night_astronaut_arms_props_hiddenRoots", "routimori_vacation_night_astronaut_front_back_hammock_occlusion", "pio_outfit_astronaut_stage4"]
+↳   "\(asset)_\(outfit.rawValue)" → "routimori_vacation_hammock_night_astronaut"
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() recorded an issue at PioAppearanceTests.swift:131:25: Expectation failed: appearance.compatibilityNote?.contains("기본 장면") == true
+↳ appearance.compatibilityNote?.contains("기본 장면") == true → false
+↳   appearance.compatibilityNote?.contains("기본 장면") → nil
+↳     some → true
+✘ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() failed after 0.005 seconds with 32 issues.
+◇ Test standingOutfitsAreNeverCompositedAsRecliningOrSleeping() started.
+✔ Test standingOutfitsAreNeverCompositedAsRecliningOrSleeping() passed after 0.001 seconds.
+◇ Test fallbackMotionsNeverClaimIndependentWingsOrWalking() started.
+✔ Test fallbackMotionsNeverClaimIndependentWingsOrWalking() passed after 0.001 seconds.
+◇ Test approvedLayeredPilotRemainsExplicitAndDoesNotInventGrowthStages() started.
+✔ Test approvedLayeredPilotRemainsExplicitAndDoesNotInventGrowthStages() passed after 0.001 seconds.
+◇ Test growthSourceIsLiveAndAllScreenReadsUseIt() started.
+✔ Test growthSourceIsLiveAndAllScreenReadsUseIt() passed after 0.001 seconds.
+◇ Test appearanceReadsTrackWardrobeAndLiveGrowthChanges() started.
+✔ Test appearanceReadsTrackWardrobeAndLiveGrowthChanges() passed after 0.001 seconds.
+◇ Test outfitAndAppIconStayIndependentAfterRefreshAndReopen() started.
+✔ Test outfitAndAppIconStayIndependentAfterRefreshAndReopen() passed after 0.001 seconds.
+◇ Test missingSourceArtworkAndAbsentWidgetSurfacesAreExplicit() started.
+✔ Test missingSourceArtworkAndAbsentWidgetSurfacesAreExplicit() passed after 0.001 seconds.
+◇ Test testingModeAuthorizesAllCostumesWithoutVerifiedAccess() started.
+✘ Test testingModeAuthorizesAllCostumesWithoutVerifiedAccess() recorded an issue at PioAppearanceTests.swift:281:13: Expectation failed: scene.access == .testing && !scene.outfitApplied
+↳ scene.access == .testing && !scene.outfitApplied → false
+↳   scene.access == .testing → true
+↳   !scene.outfitApplied → false
+✘ Test testingModeAuthorizesAllCostumesWithoutVerifiedAccess() recorded an issue at PioAppearanceTests.swift:282:13: Expectation failed: scene.artwork == .existingScene(asset: "routimori_vacation_hammock_night")
+↳ scene.artwork == .existingScene(asset: "routimori_vacation_hammock_night") → false
+↳   scene.artwork → .existingScene(asset: "routimori_vacation_night_astronaut")
+↳     existingScene → (asset: "routimori_vacation_night_astronaut")
+↳       asset → "routimori_vacation_night_astronaut"
+↳     existingScene → (asset: "routimori_vacation_hammock_night")
+↳       asset → "routimori_vacation_hammock_night"
+✘ Test testingModeAuthorizesAllCostumesWithoutVerifiedAccess() failed after 0.004 seconds with 2 issues.
+◇ Test legacyMockOwnershipCannotAuthorizeGlobalAppearance() started.
+✔ Test legacyMockOwnershipCannotAuthorizeGlobalAppearance() passed after 0.001 seconds.
+✘ Suite PioAppearanceTests failed after 0.024 seconds with 34 issues.
+◇ Suite PioOutfitMotionTests started.
+◇ Test capabilitiesNeverPretendCostumesHaveIndependentPartsOrGrowthArt() started.
+✔ Test capabilitiesNeverPretendCostumesHaveIndependentPartsOrGrowthArt() passed after 0.001 seconds.
+◇ Test visibilityPauseAndReduceMotionRemoveAllTracksIncludingTheBasicWing() started.
+✔ Test visibilityPauseAndReduceMotionRemoveAllTracksIncludingTheBasicWing() passed after 0.001 seconds.
+◇ Test activeTelemetrySurvivesResetAndDoesNotRetainDestroyedRigs() started.
+✔ Test activeTelemetrySurvivesResetAndDoesNotRetainDestroyedRigs() passed after 0.001 seconds.
+◇ Test unchangedUpdatesAndPartialStageChangesDoNotReconfigureOrDecode() started.
+✔ Test unchangedUpdatesAndPartialStageChangesDoNotReconfigureOrDecode() passed after 0.001 seconds.
+◇ Test decodedArtworkIsReusedAndUnsupportedWaveFallsBackHonestly() started.
+✔ Test decodedArtworkIsReusedAndUnsupportedWaveFallsBackHonestly() passed after 0.001 seconds.
+✔ Suite PioOutfitMotionTests passed after 0.001 seconds.
+◇ Suite PioOverhaulRigTests started.
+◇ Test allFourteenOutfitsResolveWithoutReplacingOriginalPilots() started.
+✔ Test allFourteenOutfitsResolveWithoutReplacingOriginalPilots() passed after 0.044 seconds.
+◇ Test heldPropsShareTheirHandJointAndAnimation() started.
+✔ Test heldPropsShareTheirHandJointAndAnimation() passed after 0.001 seconds.
+◇ Test eyeStatesAreExclusiveAndStayBehindOpticalLayers() started.
+✔ Test eyeStatesAreExclusiveAndStayBehindOpticalLayers() passed after 0.003 seconds.
+◇ Test motionChangesDoNotRebuildLayersAndStoppingRemovesAllTracks() started.
+✔ Test motionChangesDoNotRebuildLayersAndStoppingRemovesAllTracks() passed after 0.001 seconds.
+◇ Test jumpBounceAndGreetingHaveDifferentVisibleTrajectories() started.
+✔ Test jumpBounceAndGreetingHaveDifferentVisibleTrajectories() passed after 0.001 seconds.
+◇ Test landingRecoversWithoutStartingAnotherJump() started.
+✔ Test landingRecoversWithoutStartingAnotherJump() passed after 0.001 seconds.
+◇ Test twoHandedPropsStayWithinValidatedRotation() started.
+✔ Test twoHandedPropsStayWithinValidatedRotation() passed after 0.002 seconds.
+✔ Suite PioOverhaulRigTests passed after 0.055 seconds.
+◇ Suite PioProductRegistryTests started.
+◇ Test everyPaidOutfitMapsOnceAndBasicIsNotAProduct() started.
+✔ Test everyPaidOutfitMapsOnceAndBasicIsNotAProduct() passed after 0.001 seconds.
+◇ Test artworkAndPreferenceKeysRemainIndependentOfRegisteredProductNames() started.
+✔ Test artworkAndPreferenceKeysRemainIndependentOfRegisteredProductNames() passed after 0.001 seconds.
+✔ Suite PioProductRegistryTests passed after 0.001 seconds.
+◇ Suite PioPurchaseTests started.
+◇ Test environmentPoliciesNeverMixLocalAndAppleTransactions() started.
+✔ Test environmentPoliciesNeverMixLocalAndAppleTransactions() passed after 0.001 seconds.
+◇ Test unconfirmedOrUnknownCatalogConfigurationStaysDisabled() started.
+✔ Test unconfirmedOrUnknownCatalogConfigurationStaysDisabled() passed after 0.001 seconds.
+◇ Test revokedSnapshotCannotBeUndoneByDelayedVerifiedUpdate() started.
+✔ Test revokedSnapshotCannotBeUndoneByDelayedVerifiedUpdate() passed after 0.001 seconds.
+◇ Test stalePurchaseResultForPreviouslyRevokedIDNeverReportsPurchased() started.
+✔ Test stalePurchaseResultForPreviouslyRevokedIDNeverReportsPurchased() passed after 0.001 seconds.
+◇ Test purchaseRevokedWhileFinishingCannotReportSuccess() started.
+✔ Test purchaseRevokedWhileFinishingCannotReportSuccess() passed after 0.001 seconds.
+◇ Test publicNestedCancellationIsRecognizedWithoutPrivateServerCodeMapping() started.
+✔ Test publicNestedCancellationIsRecognizedWithoutPrivateServerCodeMapping() passed after 0.001 seconds.
+◇ Test explicitStopIsIdempotentAndManagerCanRestartItsListener() started.
+✔ Test explicitStopIsIdempotentAndManagerCanRestartItsListener() passed after 0.001 seconds.
+◇ Test stopWaitsForAnAlreadyDeliveredVerifiedTransactionToFinish() started.
+✔ Test stopWaitsForAnAlreadyDeliveredVerifiedTransactionToFinish() passed after 0.001 seconds.
+◇ Test registryMatchesApprovedCatalogAndOnlyNonBasicProducts() started.
+✔ Test registryMatchesApprovedCatalogAndOnlyNonBasicProducts() passed after 0.001 seconds.
+◇ Test productsUseLocalizedPricesAndMissingProductsCannotBePurchased() started.
+✔ Test productsUseLocalizedPricesAndMissingProductsCannotBePurchased() passed after 0.001 seconds.
+◇ Test productFailureCanBeRetried() started.
+✔ Test productFailureCanBeRetried() passed after 0.001 seconds.
+◇ Test successfulPurchaseGrantsAndFinishesOnlyVerifiedTransaction() started.
+✔ Test successfulPurchaseGrantsAndFinishesOnlyVerifiedTransaction() passed after 0.001 seconds.
+◇ Test cancellationPendingAndVerificationFailureNeverUnlock() started.
+✔ Test cancellationPendingAndVerificationFailureNeverUnlock() passed after 0.001 seconds.
+◇ Test purchaseErrorsClearBusyStateAndCanRetry() started.
+✔ Test purchaseErrorsClearBusyStateAndCanRetry() passed after 0.001 seconds.
+◇ Test mismatchedOrRevokedPurchaseResultNeverUnlocks() started.
+✔ Test mismatchedOrRevokedPurchaseResultNeverUnlocks() passed after 0.001 seconds.
+◇ Test duplicateTapsAndRestoreDuringPaymentAreRejected() started.
+✔ Test duplicateTapsAndRestoreDuringPaymentAreRejected() passed after 0.001 seconds.
+◇ Test refreshFailureRetainsPreviouslyVerifiedOwnership() started.
+✔ Test refreshFailureRetainsPreviouslyVerifiedOwnership() passed after 0.001 seconds.
+◇ Test confirmedAbsenceRevokesAndPreservesOtherPreferences() started.
+✔ Test confirmedAbsenceRevokesAndPreservesOtherPreferences() passed after 0.001 seconds.
+◇ Test reopenWaitsForVerifiedLedgerAndNeverTrustsMockDefaults() started.
+✔ Test reopenWaitsForVerifiedLedgerAndNeverTrustsMockDefaults() passed after 0.001 seconds.
+◇ Test restoreIsExplicitHandlesEmptySuccessAndCancellation() started.
+✔ Test restoreIsExplicitHandlesEmptySuccessAndCancellation() passed after 0.001 seconds.
+◇ Test unverifiedSnapshotCannotGrantOrReportSuccessfulRestore() started.
+✔ Test unverifiedSnapshotCannotGrantOrReportSuccessfulRestore() passed after 0.001 seconds.
+◇ Test transactionUpdatesDeliverPendingPurchaseAndRefund() started.
+✔ Test transactionUpdatesDeliverPendingPurchaseAndRefund() passed after 0.001 seconds.
+◇ Test restoreJoiningRefreshWaitsForStableSnapshotAfterUpdate() started.
+✔ Test restoreJoiningRefreshWaitsForStableSnapshotAfterUpdate() passed after 0.001 seconds.
+◇ Test restoreRequiresPostSyncSnapshotEvenWithoutTransactionUpdate() started.
+✔ Test restoreRequiresPostSyncSnapshotEvenWithoutTransactionUpdate() passed after 0.001 seconds.
+◇ Test lateRefundOfOldTransactionPreservesRepurchasedOutfitAndPreference() started.
+✔ Test lateRefundOfOldTransactionPreservesRepurchasedOutfitAndPreference() passed after 0.001 seconds.
+◇ Test concurrentFinishCallersWaitForOneAcknowledgementAndCleanUp() started.
+✔ Test concurrentFinishCallersWaitForOneAcknowledgementAndCleanUp() passed after 0.001 seconds.
+◇ Test managerLifetimeDoesNotRetainOldTransactionListener() started.
+✔ Test managerLifetimeDoesNotRetainOldTransactionListener() passed after 0.001 seconds.
+◇ Test localTestingPreferencesNeverChangeProductionSelections() started.
+✔ Test localTestingPreferencesNeverChangeProductionSelections() passed after 0.002 seconds.
+◇ Test disabledGateNeverTouchesStoreOrImportsMocks() started.
+✔ Test disabledGateNeverTouchesStoreOrImportsMocks() passed after 0.001 seconds.
+✔ Suite PioPurchaseTests passed after 0.013 seconds.
+◇ Suite PioWardrobeTests started.
+◇ Test durableLastSelectionSurvivesReopenButRequiresFreshVerifiedOwnership() started.
+✔ Test durableLastSelectionSurvivesReopenButRequiresFreshVerifiedOwnership() passed after 0.002 seconds.
+◇ Test corruptOrUnsupportedSelectionFallsBackWithoutGrantingOwnership() started.
+✔ Test corruptOrUnsupportedSelectionFallsBackWithoutGrantingOwnership() passed after 0.001 seconds.
+◇ Test failedDurableWriteRejectsEquipAndPreservesPreviousPreference() started.
+✔ Test failedDurableWriteRejectsEquipAndPreservesPreviousPreference() passed after 0.001 seconds.
+◇ Test rejectedUnownedEquipNeverTouchesDurableOrLegacyPreferences() started.
+✔ Test rejectedUnownedEquipNeverTouchesDurableOrLegacyPreferences() passed after 0.001 seconds.
+◇ Test durableSelectionProfilesCannotOverwriteOneAnother() started.
+✔ Test durableSelectionProfilesCannotOverwriteOneAnother() passed after 0.001 seconds.
+◇ Test catalogHasFourteenUniqueHonestEntries() started.
+✔ Test catalogHasFourteenUniqueHonestEntries() passed after 0.001 seconds.
+◇ Test everyCatalogArtworkLoadsFromTheAppBundleAtFullResolution() started.
+✔ Test everyCatalogArtworkLoadsFromTheAppBundleAtFullResolution() passed after 0.001 seconds.
+◇ Test basicIsAlwaysFreeAndUnownedSelectionsAreRejected() started.
+✔ Test basicIsAlwaysFreeAndUnownedSelectionsAreRejected() passed after 0.001 seconds.
+◇ Test unavailableShopNeverGrantsPaidWearingAndPreservesPreferences() started.
+✔ Test unavailableShopNeverGrantsPaidWearingAndPreservesPreferences() passed after 0.001 seconds.
+◇ Test invalidOrUnownedStoredSelectionsFallBackSafely() started.
+✔ Test invalidOrUnownedStoredSelectionsFallBackSafely() passed after 0.001 seconds.
+◇ Test previewStagePersistsWithoutChangingOwnershipOrOutfit() started.
+✔ Test previewStagePersistsWithoutChangingOwnershipOrOutfit() passed after 0.001 seconds.
+◇ Test outfitTestingRequiresExactExplicitFlag() started.
+✔ Test outfitTestingRequiresExactExplicitFlag() passed after 0.001 seconds.
+◇ Test outfitTestingAllowsEveryCostumeWithoutOwnershipOrIcons() started.
+✔ Test outfitTestingAllowsEveryCostumeWithoutOwnershipOrIcons() passed after 0.001 seconds.
+◇ Test outfitTestingPreferencesAreSeparateAndSurviveEntitlementRepair() started.
+✔ Test outfitTestingPreferencesAreSeparateAndSurviveEntitlementRepair() passed after 0.002 seconds.
+◇ Test stagePreviewAndLevelBoundariesNeverClearAnOwnedOutfit() started.
+✔ Test stagePreviewAndLevelBoundariesNeverClearAnOwnedOutfit() passed after 0.001 seconds.
+◇ Test productionEntitlementBoundaryIsUnavailable() started.
+✔ Test productionEntitlementBoundaryIsUnavailable() passed after 0.001 seconds.
+◇ Test mockOwnershipPersistsWhileOutfitAndIconStayIndependent() started.
+✔ Test mockOwnershipPersistsWhileOutfitAndIconStayIndependent() passed after 0.001 seconds.
+◇ Test unknownMockIDsCannotBecomeOwnedAndResetRepairsOnlyUnownedSelections() started.
+✔ Test unknownMockIDsCannotBecomeOwnedAndResetRepairsOnlyUnownedSelections() passed after 0.001 seconds.
+✔ Suite PioWardrobeTests passed after 0.021 seconds.
+✘ Test run with 77 tests in 7 suites failed after 0.118 seconds with 34 issues.
+2026-10-24 14:10:41.758 xcodebuild[96987:2196501] [MT] IDETestOperationsObserverDebug: 14.513 elapsed -- Testing started completed.
+2026-10-24 14:10:41.758 xcodebuild[96987:2196501] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 14:10:41.758 xcodebuild[96987:2196501] [MT] IDETestOperationsObserverDebug: 14.513 sec, +14.513 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioProductionFinal-Mac-first-20261024.xcresult
+
+Failing tests:
+	PioProductionFinalLifecycleTests.testMacIntactScrollSubtreeReleasesNativeHost()
+	PioProductionFinalLifecycleTests.testMacIntactScrollSubtreeReleasesNativeHost()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()
+	PioAppearanceTests.testingModeAuthorizesAllCostumesWithoutVerifiedAccess()
+	PioAppearanceTests.testingModeAuthorizesAllCostumesWithoutVerifiedAccess()
+
+** TEST EXECUTE FAILED **
+
+Testing started

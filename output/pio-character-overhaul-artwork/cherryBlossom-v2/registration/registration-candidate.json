@@ -1,0 +1,236 @@
+{
+  "canvas" : [
+    1254,
+    1254
+  ],
+  "layers" : [
+    {
+      "id" : "wingLeft",
+      "neutralAngleDegrees" : -15,
+      "offset" : [
+        76,
+        722.39999999999998
+      ],
+      "pivot" : [
+        310,
+        790
+      ],
+      "scale" : 0.26000000000000001,
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-outfit-assets\/cherryBlossom\/v1\/wing-left-candidate.png",
+      "sourceSHA256" : "4527de03a61fa227418caa657b7febbfd8353840a53243773d54907f295d6d5f",
+      "z" : 0
+    },
+    {
+      "id" : "wingRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        902.5,
+        580
+      ],
+      "pivot" : [
+        965,
+        830
+      ],
+      "scale" : 0.25,
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-outfit-assets\/cherryBlossom\/v1\/wing-right-candidate.png",
+      "sourceSHA256" : "18f390d03d104b162ec95e988d19688af60ffa46e122e7bf3973021d4b1ddc26",
+      "z" : 1
+    },
+    {
+      "id" : "footLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        442.01418439716315,
+        1046.049645390071
+      ],
+      "pivot" : [
+        540,
+        1110
+      ],
+      "scale" : 0.13475177304964539,
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/foot-v1.png",
+      "sourceSHA256" : "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+      "z" : 2
+    },
+    {
+      "id" : "footRight",
+      "neutralAngleDegrees" : -25,
+      "offset" : [
+        722.75177304964541,
+        1004.6312056737588
+      ],
+      "pivot" : [
+        815,
+        1075
+      ],
+      "scale" : 0.14184397163120568,
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/foot-v1.png",
+      "sourceSHA256" : "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+      "z" : 3
+    },
+    {
+      "id" : "sprout",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        262.25,
+        -5
+      ],
+      "pivot" : [
+        620,
+        400
+      ],
+      "scale" : 0.45000000000000001,
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/cherryBlossom-v2\/source\/sprout-v3-review.png",
+      "sourceSHA256" : "639387f2916fb32af0ab30ebb8f43b09ed5e88366c052b7c7b8b91f51f893199",
+      "z" : 4
+    },
+    {
+      "id" : "body",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        0,
+        0
+      ],
+      "pivot" : [
+        650,
+        780
+      ],
+      "scale" : 1,
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-outfit-assets\/cherryBlossom\/v1\/body-v3-candidate.png",
+      "sourceSHA256" : "956fd164e1402d25f665f4c49cbabaea6bf79b9e4733438c1a920f21e3a8f853",
+      "z" : 5
+    },
+    {
+      "id" : "eyeLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        438.38089005235599,
+        579.61125654450257
+      ],
+      "pivot" : [
+        526,
+        663
+      ],
+      "scale" : 0.13219895287958114,
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-open-v1.png",
+      "sourceSHA256" : "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "z" : 6
+    },
+    {
+      "id" : "eyeRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        725.74345549738223,
+        541.93193717277484
+      ],
+      "pivot" : [
+        812,
+        625
+      ],
+      "scale" : 0.13089005235602094,
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-open-v1.png",
+      "sourceSHA256" : "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "z" : 7
+    },
+    {
+      "id" : "lidLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        440.9019851116625,
+        583.45905707196027
+      ],
+      "pivot" : [
+        526,
+        673
+      ],
+      "scale" : 0.12779156327543426,
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eyelid-closed-v1.png",
+      "sourceSHA256" : "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "z" : 8
+    },
+    {
+      "id" : "lidRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        727.9019851116625,
+        545.45905707196027
+      ],
+      "pivot" : [
+        812,
+        635
+      ],
+      "scale" : 0.12779156327543426,
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eyelid-closed-v1.png",
+      "sourceSHA256" : "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "z" : 9
+    },
+    {
+      "id" : "halfLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        429.51030013208356,
+        555.32080395932451
+      ],
+      "pivot" : [
+        525.5,
+        661.57460732984293
+      ],
+      "scale" : 0.15309362020401343,
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-half-v1.png",
+      "sourceSHA256" : "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+      "z" : 10
+    },
+    {
+      "id" : "halfRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        716.96069320008291,
+        517.88198411814312
+      ],
+      "pivot" : [
+        812.00000000000011,
+        623.08376963350781
+      ],
+      "scale" : 0.15157784178615191,
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-half-v1.png",
+      "sourceSHA256" : "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+      "z" : 11
+    },
+    {
+      "id" : "headFlower",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        637.88752556237216,
+        236.63599182004089
+      ],
+      "pivot" : [
+        765,
+        390
+      ],
+      "scale" : 0.19427402862985685,
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-outfit-assets\/cherryBlossom\/v1\/head-flower-candidate.png",
+      "sourceSHA256" : "f5dfde0a35ac6a9cdd949e34b4372ea895a8a5ada10b91320b4ce2b7a41a085b",
+      "z" : 12
+    }
+  ],
+  "method" : "QA compositor using unchanged full-resolution generated source artwork, uniform downscale\/translation and measured candidate pivots; no alpha masks, painting or low-resolution crops",
+  "missingParts" : [
+
+  ],
+  "notes" : [
+    "Manual landmark registration requires visual approval",
+    "Cape and front bow remain baked into body",
+    "Not a runtime resource manifest; no app integration",
+    "New body and wings are reconstruction candidates, not pixel-identical approved originals"
+  ],
+  "origin" : "topLeft",
+  "previousCandidate" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-outfit-assets\/cherryBlossom\/v1\/registration-preview\/neutral-alpha.png",
+  "referenceTransform" : "identity",
+  "schemaVersion" : 2,
+  "sourceReference" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/Daylog\/PioWardrobe.xcassets\/pio_outfit_cherryBlossom.imageset\/pio_outfit_cherryBlossom.png",
+  "sproutSourceRoot" : [
+    795,
+    900
+  ],
+  "status" : "QA_CANDIDATE_NOT_APPROVED"
+}

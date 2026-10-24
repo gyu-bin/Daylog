@@ -1,0 +1,7 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioHomeBeforeGreen.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -resultBundlePath /tmp/PioHome-before-green.xcresult
+
+Writing result bundle at path:
+	/tmp/PioHome-before-green.xcresult
+
+xcodebuild: error: Failed to build workspace temporary with scheme Transient Testing.: There are no test bundles available to test.

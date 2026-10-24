@@ -1,0 +1,21 @@
+[
+  "xcodebuild",
+  "test-without-building",
+  "-xctestrun",
+  "/private/tmp/PioStoreKit-20261023-ios/Build/Products/PioIsolation-072cc632-0a49-4af2-86e0-14562f2cc41b-seed.xctestrun",
+  "-destination",
+  "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884",
+  "-parallel-testing-enabled",
+  "NO",
+  "-collect-test-diagnostics",
+  "never",
+  "-test-timeouts-enabled",
+  "YES",
+  "-default-test-execution-time-allowance",
+  "60",
+  "-maximum-test-execution-time-allowance",
+  "90",
+  "-only-testing:DaylogStoreKitTests/PioStoreKitIsolationTests/testScenario",
+  "-resultBundlePath",
+  "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/direct-finish-seed.xcresult"
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "file": "live-app/mac-final-shop-light.jpg",
+    "bytes": 101413,
+    "sha256": "8b4c3ced38ee6f32e672f1e9a25df5581267ff30a78fd6a666eed32ce929aaee"
+  },
+  {
+    "file": "live-app/mac-final-catalog-light.jpg",
+    "bytes": 106726,
+    "sha256": "12fd6f2a6feda5e4c01f6a137633cb10ed4f8bdaf5d677c52e4b25d64327b38d"
+  },
+  {
+    "file": "live-app/mac-shop-dark.jpg",
+    "bytes": 103795,
+    "sha256": "30055669da6c956fd842f4111a9c2f4c7572f2b3939e96036441c9e7432e2690"
+  },
+  {
+    "file": "live-app/mac-empty-wardrobe-dark.jpg",
+    "bytes": 98619,
+    "sha256": "522ade8b2a633dfe1d5d8b4cf7ea26f2d2e436c6cd1dc53d397eec6ba38fc08c"
+  },
+  {
+    "file": "live-app/mac-icon-selection-dark.jpg",
+    "bytes": 105174,
+    "sha256": "4875bf82b1631058dcda95453d30835926feecd1586b8cd76ca9675811ab8096"
+  },
+  {
+    "file": "live-app/mac-preview-stage4-unowned.jpg",
+    "bytes": 41638,
+    "sha256": "6401f8117749cc17894a24aef57ad68676a16e28ebfdbe902d7db8dab510fbc4"
+  },
+  {
+    "file": "live-app/iphone17-shop-light.png",
+    "bytes": 531950,
+    "sha256": "5f7c1990af39e6cba20d093cfd3fca7d6f935b664177d31273baeff5a5c52e7d",
+    "pixels": [
+      1206,
+      2622
+    ]
+  },
+  {
+    "file": "live-app/iphone17-selected-astronaut-dark.png",
+    "bytes": 572386,
+    "sha256": "f64fe0a0d92fbd582ac698880cc43eddfc8d688529babb11d80b76cd6df2cb12",
+    "pixels": [
+      1206,
+      2622
+    ]
+  },
+  {
+    "file": "live-app/iphone17-preview-dark.png",
+    "bytes": 408155,
+    "sha256": "33c40493286f22736a12ee37f59ef891c6c967a533df31ed7fafba31cad76bde",
+    "pixels": [
+      1206,
+      2622
+    ]
+  },
+  {
+    "file": "live-app/iphone17-icon-astronaut-dark.png",
+    "bytes": 290189,
+    "sha256": "6b1f8681d937db6adb41b9bca7109bd9b47c083737db0efd8f6d592a384bc449",
+    "pixels": [
+      1206,
+      2622
+    ]
+  },
+  {
+    "file": "live-app/iphone17-final-preview-light.png",
+    "bytes": 409194,
+    "sha256": "4be2a92acd2eefbcdb11e7000d405b2f8b9f120c6cc5fe42776154fdd88c88f6",
+    "pixels": [
+      1206,
+      2622
+    ]
+  }
+]

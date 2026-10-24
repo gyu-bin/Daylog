@@ -1,0 +1,46 @@
+[
+  {
+    "centerPresentationX" : [
+      512.03444918840978,
+      517.91964936411739,
+      511.98133603938442
+    ],
+    "maxSourcePointError" : 0,
+    "night" : false,
+    "scope" : "Basic original two visible rope attachment\/entry pixels; not hidden knot reconstruction or paid outfit proof",
+    "width" : 64
+  },
+  {
+    "centerPresentationX" : [
+      512.02547635907024,
+      516.97980536968953,
+      511.97427372820181
+    ],
+    "maxSourcePointError" : 0,
+    "night" : true,
+    "scope" : "Basic original two visible rope attachment\/entry pixels; not hidden knot reconstruction or paid outfit proof",
+    "width" : 64
+  },
+  {
+    "centerPresentationX" : [
+      512.03854884817338,
+      517.88386805863138,
+      511.8783488174488
+    ],
+    "maxSourcePointError" : 0,
+    "night" : false,
+    "scope" : "Basic original two visible rope attachment\/entry pixels; not hidden knot reconstruction or paid outfit proof",
+    "width" : 220
+  },
+  {
+    "centerPresentationX" : [
+      512.02566365132475,
+      516.9762935829317,
+      511.95415243889505
+    ],
+    "maxSourcePointError" : 0,
+    "night" : true,
+    "scope" : "Basic original two visible rope attachment\/entry pixels; not hidden knot reconstruction or paid outfit proof",
+    "width" : 220
+  }
+]

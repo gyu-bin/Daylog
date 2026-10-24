@@ -1,0 +1,1215 @@
+{
+  "cpuPhases" : [
+    {
+      "cpuPercentOneCore" : 0.60146561748613536,
+      "final" : {
+        "cpuSeconds" : 1.5033110000000001,
+        "monotonicSeconds" : 101419.34754137503,
+        "rssBytes" : 180174848
+      },
+      "initial" : {
+        "cpuSeconds" : 1.4909049999999999,
+        "monotonicSeconds" : 101417.28689983336,
+        "rssBytes" : 180092928
+      },
+      "label" : "empty-warm-window",
+      "samples" : [
+        {
+          "cpuSeconds" : 1.498348,
+          "monotonicSeconds" : 101418.32040266669,
+          "rssBytes" : 180158464
+        },
+        {
+          "cpuSeconds" : 1.503287,
+          "monotonicSeconds" : 101419.34752045835,
+          "rssBytes" : 180174848
+        }
+      ],
+      "seconds" : 2.0606331666640472
+    },
+    {
+      "cpuPercentOneCore" : 0.19705617352162691,
+      "final" : {
+        "cpuSeconds" : 1.508999,
+        "monotonicSeconds" : 101421.36389762502,
+        "rssBytes" : 180191232
+      },
+      "initial" : {
+        "cpuSeconds" : 1.505007,
+        "monotonicSeconds" : 101419.34922245836,
+        "rssBytes" : 180191232
+      },
+      "label" : "prepared-idle-stopped",
+      "samples" : [
+        {
+          "cpuSeconds" : 1.507037,
+          "monotonicSeconds" : 101420.35710725002,
+          "rssBytes" : 180191232
+        },
+        {
+          "cpuSeconds" : 1.508966,
+          "monotonicSeconds" : 101421.36386900002,
+          "rssBytes" : 180191232
+        }
+      ],
+      "seconds" : 2.0146539583365666
+    },
+    {
+      "active" : true,
+      "cpuPercentOneCore" : 0.26361397658825353,
+      "final" : {
+        "cpuSeconds" : 1.5231539999999999,
+        "monotonicSeconds" : 101426.43003825002,
+        "rssBytes" : 180142080
+      },
+      "initial" : {
+        "cpuSeconds" : 1.509789,
+        "monotonicSeconds" : 101421.36466454169,
+        "rssBytes" : 180224000
+      },
+      "label" : "pair-1-active",
+      "pair" : 1,
+      "samples" : [
+        {
+          "cpuSeconds" : 1.5150510000000001,
+          "monotonicSeconds" : 101422.39391754169,
+          "rssBytes" : 180191232
+        },
+        {
+          "cpuSeconds" : 1.5173450000000002,
+          "monotonicSeconds" : 101423.40395412502,
+          "rssBytes" : 180158464
+        },
+        {
+          "cpuSeconds" : 1.5193910000000002,
+          "monotonicSeconds" : 101424.41117645835,
+          "rssBytes" : 180142080
+        },
+        {
+          "cpuSeconds" : 1.5211489999999999,
+          "monotonicSeconds" : 101425.42076983335,
+          "rssBytes" : 180142080
+        },
+        {
+          "cpuSeconds" : 1.52312,
+          "monotonicSeconds" : 101426.43000650003,
+          "rssBytes" : 180142080
+        }
+      ],
+      "seconds" : 5.0653611666639335,
+      "tracks" : 15
+    },
+    {
+      "active" : false,
+      "cpuPercentOneCore" : 0.1938147723401385,
+      "final" : {
+        "cpuSeconds" : 1.533334,
+        "monotonicSeconds" : 101431.47493250002,
+        "rssBytes" : 128221184
+      },
+      "initial" : {
+        "cpuSeconds" : 1.523549,
+        "monotonicSeconds" : 101426.43041737503,
+        "rssBytes" : 180142080
+      },
+      "label" : "pair-1-stopped",
+      "pair" : 1,
+      "samples" : [
+        {
+          "cpuSeconds" : 1.5255779999999999,
+          "monotonicSeconds" : 101427.43868862503,
+          "rssBytes" : 180142080
+        },
+        {
+          "cpuSeconds" : 1.527242,
+          "monotonicSeconds" : 101428.44623666668,
+          "rssBytes" : 180142080
+        },
+        {
+          "cpuSeconds" : 1.529174,
+          "monotonicSeconds" : 101429.45596466669,
+          "rssBytes" : 128204800
+        },
+        {
+          "cpuSeconds" : 1.5311789999999998,
+          "monotonicSeconds" : 101430.46554745836,
+          "rssBytes" : 128204800
+        },
+        {
+          "cpuSeconds" : 1.533315,
+          "monotonicSeconds" : 101431.47491670835,
+          "rssBytes" : 128221184
+        }
+      ],
+      "seconds" : 5.0445071249996545,
+      "tracks" : 0
+    },
+    {
+      "active" : false,
+      "cpuPercentOneCore" : 0.54701267919063346,
+      "final" : {
+        "cpuSeconds" : 1.561509,
+        "monotonicSeconds" : 101436.61291020835,
+        "rssBytes" : 138936320
+      },
+      "initial" : {
+        "cpuSeconds" : 1.533396,
+        "monotonicSeconds" : 101431.47499595836,
+        "rssBytes" : 128270336
+      },
+      "label" : "pair-2-stopped",
+      "pair" : 2,
+      "samples" : [
+        {
+          "cpuSeconds" : 1.538683,
+          "monotonicSeconds" : 101432.49026041669,
+          "rssBytes" : 132579328
+        },
+        {
+          "cpuSeconds" : 1.5423260000000001,
+          "monotonicSeconds" : 101433.55433195835,
+          "rssBytes" : 131121152
+        },
+        {
+          "cpuSeconds" : 1.544656,
+          "monotonicSeconds" : 101434.56390787502,
+          "rssBytes" : 131153920
+        },
+        {
+          "cpuSeconds" : 1.5531969999999999,
+          "monotonicSeconds" : 101435.59749150003,
+          "rssBytes" : 129581056
+        },
+        {
+          "cpuSeconds" : 1.561482,
+          "monotonicSeconds" : 101436.6128862917,
+          "rssBytes" : 138936320
+        }
+      ],
+      "seconds" : 5.1379065000073751,
+      "tracks" : 0
+    },
+    {
+      "active" : true,
+      "cpuPercentOneCore" : 0.2054959020788874,
+      "final" : {
+        "cpuSeconds" : 1.5725479999999998,
+        "monotonicSeconds" : 101441.65115158336,
+        "rssBytes" : 129384448
+      },
+      "initial" : {
+        "cpuSeconds" : 1.562187,
+        "monotonicSeconds" : 101436.61357333335,
+        "rssBytes" : 139165696
+      },
+      "label" : "pair-2-active",
+      "pair" : 2,
+      "samples" : [
+        {
+          "cpuSeconds" : 1.564114,
+          "monotonicSeconds" : 101437.6218702917,
+          "rssBytes" : 129794048
+        },
+        {
+          "cpuSeconds" : 1.5658570000000001,
+          "monotonicSeconds" : 101438.62501150003,
+          "rssBytes" : 129482752
+        },
+        {
+          "cpuSeconds" : 1.5680800000000001,
+          "monotonicSeconds" : 101439.63454416669,
+          "rssBytes" : 129400832
+        },
+        {
+          "cpuSeconds" : 1.57023,
+          "monotonicSeconds" : 101440.64254950003,
+          "rssBytes" : 129400832
+        },
+        {
+          "cpuSeconds" : 1.572516,
+          "monotonicSeconds" : 101441.65112391669,
+          "rssBytes" : 129384448
+        }
+      ],
+      "seconds" : 5.0375700416770997,
+      "tracks" : 15
+    },
+    {
+      "active" : true,
+      "cpuPercentOneCore" : 0.23031648944217206,
+      "final" : {
+        "cpuSeconds" : 1.5843469999999999,
+        "monotonicSeconds" : 101446.69439808336,
+        "rssBytes" : 129073152
+      },
+      "initial" : {
+        "cpuSeconds" : 1.5727169999999999,
+        "monotonicSeconds" : 101441.65132145835,
+        "rssBytes" : 129400832
+      },
+      "label" : "pair-3-active",
+      "pair" : 3,
+      "samples" : [
+        {
+          "cpuSeconds" : 1.5749960000000001,
+          "monotonicSeconds" : 101442.66134183336,
+          "rssBytes" : 129400832
+        },
+        {
+          "cpuSeconds" : 1.5771839999999999,
+          "monotonicSeconds" : 101443.66897570835,
+          "rssBytes" : 129204224
+        },
+        {
+          "cpuSeconds" : 1.579593,
+          "monotonicSeconds" : 101444.67811170836,
+          "rssBytes" : 129204224
+        },
+        {
+          "cpuSeconds" : 1.5819030000000001,
+          "monotonicSeconds" : 101445.68462141669,
+          "rssBytes" : 129204224
+        },
+        {
+          "cpuSeconds" : 1.5843099999999999,
+          "monotonicSeconds" : 101446.69436725002,
+          "rssBytes" : 129073152
+        }
+      ],
+      "seconds" : 5.0430605416622711,
+      "tracks" : 15
+    },
+    {
+      "active" : false,
+      "cpuPercentOneCore" : 0.20610061570205226,
+      "final" : {
+        "cpuSeconds" : 1.595251,
+        "monotonicSeconds" : 101451.72012420835,
+        "rssBytes" : 128368640
+      },
+      "initial" : {
+        "cpuSeconds" : 1.5848819999999999,
+        "monotonicSeconds" : 101446.6948984167,
+        "rssBytes" : 129318912
+      },
+      "label" : "pair-3-stopped",
+      "pair" : 3,
+      "samples" : [
+        {
+          "cpuSeconds" : 1.5873429999999999,
+          "monotonicSeconds" : 101447.69542479169,
+          "rssBytes" : 128729088
+        },
+        {
+          "cpuSeconds" : 1.589518,
+          "monotonicSeconds" : 101448.70291958336,
+          "rssBytes" : 128729088
+        },
+        {
+          "cpuSeconds" : 1.5914730000000001,
+          "monotonicSeconds" : 101449.71004791668,
+          "rssBytes" : 128712704
+        },
+        {
+          "cpuSeconds" : 1.593259,
+          "monotonicSeconds" : 101450.71154937502,
+          "rssBytes" : 128696320
+        },
+        {
+          "cpuSeconds" : 1.5952329999999999,
+          "monotonicSeconds" : 101451.72010929169,
+          "rssBytes" : 128368640
+        }
+      ],
+      "seconds" : 5.0252154583431548,
+      "tracks" : 0
+    },
+    {
+      "cpuPercentOneCore" : 0.21404416978793994,
+      "final" : {
+        "cpuSeconds" : 1.6044339999999999,
+        "monotonicSeconds" : 101454.74885683335,
+        "rssBytes" : 124207104
+      },
+      "initial" : {
+        "cpuSeconds" : 1.600093,
+        "monotonicSeconds" : 101452.73009695836,
+        "rssBytes" : 127123456
+      },
+      "label" : "released-warm-window",
+      "samples" : [
+        {
+          "cpuSeconds" : 1.60223,
+          "monotonicSeconds" : 101453.73870100002,
+          "rssBytes" : 125403136
+        },
+        {
+          "cpuSeconds" : 1.604392,
+          "monotonicSeconds" : 101454.74881858335,
+          "rssBytes" : 124174336
+        }
+      ],
+      "seconds" : 2.0187422083399724
+    }
+  ],
+  "final" : {
+    "cpuSeconds" : 1.604463,
+    "monotonicSeconds" : 101454.74888633336,
+    "rssBytes" : 124256256
+  },
+  "finalCPUHostReleased" : true,
+  "finalCPUStageReleased" : true,
+  "immediateCPUHostReleased" : true,
+  "immediateCPUStageReleased" : true,
+  "initial" : {
+    "cpuSeconds" : 0.83046600000000004,
+    "monotonicSeconds" : 101355.91987254169,
+    "rssBytes" : 183271424
+  },
+  "limitations" : "Direct renderer fixture without ownership\/UI navigation; not app cold launch, OS background, prior reference-home comparison, GPU, battery, or long-term leak proof. No absolute RSS pass threshold.",
+  "os" : "버전 27.0.1(빌드 26A434)",
+  "processors" : 10,
+  "rows" : [
+    {
+      "active" : {
+        "cpuSeconds" : 0.83806000000000003,
+        "monotonicSeconds" : 101357.08771545836,
+        "rssBytes" : 180191232
+      },
+      "activeTracks" : 15,
+      "after" : {
+        "cpuSeconds" : 0.84252899999999997,
+        "monotonicSeconds" : 101358.09809450002,
+        "rssBytes" : 159825920
+      },
+      "before" : {
+        "cpuSeconds" : 0.83087900000000003,
+        "monotonicSeconds" : 101355.92014254168,
+        "rssBytes" : 183287808
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 0.838812,
+        "monotonicSeconds" : 101357.08845429169,
+        "rssBytes" : 180191232
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "basic",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 0.87404700000000002,
+        "monotonicSeconds" : 101359.29153158335,
+        "rssBytes" : 169558016
+      },
+      "activeTracks" : 15,
+      "after" : {
+        "cpuSeconds" : 0.879853,
+        "monotonicSeconds" : 101360.30008283336,
+        "rssBytes" : 169525248
+      },
+      "before" : {
+        "cpuSeconds" : 0.84289000000000003,
+        "monotonicSeconds" : 101358.09830141668,
+        "rssBytes" : 159825920
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 0.87472899999999998,
+        "monotonicSeconds" : 101359.29219708336,
+        "rssBytes" : 169558016
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "cherryBlossom",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 0.91389600000000004,
+        "monotonicSeconds" : 101361.48859295835,
+        "rssBytes" : 183812096
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 0.91911799999999999,
+        "monotonicSeconds" : 101362.49524620836,
+        "rssBytes" : 183812096
+      },
+      "before" : {
+        "cpuSeconds" : 0.88004000000000004,
+        "monotonicSeconds" : 101360.30021025002,
+        "rssBytes" : 169525248
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 0.91461800000000004,
+        "monotonicSeconds" : 101361.48929870836,
+        "rssBytes" : 183812096
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "summerVacation",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 0.95486700000000002,
+        "monotonicSeconds" : 101363.73360450003,
+        "rssBytes" : 194428928
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 0.95970699999999998,
+        "monotonicSeconds" : 101364.74196650002,
+        "rssBytes" : 194494464
+      },
+      "before" : {
+        "cpuSeconds" : 0.91935599999999995,
+        "monotonicSeconds" : 101362.49541283335,
+        "rssBytes" : 183812096
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 0.95565999999999995,
+        "monotonicSeconds" : 101363.73444937503,
+        "rssBytes" : 194428928
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "autumn",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 0.99216599999999999,
+        "monotonicSeconds" : 101365.98441187502,
+        "rssBytes" : 195870720
+      },
+      "activeTracks" : 15,
+      "after" : {
+        "cpuSeconds" : 0.99696700000000005,
+        "monotonicSeconds" : 101366.99379741668,
+        "rssBytes" : 195870720
+      },
+      "before" : {
+        "cpuSeconds" : 0.95984599999999998,
+        "monotonicSeconds" : 101364.74209091668,
+        "rssBytes" : 194494464
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 0.9929,
+        "monotonicSeconds" : 101365.98514133335,
+        "rssBytes" : 195870720
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "winter",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.028216,
+        "monotonicSeconds" : 101368.18679291669,
+        "rssBytes" : 206028800
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 1.033485,
+        "monotonicSeconds" : 101369.19400008336,
+        "rssBytes" : 206012416
+      },
+      "before" : {
+        "cpuSeconds" : 0.99711899999999998,
+        "monotonicSeconds" : 101366.99390966669,
+        "rssBytes" : 195870720
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.028942,
+        "monotonicSeconds" : 101368.18749904168,
+        "rssBytes" : 206028800
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "halloween",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.086881,
+        "monotonicSeconds" : 101370.44891375002,
+        "rssBytes" : 221233152
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 1.0915809999999999,
+        "monotonicSeconds" : 101371.45855308336,
+        "rssBytes" : 221233152
+      },
+      "before" : {
+        "cpuSeconds" : 1.033776,
+        "monotonicSeconds" : 101369.19418858335,
+        "rssBytes" : 206012416
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.087772,
+        "monotonicSeconds" : 101370.44978687502,
+        "rssBytes" : 221233152
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "christmas",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.117184,
+        "monotonicSeconds" : 101372.64670866668,
+        "rssBytes" : 228868096
+      },
+      "activeTracks" : 15,
+      "after" : {
+        "cpuSeconds" : 1.122403,
+        "monotonicSeconds" : 101373.65569612502,
+        "rssBytes" : 228868096
+      },
+      "before" : {
+        "cpuSeconds" : 1.0918220000000001,
+        "monotonicSeconds" : 101371.45868695836,
+        "rssBytes" : 221233152
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.117794,
+        "monotonicSeconds" : 101372.64730470836,
+        "rssBytes" : 228868096
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "hanbok",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.155527,
+        "monotonicSeconds" : 101374.85353737502,
+        "rssBytes" : 238387200
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 1.1605080000000001,
+        "monotonicSeconds" : 101375.86254079168,
+        "rssBytes" : 238387200
+      },
+      "before" : {
+        "cpuSeconds" : 1.1226210000000001,
+        "monotonicSeconds" : 101373.65587220836,
+        "rssBytes" : 228868096
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.1563190000000001,
+        "monotonicSeconds" : 101374.85430750002,
+        "rssBytes" : 238387200
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "cafe",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.1888320000000001,
+        "monotonicSeconds" : 101377.05086895835,
+        "rssBytes" : 246382592
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 1.1942889999999999,
+        "monotonicSeconds" : 101378.05490975002,
+        "rssBytes" : 208027648
+      },
+      "before" : {
+        "cpuSeconds" : 1.1606890000000001,
+        "monotonicSeconds" : 101375.86267145835,
+        "rssBytes" : 238387200
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.1896770000000001,
+        "monotonicSeconds" : 101377.05169566668,
+        "rssBytes" : 246382592
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "student",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.2221310000000001,
+        "monotonicSeconds" : 101379.24809616669,
+        "rssBytes" : 217169920
+      },
+      "activeTracks" : 17,
+      "after" : {
+        "cpuSeconds" : 1.227034,
+        "monotonicSeconds" : 101380.25580679168,
+        "rssBytes" : 217169920
+      },
+      "before" : {
+        "cpuSeconds" : 1.1947160000000001,
+        "monotonicSeconds" : 101378.05516033336,
+        "rssBytes" : 208027648
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.2229049999999999,
+        "monotonicSeconds" : 101379.24885216668,
+        "rssBytes" : 217169920
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "fitness",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.255959,
+        "monotonicSeconds" : 101381.44826937502,
+        "rssBytes" : 209190912
+      },
+      "activeTracks" : 17,
+      "after" : {
+        "cpuSeconds" : 1.260669,
+        "monotonicSeconds" : 101382.45297187503,
+        "rssBytes" : 209141760
+      },
+      "before" : {
+        "cpuSeconds" : 1.227257,
+        "monotonicSeconds" : 101380.25594391669,
+        "rssBytes" : 217169920
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.256515,
+        "monotonicSeconds" : 101381.44881091669,
+        "rssBytes" : 209190912
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "rainyDay",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.2905990000000001,
+        "monotonicSeconds" : 101383.64768020835,
+        "rssBytes" : 219004928
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 1.295687,
+        "monotonicSeconds" : 101384.65749087502,
+        "rssBytes" : 204832768
+      },
+      "before" : {
+        "cpuSeconds" : 1.261034,
+        "monotonicSeconds" : 101382.45317358336,
+        "rssBytes" : 209141760
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.291247,
+        "monotonicSeconds" : 101383.64831075002,
+        "rssBytes" : 219004928
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "pajamas",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.3275950000000001,
+        "monotonicSeconds" : 101385.85845608336,
+        "rssBytes" : 206602240
+      },
+      "activeTracks" : 15,
+      "after" : {
+        "cpuSeconds" : 1.332562,
+        "monotonicSeconds" : 101386.86564045836,
+        "rssBytes" : 206618624
+      },
+      "before" : {
+        "cpuSeconds" : 1.295855,
+        "monotonicSeconds" : 101384.65764075003,
+        "rssBytes" : 204832768
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.328387,
+        "monotonicSeconds" : 101385.85922479168,
+        "rssBytes" : 206602240
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "astronaut",
+      "pass" : 1,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.3392170000000001,
+        "monotonicSeconds" : 101388.03279195835,
+        "rssBytes" : 197672960
+      },
+      "activeTracks" : 15,
+      "after" : {
+        "cpuSeconds" : 1.343561,
+        "monotonicSeconds" : 101389.03981166669,
+        "rssBytes" : 189087744
+      },
+      "before" : {
+        "cpuSeconds" : 1.3327169999999999,
+        "monotonicSeconds" : 101386.86575687502,
+        "rssBytes" : 206618624
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.3398840000000001,
+        "monotonicSeconds" : 101388.03344379169,
+        "rssBytes" : 197672960
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "basic",
+      "pass" : 2,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.349518,
+        "monotonicSeconds" : 101390.20720583336,
+        "rssBytes" : 180109312
+      },
+      "activeTracks" : 15,
+      "after" : {
+        "cpuSeconds" : 1.3548100000000001,
+        "monotonicSeconds" : 101391.21632879169,
+        "rssBytes" : 180109312
+      },
+      "before" : {
+        "cpuSeconds" : 1.3437570000000001,
+        "monotonicSeconds" : 101389.03993187503,
+        "rssBytes" : 189104128
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.350141,
+        "monotonicSeconds" : 101390.20781683335,
+        "rssBytes" : 180109312
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "cherryBlossom",
+      "pass" : 2,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.361996,
+        "monotonicSeconds" : 101392.37655754169,
+        "rssBytes" : 180109312
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 1.367154,
+        "monotonicSeconds" : 101393.38521870835,
+        "rssBytes" : 180109312
+      },
+      "before" : {
+        "cpuSeconds" : 1.355199,
+        "monotonicSeconds" : 101391.21653029168,
+        "rssBytes" : 180109312
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.3627400000000001,
+        "monotonicSeconds" : 101392.37728608336,
+        "rssBytes" : 180109312
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "summerVacation",
+      "pass" : 2,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.375291,
+        "monotonicSeconds" : 101394.55495800002,
+        "rssBytes" : 180109312
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 1.3801860000000001,
+        "monotonicSeconds" : 101395.56322350002,
+        "rssBytes" : 180109312
+      },
+      "before" : {
+        "cpuSeconds" : 1.3674770000000001,
+        "monotonicSeconds" : 101393.38541233336,
+        "rssBytes" : 180109312
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.376098,
+        "monotonicSeconds" : 101394.55574708336,
+        "rssBytes" : 180109312
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "autumn",
+      "pass" : 2,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.3878159999999999,
+        "monotonicSeconds" : 101396.73283795835,
+        "rssBytes" : 180125696
+      },
+      "activeTracks" : 15,
+      "after" : {
+        "cpuSeconds" : 1.3926020000000001,
+        "monotonicSeconds" : 101397.74107812502,
+        "rssBytes" : 180125696
+      },
+      "before" : {
+        "cpuSeconds" : 1.3804780000000001,
+        "monotonicSeconds" : 101395.56337800002,
+        "rssBytes" : 180109312
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.3886609999999999,
+        "monotonicSeconds" : 101396.73366558335,
+        "rssBytes" : 180125696
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "winter",
+      "pass" : 2,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.3983639999999999,
+        "monotonicSeconds" : 101398.90549679169,
+        "rssBytes" : 180027392
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 1.403165,
+        "monotonicSeconds" : 101399.91525641669,
+        "rssBytes" : 180027392
+      },
+      "before" : {
+        "cpuSeconds" : 1.3927719999999999,
+        "monotonicSeconds" : 101397.74119520835,
+        "rssBytes" : 180125696
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.399084,
+        "monotonicSeconds" : 101398.90624766669,
+        "rssBytes" : 180027392
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "halloween",
+      "pass" : 2,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.410347,
+        "monotonicSeconds" : 101401.07970237502,
+        "rssBytes" : 180027392
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 1.4147910000000001,
+        "monotonicSeconds" : 101402.08772183336,
+        "rssBytes" : 180027392
+      },
+      "before" : {
+        "cpuSeconds" : 1.4034010000000001,
+        "monotonicSeconds" : 101399.91540920836,
+        "rssBytes" : 180027392
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.4110290000000001,
+        "monotonicSeconds" : 101401.08036737502,
+        "rssBytes" : 180027392
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "christmas",
+      "pass" : 2,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.422134,
+        "monotonicSeconds" : 101403.24516054169,
+        "rssBytes" : 180027392
+      },
+      "activeTracks" : 15,
+      "after" : {
+        "cpuSeconds" : 1.4267829999999999,
+        "monotonicSeconds" : 101404.25416125002,
+        "rssBytes" : 180027392
+      },
+      "before" : {
+        "cpuSeconds" : 1.414974,
+        "monotonicSeconds" : 101402.08784012502,
+        "rssBytes" : 180027392
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.422787,
+        "monotonicSeconds" : 101403.24580054168,
+        "rssBytes" : 180027392
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "hanbok",
+      "pass" : 2,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.4343250000000001,
+        "monotonicSeconds" : 101405.42194795836,
+        "rssBytes" : 180043776
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 1.4386399999999999,
+        "monotonicSeconds" : 101406.42951062502,
+        "rssBytes" : 180043776
+      },
+      "before" : {
+        "cpuSeconds" : 1.427063,
+        "monotonicSeconds" : 101404.25431570836,
+        "rssBytes" : 180027392
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.435306,
+        "monotonicSeconds" : 101405.42290437502,
+        "rssBytes" : 180043776
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "cafe",
+      "pass" : 2,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.4446950000000001,
+        "monotonicSeconds" : 101407.59620029169,
+        "rssBytes" : 180043776
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 1.448917,
+        "monotonicSeconds" : 101408.60319825003,
+        "rssBytes" : 180043776
+      },
+      "before" : {
+        "cpuSeconds" : 1.438814,
+        "monotonicSeconds" : 101406.42962854169,
+        "rssBytes" : 180043776
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.445641,
+        "monotonicSeconds" : 101407.59712550002,
+        "rssBytes" : 180043776
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "student",
+      "pass" : 2,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.45553,
+        "monotonicSeconds" : 101409.76210783336,
+        "rssBytes" : 180060160
+      },
+      "activeTracks" : 17,
+      "after" : {
+        "cpuSeconds" : 1.459891,
+        "monotonicSeconds" : 101410.77058816669,
+        "rssBytes" : 180060160
+      },
+      "before" : {
+        "cpuSeconds" : 1.4490970000000001,
+        "monotonicSeconds" : 101408.60332500002,
+        "rssBytes" : 180043776
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.456296,
+        "monotonicSeconds" : 101409.76285766669,
+        "rssBytes" : 180060160
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "fitness",
+      "pass" : 2,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.4666399999999999,
+        "monotonicSeconds" : 101411.9374700417,
+        "rssBytes" : 180076544
+      },
+      "activeTracks" : 17,
+      "after" : {
+        "cpuSeconds" : 1.4707060000000001,
+        "monotonicSeconds" : 101412.94624991668,
+        "rssBytes" : 180092928
+      },
+      "before" : {
+        "cpuSeconds" : 1.4600679999999999,
+        "monotonicSeconds" : 101410.77072379169,
+        "rssBytes" : 180060160
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.467266,
+        "monotonicSeconds" : 101411.93807625002,
+        "rssBytes" : 180076544
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "rainyDay",
+      "pass" : 2,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.476207,
+        "monotonicSeconds" : 101414.10856795835,
+        "rssBytes" : 180092928
+      },
+      "activeTracks" : 16,
+      "after" : {
+        "cpuSeconds" : 1.4806189999999999,
+        "monotonicSeconds" : 101415.11654787502,
+        "rssBytes" : 180092928
+      },
+      "before" : {
+        "cpuSeconds" : 1.47088,
+        "monotonicSeconds" : 101412.94636095836,
+        "rssBytes" : 180092928
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.477009,
+        "monotonicSeconds" : 101414.10934204169,
+        "rssBytes" : 180092928
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "pajamas",
+      "pass" : 2,
+      "stageReleased" : true
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.4868399999999999,
+        "monotonicSeconds" : 101416.28064133336,
+        "rssBytes" : 180092928
+      },
+      "activeTracks" : 15,
+      "after" : {
+        "cpuSeconds" : 1.4908429999999999,
+        "monotonicSeconds" : 101417.28687537502,
+        "rssBytes" : 180092928
+      },
+      "before" : {
+        "cpuSeconds" : 1.480788,
+        "monotonicSeconds" : 101415.11668095835,
+        "rssBytes" : 180092928
+      },
+      "detachedTracks" : 0,
+      "hostReleased" : true,
+      "immediateAfter" : {
+        "cpuSeconds" : 1.48752,
+        "monotonicSeconds" : 101416.28130833336,
+        "rssBytes" : 180092928
+      },
+      "immediateHostReleased" : false,
+      "immediateStageReleased" : true,
+      "outfit" : "astronaut",
+      "pass" : 2,
+      "stageReleased" : true
+    }
+  ],
+  "scope" : "Mac native production home stage; 14 outfits twice then warm basic idle\/stopped 3 pairs; same visible window"
+}

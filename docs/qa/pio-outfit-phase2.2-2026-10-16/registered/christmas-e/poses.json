@@ -1,0 +1,132 @@
+[
+  {
+    "anglesDegrees" : {
+
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "neutral",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : true,
+    "name" : "closed",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "handRight" : -12
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "right-minus12",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "handRight" : 12
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "right-plus12",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "hat" : -4
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "hat-minus4",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "hat" : 4
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "hat-plus4",
+    "translations" : {
+
+    }
+  },
+  {
+    "anglesDegrees" : {
+
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "grip-up",
+    "translations" : {
+      "gift" : [
+        -4,
+        -8
+      ],
+      "handLeft" : [
+        -4,
+        -8
+      ]
+    }
+  },
+  {
+    "anglesDegrees" : {
+
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "grip-down",
+    "translations" : {
+      "gift" : [
+        4,
+        8
+      ],
+      "handLeft" : [
+        4,
+        8
+      ]
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "footLeft" : -8
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "step-left",
+    "translations" : {
+      "footLeft" : [
+        -5,
+        -18
+      ]
+    }
+  },
+  {
+    "anglesDegrees" : {
+      "footRight" : 8
+    },
+    "bodyTransform" : "identity",
+    "closedEyes" : false,
+    "name" : "step-right",
+    "translations" : {
+      "footRight" : [
+        5,
+        -18
+      ]
+    }
+  }
+]

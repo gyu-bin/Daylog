@@ -1,0 +1,58 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioCharacterFinalMain.xctestrun -destination "platform=iOS Simulator,id=89B877BB-6094-4A27-B108-3A958EF23D9B" -parallel-testing-enabled NO -resultBundlePath /tmp/PioCharacterFinal-iPhone-final-20261024.xcresult "-only-testing:DaylogStoreKitTests/PioVacationNightArtworkTests" "-only-testing:DaylogStoreKitTests/PioVacationHingeNativeTests" "-only-testing:DaylogStoreKitTests/PioProductionFinalScreenTests" "-only-testing:DaylogStoreKitTests/PioCharacterHomeNativeReviewTests/testAllFourteenHomeIndependentPresentationAt64And220"
+
+Writing result bundle at path:
+	/tmp/PioCharacterFinal-iPhone-final-20261024.xcresult
+
+2026-10-24 16:37:07.098 xcodebuild[27491:2500432] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:37:12.653997+0900 Daylog[27505:2500751] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 16:37:13.889827+0900 Daylog[27505:2500751] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 16:37:13.891635+0900 Daylog[27505:2500751] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 16:37:13.895889+0900 Daylog[27505:2500751] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-24 16:37:13.992.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 16:37:13.993.
+Test Suite 'PioCharacterHomeNativeReviewTests' started at 2026-10-24 16:37:13.993.
+Test Case '-[DaylogStoreKitTests.PioCharacterHomeNativeReviewTests testAllFourteenHomeIndependentPresentationAt64And220]' started.
+Test Case '-[DaylogStoreKitTests.PioCharacterHomeNativeReviewTests testAllFourteenHomeIndependentPresentationAt64And220]' passed (27.994 seconds).
+Test Suite 'PioCharacterHomeNativeReviewTests' passed at 2026-10-24 16:37:41.988.
+	 Executed 1 test, with 0 failures (0 unexpected) in 27.994 (27.995) seconds
+Test Suite 'PioProductionFinalScreenTests' started at 2026-10-24 16:37:41.988.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalScreenTests testActualDeviceScreensAndAccessibilityLayouts]' started.
+IOSurfaceClientSetSurfaceNotify failed e00002c7
+2026-10-24 16:37:44.365031+0900 Daylog[27505:2500751] Unbalanced calls to begin/end appearance transitions for <_TtGC7SwiftUI19UIHostingControllerVS_7AnyView_: 0x127c1ca00>.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalScreenTests testActualDeviceScreensAndAccessibilityLayouts]' passed (4.574 seconds).
+Test Suite 'PioProductionFinalScreenTests' passed at 2026-10-24 16:37:46.563.
+	 Executed 1 test, with 0 failures (0 unexpected) in 4.574 (4.574) seconds
+Test Suite 'PioVacationHingeNativeTests' started at 2026-10-24 16:37:46.563.
+Test Case '-[DaylogStoreKitTests.PioVacationHingeNativeTests testBasicDayNightHingeKeepsBothVisibleSourcePointsFixed]' started.
+Test Case '-[DaylogStoreKitTests.PioVacationHingeNativeTests testBasicDayNightHingeKeepsBothVisibleSourcePointsFixed]' passed (15.930 seconds).
+Test Suite 'PioVacationHingeNativeTests' passed at 2026-10-24 16:38:02.494.
+	 Executed 1 test, with 0 failures (0 unexpected) in 15.930 (15.931) seconds
+Test Suite 'PioVacationNightArtworkTests' started at 2026-10-24 16:38:02.494.
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testChristmasNightProductionLifecycleAndPresentation]' started.
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testChristmasNightProductionLifecycleAndPresentation]' passed (4.241 seconds).
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testNightCandidate1024StaticRegistration]' started.
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testNightCandidate1024StaticRegistration]' passed (0.693 seconds).
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testNightCandidateNativePresentationAt64And220]' started.
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testNightCandidateNativePresentationAt64And220]' passed (4.148 seconds).
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testNightCandidateResourcesAndLifecycle]' started.
+Test Case '-[DaylogStoreKitTests.PioVacationNightArtworkTests testNightCandidateResourcesAndLifecycle]' passed (0.391 seconds).
+Test Suite 'PioVacationNightArtworkTests' passed at 2026-10-24 16:38:11.968.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 9.473 (9.474) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-24 16:38:11.968.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 57.971 (57.976) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 16:38:11.969.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 57.971 (57.976) seconds
+2026-10-24 16:38:11.998 xcodebuild[27491:2500432] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:38:11.999 xcodebuild[27491:2500432] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:38:12.001 xcodebuild[27491:2500432] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 16:38:12.269 xcodebuild[27491:2500432] [MT] IDETestOperationsObserverDebug: 65.246 elapsed -- Testing started completed.
+2026-10-24 16:38:12.269 xcodebuild[27491:2500432] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 16:38:12.269 xcodebuild[27491:2500432] [MT] IDETestOperationsObserverDebug: 65.246 sec, +65.246 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCharacterFinal-iPhone-final-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

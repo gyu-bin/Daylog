@@ -1,0 +1,73 @@
+{
+  "sunglasses-candidate.png": {
+    "left_lens_center": {
+      "box": [
+        600,
+        550,
+        750,
+        600
+      ],
+      "alpha_min": 252,
+      "alpha_max": 253,
+      "alpha_median": 253.0,
+      "alpha_mean": 252.9996,
+      "zero_fraction": 0.0
+    },
+    "right_lens_center": {
+      "box": [
+        1250,
+        440,
+        1400,
+        500
+      ],
+      "alpha_min": 252,
+      "alpha_max": 253,
+      "alpha_median": 253.0,
+      "alpha_mean": 252.92044444444446,
+      "zero_fraction": 0.0
+    }
+  },
+  "drink-candidate.png": {
+    "clear_glass_upper": {
+      "box": [
+        550,
+        370,
+        620,
+        405
+      ],
+      "alpha_min": 50,
+      "alpha_max": 74,
+      "alpha_median": 56.0,
+      "alpha_mean": 58.1130612244898,
+      "zero_fraction": 0.0
+    },
+    "clear_glass_above_liquid": {
+      "box": [
+        565,
+        445,
+        620,
+        460
+      ],
+      "alpha_min": 84,
+      "alpha_max": 252,
+      "alpha_median": 105,
+      "alpha_mean": 137.43151515151516,
+      "zero_fraction": 0.0
+    }
+  },
+  "headwear-v2-candidate.png": {
+    "face_opening": {
+      "box": [
+        600,
+        800,
+        1000,
+        950
+      ],
+      "alpha_min": 0,
+      "alpha_max": 1,
+      "alpha_median": 0.0,
+      "alpha_mean": 0.0007333333333333333,
+      "zero_fraction": 0.9992666666666666
+    }
+  }
+}

@@ -127,6 +127,12 @@ final class PioStoreKitReviewTests: XCTestCase {
             try await Task.sleep(for: .seconds(1))
         }
         let ledger = session.allTransactions().map { "\($0.productIdentifier): \($0.state.rawValue)" }.joined(separator: "\n")
+        let finalState = "purchaseState=\(PioWardrobeStore.shared.purchases.purchaseState) owned=\(PioWardrobeStore.shared.purchases.ownedOutfits.map(\.rawValue).sorted()) equipped=\(PioWardrobeStore.shared.equippedOutfit.rawValue) busy=\(PioWardrobeStore.shared.purchases.isBusy)"
+        print("PIO_INTERACTIVE_RESULT \(finalState)")
+        let resultEvidence = XCTAttachment(string: finalState)
+        resultEvidence.name = "Actual UI purchase manager final state"
+        resultEvidence.lifetime = .keepAlways
+        add(resultEvidence)
         let evidence = XCTAttachment(string: ledger)
         evidence.name = "Interactive review real local ledger"
         evidence.lifetime = .keepAlways

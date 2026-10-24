@@ -1,0 +1,98 @@
+[
+  {
+    "source": "Daylog/RoutimoriTrial.xcassets/routimori_sync_loading.imageset/routimori_sync_loading.png",
+    "copy": "references/Daylog/RoutimoriTrial.xcassets/routimori_sync_loading.imageset/routimori_sync_loading.png",
+    "sha256": "01a7817d0cb6889aa2908014c10cc6b4e92dfaa0f3dc767f98158d7a90ef4cae",
+    "byte_identical": true
+  },
+  {
+    "source": "Daylog/RoutimoriTrial.xcassets/routimori_sync_failure.imageset/routimori_sync_failure.png",
+    "copy": "references/Daylog/RoutimoriTrial.xcassets/routimori_sync_failure.imageset/routimori_sync_failure.png",
+    "sha256": "fb9c18d0d00cd6bbe159679d6e89f790bfc3fb99168345b2e60b6f90b73f5c6e",
+    "byte_identical": true
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/christmas/layers/body.png",
+    "copy": "references/output/pio-completion-2026-10-23/cloud/christmas/layers/body.png",
+    "sha256": "15553419f997b1ffaf06e35f0cac632f70166bb5b470eb8ade94501e2d6d2810",
+    "byte_identical": true
+  },
+  {
+    "source": "Daylog/PioWardrobe.xcassets/pio_outfit_christmas.imageset/pio_outfit_christmas.png",
+    "copy": "references/Daylog/PioWardrobe.xcassets/pio_outfit_christmas.imageset/pio_outfit_christmas.png",
+    "sha256": "7df7b6c55397cc00486ed2c83a21ad1583d7f139307efa929d5219917c75b66d",
+    "byte_identical": true
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/hanbok/layers/body.png",
+    "copy": "references/output/pio-completion-2026-10-23/cloud/hanbok/layers/body.png",
+    "sha256": "98943fd831b859394fb2aeb98111bab1bd162ea3d0b3734f5987871011b7499d",
+    "byte_identical": true
+  },
+  {
+    "source": "Daylog/PioWardrobe.xcassets/pio_outfit_hanbok.imageset/pio_outfit_hanbok.png",
+    "copy": "references/Daylog/PioWardrobe.xcassets/pio_outfit_hanbok.imageset/pio_outfit_hanbok.png",
+    "sha256": "4ebb837cff050e50db901de0b63dc2221bb52fe52e18530f42901847b5a253e0",
+    "byte_identical": true
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/astronaut/layers/body.png",
+    "copy": "references/output/pio-completion-2026-10-23/cloud/astronaut/layers/body.png",
+    "sha256": "33b5a0f8430ac48ffb432be338331eec013ddf79afeeb14f135812c3aef52346",
+    "byte_identical": true
+  },
+  {
+    "source": "Daylog/PioWardrobe.xcassets/pio_outfit_astronaut.imageset/pio_outfit_astronaut.png",
+    "copy": "references/Daylog/PioWardrobe.xcassets/pio_outfit_astronaut.imageset/pio_outfit_astronaut.png",
+    "sha256": "6a9741d18e6ed00fc036dc82d9bf579e16694f20001ac7e17261db5784e31fc2",
+    "byte_identical": true
+  },
+  {
+    "source": "output/pio-vacation-outfits-2026-10-23/source/christmas-day-v1.png",
+    "copy": "references/output/pio-vacation-outfits-2026-10-23/source/christmas-day-v1.png",
+    "sha256": "95b721d351550d9054a6fde8f2c539186ccc1d7b2e0571281abcd64dd570235e",
+    "byte_identical": true
+  },
+  {
+    "source": "output/pio-vacation-outfits-2026-10-23/source/christmas-night-v1.png",
+    "copy": "references/output/pio-vacation-outfits-2026-10-23/source/christmas-night-v1.png",
+    "sha256": "f10a1a440a0f0d1427372f7e7e5042a24cd5f98ab40fa0a991d72506ef38053e",
+    "byte_identical": true
+  },
+  {
+    "source": "output/pio-vacation-outfits-2026-10-23/source/astronaut-day-v2.png",
+    "copy": "references/output/pio-vacation-outfits-2026-10-23/source/astronaut-day-v2.png",
+    "sha256": "071987a2b6000b3475144720356469aeba75aa9aa216ad2626623c3ae22012c5",
+    "byte_identical": true
+  },
+  {
+    "source": "output/pio-vacation-outfits-2026-10-23/source/astronaut-night-v2.png",
+    "copy": "references/output/pio-vacation-outfits-2026-10-23/source/astronaut-night-v2.png",
+    "sha256": "57050520ddd78d9d3a38fc0c2c473c45beb229358d7dae69d7bbb0ce05d1015c",
+    "byte_identical": true
+  },
+  {
+    "source": "docs/qa/pio-scenes-integration-2026-10-23/native-cloud-final/cloud-basic-receiving-light-reduce-motion.png",
+    "copy": "references/docs/qa/pio-scenes-integration-2026-10-23/native-cloud-final/cloud-basic-receiving-light-reduce-motion.png",
+    "sha256": "99a80b9254a857e8ee188cae0c8978302aa237aa9fde5ff26fe230f53f5b2093",
+    "byte_identical": true
+  },
+  {
+    "source": "docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+    "copy": "references/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+    "sha256": "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+    "byte_identical": true
+  },
+  {
+    "source": "docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+    "copy": "references/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+    "sha256": "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+    "byte_identical": true
+  },
+  {
+    "source": "docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+    "copy": "references/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+    "sha256": "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+    "byte_identical": true
+  }
+]

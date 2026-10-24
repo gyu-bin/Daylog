@@ -1,0 +1,24 @@
+[
+  {
+    "source": "output/pio-independent-2026-10-24/cafe-cloud/torso-candidate-v1.png",
+    "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_cafe_v2_torso.imageset/pio_cloud_cafe_v2_torso.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "sha256": "d566acc9355174b9af2747da3480409733a5054dc6a2ec81e693711fb5bf3bc8",
+    "sourcePixelsChanged": false,
+    "approved": false
+  },
+  {
+    "source": "output/pio-independent-2026-10-24/cafe-cloud/arms-candidate-v1.png",
+    "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_cafe_v2_armPair.imageset/pio_cloud_cafe_v2_armPair.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "sha256": "d006f160e52fe6d5ae958c78b9b30f1f3c1cf3ba361dfade9c1acb668e2f1688",
+    "sourcePixelsChanged": false,
+    "approved": false
+  }
+]

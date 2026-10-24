@@ -1,0 +1,36 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioHomeBeforeGreen.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -resultBundlePath /tmp/PioHome-before-green-v2.xcresult
+
+Writing result bundle at path:
+	/tmp/PioHome-before-green-v2.xcresult
+
+2026-10-23 22:27:08.419 xcodebuild[31662:1165977] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 22:27:13.240314+0900 Daylog[31667:1166280] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 22:27:15.037478+0900 Daylog[31667:1166280] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 22:27:15.053902+0900 Daylog[31667:1166280] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 22:27:15.055950+0900 Daylog[31667:1166280] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 22:27:15.350.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 22:27:15.352.
+Test Suite 'PioHomePolishReviewTests' started at 2026-10-23 22:27:15.352.
+Test Case '-[DaylogStoreKitTests.PioHomePolishReviewTests testHeaderSnapshots]' started.
+objc[31667]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x122d4c398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x122e40310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+Test Case '-[DaylogStoreKitTests.PioHomePolishReviewTests testHeaderSnapshots]' passed (0.510 seconds).
+Test Suite 'PioHomePolishReviewTests' passed at 2026-10-23 22:27:15.866.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.510 (0.514) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-23 22:27:15.866.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.510 (0.514) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 22:27:15.866.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.510 (0.516) seconds
+2026-10-23 22:27:15.976 xcodebuild[31662:1165977] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 22:27:15.977 xcodebuild[31662:1165977] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 22:27:15.977 xcodebuild[31662:1165977] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 22:27:16.237 xcodebuild[31662:1165977] [MT] IDETestOperationsObserverDebug: 7.912 elapsed -- Testing started completed.
+2026-10-23 22:27:16.237 xcodebuild[31662:1165977] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 22:27:16.237 xcodebuild[31662:1165977] [MT] IDETestOperationsObserverDebug: 7.912 sec, +7.912 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioHome-before-green-v2.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

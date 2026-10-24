@@ -1,0 +1,271 @@
+{
+  "status": "OFFLINE_CANDIDATE_PROOF_NOT_RUNTIME_QA",
+  "dimensions": [
+    440,
+    440
+  ],
+  "frame_count": 48,
+  "duration_ms": 3840,
+  "body_transform": "fixed at registered offset, scale1; no frame-varying motion",
+  "body_source_hash": "956fd164e1402d25f665f4c49cbabaea6bf79b9e4733438c1a920f21e3a8f853",
+  "all_source_hashes_unchanged": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-outfit-assets/cherryBlossom/v1/wing-left-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-outfit-assets/cherryBlossom/v1/wing-right-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cherryBlossom-v2/source/sprout-v3-review.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-outfit-assets/cherryBlossom/v1/body-v3-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-outfit-assets/cherryBlossom/v1/head-flower-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cherryBlossom-v2/source/petal-candidate.png": true
+  },
+  "frames": [
+    {
+      "frame": 0,
+      "eyes": "open",
+      "wingDeltaDegrees": 0.0
+    },
+    {
+      "frame": 1,
+      "eyes": "open",
+      "wingDeltaDegrees": 3.105828541230249
+    },
+    {
+      "frame": 2,
+      "eyes": "open",
+      "wingDeltaDegrees": 5.999999999999999
+    },
+    {
+      "frame": 3,
+      "eyes": "open",
+      "wingDeltaDegrees": 8.48528137423857
+    },
+    {
+      "frame": 4,
+      "eyes": "open",
+      "wingDeltaDegrees": 10.392304845413264
+    },
+    {
+      "frame": 5,
+      "eyes": "open",
+      "wingDeltaDegrees": 11.59110991546882
+    },
+    {
+      "frame": 6,
+      "eyes": "open",
+      "wingDeltaDegrees": 12.0
+    },
+    {
+      "frame": 7,
+      "eyes": "open",
+      "wingDeltaDegrees": 11.59110991546882
+    },
+    {
+      "frame": 8,
+      "eyes": "open",
+      "wingDeltaDegrees": 10.392304845413264
+    },
+    {
+      "frame": 9,
+      "eyes": "open",
+      "wingDeltaDegrees": 8.485281374238571
+    },
+    {
+      "frame": 10,
+      "eyes": "half",
+      "wingDeltaDegrees": 5.999999999999999
+    },
+    {
+      "frame": 11,
+      "eyes": "closed",
+      "wingDeltaDegrees": 3.1058285412302524
+    },
+    {
+      "frame": 12,
+      "eyes": "closed",
+      "wingDeltaDegrees": 1.4695761589768238e-15
+    },
+    {
+      "frame": 13,
+      "eyes": "half",
+      "wingDeltaDegrees": -3.1058285412302444
+    },
+    {
+      "frame": 14,
+      "eyes": "open",
+      "wingDeltaDegrees": -6.000000000000002
+    },
+    {
+      "frame": 15,
+      "eyes": "open",
+      "wingDeltaDegrees": -8.48528137423857
+    },
+    {
+      "frame": 16,
+      "eyes": "open",
+      "wingDeltaDegrees": -10.39230484541326
+    },
+    {
+      "frame": 17,
+      "eyes": "open",
+      "wingDeltaDegrees": -11.59110991546882
+    },
+    {
+      "frame": 18,
+      "eyes": "open",
+      "wingDeltaDegrees": -12.0
+    },
+    {
+      "frame": 19,
+      "eyes": "open",
+      "wingDeltaDegrees": -11.59110991546882
+    },
+    {
+      "frame": 20,
+      "eyes": "open",
+      "wingDeltaDegrees": -10.392304845413264
+    },
+    {
+      "frame": 21,
+      "eyes": "open",
+      "wingDeltaDegrees": -8.485281374238571
+    },
+    {
+      "frame": 22,
+      "eyes": "open",
+      "wingDeltaDegrees": -6.000000000000005
+    },
+    {
+      "frame": 23,
+      "eyes": "open",
+      "wingDeltaDegrees": -3.105828541230248
+    },
+    {
+      "frame": 24,
+      "eyes": "open",
+      "wingDeltaDegrees": -2.9391523179536475e-15
+    },
+    {
+      "frame": 25,
+      "eyes": "open",
+      "wingDeltaDegrees": 3.105828541230253
+    },
+    {
+      "frame": 26,
+      "eyes": "open",
+      "wingDeltaDegrees": 5.999999999999991
+    },
+    {
+      "frame": 27,
+      "eyes": "open",
+      "wingDeltaDegrees": 8.485281374238568
+    },
+    {
+      "frame": 28,
+      "eyes": "open",
+      "wingDeltaDegrees": 10.392304845413266
+    },
+    {
+      "frame": 29,
+      "eyes": "open",
+      "wingDeltaDegrees": 11.591109915468817
+    },
+    {
+      "frame": 30,
+      "eyes": "open",
+      "wingDeltaDegrees": 12.0
+    },
+    {
+      "frame": 31,
+      "eyes": "open",
+      "wingDeltaDegrees": 11.59110991546882
+    },
+    {
+      "frame": 32,
+      "eyes": "open",
+      "wingDeltaDegrees": 10.39230484541327
+    },
+    {
+      "frame": 33,
+      "eyes": "open",
+      "wingDeltaDegrees": 8.485281374238582
+    },
+    {
+      "frame": 34,
+      "eyes": "half",
+      "wingDeltaDegrees": 5.999999999999997
+    },
+    {
+      "frame": 35,
+      "eyes": "closed",
+      "wingDeltaDegrees": 3.1058285412302498
+    },
+    {
+      "frame": 36,
+      "eyes": "closed",
+      "wingDeltaDegrees": 4.408728476930472e-15
+    },
+    {
+      "frame": 37,
+      "eyes": "half",
+      "wingDeltaDegrees": -3.1058285412302418
+    },
+    {
+      "frame": 38,
+      "eyes": "open",
+      "wingDeltaDegrees": -5.99999999999999
+    },
+    {
+      "frame": 39,
+      "eyes": "open",
+      "wingDeltaDegrees": -8.485281374238575
+    },
+    {
+      "frame": 40,
+      "eyes": "open",
+      "wingDeltaDegrees": -10.392304845413264
+    },
+    {
+      "frame": 41,
+      "eyes": "open",
+      "wingDeltaDegrees": -11.591109915468818
+    },
+    {
+      "frame": 42,
+      "eyes": "open",
+      "wingDeltaDegrees": -12.0
+    },
+    {
+      "frame": 43,
+      "eyes": "open",
+      "wingDeltaDegrees": -11.591109915468822
+    },
+    {
+      "frame": 44,
+      "eyes": "open",
+      "wingDeltaDegrees": -10.39230484541327
+    },
+    {
+      "frame": 45,
+      "eyes": "open",
+      "wingDeltaDegrees": -8.485281374238582
+    },
+    {
+      "frame": 46,
+      "eyes": "open",
+      "wingDeltaDegrees": -5.999999999999998
+    },
+    {
+      "frame": 47,
+      "eyes": "open",
+      "wingDeltaDegrees": -3.1058285412302515
+    }
+  ],
+  "limits": [
+    "No native app playback",
+    "No performance, walk, jump, landing or production approval",
+    "Petal drift uses one unchanged source instanced three times",
+    "GIF palette reduction is QA export only; original source PNGs untouched"
+  ]
+}

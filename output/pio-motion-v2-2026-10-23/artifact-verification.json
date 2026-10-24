@@ -1,0 +1,3792 @@
+{
+  "status": "PASS_FILE_DECODE_AND_PRESERVATION_ONLY",
+  "outfits": 14,
+  "actionsPerOutfit": 11,
+  "images": [
+    {
+      "file": "astronaut/bounce-keypose-alpha.png",
+      "bytes": 102436,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "astronaut/bounce.png",
+      "bytes": 2525310,
+      "frames": 32,
+      "uniqueFrames": 29,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "astronaut/bow-keypose-alpha.png",
+      "bytes": 99865,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "astronaut/bow.png",
+      "bytes": 1118601,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "astronaut/celebrate-keypose-alpha.png",
+      "bytes": 102517,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "astronaut/celebrate.png",
+      "bytes": 2639867,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "astronaut/eleven-actions-contact.png",
+      "bytes": 820719,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "astronaut/encourage-keypose-alpha.png",
+      "bytes": 105866,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "astronaut/encourage.png",
+      "bytes": 2302853,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "astronaut/greet-keypose-alpha.png",
+      "bytes": 106196,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "astronaut/greet.png",
+      "bytes": 1301645,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "astronaut/idle-keypose-alpha.png",
+      "bytes": 102436,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "astronaut/idle.png",
+      "bytes": 2038060,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "astronaut/jump-keypose-alpha.png",
+      "bytes": 102065,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "astronaut/jump.png",
+      "bytes": 2237837,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "astronaut/phase-contact.png",
+      "bytes": 894102,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        2400,
+        1548
+      ]
+    },
+    {
+      "file": "astronaut/sleepy-keypose-alpha.png",
+      "bytes": 102882,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "astronaut/sleepy.png",
+      "bytes": 1141562,
+      "frames": 15,
+      "uniqueFrames": 15,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "astronaut/special-keypose-alpha.png",
+      "bytes": 105511,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "astronaut/special.png",
+      "bytes": 2643565,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "astronaut/surprised-keypose-alpha.png",
+      "bytes": 109566,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "astronaut/surprised.png",
+      "bytes": 1764894,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "astronaut/walk-keypose-alpha.png",
+      "bytes": 102642,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "astronaut/walk.png",
+      "bytes": 2649444,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "autumn/bounce-keypose-alpha.png",
+      "bytes": 163661,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "autumn/bounce.png",
+      "bytes": 4021655,
+      "frames": 32,
+      "uniqueFrames": 29,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "autumn/bow-keypose-alpha.png",
+      "bytes": 154926,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "autumn/bow.png",
+      "bytes": 1776574,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "autumn/celebrate-keypose-alpha.png",
+      "bytes": 163503,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "autumn/celebrate.png",
+      "bytes": 4222490,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "autumn/eleven-actions-contact.png",
+      "bytes": 1273944,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "autumn/encourage-keypose-alpha.png",
+      "bytes": 166057,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "autumn/encourage.png",
+      "bytes": 3688519,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "autumn/greet-keypose-alpha.png",
+      "bytes": 166936,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "autumn/greet.png",
+      "bytes": 2024465,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "autumn/idle-keypose-alpha.png",
+      "bytes": 163661,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "autumn/idle.png",
+      "bytes": 3283649,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "autumn/jump-keypose-alpha.png",
+      "bytes": 163106,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "autumn/jump.png",
+      "bytes": 3611923,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "autumn/sleepy-keypose-alpha.png",
+      "bytes": 161109,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "autumn/sleepy.png",
+      "bytes": 1817714,
+      "frames": 15,
+      "uniqueFrames": 15,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "autumn/special-keypose-alpha.png",
+      "bytes": 166477,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "autumn/special.png",
+      "bytes": 1849343,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "autumn/surprised-keypose-alpha.png",
+      "bytes": 169870,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "autumn/surprised.png",
+      "bytes": 2790710,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "autumn/walk-keypose-alpha.png",
+      "bytes": 163993,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "autumn/walk.png",
+      "bytes": 4236993,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "basic/bounce-keypose-alpha.png",
+      "bytes": 78718,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "basic/bounce.png",
+      "bytes": 1909339,
+      "frames": 32,
+      "uniqueFrames": 29,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "basic/bow-keypose-alpha.png",
+      "bytes": 77457,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "basic/bow.png",
+      "bytes": 844686,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "basic/celebrate-keypose-alpha.png",
+      "bytes": 78688,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "basic/celebrate.png",
+      "bytes": 1976677,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "basic/eleven-actions-contact.png",
+      "bytes": 624427,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "basic/encourage-keypose-alpha.png",
+      "bytes": 81756,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "basic/encourage.png",
+      "bytes": 1726079,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "basic/greet-keypose-alpha.png",
+      "bytes": 82568,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "basic/greet.png",
+      "bytes": 1061720,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "basic/idle-keypose-alpha.png",
+      "bytes": 78718,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "basic/idle.png",
+      "bytes": 1538658,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "basic/jump-keypose-alpha.png",
+      "bytes": 77896,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "basic/jump.png",
+      "bytes": 1679374,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "basic/phase-contact.png",
+      "bytes": 572649,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        2400,
+        1548
+      ]
+    },
+    {
+      "file": "basic/sleepy-keypose-alpha.png",
+      "bytes": 80178,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "basic/sleepy.png",
+      "bytes": 866548,
+      "frames": 15,
+      "uniqueFrames": 15,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "basic/special-keypose-alpha.png",
+      "bytes": 82171,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "basic/special.png",
+      "bytes": 880101,
+      "frames": 16,
+      "uniqueFrames": 14,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "basic/surprised-keypose-alpha.png",
+      "bytes": 84498,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "basic/surprised.png",
+      "bytes": 1324963,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "basic/walk-keypose-alpha.png",
+      "bytes": 79223,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "basic/walk.png",
+      "bytes": 1998719,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cafe/bounce-keypose-alpha.png",
+      "bytes": 140688,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cafe/bounce.png",
+      "bytes": 3498342,
+      "frames": 32,
+      "uniqueFrames": 29,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cafe/bow-keypose-alpha.png",
+      "bytes": 133611,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cafe/bow.png",
+      "bytes": 1547015,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cafe/celebrate-keypose-alpha.png",
+      "bytes": 141727,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cafe/celebrate.png",
+      "bytes": 3695719,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cafe/eleven-actions-contact.png",
+      "bytes": 1126319,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "cafe/encourage-keypose-alpha.png",
+      "bytes": 144225,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cafe/encourage.png",
+      "bytes": 3224140,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cafe/greet-keypose-alpha.png",
+      "bytes": 144462,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cafe/greet.png",
+      "bytes": 1758845,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cafe/idle-keypose-alpha.png",
+      "bytes": 140688,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cafe/idle.png",
+      "bytes": 2848389,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cafe/jump-keypose-alpha.png",
+      "bytes": 141227,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cafe/jump.png",
+      "bytes": 3144148,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cafe/sleepy-keypose-alpha.png",
+      "bytes": 138449,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cafe/sleepy.png",
+      "bytes": 1581812,
+      "frames": 15,
+      "uniqueFrames": 15,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cafe/special-keypose-alpha.png",
+      "bytes": 145071,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cafe/special.png",
+      "bytes": 1618213,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cafe/surprised-keypose-alpha.png",
+      "bytes": 148806,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cafe/surprised.png",
+      "bytes": 2447594,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cafe/walk-keypose-alpha.png",
+      "bytes": 141230,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cafe/walk.png",
+      "bytes": 3694017,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cherryBlossom/bounce-keypose-alpha.png",
+      "bytes": 113363,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cherryBlossom/bounce.png",
+      "bytes": 2869958,
+      "frames": 32,
+      "uniqueFrames": 29,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cherryBlossom/bow-keypose-alpha.png",
+      "bytes": 109665,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cherryBlossom/bow.png",
+      "bytes": 1269093,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cherryBlossom/celebrate-keypose-alpha.png",
+      "bytes": 112717,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cherryBlossom/celebrate.png",
+      "bytes": 2976963,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cherryBlossom/eleven-actions-contact.png",
+      "bytes": 917466,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "cherryBlossom/encourage-keypose-alpha.png",
+      "bytes": 116092,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cherryBlossom/encourage.png",
+      "bytes": 2604893,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cherryBlossom/greet-keypose-alpha.png",
+      "bytes": 116943,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cherryBlossom/greet.png",
+      "bytes": 1481011,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cherryBlossom/idle-keypose-alpha.png",
+      "bytes": 113363,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cherryBlossom/idle.png",
+      "bytes": 2313652,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cherryBlossom/jump-keypose-alpha.png",
+      "bytes": 111822,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cherryBlossom/jump.png",
+      "bytes": 2529301,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cherryBlossom/sleepy-keypose-alpha.png",
+      "bytes": 113543,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cherryBlossom/sleepy.png",
+      "bytes": 1299007,
+      "frames": 15,
+      "uniqueFrames": 15,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cherryBlossom/special-keypose-alpha.png",
+      "bytes": 116214,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cherryBlossom/special.png",
+      "bytes": 1319893,
+      "frames": 16,
+      "uniqueFrames": 14,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cherryBlossom/surprised-keypose-alpha.png",
+      "bytes": 119718,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cherryBlossom/surprised.png",
+      "bytes": 1986010,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cherryBlossom/walk-keypose-alpha.png",
+      "bytes": 113899,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "cherryBlossom/walk.png",
+      "bytes": 3006585,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "christmas/bounce-keypose-alpha.png",
+      "bytes": 137296,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "christmas/bounce.png",
+      "bytes": 3381907,
+      "frames": 31,
+      "uniqueFrames": 26,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "christmas/bow-keypose-alpha.png",
+      "bytes": 131930,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "christmas/bow.png",
+      "bytes": 1510455,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "christmas/celebrate-keypose-alpha.png",
+      "bytes": 137073,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "christmas/celebrate.png",
+      "bytes": 3575688,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "christmas/eleven-actions-contact.png",
+      "bytes": 1083616,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "christmas/encourage-keypose-alpha.png",
+      "bytes": 141048,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "christmas/encourage.png",
+      "bytes": 3121572,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "christmas/greet-keypose-alpha.png",
+      "bytes": 140665,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "christmas/greet.png",
+      "bytes": 1576976,
+      "frames": 15,
+      "uniqueFrames": 14,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "christmas/idle-keypose-alpha.png",
+      "bytes": 137296,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "christmas/idle.png",
+      "bytes": 2767118,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "christmas/jump-keypose-alpha.png",
+      "bytes": 136361,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "christmas/jump.png",
+      "bytes": 3041520,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "christmas/phase-contact.png",
+      "bytes": 997244,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        2400,
+        1548
+      ]
+    },
+    {
+      "file": "christmas/sleepy-keypose-alpha.png",
+      "bytes": 136653,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "christmas/sleepy.png",
+      "bytes": 1543140,
+      "frames": 15,
+      "uniqueFrames": 15,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "christmas/special-keypose-alpha.png",
+      "bytes": 141436,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "christmas/special.png",
+      "bytes": 2108957,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "christmas/surprised-keypose-alpha.png",
+      "bytes": 144192,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "christmas/surprised.png",
+      "bytes": 2367413,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "christmas/walk-keypose-alpha.png",
+      "bytes": 137533,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "christmas/walk.png",
+      "bytes": 3578524,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "fitness/bounce-keypose-alpha.png",
+      "bytes": 123966,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "fitness/bounce.png",
+      "bytes": 3054736,
+      "frames": 31,
+      "uniqueFrames": 26,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "fitness/bow-keypose-alpha.png",
+      "bytes": 118689,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "fitness/bow.png",
+      "bytes": 1357991,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "fitness/celebrate-keypose-alpha.png",
+      "bytes": 124621,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "fitness/celebrate.png",
+      "bytes": 3234776,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "fitness/eleven-actions-contact.png",
+      "bytes": 984544,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "fitness/encourage-keypose-alpha.png",
+      "bytes": 127482,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "fitness/encourage.png",
+      "bytes": 2823205,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "fitness/greet-keypose-alpha.png",
+      "bytes": 127465,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "fitness/greet.png",
+      "bytes": 1522291,
+      "frames": 21,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "fitness/idle-keypose-alpha.png",
+      "bytes": 123966,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "fitness/idle.png",
+      "bytes": 2491746,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "fitness/jump-keypose-alpha.png",
+      "bytes": 124610,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "fitness/jump.png",
+      "bytes": 2748771,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "fitness/sleepy-keypose-alpha.png",
+      "bytes": 122839,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "fitness/sleepy.png",
+      "bytes": 1379827,
+      "frames": 15,
+      "uniqueFrames": 15,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "fitness/special-keypose-alpha.png",
+      "bytes": 128192,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "fitness/special.png",
+      "bytes": 1414994,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "fitness/surprised-keypose-alpha.png",
+      "bytes": 131087,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "fitness/surprised.png",
+      "bytes": 2147007,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "fitness/walk-keypose-alpha.png",
+      "bytes": 124250,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "fitness/walk.png",
+      "bytes": 3231322,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "halloween/bounce-keypose-alpha.png",
+      "bytes": 138777,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "halloween/bounce.png",
+      "bytes": 3431004,
+      "frames": 32,
+      "uniqueFrames": 29,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "halloween/bow-keypose-alpha.png",
+      "bytes": 133176,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "halloween/bow.png",
+      "bytes": 1532956,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "halloween/celebrate-keypose-alpha.png",
+      "bytes": 138934,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "halloween/celebrate.png",
+      "bytes": 3618869,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "halloween/eleven-actions-contact.png",
+      "bytes": 1102201,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "halloween/encourage-keypose-alpha.png",
+      "bytes": 141695,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "halloween/encourage.png",
+      "bytes": 3161604,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "halloween/greet-keypose-alpha.png",
+      "bytes": 141929,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "halloween/greet.png",
+      "bytes": 1690747,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "halloween/idle-keypose-alpha.png",
+      "bytes": 138777,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "halloween/idle.png",
+      "bytes": 2807892,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "halloween/jump-keypose-alpha.png",
+      "bytes": 138232,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "halloween/jump.png",
+      "bytes": 3084242,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "halloween/sleepy-keypose-alpha.png",
+      "bytes": 137750,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "halloween/sleepy.png",
+      "bytes": 1558516,
+      "frames": 15,
+      "uniqueFrames": 15,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "halloween/special-keypose-alpha.png",
+      "bytes": 141736,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "halloween/special.png",
+      "bytes": 1583797,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "halloween/surprised-keypose-alpha.png",
+      "bytes": 145594,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "halloween/surprised.png",
+      "bytes": 2402449,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "halloween/walk-keypose-alpha.png",
+      "bytes": 139251,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "halloween/walk.png",
+      "bytes": 3632797,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "hanbok/bounce-keypose-alpha.png",
+      "bytes": 127696,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "hanbok/bounce.png",
+      "bytes": 3211180,
+      "frames": 32,
+      "uniqueFrames": 29,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "hanbok/bow-keypose-alpha.png",
+      "bytes": 122898,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "hanbok/bow.png",
+      "bytes": 1412643,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "hanbok/celebrate-keypose-alpha.png",
+      "bytes": 127368,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "hanbok/celebrate.png",
+      "bytes": 3330182,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "hanbok/eleven-actions-contact.png",
+      "bytes": 1016700,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "hanbok/encourage-keypose-alpha.png",
+      "bytes": 130351,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "hanbok/encourage.png",
+      "bytes": 2913897,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "hanbok/greet-keypose-alpha.png",
+      "bytes": 130710,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "hanbok/greet.png",
+      "bytes": 1644312,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "hanbok/idle-keypose-alpha.png",
+      "bytes": 127696,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "hanbok/idle.png",
+      "bytes": 2582266,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "hanbok/jump-keypose-alpha.png",
+      "bytes": 126876,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "hanbok/jump.png",
+      "bytes": 2837253,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "hanbok/phase-contact.png",
+      "bytes": 900182,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        2400,
+        1548
+      ]
+    },
+    {
+      "file": "hanbok/sleepy-keypose-alpha.png",
+      "bytes": 126829,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "hanbok/sleepy.png",
+      "bytes": 1443930,
+      "frames": 15,
+      "uniqueFrames": 15,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "hanbok/special-keypose-alpha.png",
+      "bytes": 121680,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "hanbok/special.png",
+      "bytes": 1408049,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "hanbok/surprised-keypose-alpha.png",
+      "bytes": 133507,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "hanbok/surprised.png",
+      "bytes": 2211083,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "hanbok/walk-keypose-alpha.png",
+      "bytes": 128012,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "hanbok/walk.png",
+      "bytes": 3348111,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "pajamas/bounce-keypose-alpha.png",
+      "bytes": 125141,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "pajamas/bounce.png",
+      "bytes": 3067176,
+      "frames": 31,
+      "uniqueFrames": 26,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "pajamas/bow-keypose-alpha.png",
+      "bytes": 120222,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "pajamas/bow.png",
+      "bytes": 1371879,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "pajamas/celebrate-keypose-alpha.png",
+      "bytes": 124829,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "pajamas/celebrate.png",
+      "bytes": 3245046,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "pajamas/eleven-actions-contact.png",
+      "bytes": 988327,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "pajamas/encourage-keypose-alpha.png",
+      "bytes": 128166,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "pajamas/encourage.png",
+      "bytes": 2836651,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "pajamas/greet-keypose-alpha.png",
+      "bytes": 128303,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "pajamas/greet.png",
+      "bytes": 1437400,
+      "frames": 15,
+      "uniqueFrames": 14,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "pajamas/idle-keypose-alpha.png",
+      "bytes": 125141,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "pajamas/idle.png",
+      "bytes": 2511345,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "pajamas/jump-keypose-alpha.png",
+      "bytes": 124520,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "pajamas/jump.png",
+      "bytes": 2755596,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "pajamas/sleepy-keypose-alpha.png",
+      "bytes": 124798,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "pajamas/sleepy.png",
+      "bytes": 2062007,
+      "frames": 32,
+      "uniqueFrames": 32,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "pajamas/special-keypose-alpha.png",
+      "bytes": 125886,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "pajamas/special.png",
+      "bytes": 3183321,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "pajamas/surprised-keypose-alpha.png",
+      "bytes": 130945,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "pajamas/surprised.png",
+      "bytes": 2150446,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "pajamas/walk-keypose-alpha.png",
+      "bytes": 125433,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "pajamas/walk.png",
+      "bytes": 3257572,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "rainyDay/bounce-keypose-alpha.png",
+      "bytes": 126290,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "rainyDay/bounce.png",
+      "bytes": 3140355,
+      "frames": 32,
+      "uniqueFrames": 29,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "rainyDay/bow-keypose-alpha.png",
+      "bytes": 123149,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "rainyDay/bow.png",
+      "bytes": 1416747,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "rainyDay/celebrate-keypose-alpha.png",
+      "bytes": 125599,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "rainyDay/celebrate.png",
+      "bytes": 3302638,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "rainyDay/eleven-actions-contact.png",
+      "bytes": 1007184,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "rainyDay/encourage-keypose-alpha.png",
+      "bytes": 130348,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "rainyDay/encourage.png",
+      "bytes": 2915044,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "rainyDay/greet-keypose-alpha.png",
+      "bytes": 129477,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "rainyDay/greet.png",
+      "bytes": 1591249,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "rainyDay/idle-keypose-alpha.png",
+      "bytes": 126290,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "rainyDay/idle.png",
+      "bytes": 2566169,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "rainyDay/jump-keypose-alpha.png",
+      "bytes": 125711,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "rainyDay/jump.png",
+      "bytes": 2817794,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "rainyDay/sleepy-keypose-alpha.png",
+      "bytes": 127366,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "rainyDay/sleepy.png",
+      "bytes": 1438217,
+      "frames": 15,
+      "uniqueFrames": 15,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "rainyDay/special-keypose-alpha.png",
+      "bytes": 128773,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "rainyDay/special.png",
+      "bytes": 1471812,
+      "frames": 16,
+      "uniqueFrames": 14,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "rainyDay/surprised-keypose-alpha.png",
+      "bytes": 133522,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "rainyDay/surprised.png",
+      "bytes": 2205253,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "rainyDay/walk-keypose-alpha.png",
+      "bytes": 126583,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "rainyDay/walk.png",
+      "bytes": 3343536,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "student/bounce-keypose-alpha.png",
+      "bytes": 136249,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "student/bounce.png",
+      "bytes": 3438053,
+      "frames": 32,
+      "uniqueFrames": 29,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "student/bow-keypose-alpha.png",
+      "bytes": 133444,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "student/bow.png",
+      "bytes": 1544041,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "student/celebrate-keypose-alpha.png",
+      "bytes": 136857,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "student/celebrate.png",
+      "bytes": 3648793,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "student/eleven-actions-contact.png",
+      "bytes": 1117347,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "student/encourage-keypose-alpha.png",
+      "bytes": 141922,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "student/encourage.png",
+      "bytes": 3192310,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "student/greet-keypose-alpha.png",
+      "bytes": 141521,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "student/greet.png",
+      "bytes": 1754056,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "student/idle-keypose-alpha.png",
+      "bytes": 136249,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "student/idle.png",
+      "bytes": 2810336,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "student/jump-keypose-alpha.png",
+      "bytes": 136091,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "student/jump.png",
+      "bytes": 3090415,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "student/sleepy-keypose-alpha.png",
+      "bytes": 138122,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "student/sleepy.png",
+      "bytes": 1578800,
+      "frames": 15,
+      "uniqueFrames": 15,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "student/special-keypose-alpha.png",
+      "bytes": 141978,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "student/special.png",
+      "bytes": 1596434,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "student/surprised-keypose-alpha.png",
+      "bytes": 144780,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "student/surprised.png",
+      "bytes": 2413037,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "student/walk-keypose-alpha.png",
+      "bytes": 136892,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "student/walk.png",
+      "bytes": 3656512,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "summerVacation/bounce-keypose-alpha.png",
+      "bytes": 151002,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "summerVacation/bounce.png",
+      "bytes": 3765197,
+      "frames": 32,
+      "uniqueFrames": 29,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "summerVacation/bow-keypose-alpha.png",
+      "bytes": 143986,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "summerVacation/bow.png",
+      "bytes": 1677366,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "summerVacation/celebrate-keypose-alpha.png",
+      "bytes": 151817,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "summerVacation/celebrate.png",
+      "bytes": 3993785,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "summerVacation/eleven-actions-contact.png",
+      "bytes": 1208388,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "summerVacation/encourage-keypose-alpha.png",
+      "bytes": 154000,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "summerVacation/encourage.png",
+      "bytes": 3488463,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "summerVacation/greet-keypose-alpha.png",
+      "bytes": 154321,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "summerVacation/greet.png",
+      "bytes": 1915691,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "summerVacation/idle-keypose-alpha.png",
+      "bytes": 151002,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "summerVacation/idle.png",
+      "bytes": 3074228,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "summerVacation/jump-keypose-alpha.png",
+      "bytes": 151389,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "summerVacation/jump.png",
+      "bytes": 3387426,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "summerVacation/sleepy-keypose-alpha.png",
+      "bytes": 149654,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "summerVacation/sleepy.png",
+      "bytes": 1715179,
+      "frames": 15,
+      "uniqueFrames": 15,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "summerVacation/special-keypose-alpha.png",
+      "bytes": 154937,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "summerVacation/special.png",
+      "bytes": 1747988,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "summerVacation/surprised-keypose-alpha.png",
+      "bytes": 158116,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "summerVacation/surprised.png",
+      "bytes": 2637878,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "summerVacation/walk-keypose-alpha.png",
+      "bytes": 151238,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "summerVacation/walk.png",
+      "bytes": 3977543,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "winter/bounce-keypose-alpha.png",
+      "bytes": 154605,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "winter/bounce.png",
+      "bytes": 3903066,
+      "frames": 32,
+      "uniqueFrames": 29,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "winter/bow-keypose-alpha.png",
+      "bytes": 147028,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "winter/bow.png",
+      "bytes": 1716358,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "winter/celebrate-keypose-alpha.png",
+      "bytes": 154941,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "winter/celebrate.png",
+      "bytes": 4076035,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "winter/eleven-actions-contact.png",
+      "bytes": 1242187,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        1920,
+        1548
+      ]
+    },
+    {
+      "file": "winter/encourage-keypose-alpha.png",
+      "bytes": 158426,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "winter/encourage.png",
+      "bytes": 3562742,
+      "frames": 28,
+      "uniqueFrames": 19,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "winter/greet-keypose-alpha.png",
+      "bytes": 158451,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "winter/greet.png",
+      "bytes": 1985776,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "winter/idle-keypose-alpha.png",
+      "bytes": 154605,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "winter/idle.png",
+      "bytes": 3151731,
+      "frames": 26,
+      "uniqueFrames": 16,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "winter/jump-keypose-alpha.png",
+      "bytes": 154434,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "winter/jump.png",
+      "bytes": 3471908,
+      "frames": 28,
+      "uniqueFrames": 27,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "winter/sleepy-keypose-alpha.png",
+      "bytes": 152834,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "winter/sleepy.png",
+      "bytes": 1752825,
+      "frames": 15,
+      "uniqueFrames": 15,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "winter/special-keypose-alpha.png",
+      "bytes": 149665,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "winter/special.png",
+      "bytes": 1736560,
+      "frames": 14,
+      "uniqueFrames": 13,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "winter/surprised-keypose-alpha.png",
+      "bytes": 161943,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "winter/surprised.png",
+      "bytes": 2697279,
+      "frames": 21,
+      "uniqueFrames": 17,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "winter/walk-keypose-alpha.png",
+      "bytes": 155035,
+      "frames": 1,
+      "uniqueFrames": 1,
+      "durationMs": 0,
+      "dimensions": [
+        480,
+        480
+      ]
+    },
+    {
+      "file": "winter/walk.png",
+      "bytes": 4079771,
+      "frames": 32,
+      "uniqueFrames": 31,
+      "durationMs": 2240.0,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "astronaut/before-after-eight-actions.gif",
+      "bytes": 15070843,
+      "frames": 219,
+      "uniqueFrames": 210,
+      "durationMs": 17920,
+      "dimensions": [
+        960,
+        516
+      ]
+    },
+    {
+      "file": "astronaut/eleven-actions.gif",
+      "bytes": 9994874,
+      "frames": 292,
+      "uniqueFrames": 260,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "autumn/eleven-actions.gif",
+      "bytes": 14007770,
+      "frames": 274,
+      "uniqueFrames": 242,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "basic/before-after-eight-actions.gif",
+      "bytes": 10910012,
+      "frames": 219,
+      "uniqueFrames": 210,
+      "durationMs": 17920,
+      "dimensions": [
+        960,
+        516
+      ]
+    },
+    {
+      "file": "basic/eleven-actions.gif",
+      "bytes": 6886653,
+      "frames": 276,
+      "uniqueFrames": 243,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cafe/eleven-actions.gif",
+      "bytes": 11945503,
+      "frames": 274,
+      "uniqueFrames": 242,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "cherryBlossom/eleven-actions.gif",
+      "bytes": 10033271,
+      "frames": 276,
+      "uniqueFrames": 243,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "christmas/before-after-eight-actions.gif",
+      "bytes": 17663997,
+      "frames": 212,
+      "uniqueFrames": 201,
+      "durationMs": 17920,
+      "dimensions": [
+        960,
+        516
+      ]
+    },
+    {
+      "file": "christmas/eleven-actions.gif",
+      "bytes": 11481956,
+      "frames": 274,
+      "uniqueFrames": 240,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "fitness/eleven-actions.gif",
+      "bytes": 10423151,
+      "frames": 262,
+      "uniqueFrames": 227,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "halloween/eleven-actions.gif",
+      "bytes": 11869047,
+      "frames": 274,
+      "uniqueFrames": 242,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "hanbok/before-after-eight-actions.gif",
+      "bytes": 18443231,
+      "frames": 219,
+      "uniqueFrames": 210,
+      "durationMs": 17920,
+      "dimensions": [
+        960,
+        516
+      ]
+    },
+    {
+      "file": "hanbok/eleven-actions.gif",
+      "bytes": 11246571,
+      "frames": 274,
+      "uniqueFrames": 242,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "pajamas/eleven-actions.gif",
+      "bytes": 11437854,
+      "frames": 291,
+      "uniqueFrames": 257,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "rainyDay/eleven-actions.gif",
+      "bytes": 11447609,
+      "frames": 276,
+      "uniqueFrames": 243,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "student/eleven-actions.gif",
+      "bytes": 11950815,
+      "frames": 274,
+      "uniqueFrames": 242,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "summerVacation/eleven-actions.gif",
+      "bytes": 11920522,
+      "frames": 274,
+      "uniqueFrames": 242,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    },
+    {
+      "file": "winter/eleven-actions.gif",
+      "bytes": 12768459,
+      "frames": 274,
+      "uniqueFrames": 242,
+      "durationMs": 24640,
+      "dimensions": [
+        480,
+        516
+      ]
+    }
+  ],
+  "visualStatus": "PARTIAL; offline only, pilot boards reviewed. Numeric transparent output border is not joint seam certification."
+}

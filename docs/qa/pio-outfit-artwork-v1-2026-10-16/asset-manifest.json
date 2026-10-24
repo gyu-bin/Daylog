@@ -1,0 +1,119 @@
+[
+  {
+    "id": "cherryBlossom",
+    "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-5b0f766f-3753-44f2-9aa2-dd5526ddf616.png",
+    "asset": "pio_outfit_cherryBlossom",
+    "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_cherryBlossom.imageset/pio_outfit_cherryBlossom.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "3f0bf2e0260c879286e03de4154379a5d19ca48cbe509813fd86f71e2857803d"
+  },
+  {
+    "id": "summerVacation",
+    "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-85cc2990-7a47-4d31-b632-76eb83143114.png",
+    "asset": "pio_outfit_summerVacation",
+    "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_summerVacation.imageset/pio_outfit_summerVacation.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "c1602489cb1ca0e93d652613ac6662a17fcfaa5132f112cf9341493a7bbd1b9e"
+  },
+  {
+    "id": "autumn",
+    "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-433617c5-be52-4425-8468-f9414e6a61e8.png",
+    "asset": "pio_outfit_autumn",
+    "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_autumn.imageset/pio_outfit_autumn.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "10c80a3489506751730f0409023699d150a9760775a0cba9f1f53195fec9aa43"
+  },
+  {
+    "id": "winter",
+    "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-b82de8ee-e8d9-4362-97f4-ec1733fbc32e.png",
+    "asset": "pio_outfit_winter",
+    "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_winter.imageset/pio_outfit_winter.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "8ed794f01a9e1039f3ebc691a160907652aac6e79e979879ce13983a687953df"
+  },
+  {
+    "id": "halloween",
+    "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-52def7dd-66c7-4773-99ec-fdebf8eaa5ab.png",
+    "asset": "pio_outfit_halloween",
+    "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_halloween.imageset/pio_outfit_halloween.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "1307965335aaa25d5ca2a85d4467cb832f9a45a3671a47743f936a461394427e"
+  },
+  {
+    "id": "christmas",
+    "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-dcc21876-bd8b-4234-8035-1b4bddf8fe1e.png",
+    "asset": "pio_outfit_christmas",
+    "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_christmas.imageset/pio_outfit_christmas.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "7df7b6c55397cc00486ed2c83a21ad1583d7f139307efa929d5219917c75b66d"
+  },
+  {
+    "id": "hanbok",
+    "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-89360bca-ec0e-4d44-a28e-f9cc2c6c055e.png",
+    "asset": "pio_outfit_hanbok",
+    "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_hanbok.imageset/pio_outfit_hanbok.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "4ebb837cff050e50db901de0b63dc2221bb52fe52e18530f42901847b5a253e0"
+  },
+  {
+    "id": "cafe",
+    "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-2d502f07-1a21-435b-af52-d77d82d14d35.png",
+    "asset": "pio_outfit_cafe",
+    "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_cafe.imageset/pio_outfit_cafe.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "74e139a71fd387accfaf518673544111a41894d6be7eceabeb76786603897aaa"
+  },
+  {
+    "id": "student",
+    "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-b2999b11-2e4d-48f0-8a89-0060dcfbc34c.png",
+    "asset": "pio_outfit_student",
+    "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_student.imageset/pio_outfit_student.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "261d6e89132547e529c85b477490403e0eea4cf87667348dd1fe007da3ded247"
+  },
+  {
+    "id": "fitness",
+    "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-9dac0043-4630-48b2-872b-07724251378e.png",
+    "asset": "pio_outfit_fitness",
+    "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_fitness.imageset/pio_outfit_fitness.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "1f785e0305be4db016b5f68c1874849b0476026e7df0f4e569029afa70c199dd"
+  },
+  {
+    "id": "rainyDay",
+    "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-bdb8c07b-da25-4a7f-8e0a-329e1a4a0119.png",
+    "asset": "pio_outfit_rainyDay",
+    "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_rainyDay.imageset/pio_outfit_rainyDay.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "5bf7081494800cc37fade49caf0398a2d8e075667ea59a37cd10a8b843dcba31"
+  },
+  {
+    "id": "pajamas",
+    "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-825f4c16-81a2-45ef-aad7-7c966fa3da9d.png",
+    "asset": "pio_outfit_pajamas",
+    "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_pajamas.imageset/pio_outfit_pajamas.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "d88e9c2b225434b34f4751914625ca23dd38c058e7812a2e5dd15068ee157249"
+  },
+  {
+    "id": "astronaut",
+    "source": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-7212d922-9229-4c14-b4e2-e596147a433e.png",
+    "asset": "pio_outfit_astronaut",
+    "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_astronaut.imageset/pio_outfit_astronaut.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "6a9741d18e6ed00fc036dc82d9bf579e16694f20001ac7e17261db5784e31fc2"
+  }
+]

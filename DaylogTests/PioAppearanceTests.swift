@@ -122,13 +122,24 @@ struct PioAppearanceTests {
                 wardrobe.equip(outfit)
                 for (context, asset) in expected {
                     let appearance = coordinator.resolve(level: 50, context: context)
-                    #expect(appearance.artwork == .existingScene(asset: asset))
+                    // Vacation foregrounds were registered after this fixture's
+                    // original all-scenes-fallback baseline. Cloud remains the
+                    // coordinator fallback here (the render adapter is tested separately).
+                    let vacationAsset = PioVacationSceneResources.assetName(outfit: outfit, context: context)
+                    #expect(appearance.artwork == .existingScene(asset: vacationAsset ?? asset))
                     #expect(appearance.animationPreserved)
-                    #expect(appearance.outfitApplied == (outfit == .basic))
+                    #expect(appearance.outfitApplied == (outfit == .basic || vacationAsset != nil))
                     #expect(!appearance.growthCompatible)
                     if outfit != .basic {
-                        #expect(appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)"))
-                        #expect(appearance.compatibilityNote?.contains("기본 장면") == true)
+                        if let vacationAsset {
+                            #expect(appearance.missingArtwork.contains("\(vacationAsset)_cleanFace_eyes_eyelids"))
+                            #expect(appearance.missingArtwork.contains("\(vacationAsset)_arms_props_hiddenRoots"))
+                            #expect(appearance.missingArtwork.contains("\(vacationAsset)_front_back_hammock_occlusion"))
+                            #expect(appearance.compatibilityNote?.contains("기본 장면") != true)
+                        } else {
+                            #expect(appearance.missingArtwork.contains("\(asset)_\(outfit.rawValue)"))
+                            #expect(appearance.compatibilityNote?.contains("기본 장면") == true)
+                        }
                         #expect(wardrobe.equippedOutfit == outfit)
                     }
                 }
@@ -278,8 +289,9 @@ struct PioAppearanceTests {
             #expect(preview.access == .preview && preview.outfit == .cafe)
             #expect(coordinator.equippedOutfit == .astronaut)
             let scene = coordinator.resolve(context: .vacationNight)
-            #expect(scene.access == .testing && !scene.outfitApplied)
-            #expect(scene.artwork == .existingScene(asset: "routimori_vacation_hammock_night"))
+            #expect(scene.access == .testing && scene.outfitApplied)
+            #expect(scene.artwork == .existingScene(asset: "routimori_vacation_night_astronaut"))
+            #expect(scene.missingArtwork.contains("routimori_vacation_night_astronaut_arms_props_hiddenRoots"))
             #expect(!wardrobe.selectIcon(.astronaut))
         }
     }

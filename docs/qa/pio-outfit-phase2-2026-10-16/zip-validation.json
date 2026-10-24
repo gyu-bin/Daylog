@@ -1,0 +1,11 @@
+{
+  "path": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2-2026-10-16/Pio-Outfit-Phase2-Review.zip",
+  "bytes": 58596203,
+  "sha256": "ff4e68994a8e7a43681eecbeabe2fdd035750ffc3d6695b45a316018c5b95f0d",
+  "crc": "PASS",
+  "videos": 5,
+  "exclusions": [
+    "Raw long recordings, croppedattempt, before-growthcard screenshot, extractedframes"
+  ],
+  "scope": "partialprototype review; notfinalcompletefeature"
+}

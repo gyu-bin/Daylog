@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-16",
+  "scope": "Live native verification on dedicated local-only apps, no production install",
+  "device": "Daylog Store iPhone 17 Pro Max CF19DDA2-20F5-440C-9133-7A4594341DAE iOS27",
+  "MacApp": "/tmp/DaylogStage4.noindex/verify/Build/Products/Debug/Daylog.app",
+  "iPhoneBundle": "com.daylog.verify.ios",
+  "testStore": "routimori-runtime-20261016",
+  "visualChecks": {
+    "iPhone": [
+      "Vacation layout/visible continuous hammock motion",
+      "Cloud loading/ready/trouble layout and state animation",
+      "Both trouble actions visible; long preview explanation scrolls",
+      "Preview exit returns to settings"
+    ],
+    "Mac": [
+      "Vacation dark layout",
+      "Normal screen → rest screen button round-trip",
+      "Cloud loading/ready/trouble dark layout and visible controls",
+      "AX cloud state labels and buttons inspected"
+    ]
+  },
+  "independentActualScreenReview": "PASS; initial Mac loading mislabeled capture was replaced and re-reviewed",
+  "recordings": {
+    "iphone-vacation-motion.mp4": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 660,
+          "height": 1434,
+          "nb_frames": "597"
+        }
+      ],
+      "format": {
+        "duration": "10.002273",
+        "size": "502604"
+      },
+      "sha256": "cf8f2faf8a214e6c59595a9d37efee28542d1ebd09afb4d0dc17f444ab2e55f4"
+    },
+    "iphone-cloud-three-states.mp4": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 660,
+          "height": 1434,
+          "nb_frames": "782"
+        }
+      ],
+      "format": {
+        "duration": "26.066016",
+        "size": "833619"
+      },
+      "sha256": "d7e3acd6449dad324a1771162ceb04d0955be3b6e4b68c5822d945d0e97fcd5b"
+    }
+  },
+  "reduceMotion": {
+    "cloud": {
+      "changedBounds": [
+        1320,
+        2868,
+        -1,
+        -1
+      ],
+      "changedPixels": 0,
+      "height": 2868,
+      "width": 1320
+    },
+    "vacation": {
+      "changedBounds": [
+        1320,
+        2868,
+        -1,
+        -1
+      ],
+      "changedPixels": 0,
+      "height": 2868,
+      "width": 1320
+    },
+    "vacationAfterRestoringOff": {
+      "changedBounds": [
+        33,
+        487,
+        1286,
+        2120
+      ],
+      "changedPixels": 324733,
+      "height": 2868,
+      "width": 1320
+    },
+    "originalSetting": "off",
+    "restoredSetting": "off",
+    "sameApplicationPID": 71691
+  },
+  "sceneResume": "Same iPhone PID resumed after settings; motion restarted after Reduce Motion restored OFF",
+  "preservation": {
+    "applicationSourceChangedThisVerificationTurn": false,
+    "existingTestResultsReused": true,
+    "productionAppReplaced": false,
+    "commit": false,
+    "push": false,
+    "deploy": false
+  },
+  "coverageLimit": "Cloud states were exercised via existing preview. Actual CloudKit network synchronization was not triggered. Real success still auto-dismisses per existing policy. iPhone guest AX content was not available through Device Hub; captures and observed touch UI were used. No VoiceOver navigation claim."
+}

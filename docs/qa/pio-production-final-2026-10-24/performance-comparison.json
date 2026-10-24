@@ -1,0 +1,264 @@
+{
+  "scope": "Single quiet before/after fresh-process run of the exact same seven methods; measured process RSS, not heap allocation attribution or population confidence",
+  "before": {
+    "final-cloud-50-cycles": {
+      "source": "mac-performance-attachments/EA3C04E3-C3F2-42EE-A1BA-4273B2F91F81.json",
+      "rssStartMiB": 174.3125,
+      "rssPeakMiB": 229.65625,
+      "rssEndMiB": 229.59375,
+      "seconds": 8.067649124990567,
+      "rows": 50
+    },
+    "final-cloud-fourteen-three-passes": {
+      "source": "mac-performance-attachments/6C23BFF2-8471-4D04-A3B5-FE3494B37999.json",
+      "rssStartMiB": 229.875,
+      "rssPeakMiB": 967.234375,
+      "rssEndMiB": 743.5625,
+      "seconds": 7.3839157083275495,
+      "rows": 42,
+      "passes": [
+        {
+          "pass": 1,
+          "startMiB": 229.875,
+          "peakMiB": 967.21875,
+          "endMiB": 967.21875
+        },
+        {
+          "pass": 2,
+          "startMiB": 967.21875,
+          "peakMiB": 967.234375,
+          "endMiB": 952.28125
+        },
+        {
+          "pass": 3,
+          "startMiB": 952.28125,
+          "peakMiB": 952.28125,
+          "endMiB": 743.5625
+        }
+      ]
+    },
+    "final-home-reference-fourteen-two-passes": {
+      "source": "mac-performance-attachments/64F5AD28-B59E-4571-95CB-BAB9BEB2E5E2.json",
+      "rssStartMiB": 743.71875,
+      "rssPeakMiB": 835.6875,
+      "rssEndMiB": 835.6875,
+      "seconds": 4.5943548750074115,
+      "rows": 28,
+      "passes": [
+        {
+          "pass": 1,
+          "startMiB": 743.71875,
+          "peakMiB": 835.6875,
+          "endMiB": 835.6875
+        },
+        {
+          "pass": 2,
+          "startMiB": 835.6875,
+          "peakMiB": 835.6875,
+          "endMiB": 835.6875
+        }
+      ]
+    },
+    "final-cloud-paired-active-stopped": {
+      "source": "mac-performance-attachments/FADFFAA9-D1C6-48F1-B307-D9FC39AB1FD0.json",
+      "rssStartMiB": 835.78125,
+      "rssPeakMiB": 835.78125,
+      "rssEndMiB": 729.875,
+      "seconds": 36.3651872916671,
+      "rows": 9,
+      "activeCPU": {
+        "samplesPercentOneCore": [
+          0.2772321025463862,
+          0.2782096168416891,
+          0.3099393321222259
+        ],
+        "meanPercentOneCore": 0.2884603505034337,
+        "nominal95TCI": [
+          0.24223610281848326,
+          0.33468459818838414
+        ]
+      },
+      "stoppedCPU": {
+        "samplesPercentOneCore": [
+          0.9671465173779269,
+          0.2593225438835788,
+          0.26338528967348757
+        ],
+        "meanPercentOneCore": 0.4966181169783311,
+        "nominal95TCI": [
+          -0.5156546140915734,
+          1.5088908480482355
+        ]
+      }
+    },
+    "final-cloud-10-cycles": {
+      "source": "mac-performance-attachments/5A1A8C79-8F06-43C5-98B8-CDC1E0DB8523.json",
+      "rssStartMiB": 729.96875,
+      "rssPeakMiB": 730.171875,
+      "rssEndMiB": 730.171875,
+      "seconds": 1.6333283749991097,
+      "rows": 10
+    },
+    "final-cloud-20-cycles": {
+      "source": "mac-performance-attachments/47141ADB-ABD8-4401-8EB8-B46AC46F8A50.json",
+      "rssStartMiB": 730.234375,
+      "rssPeakMiB": 730.28125,
+      "rssEndMiB": 730.234375,
+      "seconds": 3.2459372083394555,
+      "rows": 20
+    },
+    "final-vacation-fourteen-day-night-two-passes": {
+      "source": "mac-performance-attachments/B7240451-E208-42DA-9AA9-086DA4A4EE52.json",
+      "rssStartMiB": 730.265625,
+      "rssPeakMiB": 891.625,
+      "rssEndMiB": 477.125,
+      "seconds": 11.469033333327388,
+      "rows": 28,
+      "passes": [
+        {
+          "pass": 1,
+          "startMiB": 730.265625,
+          "peakMiB": 891.625,
+          "endMiB": 497.6875
+        },
+        {
+          "pass": 2,
+          "startMiB": 497.6875,
+          "peakMiB": 497.6875,
+          "endMiB": 477.125
+        }
+      ]
+    }
+  },
+  "after": {
+    "final-cloud-50-cycles": {
+      "source": "mac-performance-after-attachments/ED918D7B-30F1-494D-9F74-A6EFE0683012.json",
+      "rssStartMiB": 169.15625,
+      "rssPeakMiB": 207.0625,
+      "rssEndMiB": 156.109375,
+      "seconds": 8.056762624997646,
+      "rows": 50
+    },
+    "final-cloud-fourteen-three-passes": {
+      "source": "mac-performance-after-attachments/5CE2F6F5-943C-4B92-AF4F-85EBEBD1F1D5.json",
+      "rssStartMiB": 156.515625,
+      "rssPeakMiB": 388.28125,
+      "rssEndMiB": 305.640625,
+      "seconds": 7.035444041655865,
+      "rows": 42,
+      "passes": [
+        {
+          "pass": 1,
+          "startMiB": 156.53125,
+          "peakMiB": 388.28125,
+          "endMiB": 388.28125
+        },
+        {
+          "pass": 2,
+          "startMiB": 388.28125,
+          "peakMiB": 388.28125,
+          "endMiB": 331.984375
+        },
+        {
+          "pass": 3,
+          "startMiB": 331.984375,
+          "peakMiB": 331.984375,
+          "endMiB": 305.640625
+        }
+      ]
+    },
+    "final-home-reference-fourteen-two-passes": {
+      "source": "mac-performance-after-attachments/BF87CE7A-1245-4C64-960B-3BA6C19F4179.json",
+      "rssStartMiB": 305.765625,
+      "rssPeakMiB": 365.53125,
+      "rssEndMiB": 353.171875,
+      "seconds": 4.558980541667552,
+      "rows": 28,
+      "passes": [
+        {
+          "pass": 1,
+          "startMiB": 305.765625,
+          "peakMiB": 365.53125,
+          "endMiB": 365.53125
+        },
+        {
+          "pass": 2,
+          "startMiB": 365.53125,
+          "peakMiB": 365.53125,
+          "endMiB": 353.171875
+        }
+      ]
+    },
+    "final-cloud-paired-active-stopped": {
+      "source": "mac-performance-after-attachments/F41B0CDA-AC99-49B8-B9A6-CB11E4CEDA28.json",
+      "rssStartMiB": 353.234375,
+      "rssPeakMiB": 353.234375,
+      "rssEndMiB": 135.71875,
+      "seconds": 36.3222779166681,
+      "rows": 9,
+      "activeCPU": {
+        "samplesPercentOneCore": [
+          0.21543217505622225,
+          0.20656433585304915,
+          0.2501711309404667
+        ],
+        "meanPercentOneCore": 0.22405588061657938,
+        "nominal95TCI": [
+          0.16680395022215172,
+          0.28130781101100705
+        ]
+      },
+      "stoppedCPU": {
+        "samplesPercentOneCore": [
+          0.6640697609682981,
+          0.2091917456026713,
+          0.21279349941053521
+        ],
+        "meanPercentOneCore": 0.3620183353271682,
+        "nominal95TCI": [
+          -0.2878082593863941,
+          1.0118449300407306
+        ]
+      }
+    },
+    "final-cloud-10-cycles": {
+      "source": "mac-performance-after-attachments/024A10B3-8A97-49BD-8F5D-4E39B0AC8390.json",
+      "rssStartMiB": 143.90625,
+      "rssPeakMiB": 151.203125,
+      "rssEndMiB": 151.1875,
+      "seconds": 1.6346907916740747,
+      "rows": 10
+    },
+    "final-cloud-20-cycles": {
+      "source": "mac-performance-after-attachments/B535612A-8FC2-4E26-A8AD-8D0626E2E6C6.json",
+      "rssStartMiB": 151.28125,
+      "rssPeakMiB": 151.578125,
+      "rssEndMiB": 151.046875,
+      "seconds": 3.231444166667643,
+      "rows": 20
+    },
+    "final-vacation-fourteen-day-night-two-passes": {
+      "source": "mac-performance-after-attachments/59893BFF-2D63-4795-8129-DA0224AAC00E.json",
+      "rssStartMiB": 151.203125,
+      "rssPeakMiB": 297.171875,
+      "rssEndMiB": 183.609375,
+      "seconds": 11.217874791662325,
+      "rows": 28,
+      "passes": [
+        {
+          "pass": 1,
+          "startMiB": 151.234375,
+          "peakMiB": 297.171875,
+          "endMiB": 296.296875
+        },
+        {
+          "pass": 2,
+          "startMiB": 296.296875,
+          "peakMiB": 296.296875,
+          "endMiB": 183.609375
+        }
+      ]
+    }
+  },
+  "cloudPeakReductionPercent": 59.856549763339416
+}

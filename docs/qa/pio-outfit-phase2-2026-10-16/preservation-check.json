@@ -1,0 +1,13 @@
+{
+  "baselineFiles": 551,
+  "changedExistingFiles": [
+    "Daylog/Components/Saessagi.swift",
+    "Daylog/Services/PioWardrobe.swift",
+    "Daylog/Views/Wardrobe/PioWardrobeView.swift",
+    "Daylog/Views/Dashboard/SaessagiGrowthCard.swift",
+    "DaylogTests/PioWardrobeTests.swift"
+  ],
+  "missingExistingFiles": [],
+  "head": "702e611aa1a95323bb1a78e27772d583972c383a",
+  "approvedPNGChanged": []
+}

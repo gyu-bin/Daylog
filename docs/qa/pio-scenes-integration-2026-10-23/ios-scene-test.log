@@ -1,0 +1,41 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioScenesIOSReview-20261023.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never "-only-testing:DaylogStoreKitTests/PioScenesIOSReviewTests" -resultBundlePath /tmp/PioScenesIOSReview-20261023.xcresult
+
+Writing result bundle at path:
+	/tmp/PioScenesIOSReview-20261023.xcresult
+
+2026-10-23 22:00:43.399 xcodebuild[25151:1093220] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 22:01:08.320726+0900 Daylog[25272:1094838] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 22:01:10.254345+0900 Daylog[25272:1094838] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 22:01:10.274760+0900 Daylog[25272:1094838] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 22:01:10.276895+0900 Daylog[25272:1094838] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 22:01:10.734.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 22:01:10.736.
+Test Suite 'PioScenesIOSReviewTests' started at 2026-10-23 22:01:10.736.
+Test Case '-[DaylogStoreKitTests.PioScenesIOSReviewTests testNativeCloudAndVacationCurrentOutfits]' started.
+IOSurfaceClientSetSurfaceNotify failed e00002c7
+2026-10-23 22:01:10.842109+0900 Daylog[25272:1095725] fopen failed for data file: errno = 2 (No such file or directory)
+2026-10-23 22:01:11.166423+0900 Daylog[25272:1094838] [error] image provider 0x122fc3200 timed out while waiting for phase 2 (1)
+objc[25272]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x122294398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x1223a8310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+2026-10-23 22:01:11.426697+0900 Daylog[25272:1095725] fopen failed for data file: errno = 2 (No such file or directory)
+2026-10-23 22:01:11.464240+0900 Daylog[25272:1095725] [error] building pipeline path_edges-hba14ge2ba4 took 0.623948 seconds
+Test Case '-[DaylogStoreKitTests.PioScenesIOSReviewTests testNativeCloudAndVacationCurrentOutfits]' passed (8.150 seconds).
+Test Suite 'PioScenesIOSReviewTests' passed at 2026-10-23 22:01:18.891.
+	 Executed 1 test, with 0 failures (0 unexpected) in 8.150 (8.154) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-23 22:01:18.892.
+	 Executed 1 test, with 0 failures (0 unexpected) in 8.150 (8.156) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 22:01:18.892.
+	 Executed 1 test, with 0 failures (0 unexpected) in 8.150 (8.158) seconds
+2026-10-23 22:01:18.948 xcodebuild[25151:1093220] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 22:01:18.948 xcodebuild[25151:1093220] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 22:01:18.952 xcodebuild[25151:1093220] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 22:01:19.232 xcodebuild[25151:1093220] [MT] IDETestOperationsObserverDebug: 37.299 elapsed -- Testing started completed.
+2026-10-23 22:01:19.232 xcodebuild[25151:1093220] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 22:01:19.232 xcodebuild[25151:1093220] [MT] IDETestOperationsObserverDebug: 37.299 sec, +37.299 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioScenesIOSReview-20261023.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

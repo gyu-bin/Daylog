@@ -1,0 +1,8 @@
+{
+  "file": "source/sunglasses-frame-only-candidate.png",
+  "prompt": "Use case: precise-object-edit / background-extraction. Asset type: ONLY black sunglasses FRAME, with COMPLETELY EMPTY lens apertures, for independent animated Pio eyes underneath. Approved Summer Vacation Pio reference defines design. Reconstruct the same glossy black soft rounded-trapezoid frame with its jaunty slight diagonal tilt, screen-right lens higher, chunky rounded bridge and complete short temples. Critical: output the physical frame ONLY. REMOVE all glass/lens surfaces entirely: both lens apertures must be genuinely FULLY TRANSPARENT empty holes, no brown fill, no gradient, no reflection, no opacity, no eyeballs, no dark paint. Keep only the black plastic border, bridge and temples. No character fur, face, eyes, beak, clothes, hat, hands, drink or feet. Exact same cute premium2.5D shading on the plastic frame as approved art, no geometric flat icon. Single complete pair centered, full uncropped temples with transparent padding. Genuine transparentRGBA outside and through BOTH empty apertures, no backdrop, glow, floor shadow, text or concept board. This is a separate rig component; lens tint will not be faked by painting opaque eyes.",
+  "method": "built-in image_gen",
+  "generatedSource": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-954f8c0c-7b30-4056-97cc-f7528216582e.png",
+  "status": "OPTIONAL_CANDIDATE_NOT_DESIGN_APPROVED",
+  "note": "Empty apertures provide visibility of independent eyes but omit original dark lens tint; inspect against approved appearance before adoption."
+}

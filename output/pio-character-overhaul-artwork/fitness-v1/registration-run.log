@@ -1,0 +1,7 @@
+2026-10-16 20:34:15.877 xcodebuild[5247:32325623]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-10-16 20:34:16.026 xcodebuild[5247:32325622] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+2026-10-16 20:34:16.565 xcodebuild[5259:32325746]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-10-16 20:34:16.680 xcodebuild[5259:32325745] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+sandbox-exec: sandbox_apply: Operation not permitted
+sandbox-exec: sandbox_apply: Operation not permitted
+Fitness candidate registration exported

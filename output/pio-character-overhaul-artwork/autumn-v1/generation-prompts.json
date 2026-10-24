@@ -1,0 +1,37 @@
+[
+  {
+    "role": "autumnBody",
+    "prompt": "Use case: precise-object-edit. Edit target: approved Autumn Pio illustration. Produce ONE genuine standalone clean body layer for independent game rigging, NOT fullcharacter or sheet. Keep exact1254x1254 coordinate framing, original cream round plush head/torso silhouette and tilted open orange smiling beak and pink cheeks, exact red-orange-brown plaid scarf with both fringed ends in their existing positions. REMOVE both black eyes entirely, reconstruct continuous cream fur in their footprints. REMOVE both arms/wings, their hands, both feet, entire plaid cap+green sprout+capleaf, and held mapleleaf. Reconstruct naturally hidden cream headtop under hat as one complete round head and hidden torso/shoulder surfaces under arms. Keep scarf in body layer including hidden continuous scarf cloth where hand formerlycovered; do not redesign plaidcolors/folds. ZERO eyes, feet, wings, hands, headwear, sprout or isolatedleaves remain. Preserve approved2.5D texture, soft fur and shading. Use genuine transparentRGBA outside body/scarf. No glow, backdrop, shadow, text, outline. Full sourcebody remains in same existingposition; do not enlarge/recenter. This is one actual clean rigcomponent with complete concealed surfaces, not conceptart.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-c100fa66-cb41-407f-b463-47ca1c1a2f49.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  },
+  {
+    "role": "autumnHat",
+    "prompt": "Use case: precise-object-edit. Reference: approved Autumn Pio. Make ONLY its combined plaid newsboy beret+green two-leaf sprout+small orange mapleleaf on cap. NO character/body/eyes/beak/scarf/arms/feet. Genuine standalone high-resolution game headwear component with transparentRGBA background, fullycomplete concealed underside seat/root. Match exact soft brown-orange-red plaid fabric, asymmetric low rounded cap shape sloping upward to screenright, subtle top nub at screenleft, orange maple decoration at screenright, same green fuzzy sprout emerging topcenter. Preserve approved direction, fine plush felt material and shading. Important faceopening: LOWER edge/underside must be an arched band framing the forehead, central face area fully TRANSPARENT. No solid disk/platter across open forehead. Thin natural curved lower band, no massive undersurface. Include enough hidden cap root to overlap cream head naturally. Entire headwear and leaves uncropped, roomy transparentpadding. One part only, no sheet, no labels,glow orcastshadow.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-3090dae3-a0e4-4ff7-9b03-af5eda94a854.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  },
+  {
+    "role": "autumnLeft",
+    "prompt": "Use case: precise-object-edit. Reference approved Autumn Pio. Reconstruct ONLY the SCREEN-LEFT lowered rounded cream wing/hand that holds the mapleleaf. One standalone plusharm with complete hidden shoulderroot, NO leaf, NO scarf, clothes, torso, head or eyes. Match original little chubby cream oval hand at lowerleft aroundleaf, fine fur and softly rounded notfingered shape. Root continues up-and-right behind scarf to shoulder, hand lowerleft, short natural limb, no longtube. Keep real complete hiddenroot large enough for modest±12degree rotation; roots and tip fullyinside transparentpadding. Preserve original warmivory premium2.5D shading and texture, notflatgeometry. Actual highres transparentRGBA character rigcomponent. No glow,castshadow,backdrop, text or decorativeextras.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-a9b79857-0f20-42f4-ab7f-a21f7cefe8d1.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  },
+  {
+    "role": "autumnRight",
+    "prompt": "Use case: precise-object-edit. Reconstruct ONLY the SCREEN-RIGHT raised cream wing of supplied approved Autumn Pio. Genuine independent artwork layer, complete hidden shoulder root extends downleft, two/three softlyrounded featherlobes upwardright. Match original compact chubby wing behind scarf, creamyfluffy fur, palegoldsubtle shadows and premium2.5D material. NO hat, scarf, leaves, head, body, eyes, beak or feet. Short rounded friendly anatomy, not a longfingered arm or skinnytube. Give ample complete rounded natural shoulderroot to hide under torso/scarf through±12degree rotations, fulltip/root inside generous transparentpadding. One highresolution standalone wing on genuine transparentRGBA. No castshadow,halo,outline,checkerboard,text.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-685b081f-a170-449a-8d35-7c80f0c59d30.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  },
+  {
+    "role": "autumnLeaf",
+    "prompt": "Use case: precise-object-edit. From supplied approved Autumn Pio reference reconstruct ONLY the one orange-red mapleleaf held by screen-left hand (not the cap decoration). Standalone complete genuine leaf accessory with natural short stem/hiddengrip end. Match source's orange/coralred lobes, raised delicatelyveined tactile material, roundedfriendly tips and original slight tilted threequarter facing. No hand,clothes,hat,body,stembranch or additionalleaves. Keep fulluncropped silhouette and stem within generous transparentpadding. Actual detailed highresolution premium2.5D game prop, true transparentRGBA, no shadow,glow,backdrop,labels,text,watermarks orconceptsheet.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-54951e62-b0f2-43e0-aafa-57cc16695651.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  }
+]

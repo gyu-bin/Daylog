@@ -1,0 +1,615 @@
+--- before/Daylog/Services/PioPurchaseManager.swift
++++ after/Daylog/Services/PioPurchaseManager.swift
+@@ -119,8 +119,14 @@
+     func purchase(productID: String) async throws -> PioStorePurchaseResult
+     func currentEntitlements() async throws -> PioEntitlementSnapshot
+     func updates() -> AsyncStream<PioTransactionEvent>
++    func stopUpdates() async
+     func finish(transactionID: UInt64) async
+     func sync() async throws
++}
++
++extension PioStoreClient {
++    /// Clients with no retained background work need no asynchronous teardown.
++    func stopUpdates() async {}
+ }
+ 
+ enum PioStoreClientError: Error { case unavailable, cancelled, wrongEnvironment }
+@@ -151,9 +157,16 @@
+     private var transactions: [UInt64: Transaction] = [:]
+     private let transactionFinisher = PioTransactionFinisher()
+     private let environment: PioStoreEnvironment
++    private struct UpdateSubscription {
++        let task: Task<Void, Never>
++        let continuation: AsyncStream<PioTransactionEvent>.Continuation
++    }
++    private var updateSubscriptions: [UUID: UpdateSubscription] = [:]
+     init(environment: PioStoreEnvironment = .localTesting) { self.environment = environment }
+     #if DEBUG
+     private static var diagnosticEvents: [String] = []
++    private static var rawListenerIDs: Set<UUID> = []
++    static var debugActiveRawListenerCount: Int { rawListenerIDs.count }
+     static var debugEvents: [String] { diagnosticEvents }
+     static func resetDebugEvents() { diagnosticEvents.removeAll(keepingCapacity: true) }
+     private let diagnosticClientID = UUID().uuidString.prefix(8)
+@@ -245,37 +258,54 @@
+     }
+ 
+     func updates() -> AsyncStream<PioTransactionEvent> {
+-        AsyncStream { continuation in
+-            let task = Task { [weak self] in
++        let id = UUID()
++        let pair = AsyncStream<PioTransactionEvent>.makeStream()
++        let continuation = pair.continuation
++        let task = Task { [weak self] in
++            #if DEBUG
++            Self.rawListenerIDs.insert(id)
++            self?.record("raw listener started subscription=\(id)")
++            #endif
++            defer {
+                 #if DEBUG
+-                let diagnostics = ProcessInfo.processInfo.arguments.contains("-pio-storekit-testing")
+-                if diagnostics { print("PioStoreKit: Transaction.updates listener started") }
+-                #endif
+-                for await result in Transaction.updates {
+-                    guard !Task.isCancelled, let self else { break }
+-                    #if DEBUG
+-                    if diagnostics {
+-                        // Local test diagnostics only; never log signed payloads.
+-                        switch result {
+-                        case .verified(let transaction):
+-                            print("PioStoreKit: raw verified update id=\(transaction.id) product=\(transaction.productID) environment=\(transaction.environment) revoked=\(transaction.revocationDate != nil)")
+-                        case .unverified(_, let error):
+-                            print("PioStoreKit: raw unverified update error=\(error)")
+-                        }
+-                    }
+-                    #endif
+-                    if let transaction = self.accepted(result) { continuation.yield(.verified(transaction)) }
+-                    else if PioProductRegistry.productIDs.contains(result.unsafePayloadValue.productID) {
+-                        continuation.yield(.unverified(productID: result.unsafePayloadValue.productID))
+-                    }
+-                }
+-                #if DEBUG
+-                if diagnostics { print("PioStoreKit: Transaction.updates listener ended") }
++                Self.rawListenerIDs.remove(id)
++                self?.record("raw listener ended subscription=\(id)")
+                 #endif
+                 continuation.finish()
+-            }
+-            continuation.onTermination = { _ in task.cancel() }
+-        }
++                self?.updateSubscriptions.removeValue(forKey: id)
++            }
++            for await result in Transaction.updates {
++                guard !Task.isCancelled, let self else { break }
++                #if DEBUG
++                switch result {
++                case .verified(let transaction):
++                    record("raw verified update id=\(transaction.id) product=\(transaction.productID) environment=\(transaction.environment) revoked=\(transaction.revocationDate != nil)")
++                case .unverified(_, let error):
++                    record("raw unverified update error=\(error)")
++                }
++                #endif
++                if let transaction = self.accepted(result) { continuation.yield(.verified(transaction)) }
++                else if PioProductRegistry.productIDs.contains(result.unsafePayloadValue.productID) {
++                    continuation.yield(.unverified(productID: result.unsafePayloadValue.productID))
++                }
++            }
++        }
++        updateSubscriptions[id] = UpdateSubscription(task: task, continuation: continuation)
++        continuation.onTermination = { _ in task.cancel() }
++        return pair.stream
++    }
++
++    /// Cancellation alone does not prove that Apple's raw iterator has exited.
++    /// Join all subscriptions that existed when teardown began before a caller
++    /// resets a shared local test ledger or deliberately releases this client.
++    func stopUpdates() async {
++        let subscriptions = updateSubscriptions
++        for subscription in subscriptions.values {
++            subscription.task.cancel()
++            subscription.continuation.finish()
++        }
++        for subscription in subscriptions.values { await subscription.task.value }
++        for id in subscriptions.keys { updateSubscriptions.removeValue(forKey: id) }
+     }
+ 
+     func finish(transactionID: UInt64) async {
+@@ -321,6 +351,9 @@
+     @ObservationIgnored private let client: any PioStoreClient
+     @ObservationIgnored private var updatesTask: Task<Void, Never>?
+     @ObservationIgnored private var started = false
++    @ObservationIgnored private var lifecycleRevision = 0
++    @ObservationIgnored private var stopTask: Task<Void, Never>?
++    @ObservationIgnored private var stopToken: UUID?
+     @ObservationIgnored private var refreshTask: Task<Bool, Never>?
+     @ObservationIgnored private var refreshToken: UUID?
+     @ObservationIgnored private var lastRefreshRevision: Int?
+@@ -345,8 +378,15 @@
+     func product(for outfit: PioOutfitID) -> PioStoreProduct? { products[outfit] }
+ 
+     func start() async {
++        if let stopTask {
++            let token = stopToken
++            await stopTask.value
++            if stopToken == token { self.stopTask = nil; stopToken = nil }
++        }
+         guard availability.isEnabled, !started else { return }
+         started = true
++        lifecycleRevision += 1
++        let revision = lifecycleRevision
+         let stream = client.updates()
+         updatesTask = Task { [weak self] in
+             for await event in stream {
+@@ -355,7 +395,32 @@
+             }
+         }
+         _ = await refreshEntitlements()
++        guard started, lifecycleRevision == revision else { return }
+         await loadProducts()
++    }
++
++    /// Explicit lifecycle boundary, not a screen-disappearance operation. Shared
++    /// app ownership monitoring stays active across navigation. Tests await this
++    /// before clearing the process-global StoreKitTest ledger.
++    func stop() async {
++        if let stopTask { await stopTask.value; return }
++        guard started || updatesTask != nil else { return }
++        started = false
++        lifecycleRevision += 1
++        let listener = updatesTask
++        updatesTask = nil
++        listener?.cancel()
++        let client = self.client
++        let task = Task<Void, Never> {
++            await client.stopUpdates()
++            // A transaction already being delivered is allowed to finish its
++            // verified grant/revocation and acknowledgement before stopping.
++            await listener?.value
++        }
++        let token = UUID()
++        stopTask = task; stopToken = token
++        await task.value
++        if stopToken == token { stopTask = nil; stopToken = nil }
+     }
+ 
+     func loadProducts() async {
+@@ -519,11 +584,21 @@
+         }
+     }
+ 
+-    private static func isCancellation(_ error: Error) -> Bool {
++    private static func isCancellation(_ error: Error, depth: Int = 0) -> Bool {
++        guard depth < 8 else { return false }
+         if case StoreKitError.userCancelled = error { return true }
+         if case PioStoreClientError.cancelled = error { return true }
++        if case StoreKitError.systemError(let underlying) = error {
++            return isCancellation(underlying, depth: depth + 1)
++        }
+         let nsError = error as NSError
+-        return nsError.domain == SKErrorDomain && nsError.code == SKError.paymentCancelled.rawValue
++        if nsError.domain == SKErrorDomain && nsError.code == SKError.paymentCancelled.rawValue { return true }
++        // Follow only Apple's public underlying-error contract. Private server
++        // numbers (including 907) are never interpreted as user cancellation.
++        if let underlying = nsError.userInfo[NSUnderlyingErrorKey] as? Error {
++            return isCancellation(underlying, depth: depth + 1)
++        }
++        return false
+     }
+     private static func message(for error: Error) -> String {
+         if case PioStoreClientError.wrongEnvironment = error {
+--- before/Daylog/Services/PioWardrobe.swift
++++ after/Daylog/Services/PioWardrobe.swift
+@@ -129,7 +129,9 @@
+     static let outfitTestingPreferencesSuite = "com.mungyubin.daylog.pio-wardrobe-testing"
+     static let shared = PioWardrobeStore(
+         defaults: preferences(for: PioPurchaseManager.shared.availability), purchases: .shared,
+-        isOutfitTestingEnabled: outfitTestingEnabled(arguments: ProcessInfo.processInfo.arguments)
++        isOutfitTestingEnabled: outfitTestingEnabled(arguments: ProcessInfo.processInfo.arguments),
++        selectionPersistence: PioWardrobeSelectionFile.current(for: PioPurchaseManager.shared.availability,
++            outfitTesting: outfitTestingEnabled(arguments: ProcessInfo.processInfo.arguments))
+     )
+ 
+     static func outfitTestingEnabled(arguments: [String]) -> Bool {
+@@ -166,6 +168,7 @@
+     @ObservationIgnored private var legacyMockMode = false
+     #endif
+     @ObservationIgnored private let defaults: UserDefaults
++    @ObservationIgnored private let selectionPersistence: (any PioWardrobeSelectionPersisting)?
+     private var preferredOutfit: PioOutfitID
+     private var preferredIcon: PioOutfitID
+     private(set) var previewStage: Int
+@@ -186,7 +189,8 @@
+     }
+ 
+     init(defaults: UserDefaults = .standard, purchases: PioPurchaseManager? = nil,
+-         isOutfitTestingEnabled: Bool = false, outfitTestingDefaults: UserDefaults? = nil) {
++         isOutfitTestingEnabled: Bool = false, outfitTestingDefaults: UserDefaults? = nil,
++         selectionPersistence: (any PioWardrobeSelectionPersisting)? = nil) {
+         #if DEBUG
+         self.isOutfitTestingEnabled = isOutfitTestingEnabled
+         #else
+@@ -198,10 +202,12 @@
+             ? (outfitTestingDefaults ?? UserDefaults(suiteName: Self.outfitTestingPreferencesSuite)!)
+             : defaults
+         self.defaults = defaults
++        self.selectionPersistence = selectionPersistence
+         self.purchases = purchases ?? PioPurchaseManager()
+         let storedStage = defaults.integer(forKey: Self.previewStageKey)
+         previewStage = (1...4).contains(storedStage) ? storedStage : 1
+-        preferredOutfit = defaults.string(forKey: Self.equippedKey).flatMap(PioOutfitID.init(rawValue:)) ?? .basic
++        preferredOutfit = selectionPersistence?.load()
++            ?? defaults.string(forKey: Self.equippedKey).flatMap(PioOutfitID.init(rawValue:)) ?? .basic
+         preferredIcon = defaults.string(forKey: Self.selectedIconKey).flatMap(PioOutfitID.init(rawValue:)) ?? .basic
+         self.purchases.ownershipDidChange = { [weak self] invalidated in
+             self?.repairSelections(invalidated: invalidated)
+@@ -213,6 +219,8 @@
+ 
+     @discardableResult func equip(_ outfit: PioOutfitID) -> Bool {
+         guard canWear(outfit) else { return false }
++        do { try selectionPersistence?.save(outfit) }
++        catch { return false }
+         preferredOutfit = outfit
+         defaults.set(outfit.rawValue, forKey: Self.equippedKey)
+         return true
+--- before/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift
++++ after/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift
+@@ -14,11 +14,14 @@
+ @MainActor
+ final class PioStoreKitIntegrationTests: XCTestCase {
+     private var session: SKTestSession!
++    private var managers: [PioPurchaseManager] = []
+ 
+     override func setUp() async throws {
+         try XCTSkipUnless(ProcessInfo.processInfo.arguments.contains("-pio-storekit-testing"),
+                           "Use a dedicated StoreKit testing scheme.")
+         #if DEBUG
++        XCTAssertEqual(StoreKitPioClient.debugActiveRawListenerCount, 0,
++                       "A previous test must join its StoreKit listener before resetting the shared ledger")
+         StoreKitPioClient.resetDebugEvents()
+         #endif
+         let configuration = Bundle(for: Self.self).url(forResource: "Routimori", withExtension: "storekit")
+@@ -55,7 +58,13 @@
+     override func tearDown() async throws {
+         guard let session else { return }
+         defer { self.session = nil }
++        // StoreKitTest controls one shared ledger. Join both listener layers and
++        // their current processing before changing it for the next test.
++        for manager in managers { await manager.stop() }
++        managers.removeAll()
+         #if DEBUG
++        XCTAssertEqual(StoreKitPioClient.debugActiveRawListenerCount, 0,
++                       "No StoreKit subscriptions may survive fixture teardown")
+         let adapter = XCTAttachment(string: StoreKitPioClient.debugEvents.joined(separator: "\n"))
+         adapter.name = "Local StoreKit adapter acknowledgement and updates"
+         adapter.lifetime = .keepAlways
+@@ -97,8 +106,14 @@
+         if let firstError { throw firstError }
+     }
+ 
++    private func makeManager() -> PioPurchaseManager {
++        let manager = PioPurchaseManager(availability: .localTesting)
++        managers.append(manager)
++        return manager
++    }
++
+     private func manager() async throws -> PioPurchaseManager {
+-        let manager = PioPurchaseManager(availability: .localTesting)
++        let manager = makeManager()
+         await manager.start()
+         XCTAssertEqual(manager.productLoadState, .available, "Local StoreKit preflight/product loading failed")
+         XCTAssertEqual(manager.products.count, 13)
+@@ -160,7 +175,7 @@
+         XCTAssertEqual(duplicate, .purchased(.cafe))
+         XCTAssertEqual(session.allTransactions().count, count, "Owned non-consumables must not purchase again")
+         // A fresh manager has no in-memory ownership. It recovers from Apple's ledger.
+-        let reopened = PioPurchaseManager(availability: .localTesting)
++        let reopened = makeManager()
+         let reopenedWardrobe = PioWardrobeStore(defaults: defaults, purchases: reopened)
+         XCTAssertFalse(reopened.owns(.cafe))
+         await reopened.start()
+@@ -324,7 +339,7 @@
+     func testExplicitRestoreRecoversExternalPurchase() async throws {
+         let productID = try XCTUnwrap(PioProductRegistry.productID(for: .astronaut))
+         _ = try await session.buyProduct(identifier: productID)
+-        let manager = PioPurchaseManager(availability: .localTesting)
++        let manager = makeManager()
+         XCTAssertFalse(manager.owns(.astronaut))
+         let restored = await manager.restore()
+         XCTAssertEqual(restored, .restored([.astronaut]))
+@@ -368,9 +383,13 @@
+ 
+     func testVerificationFailureNeverGrantsFreshManagerOwnership() async throws {
+         let productID = try XCTUnwrap(PioProductRegistry.productID(for: .christmas))
+-        _ = try await session.buyProduct(identifier: productID)
++        // Inject before receipt creation. A receipt already verified and cached
++        // by StoreKit cannot prove that verification-error injection is active.
+         try await session.setSimulatedError(.verification(.invalidSignature), forAPI: .verification)
+-        let manager = PioPurchaseManager(availability: .localTesting)
++        let seeded = try await session.buyProduct(identifier: productID)
++        XCTAssertEqual(seeded.productID, productID)
++        XCTAssertEqual(session.allTransactions().count, 1)
++        let manager = makeManager()
+         let refreshed = await manager.refreshEntitlements()
+         XCTAssertFalse(refreshed)
+         XCTAssertFalse(manager.owns(.christmas))
+@@ -380,17 +399,24 @@
+     func testInterruptedPurchaseOnlyUnlocksAfterResolution() async throws {
+         let manager = try await manager()
+         session.interruptedPurchasesEnabled = true
++        var ownershipDuringInterruption = false
++        var resolving = false
++        let resolved = expectation(description: "Resolved interrupted purchase updates verified ownership")
++        defer { manager.ownershipDidChange = nil }
++        manager.ownershipDidChange = { _ in
++            if manager.owns(.rainyDay) {
++                if resolving { resolved.fulfill() }
++                else { ownershipDuringInterruption = true }
++            }
++        }
+         let result = await manager.purchase(.rainyDay)
+         XCTAssertFalse(manager.owns(.rainyDay))
++        XCTAssertFalse(ownershipDuringInterruption,"No verified ownership may arrive before issue resolution")
+         XCTAssertFalse(manager.isBusy)
+         XCTAssertNotEqual(result, .purchased(.rainyDay))
+         let interrupted = try transaction(for: .rainyDay)
+         XCTAssertTrue(interrupted.hasPurchaseIssue)
+-        let resolved = expectation(description: "Resolved interrupted purchase updates verified ownership")
+-        defer { manager.ownershipDidChange = nil }
+-        manager.ownershipDidChange = { _ in
+-            if manager.owns(.rainyDay) { resolved.fulfill() }
+-        }
++        resolving = true
+         try session.resolveIssueForTransaction(identifier: interrupted.identifier)
+         await fulfillment(of: [resolved], timeout: 10)
+         manager.ownershipDidChange = nil
+--- before/DaylogStoreKitTests/PioStoreKitProcessRelaunchTests.swift
++++ after/DaylogStoreKitTests/PioStoreKitProcessRelaunchTests.swift
+@@ -1,7 +1,6 @@
+ import XCTest
+ import StoreKit
+ import StoreKitTest
+-import CoreFoundation
+ @testable import Daylog
+ 
+ /// Two separate test-without-building invocations are required. No normal test
+@@ -40,9 +39,12 @@
+         session.storefront="KOR";session.locale=Locale(identifier:"ko_KR")
+         // The run ID is fresh. Removing an already-empty domain is unnecessary
+         // and can obscure diagnostics about asynchronous preference flushing.
+-        XCTAssertNil(defaults.object(forKey:"seedPID"))
++        XCTAssertNil(defaults.object(forKey:PioWardrobeStore.equippedKey))
++        let selection = try selectionFile()
++        XCTAssertNil(selection.load(), "A fresh run must not import a pre-seeded selection")
+         let manager=PioPurchaseManager(availability:.localTesting)
+-        let wardrobe=PioWardrobeStore(defaults:defaults,purchases:manager)
++        let wardrobe=PioWardrobeStore(defaults:defaults,purchases:manager,selectionPersistence:selection)
++        XCTAssertTrue(wardrobe.equip(.basic))
+         await manager.start()
+         let method=try XCTUnwrap(ProcessInfo.processInfo.environment["PIO_RELAUNCH_SEED_METHOD"])
+         if method == "storekit-test" {
+@@ -57,36 +59,25 @@
+             let purchased=await manager.purchase(.cafe)
+             XCTAssertEqual(purchased,.purchased(.cafe))
+         } else { throw NSError(domain:"PioRelaunch.invalidSeedMethod",code:3) }
+-        defaults.set(method,forKey:"seedMethod")
+-        XCTAssertTrue(wardrobe.equip(.cafe))
+         let product=try XCTUnwrap(PioProductRegistry.productID(for:.cafe))
+         guard case .verified(let transaction)=await Transaction.latest(for:product) else { return XCTFail("Verified cafe transaction required") }
+         XCTAssertEqual(transaction.environment,.xcode);XCTAssertNil(transaction.revocationDate)
+-        defaults.set(ProcessInfo.processInfo.processIdentifier,forKey:"seedPID")
+-        defaults.set(String(transaction.id),forKey:"seedTransactionID")
+-        defaults.set(product,forKey:"seedProductID")
+-        let nsFlushed=defaults.synchronize()
+-        XCTAssertTrue(nsFlushed)
+-        // Test-only bounded diagnosis of the Foundation/CFPreferences flush
+-        // discrepancy. Never write the plist externally or rehydrate a cached
+-        // ownership/equipment dictionary to manufacture persistence.
+-        let cfAppFlushed=CFPreferencesAppSynchronize(suite as CFString)
+-        let cfScopeFlushed=CFPreferencesSynchronize(suite as CFString,kCFPreferencesCurrentUser,kCFPreferencesAnyHost)
+         let pid=Int(ProcessInfo.processInfo.processIdentifier)
+-        for _ in 0..<100 {
+-            if (preferenceDiskDomain(suite)["seedPID"] as? NSNumber)?.intValue == pid { break }
+-            try await Task.sleep(for:.milliseconds(50))
+-        }
+-        let disk=preferenceDiskDomain(suite)
+-        XCTAssertEqual((disk["seedPID"] as? NSNumber)?.intValue,pid,"Fixture must prove its seed metadata reached disk before ending the process")
+-        XCTAssertEqual(defaults.persistentDomain(forName:suite)?["seedProductID"] as? String,product)
+-        var manifest:[String:Any]=["phase":"seed","suite":suite,"pid":pid,"productID":product,"transactionID":String(transaction.id),"environment":"Xcode","equipped":wardrobe.equippedOutfit.rawValue,"seedMethod":method,"appPurchaseUI":method == "storekit-test" ? "NOT_TESTED" : "Product.purchase result asserted"]
+-        manifest["storage"]=storageEvidence(suite,defaults:defaults)
+-        manifest["flushDiagnostics"]=["UserDefaultsSynchronize":nsFlushed,"CFPreferencesAppSynchronize":cfAppFlushed,"CFPreferencesScopedSynchronize":cfScopeFlushed,"maximumDiskWaitSeconds":5]
+-        // Diagnostic metadata is not an ownership cache and is never imported
+-        // into the manager or preference suite in the verification process.
++        // Expected receipt identity belongs to the test harness, not the user's
++        // preference domain. No wardrobe value/ownership is imported from it.
++        let manifest:[String:Any]=["phase":"seed","suite":suite,"pid":pid,"productID":product,"transactionID":String(transaction.id),"environment":"Xcode","seedMethod":method,"seedTime":Date().timeIntervalSince1970]
+         let manifestURL=try diagnosticManifestURL()
+         try JSONSerialization.data(withJSONObject:manifest,options:[.prettyPrinted,.sortedKeys]).write(to:manifestURL,options:.atomic)
++        await manager.stop()
++        // Exercise rapid selection changes, then exit without any sleep, direct
++        // preference-file observation, synchronize call or custom flush. Apple
++        // documents UserDefaults' backing files as asynchronous implementation
++        // details. The next OS process asserts the real persisted selection.
++        XCTAssertTrue(wardrobe.equip(.cafe))
++        XCTAssertTrue(wardrobe.equip(.basic))
++        XCTAssertTrue(wardrobe.equip(.cafe))
++        XCTAssertEqual(defaults.string(forKey:PioWardrobeStore.equippedKey),"cafe")
++        XCTAssertEqual(selection.load(),.cafe)
+         evidence(manifest)
+         // Intentionally retain Apple's local ledger and this UUID preference
+         // domain. No ownership list is persisted or injected by this fixture.
+@@ -98,19 +89,18 @@
+         defer {
+             session.clearTransactions();session.resetToDefaultState();defaults.removePersistentDomain(forName:suite)
+             if let url=try? diagnosticManifestURL() { try? FileManager.default.removeItem(at:url) }
++            if let selection=try? selectionFile() { try? FileManager.default.removeItem(at:selection.url) }
+         }
+         let manifestURL=try diagnosticManifestURL()
+         let manifestData=try? Data(contentsOf:manifestURL)
+         let manifest=(manifestData.flatMap { try? JSONSerialization.jsonObject(with:$0) }) as? [String:Any]
+         evidence(["phase":"verify-before-ledger","storage":storageEvidence(suite,defaults:defaults),"diagnosticManifestExists":manifest != nil,"seedManifest":manifest ?? [:]])
+-        let storedPID=defaults.integer(forKey:"seedPID")
+-        let seedPID=(manifest?["pid"] as? NSNumber)?.intValue ?? storedPID
++        let seedPID=try XCTUnwrap((manifest?["pid"] as? NSNumber)?.intValue)
+         XCTAssertGreaterThan(seedPID,0)
+-        XCTAssertEqual(storedPID,seedPID,"The UUID preference domain must persist across processes independently of diagnostic metadata")
+         XCTAssertNotEqual(seedPID,Int(ProcessInfo.processInfo.processIdentifier),"Must prove a fresh OS process")
+         let product=PioProductRegistry.productID(for:.cafe)!
+-        XCTAssertEqual(defaults.string(forKey:"seedProductID"),product)
+-        let previousID=manifest?["transactionID"] as? String ?? defaults.string(forKey:"seedTransactionID")
++        XCTAssertEqual(manifest?["productID"] as? String,product)
++        let previousID=manifest?["transactionID"] as? String
+         XCTAssertNotNil(previousID,"The first process must provide transaction identity evidence")
+         var verifiedID:String?
+         for await result in Transaction.currentEntitlements {
+@@ -121,22 +111,19 @@
+         }
+         XCTAssertNotNil(verifiedID,"Fresh process must find a verified cafe receipt independently of preference metadata")
+         XCTAssertEqual(verifiedID,previousID,"Apple's local ledger must survive process relaunch")
++        let selection=try selectionFile()
++        XCTAssertEqual(selection.load(),.cafe,"Last acknowledged equip must survive immediate process exit")
+         let manager=PioPurchaseManager(availability:.localTesting)
+-        let wardrobe=PioWardrobeStore(defaults:defaults,purchases:manager)
++        let wardrobe=PioWardrobeStore(defaults:defaults,purchases:manager,selectionPersistence:selection)
+         XCTAssertEqual(manager.ownedOutfits,[.basic],"Fresh manager cannot begin with a cached ownership grant")
++        XCTAssertEqual(wardrobe.equippedOutfit,.basic,"A saved paid preference must remain locked before verification")
+         await manager.start()
+         XCTAssertTrue(manager.owns(.cafe))
+         XCTAssertEqual(wardrobe.equippedOutfit,.cafe)
+-        XCTAssertEqual(defaults.string(forKey:PioWardrobeStore.equippedKey),"cafe")
+-        evidence(["phase":"verify","suite":suite,"seedPID":seedPID,"pid":ProcessInfo.processInfo.processIdentifier,"verifiedTransactionID":verifiedID ?? "missing","expectedTransactionID":previousID ?? "missing","ownedCafe":manager.owns(.cafe),"equipped":wardrobe.equippedOutfit.rawValue,"cleanup":"local ledger and UUID preference domain after checks","seedMethod":defaults.string(forKey:"seedMethod") ?? "missing","scope":"verified ledger and equipment persistence only; test-driven seed does not certify app purchase UI"])
+-    }
+-    private func preferenceURL(_ suite:String) -> URL {
+-        URL(fileURLWithPath:NSHomeDirectory()).appendingPathComponent("Library/Preferences").appendingPathComponent(suite+".plist")
+-    }
+-    private func preferenceDiskDomain(_ suite:String) -> [String:Any] {
+-        guard let data=try? Data(contentsOf:preferenceURL(suite)),
+-              let value=try? PropertyListSerialization.propertyList(from:data,options:[],format:nil) as? [String:Any] else { return [:] }
+-        return value
++        XCTAssertEqual(wardrobe.preferredAppearanceOutfit,.cafe)
++        XCTAssertEqual(selection.load(),.cafe)
++        await manager.stop()
++        evidence(["phase":"verify","suite":suite,"seedPID":seedPID,"pid":ProcessInfo.processInfo.processIdentifier,"verifiedTransactionID":verifiedID ?? "missing","expectedTransactionID":previousID ?? "missing","ownedCafe":manager.owns(.cafe),"equipped":wardrobe.equippedOutfit.rawValue,"secondsSinceSeed":Date().timeIntervalSince1970-(manifest?["seedTime"] as? Double ?? 0),"cleanup":"local ledger and UUID preference domain after checks","seedMethod":manifest?["seedMethod"] as? String ?? "missing","scope":"fresh OS process, same verified receipt, persisted actual wardrobe selection; no ownership or preference injection"])
+     }
+     private func diagnosticManifestURL() throws -> URL {
+         let run=try XCTUnwrap(ProcessInfo.processInfo.environment["PIO_RELAUNCH_RUN_ID"])
+@@ -145,13 +132,15 @@
+         try FileManager.default.createDirectory(at:folder,withIntermediateDirectories:true)
+         return folder.appendingPathComponent(run+".json")
+     }
++    private func selectionFile() throws -> PioWardrobeSelectionFile {
++        let manifest=try diagnosticManifestURL()
++        return PioWardrobeSelectionFile(url:manifest.deletingPathExtension().appendingPathExtension("selection.json"))
++    }
+     private func storageEvidence(_ suite:String,defaults:UserDefaults) -> [String:Any] {
+-        let home=NSHomeDirectory(),prefs=preferenceURL(suite)
++        let home=NSHomeDirectory()
+         return ["home":home,"bundleID":Bundle.main.bundleIdentifier ?? "missing","bundlePath":Bundle.main.bundlePath,
+                 "applicationSupport":FileManager.default.urls(for:.applicationSupportDirectory,in:.userDomainMask).first?.path ?? "missing",
+-                "suite":suite,"preferencePath":prefs.path,"preferenceFileExists":FileManager.default.fileExists(atPath:prefs.path),
+-                "persistentDomain":defaults.persistentDomain(forName:suite) ?? [:],"diskDomain":preferenceDiskDomain(suite),
+-                "cfPreferencesDomain":CFPreferencesCopyMultiple(nil,suite as CFString,kCFPreferencesCurrentUser,kCFPreferencesAnyHost) as? [String:Any] ?? [:],
++                "suite":suite,"persistentDomain":defaults.persistentDomain(forName:suite) ?? [:],
+                 "freshDefaultsDomain":UserDefaults(suiteName:suite)?.persistentDomain(forName:suite) ?? [:]]
+     }
+     private func evidence(_ value: [String:Any]) {
+--- before/DaylogTests/PioPurchaseTests.swift
++++ after/DaylogTests/PioPurchaseTests.swift
+@@ -13,6 +13,8 @@
+     var purchaseError: Error?
+     var syncError: Error?
+     var purchaseCalls = 0
++    var updateCalls = 0
++    var stopUpdatesCalls = 0
+     var syncCalls = 0
+     var finished: [UInt64] = []
+     var holdPurchase = false
+@@ -43,6 +45,7 @@
+         if let entitlementError { throw entitlementError }; return captured
+     }
+     func updates() -> AsyncStream<PioTransactionEvent> {
++        updateCalls += 1
+         let termination = updateTermination.continuation
+         return AsyncStream { continuation in
+             updateContinuation = continuation
+@@ -52,6 +55,10 @@
+                 termination.finish()
+             }
+         }
++    }
++    func stopUpdates() async {
++        stopUpdatesCalls += 1
++        updateContinuation?.finish()
+     }
+     func finish(transactionID: UInt64) async {
+         finished.append(transactionID)
+@@ -138,6 +145,69 @@
+         #expect(!sut.owns(.cafe))
+         #expect(!sut.isBusy)
+         client.updateContinuation?.finish()
++    }
++
++    @Test func publicNestedCancellationIsRecognizedWithoutPrivateServerCodeMapping() async {
++        let publicCancellation=SKError(.paymentCancelled)
++        let cancellations:[Error]=[
++            StoreKitError.systemError(publicCancellation),
++            NSError(domain:"PublicWrapper",code:1,userInfo:[NSUnderlyingErrorKey:StoreKitError.userCancelled]),
++            NSError(domain:"PublicWrapper",code:1,userInfo:[NSUnderlyingErrorKey:publicCancellation])
++        ]
++        for error in cancellations {
++            let client=FixturePioStoreClient();let sut=manager(client)
++            await sut.loadProducts();client.purchaseError=error
++            #expect(await sut.purchase(.cafe) == .cancelled)
++            client.syncError=error
++            #expect(await sut.restore() == .cancelled)
++            #expect(sut.ownedOutfits == [.basic] && !sut.isBusy)
++        }
++        let client=FixturePioStoreClient();let sut=manager(client)
++        await sut.loadProducts()
++        client.purchaseError=NSError(domain:"ASDServerErrorDomain",code:907)
++        guard case .failed = await sut.purchase(.cafe) else { Issue.record("A private server code alone is not cancellation proof");return }
++        #expect(sut.ownedOutfits == [.basic] && !sut.isBusy)
++    }
++
++    @Test func explicitStopIsIdempotentAndManagerCanRestartItsListener() async {
++        let client=FixturePioStoreClient();let sut=manager(client)
++        await sut.start();await sut.start()
++        #expect(client.updateCalls == 1)
++        await sut.stop();await sut.stop()
++        #expect(client.stopUpdatesCalls == 1)
++        let afterStop=client.updateContinuation?.yield(.verified(transaction(.cafe,id:91)))
++        if case .terminated = afterStop {} else { Issue.record("Stop must terminate its previous update stream") }
++        #expect(!sut.owns(.cafe))
++        await sut.start()
++        #expect(client.updateCalls == 2)
++        client.updateContinuation?.yield(.verified(transaction(.cafe,id:92)))
++        for _ in 0..<100 where !client.finished.contains(92) { await Task.yield() }
++        #expect(sut.owns(.cafe))
++        await sut.stop()
++        #expect(client.stopUpdatesCalls == 2)
++    }
++
++    @Test func stopWaitsForAnAlreadyDeliveredVerifiedTransactionToFinish() async {
++        let client=FixturePioStoreClient();let sut=manager(client)
++        await sut.start();client.holdNextFinish=true
++        client.updateContinuation?.yield(.verified(transaction(.cafe,id:93)))
++        for _ in 0..<100 where client.finishContinuation == nil { await Task.yield() }
++        #expect(client.finishContinuation != nil)
++        let oldStream=client.updateContinuation
++        var returned=false
++        let stop=Task { await sut.stop();returned=true }
++        for _ in 0..<100 where client.stopUpdatesCalls == 0 { await Task.yield() }
++        #expect(client.stopUpdatesCalls == 1)
++        #expect(!returned,"Shutdown must not leave an in-flight verified acknowledgement behind")
++        let restart=Task { await sut.start() }
++        client.finishContinuation?.resume()
++        await stop.value;await restart.value
++        #expect(returned)
++        #expect(client.updateCalls == 2,"Restart must join the prior stop before making a fresh listener")
++        let late=oldStream?.yield(.verified(transaction(.astronaut,id:94)))
++        if case .terminated = late {} else { Issue.record("Late updates must be rejected after shutdown joins") }
++        #expect(!sut.owns(.astronaut))
++        await sut.stop()
+     }
+ 
+     @Test func registryMatchesApprovedCatalogAndOnlyNonBasicProducts() {

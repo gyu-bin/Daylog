@@ -1,0 +1,1180 @@
+{
+  "aliases": {
+    "pio_cloud_basic_prod_v1_body": "pio_cloud_basic_prod_v1_body",
+    "pio_cloud_basic_prod_v1_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_basic_prod_v1_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_basic_prod_v1_closedPair": "pio_cloud_basic_prod_v1_closedPair",
+    "pio_cloud_basic_prod_v1_openPair": "pio_cloud_basic_prod_v1_openPair",
+    "pio_cloud_prod_v2_astronaut_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_astronaut_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_astronaut_eyeLeft": "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "pio_cloud_prod_v2_astronaut_eyeRight": "pio_cloud_prod_v2_astronaut_eyeRight",
+    "pio_cloud_prod_v2_astronaut_halfLeft": "pio_cloud_prod_v2_astronaut_halfLeft",
+    "pio_cloud_prod_v2_astronaut_halfRight": "pio_cloud_prod_v2_astronaut_halfRight",
+    "pio_cloud_prod_v2_astronaut_lidLeft": "pio_cloud_prod_v2_astronaut_lidLeft",
+    "pio_cloud_prod_v2_astronaut_lidRight": "pio_cloud_prod_v2_astronaut_lidRight",
+    "pio_cloud_prod_v2_astronaut_optics": "pio_cloud_prod_v2_astronaut_optics",
+    "pio_cloud_prod_v2_astronaut_v2_armPairCompact": "pio_cloud_prod_v2_astronaut_v2_armPairCompact",
+    "pio_cloud_prod_v2_astronaut_v2_torso": "pio_cloud_prod_v2_astronaut_v2_torso",
+    "pio_cloud_prod_v2_autumn_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_autumn_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_autumn_eyeLeft": "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "pio_cloud_prod_v2_autumn_eyeRight": "pio_cloud_prod_v2_astronaut_eyeRight",
+    "pio_cloud_prod_v2_autumn_halfLeft": "pio_cloud_prod_v2_astronaut_halfLeft",
+    "pio_cloud_prod_v2_autumn_halfRight": "pio_cloud_prod_v2_astronaut_halfRight",
+    "pio_cloud_prod_v2_autumn_lidLeft": "pio_cloud_prod_v2_astronaut_lidLeft",
+    "pio_cloud_prod_v2_autumn_lidRight": "pio_cloud_prod_v2_astronaut_lidRight",
+    "pio_cloud_prod_v2_autumn_v2_armPair": "pio_cloud_prod_v2_autumn_v2_armPair",
+    "pio_cloud_prod_v2_autumn_v2_torso": "pio_cloud_prod_v2_autumn_v2_torso",
+    "pio_cloud_prod_v2_basic_v1_armPair": "pio_cloud_prod_v2_basic_v1_armPair",
+    "pio_cloud_prod_v2_basic_v1_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_basic_v1_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_basic_v1_closedPair": "pio_cloud_basic_prod_v1_closedPair",
+    "pio_cloud_prod_v2_basic_v1_feetPair": "pio_cloud_prod_v2_basic_v1_feetPair",
+    "pio_cloud_prod_v2_basic_v1_openPair": "pio_cloud_basic_prod_v1_openPair",
+    "pio_cloud_prod_v2_basic_v1_tablet": "pio_cloud_prod_v2_basic_v1_tablet",
+    "pio_cloud_prod_v2_basic_v1_torso": "pio_cloud_prod_v2_basic_v1_torso",
+    "pio_cloud_prod_v2_cafe_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_cafe_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_cafe_eyeLeft": "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "pio_cloud_prod_v2_cafe_eyeRight": "pio_cloud_prod_v2_astronaut_eyeRight",
+    "pio_cloud_prod_v2_cafe_halfLeft": "pio_cloud_prod_v2_astronaut_halfLeft",
+    "pio_cloud_prod_v2_cafe_halfRight": "pio_cloud_prod_v2_astronaut_halfRight",
+    "pio_cloud_prod_v2_cafe_lidLeft": "pio_cloud_prod_v2_astronaut_lidLeft",
+    "pio_cloud_prod_v2_cafe_lidRight": "pio_cloud_prod_v2_astronaut_lidRight",
+    "pio_cloud_prod_v2_cafe_v2_armPair": "pio_cloud_prod_v2_cafe_v2_armPair",
+    "pio_cloud_prod_v2_cafe_v2_torso": "pio_cloud_prod_v2_cafe_v2_torso",
+    "pio_cloud_prod_v2_cherryBlossom_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_cherryBlossom_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_cherryBlossom_eyeLeft": "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "pio_cloud_prod_v2_cherryBlossom_eyeRight": "pio_cloud_prod_v2_astronaut_eyeRight",
+    "pio_cloud_prod_v2_cherryBlossom_halfLeft": "pio_cloud_prod_v2_astronaut_halfLeft",
+    "pio_cloud_prod_v2_cherryBlossom_halfRight": "pio_cloud_prod_v2_astronaut_halfRight",
+    "pio_cloud_prod_v2_cherryBlossom_lidLeft": "pio_cloud_prod_v2_astronaut_lidLeft",
+    "pio_cloud_prod_v2_cherryBlossom_lidRight": "pio_cloud_prod_v2_astronaut_lidRight",
+    "pio_cloud_prod_v2_cherryBlossom_v2_armPair": "pio_cloud_prod_v2_cherryBlossom_v2_armPair",
+    "pio_cloud_prod_v2_cherryBlossom_v2_torso": "pio_cloud_prod_v2_cherryBlossom_v2_torso",
+    "pio_cloud_prod_v2_christmas_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_christmas_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_christmas_eyeLeft": "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "pio_cloud_prod_v2_christmas_eyeRight": "pio_cloud_prod_v2_astronaut_eyeRight",
+    "pio_cloud_prod_v2_christmas_halfLeft": "pio_cloud_prod_v2_astronaut_halfLeft",
+    "pio_cloud_prod_v2_christmas_halfRight": "pio_cloud_prod_v2_astronaut_halfRight",
+    "pio_cloud_prod_v2_christmas_lidLeft": "pio_cloud_prod_v2_astronaut_lidLeft",
+    "pio_cloud_prod_v2_christmas_lidRight": "pio_cloud_prod_v2_astronaut_lidRight",
+    "pio_cloud_prod_v2_christmas_v2_armPair": "pio_cloud_prod_v2_christmas_v2_armPair",
+    "pio_cloud_prod_v2_christmas_v2_torso": "pio_cloud_prod_v2_christmas_v2_torso",
+    "pio_cloud_prod_v2_fitness_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_fitness_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_fitness_eyeLeft": "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "pio_cloud_prod_v2_fitness_eyeRight": "pio_cloud_prod_v2_astronaut_eyeRight",
+    "pio_cloud_prod_v2_fitness_halfLeft": "pio_cloud_prod_v2_astronaut_halfLeft",
+    "pio_cloud_prod_v2_fitness_halfRight": "pio_cloud_prod_v2_astronaut_halfRight",
+    "pio_cloud_prod_v2_fitness_lidLeft": "pio_cloud_prod_v2_astronaut_lidLeft",
+    "pio_cloud_prod_v2_fitness_lidRight": "pio_cloud_prod_v2_astronaut_lidRight",
+    "pio_cloud_prod_v2_fitness_v2_armPair": "pio_cloud_prod_v2_fitness_v2_armPair",
+    "pio_cloud_prod_v2_fitness_v2_torso": "pio_cloud_prod_v2_fitness_v2_torso",
+    "pio_cloud_prod_v2_halloween_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_halloween_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_halloween_eyeLeft": "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "pio_cloud_prod_v2_halloween_eyeRight": "pio_cloud_prod_v2_astronaut_eyeRight",
+    "pio_cloud_prod_v2_halloween_halfLeft": "pio_cloud_prod_v2_astronaut_halfLeft",
+    "pio_cloud_prod_v2_halloween_halfRight": "pio_cloud_prod_v2_astronaut_halfRight",
+    "pio_cloud_prod_v2_halloween_lidLeft": "pio_cloud_prod_v2_astronaut_lidLeft",
+    "pio_cloud_prod_v2_halloween_lidRight": "pio_cloud_prod_v2_astronaut_lidRight",
+    "pio_cloud_prod_v2_halloween_v2_armPair": "pio_cloud_prod_v2_halloween_v2_armPair",
+    "pio_cloud_prod_v2_halloween_v2_torso": "pio_cloud_prod_v2_halloween_v2_torso",
+    "pio_cloud_prod_v2_hanbok_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_hanbok_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_hanbok_eyeLeft": "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "pio_cloud_prod_v2_hanbok_eyeRight": "pio_cloud_prod_v2_astronaut_eyeRight",
+    "pio_cloud_prod_v2_hanbok_halfLeft": "pio_cloud_prod_v2_astronaut_halfLeft",
+    "pio_cloud_prod_v2_hanbok_halfRight": "pio_cloud_prod_v2_astronaut_halfRight",
+    "pio_cloud_prod_v2_hanbok_lidLeft": "pio_cloud_prod_v2_astronaut_lidLeft",
+    "pio_cloud_prod_v2_hanbok_lidRight": "pio_cloud_prod_v2_astronaut_lidRight",
+    "pio_cloud_prod_v2_hanbok_v2_armPair": "pio_cloud_prod_v2_hanbok_v2_armPair",
+    "pio_cloud_prod_v2_hanbok_v2_torso": "pio_cloud_prod_v2_hanbok_v2_torso",
+    "pio_cloud_prod_v2_pajamas_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_pajamas_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_pajamas_eyeLeft": "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "pio_cloud_prod_v2_pajamas_eyeRight": "pio_cloud_prod_v2_astronaut_eyeRight",
+    "pio_cloud_prod_v2_pajamas_halfLeft": "pio_cloud_prod_v2_astronaut_halfLeft",
+    "pio_cloud_prod_v2_pajamas_halfRight": "pio_cloud_prod_v2_astronaut_halfRight",
+    "pio_cloud_prod_v2_pajamas_lidLeft": "pio_cloud_prod_v2_astronaut_lidLeft",
+    "pio_cloud_prod_v2_pajamas_lidRight": "pio_cloud_prod_v2_astronaut_lidRight",
+    "pio_cloud_prod_v2_pajamas_v2_armPair": "pio_cloud_prod_v2_pajamas_v2_armPair",
+    "pio_cloud_prod_v2_pajamas_v2_torso": "pio_cloud_prod_v2_pajamas_v2_torso",
+    "pio_cloud_prod_v2_rainyDay_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_rainyDay_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_rainyDay_eyeLeft": "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "pio_cloud_prod_v2_rainyDay_eyeRight": "pio_cloud_prod_v2_astronaut_eyeRight",
+    "pio_cloud_prod_v2_rainyDay_halfLeft": "pio_cloud_prod_v2_astronaut_halfLeft",
+    "pio_cloud_prod_v2_rainyDay_halfRight": "pio_cloud_prod_v2_astronaut_halfRight",
+    "pio_cloud_prod_v2_rainyDay_lidLeft": "pio_cloud_prod_v2_astronaut_lidLeft",
+    "pio_cloud_prod_v2_rainyDay_lidRight": "pio_cloud_prod_v2_astronaut_lidRight",
+    "pio_cloud_prod_v2_rainyDay_v2_armPair": "pio_cloud_prod_v2_rainyDay_v2_armPair",
+    "pio_cloud_prod_v2_rainyDay_v2_torso": "pio_cloud_prod_v2_rainyDay_v2_torso",
+    "pio_cloud_prod_v2_student_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_student_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_student_eyeLeft": "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "pio_cloud_prod_v2_student_eyeRight": "pio_cloud_prod_v2_astronaut_eyeRight",
+    "pio_cloud_prod_v2_student_halfLeft": "pio_cloud_prod_v2_astronaut_halfLeft",
+    "pio_cloud_prod_v2_student_halfRight": "pio_cloud_prod_v2_astronaut_halfRight",
+    "pio_cloud_prod_v2_student_lidLeft": "pio_cloud_prod_v2_astronaut_lidLeft",
+    "pio_cloud_prod_v2_student_lidRight": "pio_cloud_prod_v2_astronaut_lidRight",
+    "pio_cloud_prod_v2_student_optics": "pio_cloud_prod_v2_student_optics",
+    "pio_cloud_prod_v2_student_v2_armPair": "pio_cloud_prod_v2_student_v2_armPair",
+    "pio_cloud_prod_v2_student_v2_torso": "pio_cloud_prod_v2_student_v2_torso",
+    "pio_cloud_prod_v2_summerVacation_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_summerVacation_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_summerVacation_eyeLeft": "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "pio_cloud_prod_v2_summerVacation_eyeRight": "pio_cloud_prod_v2_astronaut_eyeRight",
+    "pio_cloud_prod_v2_summerVacation_halfLeft": "pio_cloud_prod_v2_astronaut_halfLeft",
+    "pio_cloud_prod_v2_summerVacation_halfRight": "pio_cloud_prod_v2_astronaut_halfRight",
+    "pio_cloud_prod_v2_summerVacation_lidLeft": "pio_cloud_prod_v2_astronaut_lidLeft",
+    "pio_cloud_prod_v2_summerVacation_lidRight": "pio_cloud_prod_v2_astronaut_lidRight",
+    "pio_cloud_prod_v2_summerVacation_optics": "pio_cloud_prod_v2_summerVacation_optics",
+    "pio_cloud_prod_v2_summerVacation_v2_armPair": "pio_cloud_prod_v2_summerVacation_v2_armPair",
+    "pio_cloud_prod_v2_summerVacation_v2_torso": "pio_cloud_prod_v2_summerVacation_v2_torso",
+    "pio_cloud_prod_v2_winter_browLeft": "pio_cloud_basic_prod_v1_browLeft",
+    "pio_cloud_prod_v2_winter_browRight": "pio_cloud_basic_prod_v1_browRight",
+    "pio_cloud_prod_v2_winter_eyeLeft": "pio_cloud_prod_v2_astronaut_eyeLeft",
+    "pio_cloud_prod_v2_winter_eyeRight": "pio_cloud_prod_v2_astronaut_eyeRight",
+    "pio_cloud_prod_v2_winter_halfLeft": "pio_cloud_prod_v2_astronaut_halfLeft",
+    "pio_cloud_prod_v2_winter_halfRight": "pio_cloud_prod_v2_astronaut_halfRight",
+    "pio_cloud_prod_v2_winter_lidLeft": "pio_cloud_prod_v2_astronaut_lidLeft",
+    "pio_cloud_prod_v2_winter_lidRight": "pio_cloud_prod_v2_astronaut_lidRight",
+    "pio_cloud_prod_v2_winter_v2_armPair": "pio_cloud_prod_v2_winter_v2_armPair",
+    "pio_cloud_prod_v2_winter_v2_torso": "pio_cloud_prod_v2_winter_v2_torso"
+  },
+  "canonicalCount": 44,
+  "duplicateCopies": 102,
+  "logicalRGBABytesBefore": 918349344,
+  "logicalRGBABytesCanonical": 276762816,
+  "scope": "New loading aliases only; source PNG and registration bytes unchanged",
+  "sourceCount": 146,
+  "sources": {
+    "pio_cloud_basic_prod_v1_body": {
+      "bytes": 948834,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_basic_prod_v1_body.imageset/pio_cloud_basic_prod_v1_body.png",
+      "sha256": "acb6052c7c539110edeae3a263fb03c5be7ed50b8dfa9d1911a06b3c5eb8581f",
+      "width": 1254
+    },
+    "pio_cloud_basic_prod_v1_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_basic_prod_v1_browLeft.imageset/pio_cloud_basic_prod_v1_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_basic_prod_v1_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_basic_prod_v1_browRight.imageset/pio_cloud_basic_prod_v1_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_basic_prod_v1_closedPair": {
+      "bytes": 125419,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_basic_prod_v1_closedPair.imageset/pio_cloud_basic_prod_v1_closedPair.png",
+      "sha256": "9107ae63aa885f8b85403f2e86c30f62286b0daceeda12adce56265502b83fd9",
+      "width": 1254
+    },
+    "pio_cloud_basic_prod_v1_openPair": {
+      "bytes": 106193,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_basic_prod_v1_openPair.imageset/pio_cloud_basic_prod_v1_openPair.png",
+      "sha256": "16d55cbd39b8be2f91af59d7c866db352cb8e14d71988fbdeea350aba8609a18",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_astronaut_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_astronaut_browLeft.imageset/pio_cloud_astronaut_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_astronaut_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_astronaut_browRight.imageset/pio_cloud_astronaut_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_astronaut_eyeLeft": {
+      "bytes": 25173,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_astronaut_eyeLeft.imageset/pio_cloud_astronaut_eyeLeft.png",
+      "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_astronaut_eyeRight": {
+      "bytes": 23997,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_astronaut_eyeRight.imageset/pio_cloud_astronaut_eyeRight.png",
+      "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_astronaut_halfLeft": {
+      "bytes": 25007,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_astronaut_halfLeft.imageset/pio_cloud_astronaut_halfLeft.png",
+      "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_astronaut_halfRight": {
+      "bytes": 23881,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_astronaut_halfRight.imageset/pio_cloud_astronaut_halfRight.png",
+      "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_astronaut_lidLeft": {
+      "bytes": 14811,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_astronaut_lidLeft.imageset/pio_cloud_astronaut_lidLeft.png",
+      "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_astronaut_lidRight": {
+      "bytes": 14290,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_astronaut_lidRight.imageset/pio_cloud_astronaut_lidRight.png",
+      "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_astronaut_optics": {
+      "bytes": 562335,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_astronaut_optics.imageset/pio_cloud_astronaut_optics.png",
+      "sha256": "e2b8cf57f99a0fbfb7b91b9af102e765920e0eb4574d4bd635f4a04793d5abf4",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_astronaut_v2_armPairCompact": {
+      "bytes": 311120,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_astronaut_v2_armPairCompact.imageset/pio_cloud_astronaut_v2_armPairCompact.png",
+      "sha256": "87419caa9ad026e7b184a473a91c8892f5161cab52d888ad7832564569511671",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_astronaut_v2_torso": {
+      "bytes": 1288095,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_astronaut_v2_torso.imageset/pio_cloud_astronaut_v2_torso.png",
+      "sha256": "107c258f9b5125864cabde321ae009750ce01172defc9eb84541e69c6488e22e",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_autumn_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_autumn_browLeft.imageset/pio_cloud_autumn_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_autumn_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_autumn_browRight.imageset/pio_cloud_autumn_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_autumn_eyeLeft": {
+      "bytes": 25173,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_autumn_eyeLeft.imageset/pio_cloud_autumn_eyeLeft.png",
+      "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_autumn_eyeRight": {
+      "bytes": 23997,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_autumn_eyeRight.imageset/pio_cloud_autumn_eyeRight.png",
+      "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_autumn_halfLeft": {
+      "bytes": 25007,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_autumn_halfLeft.imageset/pio_cloud_autumn_halfLeft.png",
+      "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_autumn_halfRight": {
+      "bytes": 23881,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_autumn_halfRight.imageset/pio_cloud_autumn_halfRight.png",
+      "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_autumn_lidLeft": {
+      "bytes": 14811,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_autumn_lidLeft.imageset/pio_cloud_autumn_lidLeft.png",
+      "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_autumn_lidRight": {
+      "bytes": 14290,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_autumn_lidRight.imageset/pio_cloud_autumn_lidRight.png",
+      "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_autumn_v2_armPair": {
+      "bytes": 737977,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_autumn_v2_armPair.imageset/pio_cloud_autumn_v2_armPair.png",
+      "sha256": "38953dfb68df3783dab5ef1bc3233bef531e8282851b4fbae31bbf3ec4e04134",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_autumn_v2_torso": {
+      "bytes": 1819239,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_autumn_v2_torso.imageset/pio_cloud_autumn_v2_torso.png",
+      "sha256": "c69154ffe6f74c83e9474f6e7f773438cd4c85d130dfa86c9f99fc440bd2ceaa",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_basic_v1_armPair": {
+      "bytes": 397659,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_basic_v1_armPair.imageset/pio_cloud_basic_v1_armPair.png",
+      "sha256": "b1465818dfa059b1406bbcc2f7408d0f9545b420cef4dd5805f0f8e810d6c815",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_basic_v1_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_basic_v1_browLeft.imageset/pio_cloud_basic_v1_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_basic_v1_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_basic_v1_browRight.imageset/pio_cloud_basic_v1_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_basic_v1_closedPair": {
+      "bytes": 125419,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_basic_v1_closedPair.imageset/pio_cloud_basic_v1_closedPair.png",
+      "sha256": "9107ae63aa885f8b85403f2e86c30f62286b0daceeda12adce56265502b83fd9",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_basic_v1_feetPair": {
+      "bytes": 141051,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_basic_v1_feetPair.imageset/pio_cloud_basic_v1_feetPair.png",
+      "sha256": "d19d435181acd1c020eecfb5952074ae4cc5a46163e8062126cc6d2713e76345",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_basic_v1_openPair": {
+      "bytes": 106193,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_basic_v1_openPair.imageset/pio_cloud_basic_v1_openPair.png",
+      "sha256": "16d55cbd39b8be2f91af59d7c866db352cb8e14d71988fbdeea350aba8609a18",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_basic_v1_tablet": {
+      "bytes": 527678,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_basic_v1_tablet.imageset/pio_cloud_basic_v1_tablet.png",
+      "sha256": "4e1d558ffa3cb3a94e2cfe1a3c9fc375b4394475b9b688ecc591376f7470477a",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_basic_v1_torso": {
+      "bytes": 953903,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_basic_v1_torso.imageset/pio_cloud_basic_v1_torso.png",
+      "sha256": "041c4f3ee5b1e33fba0b725cccfa820a04ee5e402b2ab14c939d7afc1acf4080",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cafe_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cafe_browLeft.imageset/pio_cloud_cafe_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cafe_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cafe_browRight.imageset/pio_cloud_cafe_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cafe_eyeLeft": {
+      "bytes": 25173,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cafe_eyeLeft.imageset/pio_cloud_cafe_eyeLeft.png",
+      "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cafe_eyeRight": {
+      "bytes": 23997,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cafe_eyeRight.imageset/pio_cloud_cafe_eyeRight.png",
+      "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cafe_halfLeft": {
+      "bytes": 25007,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cafe_halfLeft.imageset/pio_cloud_cafe_halfLeft.png",
+      "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cafe_halfRight": {
+      "bytes": 23881,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cafe_halfRight.imageset/pio_cloud_cafe_halfRight.png",
+      "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cafe_lidLeft": {
+      "bytes": 14811,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cafe_lidLeft.imageset/pio_cloud_cafe_lidLeft.png",
+      "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cafe_lidRight": {
+      "bytes": 14290,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cafe_lidRight.imageset/pio_cloud_cafe_lidRight.png",
+      "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cafe_v2_armPair": {
+      "bytes": 447274,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cafe_v2_armPair.imageset/pio_cloud_cafe_v2_armPair.png",
+      "sha256": "d006f160e52fe6d5ae958c78b9b30f1f3c1cf3ba361dfade9c1acb668e2f1688",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cafe_v2_torso": {
+      "bytes": 1570805,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cafe_v2_torso.imageset/pio_cloud_cafe_v2_torso.png",
+      "sha256": "d566acc9355174b9af2747da3480409733a5054dc6a2ec81e693711fb5bf3bc8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cherryBlossom_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cherryBlossom_browLeft.imageset/pio_cloud_cherryBlossom_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cherryBlossom_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cherryBlossom_browRight.imageset/pio_cloud_cherryBlossom_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cherryBlossom_eyeLeft": {
+      "bytes": 25173,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cherryBlossom_eyeLeft.imageset/pio_cloud_cherryBlossom_eyeLeft.png",
+      "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cherryBlossom_eyeRight": {
+      "bytes": 23997,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cherryBlossom_eyeRight.imageset/pio_cloud_cherryBlossom_eyeRight.png",
+      "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cherryBlossom_halfLeft": {
+      "bytes": 25007,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cherryBlossom_halfLeft.imageset/pio_cloud_cherryBlossom_halfLeft.png",
+      "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cherryBlossom_halfRight": {
+      "bytes": 23881,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cherryBlossom_halfRight.imageset/pio_cloud_cherryBlossom_halfRight.png",
+      "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cherryBlossom_lidLeft": {
+      "bytes": 14811,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cherryBlossom_lidLeft.imageset/pio_cloud_cherryBlossom_lidLeft.png",
+      "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cherryBlossom_lidRight": {
+      "bytes": 14290,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cherryBlossom_lidRight.imageset/pio_cloud_cherryBlossom_lidRight.png",
+      "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cherryBlossom_v2_armPair": {
+      "bytes": 534996,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cherryBlossom_v2_armPair.imageset/pio_cloud_cherryBlossom_v2_armPair.png",
+      "sha256": "7cad52c9584aea599d50351992947696c3ffcada21e063b7a70945643e5f57bb",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_cherryBlossom_v2_torso": {
+      "bytes": 1469433,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_cherryBlossom_v2_torso.imageset/pio_cloud_cherryBlossom_v2_torso.png",
+      "sha256": "440775d3be6812899a1732c07c6245a3c0a34bd5dd2816678aae8346db9db3c0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_christmas_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_christmas_browLeft.imageset/pio_cloud_christmas_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_christmas_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_christmas_browRight.imageset/pio_cloud_christmas_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_christmas_eyeLeft": {
+      "bytes": 25173,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_christmas_eyeLeft.imageset/pio_cloud_christmas_eyeLeft.png",
+      "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_christmas_eyeRight": {
+      "bytes": 23997,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_christmas_eyeRight.imageset/pio_cloud_christmas_eyeRight.png",
+      "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_christmas_halfLeft": {
+      "bytes": 25007,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_christmas_halfLeft.imageset/pio_cloud_christmas_halfLeft.png",
+      "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_christmas_halfRight": {
+      "bytes": 23881,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_christmas_halfRight.imageset/pio_cloud_christmas_halfRight.png",
+      "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_christmas_lidLeft": {
+      "bytes": 14811,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_christmas_lidLeft.imageset/pio_cloud_christmas_lidLeft.png",
+      "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_christmas_lidRight": {
+      "bytes": 14290,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_christmas_lidRight.imageset/pio_cloud_christmas_lidRight.png",
+      "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_christmas_v2_armPair": {
+      "bytes": 497980,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_christmas_v2_armPair.imageset/pio_cloud_christmas_v2_armPair.png",
+      "sha256": "8c4d9f5410ca14a228e898776188de167b7b0172100041b7314fe1fc31fc2a82",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_christmas_v2_torso": {
+      "bytes": 1545285,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_christmas_v2_torso.imageset/pio_cloud_christmas_v2_torso.png",
+      "sha256": "bc2b537c5e0e2d256cadfa0183d827c8c57e27ab585db505be196933f0c242af",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_fitness_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_fitness_browLeft.imageset/pio_cloud_fitness_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_fitness_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_fitness_browRight.imageset/pio_cloud_fitness_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_fitness_eyeLeft": {
+      "bytes": 25173,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_fitness_eyeLeft.imageset/pio_cloud_fitness_eyeLeft.png",
+      "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_fitness_eyeRight": {
+      "bytes": 23997,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_fitness_eyeRight.imageset/pio_cloud_fitness_eyeRight.png",
+      "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_fitness_halfLeft": {
+      "bytes": 25007,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_fitness_halfLeft.imageset/pio_cloud_fitness_halfLeft.png",
+      "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_fitness_halfRight": {
+      "bytes": 23881,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_fitness_halfRight.imageset/pio_cloud_fitness_halfRight.png",
+      "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_fitness_lidLeft": {
+      "bytes": 14811,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_fitness_lidLeft.imageset/pio_cloud_fitness_lidLeft.png",
+      "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_fitness_lidRight": {
+      "bytes": 14290,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_fitness_lidRight.imageset/pio_cloud_fitness_lidRight.png",
+      "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_fitness_v2_armPair": {
+      "bytes": 561986,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_fitness_v2_armPair.imageset/pio_cloud_fitness_v2_armPair.png",
+      "sha256": "d9802ee63c742007e3b45e1d739c81e3cd552975e047394ea50184ff89148e65",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_fitness_v2_torso": {
+      "bytes": 1446490,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_fitness_v2_torso.imageset/pio_cloud_fitness_v2_torso.png",
+      "sha256": "0527bde4146a2c301ff2b3a5617a6ce3a7d410a941833705bbd0179dc4b9ffcb",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_halloween_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_halloween_browLeft.imageset/pio_cloud_halloween_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_halloween_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_halloween_browRight.imageset/pio_cloud_halloween_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_halloween_eyeLeft": {
+      "bytes": 25173,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_halloween_eyeLeft.imageset/pio_cloud_halloween_eyeLeft.png",
+      "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_halloween_eyeRight": {
+      "bytes": 23997,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_halloween_eyeRight.imageset/pio_cloud_halloween_eyeRight.png",
+      "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_halloween_halfLeft": {
+      "bytes": 25007,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_halloween_halfLeft.imageset/pio_cloud_halloween_halfLeft.png",
+      "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_halloween_halfRight": {
+      "bytes": 23881,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_halloween_halfRight.imageset/pio_cloud_halloween_halfRight.png",
+      "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_halloween_lidLeft": {
+      "bytes": 14811,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_halloween_lidLeft.imageset/pio_cloud_halloween_lidLeft.png",
+      "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_halloween_lidRight": {
+      "bytes": 14290,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_halloween_lidRight.imageset/pio_cloud_halloween_lidRight.png",
+      "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_halloween_v2_armPair": {
+      "bytes": 491862,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_halloween_v2_armPair.imageset/pio_cloud_halloween_v2_armPair.png",
+      "sha256": "bae5cfeb219acba6bcfbc4cb43872ddd8f4ee05d777a2c3d8855a97f2b25c81e",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_halloween_v2_torso": {
+      "bytes": 1422890,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_halloween_v2_torso.imageset/pio_cloud_halloween_v2_torso.png",
+      "sha256": "1bf1a7575587836b3dfb1f937408aa5451ed7fc5639f900d746f09a0dd23e43a",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_hanbok_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_hanbok_browLeft.imageset/pio_cloud_hanbok_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_hanbok_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_hanbok_browRight.imageset/pio_cloud_hanbok_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_hanbok_eyeLeft": {
+      "bytes": 25173,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_hanbok_eyeLeft.imageset/pio_cloud_hanbok_eyeLeft.png",
+      "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_hanbok_eyeRight": {
+      "bytes": 23997,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_hanbok_eyeRight.imageset/pio_cloud_hanbok_eyeRight.png",
+      "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_hanbok_halfLeft": {
+      "bytes": 25007,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_hanbok_halfLeft.imageset/pio_cloud_hanbok_halfLeft.png",
+      "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_hanbok_halfRight": {
+      "bytes": 23881,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_hanbok_halfRight.imageset/pio_cloud_hanbok_halfRight.png",
+      "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_hanbok_lidLeft": {
+      "bytes": 14811,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_hanbok_lidLeft.imageset/pio_cloud_hanbok_lidLeft.png",
+      "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_hanbok_lidRight": {
+      "bytes": 14290,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_hanbok_lidRight.imageset/pio_cloud_hanbok_lidRight.png",
+      "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_hanbok_v2_armPair": {
+      "bytes": 571345,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_hanbok_v2_armPair.imageset/pio_cloud_hanbok_v2_armPair.png",
+      "sha256": "772c1d1d857032ebe7d42d3f45b40931a5acc332df3e23380373453719a25fd3",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_hanbok_v2_torso": {
+      "bytes": 1491195,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_hanbok_v2_torso.imageset/pio_cloud_hanbok_v2_torso.png",
+      "sha256": "d184a4d12467be3ea0c0d97141018ce878c44ae7a4e1982bb8deac50d62e4962",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_pajamas_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_pajamas_browLeft.imageset/pio_cloud_pajamas_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_pajamas_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_pajamas_browRight.imageset/pio_cloud_pajamas_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_pajamas_eyeLeft": {
+      "bytes": 25173,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_pajamas_eyeLeft.imageset/pio_cloud_pajamas_eyeLeft.png",
+      "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_pajamas_eyeRight": {
+      "bytes": 23997,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_pajamas_eyeRight.imageset/pio_cloud_pajamas_eyeRight.png",
+      "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_pajamas_halfLeft": {
+      "bytes": 25007,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_pajamas_halfLeft.imageset/pio_cloud_pajamas_halfLeft.png",
+      "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_pajamas_halfRight": {
+      "bytes": 23881,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_pajamas_halfRight.imageset/pio_cloud_pajamas_halfRight.png",
+      "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_pajamas_lidLeft": {
+      "bytes": 14811,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_pajamas_lidLeft.imageset/pio_cloud_pajamas_lidLeft.png",
+      "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_pajamas_lidRight": {
+      "bytes": 14290,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_pajamas_lidRight.imageset/pio_cloud_pajamas_lidRight.png",
+      "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_pajamas_v2_armPair": {
+      "bytes": 375564,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_pajamas_v2_armPair.imageset/pio_cloud_pajamas_v2_armPair.png",
+      "sha256": "bf7ad745ced20a97c479ce166d626f71ed4aab1d68cfc8be25933005e0554667",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_pajamas_v2_torso": {
+      "bytes": 1436177,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_pajamas_v2_torso.imageset/pio_cloud_pajamas_v2_torso.png",
+      "sha256": "4a1d012c260e4d678b1a8d48a8de011e94ab2bcccbf5831d501b831c24700466",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_rainyDay_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_rainyDay_browLeft.imageset/pio_cloud_rainyDay_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_rainyDay_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_rainyDay_browRight.imageset/pio_cloud_rainyDay_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_rainyDay_eyeLeft": {
+      "bytes": 25173,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_rainyDay_eyeLeft.imageset/pio_cloud_rainyDay_eyeLeft.png",
+      "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_rainyDay_eyeRight": {
+      "bytes": 23997,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_rainyDay_eyeRight.imageset/pio_cloud_rainyDay_eyeRight.png",
+      "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_rainyDay_halfLeft": {
+      "bytes": 25007,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_rainyDay_halfLeft.imageset/pio_cloud_rainyDay_halfLeft.png",
+      "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_rainyDay_halfRight": {
+      "bytes": 23881,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_rainyDay_halfRight.imageset/pio_cloud_rainyDay_halfRight.png",
+      "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_rainyDay_lidLeft": {
+      "bytes": 14811,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_rainyDay_lidLeft.imageset/pio_cloud_rainyDay_lidLeft.png",
+      "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_rainyDay_lidRight": {
+      "bytes": 14290,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_rainyDay_lidRight.imageset/pio_cloud_rainyDay_lidRight.png",
+      "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_rainyDay_v2_armPair": {
+      "bytes": 500823,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_rainyDay_v2_armPair.imageset/pio_cloud_rainyDay_v2_armPair.png",
+      "sha256": "8a8c91672dd137335b2957bc054b2fcc12a19ccb8442e100457e7a8fb8a60a98",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_rainyDay_v2_torso": {
+      "bytes": 1288050,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_rainyDay_v2_torso.imageset/pio_cloud_rainyDay_v2_torso.png",
+      "sha256": "8297a67f7c59f7991c775d45e1c731320cede8c6ca0a38d5ac99452ec7e62bcf",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_student_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_student_browLeft.imageset/pio_cloud_student_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_student_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_student_browRight.imageset/pio_cloud_student_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_student_eyeLeft": {
+      "bytes": 25173,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_student_eyeLeft.imageset/pio_cloud_student_eyeLeft.png",
+      "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_student_eyeRight": {
+      "bytes": 23997,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_student_eyeRight.imageset/pio_cloud_student_eyeRight.png",
+      "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_student_halfLeft": {
+      "bytes": 25007,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_student_halfLeft.imageset/pio_cloud_student_halfLeft.png",
+      "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_student_halfRight": {
+      "bytes": 23881,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_student_halfRight.imageset/pio_cloud_student_halfRight.png",
+      "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_student_lidLeft": {
+      "bytes": 14811,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_student_lidLeft.imageset/pio_cloud_student_lidLeft.png",
+      "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_student_lidRight": {
+      "bytes": 14290,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_student_lidRight.imageset/pio_cloud_student_lidRight.png",
+      "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_student_optics": {
+      "bytes": 100600,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_student_optics.imageset/pio_cloud_student_optics.png",
+      "sha256": "48b8f0dc849308c0b051a8076d868e6971f76c15e58da7d9e76bbeae8bd23714",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_student_v2_armPair": {
+      "bytes": 430028,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_student_v2_armPair.imageset/pio_cloud_student_v2_armPair.png",
+      "sha256": "5830d75e6d1d7b0eb072829f999444bd0d106b9e1576019c47d15526e2b2c5ca",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_student_v2_torso": {
+      "bytes": 1399295,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_student_v2_torso.imageset/pio_cloud_student_v2_torso.png",
+      "sha256": "1b26b99a3e3a5a531d7e42f7e55e1d10fa7f72e566b681b8c4e8358d58ce7478",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_summerVacation_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_summerVacation_browLeft.imageset/pio_cloud_summerVacation_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_summerVacation_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_summerVacation_browRight.imageset/pio_cloud_summerVacation_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_summerVacation_eyeLeft": {
+      "bytes": 25173,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_summerVacation_eyeLeft.imageset/pio_cloud_summerVacation_eyeLeft.png",
+      "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_summerVacation_eyeRight": {
+      "bytes": 23997,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_summerVacation_eyeRight.imageset/pio_cloud_summerVacation_eyeRight.png",
+      "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_summerVacation_halfLeft": {
+      "bytes": 25007,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_summerVacation_halfLeft.imageset/pio_cloud_summerVacation_halfLeft.png",
+      "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_summerVacation_halfRight": {
+      "bytes": 23881,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_summerVacation_halfRight.imageset/pio_cloud_summerVacation_halfRight.png",
+      "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_summerVacation_lidLeft": {
+      "bytes": 14811,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_summerVacation_lidLeft.imageset/pio_cloud_summerVacation_lidLeft.png",
+      "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_summerVacation_lidRight": {
+      "bytes": 14290,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_summerVacation_lidRight.imageset/pio_cloud_summerVacation_lidRight.png",
+      "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_summerVacation_optics": {
+      "bytes": 160885,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_summerVacation_optics.imageset/pio_cloud_summerVacation_optics.png",
+      "sha256": "8dd6b762007b397f7235ac3a4510540109a1373615ae083b5df5e1c784366553",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_summerVacation_v2_armPair": {
+      "bytes": 438297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_summerVacation_v2_armPair.imageset/pio_cloud_summerVacation_v2_armPair.png",
+      "sha256": "cc16490a67268d9034664edf49ca509d6d16d9aa0bce7661f35b012cb4f8643d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_summerVacation_v2_torso": {
+      "bytes": 1533736,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_summerVacation_v2_torso.imageset/pio_cloud_summerVacation_v2_torso.png",
+      "sha256": "dc27e044c686ab77260c5642cc05a9dd456196de4d58599c09f52f399fba7ee5",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_winter_browLeft": {
+      "bytes": 15698,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_winter_browLeft.imageset/pio_cloud_winter_browLeft.png",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_winter_browRight": {
+      "bytes": 15297,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_winter_browRight.imageset/pio_cloud_winter_browRight.png",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_winter_eyeLeft": {
+      "bytes": 25173,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_winter_eyeLeft.imageset/pio_cloud_winter_eyeLeft.png",
+      "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_winter_eyeRight": {
+      "bytes": 23997,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_winter_eyeRight.imageset/pio_cloud_winter_eyeRight.png",
+      "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_winter_halfLeft": {
+      "bytes": 25007,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_winter_halfLeft.imageset/pio_cloud_winter_halfLeft.png",
+      "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_winter_halfRight": {
+      "bytes": 23881,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_winter_halfRight.imageset/pio_cloud_winter_halfRight.png",
+      "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_winter_lidLeft": {
+      "bytes": 14811,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_winter_lidLeft.imageset/pio_cloud_winter_lidLeft.png",
+      "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_winter_lidRight": {
+      "bytes": 14290,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_winter_lidRight.imageset/pio_cloud_winter_lidRight.png",
+      "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_winter_v2_armPair": {
+      "bytes": 723311,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_winter_v2_armPair.imageset/pio_cloud_winter_v2_armPair.png",
+      "sha256": "9f3dc8c0cd4a66aa821afbf072667891769c5e083439e214a0a18f9d6be3fdc7",
+      "width": 1254
+    },
+    "pio_cloud_prod_v2_winter_v2_torso": {
+      "bytes": 1590174,
+      "height": 1254,
+      "path": "Daylog/PioCloudProduction.xcassets/pio_cloud_prod_v2_winter_v2_torso.imageset/pio_cloud_winter_v2_torso.png",
+      "sha256": "4c4510632a36e41744a9d5af91bbfccda94a39fad736511e6232f97eceebeb1b",
+      "width": 1254
+    }
+  }
+}

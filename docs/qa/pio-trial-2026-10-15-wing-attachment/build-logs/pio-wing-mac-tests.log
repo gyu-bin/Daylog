@@ -1,0 +1,199 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme Daylog -derivedDataPath /tmp/DaylogWingAttachment.noindex/verify PRODUCT_BUNDLE_IDENTIFIER=com.daylog.verify CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= PROVISIONING_PROFILE_SPECIFIER= CODE_SIGN_ENTITLEMENTS=Config/Verify.entitlements test "-only-testing:DaylogTests/SaessagiTests" "-only-testing:DaylogTests/SaessagiGrowthTests" "-only-testing:DaylogTests/SaessagiGrowthArtTests" "-only-testing:DaylogTests/SaessagiHeaderActionTests"
+
+Build settings from command line:
+    CODE_SIGN_ENTITLEMENTS = Config/Verify.entitlements
+    CODE_SIGN_IDENTITY = -
+    CODE_SIGN_STYLE = Manual
+    DEVELOPMENT_TEAM = 
+    PRODUCT_BUNDLE_IDENTIFIER = com.daylog.verify
+    PROVISIONING_PROFILE_SPECIFIER = 
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, name:Any Mac }
+note: Using codesigning identity override: -
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (3 targets)
+    Target 'DaylogTests' in project 'Daylog'
+        ➜ Explicit dependency on target 'Daylog' in project 'Daylog'
+    Target 'Daylog' in project 'Daylog'
+        ➜ Explicit dependency on target 'Sparkle-product' in project 'Sparkle'
+    Target 'Sparkle-product' in project 'Sparkle' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk /tmp/DaylogWingAttachment.noindex/verify/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -o /tmp/DaylogWingAttachment.noindex/verify/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+
+note: Disabling hardened runtime with ad-hoc codesigning. (in target 'Daylog' from project 'Daylog')
+CodeSign /tmp/DaylogWingAttachment.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/DaylogWingAttachment.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib
+/tmp/DaylogWingAttachment.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib: replacing existing signature
+
+CodeSign /tmp/DaylogWingAttachment.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/DaylogWingAttachment.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib
+/tmp/DaylogWingAttachment.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib: replacing existing signature
+
+CodeSign /tmp/DaylogWingAttachment.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --entitlements /tmp/DaylogWingAttachment.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent --timestamp\=none --generate-entitlement-der /tmp/DaylogWingAttachment.noindex/verify/Build/Products/Debug/Daylog.app
+/tmp/DaylogWingAttachment.noindex/verify/Build/Products/Debug/Daylog.app: replacing existing signature
+
+Validate /tmp/DaylogWingAttachment.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-validationUtility /tmp/DaylogWingAttachment.noindex/verify/Build/Products/Debug/Daylog.app -no-validate-extension -infoplist-subpath Contents/Info.plist
+
+RegisterWithLaunchServices /tmp/DaylogWingAttachment.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-lsregisterurl --record-path /tmp/DaylogWingAttachment.noindex/verify/Build/Intermediates.noindex/XCBuildData/registered-launchservices.txt -- /System/Library/Frameworks/CoreServices.framework/Versions/Current/Frameworks/LaunchServices.framework/Versions/Current/Support/lsregister -f -R -trusted /tmp/DaylogWingAttachment.noindex/verify/Build/Products/Debug/Daylog.app
+
+PruneExplicitPrecompiledModules /tmp/DaylogWingAttachment.noindex/verify/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/DaylogWingAttachment.noindex/verify/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/DaylogWingAttachment.noindex/verify/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+2026-10-15 18:04:32.867728+0900 Daylog[11039:26917588] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-15 18:04:32.867876+0900 Daylog[11039:26917588] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-15 18:04:32.868524+0900 Daylog[11039:26917580] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-15 18:04:32.868542+0900 Daylog[11039:26917580] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-15 18:04:32.869264+0900 Daylog[11039:26917581] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-15 18:04:32.869277+0900 Daylog[11039:26917581] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-15 18:04:32.869933+0900 Daylog[11039:26917581] [Connection] Will NOT re-try to establish the connection
+2026-10-15 18:04:32.869955+0900 Daylog[11039:26917588] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-15 18:04:32.869968+0900 Daylog[11039:26917588] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-15 18:04:32.939598+0900 Daylog[11039:26917508] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /Users/mungyubin/Library/Containers/com.daylog.verify/Data/tmp/com.daylog.verify.savedState
+2026-10-15 18:04:33.434614+0900 Daylog[11039:26917674] [Common] Unable to obtain a task name port right for pid 615: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-15 18:04:33.551.
+Test Suite 'DaylogTests.xctest' started at 2026-10-15 18:04:33.552.
+Test Suite 'DaylogTests.xctest' passed at 2026-10-15 18:04:33.552.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.000) seconds
+Test Suite 'Selected tests' passed at 2026-10-15 18:04:33.552.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite SaessagiTests started.
+◇ Suite SaessagiGrowthTests started.
+◇ Suite SaessagiHeaderActionTests started.
+◇ Suite SaessagiGrowthArtTests started.
+◇ Test rigsAreLayeredOnlyForTheIdlePose() started.
+◇ Test pastRecordsCountAndVacationDaysDoNot() started.
+◇ Test idleLayersLineUpWithTheSinglePicture() started.
+◇ Test completingUndoingAndSkippingUpdateXP() started.
+◇ Test theSameDayCountsOnce() started.
+◇ Test skipsVacationsAndRestDaysEarnNothing() started.
+◇ Test levelsAndStagesFollowTheThresholds() started.
+◇ Test staysCalmWhenNothingWasAdded() started.
+◇ Test wholeImageActionsStayGentleAndEndAtRest() started.
+◇ Test renderedCharacterFillsTheFrameAndStaysInsideThePadding() started.
+◇ Test duplicateChecksAndRecordsCountOnce() started.
+◇ Test walkTargetsStayInsideTheLane() started.
+◇ Test stationaryActionsStayPutAndReturnToTheRestingPose() started.
+◇ Test everyPoseFitsTheSharedScale() started.
+◇ Test walkIsUnhurriedAndPlantedFeetDoNotSlide() started.
+◇ Test eventsMarkLevelUpsAndGrowth() started.
+◇ Test idleMotionStaysSmallAndBlinksEveryFewSeconds() started.
+◇ Test routinesEarnTenAndAFullDayEarnsTwentyMore() started.
+◇ Test everyPoseHasItsImage() started.
+◇ Test rendererMakesOnePixelExactImagePerSizeAndScale() started.
+◇ Test reactsToCompletingAndSkipping() started.
+◇ Test restsOnVacationAndSmilesOtherwise() started.
+◇ Test idleAnchorsSitInsideTheCharacter() started.
+◇ Test headerDirectorWalksOnlyInsideNarrowGaps() started.
+◇ Test headerDirectorAlternatesMovesAndGuaranteesPeekAndLongWalks() started.
+◇ Test everyPoseHasABehaviourThatSuitsIt() started.
+◇ Test growthLayersLineUpWithTheWholePicture() started.
+◇ Test stagesShareTheFrameAndOnlyTheTopGrows() started.
+◇ Test peekWalksToTheEndHidesPeeksAndHopsOut() started.
+◇ Test longWalksCoverMostOfTheLaneWhateverItsWidth() started.
+◇ Test developedWingRootsStayOnTorsoThroughRotationAndStopping() started.
+◇ Test pioStyleWaddlesAndKeepsFeetPlanted() started.
+◇ Test headerBehaviourMixesTheNewActions() started.
+◇ Test pioTrialGrowthStageArtFollowsLevelBoundaries() started.
+◇ Test pioStageThreePreservesIdentityAndLoadsEveryAttachment() started.
+◇ Test jumpsSquashOnLandingAndEndAtRest() started.
+✔ Test pastRecordsCountAndVacationDaysDoNot() passed after 0.282 seconds.
+✔ Test completingUndoingAndSkippingUpdateXP() passed after 0.283 seconds.
+✔ Test duplicateChecksAndRecordsCountOnce() passed after 0.282 seconds.
+✔ Test levelsAndStagesFollowTheThresholds() passed after 0.283 seconds.
+✔ Test skipsVacationsAndRestDaysEarnNothing() passed after 0.283 seconds.
+✔ Test theSameDayCountsOnce() passed after 0.285 seconds.
+✔ Test walkTargetsStayInsideTheLane() passed after 0.284 seconds.
+✔ Test idleLayersLineUpWithTheSinglePicture() passed after 0.286 seconds.
+✔ Test idleMotionStaysSmallAndBlinksEveryFewSeconds() passed after 0.284 seconds.
+✔ Test stationaryActionsStayPutAndReturnToTheRestingPose() passed after 0.284 seconds.
+✔ Test wholeImageActionsStayGentleAndEndAtRest() passed after 0.285 seconds.
+✔ Test everyPoseFitsTheSharedScale() passed after 0.284 seconds.
+✔ Test rendererMakesOnePixelExactImagePerSizeAndScale() passed after 0.285 seconds.
+✔ Test rigsAreLayeredOnlyForTheIdlePose() passed after 0.287 seconds.
+✔ Test staysCalmWhenNothingWasAdded() passed after 0.286 seconds.
+✔ Test idleAnchorsSitInsideTheCharacter() passed after 0.286 seconds.
+✔ Test renderedCharacterFillsTheFrameAndStaysInsideThePadding() passed after 0.288 seconds.
+✔ Test everyPoseHasItsImage() passed after 0.286 seconds.
+✔ Test routinesEarnTenAndAFullDayEarnsTwentyMore() passed after 0.286 seconds.
+✔ Test eventsMarkLevelUpsAndGrowth() passed after 0.286 seconds.
+✔ Suite SaessagiGrowthTests passed after 0.288 seconds.
+✔ Test restsOnVacationAndSmilesOtherwise() passed after 0.307 seconds.
+✔ Test headerDirectorWalksOnlyInsideNarrowGaps() passed after 0.327 seconds.
+✔ Test everyPoseHasABehaviourThatSuitsIt() passed after 0.327 seconds.
+✔ Test headerDirectorAlternatesMovesAndGuaranteesPeekAndLongWalks() passed after 0.459 seconds.
+✔ Test walkIsUnhurriedAndPlantedFeetDoNotSlide() passed after 0.459 seconds.
+✔ Test reactsToCompletingAndSkipping() passed after 0.459 seconds.
+✔ Suite SaessagiTests passed after 0.461 seconds.
+✔ Test stagesShareTheFrameAndOnlyTheTopGrows() passed after 0.620 seconds.
+✔ Test peekWalksToTheEndHidesPeeksAndHopsOut() passed after 0.624 seconds.
+✔ Test pioTrialGrowthStageArtFollowsLevelBoundaries() passed after 0.624 seconds.
+✔ Test longWalksCoverMostOfTheLaneWhateverItsWidth() passed after 0.624 seconds.
+✔ Test headerBehaviourMixesTheNewActions() passed after 0.624 seconds.
+✔ Test jumpsSquashOnLandingAndEndAtRest() passed after 0.618 seconds.
+✔ Test pioStyleWaddlesAndKeepsFeetPlanted() passed after 0.624 seconds.
+✔ Test growthLayersLineUpWithTheWholePicture() passed after 0.625 seconds.
+✔ Suite SaessagiGrowthArtTests passed after 0.627 seconds.
+✔ Test developedWingRootsStayOnTorsoThroughRotationAndStopping() passed after 0.628 seconds.
+✔ Test pioStageThreePreservesIdentityAndLoadsEveryAttachment() passed after 0.622 seconds.
+✔ Suite SaessagiHeaderActionTests passed after 0.630 seconds.
+✔ Test run with 36 tests in 4 suites passed after 0.631 seconds.
+2026-10-15 18:04:34.482 xcodebuild[10986:26917162] [MT] IDETestOperationsObserverDebug: 2.174 elapsed -- Testing started completed.
+2026-10-15 18:04:34.482 xcodebuild[10986:26917162] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-15 18:04:34.482 xcodebuild[10986:26917162] [MT] IDETestOperationsObserverDebug: 2.174 sec, +2.174 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/DaylogWingAttachment.noindex/verify/Logs/Test/Test-Daylog-2026.10.15_18-04-31-+0900.xcresult
+
+** TEST SUCCEEDED **
+
+Testing started

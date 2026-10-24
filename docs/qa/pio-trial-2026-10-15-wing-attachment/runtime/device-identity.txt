@@ -1,0 +1,132 @@
+Window: "Daylog Store iPhone 17 Pro Max", App: Device Hub.
+0 standard window Daylog Store iPhone 17 Pro Max – iOS 27.0, ID: com.apple.dt.DeviceKit.DeviceManagementWindow-AppWindow-1, Secondary Actions: Raise
+	1 split group
+		2 split group com.apple.dt.DeviceKit.DeviceManagementWindow-AppWindow-1, SidebarNavigationSplitView
+			3 scroll area
+				4 list Sidebar
+					5 row (selectable) Description: Available, Value: Expanded
+					6 row (selected) Description: Iphone, Third Generation, Value: Daylog Store iPhone 17 Pro Max
+27.0
+Simulator
+					7 row (selectable) Description: Iphone, Third Generation, Value: iPhone 17
+27.0
+Simulator
+					8 row (selectable) Description: Iphone, First Generation, Value: Daylog QA iPhone-SE-3rd-generation
+27.0
+Simulator
+					9 row (selectable) Description: Ipad, Value: Daylog Store iPad Pro 13
+27.0
+Simulator
+					10 row (selectable) Description: Ipad, Value: iPad Air 11-inch (M4)
+27.0
+Simulator
+					11 row (selectable) Description: Ipad, Value: iPad Pro 13-inch (M5)
+27.0
+Simulator
+					12 row (selectable) Description: Unavailable, Value: Collapsed
+			13 search text field (settable) Search
+				14 button Search
+			15 splitter (disabled, settable, float) 240
+			16 container
+				17 container
+					18 heading Description: Daylog, Secondary Actions: Cancel
+					19 button Description: 대시보드 편집, Help: 카드의 순서를 바꾸거나 숨깁니다., ID: square.grid.2x2, Secondary Actions: Cancel
+					20 button Description: 루틴 추가, Help: 오늘의 루틴에 새 항목을 적습니다., ID: plus, Secondary Actions: Cancel
+					21 text Description: 2026년 10월 15일 (목), 오늘도 좋은 하루예요, Secondary Actions: Cancel
+					22 button Description: 이전 날짜, Help: 이전 날짜 (⌘[), ID: chevron.left, Secondary Actions: Cancel
+					23 button (disabled) Description: 다음 날짜, Help: 다음 날짜 (⌘]), ID: chevron.right, Secondary Actions: Cancel
+					24 button (disabled) Description: 오늘로 이동, Help: 오늘로 이동 (⌘T), Secondary Actions: Cancel
+					25 element Description: 오늘의 진행률, 미기록. 1개가 기다리고 있어요., Secondary Actions: Cancel
+					26 text Description: 이번 주의 성장, Secondary Actions: Cancel
+					27 pop up button Description: 주간 목표 5일, Help: 주간 목표를 1일에서 7일 사이로 바꿉니다., Secondary Actions: Cancel
+					28 element Description: 이번 주의 성장. 목표 5일 중 0일 실천. 이번 주는 아직 실천한 날이 없어요. 오늘도 작은 습관 하나부터 시작해 보세요., Secondary Actions: Cancel
+					29 text Description: 오늘의 루틴, Secondary Actions: Cancel
+					30 button Description: 루틴 관리, Secondary Actions: Cancel
+					31 button Description: 기본 루틴 그룹, 1개 중 0개 완료, Help: 누르면 접거나 펼칩니다., Value: 펼침, Secondary Actions: Cancel
+					32 button Description: 기본 루틴 그룹에 항목 추가, Help: 기본 루틴에 항목 추가, ID: plus, Secondary Actions: Cancel
+					33 text Description: Stage3-QA, Secondary Actions: Cancel
+					34 button (selected) Description: Stage3-QA 완료, Help: 누르면 완료로 기록합니다., Value: 꺼짐, ID: checkmark, Secondary Actions: Cancel
+					35 button Description: Stage3-QA 건너뛰기, Help: 누르면 건너뜀으로 기록합니다., Value: 꺼짐, ID: chevron.right.2, Secondary Actions: Cancel
+					36 element Description: 전체 달성률 미기록, 1개 중 0개 완료, Secondary Actions: Cancel
+					37 text Description: 피오 성장, Secondary Actions: Cancel
+					38 element Description: 새싹이 성장. 레벨 25, 꽃 단계. 다음 레벨까지 0 / 100 XP. 꽃이 활짝 피었어요. 꾸준함이 계속 쌓이고 있어요., Secondary Actions: Cancel
+					39 text Description: 오늘의 식사, Secondary Actions: Cancel
+					40 button Description: 식사 적기, Secondary Actions: Cancel
+					41 element Description: 아침, 기록 없음, Help: 식사 탭에서 적습니다., Secondary Actions: Cancel
+					42 element Description: 점심, 기록 없음, Help: 식사 탭에서 적습니다., Secondary Actions: Cancel
+					43 element Description: 저녁, 기록 없음, Help: 식사 탭에서 적습니다., Secondary Actions: Cancel
+					44 element Description: 간식, 기록 없음, Help: 식사 탭에서 적습니다., Secondary Actions: Cancel
+					45 text Description: 최근 7일 기록, Secondary Actions: Cancel
+					46 button Description: 전체 보기, Secondary Actions: Cancel
+					47 button Description: 10월 9일 금요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+					48 button Description: 10월 10일 토요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+					49 button Description: 10월 11일 일요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+					50 button Description: 10월 12일 월요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+					51 button Description: 10월 13일 화요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+					52 button Description: 10월 14일 수요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+					53 button Description: 10월 15일 목요일, 미기록, 평균 계산에는 0%로 포함, Help: 이 날짜의 기록으로 이동, Secondary Actions: Cancel
+					54 element Description: 이번 주 평균 0%, 집계한 1일 중 0일 달성, Secondary Actions: Cancel
+					55 text Description: 내일 오전 할 일, Secondary Actions: Cancel
+					56 text field (settable) Description: 내일 오전 할 일, Value: 한 줄로 적어 두세요, Secondary Actions: Cancel
+					57 heading Description: 휴가 설정, Secondary Actions: Cancel
+					58 button Description: 기간 추가, Secondary Actions: Cancel
+					59 container Description: 탭 막대, Secondary Actions: Cancel
+				60 button Description: Home, ID: app.grid.3x3
+				61 button Description: Screenshot, ID: camera.viewfinder
+				62 button Description: Record, ID: record.circle
+				63 button Rotate Left
+		64 splitter (disabled, settable, float) 799
+		65 container
+			66 tab group Inspector Subcategory
+				67 tab Description: Info, Value: 1, ID: InspectorButton.com.apple.devicekit.inspector.info
+				68 tab Description: Apps, Value: 0, ID: InspectorButton.com.apple.devicekit.inspector.apps
+				69 tab Description: Profiles, Value: 0, ID: InspectorButton.com.apple.devicekit.inspector.profiles
+			70 scroll area Description: Info, ID: Inspector.com.apple.devicekit.inspector.info
+				71 container
+					72 text Name, Help: Daylog Store iPhone 17 Pro Max, Value: Daylog Store iPhone 17 Pro Max iOS 27.0, ID: info.inspector.item.name.value
+				73 container
+					74 text Model, Help: iPhone 17 Pro Max, Value: iPhone 17 Pro Max CF19DDA2-20F5-440C-9133-7A4594341DAE
+				75 heading Paired Simulators
+				76 container
+					77 scroll area
+						78 list
+							79 row (selectable) No Paired Watch Simulators
+					80 button (disabled) Description: Add, Help: Pair Apple Watch
+					81 button (disabled) Description: Remove, Help: Unpair Apple Watch
+				82 button Edit Visibility
+			83 container Description: Info, ID: Inspector.com.apple.devicekit.inspector.info
+	84 toolbar
+		85 menu button Add Device, ID: plus
+		86 toggle button Description: Filter, Help: Sort and Filter, Value: off
+		87 button Description: Hide Sidebar, Secondary Actions: Increment, Decrement, Delete, Cancel
+		88 toggle button Description: Capture Keyboard, Value: off
+		89 toggle button Description: Resize mode, Help: Enter resize mode, Value: off
+		90 Zoom
+			91 radio button Description: Zoom Out, Value: 0, ID: minus.magnifyingglass
+			92 radio button Description: Up, Right, Down, And Left Triangles In A Magnifying Glass, Help: Zoom to Fit, Value: 0, ID: arrowtriangles.up.right.down.left.magnifyingglass
+			93 radio button Description: Zoom To Actual Size, Help: Physical Size, Value: 1, ID: 1.magnifyingglass
+			94 radio button Description: Zoom In, Value: 0, ID: plus.magnifyingglass
+		95 button Description: Open in New Window, Help: Switch to compact window, Secondary Actions: Increment, Decrement, Delete, Cancel, Move previous, Move next, Remove from toolbar
+		96 menu button More Actions, ID: ellipsis
+		97 Inspector Category
+			98 radio button Description: Edit, Help: Settings, Value: 0, ID: slider.horizontal.3
+			99 radio button Description: Text Document, Help: Reports, Value: 0, ID: text.document
+			100 radio button Description: Info, Value: 1, ID: info
+	101 close button
+	102 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	103 minimize button
+	104 text Daylog Store iPhone 17 Pro Max iOS 27.0
+105 menu bar
+	106 Device Hub
+	107 File
+	108 Edit
+	109 View
+	110 Device
+	111 Controls
+	112 Window
+	113 Help
+
+Selected:
+	6 row (selected)
+
+Note: Pay special attention to the content selected by the user. If the user asks a question or refers to the content they are looking at on-screen, they might be referring to the selected content (but they might be referring to something else that's visible, too).

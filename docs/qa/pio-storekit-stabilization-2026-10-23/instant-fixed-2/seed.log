@@ -1,0 +1,51 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /private/tmp/PioStoreKit-20261023-ios/Build/Products/PioProcessRelaunch-a76039a3-cb60-40c8-bf39-6b56627f648f-seed.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitProcessRelaunchTests/testSeedVerifiedLedgerInFirstProcess" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-stabilization-2026-10-23/instant-fixed-2/seed.xcresult
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-stabilization-2026-10-23/instant-fixed-2/seed.xcresult
+
+2026-10-23 20:24:36.095 xcodebuild[96624:827488] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:24:39.554263+0900 Daylog[96633:827626] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 20:24:39.987673+0900 Daylog[96633:827626] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 20:24:40.019988+0900 Daylog[96633:827626] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 20:24:40.024896+0900 Daylog[96633:827626] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 20:24:40.032.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 20:24:40.033.
+Test Suite 'PioStoreKitProcessRelaunchTests' started at 2026-10-23 20:24:40.033.
+Test Case '-[DaylogStoreKitTests.PioStoreKitProcessRelaunchTests testSeedVerifiedLedgerInFirstProcess]' started.
+PioStoreKit: client=8B2E7D66 time=1792754680.092046 raw listener started subscription=EC6DC52D-DB4D-4EA5-B477-AED327978F4A
+PioStoreKit: client=8B2E7D66 time=1792754680.1147451 accepted id=82 product=outfit.cafe revoked=false
+PioStoreKit: client=8B2E7D66 time=1792754680.114846 finish requested id=82 cached=true inFlight=0
+PioStoreKit: client=8B2E7D66 time=1792754680.114881 finish begin id=82 product=outfit.cafe revoked=false
+PioStoreKit: client=8B2E7D66 time=1792754680.118218 finish returned id=82
+PioStoreKit: client=8B2E7D66 time=1792754680.121742 raw listener ended subscription=EC6DC52D-DB4D-4EA5-B477-AED327978F4A
+PIO_PROCESS_RELAUNCH {
+  "environment" : "Xcode",
+  "phase" : "seed",
+  "pid" : 96633,
+  "productID" : "outfit.cafe",
+  "seedMethod" : "product-purchase",
+  "seedTime" : 1792754680.121042,
+  "suite" : "PioStoreKitProcessRelaunchTests.a76039a3-cb60-40c8-bf39-6b56627f648f",
+  "transactionID" : "82"
+}
+Test Case '-[DaylogStoreKitTests.PioStoreKitProcessRelaunchTests testSeedVerifiedLedgerInFirstProcess]' passed (0.090 seconds).
+Test Suite 'PioStoreKitProcessRelaunchTests' passed at 2026-10-23 20:24:40.125.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.090 (0.092) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-23 20:24:40.125.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.090 (0.092) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 20:24:40.125.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.090 (0.093) seconds
+2026-10-23 20:24:40.142 xcodebuild[96624:827488] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:24:40.142 xcodebuild[96624:827488] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:24:40.143 xcodebuild[96624:827488] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:24:40.407 xcodebuild[96624:827488] [MT] IDETestOperationsObserverDebug: 4.348 elapsed -- Testing started completed.
+2026-10-23 20:24:40.407 xcodebuild[96624:827488] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 20:24:40.407 xcodebuild[96624:827488] [MT] IDETestOperationsObserverDebug: 4.348 sec, +4.348 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-stabilization-2026-10-23/instant-fixed-2/seed.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

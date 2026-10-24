@@ -1,0 +1,186 @@
+{
+  "canvas" : [
+    1254,
+    1254
+  ],
+  "giftConstraint" : "gift and handLeft share translation; handRight may move independently only while leftgrip continues to carry gift",
+  "hasIndependentSprout" : false,
+  "headwearMotion" : "Entire genuine headwear texture rotates locally; no separate leaf or pom motion is claimed",
+  "layers" : [
+    {
+      "id" : "footLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        411.69040247678021,
+        1015.9442724458204
+      ],
+      "pivot" : [
+        530,
+        1070
+      ],
+      "scale" : 0.17027863777089783,
+      "source" : "candidates\/base\/foot-v1.png",
+      "z" : 0
+    },
+    {
+      "id" : "footRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        712.44582043343655,
+        1029.0402476780187
+      ],
+      "pivot" : [
+        817,
+        1070
+      ],
+      "scale" : 0.15479876160990713,
+      "source" : "candidates\/base\/foot-v1.png",
+      "z" : 1
+    },
+    {
+      "id" : "body",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        130.65354330708661,
+        193.33464566929135
+      ],
+      "pivot" : [
+        650,
+        780
+      ],
+      "scale" : 0.79921259842519687,
+      "source" : "candidates\/christmas\/body-clean-v1.png",
+      "z" : 2
+    },
+    {
+      "id" : "hat",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        71.709844559585491,
+        -61.554404145077726
+      ],
+      "pivot" : [
+        660,
+        450
+      ],
+      "scale" : 0.72538860103626945,
+      "source" : "candidates\/christmas\/headwear-v2.png",
+      "z" : 3
+    },
+    {
+      "id" : "eyeLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        466.46858638743458,
+        570.57329842931938
+      ],
+      "pivot" : [
+        551,
+        652
+      ],
+      "scale" : 0.12827225130890052,
+      "source" : "candidates\/base\/eye-open-v1.png",
+      "z" : 4
+    },
+    {
+      "id" : "eyeRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        750.19371727748694,
+        538.21465968586392
+      ],
+      "pivot" : [
+        833,
+        618
+      ],
+      "scale" : 0.1256544502617801,
+      "source" : "candidates\/base\/eye-open-v1.png",
+      "z" : 5
+    },
+    {
+      "id" : "lidLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        467.22332506203475,
+        569.14392059553347
+      ],
+      "pivot" : [
+        551,
+        658
+      ],
+      "scale" : 0.12655086848635236,
+      "source" : "candidates\/base\/eyelid-closed-v1.png",
+      "z" : 6
+    },
+    {
+      "id" : "lidRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        750.86600496277913,
+        535.51364764267987
+      ],
+      "pivot" : [
+        833,
+        622
+      ],
+      "scale" : 0.12406947890818859,
+      "source" : "candidates\/base\/eyelid-closed-v1.png",
+      "z" : 7
+    },
+    {
+      "id" : "gift",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        688.75,
+        655
+      ],
+      "pivot" : [
+        790,
+        925
+      ],
+      "scale" : 0.3125,
+      "source" : "candidates\/christmas\/gift-v1.png",
+      "z" : 8
+    },
+    {
+      "id" : "handLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        368.13651877133105,
+        614.6757679180887
+      ],
+      "pivot" : [
+        513,
+        870
+      ],
+      "scale" : 0.37542662116040953,
+      "source" : "candidates\/christmas\/hand-left-v2.png",
+      "z" : 9
+    },
+    {
+      "id" : "handRight",
+      "neutralAngleDegrees" : -60,
+      "offset" : [
+        790,
+        634
+      ],
+      "pivot" : [
+        1050,
+        790
+      ],
+      "scale" : 0.26000000000000001,
+      "source" : "candidates\/christmas\/hand-right-v2.png",
+      "z" : 10
+    }
+  ],
+  "origin" : "topLeft",
+  "referenceOffset" : [
+    0,
+    0
+  ],
+  "referenceScale" : 1,
+  "registrationMethod" : "Independent uniform downscale\/translation; no painting, alpha cleanup or source deformation",
+  "schemaVersion" : 1,
+  "sourceReference" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/Daylog\/PioWardrobe.xcassets\/pio_outfit_christmas.imageset\/pio_outfit_christmas.png",
+  "status" : "ART_QA_CANDIDATE_NOT_APPROVED"
+}

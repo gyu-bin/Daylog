@@ -1,0 +1,78 @@
+{
+  "devices" : {
+    "com.apple.CoreSimulator.SimRuntime.iOS-27-0" : [
+      {
+        "dataPath" : "\/Users\/mungyubin\/Library\/Developer\/CoreSimulator\/Devices\/658B0623-C58F-41B3-A15C-08C7ADB6BCD4\/data",
+        "dataPathSize" : 1822633984,
+        "logPath" : "\/Users\/mungyubin\/Library\/Logs\/CoreSimulator\/658B0623-C58F-41B3-A15C-08C7ADB6BCD4",
+        "udid" : "658B0623-C58F-41B3-A15C-08C7ADB6BCD4",
+        "lastUsedAt" : "2026-10-23T11:11:08Z",
+        "isAvailable" : true,
+        "logPathSize" : 118784,
+        "deviceTypeIdentifier" : "com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro",
+        "state" : "Shutdown",
+        "name" : "Don't Move Visual QA"
+      },
+      {
+        "dataPath" : "\/Users\/mungyubin\/Library\/Developer\/CoreSimulator\/Devices\/66B81EA7-8132-4677-A443-2C5F96FB06ED\/data",
+        "dataPathSize" : 10551955456,
+        "logPath" : "\/Users\/mungyubin\/Library\/Logs\/CoreSimulator\/66B81EA7-8132-4677-A443-2C5F96FB06ED",
+        "udid" : "66B81EA7-8132-4677-A443-2C5F96FB06ED",
+        "lastUsedAt" : "2026-10-24T02:58:42Z",
+        "isAvailable" : true,
+        "logPathSize" : 716800,
+        "deviceTypeIdentifier" : "com.apple.CoreSimulator.SimDeviceType.iPhone-17",
+        "state" : "Booted",
+        "name" : "iPhone 17"
+      },
+      {
+        "dataPath" : "\/Users\/mungyubin\/Library\/Developer\/CoreSimulator\/Devices\/89B877BB-6094-4A27-B108-3A958EF23D9B\/data",
+        "dataPathSize" : 1947574272,
+        "logPath" : "\/Users\/mungyubin\/Library\/Logs\/CoreSimulator\/89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "udid" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "lastUsedAt" : "2026-10-23T09:07:45Z",
+        "isAvailable" : true,
+        "logPathSize" : 217088,
+        "deviceTypeIdentifier" : "com.apple.CoreSimulator.SimDeviceType.iPhone-17",
+        "state" : "Shutdown",
+        "name" : "Pio Motion Review 2026-10-23"
+      },
+      {
+        "dataPath" : "\/Users\/mungyubin\/Library\/Developer\/CoreSimulator\/Devices\/0426CD78-3807-4650-9776-B649780E2884\/data",
+        "dataPathSize" : 2915487744,
+        "logPath" : "\/Users\/mungyubin\/Library\/Logs\/CoreSimulator\/0426CD78-3807-4650-9776-B649780E2884",
+        "udid" : "0426CD78-3807-4650-9776-B649780E2884",
+        "lastUsedAt" : "2026-10-24T03:15:34Z",
+        "isAvailable" : true,
+        "logPathSize" : 458752,
+        "deviceTypeIdentifier" : "com.apple.CoreSimulator.SimDeviceType.iPhone-17",
+        "state" : "Shutdown",
+        "name" : "Pio StoreKit Local 2026-10-23"
+      },
+      {
+        "dataPath" : "\/Users\/mungyubin\/Library\/Developer\/CoreSimulator\/Devices\/87F27718-1575-4384-B7DB-1AF4601DBC86\/data",
+        "dataPathSize" : 607956992,
+        "logPath" : "\/Users\/mungyubin\/Library\/Logs\/CoreSimulator\/87F27718-1575-4384-B7DB-1AF4601DBC86",
+        "udid" : "87F27718-1575-4384-B7DB-1AF4601DBC86",
+        "lastUsedAt" : "2026-10-24T02:43:06Z",
+        "isAvailable" : true,
+        "logPathSize" : 237568,
+        "deviceTypeIdentifier" : "com.apple.CoreSimulator.SimDeviceType.iPhone-SE-3rd-generation",
+        "state" : "Shutdown",
+        "name" : "Pio Small Phone QA 2026-10-24"
+      },
+      {
+        "dataPath" : "\/Users\/mungyubin\/Library\/Developer\/CoreSimulator\/Devices\/18A1DFA8-796C-4403-9CC0-C02FD790F40A\/data",
+        "dataPathSize" : 750759936,
+        "logPath" : "\/Users\/mungyubin\/Library\/Logs\/CoreSimulator\/18A1DFA8-796C-4403-9CC0-C02FD790F40A",
+        "udid" : "18A1DFA8-796C-4403-9CC0-C02FD790F40A",
+        "lastUsedAt" : "2026-10-24T02:44:51Z",
+        "isAvailable" : true,
+        "logPathSize" : 200704,
+        "deviceTypeIdentifier" : "com.apple.CoreSimulator.SimDeviceType.iPad-mini-A17-Pro",
+        "state" : "Shutdown",
+        "name" : "Pio iPad QA 2026-10-24"
+      }
+    ]
+  }
+}

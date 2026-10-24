@@ -78,7 +78,7 @@ struct MenuBarView: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .firstTextBaseline) {
                 VStack(alignment: .leading, spacing: 1) {
-                    Text("Daylog")
+                    Text("RoutiMori")
                         .font(.headline)
                     Text(store.today.longTitle)
                         .font(.caption)
@@ -118,10 +118,10 @@ struct MenuBarView: View {
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(
             store.isVacation(on: store.today)
-                ? (total > 0 ? "Daylog, 휴가, 유지하는 루틴 \(total)개 중 \(done)개 완료" : "Daylog, 휴가, 통계 제외")
+                ? (total > 0 ? "RoutiMori, 휴가, 유지하는 루틴 \(total)개 중 \(done)개 완료" : "RoutiMori, 휴가, 통계 제외")
                 : total > 0
-                ? "Daylog, \(store.today.longTitle), 달성률 \(Achievement.percent(done: done, total: total) ?? 0)%, \(total)개 중 \(done)개 완료"
-                : "Daylog, \(store.today.longTitle)"
+                ? "RoutiMori, \(store.today.longTitle), 달성률 \(Achievement.percent(done: done, total: total) ?? 0)%, \(total)개 중 \(done)개 완료"
+                : "RoutiMori, \(store.today.longTitle)"
         )
     }
 
@@ -185,14 +185,14 @@ struct MenuBarView: View {
 
     private var footer: some View {
         HStack(spacing: 6) {
-            Button("Daylog 열기") {
+            Button("RoutiMori 열기") {
                 openMainWindow(section: .dashboard)
             }
             Button("설정") {
                 openMainWindow(section: .settings)
             }
             Spacer(minLength: 6)
-            Button("Daylog 종료") {
+            Button("RoutiMori 종료") {
                 NSApplication.shared.terminate(nil)
             }
         }

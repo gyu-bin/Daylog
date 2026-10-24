@@ -1,0 +1,52 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "0426CD78-3807-4650-9776-B649780E2884",
+        "deviceName" : "Pio StoreKit Local 2026-10-23",
+        "modelName" : "iPhone 17",
+        "osBuildNumber" : "24A434",
+        "osVersion" : "27.0",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 1,
+      "passedTests" : 0,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "DaylogiOSStoreKit · Built with macOS 27.0.1",
+  "expectedFailures" : 0,
+  "failedTests" : 1,
+  "finishTime" : 1792752085.4,
+  "passedTests" : 0,
+  "result" : "Failed",
+  "runtimeWarnings" : [
+
+  ],
+  "skippedTests" : 0,
+  "startTime" : 1792752075.317,
+  "statistics" : [
+
+  ],
+  "testFailures" : [
+    {
+      "failureText" : "XCTAssertEqual failed: (\"nil\") is not equal to (\"Optional(73700)\") - Fixture must prove its seed metadata reached disk before ending the process",
+      "targetName" : "DaylogStoreKitTests",
+      "testIdentifier" : 1,
+      "testIdentifierString" : "PioStoreKitProcessRelaunchTests/testSeedVerifiedLedgerInFirstProcess()",
+      "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitProcessRelaunchTests/testSeedVerifiedLedgerInFirstProcess",
+      "testName" : "testSeedVerifiedLedgerInFirstProcess()"
+    }
+  ],
+  "title" : "Test - DaylogiOSStoreKit",
+  "topInsights" : [
+
+  ],
+  "totalTestCount" : 1
+}

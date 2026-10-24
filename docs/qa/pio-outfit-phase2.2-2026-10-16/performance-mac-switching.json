@@ -1,0 +1,262 @@
+{
+  "case": "mac-switching",
+  "platform": "mac",
+  "pid": 80240,
+  "environment": "Same isolated Debug app, same diagnostic root, one220pt character, same1040x900window onMac or dedicatediPhone17simulator on iOS, samepreloaded source set; no CUA snapshots or video recording during timed window",
+  "method": "3ssettle then process CPUtime delta andRSS each1s;100percent=oneCPUcore. ps%cpu retained forcomparison toolder report. Wholeapp,notGPU",
+  "seconds": 35.396165167097934,
+  "meanCPUPercent": 1.2995758094935868,
+  "maxIntervalCPUPercent": 2.971802176610503,
+  "meanPsCPUPercent": 0.26571428571428574,
+  "rssMiBRange": [
+    81.625,
+    113.5625
+  ],
+  "samples": [
+    {
+      "at": 861873.9320475,
+      "cpuSeconds": 0.56,
+      "rssKiB": 116288,
+      "psCPUPercent": 0.3,
+      "cpuDeltaPercent": 2.971802176610503
+    },
+    {
+      "at": 861874.945737,
+      "cpuSeconds": 0.57,
+      "rssKiB": 106672,
+      "psCPUPercent": 0.2,
+      "cpuDeltaPercent": 0.9864953716779865
+    },
+    {
+      "at": 861875.951235708,
+      "cpuSeconds": 0.59,
+      "rssKiB": 103760,
+      "psCPUPercent": 0.2,
+      "cpuDeltaPercent": 1.9890627248961246
+    },
+    {
+      "at": 861876.956269916,
+      "cpuSeconds": 0.6,
+      "rssKiB": 103696,
+      "psCPUPercent": 0.2,
+      "cpuDeltaPercent": 0.9949910082418082
+    },
+    {
+      "at": 861877.9662255,
+      "cpuSeconds": 0.62,
+      "rssKiB": 103728,
+      "psCPUPercent": 0.3,
+      "cpuDeltaPercent": 1.980285105378253
+    },
+    {
+      "at": 861878.975057583,
+      "cpuSeconds": 0.63,
+      "rssKiB": 103712,
+      "psCPUPercent": 0.2,
+      "cpuDeltaPercent": 0.9912452398011617
+    },
+    {
+      "at": 861879.982141333,
+      "cpuSeconds": 0.65,
+      "rssKiB": 103728,
+      "psCPUPercent": 0.4,
+      "cpuDeltaPercent": 1.9859321529189657
+    },
+    {
+      "at": 861880.986271625,
+      "cpuSeconds": 0.66,
+      "rssKiB": 103776,
+      "psCPUPercent": 0.2,
+      "cpuDeltaPercent": 0.9958866971564211
+    },
+    {
+      "at": 861881.994850916,
+      "cpuSeconds": 0.67,
+      "rssKiB": 103744,
+      "psCPUPercent": 0.2,
+      "cpuDeltaPercent": 0.9914936871947314
+    },
+    {
+      "at": 861883.005404958,
+      "cpuSeconds": 0.69,
+      "rssKiB": 103440,
+      "psCPUPercent": 0.1,
+      "cpuDeltaPercent": 1.9791123648544633
+    },
+    {
+      "at": 861884.010686666,
+      "cpuSeconds": 0.7,
+      "rssKiB": 100048,
+      "psCPUPercent": 0.2,
+      "cpuDeltaPercent": 0.9947460419019382
+    },
+    {
+      "at": 861885.035632666,
+      "cpuSeconds": 0.72,
+      "rssKiB": 85600,
+      "psCPUPercent": 0.8,
+      "cpuDeltaPercent": 1.9513223136393796
+    },
+    {
+      "at": 861886.044382583,
+      "cpuSeconds": 0.74,
+      "rssKiB": 90112,
+      "psCPUPercent": 0.8,
+      "cpuDeltaPercent": 1.9826519598457815
+    },
+    {
+      "at": 861887.0535885,
+      "cpuSeconds": 0.75,
+      "rssKiB": 90128,
+      "psCPUPercent": 0.2,
+      "cpuDeltaPercent": 0.9908780588206169
+    },
+    {
+      "at": 861888.063089083,
+      "cpuSeconds": 0.77,
+      "rssKiB": 90176,
+      "psCPUPercent": 0.3,
+      "cpuDeltaPercent": 1.9811776573567432
+    },
+    {
+      "at": 861889.077190375,
+      "cpuSeconds": 0.79,
+      "rssKiB": 90208,
+      "psCPUPercent": 0.3,
+      "cpuDeltaPercent": 1.9721895788560384
+    },
+    {
+      "at": 861890.09577275,
+      "cpuSeconds": 0.81,
+      "rssKiB": 87520,
+      "psCPUPercent": 0.4,
+      "cpuDeltaPercent": 1.9635132602382688
+    },
+    {
+      "at": 861891.108366916,
+      "cpuSeconds": 0.82,
+      "rssKiB": 89184,
+      "psCPUPercent": 0.3,
+      "cpuDeltaPercent": 0.9875624742842679
+    },
+    {
+      "at": 861892.13038575,
+      "cpuSeconds": 0.84,
+      "rssKiB": 89456,
+      "psCPUPercent": 0.3,
+      "cpuDeltaPercent": 1.956911099317676
+    },
+    {
+      "at": 861893.14205875,
+      "cpuSeconds": 0.85,
+      "rssKiB": 89440,
+      "psCPUPercent": 0.3,
+      "cpuDeltaPercent": 0.9884616866730576
+    },
+    {
+      "at": 861894.146551583,
+      "cpuSeconds": 0.87,
+      "rssKiB": 89456,
+      "psCPUPercent": 0.4,
+      "cpuDeltaPercent": 1.9910545246664986
+    },
+    {
+      "at": 861895.157101833,
+      "cpuSeconds": 0.89,
+      "rssKiB": 89472,
+      "psCPUPercent": 0.3,
+      "cpuDeltaPercent": 1.9791197912904388
+    },
+    {
+      "at": 861896.167414333,
+      "cpuSeconds": 0.9,
+      "rssKiB": 89488,
+      "psCPUPercent": 0.2,
+      "cpuDeltaPercent": 0.9897927621951722
+    },
+    {
+      "at": 861897.177071291,
+      "cpuSeconds": 0.92,
+      "rssKiB": 89488,
+      "psCPUPercent": 0.4,
+      "cpuDeltaPercent": 1.9808708136517548
+    },
+    {
+      "at": 861898.190666625,
+      "cpuSeconds": 0.94,
+      "rssKiB": 89488,
+      "psCPUPercent": 0.6,
+      "cpuDeltaPercent": 1.9731740398459794
+    },
+    {
+      "at": 861899.201209333,
+      "cpuSeconds": 0.95,
+      "rssKiB": 89488,
+      "psCPUPercent": 0.4,
+      "cpuDeltaPercent": 0.9895672811251668
+    },
+    {
+      "at": 861900.21494775,
+      "cpuSeconds": 0.97,
+      "rssKiB": 89488,
+      "psCPUPercent": 0.4,
+      "cpuDeltaPercent": 1.9728955384929598
+    },
+    {
+      "at": 861901.224968041,
+      "cpuSeconds": 0.99,
+      "rssKiB": 90160,
+      "psCPUPercent": 0.4,
+      "cpuDeltaPercent": 1.9801582382914666
+    },
+    {
+      "at": 861902.233718708,
+      "cpuSeconds": 0.99,
+      "rssKiB": 90160,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 861903.245050583,
+      "cpuSeconds": 0.99,
+      "rssKiB": 89248,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 861904.257074791,
+      "cpuSeconds": 0.99,
+      "rssKiB": 89248,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 861905.265335541,
+      "cpuSeconds": 0.99,
+      "rssKiB": 89136,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 861906.275990708,
+      "cpuSeconds": 0.99,
+      "rssKiB": 89392,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 861907.3056765,
+      "cpuSeconds": 0.99,
+      "rssKiB": 83584,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    },
+    {
+      "at": 861908.318724208,
+      "cpuSeconds": 0.99,
+      "rssKiB": 83600,
+      "psCPUPercent": 0.0,
+      "cpuDeltaPercent": 0.0
+    }
+  ]
+}

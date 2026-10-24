@@ -1,0 +1,51 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioCloudPilotFinal-astronaut.xctestrun -destination platform=macOS -parallel-testing-enabled NO "-only-testing:DaylogTests/PioCloudCandidateReviewTests/testCandidateRegistrationNeutralAndStop" "-only-testing:DaylogTests/PioCloudCandidateReviewTests/testActualIndependentBlinkAndHeldPresentation" -resultBundlePath /tmp/PioCloudPilot-Mac-astronaut-20261024.xcresult
+
+Writing result bundle at path:
+	/tmp/PioCloudPilot-Mac-astronaut-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 13:09:32.172117+0900 Daylog[75608:2016946] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:09:32.172455+0900 Daylog[75608:2016946] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:09:32.173601+0900 Daylog[75608:2016944] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:09:32.173623+0900 Daylog[75608:2016944] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:09:32.174920+0900 Daylog[75608:2016945] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:09:32.174936+0900 Daylog[75608:2016945] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:09:32.176015+0900 Daylog[75608:2016945] [Connection] Will NOT re-try to establish the connection
+2026-10-24 13:09:32.176037+0900 Daylog[75608:2016946] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:09:32.176046+0900 Daylog[75608:2016946] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:09:32.221463+0900 Daylog[75608:2016939] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 13:09:32.639587+0900 Daylog[75608:2017026] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 13:09:32.691.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 13:09:32.692.
+Test Suite 'PioCloudCandidateReviewTests' started at 2026-10-24 13:09:32.692.
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testActualIndependentBlinkAndHeldPresentation]' started.
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testActualIndependentBlinkAndHeldPresentation]' passed (4.928 seconds).
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testCandidateRegistrationNeutralAndStop]' started.
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testCandidateRegistrationNeutralAndStop]' passed (0.082 seconds).
+Test Suite 'PioCloudCandidateReviewTests' passed at 2026-10-24 13:09:37.703.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 5.010 (5.011) seconds
+Test Suite 'DaylogTests.xctest' passed at 2026-10-24 13:09:37.704.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 5.010 (5.012) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 13:09:37.704.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 5.010 (5.013) seconds
+2026-10-24 13:09:37.990 xcodebuild[75597:2016844] [MT] IDETestOperationsObserverDebug: 6.081 elapsed -- Testing started completed.
+2026-10-24 13:09:37.990 xcodebuild[75597:2016844] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 13:09:37.990 xcodebuild[75597:2016844] [MT] IDETestOperationsObserverDebug: 6.081 sec, +6.081 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCloudPilot-Mac-astronaut-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

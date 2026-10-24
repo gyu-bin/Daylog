@@ -1,0 +1,1072 @@
+{
+  "source": "Daylog/Components/PioOverhaulCharacter.swift",
+  "sourceSHA256": "af1ccfd7113226f19ea798e81414ceed78376d45f0b123bb57c240fac8296574",
+  "method": "Namespace/prefix substitutions only; identical SHA256 PNG references share a canonical asset name. Motion algorithms and image bytes unchanged.",
+  "assets": [
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_footLeft.imageset/pio_overhaul_astronaut_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_footLeft.imageset/pio_home_production_astronaut_footLeft.png",
+      "sha256": "338479b422bd6f14892b9940e4664d4069d2afbc3ff23ceae4b758f135d52a5c"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_footRight.imageset/pio_overhaul_astronaut_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_footRight.imageset/pio_home_production_astronaut_footRight.png",
+      "sha256": "0a3d885f8d9a071a408dbb233e6303ba89abc74af86a1f55e12531d53b2e689b"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_wingRight.imageset/pio_overhaul_astronaut_wingRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_wingRight.imageset/pio_home_production_astronaut_wingRight.png",
+      "sha256": "7a7ed6b9c5990728ea7d572b87ee63a76dd8f67c0140c57e941a7733a8a12503"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_sprout.imageset/pio_overhaul_astronaut_sprout.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_sprout.imageset/pio_home_production_astronaut_sprout.png",
+      "sha256": "62a79a62d518ca124ec3f7348d4a3bc2a6f4f900f58ecbaea742ad2200af90f5"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_body.imageset/pio_overhaul_astronaut_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_body.imageset/pio_home_production_astronaut_body.png",
+      "sha256": "4bb5beb50a9d1c0065f91aec3a0ba804ca32b3b00241a87692c6e2c7d811e3d8"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_eyeLeft.imageset/pio_overhaul_astronaut_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_eyeLeft.imageset/pio_home_production_astronaut_eyeLeft.png",
+      "sha256": "a414338b73adeb36dbdfb32f2a6ebad12c4fc6f0af1addcba6dc120616f23c74"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_eyeRight.imageset/pio_overhaul_astronaut_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_eyeRight.imageset/pio_home_production_astronaut_eyeRight.png",
+      "sha256": "199abb0a561583b84351fe1e0a1fa35e2b356df27fa63d92f9875d90e14627a3"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_lidLeft.imageset/pio_overhaul_astronaut_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_lidLeft.imageset/pio_home_production_astronaut_lidLeft.png",
+      "sha256": "66daf7ca51c3eb2dafaf3b9e263a71ed4745e74dc0a08e88e98392d003e2d753"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_lidRight.imageset/pio_overhaul_astronaut_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_lidRight.imageset/pio_home_production_astronaut_lidRight.png",
+      "sha256": "1abd159aa41bf5af86a7db904beedac75107e8607d7e1a16d1ceeba06db303cf"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_halfLeft.imageset/pio_overhaul_astronaut_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_halfLeft.imageset/pio_home_production_astronaut_halfLeft.png",
+      "sha256": "df7583f257fb6ee55343c2052aa4e9efd9e7c20a9dd1be30e353d423163b84a3"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_halfRight.imageset/pio_overhaul_astronaut_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_halfRight.imageset/pio_home_production_astronaut_halfRight.png",
+      "sha256": "04e2d27dbc4b97763de4cdb8bb18febacd3f4bd3099eaa87f35b09ff588091a5"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_wingLeft.imageset/pio_overhaul_astronaut_wingLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_wingLeft.imageset/pio_home_production_astronaut_wingLeft.png",
+      "sha256": "7d02310cd4e153b9b20db1dd3e10969ae119c2cab46bce867d769ab13a3a3867"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_visor.imageset/pio_overhaul_astronaut_visor.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_visor.imageset/pio_home_production_astronaut_visor.png",
+      "sha256": "0c5d7b9e8f7bd5302ffbf70818d23746ab42095139d56f9031157a8e82e988c6"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_helmet.imageset/pio_overhaul_astronaut_helmet.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_helmet.imageset/pio_home_production_astronaut_helmet.png",
+      "sha256": "21706db0920dfc716b37033e692cb724633d8a06f27858abe538fb88a03098a9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_happyLeft.imageset/pio_overhaul_astronaut_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_happyLeft.imageset/pio_home_production_astronaut_happyLeft.png",
+      "sha256": "3ecef91f0bd777d40978c0f9c28c60abd685c74fefa8b01b395609e878c2a976"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_astronaut_happyRight.imageset/pio_overhaul_astronaut_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_happyRight.imageset/pio_home_production_astronaut_happyRight.png",
+      "sha256": "2230e76f44b78052fec37cb8b2fce6e98e93e22afd5a8d6909f6179d15c107ef"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_wingRight.imageset/pio_overhaul_autumn_wingRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_wingRight.imageset/pio_home_production_autumn_wingRight.png",
+      "sha256": "f07ff4c53c5422bd24e704ca38f4d0875a763a7e5ce9b94db49d7648a9ed7b39"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_wingLeft.imageset/pio_overhaul_autumn_wingLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_wingLeft.imageset/pio_home_production_autumn_wingLeft.png",
+      "sha256": "08edc512a9c4a79dbdd0022d110903a9e1d6092dcc8157a55520384b9cf334b6"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_footLeft.imageset/pio_overhaul_autumn_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_footLeft.imageset/pio_home_production_autumn_footLeft.png",
+      "sha256": "e2376e5bc5a9e88a28178a4c1ddcebb6286973e2739a225d05734d58e76b6442"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_footRight.imageset/pio_overhaul_autumn_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_footRight.imageset/pio_home_production_autumn_footRight.png",
+      "sha256": "30045b3f847c3a6c8df93263e0ae4414ecef44c2bf0234b3395c04e420b5b447"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_body.imageset/pio_overhaul_autumn_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_body.imageset/pio_home_production_autumn_body.png",
+      "sha256": "43a28145bc19b6fa0caf8bfc629bddbf22de103f96d8cd2a67337331561b5da7"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_eyeLeft.imageset/pio_overhaul_autumn_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_eyeLeft.imageset/pio_home_production_autumn_eyeLeft.png",
+      "sha256": "70c81298e92fde49b1165b607df6ff4c5567d40934be0476bdb0ad63be0362f5"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_eyeRight.imageset/pio_overhaul_autumn_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_eyeRight.imageset/pio_home_production_autumn_eyeRight.png",
+      "sha256": "c2aff162e301415c1f558f28fc4d5e13b525215ed4fc664c6e72d392ab83a605"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_leaf.imageset/pio_overhaul_autumn_leaf.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_leaf.imageset/pio_home_production_autumn_leaf.png",
+      "sha256": "6f24de26aff417ef3decb77a1059aab5fa40dc2937cb9b58a08b0c5fbe37fa13"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_headwear.imageset/pio_overhaul_autumn_headwear.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_headwear.imageset/pio_home_production_autumn_headwear.png",
+      "sha256": "703422c09bb327122c15080554aee6a3795e9b1a859cbb8893ce99db921f1517"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_halfLeft.imageset/pio_overhaul_autumn_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_halfLeft.imageset/pio_home_production_autumn_halfLeft.png",
+      "sha256": "d22659114f9c4a4331a9f8c1665862741ffaa20d4f531c12e0763674901dfa9a"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_lidLeft.imageset/pio_overhaul_autumn_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_lidLeft.imageset/pio_home_production_autumn_lidLeft.png",
+      "sha256": "e3199ad56a65a2fb6368520878d4d4ae0ae0d80f647aa44d5dcfcd8ea81028a7"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_halfRight.imageset/pio_overhaul_autumn_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_halfRight.imageset/pio_home_production_autumn_halfRight.png",
+      "sha256": "5c9812e74a44dc0916a499f320204789ffe63187c3f651e5757c74804149c5fe"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_lidRight.imageset/pio_overhaul_autumn_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_lidRight.imageset/pio_home_production_autumn_lidRight.png",
+      "sha256": "e15e3d1ef2f97d1bee1774e803adf88108e76dc017cdb5c464df095d885c3a0c"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_happyLeft.imageset/pio_overhaul_autumn_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_happyLeft.imageset/pio_home_production_autumn_happyLeft.png",
+      "sha256": "66690aa9099308baf469adb320fd007fbefb24982e8cad5d24e4410538cff9da"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_autumn_happyRight.imageset/pio_overhaul_autumn_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_happyRight.imageset/pio_home_production_autumn_happyRight.png",
+      "sha256": "c8dc931a195693d70aa27b863d8c23be480b4ef16e5ae76d73524e1f611fca39"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_wingLeft.imageset/pio_overhaul_basic_wingLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_wingLeft.imageset/pio_home_production_basic_wingLeft.png",
+      "sha256": "1c14e6d883595eed3a0956f53170a0fac77f0f20a9e2f520819e4ba984fed449"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_wingRight.imageset/pio_overhaul_basic_wingRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_wingRight.imageset/pio_home_production_basic_wingRight.png",
+      "sha256": "98a33c23e610f1bead1c133616fa85dd71f18fb420c0547b36e2d7a2b1738aa3"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_footLeft.imageset/pio_overhaul_basic_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_footLeft.imageset/pio_home_production_basic_footLeft.png",
+      "sha256": "ae5281f7ecf0e0a1cf4b3aa67bc00865e528215d9865edc0c24b797543dce092"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_footRight.imageset/pio_overhaul_basic_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_footLeft.imageset/pio_home_production_basic_footLeft.png",
+      "sha256": "ae5281f7ecf0e0a1cf4b3aa67bc00865e528215d9865edc0c24b797543dce092"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_sprout.imageset/pio_overhaul_basic_sprout.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_sprout.imageset/pio_home_production_basic_sprout.png",
+      "sha256": "98412f8036eb0c13deb588c8d21224ee3e3e79ca1e74aa69e16db6e43e80e1c1"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_body.imageset/pio_overhaul_basic_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_body.imageset/pio_home_production_basic_body.png",
+      "sha256": "3f444ee513afe4a5d29f1fd5702dbedb46df06f94bf74e6322e6a8535c150776"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_eyeLeft.imageset/pio_overhaul_basic_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_eyeLeft.imageset/pio_home_production_basic_eyeLeft.png",
+      "sha256": "b84a58debf997486d813fe5e0cf0bea68a4fba7310699f7bd39dd2257fbe0a99"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_eyeRight.imageset/pio_overhaul_basic_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_eyeRight.imageset/pio_home_production_basic_eyeRight.png",
+      "sha256": "9780d5d81ea425c1f0a1abcfada96a75a4bbb39517133b69143b678d8df1e6dd"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_lidLeft.imageset/pio_overhaul_basic_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_lidLeft.imageset/pio_home_production_basic_lidLeft.png",
+      "sha256": "c0674bb4c88b8a2c3ebb99b1c5d052576016a713065f89138efb3e2584f87765"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_lidRight.imageset/pio_overhaul_basic_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_lidRight.imageset/pio_home_production_basic_lidRight.png",
+      "sha256": "d34dde73b33164f25f295ec1e473c647e7b3a32243485810514ad0687cdeba36"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_halfLeft.imageset/pio_overhaul_basic_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_halfLeft.imageset/pio_home_production_basic_halfLeft.png",
+      "sha256": "d8cecd736de1f3071264c1b142690774c8cd0080bb0da6cc99f99d3874b27048"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_halfRight.imageset/pio_overhaul_basic_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_halfRight.imageset/pio_home_production_basic_halfRight.png",
+      "sha256": "989545cbfe57fba4ed1c477d020513cbb7376b9addc14ff6ff36402c260d534a"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_happyLeft.imageset/pio_overhaul_basic_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_happyLeft.imageset/pio_home_production_basic_happyLeft.png",
+      "sha256": "ead412a91958d7ecec636a0413ad129ebaf7a2f76c69c84f6e1ac2f11035b457"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_basic_happyRight.imageset/pio_overhaul_basic_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_basic_happyRight.imageset/pio_home_production_basic_happyRight.png",
+      "sha256": "70dd763093babd2ddefd9edd8b3762071454d62e1829e72c368fecd6d438d98f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_footLeft.imageset/pio_overhaul_cafe_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_footLeft.imageset/pio_home_production_cafe_footLeft.png",
+      "sha256": "fa2a3b44d3be21459b4407ea8b67c78f2ad4cbfd33414a00708342cbf37c3ff4"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_footRight.imageset/pio_overhaul_cafe_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_footRight.imageset/pio_home_production_cafe_footRight.png",
+      "sha256": "2e9148a3bdfc2286592af3e4ba80c867ea780fd6edcafd5d0a0b94ff30a2cfbe"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_body.imageset/pio_overhaul_cafe_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_body.imageset/pio_home_production_cafe_body.png",
+      "sha256": "1b51fcaaca91c4204f83f2a7a889178a36813c2a1a69abd1fcf7c2ea7db2133e"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_eyeLeft.imageset/pio_overhaul_cafe_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_eyeLeft.imageset/pio_home_production_cafe_eyeLeft.png",
+      "sha256": "9c837cea525e9388c210e0288e3889dffce37a0f5df550a17ad0e26088241d5f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_eyeRight.imageset/pio_overhaul_cafe_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_eyeLeft.imageset/pio_home_production_cafe_eyeLeft.png",
+      "sha256": "9c837cea525e9388c210e0288e3889dffce37a0f5df550a17ad0e26088241d5f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_lidLeft.imageset/pio_overhaul_cafe_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_lidLeft.imageset/pio_home_production_cafe_lidLeft.png",
+      "sha256": "af045163d8a83553ec64407386af5cc084c0d5e63ac314e7ec35106dc72821e2"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_lidRight.imageset/pio_overhaul_cafe_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_lidLeft.imageset/pio_home_production_cafe_lidLeft.png",
+      "sha256": "af045163d8a83553ec64407386af5cc084c0d5e63ac314e7ec35106dc72821e2"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_wingRight.imageset/pio_overhaul_cafe_wingRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_wingRight.imageset/pio_home_production_cafe_wingRight.png",
+      "sha256": "b8a1bd6efa10b15ec049068814c3d2919988fda92adf2ddd5687938adb83e3ce"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_wingLeft.imageset/pio_overhaul_cafe_wingLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_wingLeft.imageset/pio_home_production_cafe_wingLeft.png",
+      "sha256": "03bea2654cfd0ffc35f37252bd5ae6f4406addaab4e6154e8d57f67c03a5df72"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_prop.imageset/pio_overhaul_cafe_prop.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_prop.imageset/pio_home_production_cafe_prop.png",
+      "sha256": "b138c2f01285e31ef9647e3d86b90389b1c462bd0d8456a476f57f8624f7110b"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_headwear.imageset/pio_overhaul_cafe_headwear.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_headwear.imageset/pio_home_production_cafe_headwear.png",
+      "sha256": "7c56e439330bbf5242238c598c1f6def67661bf722857305249e4a3567cb3f76"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_happyLeft.imageset/pio_overhaul_cafe_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_happyLeft.imageset/pio_home_production_cafe_happyLeft.png",
+      "sha256": "2ad5eea5602227886a680ff31e36b522667b3f65dad3f261547574310ebbfef9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_happyRight.imageset/pio_overhaul_cafe_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_happyLeft.imageset/pio_home_production_cafe_happyLeft.png",
+      "sha256": "2ad5eea5602227886a680ff31e36b522667b3f65dad3f261547574310ebbfef9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_halfLeft.imageset/pio_overhaul_cafe_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_halfLeft.imageset/pio_home_production_cafe_halfLeft.png",
+      "sha256": "ddb1b14c277949385250a03e79229df02a2cacfa71430f2e0fab0d4c27bc98ed"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cafe_halfRight.imageset/pio_overhaul_cafe_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_halfLeft.imageset/pio_home_production_cafe_halfLeft.png",
+      "sha256": "ddb1b14c277949385250a03e79229df02a2cacfa71430f2e0fab0d4c27bc98ed"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_wingLeft.imageset/pio_overhaul_cherryBlossom_wingLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_wingLeft.imageset/pio_home_production_cherryBlossom_wingLeft.png",
+      "sha256": "a2b1822df811cc6f8edba894b6067da02043e7059c12aea75b3798a1f68662bb"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_wingRight.imageset/pio_overhaul_cherryBlossom_wingRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_wingRight.imageset/pio_home_production_cherryBlossom_wingRight.png",
+      "sha256": "355209b4c104d3d7d64751166ed428b0195fa29d059e2f6630a892a1f119f36e"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_footLeft.imageset/pio_overhaul_cherryBlossom_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_footLeft.imageset/pio_home_production_cherryBlossom_footLeft.png",
+      "sha256": "04db6e8b876e1895a64aa7085712706ef062d01c866e4c72edc06040bd5a0d03"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_footRight.imageset/pio_overhaul_cherryBlossom_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_footRight.imageset/pio_home_production_cherryBlossom_footRight.png",
+      "sha256": "c327196d1e90bbe3626a25175ba9ebf2c7267a5138e9191fc53b806ae0200ff1"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_sprout.imageset/pio_overhaul_cherryBlossom_sprout.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_sprout.imageset/pio_home_production_cherryBlossom_sprout.png",
+      "sha256": "b5d26b7a965576f7d928f392a70f595a34d9b4ea1b41cb39a37f9ed30b93294f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_body.imageset/pio_overhaul_cherryBlossom_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_body.imageset/pio_home_production_cherryBlossom_body.png",
+      "sha256": "defec154b411dff05dd8dfb7705ad97765ef465bd444fdf57b6ab2bcd1e6c925"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_eyeLeft.imageset/pio_overhaul_cherryBlossom_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_eyeLeft.imageset/pio_home_production_cherryBlossom_eyeLeft.png",
+      "sha256": "8cd64a806f75dd93a309d9755f3c6ec9b6580afce1a3aea688143c51701d4a74"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_eyeRight.imageset/pio_overhaul_cherryBlossom_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_eyeRight.imageset/pio_home_production_cherryBlossom_eyeRight.png",
+      "sha256": "088481da3124aad1a80e4c3d4fa2e7e7be6e4a021e19aabf70923fbc766a2b9f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_lidLeft.imageset/pio_overhaul_cherryBlossom_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_lidLeft.imageset/pio_home_production_cherryBlossom_lidLeft.png",
+      "sha256": "adbc93bb6082adf729b031ed78ef5d3dea2ff7d12c7eab3affeb85188076885d"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_lidRight.imageset/pio_overhaul_cherryBlossom_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_lidLeft.imageset/pio_home_production_cherryBlossom_lidLeft.png",
+      "sha256": "adbc93bb6082adf729b031ed78ef5d3dea2ff7d12c7eab3affeb85188076885d"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_halfLeft.imageset/pio_overhaul_cherryBlossom_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_halfLeft.imageset/pio_home_production_cherryBlossom_halfLeft.png",
+      "sha256": "14173cdcd25e02ca03eaea992b92e508e70ac1a6d3b35f04393f5a45265efeec"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_halfRight.imageset/pio_overhaul_cherryBlossom_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_halfRight.imageset/pio_home_production_cherryBlossom_halfRight.png",
+      "sha256": "2b5e2cf9e353c90bb682fd8329c43c12889d1d3fd20eb807c4895676558a9446"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_headFlower.imageset/pio_overhaul_cherryBlossom_headFlower.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_headFlower.imageset/pio_home_production_cherryBlossom_headFlower.png",
+      "sha256": "880e0dbdbc0bbd651f69f0cfcb3a6f97d27f380f9fa2647cab180dc30e3a5624"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_happyLeft.imageset/pio_overhaul_cherryBlossom_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_happyLeft.imageset/pio_home_production_cafe_happyLeft.png",
+      "sha256": "2ad5eea5602227886a680ff31e36b522667b3f65dad3f261547574310ebbfef9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_cherryBlossom_happyRight.imageset/pio_overhaul_cherryBlossom_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_happyRight.imageset/pio_home_production_cherryBlossom_happyRight.png",
+      "sha256": "a6fec3eff3b076d095199b238f568215751850542d91380e7a90f58e3e1d2808"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_footLeft.imageset/pio_overhaul_christmas_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_footLeft.imageset/pio_home_production_christmas_footLeft.png",
+      "sha256": "6e478aa4c3f1d270806731c0abdf469146408fa962686bbe7b8aca6020ae5ea3"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_footRight.imageset/pio_overhaul_christmas_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_footRight.imageset/pio_home_production_christmas_footRight.png",
+      "sha256": "970a7c67f9a4a5da0dbc92c96b92a6783c31bd964950b4aa3580e846461578b6"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_body.imageset/pio_overhaul_christmas_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_body.imageset/pio_home_production_christmas_body.png",
+      "sha256": "83ffbfc8125eab57fd9a878b755d0864aad2724cb51054785b01d630fa9a9887"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_hat.imageset/pio_overhaul_christmas_hat.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_hat.imageset/pio_home_production_christmas_hat.png",
+      "sha256": "6a975e369f925f5454cff71742d76594e582a8bdb943abd8a1a9e5a5e6b4a29f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_eyeLeft.imageset/pio_overhaul_christmas_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_eyeLeft.imageset/pio_home_production_christmas_eyeLeft.png",
+      "sha256": "aa965f7aab1d93f26c1d9fcb35c3c34cd3632875e1fe619c84ab320d4e157bb1"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_eyeRight.imageset/pio_overhaul_christmas_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_eyeRight.imageset/pio_home_production_christmas_eyeRight.png",
+      "sha256": "49dafcd4c734c1a72c4b913cc386eb910c9666426dfb9e48aeebb5115fca1856"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_lidLeft.imageset/pio_overhaul_christmas_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_lidLeft.imageset/pio_home_production_christmas_lidLeft.png",
+      "sha256": "af98cbdeda8a4154238a780ded2d0a93d7c374bf06a62bd60b5483c6528cbc69"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_lidRight.imageset/pio_overhaul_christmas_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_lidRight.imageset/pio_home_production_christmas_lidRight.png",
+      "sha256": "2c7fab82eb2ca8895ff4bf0bcd54e8e26e3c26e0fa6703a1d3803ae83853cc81"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_gift.imageset/pio_overhaul_christmas_gift.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_gift.imageset/pio_home_production_christmas_gift.png",
+      "sha256": "49fb645c1ad933b8a323e44e1b02c601047eda451da66e60670838765f718a15"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_handLeft.imageset/pio_overhaul_christmas_handLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_handLeft.imageset/pio_home_production_christmas_handLeft.png",
+      "sha256": "3f89cadc9d3fc6d87252f8b5301a493d52ad1f854b20d0d49c8e427271cdc34f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_handRight.imageset/pio_overhaul_christmas_handRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_handRight.imageset/pio_home_production_christmas_handRight.png",
+      "sha256": "57e6fb5154fd1a8653846f5e2ca224f41cffdd5afeedbb1a456107d565bbd269"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_halfLeft.imageset/pio_overhaul_christmas_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_halfLeft.imageset/pio_home_production_christmas_halfLeft.png",
+      "sha256": "3e27746bbb893b9b14dde408e2929f824dc4f4cea1dd3cf39b9bcaf4b2c79752"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_halfRight.imageset/pio_overhaul_christmas_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_halfRight.imageset/pio_home_production_christmas_halfRight.png",
+      "sha256": "e0bfa1a2a68acc09d8a0c4d1c3e3087de71570df588d8f0c204ba7805a76050e"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_happyLeft.imageset/pio_overhaul_christmas_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_happyLeft.imageset/pio_home_production_christmas_happyLeft.png",
+      "sha256": "827797d1d61268b2883f449ed4669e491c8e45d3628039107583ddd71c2a976a"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_christmas_happyRight.imageset/pio_overhaul_christmas_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_happyRight.imageset/pio_home_production_christmas_happyRight.png",
+      "sha256": "d30cfbb2847494c11b315a7c2797738e1d36829e7ad9e4deeff03e05a7f67777"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_footLeft.imageset/pio_overhaul_fitness_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_footLeft.imageset/pio_home_production_fitness_footLeft.png",
+      "sha256": "5ca0f192f09f05cc73158eb6e7a9fc11003e9d2b295452cdd020897dccec52db"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_footRight.imageset/pio_overhaul_fitness_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_footRight.imageset/pio_home_production_fitness_footRight.png",
+      "sha256": "910bf996a5ae78087fbd7c69cdd6d76acc3f094b04891991efa62e11056a2f97"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_body.imageset/pio_overhaul_fitness_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_body.imageset/pio_home_production_fitness_body.png",
+      "sha256": "7199f101ca440f6b3116ef699c90c2c176c6cbe04784e8b2c4a93f003ae566b4"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_eyeLeft.imageset/pio_overhaul_fitness_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_eyeLeft.imageset/pio_home_production_cafe_eyeLeft.png",
+      "sha256": "9c837cea525e9388c210e0288e3889dffce37a0f5df550a17ad0e26088241d5f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_eyeRight.imageset/pio_overhaul_fitness_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_eyeLeft.imageset/pio_home_production_cafe_eyeLeft.png",
+      "sha256": "9c837cea525e9388c210e0288e3889dffce37a0f5df550a17ad0e26088241d5f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_sprout.imageset/pio_overhaul_fitness_sprout.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_sprout.imageset/pio_home_production_fitness_sprout.png",
+      "sha256": "802ccf0b2eb9e6fea915eb954bf25835fcb69207c32850514eb6b954f93124fb"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_headwear.imageset/pio_overhaul_fitness_headwear.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_headwear.imageset/pio_home_production_fitness_headwear.png",
+      "sha256": "acd12c117009800f3db47908bee9d757c16c4cfe4fc7bb9b7dc2ca75b38debd1"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_dumbbellLeft.imageset/pio_overhaul_fitness_dumbbellLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_dumbbellLeft.imageset/pio_home_production_fitness_dumbbellLeft.png",
+      "sha256": "418c27c3193315a4516f18fcb629181545eaecfe1f4cfe2d32576f9699fc320c"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_dumbbellRight.imageset/pio_overhaul_fitness_dumbbellRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_dumbbellLeft.imageset/pio_home_production_fitness_dumbbellLeft.png",
+      "sha256": "418c27c3193315a4516f18fcb629181545eaecfe1f4cfe2d32576f9699fc320c"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_wingLeft.imageset/pio_overhaul_fitness_wingLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_wingLeft.imageset/pio_home_production_fitness_wingLeft.png",
+      "sha256": "66db0659022d6490f3c2b03809304a1030778754db681aa95e392c5772aba101"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_wingRight.imageset/pio_overhaul_fitness_wingRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_wingRight.imageset/pio_home_production_fitness_wingRight.png",
+      "sha256": "cd438130627326c0fb2bf52a80302511d1c2c26a62f54f6324e1920831a7a7f8"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_halfLeft.imageset/pio_overhaul_fitness_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_halfLeft.imageset/pio_home_production_fitness_halfLeft.png",
+      "sha256": "59cc4d470bb3d26b92b67c570b102e0158b05c71432f82c69085abaa783ffe2e"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_lidLeft.imageset/pio_overhaul_fitness_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_lidLeft.imageset/pio_home_production_cafe_lidLeft.png",
+      "sha256": "af045163d8a83553ec64407386af5cc084c0d5e63ac314e7ec35106dc72821e2"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_halfRight.imageset/pio_overhaul_fitness_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_halfLeft.imageset/pio_home_production_fitness_halfLeft.png",
+      "sha256": "59cc4d470bb3d26b92b67c570b102e0158b05c71432f82c69085abaa783ffe2e"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_lidRight.imageset/pio_overhaul_fitness_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_lidLeft.imageset/pio_home_production_cafe_lidLeft.png",
+      "sha256": "af045163d8a83553ec64407386af5cc084c0d5e63ac314e7ec35106dc72821e2"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_happyLeft.imageset/pio_overhaul_fitness_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_happyLeft.imageset/pio_home_production_cafe_happyLeft.png",
+      "sha256": "2ad5eea5602227886a680ff31e36b522667b3f65dad3f261547574310ebbfef9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_fitness_happyRight.imageset/pio_overhaul_fitness_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_happyLeft.imageset/pio_home_production_cafe_happyLeft.png",
+      "sha256": "2ad5eea5602227886a680ff31e36b522667b3f65dad3f261547574310ebbfef9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_footLeft.imageset/pio_overhaul_halloween_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_footLeft.imageset/pio_home_production_fitness_footLeft.png",
+      "sha256": "5ca0f192f09f05cc73158eb6e7a9fc11003e9d2b295452cdd020897dccec52db"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_footRight.imageset/pio_overhaul_halloween_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_footRight.imageset/pio_home_production_fitness_footRight.png",
+      "sha256": "910bf996a5ae78087fbd7c69cdd6d76acc3f094b04891991efa62e11056a2f97"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_wingLeft.imageset/pio_overhaul_halloween_wingLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_halloween_wingLeft.imageset/pio_home_production_halloween_wingLeft.png",
+      "sha256": "d292abae7d333bc6197add1bf6e1fa00f05ad3bfbc5ead66e6bf7a8c2cf71c20"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_body.imageset/pio_overhaul_halloween_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_halloween_body.imageset/pio_home_production_halloween_body.png",
+      "sha256": "5fc36c9c05489acd07b9de3217de063c7aec6974cdc2bf4041faf14f3113448d"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_eyeLeft.imageset/pio_overhaul_halloween_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_eyeLeft.imageset/pio_home_production_cafe_eyeLeft.png",
+      "sha256": "9c837cea525e9388c210e0288e3889dffce37a0f5df550a17ad0e26088241d5f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_eyeRight.imageset/pio_overhaul_halloween_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_eyeLeft.imageset/pio_home_production_cafe_eyeLeft.png",
+      "sha256": "9c837cea525e9388c210e0288e3889dffce37a0f5df550a17ad0e26088241d5f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_headwear.imageset/pio_overhaul_halloween_headwear.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_halloween_headwear.imageset/pio_home_production_halloween_headwear.png",
+      "sha256": "07f363f9a4393e3f811b34b86935ddd06ed58068b7d51f178ba6ccd61c0027b9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_bag.imageset/pio_overhaul_halloween_bag.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_halloween_bag.imageset/pio_home_production_halloween_bag.png",
+      "sha256": "25e971f953b80d6c9c930cfb64193d20b4def142ae7da88c0e917232c672475d"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_wingRight.imageset/pio_overhaul_halloween_wingRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_halloween_wingRight.imageset/pio_home_production_halloween_wingRight.png",
+      "sha256": "6134cbba55c60f5dbc86ca4ea51bead651bdd0b7e87544f729eec644b036c72d"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_halfLeft.imageset/pio_overhaul_halloween_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_halfLeft.imageset/pio_home_production_fitness_halfLeft.png",
+      "sha256": "59cc4d470bb3d26b92b67c570b102e0158b05c71432f82c69085abaa783ffe2e"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_lidLeft.imageset/pio_overhaul_halloween_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_lidLeft.imageset/pio_home_production_cafe_lidLeft.png",
+      "sha256": "af045163d8a83553ec64407386af5cc084c0d5e63ac314e7ec35106dc72821e2"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_halfRight.imageset/pio_overhaul_halloween_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_halfLeft.imageset/pio_home_production_fitness_halfLeft.png",
+      "sha256": "59cc4d470bb3d26b92b67c570b102e0158b05c71432f82c69085abaa783ffe2e"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_lidRight.imageset/pio_overhaul_halloween_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_lidLeft.imageset/pio_home_production_cafe_lidLeft.png",
+      "sha256": "af045163d8a83553ec64407386af5cc084c0d5e63ac314e7ec35106dc72821e2"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_happyLeft.imageset/pio_overhaul_halloween_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_happyLeft.imageset/pio_home_production_cafe_happyLeft.png",
+      "sha256": "2ad5eea5602227886a680ff31e36b522667b3f65dad3f261547574310ebbfef9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_halloween_happyRight.imageset/pio_overhaul_halloween_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_happyLeft.imageset/pio_home_production_cafe_happyLeft.png",
+      "sha256": "2ad5eea5602227886a680ff31e36b522667b3f65dad3f261547574310ebbfef9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_wingRight.imageset/pio_overhaul_hanbok_wingRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_hanbok_wingRight.imageset/pio_home_production_hanbok_wingRight.png",
+      "sha256": "5942cea9f812f5d60ab7687a1b5099529f66fed38776a13c508072a88df5777b"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_footLeft.imageset/pio_overhaul_hanbok_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_hanbok_footLeft.imageset/pio_home_production_hanbok_footLeft.png",
+      "sha256": "aa6a61b558eb3f8fb5c94961aaef5625c9f392b347cb97d9d64e02fee30820f6"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_footRight.imageset/pio_overhaul_hanbok_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_footRight.imageset/pio_home_production_christmas_footRight.png",
+      "sha256": "970a7c67f9a4a5da0dbc92c96b92a6783c31bd964950b4aa3580e846461578b6"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_sprout.imageset/pio_overhaul_hanbok_sprout.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_astronaut_sprout.imageset/pio_home_production_astronaut_sprout.png",
+      "sha256": "62a79a62d518ca124ec3f7348d4a3bc2a6f4f900f58ecbaea742ad2200af90f5"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_body.imageset/pio_overhaul_hanbok_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_hanbok_body.imageset/pio_home_production_hanbok_body.png",
+      "sha256": "8f8d6c6bbc151d4527bb2edddd3c2e73f4cbd0e2dea20a3bb474971716b999e4"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_eyeLeft.imageset/pio_overhaul_hanbok_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_hanbok_eyeLeft.imageset/pio_home_production_hanbok_eyeLeft.png",
+      "sha256": "78454d95b6c45376682fa6eb40c6a8feb1cbde7f34de71856d295c038063669b"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_eyeRight.imageset/pio_overhaul_hanbok_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_eyeLeft.imageset/pio_home_production_christmas_eyeLeft.png",
+      "sha256": "aa965f7aab1d93f26c1d9fcb35c3c34cd3632875e1fe619c84ab320d4e157bb1"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_lidLeft.imageset/pio_overhaul_hanbok_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_hanbok_lidLeft.imageset/pio_home_production_hanbok_lidLeft.png",
+      "sha256": "43f17a87db657cdc67221aa64ae0e4a1fc4afbb1bd0a9ca114c23897fd97054d"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_lidRight.imageset/pio_overhaul_hanbok_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_lidRight.imageset/pio_home_production_christmas_lidRight.png",
+      "sha256": "2c7fab82eb2ca8895ff4bf0bcd54e8e26e3c26e0fa6703a1d3803ae83853cc81"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_halfLeft.imageset/pio_overhaul_hanbok_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_hanbok_halfLeft.imageset/pio_home_production_hanbok_halfLeft.png",
+      "sha256": "e70f2e47f8c6f50d7bef97d011b65c90342dfe4fc5fcb092af016d758c14e398"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_halfRight.imageset/pio_overhaul_hanbok_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_halfLeft.imageset/pio_home_production_christmas_halfLeft.png",
+      "sha256": "3e27746bbb893b9b14dde408e2929f824dc4f4cea1dd3cf39b9bcaf4b2c79752"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_wingLeft.imageset/pio_overhaul_hanbok_wingLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_hanbok_wingLeft.imageset/pio_home_production_hanbok_wingLeft.png",
+      "sha256": "4a2dc463f52c883f6db21b401bbb37aa25be9d90b8d00b6422c4d117d9399439"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_happyLeft.imageset/pio_overhaul_hanbok_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cherryBlossom_happyRight.imageset/pio_home_production_cherryBlossom_happyRight.png",
+      "sha256": "a6fec3eff3b076d095199b238f568215751850542d91380e7a90f58e3e1d2808"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_hanbok_happyRight.imageset/pio_overhaul_hanbok_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_christmas_happyLeft.imageset/pio_home_production_christmas_happyLeft.png",
+      "sha256": "827797d1d61268b2883f449ed4669e491c8e45d3628039107583ddd71c2a976a"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_footLeft.imageset/pio_overhaul_pajamas_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_pajamas_footLeft.imageset/pio_home_production_pajamas_footLeft.png",
+      "sha256": "e2daa7b9114a8ed92aa7f21f07bf245777212927e130dd8f1b157fc049d0e0cc"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_footRight.imageset/pio_overhaul_pajamas_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_footRight.imageset/pio_home_production_autumn_footRight.png",
+      "sha256": "30045b3f847c3a6c8df93263e0ae4414ecef44c2bf0234b3395c04e420b5b447"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_body.imageset/pio_overhaul_pajamas_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_pajamas_body.imageset/pio_home_production_pajamas_body.png",
+      "sha256": "7629ea2f30afdbdb7f32f771f5cfd92a6381b4bd9e3a80ce2125e3799499714a"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_eyeLeft.imageset/pio_overhaul_pajamas_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_eyeLeft.imageset/pio_home_production_cafe_eyeLeft.png",
+      "sha256": "9c837cea525e9388c210e0288e3889dffce37a0f5df550a17ad0e26088241d5f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_eyeRight.imageset/pio_overhaul_pajamas_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_eyeLeft.imageset/pio_home_production_cafe_eyeLeft.png",
+      "sha256": "9c837cea525e9388c210e0288e3889dffce37a0f5df550a17ad0e26088241d5f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_headwear.imageset/pio_overhaul_pajamas_headwear.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_pajamas_headwear.imageset/pio_home_production_pajamas_headwear.png",
+      "sha256": "60b49c1d9cb7222f9ecc3c0258727744f7cc1d76a5cdb82cf6836422a28a703e"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_pillow.imageset/pio_overhaul_pajamas_pillow.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_pajamas_pillow.imageset/pio_home_production_pajamas_pillow.png",
+      "sha256": "5cd67f0521b06332afbf602d9bc1fcfe09052df5a14e2668a046ef3afb1a1a67"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_wingLeft.imageset/pio_overhaul_pajamas_wingLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_pajamas_wingLeft.imageset/pio_home_production_pajamas_wingLeft.png",
+      "sha256": "c397c532596c75bd54bea9ea19d485b78bd0dd24d4f580fa4d8e59270d05cd01"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_wingRight.imageset/pio_overhaul_pajamas_wingRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_pajamas_wingRight.imageset/pio_home_production_pajamas_wingRight.png",
+      "sha256": "67af87dd1e945e0e2dfa7e738fcdb566b28582669199e70d2d24c02197f6ce12"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_halfLeft.imageset/pio_overhaul_pajamas_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_pajamas_halfLeft.imageset/pio_home_production_pajamas_halfLeft.png",
+      "sha256": "326306b7ded82a6c61468c236506a35370efcdd7365c2f6cbacad658e7bce5b5"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_lidLeft.imageset/pio_overhaul_pajamas_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_pajamas_lidLeft.imageset/pio_home_production_pajamas_lidLeft.png",
+      "sha256": "73b59c61d8b9a4759fef4dbd02cceb734d602fa30e0d2f9d817e02aab458fd5c"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_halfRight.imageset/pio_overhaul_pajamas_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_pajamas_halfLeft.imageset/pio_home_production_pajamas_halfLeft.png",
+      "sha256": "326306b7ded82a6c61468c236506a35370efcdd7365c2f6cbacad658e7bce5b5"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_lidRight.imageset/pio_overhaul_pajamas_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_pajamas_lidLeft.imageset/pio_home_production_pajamas_lidLeft.png",
+      "sha256": "73b59c61d8b9a4759fef4dbd02cceb734d602fa30e0d2f9d817e02aab458fd5c"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_happyLeft.imageset/pio_overhaul_pajamas_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_happyLeft.imageset/pio_home_production_cafe_happyLeft.png",
+      "sha256": "2ad5eea5602227886a680ff31e36b522667b3f65dad3f261547574310ebbfef9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_pajamas_happyRight.imageset/pio_overhaul_pajamas_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_happyLeft.imageset/pio_home_production_cafe_happyLeft.png",
+      "sha256": "2ad5eea5602227886a680ff31e36b522667b3f65dad3f261547574310ebbfef9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_footLeft.imageset/pio_overhaul_rainyDay_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_footLeft.imageset/pio_home_production_rainyDay_footLeft.png",
+      "sha256": "c0e7b96b5715ab3ebc221e714244a908af3645fa09afa37e9776b076cd48b4b5"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_footRight.imageset/pio_overhaul_rainyDay_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_footLeft.imageset/pio_home_production_rainyDay_footLeft.png",
+      "sha256": "c0e7b96b5715ab3ebc221e714244a908af3645fa09afa37e9776b076cd48b4b5"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_wingLeft.imageset/pio_overhaul_rainyDay_wingLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_wingLeft.imageset/pio_home_production_rainyDay_wingLeft.png",
+      "sha256": "36197cafec19d79047a475aa55aa4839c8684a624c871bb7a4cfcf7212d8a871"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_umbrellaShaft.imageset/pio_overhaul_rainyDay_umbrellaShaft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_umbrellaShaft.imageset/pio_home_production_rainyDay_umbrellaShaft.png",
+      "sha256": "e7db1943a009d7a2f15b6462f3f4fab7cd59f7d1a60a23f2a1fdcd13dbdef8f0"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_umbrellaCanopy.imageset/pio_overhaul_rainyDay_umbrellaCanopy.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_umbrellaCanopy.imageset/pio_home_production_rainyDay_umbrellaCanopy.png",
+      "sha256": "c233ce6769b0b07257019570e077a257762ad77d081b66328355b92715305989"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_body.imageset/pio_overhaul_rainyDay_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_body.imageset/pio_home_production_rainyDay_body.png",
+      "sha256": "1f812bfcc3a41f869a7746d2333feb9c5db0641dc8911b7abfa006accbd30d7f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_eyeLeft.imageset/pio_overhaul_rainyDay_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_eyeLeft.imageset/pio_home_production_rainyDay_eyeLeft.png",
+      "sha256": "5b88a263b8a1dbd44552c99619acff52a77a9472bbacee833682b18d5f09a042"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_eyeRight.imageset/pio_overhaul_rainyDay_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_eyeRight.imageset/pio_home_production_rainyDay_eyeRight.png",
+      "sha256": "3a5dce49b202320d355f8d354334a015ed7275a5e3560298b46b2de2cdb506b4"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_sprout.imageset/pio_overhaul_rainyDay_sprout.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_sprout.imageset/pio_home_production_rainyDay_sprout.png",
+      "sha256": "1be27fe7380765ff37b7e634f1d28b52fa82825ae973fa342326c4a6a79954f2"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_wingRight.imageset/pio_overhaul_rainyDay_wingRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_wingRight.imageset/pio_home_production_rainyDay_wingRight.png",
+      "sha256": "76b05d6f6d0a117aaf0e160272dfd1ca43e6389ec09d31c770c633174782501d"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_halfLeft.imageset/pio_overhaul_rainyDay_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_halfLeft.imageset/pio_home_production_rainyDay_halfLeft.png",
+      "sha256": "6bc33e3a5b02112f807db523604a456ab3b600f699be3bfe3c5d91bd0bc8009f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_lidLeft.imageset/pio_overhaul_rainyDay_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_lidLeft.imageset/pio_home_production_rainyDay_lidLeft.png",
+      "sha256": "fbd378223823259b7b2b4589c7342f04f366d3c879d79f7580d61771bb92bc9e"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_halfRight.imageset/pio_overhaul_rainyDay_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_halfLeft.imageset/pio_home_production_rainyDay_halfLeft.png",
+      "sha256": "6bc33e3a5b02112f807db523604a456ab3b600f699be3bfe3c5d91bd0bc8009f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_lidRight.imageset/pio_overhaul_rainyDay_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_lidLeft.imageset/pio_home_production_rainyDay_lidLeft.png",
+      "sha256": "fbd378223823259b7b2b4589c7342f04f366d3c879d79f7580d61771bb92bc9e"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_happyLeft.imageset/pio_overhaul_rainyDay_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_happyLeft.imageset/pio_home_production_rainyDay_happyLeft.png",
+      "sha256": "257565ea155e38d3f5e844c0eecd1a19a879680e349e81d278141ce44e9facdb"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_rainyDay_happyRight.imageset/pio_overhaul_rainyDay_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_rainyDay_happyLeft.imageset/pio_home_production_rainyDay_happyLeft.png",
+      "sha256": "257565ea155e38d3f5e844c0eecd1a19a879680e349e81d278141ce44e9facdb"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_footLeft.imageset/pio_overhaul_student_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_footLeft.imageset/pio_home_production_cafe_footLeft.png",
+      "sha256": "fa2a3b44d3be21459b4407ea8b67c78f2ad4cbfd33414a00708342cbf37c3ff4"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_footRight.imageset/pio_overhaul_student_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_student_footRight.imageset/pio_home_production_student_footRight.png",
+      "sha256": "738a9c5a4b52ab732c552135da56e7e875345b9a06985fa30442efe059f82ca9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_sprout.imageset/pio_overhaul_student_sprout.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_student_sprout.imageset/pio_home_production_student_sprout.png",
+      "sha256": "f6b2d6777ed7b7ef320079740ed776cb3617095f974a6afbd3fdf8ac4b53a1c4"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_body.imageset/pio_overhaul_student_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_student_body.imageset/pio_home_production_student_body.png",
+      "sha256": "bb7350eb705fbb988b02d6d0ff5ad1c7ce9204e29d1e5d25cc88e97d0e13942b"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_eyeLeft.imageset/pio_overhaul_student_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_eyeLeft.imageset/pio_home_production_cafe_eyeLeft.png",
+      "sha256": "9c837cea525e9388c210e0288e3889dffce37a0f5df550a17ad0e26088241d5f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_eyeRight.imageset/pio_overhaul_student_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_eyeLeft.imageset/pio_home_production_cafe_eyeLeft.png",
+      "sha256": "9c837cea525e9388c210e0288e3889dffce37a0f5df550a17ad0e26088241d5f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_lidLeft.imageset/pio_overhaul_student_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_lidLeft.imageset/pio_home_production_cafe_lidLeft.png",
+      "sha256": "af045163d8a83553ec64407386af5cc084c0d5e63ac314e7ec35106dc72821e2"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_lidRight.imageset/pio_overhaul_student_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_lidLeft.imageset/pio_home_production_cafe_lidLeft.png",
+      "sha256": "af045163d8a83553ec64407386af5cc084c0d5e63ac314e7ec35106dc72821e2"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_prop.imageset/pio_overhaul_student_prop.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_student_prop.imageset/pio_home_production_student_prop.png",
+      "sha256": "70ca0827718ce1054e2cb16171343b3ff8dc20b0d8d6af1b285711085d5b80e9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_wingRight.imageset/pio_overhaul_student_wingRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_student_wingRight.imageset/pio_home_production_student_wingRight.png",
+      "sha256": "b1fbf05d7da28c5c5f00d2febbe1d80742ccb704e833866b49eae6947b7d7c23"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_wingLeft.imageset/pio_overhaul_student_wingLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_student_wingLeft.imageset/pio_home_production_student_wingLeft.png",
+      "sha256": "5622e1655794235b63c56f8d288f6af39c56ab2fbfaaf75d0d149ced364169f7"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_glasses.imageset/pio_overhaul_student_glasses.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_student_glasses.imageset/pio_home_production_student_glasses.png",
+      "sha256": "b4a6e298ad93604504636df5ed493fd498981076b7809ba756d6c6afac26f505"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_happyLeft.imageset/pio_overhaul_student_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_happyLeft.imageset/pio_home_production_cafe_happyLeft.png",
+      "sha256": "2ad5eea5602227886a680ff31e36b522667b3f65dad3f261547574310ebbfef9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_happyRight.imageset/pio_overhaul_student_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_happyLeft.imageset/pio_home_production_cafe_happyLeft.png",
+      "sha256": "2ad5eea5602227886a680ff31e36b522667b3f65dad3f261547574310ebbfef9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_halfLeft.imageset/pio_overhaul_student_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_halfLeft.imageset/pio_home_production_cafe_halfLeft.png",
+      "sha256": "ddb1b14c277949385250a03e79229df02a2cacfa71430f2e0fab0d4c27bc98ed"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_student_halfRight.imageset/pio_overhaul_student_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_halfLeft.imageset/pio_home_production_cafe_halfLeft.png",
+      "sha256": "ddb1b14c277949385250a03e79229df02a2cacfa71430f2e0fab0d4c27bc98ed"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_footLeft.imageset/pio_overhaul_summerVacation_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_footRight.imageset/pio_home_production_fitness_footRight.png",
+      "sha256": "910bf996a5ae78087fbd7c69cdd6d76acc3f094b04891991efa62e11056a2f97"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_footRight.imageset/pio_overhaul_summerVacation_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_summerVacation_footRight.imageset/pio_home_production_summerVacation_footRight.png",
+      "sha256": "9e1827fce8127acc4472e647c58f42dc0934c98cc6ed33967cfc21f3b960733d"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_wingRight.imageset/pio_overhaul_summerVacation_wingRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_summerVacation_wingRight.imageset/pio_home_production_summerVacation_wingRight.png",
+      "sha256": "e521214977575d4358aa4f2e55599eb529fa1a3bcb3d809bba3d779d73378041"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_body.imageset/pio_overhaul_summerVacation_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_summerVacation_body.imageset/pio_home_production_summerVacation_body.png",
+      "sha256": "904f670068dabb9406c446cf2d7926fa36b09ba35c0312fcdcb7e38846b3ca65"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_eyeLeft.imageset/pio_overhaul_summerVacation_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_summerVacation_eyeLeft.imageset/pio_home_production_summerVacation_eyeLeft.png",
+      "sha256": "ed468902b64e4f6648f1f0f1387877828bfcc79f72e5a4967926242fde9d9205"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_eyeRight.imageset/pio_overhaul_summerVacation_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_summerVacation_eyeLeft.imageset/pio_home_production_summerVacation_eyeLeft.png",
+      "sha256": "ed468902b64e4f6648f1f0f1387877828bfcc79f72e5a4967926242fde9d9205"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_sunglasses.imageset/pio_overhaul_summerVacation_sunglasses.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_summerVacation_sunglasses.imageset/pio_home_production_summerVacation_sunglasses.png",
+      "sha256": "0f4dd1b177781bd7bc07a1b23764312a3bfe6e451e0269b37ece251f40a12574"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_wingLeft.imageset/pio_overhaul_summerVacation_wingLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_summerVacation_wingLeft.imageset/pio_home_production_summerVacation_wingLeft.png",
+      "sha256": "4cd71689713f50c7b7c35853da7e549489a227de0b8c78dfa9ec7a3f50ccf550"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_drink.imageset/pio_overhaul_summerVacation_drink.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_summerVacation_drink.imageset/pio_home_production_summerVacation_drink.png",
+      "sha256": "7ce31a4492c7eef7bcfdc7c9cb0e60403057fe8130bba59db29e78ea0c46240a"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_headwear.imageset/pio_overhaul_summerVacation_headwear.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_summerVacation_headwear.imageset/pio_home_production_summerVacation_headwear.png",
+      "sha256": "1a353485772d82028beb82c57d4ca37efcebed57b82faddd6c5d10bf2e8de018"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_lidLeft.imageset/pio_overhaul_summerVacation_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_lidLeft.imageset/pio_home_production_autumn_lidLeft.png",
+      "sha256": "e3199ad56a65a2fb6368520878d4d4ae0ae0d80f647aa44d5dcfcd8ea81028a7"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_lidRight.imageset/pio_overhaul_summerVacation_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_lidLeft.imageset/pio_home_production_autumn_lidLeft.png",
+      "sha256": "e3199ad56a65a2fb6368520878d4d4ae0ae0d80f647aa44d5dcfcd8ea81028a7"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_happyLeft.imageset/pio_overhaul_summerVacation_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_summerVacation_happyLeft.imageset/pio_home_production_summerVacation_happyLeft.png",
+      "sha256": "7d91adf039e7f8fd771f3cc95d76424dfcfcbeeae60ffee8316a15b342538d15"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_happyRight.imageset/pio_overhaul_summerVacation_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_summerVacation_happyLeft.imageset/pio_home_production_summerVacation_happyLeft.png",
+      "sha256": "7d91adf039e7f8fd771f3cc95d76424dfcfcbeeae60ffee8316a15b342538d15"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_halfLeft.imageset/pio_overhaul_summerVacation_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_summerVacation_halfLeft.imageset/pio_home_production_summerVacation_halfLeft.png",
+      "sha256": "baae45ac0008037071031ef94aa6d64f13ede4fa2436633a1fc4f07df9112bb7"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_summerVacation_halfRight.imageset/pio_overhaul_summerVacation_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_summerVacation_halfLeft.imageset/pio_home_production_summerVacation_halfLeft.png",
+      "sha256": "baae45ac0008037071031ef94aa6d64f13ede4fa2436633a1fc4f07df9112bb7"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_wingRight.imageset/pio_overhaul_winter_wingRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_winter_wingRight.imageset/pio_home_production_winter_wingRight.png",
+      "sha256": "6657dfac57936ae6b6af9c34d66d24d261ef1d99049abb7e0a07307f2c0f97d1"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_footLeft.imageset/pio_overhaul_winter_footLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_fitness_footRight.imageset/pio_home_production_fitness_footRight.png",
+      "sha256": "910bf996a5ae78087fbd7c69cdd6d76acc3f094b04891991efa62e11056a2f97"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_footRight.imageset/pio_overhaul_winter_footRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_winter_footRight.imageset/pio_home_production_winter_footRight.png",
+      "sha256": "cda9e77e0e8c330f037f5666f5b64e09458b3b026290acf7533ab218e103c3f9"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_body.imageset/pio_overhaul_winter_body.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_winter_body.imageset/pio_home_production_winter_body.png",
+      "sha256": "3b83b128e68bf6a2f7929d7fbdb39de2bb708555195b67579e703bc38a6f08bc"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_wingLeft.imageset/pio_overhaul_winter_wingLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_winter_wingLeft.imageset/pio_home_production_winter_wingLeft.png",
+      "sha256": "5b87dfb4dc80b1b467545d6fa2b7a2547afbf515efc8d48e0f70bd6836f66458"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_eyeLeft.imageset/pio_overhaul_winter_eyeLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_eyeRight.imageset/pio_home_production_autumn_eyeRight.png",
+      "sha256": "c2aff162e301415c1f558f28fc4d5e13b525215ed4fc664c6e72d392ab83a605"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_eyeRight.imageset/pio_overhaul_winter_eyeRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_eyeLeft.imageset/pio_home_production_cafe_eyeLeft.png",
+      "sha256": "9c837cea525e9388c210e0288e3889dffce37a0f5df550a17ad0e26088241d5f"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_headwear.imageset/pio_overhaul_winter_headwear.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_winter_headwear.imageset/pio_home_production_winter_headwear.png",
+      "sha256": "4f75cc3e3a144879b7473b9f1a6248fcf38945ea53bedbd640786339caf4c426"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_halfLeft.imageset/pio_overhaul_winter_halfLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_halfRight.imageset/pio_home_production_autumn_halfRight.png",
+      "sha256": "5c9812e74a44dc0916a499f320204789ffe63187c3f651e5757c74804149c5fe"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_lidLeft.imageset/pio_overhaul_winter_lidLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_lidRight.imageset/pio_home_production_autumn_lidRight.png",
+      "sha256": "e15e3d1ef2f97d1bee1774e803adf88108e76dc017cdb5c464df095d885c3a0c"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_halfRight.imageset/pio_overhaul_winter_halfRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_pajamas_halfLeft.imageset/pio_home_production_pajamas_halfLeft.png",
+      "sha256": "326306b7ded82a6c61468c236506a35370efcdd7365c2f6cbacad658e7bce5b5"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_lidRight.imageset/pio_overhaul_winter_lidRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_pajamas_lidLeft.imageset/pio_home_production_pajamas_lidLeft.png",
+      "sha256": "73b59c61d8b9a4759fef4dbd02cceb734d602fa30e0d2f9d817e02aab458fd5c"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_happyLeft.imageset/pio_overhaul_winter_happyLeft.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_autumn_happyRight.imageset/pio_home_production_autumn_happyRight.png",
+      "sha256": "c8dc931a195693d70aa27b863d8c23be480b4ef16e5ae76d73524e1f611fca39"
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_overhaul_winter_happyRight.imageset/pio_overhaul_winter_happyRight.png",
+      "target": "Daylog/PioHomeProduction.xcassets/pio_home_production_cafe_happyLeft.imageset/pio_home_production_cafe_happyLeft.png",
+      "sha256": "2ad5eea5602227886a680ff31e36b522667b3f65dad3f261547574310ebbfef9"
+    }
+  ]
+}

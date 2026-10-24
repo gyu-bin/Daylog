@@ -1,0 +1,816 @@
+{
+  "paid_original_count": 26,
+  "basic_original_count": 2,
+  "coordinate_system": "top-left source pixels, 1024x1536",
+  "sources": [
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_astronaut.imageset/routimori_vacation_day_astronaut.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1319308,
+      "sha256": "071987a2b6000b3475144720356469aeba75aa9aa216ad2626623c3ae22012c5",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        47,
+        1024,
+        1448
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        452,
+        1024,
+        1059
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_autumn.imageset/routimori_vacation_day_autumn.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1332811,
+      "sha256": "29f370c0cf6c0e84bd2228c07e0dc6b4fa350456a89318a5254c0826672f3dc2",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        19,
+        1024,
+        1536
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        457,
+        1024,
+        1080
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_cafe.imageset/routimori_vacation_day_cafe.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1315593,
+      "sha256": "f3f11907684e96f35ea69e7d18425b9bd930dcba8a0dff04bc6c04329c1c995b",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        31,
+        1024,
+        1486
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        498,
+        1024,
+        1066
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_cherryBlossom.imageset/routimori_vacation_day_cherryBlossom.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1244068,
+      "sha256": "9af0ff90d7cd7482827b7438d3e9e1fcbfc3c66ff8201531d670ec25cd405e38",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        111,
+        1024,
+        1464
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        429,
+        1024,
+        1022
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_christmas.imageset/routimori_vacation_day_christmas.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1298082,
+      "sha256": "95b721d351550d9054a6fde8f2c539186ccc1d7b2e0571281abcd64dd570235e",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        119,
+        1024,
+        1512
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        379,
+        1024,
+        1046
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_fitness.imageset/routimori_vacation_day_fitness.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1312494,
+      "sha256": "6383e8fecf6e7880df8b46e15eaf9b94d306b0dc246c99edbebcd9903bc569fc",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        69,
+        1024,
+        1496
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        459,
+        1024,
+        1057
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_halloween.imageset/routimori_vacation_day_halloween.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1292618,
+      "sha256": "69fabdccc6be0cabb050b2eb999ad67c44be9c90201fb9b448d4ffd5c711a8f7",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        21,
+        1024,
+        1528
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        457,
+        1024,
+        1025
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_hanbok.imageset/routimori_vacation_day_hanbok.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1342981,
+      "sha256": "cf186d3c256eb6857dcd82b93fbb579a04fabda29b2196715c35436ab6b8744c",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        17,
+        1024,
+        1502
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        535,
+        1024,
+        1161
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_pajamas.imageset/routimori_vacation_day_pajamas.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1297265,
+      "sha256": "850e7f4051a04a014a68a4a1e7a295081a77083819d7a1fe602d85188c6f2b82",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        43,
+        1024,
+        1518
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        542,
+        1024,
+        1143
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_rainyDay.imageset/routimori_vacation_day_rainyDay.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1267045,
+      "sha256": "305fd26bc8e975d57c9cc7ec4a857bac582f935295747e29f549e182e5ef3c5e",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        35,
+        1024,
+        1513
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        433,
+        1024,
+        1008
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_student.imageset/routimori_vacation_day_student.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1325141,
+      "sha256": "a969ca540efa24b52d6290f800f69a7e2aaf29c1fbc2c4220f9a19f6c2262a18",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        73,
+        1024,
+        1512
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        433,
+        1024,
+        1049
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_summerVacation.imageset/routimori_vacation_day_summerVacation.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1283544,
+      "sha256": "9a8bacaef607704494d52986089d0905735049e400b3ee296be66ce5fe527ef2",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        15,
+        1024,
+        1522
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        456,
+        1024,
+        1042
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_day_winter.imageset/routimori_vacation_day_winter.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1316930,
+      "sha256": "28954ce250520fd2d4c892f2ae8ee248f8a0b7dfeeb1916565fd9a67486312e7",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        101,
+        1024,
+        1512
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        396,
+        1024,
+        1045
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_astronaut.imageset/routimori_vacation_night_astronaut.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1714185,
+      "sha256": "57050520ddd78d9d3a38fc0c2c473c45beb229358d7dae69d7bbb0ce05d1015c",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        37,
+        1024,
+        1450
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        233,
+        1024,
+        1237
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_autumn.imageset/routimori_vacation_night_autumn.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1443070,
+      "sha256": "fc3a1a48b224e16297d46b527706383f77212aff4387876bb17ab67ad6d33d48",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        21,
+        1024,
+        1416
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        371,
+        1024,
+        1123
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_cafe.imageset/routimori_vacation_night_cafe.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1451391,
+      "sha256": "9dd14447e4740358071c96a0aaaf933bd87419b77626c8db4fabcbbf74aa4473",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        53,
+        1024,
+        1512
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        306,
+        1024,
+        1120
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_cherryBlossom.imageset/routimori_vacation_night_cherryBlossom.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1466350,
+      "sha256": "49d66ddb1874431cf26e9ca42f7c10da557a1a55b8dfd5e91bc85458049034d3",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        55,
+        1024,
+        1496
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        289,
+        1024,
+        1143
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_christmas.imageset/routimori_vacation_night_christmas.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1699801,
+      "sha256": "f10a1a440a0f0d1427372f7e7e5042a24cd5f98ab40fa0a991d72506ef38053e",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        4,
+        1024,
+        1536
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        215,
+        1024,
+        1137
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_fitness.imageset/routimori_vacation_night_fitness.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1547247,
+      "sha256": "1be2f9a8c0ca3652e81a65c7039a70838be4af7248a558b32e13cb9bcca831cb",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        21,
+        1024,
+        1455
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        259,
+        1024,
+        1143
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_halloween.imageset/routimori_vacation_night_halloween.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1434857,
+      "sha256": "3eb58554760cfbf50aae563ab037e4b9519283800a5281619ea6bc959cfc7ccb",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        28,
+        1024,
+        1508
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        373,
+        1024,
+        1101
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_hanbok.imageset/routimori_vacation_night_hanbok.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1623995,
+      "sha256": "8c41f63bd384d5bebb6e299d39882f367807c0a73c1cb0ed077b0e9782aabcb8",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        63,
+        1024,
+        1514
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        143,
+        1024,
+        1091
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_pajamas.imageset/routimori_vacation_night_pajamas.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1395822,
+      "sha256": "4e8954a2657703c3417d19fad81757c5b5a95f1ef0f58279a1a9c3628712c94c",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        37,
+        1024,
+        1510
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        338,
+        1024,
+        1112
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_rainyDay.imageset/routimori_vacation_night_rainyDay.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1413348,
+      "sha256": "d1f67dd9a71f6e3602fd786943594193f67afde5ec6faac87415a2658913f0cc",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        29,
+        1024,
+        1502
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        371,
+        1024,
+        1119
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_student.imageset/routimori_vacation_night_student.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1535017,
+      "sha256": "d5da4030a75f1ad7388cde437a50d9e109d91b8a363e9e6b85c93dd452644649",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        39,
+        1024,
+        1518
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        273,
+        1024,
+        1162
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_summerVacation.imageset/routimori_vacation_night_summerVacation.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1505767,
+      "sha256": "4973b74068787930dca2f50885d1dded19909d53a6235b64171ca8e52fca03f3",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        33,
+        1024,
+        1512
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        344,
+        1024,
+        1186
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/PioVacationScenes.xcassets/routimori_vacation_night_winter.imageset/routimori_vacation_night_winter.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1548659,
+      "sha256": "b1169d3b421b2dd0c1a6c7c16ec27000caeb3b840181efe27bb300d0002eb801",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        20,
+        1024,
+        1536
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        333,
+        1024,
+        1176
+      ],
+      "new_independent_anchors": null,
+      "new_rope_fixed_anchors": null,
+      "status": "original complete foreground, not independently layered"
+    },
+    {
+      "path": "Daylog/RoutimoriTrial.xcassets/routimori_vacation_hammock.imageset/routimori_vacation_hammock.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1137262,
+      "sha256": "28ce211117085ac1ff7a4ff9ef77c85ef48c40b5bb96c1254a544fd515f6103e",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        51,
+        1024,
+        1446
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        398,
+        1024,
+        945
+      ],
+      "new_independent_anchors": null
+    },
+    {
+      "path": "Daylog/RoutimoriTrial.xcassets/routimori_vacation_hammock_night.imageset/routimori_vacation_hammock_night.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1301870,
+      "sha256": "4901159e46577e3c1c3f94895c91b635fc930ba8a1410e9e294c59e7926c9028",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha_bbox": [
+        0,
+        53,
+        1024,
+        1495
+      ],
+      "alpha_over_200_bbox": [
+        0,
+        372,
+        1024,
+        1099
+      ],
+      "new_independent_anchors": null
+    }
+  ],
+  "warning": "Only basic day eye regions newly measured. Other joints remain unknown; no universal shoulder or rope anchors fabricated."
+}

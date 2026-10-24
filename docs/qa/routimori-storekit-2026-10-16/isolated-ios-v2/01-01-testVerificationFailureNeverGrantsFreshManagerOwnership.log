@@ -1,0 +1,39 @@
+Command: /usr/bin/xcodebuild -clonedSourcePackagesDirPath /private/tmp/DaylogStage4.noindex/verify/SourcePackages -project /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination 'platform=iOS Simulator,id=87EA3A43-121C-4FFA-A716-A79E614ABEFA' -derivedDataPath /private/tmp/RoutimoriStoreKit.noindex/ios -disableAutomaticPackageResolution -parallel-testing-enabled NO -only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests/testVerificationFailureNeverGrantsFreshManagerOwnership -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-storekit-2026-10-16/isolated-ios-v2/01-01-testVerificationFailureNeverGrantsFreshManagerOwnership.xcresult test-without-building
+
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -clonedSourcePackagesDirPath /private/tmp/DaylogStage4.noindex/verify/SourcePackages -project /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination "platform=iOS Simulator,id=87EA3A43-121C-4FFA-A716-A79E614ABEFA" -derivedDataPath /private/tmp/RoutimoriStoreKit.noindex/ios -disableAutomaticPackageResolution -parallel-testing-enabled NO "-only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests/testVerificationFailureNeverGrantsFreshManagerOwnership" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-storekit-2026-10-16/isolated-ios-v2/01-01-testVerificationFailureNeverGrantsFreshManagerOwnership.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-storekit-2026-10-16/isolated-ios-v2/01-01-testVerificationFailureNeverGrantsFreshManagerOwnership.xcresult
+
+2026-10-16 15:42:35.906160+0900 Daylog[18180:31451191] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-16 15:42:37.726831+0900 Daylog[18180:31451191] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-16 15:42:37.745578+0900 Daylog[18180:31451191] [API] cannot add handler to 0 from 0 - dropping
+2026-10-16 15:42:37.752088+0900 Daylog[18180:31451191] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-16 15:42:38.009.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-16 15:42:38.010.
+Test Suite 'PioStoreKitIntegrationTests' started at 2026-10-16 15:42:38.010.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testVerificationFailureNeverGrantsFreshManagerOwnership]' started.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testVerificationFailureNeverGrantsFreshManagerOwnership]' passed (0.165 seconds).
+Test Suite 'PioStoreKitIntegrationTests' passed at 2026-10-16 15:42:38.185.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.165 (0.175) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-16 15:42:38.186.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.165 (0.176) seconds
+Test Suite 'Selected tests' passed at 2026-10-16 15:42:38.186.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.165 (0.177) seconds
+2026-10-16 15:42:38.488 xcodebuild[18080:31450596] [MT] IDETestOperationsObserverDebug: 8.559 elapsed -- Testing started completed.
+2026-10-16 15:42:38.488 xcodebuild[18080:31450596] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-16 15:42:38.488 xcodebuild[18080:31450596] [MT] IDETestOperationsObserverDebug: 8.559 sec, +8.559 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-storekit-2026-10-16/isolated-ios-v2/01-01-testVerificationFailureNeverGrantsFreshManagerOwnership.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

@@ -1,0 +1,73 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /private/tmp/PioStoreKit-20261023-ios/Build/Products/PioIsolation-2e18e708-6bb8-4723-8021-be2ca6f21c3e-seed.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitIsolationTests/testScenario" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-refund-seed.xcresult
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-refund-seed.xcresult
+
+2026-10-23 21:03:11.753 xcodebuild[5620:928148] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:15.167448+0900 Daylog[5631:928373] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 21:03:15.535475+0900 Daylog[5631:928373] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 21:03:15.536499+0900 Daylog[5631:928373] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 21:03:15.536738+0900 Daylog[5631:928373] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 21:03:15.574.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 21:03:15.574.
+Test Suite 'PioStoreKitIsolationTests' started at 2026-10-23 21:03:15.574.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario]' started.
+PIO_ISOLATION {"appEnvironment":"Environment(rawValue: \"Xcode\")","elapsed":"0.05777 seconds","event":"environment","mode":"manager","os":"Version 27.0 (Build 24A434)","phase":"seed","pid":5631,"run":"2e18e708-6bb8-4723-8021-be2ca6f21c3e","scenario":"refund","wallTime":1792756995.6091108}
+PIO_ISOLATION {"elapsed":"0.068522542 seconds","event":"SKTestSession.init.return","wallTime":1792756995.6198659}
+PIO_ISOLATION {"elapsed":"0.069116917 seconds","event":"resetToDefaultState.return","wallTime":1792756995.62046}
+PIO_ISOLATION {"elapsed":"0.069898208 seconds","event":"clearTransactions.return","wallTime":1792756995.6212411}
+PIO_ISOLATION {"dialogsDisabled":true,"elapsed":"0.078824208 seconds","event":"fixture.ready","purchaseError":"nil","storefront":"KOR","wallTime":1792756995.630168}
+PIO_ISOLATION {"elapsed":"0.080073583 seconds","event":"manager.start.begin","wallTime":1792756995.631417}
+PioStoreKit: client=E87A86D6 time=1792756995.631563 raw listener started subscription=93D8FD6F-1ADF-48D8-A087-7BFB019B42FE
+PIO_ISOLATION {"elapsed":"0.082601083 seconds","event":"manager.ownership","owned":["basic"],"wallTime":1792756995.633945}
+PIO_ISOLATION {"elapsed":"0.087792083 seconds","event":"manager.start.return","wallTime":1792756995.6391358}
+PIO_ISOLATION {"elapsed":"0.087842208 seconds","event":"snapshot.begin","label":"before-scenario","wallTime":1792756995.6391869}
+PIO_ISOLATION {"currentEntitlements":[],"driverLedger":[],"elapsed":"0.091794833 seconds","equipped":"basic","event":"snapshot.return","label":"before-scenario","managerOwned":["basic"],"unfinished":[],"wallTime":1792756995.6431389}
+PIO_ISOLATION {"elapsed":"0.091931792 seconds","event":"purchase.begin","product":"outfit.winter","wallTime":1792756995.643276}
+PioStoreKit: client=E87A86D6 time=1792756995.6512542 accepted id=201 product=outfit.winter revoked=false
+PIO_ISOLATION {"elapsed":"0.099962083 seconds","event":"manager.ownership","owned":["basic","winter"],"wallTime":1792756995.6513062}
+PioStoreKit: client=E87A86D6 time=1792756995.6513538 finish requested id=201 cached=true inFlight=0
+PioStoreKit: client=E87A86D6 time=1792756995.651387 finish begin id=201 product=outfit.winter revoked=false
+PioStoreKit: client=E87A86D6 time=1792756995.6526089 finish returned id=201
+PIO_ISOLATION {"busy":false,"elapsed":"0.105070083 seconds","event":"manager.purchase.return","result":"purchased(Daylog.PioOutfitID.winter)","wallTime":1792756995.6564121}
+PIO_ISOLATION {"elapsed":"0.106178708 seconds","event":"snapshot.begin","label":"before-refund","wallTime":1792756995.657522}
+PIO_ISOLATION {"currentEntitlements":[{"environment":"Environment(rawValue: \"Xcode\")","id":"201","product":"outfit.winter","revoked":false,"verification":"verified"}],"driverLedger":[{"id":"201","issue":false,"pending":false,"product":"outfit.winter","state":"SKPaymentTransactionState(rawValue: 1)"}],"elapsed":"0.114121167 seconds","equipped":"winter","event":"snapshot.return","label":"before-refund","managerOwned":["basic","winter"],"unfinished":[{"environment":"Environment(rawValue: \"Xcode\")","id":"201","product":"outfit.winter","revoked":false,"verification":"verified"}],"wallTime":1792756995.6654639}
+PIO_ISOLATION {"elapsed":"0.115596125 seconds","event":"refund.begin","id":"201","product":"outfit.winter","wallTime":1792756995.666939}
+PIO_ISOLATION {"elapsed":"0.116600458 seconds","event":"refund.return","wallTime":1792756995.667944}
+PioStoreKit: client=E87A86D6 time=1792756995.674403 raw verified update id=201 product=outfit.winter environment=Environment(rawValue: "Xcode") revoked=true
+PioStoreKit: client=E87A86D6 time=1792756995.674429 accepted id=201 product=outfit.winter revoked=true
+PIO_ISOLATION {"elapsed":"0.126280792 seconds","event":"manager.ownership","owned":["basic"],"wallTime":1792756995.677624}
+PioStoreKit: client=E87A86D6 time=1792756995.6777759 finish requested id=201 cached=true inFlight=0
+PioStoreKit: client=E87A86D6 time=1792756995.677808 finish begin id=201 product=outfit.winter revoked=true
+PIO_ISOLATION {"elapsed":"0.126723833 seconds","event":"refund.notification","received":true,"wallTime":1792756995.6780682}
+PIO_ISOLATION {"elapsed":"0.126749625 seconds","event":"snapshot.begin","label":"after-notification-deadline-before-refresh","wallTime":1792756995.6780939}
+PioStoreKit: client=E87A86D6 time=1792756995.678482 finish returned id=201
+PIO_ISOLATION {"currentEntitlements":[],"driverLedger":[{"id":"201","issue":false,"pending":false,"product":"outfit.winter","state":"SKPaymentTransactionState(rawValue: 1)"}],"elapsed":"0.129507 seconds","equipped":"basic","event":"snapshot.return","label":"after-notification-deadline-before-refresh","managerOwned":["basic"],"unfinished":[],"wallTime":1792756995.680851}
+PIO_ISOLATION {"elapsed":"0.12956175 seconds","event":"manager.refresh.begin","wallTime":1792756995.6809061}
+PIO_ISOLATION {"elapsed":"0.131912458 seconds","event":"manager.ownership","owned":["basic"],"wallTime":1792756995.6832571}
+PIO_ISOLATION {"elapsed":"0.132585 seconds","event":"manager.refresh.return","success":true,"wallTime":1792756995.683929}
+PIO_ISOLATION {"elapsed":"0.132624208 seconds","event":"snapshot.begin","label":"after-explicit-refresh","wallTime":1792756995.683969}
+PIO_ISOLATION {"currentEntitlements":[],"driverLedger":[{"id":"201","issue":false,"pending":false,"product":"outfit.winter","state":"SKPaymentTransactionState(rawValue: 1)"}],"elapsed":"0.135266042 seconds","equipped":"basic","event":"snapshot.return","label":"after-explicit-refresh","managerOwned":["basic"],"unfinished":[],"wallTime":1792756995.68661}
+PioStoreKit: client=E87A86D6 time=1792756995.686998 raw listener ended subscription=93D8FD6F-1ADF-48D8-A087-7BFB019B42FE
+PIO_ISOLATION {"elapsed":"0.135781333 seconds","event":"adapter.trace","events":["client=E87A86D6 time=1792756995.631563 raw listener started subscription=93D8FD6F-1ADF-48D8-A087-7BFB019B42FE","client=E87A86D6 time=1792756995.6512542 accepted id=201 product=outfit.winter revoked=false","client=E87A86D6 time=1792756995.6513538 finish requested id=201 cached=true inFlight=0","client=E87A86D6 time=1792756995.651387 finish begin id=201 product=outfit.winter revoked=false","client=E87A86D6 time=1792756995.6526089 finish returned id=201","client=E87A86D6 time=1792756995.674403 raw verified update id=201 product=outfit.winter environment=Environment(rawValue: \"Xcode\") revoked=true","client=E87A86D6 time=1792756995.674429 accepted id=201 product=outfit.winter revoked=true","client=E87A86D6 time=1792756995.6777759 finish requested id=201 cached=true inFlight=0","client=E87A86D6 time=1792756995.677808 finish begin id=201 product=outfit.winter revoked=true","client=E87A86D6 time=1792756995.678482 finish returned id=201","client=E87A86D6 time=1792756995.686998 raw listener ended subscription=93D8FD6F-1ADF-48D8-A087-7BFB019B42FE"],"remainingListeners":0,"wallTime":1792756995.687125}
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario]' passed (0.113 seconds).
+Test Suite 'PioStoreKitIsolationTests' passed at 2026-10-23 21:03:15.690.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.113 (0.116) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-23 21:03:15.691.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.113 (0.116) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 21:03:15.691.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.113 (0.117) seconds
+2026-10-23 21:03:15.703 xcodebuild[5620:928148] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:15.703 xcodebuild[5620:928148] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:15.704 xcodebuild[5620:928148] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:15.967 xcodebuild[5620:928148] [MT] IDETestOperationsObserverDebug: 4.273 elapsed -- Testing started completed.
+2026-10-23 21:03:15.967 xcodebuild[5620:928148] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 21:03:15.967 xcodebuild[5620:928148] [MT] IDETestOperationsObserverDebug: 4.273 sec, +4.273 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-refund-seed.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

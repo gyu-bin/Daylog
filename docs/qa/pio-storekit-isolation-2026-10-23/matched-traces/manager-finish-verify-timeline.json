@@ -1,0 +1,53 @@
+[
+  {
+    "appEnvironment": "Environment(rawValue: \"Xcode\")",
+    "elapsed": "0.148784125 seconds",
+    "event": "environment",
+    "mode": "manager",
+    "os": "Version 27.0 (Build 24A434)",
+    "phase": "verify",
+    "pid": 5708,
+    "run": "a8e8b5f3-802b-473a-8edb-5379aab98053",
+    "scenario": "finish",
+    "wallTime": 1792757007.116008
+  },
+  {
+    "elapsed": "0.149817125 seconds",
+    "event": "snapshot.begin",
+    "label": "fresh-process-before-session-init",
+    "wallTime": 1792757007.117042
+  },
+  {
+    "currentEntitlements": [
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "203",
+        "product": "outfit.cafe",
+        "revoked": false,
+        "verification": "verified"
+      },
+      {
+        "environment": "Environment(rawValue: \"Xcode\")",
+        "id": "202",
+        "product": "outfit.space",
+        "revoked": false,
+        "verification": "verified"
+      }
+    ],
+    "driverLedger": [],
+    "elapsed": "0.186853792 seconds",
+    "equipped": "not-applicable",
+    "event": "snapshot.return",
+    "label": "fresh-process-before-session-init",
+    "managerOwned": [],
+    "unfinished": [],
+    "wallTime": 1792757007.154078
+  },
+  {
+    "elapsed": "0.187495875 seconds",
+    "event": "adapter.trace",
+    "events": [],
+    "remainingListeners": 0,
+    "wallTime": 1792757007.1547198
+  }
+]

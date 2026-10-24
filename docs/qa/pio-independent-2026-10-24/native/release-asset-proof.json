@@ -1,0 +1,30 @@
+{
+  "mac": {
+    "productionNames": [
+      "pio_cloud_basic_prod_v1_body",
+      "pio_cloud_basic_prod_v1_browLeft",
+      "pio_cloud_basic_prod_v1_browRight",
+      "pio_cloud_basic_prod_v1_closedPair",
+      "pio_cloud_basic_prod_v1_openPair",
+      "pio_cloud_basic_prod_v1_registration"
+    ],
+    "trialNames": [],
+    "bundleID": "com.mungyubin.daylog",
+    "releaseBuiltOnly": true,
+    "runtimeEvidence": "Debug test host no trial flags; Release not launched"
+  },
+  "ios": {
+    "productionNames": [
+      "pio_cloud_basic_prod_v1_body",
+      "pio_cloud_basic_prod_v1_browLeft",
+      "pio_cloud_basic_prod_v1_browRight",
+      "pio_cloud_basic_prod_v1_closedPair",
+      "pio_cloud_basic_prod_v1_openPair",
+      "pio_cloud_basic_prod_v1_registration"
+    ],
+    "trialNames": [],
+    "bundleID": "com.mungyubin.daylog.ios",
+    "releaseBuiltOnly": true,
+    "runtimeEvidence": "Debug test host no trial flags; Release not launched"
+  }
+}

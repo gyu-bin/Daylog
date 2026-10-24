@@ -1,0 +1,22 @@
+{
+  "bodyFixed" : true,
+  "deltaAmplitudeDegrees" : 12,
+  "durationSeconds" : 2.3999999999999999,
+  "eyes" : "open throughout",
+  "framePixels" : [
+    660,
+    700
+  ],
+  "frames" : 24,
+  "gifSHA256" : "de6905c8f3d999b2e002d11b1f7bc38d330f310ed38b503d2d98a838a4badf06",
+  "movingParts" : [
+    "wingRight"
+  ],
+  "note" : "No native timing\/FPS, Reduce Motion, performance, app integration or complete animation acceptance claimed",
+  "registeredManifestSHA256" : "05223cccd003a45e8f10248e18c3d72749e9a99abf5c8df0a7d860c43d9860a5",
+  "sourceCoordinateCanvas" : [
+    1254,
+    1254
+  ],
+  "status" : "OFFLINE_ASSET_PROOF_NOT_NATIVE_APP"
+}

@@ -1,0 +1,7 @@
+{
+  "mode": "built-in imagegen precise-object-edit",
+  "prompt": "Use case: precise-object-edit. Edit target: supplied complete yellow umbrella. Produce ONLY its continuous silver shaft and glossy yellow J-handle as one standalone genuinely transparent component. Remove all yellow canopy/roof, all canopy-tip beads and the upper finial. Preserve the original silver pole angle, length, smooth metallic highlights, J handle's exact curl, hollow transparent J opening, yellow glossy plastic shading, shape, scale and original lower-half location in the1254-square composition. Reconstruct the hidden upper extension of the silver shaft up under where the canopy was, as a complete straight root along its existing axis; do not put any canopy fragments at its top. Leave generous original framing, no cropping. No character, fingers, backdrop, ground shadow, text, other props, outlines or glow/halo. Genuine high-resolution premium2.5D artwork, not a flat line or geometric placeholder. Keep pole and J-handle artwork unchanged as closely as possible; this is layer reconstruction, not redesign.",
+  "target": "source/umbrella-candidate.png",
+  "output": "source/umbrella-shaft-candidate.png",
+  "status": "UNAPPROVED_CANDIDATE"
+}

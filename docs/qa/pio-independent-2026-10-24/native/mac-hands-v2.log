@@ -1,0 +1,58 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/DaylogPioCloudCandidateReview_macosx27.0-arm64.xctestrun -destination platform=macOS -parallel-testing-enabled NO "-only-testing:DaylogTests/PioCloudCandidateReviewTests" "-only-testing:DaylogTests/PioVacationCandidateArtworkTests/testNativeEyePatchRegistrationCandidates" -resultBundlePath /tmp/PioCloudHandsV2-native-20261024.xcresult
+
+Writing result bundle at path:
+	/tmp/PioCloudHandsV2-native-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 12:20:55.564204+0900 Daylog[63873:1905007] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:20:55.564384+0900 Daylog[63873:1905007] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:20:55.565185+0900 Daylog[63873:1905079] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:20:55.565205+0900 Daylog[63873:1905079] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:20:55.566053+0900 Daylog[63873:1905005] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:20:55.566070+0900 Daylog[63873:1905005] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:20:55.566876+0900 Daylog[63873:1905005] [Connection] Will NOT re-try to establish the connection
+2026-10-24 12:20:55.566896+0900 Daylog[63873:1905079] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:20:55.566905+0900 Daylog[63873:1905079] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 12:20:55.602406+0900 Daylog[63873:1904993] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 12:20:56.052586+0900 Daylog[63873:1905007] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 12:20:56.113.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 12:20:56.113.
+Test Suite 'PioCloudCandidateReviewTests' started at 2026-10-24 12:20:56.113.
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testActualIndependentBlinkAndHeldPresentation]' started.
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testActualIndependentBlinkAndHeldPresentation]' passed (4.955 seconds).
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testActualPresentationSequence]' started.
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testActualPresentationSequence]' passed (5.174 seconds).
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testCandidateRegistrationNeutralAndStop]' started.
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testCandidateRegistrationNeutralAndStop]' passed (0.067 seconds).
+Test Suite 'PioCloudCandidateReviewTests' passed at 2026-10-24 12:21:06.310.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 10.195 (10.197) seconds
+Test Suite 'PioVacationCandidateArtworkTests' started at 2026-10-24 12:21:06.310.
+Test Case '-[DaylogTests.PioVacationCandidateArtworkTests testNativeEyePatchRegistrationCandidates]' started.
+Test Case '-[DaylogTests.PioVacationCandidateArtworkTests testNativeEyePatchRegistrationCandidates]' passed (1.099 seconds).
+Test Suite 'PioVacationCandidateArtworkTests' passed at 2026-10-24 12:21:07.410.
+	 Executed 1 test, with 0 failures (0 unexpected) in 1.099 (1.100) seconds
+Test Suite 'DaylogTests.xctest' passed at 2026-10-24 12:21:07.410.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 11.295 (11.297) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 12:21:07.410.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 11.295 (11.298) seconds
+2026-10-24 12:21:07.706 xcodebuild[63866:1904881] [MT] IDETestOperationsObserverDebug: 12.440 elapsed -- Testing started completed.
+2026-10-24 12:21:07.706 xcodebuild[63866:1904881] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 12:21:07.706 xcodebuild[63866:1904881] [MT] IDETestOperationsObserverDebug: 12.440 sec, +12.440 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCloudHandsV2-native-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

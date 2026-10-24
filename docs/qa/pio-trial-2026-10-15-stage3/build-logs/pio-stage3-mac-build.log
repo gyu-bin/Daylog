@@ -1,0 +1,1463 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme Daylog -derivedDataPath /tmp/DaylogStage3.noindex/verify PRODUCT_BUNDLE_IDENTIFIER=com.daylog.verify CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= PROVISIONING_PROFILE_SPECIFIER= CODE_SIGN_ENTITLEMENTS=Config/Verify.entitlements -configuration Debug build
+
+Build settings from command line:
+    CODE_SIGN_ENTITLEMENTS = Config/Verify.entitlements
+    CODE_SIGN_IDENTITY = -
+    CODE_SIGN_STYLE = Manual
+    DEVELOPMENT_TEAM = 
+    PRODUCT_BUNDLE_IDENTIFIER = com.daylog.verify
+    PROVISIONING_PROFILE_SPECIFIER = 
+
+Resolve Package Graph
+
+Fetching from https://github.com/sparkle-project/Sparkle (cached)
+
+Creating working copy of package ‘Sparkle’
+
+Checking out 2.10.0 of package ‘Sparkle’
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, name:Any Mac }
+note: Using codesigning identity override: -
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (2 targets)
+    Target 'Daylog' in project 'Daylog'
+        ➜ Explicit dependency on target 'Sparkle-product' in project 'Sparkle'
+    Target 'Sparkle-product' in project 'Sparkle' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/usr/bin/actool --version --output-format xml1
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: c290682d4b1b73d29a67bcc4eec701ba
+Build description path: /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/XCBuildData/c290682d4b1b73d29a67bcc4eec701ba.xcbuilddata
+CreateBuildDirectory /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    builtin-create-build-directory /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules
+
+CreateBuildDirectory /tmp/DaylogStage3.noindex/verify/ModuleCache.noindex
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    builtin-create-build-directory /tmp/DaylogStage3.noindex/verify/ModuleCache.noindex
+
+CreateBuildDirectory /tmp/DaylogStage3.noindex/verify/CompilationCache.noindex
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    builtin-create-build-directory /tmp/DaylogStage3.noindex/verify/CompilationCache.noindex
+
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk /tmp/DaylogStage3.noindex/verify/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -o /tmp/DaylogStage3.noindex/verify/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache
+
+CreateBuildDirectory /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    builtin-create-build-directory /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex
+
+CreateBuildDirectory /tmp/DaylogStage3.noindex/verify/Build/Products
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    builtin-create-build-directory /tmp/DaylogStage3.noindex/verify/Build/Products
+
+CreateBuildDirectory /tmp/DaylogStage3.noindex/verify/Build/Products/Debug
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    builtin-create-build-directory /tmp/DaylogStage3.noindex/verify/Build/Products/Debug
+
+CreateBuildDirectory /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    builtin-create-build-directory /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    builtin-create-build-directory /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/PrecompiledHeaders
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    builtin-create-build-directory /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/PrecompiledHeaders
+
+CreateBuildDirectory /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/EagerLinkingTBDs/Debug
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    builtin-create-build-directory /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/EagerLinkingTBDs/Debug
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog-8bb4235aa9ef7ea9e537c7ae2b717113-VFS/all-product-headers.yaml
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog-8bb4235aa9ef7ea9e537c7ae2b717113-VFS/all-product-headers.yaml
+
+CreateBuildDirectory /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/PackageFrameworks
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    builtin-create-build-directory /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/PackageFrameworks
+
+ProcessXCFramework /tmp/DaylogStage3.noindex/verify/SourcePackages/artifacts/sparkle/Sparkle/Sparkle.xcframework /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Sparkle.framework macos
+    cd /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj
+    builtin-process-xcframework --xcframework /tmp/DaylogStage3.noindex/verify/SourcePackages/artifacts/sparkle/Sparkle/Sparkle.xcframework --platform macos --target-path /tmp/DaylogStage3.noindex/verify/Build/Products/Debug
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.hmap (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.hmap
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.DependencyStaticMetadataFileList (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.DependencyMetadataFileList (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.DependencyMetadataFileList
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftConstValuesFileList (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_const_extract_protocols.json (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_const_extract_protocols.json
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-OutputFileMap.json (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-OutputFileMap.json
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.LinkFileList (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.LinkFileList
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/Entitlements.plist (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/Entitlements.plist
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-project-headers.hmap (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-project-headers.hmap
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-own-target-headers.hmap (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-own-target-headers.hmap
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-generated-files.hmap (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-generated-files.hmap
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-all-target-headers.hmap (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-all-target-headers.hmap
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-DebugDylibPath-normal-arm64.txt (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-all-non-framework-target-headers.hmap (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-DebugDylibInstallName-normal-arm64.txt (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    write-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-DebugDylibInstallName-normal-arm64.txt
+
+MkDir /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /bin/mkdir -p /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources
+
+MkDir /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /bin/mkdir -p /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS
+
+MkDir /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Frameworks (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /bin/mkdir -p /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Frameworks
+
+MkDir /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /bin/mkdir -p /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents
+
+MkDir /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /bin/mkdir -p /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app
+
+ProcessProductPackaging /Users/mungyubin/Desktop/Coding/Daylog/Config/Verify.entitlements /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Entitlements:
+    
+    {
+    "com.apple.security.app-sandbox" = 1;
+    "com.apple.security.files.user-selected.read-write" = 1;
+    "com.apple.security.get-task-allow" = 1;
+    "com.apple.security.temporary-exception.mach-lookup.global-name" =     (
+        "com.daylog.verify-spks",
+        "com.daylog.verify-spki"
+    );
+}
+    
+    builtin-productPackagingUtility /Users/mungyubin/Desktop/Coding/Daylog/Config/Verify.entitlements -entitlements -format xml -o /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent
+
+ProcessProductPackagingDER /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent.der (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /usr/bin/derq query -f xml -i /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent -o /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent.der --raw
+
+GenerateAssetSymbols /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Assets.xcassets /Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioTrial.xcassets (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Assets.xcassets /Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioTrial.xcassets --compile /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources --output-format human-readable-text --notices --warnings --export-dependency-info /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_dependencies --output-partial-info-plist /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist --app-icon AppIcon --accent-color AccentColor --enable-on-demand-resources NO --development-region ko --target-device mac --minimum-deployment-target 14.0 --platform macosx --bundle-identifier com.daylog.verify --generate-swift-asset-symbol-extensions NO --generate-swift-asset-symbols /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/GeneratedAssetSymbols.swift --generate-objc-asset-symbols /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/GeneratedAssetSymbols.h --generate-asset-symbol-index /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/* com.apple.actool.compilation-results */
+/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/GeneratedAssetSymbols-Index.plist
+/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/GeneratedAssetSymbols.h
+/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/GeneratedAssetSymbols.swift
+
+
+Ld /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib normal (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/DaylogStage3.noindex/verify/Build/Products/Debug -F/tmp/DaylogStage3.noindex/verify/Build/Products/Debug -install_name @rpath/Daylog.debug.dylib -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_dependency_info.dat -Xlinker -no_adhoc_codesign -o /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib
+
+CpResource /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources/PrivacyInfo.xcprivacy /Users/mungyubin/Desktop/Coding/Daylog/Daylog/PrivacyInfo.xcprivacy (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/mungyubin/Desktop/Coding/Daylog/Daylog/PrivacyInfo.xcprivacy /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources
+
+MkDir /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/unthinned (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /bin/mkdir -p /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/unthinned
+
+MkDir /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/thinned (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /bin/mkdir -p /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/thinned
+
+Copy /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Frameworks/Sparkle.framework /tmp/DaylogStage3.noindex/verify/SourcePackages/artifacts/sparkle/Sparkle/Sparkle.xcframework/macos-arm64_x86_64/Sparkle.framework (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks -remove-static-executable /tmp/DaylogStage3.noindex/verify/SourcePackages/artifacts/sparkle/Sparkle/Sparkle.xcframework/macos-arm64_x86_64/Sparkle.framework /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Frameworks
+
+CompileAssetCatalogVariant thinned /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Assets.xcassets /Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioTrial.xcassets (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/usr/bin/actool /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Assets.xcassets /Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioTrial.xcassets --compile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/thinned --output-format human-readable-text --notices --warnings --export-dependency-info /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_dependencies_thinned --output-partial-info-plist /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist_thinned --app-icon AppIcon --accent-color AccentColor --enable-on-demand-resources NO --development-region ko --target-device mac --minimum-deployment-target 14.0 --platform macosx
+/* com.apple.actool.compilation-results */
+/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist_thinned
+/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/thinned/AppIcon.icns
+/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/thinned/Assets.car
+
+
+CodeSign /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Frameworks/Sparkle.framework/Versions/B (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --preserve-metadata\=identifier,entitlements,flags --generate-entitlement-der /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Frameworks/Sparkle.framework/Versions/B
+/tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Frameworks/Sparkle.framework/Versions/B: replacing existing signature
+
+SwiftDriver Daylog normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Daylog -Onone @/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-macos14.0 -g -module-cache-path /tmp/DaylogStage3.noindex/verify/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/DaylogStage3.noindex/verify/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /tmp/DaylogStage3.noindex/verify/Build/Products/Debug -F /tmp/DaylogStage3.noindex/verify/Build/Products/Debug -emit-localized-strings -emit-localized-strings-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64 -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/DaylogStage3.noindex/verify/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache -output-file-map /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/DaylogStage3.noindex/verify/ModuleCache.noindex -sdk-module-cache-path /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/DaylogStage3.noindex/verify/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-generated-files.hmap -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-own-target-headers.hmap -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-project-headers.hmap -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Products/Debug/include -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources-normal/arm64 -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/arm64 -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-Swift.h -working-directory /Users/mungyubin/Desktop/Coding/Daylog -experimental-emit-module-separately -disable-cmo
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_Builtin_stdarg-E4230DVPO9ZRLWQG79U7BXQV9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_Builtin_float-5XNVQ89M7FFLGLNKW9634UIIB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/SwiftShims-XMF5Z1GHGKBGN85BPACNXIFM.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/ptrauth-SVC23AIMSWDHCEZFFHVSI0YT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/DeveloperToolsSupport-6LV5D5ECQ8IDP2WVNI12LA72I.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_AvailabilityInternal-6U6441X2ETTPJCX8SB6FI83KH.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/ptrcheck-E6HBH83XCZ0HQPU6T2F0ZUEA6.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_SwiftConcurrencyShims-6WC9QMWM8EJ12JR8BGZCZ5U7E.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_Builtin_stdbool-7UCL4OXFTA58GEH5L1TYHHOJ1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_Builtin_stddef-CMLOXL7V8Q37WWMK1H9SCBNIC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_DarwinFoundation1-1TKCIO5VTS7377OPRN6JOLPO6.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/SQLite3-DL7G6MZ2RT1991WE2LRL8LLQU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_Builtin_limits-B9VP6NAM7VHE644NVN7DFQRK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_DarwinFoundation2-2PYHYP3JQ3CID51W2FRYTQY7J.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/ExtensionFoundation-NAW100TKBHCQ1RWEDTOKYCD7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_Builtin_stdint-6QEOQVGGE9GSI1P48PXRB533V.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/sys_types-4DPXACMKADGYNMBU8IT49ONNI.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_Builtin_tgmath-F3MUXBNS8B38O0L8WVAMS4BVZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/string_h-DNRDP8ZDEV58QMVX9YN1NQ6Z2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_DarwinFoundation3-EMTHHW2ADPSWJ447ANKKG2BIU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_Builtin_stdatomic-CR31WU4NHFS7G0VEQG31BWY7L.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_Builtin_intrinsics-501FXQCXX3X9HQYKKA224JLYO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/libDER-7SMTEXM1M3DPIB18KZ5VJMVAK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_Builtin_inttypes-4TNY81R2QSGUB9UGLWKVERR70.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/Darwin-9BZD44D89O0VWFBQ0Q6N218RD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/simd-813RC5D1K9PFNR54D30VMPYO9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CUPS-86CPOCF00NKEYYAN30F54CBGD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/libkern-6MJXLDG1VLNME1OBEXCAVJBNA.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/MachO-5UMUH99TI9CE8N4XKA3SJZO4G.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/launch-BMY33TPBEWNLE7RM034WOBDAI.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/Spatial-EDYCUFOJJA3JGRTM9O7LBB786.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/ObjectiveC-43PRJSQDJL6X3NACBU2DVOBP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/os_object-9PS4N7FVW7RI58RJ6PG74HQ67.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/os_workgroup-373IMOPDHM41GQYCRQ0KOVGX5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/Dispatch-7EXCKCF2XTLBFE89O3PLP8YEO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/XPC-4X1O3ZBIEQX29DLU3ZV2XZ9ZW.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/dnssd-CLT4VY00NGFZ8RQOSQFJ7IKIJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CoreFoundation-4X83JRF2LTCJC7IYNESQEV3P7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/os-9NKOXSGDEWZK0O94YGTHU85CX.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/IOKit-PS602IAIMPUVTV4YC0ID976P.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CFNetwork-3CF1EV9UE1MSOZF9F21PBGM7A.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/ColorSync-2DPDYYHW1ALT1ROCM9RLT45H8.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CoreAudioTypes-53E00LD0UIDUOG9QCYZAN4RGB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/Security-6MLHSNZ5CUJ75R8PQ7JDH0AFP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CoreGraphics-G2YOQVV81ZJ9W3CZFP6EP161.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/DiskArbitration-8DNLCQ9GN5TGMXYQW9CE275Q2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CoreServices-DB1Y25F2BV9PP7MLD8UN0U2ZW.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/ImageIO-8L9SJTT2KWYOFEIAEP06AZFXU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CoreText-9KOB5Z32HMBW4PNKQK6SB4L56.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/Foundation-BAODWJZKSPQQ9U1BN9UJTAKPN.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/UserNotifications-EQ1RXS7ZLCA8LNWH8QNUHR24D.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CoreData-5S6CWQDW0K0MWST2WZ1GTEKJD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CoreMIDI-49VKOJHGV62BP74LHZM0I4M5O.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CoreTransferable-BSD94E2QGLAW32EFCSCYYP9DG.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CoreAudio-4JWX7IR618YCJ53Y2X1MI9249.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/LocalAuthentication-6NW3RQNSLCGGH6X2JUE6XYMBJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/Symbols-250MLUWWPJDELI9YY0WZQMFNZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_LocationEssentials-552RC44JMZHKOS5G83U0N13VL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/Network-APL74ZSKQDYEXZUFEDD0HLCZV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules/Sparkle-BEVH7ZMP3M7YTRN1FOKU8QSYZ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/IOSurface-AO8X49A1AO84IXOXBWXT1CUN4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CoreLocation-E6R44SF03XG1UBPWVGWOVJQR7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/DataDetection-2J8II6P3SGOIPD6MABK7L3B9M.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/ApplicationServices-9AYY1UI2VICZW024HS5WTQWJ7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/UniformTypeIdentifiers-125IZTA86TOB55OFYQYYFMVJ9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/OSLog-7W2T4P5THRUPLEU8DBHWNVTP9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/_CoreData_CloudKit-F3FQJZ4FXM54Y17DXY2C23Z7Q.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/Accessibility-F2Z2UFU4LGXKINS24ZQ1F9HTM.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/Metal-7IH98E9HW2BBT0IAS4ELJN7VC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/OpenGL-66BCUYESDO0E34NE6CM330NRC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CloudKit-3767NU7ALTKWRP9SFPCWYVRJN.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/Carbon-56VYXB7M3C5QU7S6QOU0HVRHO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CoreVideo-6JF4KXUW4TI9QFLJG6J6WI5FJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/QuartzCore-8YZ4TKT75TZXPVF9WKUI2KQVD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CoreImage-EQ0I7JHFFKIKPZM6QCV6XSEQA.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/CoreMedia-P5TFADYW7YXPE0Q62PFGA8PJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/Accelerate-E4AWST8GRZ59RZ7FJ0VB29N8X.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/AudioToolbox-EMDTASGGT1WEIDM671HFES4P3.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/SwiftUICore-4BWH5HD4KRS73CKE6FFVPU3TJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/VideoToolbox-2WG1SSYXLDWW5JCBWMCRG1FDT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/AppKit-3R1NR70I98KRPCEE6D2VIT66G.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/MediaToolbox-DBPJZRWIZO306VR7K27IODQ8B.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/AVFAudio-6CQ7IUY379WA3ORRGQOAUT602.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/AVFoundation-EM4ECI78BF97TT5AJQP369FV6.pcm
+
+LinkAssetCatalog /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Assets.xcassets /Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioTrial.xcassets (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-linkAssetCatalog --thinned /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/thinned --thinned-dependencies /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_dependencies_thinned --thinned-info-plist-content /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist_thinned --unthinned /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_output/unthinned --unthinned-dependencies /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_dependencies_unthinned --unthinned-info-plist-content /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist_unthinned --output /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources --plist-output /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist
+note: Emplaced /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources/AppIcon.icns (in target 'Daylog' from project 'Daylog')
+note: Emplaced /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources/Assets.car (in target 'Daylog' from project 'Daylog')
+
+ProcessInfoPlistFile /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Info.plist /Users/mungyubin/Desktop/Coding/Daylog/Config/Daylog-Info.plist (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-infoPlistUtility /Users/mungyubin/Desktop/Coding/Daylog/Config/Daylog-Info.plist -producttype com.apple.product-type.application -genpkginfo /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PkgInfo -expandbuildsettings -platform macosx -additionalcontentfile /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/assetcatalog_generated_info.plist -scanforprivacyfile /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Frameworks/Sparkle.framework -o /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Info.plist
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/Photos-6ZR3LOGMFFA41QAGN5TNTPRVD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/MapKit-1YZDLK1XT4SGANYTCU7KRNJAQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/AuthenticationServices-ELDJFR2KWDEON7Z2IZ5LFOR1J.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/SwiftUI-2GXBEC9CPI71J81VBX8SYE7K4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules/PhotosUI-8OR86ZGP82YGMHXT19JAQVY4O.pcm
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ Daylog (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+
+/Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiRenderer.swift:39:132: warning: main actor-isolated static property 'padding' can not be referenced from a nonisolated context; this is an error in the Swift 6 language mode
+ 15 | enum SaessagiRenderer {
+ 16 |     /// 틀 바깥으로 남겨 두는 여백(pt). 외곽선의 가장자리가 틀에서 잘리지 않게 한다. 정수라 어느 배율에서도 픽셀에 맞는다.
+ 17 |     static let padding: CGFloat = 2
+    |                `- note: static property declared here
+ 18 |     /// 기억해 두는 그림 수의 상한. 넘으면 비우고 다시 만든다(평소에는 닿지 않는다).
+ 19 |     static let cacheLimit = 64
+    :
+ 37 | 
+ 38 |     /// `pose`와 같은 자리·같은 배율로 `asset`을 그린 그림. 레이어들이 서로, 그리고 한 장짜리 그림과 정확히 겹친다.
+ 39 |     static func image(asset: String, pose: SaessagiPose, size: CGFloat, displayScale: CGFloat, padding: CGFloat = SaessagiRenderer.padding) -> CGImage? {
+    |                                                                                                                                    `- warning: main actor-isolated static property 'padding' can not be referenced from a nonisolated context; this is an error in the Swift 6 language mode
+ 40 |         let scale = max(displayScale, 1)
+ 41 |         let side = Int(((size + padding * 2) * scale).rounded())
+
+/Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiRenderer.swift:64:118: warning: main actor-isolated static property 'padding' can not be referenced from a nonisolated context; this is an error in the Swift 6 language mode
+ 15 | enum SaessagiRenderer {
+ 16 |     /// 틀 바깥으로 남겨 두는 여백(pt). 외곽선의 가장자리가 틀에서 잘리지 않게 한다. 정수라 어느 배율에서도 픽셀에 맞는다.
+ 17 |     static let padding: CGFloat = 2
+    |                `- note: static property declared here
+ 18 |     /// 기억해 두는 그림 수의 상한. 넘으면 비우고 다시 만든다(평소에는 닿지 않는다).
+ 19 |     static let cacheLimit = 64
+    :
+ 62 |     /// 원본 그림 위의 한 점(1024 기준 픽셀, 위에서 아래로)이 만들어 둔 그림 안에서 어디인지(0…1).
+ 63 |     /// 레이어를 돌리거나 접을 때의 기준점으로 쓴다.
+ 64 |     static func unitPoint(of source: CGPoint, pose: SaessagiPose, size: CGFloat, padding: CGFloat = SaessagiRenderer.padding) -> CGPoint {
+    |                                                                                                                      `- warning: main actor-isolated static property 'padding' can not be referenced from a nonisolated context; this is an error in the Swift 6 language mode
+ 65 |         let scale = size / pose.fitted
+ 66 |         let x = size / 2 + (source.x - pose.content.midX) * scale
+SwiftCompile normal arm64 Compiling\ CommunityStore.swift,\ KeychainSessionStore.swift,\ MockCommunityBackend.swift,\ SupabaseCommunityBackend.swift,\ TemplatePublishing.swift,\ ComebackNotifications.swift,\ NotificationClient.swift,\ RoutineNotificationPlan.swift,\ RoutineNotifications.swift,\ WidgetSnapshot+Make.swift,\ MobileUIConfig.swift,\ MobileUIConfigStore.swift,\ MobileUIEnvironment.swift,\ CheckStatus.swift,\ CloudSync.swift,\ DashboardImageStore.swift,\ DashboardTextService.swift,\ DataExportService.swift,\ DayRecordService.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/CommunityStore.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/KeychainSessionStore.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/MockCommunityBackend.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/SupabaseCommunityBackend.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/TemplatePublishing.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Companion/ComebackNotifications.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Companion/NotificationClient.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Companion/RoutineNotificationPlan.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Companion/RoutineNotifications.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Companion/WidgetSnapshot+Make.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/MobileConfig/MobileUIConfig.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/MobileConfig/MobileUIConfigStore.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/MobileConfig/MobileUIEnvironment.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/CheckStatus.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/CloudSync.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/DashboardImageStore.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/DashboardTextService.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/DataExportService.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/DayRecordService.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/CommunityStore.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CommunityStore.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/KeychainSessionStore.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile KeychainSessionStore.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/MockCommunityBackend.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MockCommunityBackend.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/SupabaseCommunityBackend.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SupabaseCommunityBackend.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/TemplatePublishing.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TemplatePublishing.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Companion/ComebackNotifications.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile ComebackNotifications.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Companion/NotificationClient.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile NotificationClient.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Companion/RoutineNotificationPlan.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineNotificationPlan.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Companion/RoutineNotifications.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineNotifications.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Companion/WidgetSnapshot+Make.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WidgetSnapshot+Make.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/MobileConfig/MobileUIConfig.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MobileUIConfig.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/MobileConfig/MobileUIConfigStore.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MobileUIConfigStore.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/MobileConfig/MobileUIEnvironment.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MobileUIEnvironment.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/CheckStatus.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CheckStatus.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/CloudSync.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CloudSync.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/DashboardImageStore.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DashboardImageStore.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/DashboardTextService.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DashboardTextService.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/DataExportService.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DataExportService.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/DayRecordService.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DayRecordService.swift
+
+SwiftCompile normal arm64 Compiling\ StatsModels.swift,\ StatsService.swift,\ SyncReconciler.swift,\ TemplateFile.swift,\ UpdateConfiguration.swift,\ VacationRest.swift,\ VacationRoutinePolicy.swift,\ VacationService.swift,\ VacationStatus.swift,\ WeeklyGrowth.swift,\ WeeklyReview.swift,\ AppearanceMode.swift,\ Theme.swift,\ DaylogError.swift,\ CalendarView.swift,\ AchievementCard.swift,\ CustomCardEditor.swift,\ CustomCards.swift,\ DashboardCardEditing.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/StatsModels.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/StatsService.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/SyncReconciler.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/TemplateFile.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/UpdateConfiguration.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/VacationRest.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/VacationRoutinePolicy.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/VacationService.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/VacationStatus.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/WeeklyGrowth.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/WeeklyReview.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Theme/AppearanceMode.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Theme/Theme.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Utilities/DaylogError.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Calendar/CalendarView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/AchievementCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/CustomCardEditor.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/CustomCards.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/DashboardCardEditing.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/StatsModels.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StatsModels.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/StatsService.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StatsService.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/SyncReconciler.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SyncReconciler.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/TemplateFile.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TemplateFile.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/UpdateConfiguration.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile UpdateConfiguration.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/VacationRest.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationRest.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/VacationRoutinePolicy.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationRoutinePolicy.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/VacationService.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationService.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/VacationStatus.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationStatus.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/WeeklyGrowth.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WeeklyGrowth.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/WeeklyReview.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WeeklyReview.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Theme/AppearanceMode.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppearanceMode.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Theme/Theme.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile Theme.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Utilities/DaylogError.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DaylogError.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Calendar/CalendarView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CalendarView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/AchievementCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AchievementCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/CustomCardEditor.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CustomCardEditor.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/CustomCards.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CustomCards.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/DashboardCardEditing.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DashboardCardEditing.swift
+
+SwiftCompile normal arm64 Compiling\ DashboardDecor.swift,\ DayCheck.swift,\ DaylogSchemaV1.swift,\ DaylogSchemaV2.swift,\ DaylogSchemaV3.swift,\ DaylogStore.swift,\ DayRecord.swift,\ DevicePreferences.swift,\ FieldEdit.swift,\ RoutineGroup.swift,\ RoutineItem.swift,\ RoutineRevision.swift,\ RoutineTemplate.swift,\ StoreBackup.swift,\ StoreContent.swift,\ StoreLock.swift,\ StoreReseed.swift,\ WeekStart.swift,\ CommunityBackend.swift,\ CommunityModels.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DashboardDecor.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DayCheck.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DaylogSchemaV1.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DaylogSchemaV2.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DaylogSchemaV3.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DaylogStore.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DayRecord.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DevicePreferences.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/FieldEdit.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/RoutineGroup.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/RoutineItem.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/RoutineRevision.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/RoutineTemplate.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/StoreBackup.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/StoreContent.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/StoreLock.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/StoreReseed.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/WeekStart.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/CommunityBackend.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/CommunityModels.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DashboardDecor.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DashboardDecor.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DayCheck.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DayCheck.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DaylogSchemaV1.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DaylogSchemaV1.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DaylogSchemaV2.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DaylogSchemaV2.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DaylogSchemaV3.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DaylogSchemaV3.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DaylogStore.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DaylogStore.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DayRecord.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DayRecord.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DevicePreferences.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DevicePreferences.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/FieldEdit.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile FieldEdit.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/RoutineGroup.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineGroup.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/RoutineItem.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineItem.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/RoutineRevision.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineRevision.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/RoutineTemplate.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineTemplate.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/StoreBackup.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StoreBackup.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/StoreContent.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StoreContent.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/StoreLock.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StoreLock.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/StoreReseed.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StoreReseed.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/WeekStart.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WeekStart.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/CommunityBackend.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CommunityBackend.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/Community/CommunityModels.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CommunityModels.swift
+
+SwiftCompile normal arm64 Compiling\ DeviceService.swift,\ FieldEditService.swift,\ FirstSync.swift,\ HeatmapLayout.swift,\ MealHistoryService.swift,\ OfficialTemplates.swift,\ RestartPrompt.swift,\ RoutineHistory.swift,\ RoutineService.swift,\ RoutineService+Groups.swift,\ RoutineService+Validation.swift,\ RoutineSuggestions.swift,\ RoutineTransferFormat.swift,\ RoutineTransferService.swift,\ SaessagiGrowth.swift,\ ScheduleResolver.swift,\ SettingsService.swift,\ StatsCalculator.swift,\ StatsComparison.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/DeviceService.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/FieldEditService.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/FirstSync.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/HeatmapLayout.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/MealHistoryService.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/OfficialTemplates.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RestartPrompt.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineHistory.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineService.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineService+Groups.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineService+Validation.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineSuggestions.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineTransferFormat.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineTransferService.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/SaessagiGrowth.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/ScheduleResolver.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/SettingsService.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/StatsCalculator.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/StatsComparison.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/DeviceService.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DeviceService.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/FieldEditService.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile FieldEditService.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/FirstSync.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile FirstSync.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/HeatmapLayout.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile HeatmapLayout.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/MealHistoryService.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MealHistoryService.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/OfficialTemplates.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile OfficialTemplates.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RestartPrompt.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RestartPrompt.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineHistory.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineHistory.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineService.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineService.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineService+Groups.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineService+Groups.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineService+Validation.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineService+Validation.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineSuggestions.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineSuggestions.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineTransferFormat.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineTransferFormat.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/RoutineTransferService.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineTransferService.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/SaessagiGrowth.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SaessagiGrowth.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/ScheduleResolver.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile ScheduleResolver.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/SettingsService.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SettingsService.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/StatsCalculator.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StatsCalculator.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Services/StatsComparison.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StatsComparison.swift
+
+SwiftCompile normal arm64 Compiling\ WeeklyGrowthCard.swift,\ WeeklyReviewCard.swift,\ WeekOverviewCard.swift,\ MealsView.swift,\ MenuBarView.swift,\ FirstSyncView.swift,\ NotificationGuide.swift,\ OnboardingNotificationOffer.swift,\ OnboardingView.swift,\ SyncScene.swift,\ SyncSceneMotion.swift,\ SyncSceneStage.swift,\ GroupEditorSupport.swift,\ RoutineEditorDialogs.swift,\ RoutineEditSheet.swift,\ RoutineGroupCard.swift,\ RoutineListRow.swift,\ RoutineManagementView.swift,\ WeekdaySelector.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/WeeklyGrowthCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/WeeklyReviewCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/WeekOverviewCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Meals/MealsView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/MenuBar/MenuBarView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/FirstSyncView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/NotificationGuide.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/OnboardingNotificationOffer.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/OnboardingView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/SyncScene.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/SyncSceneMotion.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/SyncSceneStage.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/GroupEditorSupport.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/RoutineEditorDialogs.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/RoutineEditSheet.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/RoutineGroupCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/RoutineListRow.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/RoutineManagementView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/WeekdaySelector.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/WeeklyGrowthCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WeeklyGrowthCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/WeeklyReviewCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WeeklyReviewCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/WeekOverviewCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WeekOverviewCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Meals/MealsView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MealsView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/MenuBar/MenuBarView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MenuBarView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/FirstSyncView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile FirstSyncView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/NotificationGuide.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile NotificationGuide.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/OnboardingNotificationOffer.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile OnboardingNotificationOffer.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/OnboardingView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile OnboardingView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/SyncScene.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SyncScene.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/SyncSceneMotion.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SyncSceneMotion.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Onboarding/SyncSceneStage.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SyncSceneStage.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/GroupEditorSupport.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile GroupEditorSupport.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/RoutineEditorDialogs.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineEditorDialogs.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/RoutineEditSheet.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineEditSheet.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/RoutineGroupCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineGroupCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/RoutineListRow.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineListRow.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/RoutineManagementView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineManagementView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Routine/WeekdaySelector.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WeekdaySelector.swift
+
+/Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiRenderer.swift:64:118: warning: main actor-isolated static property 'padding' can not be referenced from a nonisolated context; this is an error in the Swift 6 language mode
+ 15 | enum SaessagiRenderer {
+ 16 |     /// 틀 바깥으로 남겨 두는 여백(pt). 외곽선의 가장자리가 틀에서 잘리지 않게 한다. 정수라 어느 배율에서도 픽셀에 맞는다.
+ 17 |     static let padding: CGFloat = 2
+    |                `- note: static property declared here
+ 18 |     /// 기억해 두는 그림 수의 상한. 넘으면 비우고 다시 만든다(평소에는 닿지 않는다).
+ 19 |     static let cacheLimit = 64
+    :
+ 62 |     /// 원본 그림 위의 한 점(1024 기준 픽셀, 위에서 아래로)이 만들어 둔 그림 안에서 어디인지(0…1).
+ 63 |     /// 레이어를 돌리거나 접을 때의 기준점으로 쓴다.
+ 64 |     static func unitPoint(of source: CGPoint, pose: SaessagiPose, size: CGFloat, padding: CGFloat = SaessagiRenderer.padding) -> CGPoint {
+    |                                                                                                                      `- warning: main actor-isolated static property 'padding' can not be referenced from a nonisolated context; this is an error in the Swift 6 language mode
+ 65 |         let scale = size / pose.fitted
+ 66 |         let x = size / 2 + (source.x - pose.content.midX) * scale
+
+/Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiRenderer.swift:39:132: warning: main actor-isolated static property 'padding' can not be referenced from a nonisolated context; this is an error in the Swift 6 language mode
+ 15 | enum SaessagiRenderer {
+ 16 |     /// 틀 바깥으로 남겨 두는 여백(pt). 외곽선의 가장자리가 틀에서 잘리지 않게 한다. 정수라 어느 배율에서도 픽셀에 맞는다.
+ 17 |     static let padding: CGFloat = 2
+    |                `- note: static property declared here
+ 18 |     /// 기억해 두는 그림 수의 상한. 넘으면 비우고 다시 만든다(평소에는 닿지 않는다).
+ 19 |     static let cacheLimit = 64
+    :
+ 37 | 
+ 38 |     /// `pose`와 같은 자리·같은 배율로 `asset`을 그린 그림. 레이어들이 서로, 그리고 한 장짜리 그림과 정확히 겹친다.
+ 39 |     static func image(asset: String, pose: SaessagiPose, size: CGFloat, displayScale: CGFloat, padding: CGFloat = SaessagiRenderer.padding) -> CGImage? {
+    |                                                                                                                                    `- warning: main actor-isolated static property 'padding' can not be referenced from a nonisolated context; this is an error in the Swift 6 language mode
+ 40 |         let scale = max(displayScale, 1)
+ 41 |         let side = Int(((size + padding * 2) * scale).rounded())
+SwiftCompile normal arm64 Compiling\ RootView.swift,\ StoreComparison.swift,\ TopPresenter.swift,\ WidgetIntentExecution.swift,\ Card.swift,\ DayRangeCalendar.swift,\ OutcomeDisplay.swift,\ PioTrial.swift,\ ProgressViews.swift,\ RoutineCheckStyle.swift,\ Saessagi.swift,\ SaessagiDirector.swift,\ SaessagiIdleView.swift,\ SaessagiRenderer.swift,\ SaessagiWalk.swift,\ SheetChrome.swift,\ SheetScaffold.swift,\ SheetScrollArea.swift,\ AppSettings.swift,\ DashboardCustomCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/RootView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/StoreComparison.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/TopPresenter.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/WidgetIntentExecution.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/Card.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/DayRangeCalendar.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/OutcomeDisplay.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/PioTrial.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/ProgressViews.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/RoutineCheckStyle.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/Saessagi.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiDirector.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiIdleView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiRenderer.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiWalk.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SheetChrome.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SheetScaffold.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SheetScrollArea.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/AppSettings.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DashboardCustomCard.swift (in target 'Daylog' from project 'Daylog')
+/Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiRenderer.swift:39:132: warning: main actor-isolated static property 'padding' can not be referenced from a nonisolated context; this is an error in the Swift 6 language mode
+ 15 | enum SaessagiRenderer {
+ 16 |     /// 틀 바깥으로 남겨 두는 여백(pt). 외곽선의 가장자리가 틀에서 잘리지 않게 한다. 정수라 어느 배율에서도 픽셀에 맞는다.
+ 17 |     static let padding: CGFloat = 2
+    |                `- note: static property declared here
+ 18 |     /// 기억해 두는 그림 수의 상한. 넘으면 비우고 다시 만든다(평소에는 닿지 않는다).
+ 19 |     static let cacheLimit = 64
+    :
+ 37 | 
+ 38 |     /// `pose`와 같은 자리·같은 배율로 `asset`을 그린 그림. 레이어들이 서로, 그리고 한 장짜리 그림과 정확히 겹친다.
+ 39 |     static func image(asset: String, pose: SaessagiPose, size: CGFloat, displayScale: CGFloat, padding: CGFloat = SaessagiRenderer.padding) -> CGImage? {
+    |                                                                                                                                    `- warning: main actor-isolated static property 'padding' can not be referenced from a nonisolated context; this is an error in the Swift 6 language mode
+ 40 |         let scale = max(displayScale, 1)
+ 41 |         let side = Int(((size + padding * 2) * scale).rounded())
+
+/Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiRenderer.swift:64:118: warning: main actor-isolated static property 'padding' can not be referenced from a nonisolated context; this is an error in the Swift 6 language mode
+ 15 | enum SaessagiRenderer {
+ 16 |     /// 틀 바깥으로 남겨 두는 여백(pt). 외곽선의 가장자리가 틀에서 잘리지 않게 한다. 정수라 어느 배율에서도 픽셀에 맞는다.
+ 17 |     static let padding: CGFloat = 2
+    |                `- note: static property declared here
+ 18 |     /// 기억해 두는 그림 수의 상한. 넘으면 비우고 다시 만든다(평소에는 닿지 않는다).
+ 19 |     static let cacheLimit = 64
+    :
+ 62 |     /// 원본 그림 위의 한 점(1024 기준 픽셀, 위에서 아래로)이 만들어 둔 그림 안에서 어디인지(0…1).
+ 63 |     /// 레이어를 돌리거나 접을 때의 기준점으로 쓴다.
+ 64 |     static func unitPoint(of source: CGPoint, pose: SaessagiPose, size: CGFloat, padding: CGFloat = SaessagiRenderer.padding) -> CGPoint {
+    |                                                                                                                      `- warning: main actor-isolated static property 'padding' can not be referenced from a nonisolated context; this is an error in the Swift 6 language mode
+ 65 |         let scale = size / pose.fitted
+ 66 |         let x = size / 2 + (source.x - pose.content.midX) * scale
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/RootView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RootView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/StoreComparison.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StoreComparison.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/TopPresenter.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TopPresenter.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/WidgetIntentExecution.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WidgetIntentExecution.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/Card.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile Card.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/DayRangeCalendar.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DayRangeCalendar.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/OutcomeDisplay.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile OutcomeDisplay.swift
+
+SwiftCompile normal arm64 (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/ProgressViews.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile ProgressViews.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/RoutineCheckStyle.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineCheckStyle.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/Saessagi.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile Saessagi.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiDirector.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SaessagiDirector.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiIdleView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SaessagiIdleView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiRenderer.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SaessagiRenderer.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SaessagiWalk.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SaessagiWalk.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SheetChrome.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SheetChrome.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SheetScaffold.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SheetScaffold.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Components/SheetScrollArea.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SheetScrollArea.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/AppSettings.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppSettings.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Models/DashboardCustomCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DashboardCustomCard.swift
+
+SwiftCompile normal arm64 Compiling\ DashboardCards.swift,\ DashboardEditBar.swift,\ DashboardView.swift,\ MealCard.swift,\ MonthCalendarCard.swift,\ RestartCard.swift,\ RoutineCard.swift,\ RoutineCard+Groups.swift,\ RoutineCheckRow.swift,\ RoutineRatesCard.swift,\ SaessagiGrowthCard.swift,\ StatCards.swift,\ TodayCompactView.swift,\ TomorrowTaskCard.swift,\ TrendChartCard.swift,\ VacationArt.swift,\ VacationHammockMotion.swift,\ VacationRestView.swift,\ VacationScene.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/DashboardCards.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/DashboardEditBar.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/DashboardView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/MealCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/MonthCalendarCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RestartCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RoutineCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RoutineCard+Groups.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RoutineCheckRow.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RoutineRatesCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/SaessagiGrowthCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/StatCards.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/TodayCompactView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/TomorrowTaskCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/TrendChartCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/VacationArt.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/VacationHammockMotion.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/VacationRestView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/VacationScene.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/DashboardCards.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DashboardCards.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/DashboardEditBar.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DashboardEditBar.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/DashboardView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DashboardView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/MealCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MealCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/MonthCalendarCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MonthCalendarCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RestartCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RestartCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RoutineCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RoutineCard+Groups.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineCard+Groups.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RoutineCheckRow.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineCheckRow.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/RoutineRatesCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineRatesCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/SaessagiGrowthCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SaessagiGrowthCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/StatCards.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StatCards.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/TodayCompactView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TodayCompactView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/TomorrowTaskCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TomorrowTaskCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/TrendChartCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TrendChartCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/VacationArt.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationArt.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/VacationHammockMotion.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationHammockMotion.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/VacationRestView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationRestView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Dashboard/VacationScene.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationScene.swift
+
+SwiftCompile normal arm64 Compiling\ Weekdays.swift,\ WidgetBridge.swift,\ WidgetSnapshot.swift,\ MealTimelineRow.swift,\ RateCards.swift,\ RoutineHistoryCard.swift,\ RoutineStatisticsView.swift,\ StatisticsView.swift,\ CommunityAccountSection.swift,\ MyTemplatesSheet.swift,\ TemplateDetailSheet.swift,\ TemplateLibraryView.swift,\ TemplatePublishSheet.swift,\ TemplateShareSheet.swift,\ VacationDayCard.swift,\ VacationManagementView.swift,\ VacationRoutinePicker.swift,\ VacationView.swift,\ GeneratedAssetSymbols.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/Weekdays.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/WidgetBridge.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/WidgetSnapshot.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/MealTimelineRow.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/RateCards.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/RoutineHistoryCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/RoutineStatisticsView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/StatisticsView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Templates/CommunityAccountSection.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Templates/MyTemplatesSheet.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Templates/TemplateDetailSheet.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Templates/TemplateLibraryView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Templates/TemplatePublishSheet.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Templates/TemplateShareSheet.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Vacation/VacationDayCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Vacation/VacationManagementView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Vacation/VacationRoutinePicker.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Vacation/VacationView.swift /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/Weekdays.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile Weekdays.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/WidgetBridge.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WidgetBridge.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/WidgetSnapshot.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile WidgetSnapshot.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/MealTimelineRow.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MealTimelineRow.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/RateCards.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RateCards.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/RoutineHistoryCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineHistoryCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/RoutineStatisticsView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile RoutineStatisticsView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/StatisticsView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile StatisticsView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Templates/CommunityAccountSection.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CommunityAccountSection.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Templates/MyTemplatesSheet.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MyTemplatesSheet.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Templates/TemplateDetailSheet.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TemplateDetailSheet.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Templates/TemplateLibraryView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TemplateLibraryView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Templates/TemplatePublishSheet.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TemplatePublishSheet.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Templates/TemplateShareSheet.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TemplateShareSheet.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Vacation/VacationDayCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationDayCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Vacation/VacationManagementView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationManagementView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Vacation/VacationRoutinePicker.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationRoutinePicker.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Vacation/VacationView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile VacationView.swift
+
+SwiftCompile normal arm64 /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/GeneratedAssetSymbols.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile GeneratedAssetSymbols.swift
+
+SwiftCompile normal arm64 Compiling\ CompanionSettings.swift,\ DataTransferView.swift,\ DevicePreferenceSections.swift,\ MobileUIConfigRow.swift,\ SettingsView.swift,\ SyncPreview.swift,\ SidebarView.swift,\ SplashTimeline.swift,\ SplashView.swift,\ ActivityHeatmapCard.swift,\ MealCalendarCard.swift,\ MealHistoryView.swift,\ Achievement.swift,\ Day.swift,\ GroupColor.swift,\ NextRoutine.swift,\ SkipStyle.swift,\ TimeLabel.swift,\ ToggleRoutineIntent.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/CompanionSettings.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/DataTransferView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/DevicePreferenceSections.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/MobileUIConfigRow.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/SettingsView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/SyncPreview.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Sidebar/SidebarView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Splash/SplashTimeline.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Splash/SplashView.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/ActivityHeatmapCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/MealCalendarCard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/MealHistoryView.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/Achievement.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/Day.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/GroupColor.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/NextRoutine.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/SkipStyle.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/TimeLabel.swift /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/ToggleRoutineIntent.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/CompanionSettings.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile CompanionSettings.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/DataTransferView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DataTransferView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/DevicePreferenceSections.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DevicePreferenceSections.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/MobileUIConfigRow.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MobileUIConfigRow.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/SettingsView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SettingsView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Settings/SyncPreview.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SyncPreview.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Sidebar/SidebarView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SidebarView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Splash/SplashTimeline.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SplashTimeline.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Splash/SplashView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SplashView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/ActivityHeatmapCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile ActivityHeatmapCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/MealCalendarCard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MealCalendarCard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/Views/Statistics/MealHistoryView.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile MealHistoryView.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/Achievement.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile Achievement.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/Day.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile Day.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/GroupColor.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile GroupColor.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/NextRoutine.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile NextRoutine.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/SkipStyle.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile SkipStyle.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/TimeLabel.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile TimeLabel.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/DaylogShared/ToggleRoutineIntent.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile ToggleRoutineIntent.swift
+
+SwiftCompile normal arm64 Compiling\ AppRuntime.swift,\ AppSection.swift,\ AppStore.swift,\ AppStore+Checks.swift,\ AppStore+Dashboard.swift,\ AppStore+Derived.swift,\ AppStore+DevicePreferences.swift,\ AppStore+Devices.swift,\ AppStore+Onboarding.swift,\ AppStore+Queries.swift,\ AppStore+Routines.swift,\ AppStore+Transfer.swift,\ AppStore+Upcoming.swift,\ AppStore+Vacations.swift,\ DaylogApp.swift,\ DaylogCommands.swift,\ DaylogUpdater.swift,\ DebugBackup.swift,\ DebugScript.swift,\ Platform.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppRuntime.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppSection.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Checks.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Dashboard.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Derived.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+DevicePreferences.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Devices.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Onboarding.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Queries.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Routines.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Transfer.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Upcoming.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Vacations.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/DaylogApp.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/DaylogCommands.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/DaylogUpdater.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/DebugBackup.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/DebugScript.swift /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/Platform.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppRuntime.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppRuntime.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppSection.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppSection.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppStore.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Checks.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppStore+Checks.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Dashboard.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppStore+Dashboard.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Derived.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppStore+Derived.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+DevicePreferences.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppStore+DevicePreferences.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Devices.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppStore+Devices.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Onboarding.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppStore+Onboarding.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Queries.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppStore+Queries.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Routines.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppStore+Routines.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Transfer.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppStore+Transfer.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Upcoming.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppStore+Upcoming.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/AppStore+Vacations.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile AppStore+Vacations.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/DaylogApp.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DaylogApp.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/DaylogCommands.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DaylogCommands.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/DaylogUpdater.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DaylogUpdater.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/DebugBackup.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DebugBackup.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/DebugScript.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile DebugScript.swift
+
+SwiftCompile normal arm64 /Users/mungyubin/Desktop/Coding/Daylog/Daylog/App/Platform.swift (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-SwiftPerFileCompile Platform.swift
+
+SwiftDriverJobDiscovery normal arm64 Compiling DeviceService.swift, FieldEditService.swift, FirstSync.swift, HeatmapLayout.swift, MealHistoryService.swift, OfficialTemplates.swift, RestartPrompt.swift, RoutineHistory.swift, RoutineService.swift, RoutineService+Groups.swift, RoutineService+Validation.swift, RoutineSuggestions.swift, RoutineTransferFormat.swift, RoutineTransferService.swift, SaessagiGrowth.swift, ScheduleResolver.swift, SettingsService.swift, StatsCalculator.swift, StatsComparison.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for Daylog (in target 'Daylog' from project 'Daylog')
+
+SwiftDriver\ Compilation\ Requirements Daylog normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Daylog -Onone @/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-macos14.0 -g -module-cache-path /tmp/DaylogStage3.noindex/verify/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/DaylogStage3.noindex/verify/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /tmp/DaylogStage3.noindex/verify/Build/Products/Debug -F /tmp/DaylogStage3.noindex/verify/Build/Products/Debug -emit-localized-strings -emit-localized-strings-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64 -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/DaylogStage3.noindex/verify/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache -output-file-map /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/DaylogStage3.noindex/verify/ModuleCache.noindex -sdk-module-cache-path /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/DaylogStage3.noindex/verify/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-generated-files.hmap -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-own-target-headers.hmap -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-project-headers.hmap -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Products/Debug/include -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources-normal/arm64 -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/arm64 -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-Swift.h -working-directory /Users/mungyubin/Desktop/Coding/Daylog -experimental-emit-module-separately -disable-cmo
+
+SwiftMergeGeneratedHeaders /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/Daylog-Swift.h /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-Swift.h (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-swiftHeaderTool -arch arm64 /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-Swift.h -o /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/Daylog-Swift.h
+
+Copy /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.swiftmodule/arm64-apple-macos.swiftmodule /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftmodule (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftmodule /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.swiftmodule/arm64-apple-macos.swiftmodule
+
+Copy /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.swiftmodule/arm64-apple-macos.swiftdoc /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftdoc (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftdoc /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.swiftmodule/arm64-apple-macos.swiftdoc
+
+Copy /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.swiftmodule/arm64-apple-macos.abi.json /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.abi.json (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.abi.json /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.swiftmodule/arm64-apple-macos.abi.json
+
+Copy /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftsourceinfo (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftsourceinfo /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.swiftmodule/Project/arm64-apple-macos.swiftsourceinfo
+
+SwiftDriverJobDiscovery normal arm64 Compiling CommunityStore.swift, KeychainSessionStore.swift, MockCommunityBackend.swift, SupabaseCommunityBackend.swift, TemplatePublishing.swift, ComebackNotifications.swift, NotificationClient.swift, RoutineNotificationPlan.swift, RoutineNotifications.swift, WidgetSnapshot+Make.swift, MobileUIConfig.swift, MobileUIConfigStore.swift, MobileUIEnvironment.swift, CheckStatus.swift, CloudSync.swift, DashboardImageStore.swift, DashboardTextService.swift, DataExportService.swift, DayRecordService.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling CompanionSettings.swift, DataTransferView.swift, DevicePreferenceSections.swift, MobileUIConfigRow.swift, SettingsView.swift, SyncPreview.swift, SidebarView.swift, SplashTimeline.swift, SplashView.swift, ActivityHeatmapCard.swift, MealCalendarCard.swift, MealHistoryView.swift, Achievement.swift, Day.swift, GroupColor.swift, NextRoutine.swift, SkipStyle.swift, TimeLabel.swift, ToggleRoutineIntent.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling DashboardDecor.swift, DayCheck.swift, DaylogSchemaV1.swift, DaylogSchemaV2.swift, DaylogSchemaV3.swift, DaylogStore.swift, DayRecord.swift, DevicePreferences.swift, FieldEdit.swift, RoutineGroup.swift, RoutineItem.swift, RoutineRevision.swift, RoutineTemplate.swift, StoreBackup.swift, StoreContent.swift, StoreLock.swift, StoreReseed.swift, WeekStart.swift, CommunityBackend.swift, CommunityModels.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling StatsModels.swift, StatsService.swift, SyncReconciler.swift, TemplateFile.swift, UpdateConfiguration.swift, VacationRest.swift, VacationRoutinePolicy.swift, VacationService.swift, VacationStatus.swift, WeeklyGrowth.swift, WeeklyReview.swift, AppearanceMode.swift, Theme.swift, DaylogError.swift, CalendarView.swift, AchievementCard.swift, CustomCardEditor.swift, CustomCards.swift, DashboardCardEditing.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling RootView.swift, StoreComparison.swift, TopPresenter.swift, WidgetIntentExecution.swift, Card.swift, DayRangeCalendar.swift, OutcomeDisplay.swift, PioTrial.swift, ProgressViews.swift, RoutineCheckStyle.swift, Saessagi.swift, SaessagiDirector.swift, SaessagiIdleView.swift, SaessagiRenderer.swift, SaessagiWalk.swift, SheetChrome.swift, SheetScaffold.swift, SheetScrollArea.swift, AppSettings.swift, DashboardCustomCard.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling WeeklyGrowthCard.swift, WeeklyReviewCard.swift, WeekOverviewCard.swift, MealsView.swift, MenuBarView.swift, FirstSyncView.swift, NotificationGuide.swift, OnboardingNotificationOffer.swift, OnboardingView.swift, SyncScene.swift, SyncSceneMotion.swift, SyncSceneStage.swift, GroupEditorSupport.swift, RoutineEditorDialogs.swift, RoutineEditSheet.swift, RoutineGroupCard.swift, RoutineListRow.swift, RoutineManagementView.swift, WeekdaySelector.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling AppRuntime.swift, AppSection.swift, AppStore.swift, AppStore+Checks.swift, AppStore+Dashboard.swift, AppStore+Derived.swift, AppStore+DevicePreferences.swift, AppStore+Devices.swift, AppStore+Onboarding.swift, AppStore+Queries.swift, AppStore+Routines.swift, AppStore+Transfer.swift, AppStore+Upcoming.swift, AppStore+Vacations.swift, DaylogApp.swift, DaylogCommands.swift, DaylogUpdater.swift, DebugBackup.swift, DebugScript.swift, Platform.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling DashboardCards.swift, DashboardEditBar.swift, DashboardView.swift, MealCard.swift, MonthCalendarCard.swift, RestartCard.swift, RoutineCard.swift, RoutineCard+Groups.swift, RoutineCheckRow.swift, RoutineRatesCard.swift, SaessagiGrowthCard.swift, StatCards.swift, TodayCompactView.swift, TomorrowTaskCard.swift, TrendChartCard.swift, VacationArt.swift, VacationHammockMotion.swift, VacationRestView.swift, VacationScene.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriverJobDiscovery normal arm64 Compiling Weekdays.swift, WidgetBridge.swift, WidgetSnapshot.swift, MealTimelineRow.swift, RateCards.swift, RoutineHistoryCard.swift, RoutineStatisticsView.swift, StatisticsView.swift, CommunityAccountSection.swift, MyTemplatesSheet.swift, TemplateDetailSheet.swift, TemplateLibraryView.swift, TemplatePublishSheet.swift, TemplateShareSheet.swift, VacationDayCard.swift, VacationManagementView.swift, VacationRoutinePicker.swift, VacationView.swift, GeneratedAssetSymbols.swift (in target 'Daylog' from project 'Daylog')
+
+SwiftDriver\ Compilation Daylog normal arm64 com.apple.xcode.tools.swift.compiler (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name Daylog -Onone @/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -target arm64-apple-macos14.0 -g -module-cache-path /tmp/DaylogStage3.noindex/verify/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /tmp/DaylogStage3.noindex/verify/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /tmp/DaylogStage3.noindex/verify/Build/Products/Debug -F /tmp/DaylogStage3.noindex/verify/Build/Products/Debug -emit-localized-strings -emit-localized-strings-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64 -c -j10 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /tmp/DaylogStage3.noindex/verify/SDKStatCaches.noindex/macosx27.0-26A425-7231f6df4def33e022ae2eb8f782df1a.sdkstatcache -output-file-map /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-OutputFileMap.json -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /tmp/DaylogStage3.noindex/verify/ModuleCache.noindex -sdk-module-cache-path /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules -emit-dependencies -emit-module -emit-module-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftmodule -serialize-diagnostics -dependency-scan-serialize-diagnostics-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-dependency-scan.dia -validate-clang-modules-once -clang-build-session-file /tmp/DaylogStage3.noindex/verify/ModuleCache.noindex/Session.modulevalidation -Xcc -fmodules-prune-interval\=86400 -Xcc -fmodules-prune-after\=345600 -emit-const-values -const-gather-protocols-list /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_const_extract_protocols.json -Xcc -iquote -Xcc /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-generated-files.hmap -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-own-target-headers.hmap -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-all-target-headers.hmap -Xcc -iquote -Xcc /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-project-headers.hmap -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Products/Debug/include -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources-normal/arm64 -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources/arm64 -Xcc -I/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/DerivedSources -emit-objc-header -emit-objc-header-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog-Swift.h -working-directory /Users/mungyubin/Desktop/Coding/Daylog -experimental-emit-module-separately -disable-cmo
+
+Ld /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib normal (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -L/tmp/DaylogStage3.noindex/verify/Build/Products/Debug -F/tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/EagerLinkingTBDs/Debug -F/tmp/DaylogStage3.noindex/verify/Build/Products/Debug -filelist /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.LinkFileList -install_name @rpath/Daylog.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/../Frameworks -Xlinker -object_path_lto -Xlinker /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -dependency_info -Xlinker /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.swiftmodule -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -framework Sparkle -Xlinker -no_adhoc_codesign -o /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib
+
+ConstructStubExecutorLinkFileList /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-ExecutorLinkFileList-normal-arm64.txt (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    construct-stub-executor-link-file-list /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'Daylog' from project 'Daylog')
+
+Ld /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog normal (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-macos14.0 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk -O0 -Xlinker -no_warn_duplicate_libraries -L/tmp/DaylogStage3.noindex/verify/Build/Products/Debug -F/tmp/DaylogStage3.noindex/verify/Build/Products/Debug -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/../Frameworks -rdynamic -Xlinker -no_deduplicate -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog-ExecutorLinkFileList-normal-arm64.txt /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib -Xlinker -no_adhoc_codesign -o /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog
+
+CopySwiftLibs /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib --scan-folder /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Frameworks --scan-folder /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/PlugIns --scan-folder /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Library/SystemExtensions --scan-folder /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Extensions --platform macosx --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os --back-deploy-swift-span
+
+ExtractAppIntentsMetadata (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name Daylog --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk --xcode-version 27A266a --platform-family macOS --deployment-target 14.0 --bundle-identifier com.daylog.verify --output /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/Resources --target-triple arm64-apple-macos14.0 --binary-file /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog --dependency-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog_dependency_info.dat --stringsdata-file /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftFileList --metadata-file-list /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.DependencyMetadataFileList --static-metadata-file-list /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.DependencyStaticMetadataFileList --swift-const-vals-list /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Objects-normal/arm64/Daylog.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --no-app-shortcuts-localization
+2026-10-15 15:55:22.815 appintentsmetadataprocessor[61277:26683726] Starting appintentsmetadataprocessor export
+2026-10-15 15:55:22.823 appintentsmetadataprocessor[61277:26683726] warning: Metadata extraction skipped, no AppIntents.framework dependency found
+
+CodeSign /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/Daylog.debug.dylib
+
+CodeSign /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app/Contents/MacOS/__preview.dylib
+
+CodeSign /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --entitlements /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/Daylog.build/Debug/Daylog.build/Daylog.app.xcent --timestamp\=none --generate-entitlement-der /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app
+
+RegisterExecutionPolicyException /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-RegisterExecutionPolicyException /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app
+
+Validate /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-validationUtility /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app -no-validate-extension -infoplist-subpath Contents/Info.plist
+
+Touch /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    /usr/bin/touch -c /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app
+
+RegisterWithLaunchServices /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app (in target 'Daylog' from project 'Daylog')
+    cd /Users/mungyubin/Desktop/Coding/Daylog
+    builtin-lsregisterurl --record-path /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/XCBuildData/registered-launchservices.txt -- /System/Library/Frameworks/CoreServices.framework/Versions/Current/Frameworks/LaunchServices.framework/Versions/Current/Support/lsregister -f -R -trusted /tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app
+
+PruneExplicitPrecompiledModules /tmp/DaylogStage3.noindex/verify/SDKExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+PruneExplicitPrecompiledModules /tmp/DaylogStage3.noindex/verify/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+note: Disabling hardened runtime with ad-hoc codesigning. (in target 'Daylog' from project 'Daylog')
+** BUILD SUCCEEDED **
+
+/tmp/DaylogStage3.noindex/verify/Build/Products/Debug/Daylog.app

@@ -1,0 +1,36 @@
+{
+  "size": [
+    1774,
+    887
+  ],
+  "alpha_range": [
+    0,
+    255
+  ],
+  "left_lens_hole": {
+    "box": [
+      600,
+      550,
+      750,
+      600
+    ],
+    "min": 0,
+    "max": 1,
+    "median": 0.0,
+    "mean": 0.0009333333333333333,
+    "alpha_zero_fraction": 0.9990666666666667
+  },
+  "right_lens_hole": {
+    "box": [
+      1250,
+      440,
+      1400,
+      500
+    ],
+    "min": 0,
+    "max": 0,
+    "median": 0.0,
+    "mean": 0.0,
+    "alpha_zero_fraction": 1.0
+  }
+}

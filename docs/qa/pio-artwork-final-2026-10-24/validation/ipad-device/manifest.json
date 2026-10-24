@@ -1,0 +1,26 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "18A1DFA8-796C-4403-9CC0-C02FD790F40A",
+        "deviceName" : "Pio iPad QA 2026-10-24",
+        "exportedFileName" : "5684A4C6-0C2E-4CA0-935C-694527477C82.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "actual-ipad-dashboard-AX5_0_98EB6CC1-9191-47F8-B08F-CD70B4C13846.png",
+        "timestamp" : 1792809934.831
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "18A1DFA8-796C-4403-9CC0-C02FD790F40A",
+        "deviceName" : "Pio iPad QA 2026-10-24",
+        "exportedFileName" : "0635DB58-B151-4C92-9858-CF9EB9E60F08.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "actual-ipad-dashboard-normal_0_7D2327B6-E24D-4FAE-8889-85F8E6296A9E.png",
+        "timestamp" : 1792809934.466
+      }
+    ],
+    "testIdentifier" : "PioDeviceSizeReviewTests/testActualDeviceDashboardAndLargeText()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioDeviceSizeReviewTests/testActualDeviceDashboardAndLargeText"
+  }
+]

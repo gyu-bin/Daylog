@@ -1,0 +1,223 @@
+{
+  "devices": [
+    {
+      "architecture": "arm64",
+      "deviceId": "0426CD78-3807-4650-9776-B649780E2884",
+      "deviceName": "Pio StoreKit Local 2026-10-23",
+      "modelName": "iPhone 17",
+      "osBuildNumber": "24A434",
+      "osVersion": "27.0",
+      "platform": "iOS Simulator"
+    }
+  ],
+  "testNodes": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "name": "XCTAssertEqual failed: (\"failed(message: \"App Store\uc5d0 \uc5f0\uacb0\ud558\uc9c0 \ubabb\ud588\uc5b4\uc694. \ub124\ud2b8\uc6cc\ud06c\ub97c \ud655\uc778\ud558\uace0 \uc7a0\uc2dc \ud6c4 \ub2e4\uc2dc \uc2dc\ub3c4\ud574 \uc8fc\uc138\uc694.\")\") is not equal to (\"cancelled\")",
+                      "nodeType": "Failure Message",
+                      "sourceLocation": {
+                        "filePath": "/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift",
+                        "lineNumber": 354
+                      }
+                    }
+                  ],
+                  "duration": "0.13s",
+                  "durationInSeconds": 0.12627100944519043,
+                  "name": "testCancellationFromStoreKitDoesNotUnlockOrShowFailure()",
+                  "nodeIdentifier": "PioStoreKitIntegrationTests/testCancellationFromStoreKitDoesNotUnlockOrShowFailure()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testCancellationFromStoreKitDoesNotUnlockOrShowFailure",
+                  "nodeType": "Test Case",
+                  "result": "Failed"
+                },
+                {
+                  "duration": "0.041s",
+                  "durationInSeconds": 0.04094398021697998,
+                  "name": "testConfigurationLoadsThirteenNonConsumablesAtKoreanDisplayPrice()",
+                  "nodeIdentifier": "PioStoreKitIntegrationTests/testConfigurationLoadsThirteenNonConsumablesAtKoreanDisplayPrice()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testConfigurationLoadsThirteenNonConsumablesAtKoreanDisplayPrice",
+                  "nodeType": "Test Case",
+                  "result": "Passed"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "XCTAssertTrue failed - All registered wardrobe transactions must disappear from Transaction.unfinished within 3 seconds without test-side acknowledgement.\nelapsed=0.004013458 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=0.110828625 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=0.212844458 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=0.321359958 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=0.423669958 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=0.526338458 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=0.633209833 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=0.738267 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=0.841603291 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=0.944080541 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=1.046442458 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=1.149163333 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=1.253446416 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=1.35629925 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=1.464211583 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=1.567248041 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=1.669485125 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=1.771995125 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=1.874029833 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=1.975970541 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=2.077991583 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=2.181026875 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=2.282873208 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=2.38504675 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=2.486741625 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=2.589391083 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=2.69783575 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=2.801827875 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000\n\nelapsed=2.909515041 seconds registeredUnfinishedIDs=[132]\nid=132 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 11:27:59 +0000",
+                      "nodeType": "Failure Message",
+                      "sourceLocation": {
+                        "filePath": "/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift",
+                        "lineNumber": 335
+                      }
+                    }
+                  ],
+                  "duration": "3\ucd08",
+                  "durationInSeconds": 3.223673939704895,
+                  "name": "testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()",
+                  "nodeIdentifier": "PioStoreKitIntegrationTests/testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork",
+                  "nodeType": "Test Case",
+                  "result": "Failed"
+                },
+                {
+                  "duration": "0.038s",
+                  "durationInSeconds": 0.03754103183746338,
+                  "name": "testExplicitRestoreRecoversExternalPurchase()",
+                  "nodeIdentifier": "PioStoreKitIntegrationTests/testExplicitRestoreRecoversExternalPurchase()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testExplicitRestoreRecoversExternalPurchase",
+                  "nodeType": "Test Case",
+                  "result": "Passed"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "XCTAssertFalse failed",
+                      "nodeType": "Failure Message",
+                      "sourceLocation": {
+                        "filePath": "/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift",
+                        "lineNumber": 413
+                      }
+                    },
+                    {
+                      "name": "XCTAssertFalse failed - No verified ownership may arrive before issue resolution",
+                      "nodeType": "Failure Message",
+                      "sourceLocation": {
+                        "filePath": "/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift",
+                        "lineNumber": 414
+                      }
+                    },
+                    {
+                      "name": "Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: \"Resolved interrupted purchase updates verified ownership\".",
+                      "nodeType": "Failure Message",
+                      "sourceLocation": {
+                        "filePath": "/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift",
+                        "lineNumber": 421
+                      }
+                    }
+                  ],
+                  "duration": "10\ucd08",
+                  "durationInSeconds": 10.157364010810852,
+                  "name": "testInterruptedPurchaseOnlyUnlocksAfterResolution()",
+                  "nodeIdentifier": "PioStoreKitIntegrationTests/testInterruptedPurchaseOnlyUnlocksAfterResolution()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testInterruptedPurchaseOnlyUnlocksAfterResolution",
+                  "nodeType": "Test Case",
+                  "result": "Failed"
+                },
+                {
+                  "duration": "0.082s",
+                  "durationInSeconds": 0.08218908309936523,
+                  "name": "testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate()",
+                  "nodeIdentifier": "PioStoreKitIntegrationTests/testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate",
+                  "nodeType": "Test Case",
+                  "result": "Passed"
+                },
+                {
+                  "duration": "0.05s",
+                  "durationInSeconds": 0.04962801933288574,
+                  "name": "testProductLoadFailureAndRetryUseRealStoreKitAPI()",
+                  "nodeIdentifier": "PioStoreKitIntegrationTests/testProductLoadFailureAndRetryUseRealStoreKitAPI()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testProductLoadFailureAndRetryUseRealStoreKitAPI",
+                  "nodeType": "Test Case",
+                  "result": "Passed"
+                },
+                {
+                  "duration": "0.064s",
+                  "durationInSeconds": 0.06400501728057861,
+                  "name": "testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()",
+                  "nodeIdentifier": "PioStoreKitIntegrationTests/testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger",
+                  "nodeType": "Test Case",
+                  "result": "Passed"
+                },
+                {
+                  "duration": "0.044s",
+                  "durationInSeconds": 0.04398906230926514,
+                  "name": "testPurchaseFailureLeavesLockedAndAllowsRetry()",
+                  "nodeIdentifier": "PioStoreKitIntegrationTests/testPurchaseFailureLeavesLockedAndAllowsRetry()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testPurchaseFailureLeavesLockedAndAllowsRetry",
+                  "nodeType": "Test Case",
+                  "result": "Passed"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: \"Refund transaction update removes ownership\".",
+                      "nodeType": "Failure Message",
+                      "sourceLocation": {
+                        "filePath": "/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift",
+                        "lineNumber": 229
+                      }
+                    },
+                    {
+                      "name": "XCTAssertFalse failed",
+                      "nodeType": "Failure Message",
+                      "sourceLocation": {
+                        "filePath": "/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift",
+                        "lineNumber": 231
+                      }
+                    },
+                    {
+                      "name": "XCTAssertEqual failed: (\"winter\") is not equal to (\"basic\")",
+                      "nodeType": "Failure Message",
+                      "sourceLocation": {
+                        "filePath": "/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift",
+                        "lineNumber": 232
+                      }
+                    },
+                    {
+                      "name": "XCTAssertFalse failed",
+                      "nodeType": "Failure Message",
+                      "sourceLocation": {
+                        "filePath": "/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift",
+                        "lineNumber": 233
+                      }
+                    }
+                  ],
+                  "duration": "10\ucd08",
+                  "durationInSeconds": 10.15247905254364,
+                  "name": "testRefundUpdateRevokesAccessAndRefreshResetsEquipment()",
+                  "nodeIdentifier": "PioStoreKitIntegrationTests/testRefundUpdateRevokesAccessAndRefreshResetsEquipment()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testRefundUpdateRevokesAccessAndRefreshResetsEquipment",
+                  "nodeType": "Test Case",
+                  "result": "Failed"
+                },
+                {
+                  "duration": "0.042s",
+                  "durationInSeconds": 0.0423969030380249,
+                  "name": "testVerificationFailureNeverGrantsFreshManagerOwnership()",
+                  "nodeIdentifier": "PioStoreKitIntegrationTests/testVerificationFailureNeverGrantsFreshManagerOwnership()",
+                  "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testVerificationFailureNeverGrantsFreshManagerOwnership",
+                  "nodeType": "Test Case",
+                  "result": "Passed"
+                }
+              ],
+              "name": "PioStoreKitIntegrationTests",
+              "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests",
+              "nodeType": "Test Suite",
+              "result": "Failed"
+            }
+          ],
+          "name": "DaylogStoreKitTests",
+          "nodeIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests",
+          "nodeType": "Unit test bundle",
+          "result": "Failed"
+        }
+      ],
+      "name": "DaylogiOSStoreKit",
+      "nodeType": "Test Plan",
+      "result": "Failed"
+    }
+  ],
+  "testPlanConfigurations": [
+    {
+      "configurationId": "1",
+      "configurationName": "Test Scheme Action"
+    }
+  ]
+}

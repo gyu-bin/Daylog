@@ -1,0 +1,154 @@
+{
+  "status": "PARTIAL_ARTWORK_CANDIDATE_NOT_APP_INTEGRATED",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "parts": [
+    {
+      "id": "eyeLeft",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+      "center": [
+        510,
+        650
+      ],
+      "width": 104,
+      "scale": 0.13612565445026178,
+      "offset": [
+        420,
+        566
+      ],
+      "mirrorX": false
+    },
+    {
+      "id": "halfLeft",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+      "center": [
+        510,
+        650
+      ],
+      "width": 104,
+      "scale": 0.12192262602579132,
+      "offset": [
+        433,
+        573
+      ],
+      "mirrorX": false
+    },
+    {
+      "id": "lidLeft",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+      "center": [
+        510,
+        650
+      ],
+      "width": 104,
+      "scale": 0.12903225806451613,
+      "offset": [
+        425,
+        560
+      ],
+      "mirrorX": false
+    },
+    {
+      "id": "browLeft",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-completion-2026-10-23/expressions/shared/concerned-brow-v1.png",
+      "center": [
+        510,
+        605
+      ],
+      "width": 112.32000000000001,
+      "scale": 0.1991489361702128,
+      "offset": [
+        382,
+        476
+      ],
+      "mirrorX": false
+    },
+    {
+      "id": "eyeRight",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+      "center": [
+        827,
+        640
+      ],
+      "width": 100,
+      "scale": 0.13089005235602094,
+      "offset": [
+        741,
+        559
+      ],
+      "mirrorX": false
+    },
+    {
+      "id": "halfRight",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+      "center": [
+        827,
+        640
+      ],
+      "width": 100,
+      "scale": 0.11723329425556858,
+      "offset": [
+        753,
+        566
+      ],
+      "mirrorX": false
+    },
+    {
+      "id": "lidRight",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+      "center": [
+        827,
+        640
+      ],
+      "width": 100,
+      "scale": 0.12406947890818859,
+      "offset": [
+        745,
+        553
+      ],
+      "mirrorX": false
+    },
+    {
+      "id": "browRight",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-completion-2026-10-23/expressions/shared/concerned-brow-v1.png",
+      "center": [
+        827,
+        595
+      ],
+      "width": 108.0,
+      "scale": 0.19148936170212766,
+      "offset": [
+        710,
+        471
+      ],
+      "mirrorX": true
+    }
+  ],
+  "baked": [
+    "clothed seated torso",
+    "tablet",
+    "hands",
+    "feet",
+    "headwear/sprout",
+    "closed beak"
+  ],
+  "independent": [
+    "eyes",
+    "eyelids",
+    "concerned brows"
+  ],
+  "handMotionSupported": false,
+  "sourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-completion-2026-10-23/cloud/halloween/source/seated-clean-face-v1.png": "08f0743dcef5fda7d1e13b0a7ed29be1792e7f66c1f8f11298333ced6d9cb2d7",
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png": "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png": "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png": "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-completion-2026-10-23/expressions/shared/concerned-brow-v1.png": "d92aa22a3efce27cbc6ff5fd0d04793b5b43b8bc4a4acc984a25bd41e22834d4",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/happy-1254-alpha.png": "faf4c2ccfb208bb0ea77198996bf7a42cf03004dfba704caae416c2b39b9728d",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-completion-2026-10-23/cloud/cherryBlossom/source/seated-clean-face-v1.png": "849ee8202cba5e5c892950c40ee68098582b3e01dd225bfe40656e70670cdd29",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cherryBlossom/happy-1254-alpha.png": "5fc52cef8f65cd512ebae297172acaf808dae1685e4a9d18a001926653ea1022"
+  }
+}

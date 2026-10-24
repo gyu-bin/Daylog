@@ -1,0 +1,10 @@
+{
+  "environment": "Xcode local, visibly testing only/no charge",
+  "product": "outfit.cherryblossom",
+  "cancelAgain": "Escape delivered to selected isolated simulator; purchase button enabled again",
+  "sameProcessRetry": "Actual Xcode purchase sheet opened again after cancellation",
+  "confirmedPurchase": "NOT_TESTED: coordinate UI actions returned windowNotFoundAtPosition; Return did not confirm",
+  "cleanup": "Pending local sheet canceled via keyboard; keyboard capture restored off; fixture stop marker written",
+  "noAppleCredentials": true,
+  "noRealCharge": true
+}

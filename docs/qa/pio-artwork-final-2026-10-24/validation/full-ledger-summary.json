@@ -1,0 +1,52 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "0426CD78-3807-4650-9776-B649780E2884",
+        "deviceName" : "Pio StoreKit Local 2026-10-23",
+        "modelName" : "iPhone 17",
+        "osBuildNumber" : "24A434",
+        "osVersion" : "27.0",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 1,
+      "passedTests" : 0,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "DaylogiOSStoreKit · Built with macOS 27.0.1",
+  "expectedFailures" : 0,
+  "failedTests" : 1,
+  "finishTime" : 1792809798.728,
+  "passedTests" : 0,
+  "result" : "Failed",
+  "runtimeWarnings" : [
+
+  ],
+  "skippedTests" : 0,
+  "startTime" : 1792809721.161,
+  "statistics" : [
+
+  ],
+  "testFailures" : [
+    {
+      "failureText" : "XCTUnwrap failed: expected non-nil value of type \"Transaction\" - No verified currentEntitlements receipt for test-driven seed",
+      "targetName" : "DaylogStoreKitTests",
+      "testIdentifier" : 1,
+      "testIdentifierString" : "PioStoreKitLedgerFixtureTests/testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions()",
+      "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitLedgerFixtureTests/testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions",
+      "testName" : "testAllThirteenSeededEntitlementsEquipAndKeepTenMotionActions()"
+    }
+  ],
+  "title" : "Test - DaylogiOSStoreKit",
+  "topInsights" : [
+
+  ],
+  "totalTestCount" : 1
+}

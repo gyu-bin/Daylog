@@ -1,0 +1,76 @@
+{
+  "devicesAndConfigurations": [
+    {
+      "device": {
+        "architecture": "arm64",
+        "deviceId": "0426CD78-3807-4650-9776-B649780E2884",
+        "deviceName": "Pio StoreKit Local 2026-10-23",
+        "modelName": "iPhone 17",
+        "osBuildNumber": "24A434",
+        "osVersion": "27.0",
+        "platform": "iOS Simulator"
+      },
+      "expectedFailures": 0,
+      "failedTests": 4,
+      "passedTests": 0,
+      "skippedTests": 0,
+      "testPlanConfiguration": {
+        "configurationId": "1",
+        "configurationName": "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription": "DaylogiOSStoreKit \u00b7 Built with macOS 27.0.1",
+  "expectedFailures": 0,
+  "failedTests": 4,
+  "finishTime": 1792755488.47,
+  "passedTests": 0,
+  "result": "Failed",
+  "runtimeWarnings": [],
+  "skippedTests": 0,
+  "startTime": 1792755442.497,
+  "statistics": [],
+  "testFailures": [
+    {
+      "failureText": "Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: \"Adapter-only refund update\".",
+      "targetName": "DaylogStoreKitTests",
+      "testIdentifier": 1,
+      "testIdentifierString": "PioStoreKitRefundOrderingTests/testAdapterOnlyAfterProductPreparation()",
+      "testIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitRefundOrderingTests/testAdapterOnlyAfterProductPreparation",
+      "testName": "testAdapterOnlyAfterProductPreparation()"
+    },
+    {
+      "failureText": "Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: \"Direct factor probe refund update\".",
+      "targetName": "DaylogStoreKitTests",
+      "testIdentifier": 2,
+      "testIdentifierString": "PioStoreKitRefundOrderingTests/testDirectWithChildTaskFinisher()",
+      "testIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitRefundOrderingTests/testDirectWithChildTaskFinisher",
+      "testName": "testDirectWithChildTaskFinisher()"
+    },
+    {
+      "failureText": "Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: \"Direct factor probe refund update\".",
+      "targetName": "DaylogStoreKitTests",
+      "testIdentifier": 3,
+      "testIdentifierString": "PioStoreKitRefundOrderingTests/testDirectWithEntitlementsReadAfterSubscription()",
+      "testIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitRefundOrderingTests/testDirectWithEntitlementsReadAfterSubscription",
+      "testName": "testDirectWithEntitlementsReadAfterSubscription()"
+    },
+    {
+      "failureText": "Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: \"Direct factor probe refund update\".",
+      "targetName": "DaylogStoreKitTests",
+      "testIdentifier": 4,
+      "testIdentifierString": "PioStoreKitRefundOrderingTests/testDirectWithFullCatalog()",
+      "testIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitRefundOrderingTests/testDirectWithFullCatalog",
+      "testName": "testDirectWithFullCatalog()"
+    }
+  ],
+  "title": "Test - DaylogiOSStoreKit",
+  "topInsights": [
+    {
+      "category": "Common Failures",
+      "impact": "75% of failures",
+      "text": "3 runs of 3 tests failed with Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: \"Direct factor probe refund update\"."
+    }
+  ],
+  "totalTestCount": 4
+}

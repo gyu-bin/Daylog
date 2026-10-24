@@ -1,0 +1,7 @@
+{
+  "testExecuteSucceeded": true,
+  "typedFinalState": [
+    "PIO_INTERACTIVE_RESULT purchaseState=completed(Daylog.PioWardrobeEntitlementResult.cancelled) owned=[\"basic\"] equipped=basic busy=false"
+  ],
+  "scope": "Actual local cancellation; purchase confirmation is NOT_TESTED"
+}

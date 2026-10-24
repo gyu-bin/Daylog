@@ -1,0 +1,51 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/DaylogiOSStoreKit_iphonesimulator27.1-arm64.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests/testRefundUpdateRevokesAccessAndRefreshResetsEquipment" -resultBundlePath /tmp/PioStoreKit-Stabilization-isolated-testRefundUpdateRevokesAccessAndRefreshResetsEquipment.xcresult
+
+Writing result bundle at path:
+	/tmp/PioStoreKit-Stabilization-isolated-testRefundUpdateRevokesAccessAndRefreshResetsEquipment.xcresult
+
+2026-10-23 20:26:56.085 xcodebuild[97429:836042] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:26:59.922232+0900 Daylog[97441:836474] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 20:27:00.372904+0900 Daylog[97441:836474] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 20:27:00.374242+0900 Daylog[97441:836474] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 20:27:00.374513+0900 Daylog[97441:836474] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 20:27:00.440.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 20:27:00.440.
+Test Suite 'PioStoreKitIntegrationTests' started at 2026-10-23 20:27:00.441.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment]' started.
+PioStoreKit: client=B2A9501E time=1792754820.489248 raw listener started subscription=94161796-F82E-476F-91D3-58337D11DCE5
+PioStoreKit: client=B2A9501E time=1792754820.525032 accepted id=85 product=outfit.winter revoked=false
+PioStoreKit: client=B2A9501E time=1792754820.5250912 finish requested id=85 cached=true inFlight=0
+PioStoreKit: client=B2A9501E time=1792754820.525121 finish begin id=85 product=outfit.winter revoked=false
+PioStoreKit: client=B2A9501E time=1792754820.5274382 finish returned id=85
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:229: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment] : Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: "Refund transaction update removes ownership".
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:231: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment] : XCTAssertFalse failed
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:232: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment] : XCTAssertEqual failed: ("winter") is not equal to ("basic")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:233: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment] : XCTAssertFalse failed
+PioStoreKit: client=B2A9501E time=1792754830.65688 raw listener ended subscription=94161796-F82E-476F-91D3-58337D11DCE5
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment]' failed (10.223 seconds).
+Test Suite 'PioStoreKitIntegrationTests' failed at 2026-10-23 20:27:10.669.
+	 Executed 1 test, with 4 failures (0 unexpected) in 10.223 (10.228) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 20:27:10.669.
+	 Executed 1 test, with 4 failures (0 unexpected) in 10.223 (10.229) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 20:27:10.669.
+	 Executed 1 test, with 4 failures (0 unexpected) in 10.223 (10.229) seconds
+2026-10-23 20:27:10.698 xcodebuild[97429:836042] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:27:10.698 xcodebuild[97429:836042] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:27:10.700 xcodebuild[97429:836042] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:27:10.966 xcodebuild[97429:836042] [MT] IDETestOperationsObserverDebug: 14.926 elapsed -- Testing started completed.
+2026-10-23 20:27:10.966 xcodebuild[97429:836042] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 20:27:10.966 xcodebuild[97429:836042] [MT] IDETestOperationsObserverDebug: 14.926 sec, +14.926 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioStoreKit-Stabilization-isolated-testRefundUpdateRevokesAccessAndRefreshResetsEquipment.xcresult
+
+Failing tests:
+	PioStoreKitIntegrationTests.testRefundUpdateRevokesAccessAndRefreshResetsEquipment()
+	PioStoreKitIntegrationTests.testRefundUpdateRevokesAccessAndRefreshResetsEquipment()
+	PioStoreKitIntegrationTests.testRefundUpdateRevokesAccessAndRefreshResetsEquipment()
+	PioStoreKitIntegrationTests.testRefundUpdateRevokesAccessAndRefreshResetsEquipment()
+
+** TEST EXECUTE FAILED **
+
+Testing started

@@ -1,0 +1,154 @@
+[
+  {
+    "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/body-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_range": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1054151,
+    "almost_opaque_pixels": 499024,
+    "bounds_alpha2": [
+      249,
+      399,
+      1083,
+      1189
+    ]
+  },
+  {
+    "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/drink-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_range": [
+      0,
+      255
+    ],
+    "transparent_pixels": 958340,
+    "almost_opaque_pixels": 567214,
+    "bounds_alpha2": [
+      163,
+      76,
+      1166,
+      1161
+    ]
+  },
+  {
+    "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/headwear-v1-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha_range": [
+      0,
+      255
+    ],
+    "transparent_pixels": 882972,
+    "almost_opaque_pixels": 656763,
+    "bounds_alpha2": [
+      20,
+      130,
+      1254,
+      1113
+    ]
+  },
+  {
+    "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/headwear-v2-candidate.png",
+    "size": [
+      1536,
+      1024
+    ],
+    "alpha_range": [
+      0,
+      254
+    ],
+    "transparent_pixels": 1144293,
+    "almost_opaque_pixels": 403753,
+    "bounds_alpha2": [
+      173,
+      103,
+      1467,
+      959
+    ]
+  },
+  {
+    "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/sunglasses-candidate.png",
+    "size": [
+      1774,
+      887
+    ],
+    "alpha_range": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1116044,
+    "almost_opaque_pixels": 443694,
+    "bounds_alpha2": [
+      104,
+      211,
+      1720,
+      768
+    ]
+  },
+  {
+    "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/sunglasses-frame-only-candidate.png",
+    "size": [
+      1774,
+      887
+    ],
+    "alpha_range": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1312790,
+    "almost_opaque_pixels": 230593,
+    "bounds_alpha2": [
+      34,
+      193,
+      1748,
+      754
+    ]
+  },
+  {
+    "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/wing-left-candidate.png",
+    "size": [
+      1402,
+      1122
+    ],
+    "alpha_range": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1205319,
+    "almost_opaque_pixels": 352036,
+    "bounds_alpha2": [
+      357,
+      262,
+      1190,
+      928
+    ]
+  },
+  {
+    "file": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/wing-right-candidate.png",
+    "size": [
+      1374,
+      1145
+    ],
+    "alpha_range": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1087238,
+    "almost_opaque_pixels": 463224,
+    "bounds_alpha2": [
+      187,
+      309,
+      1283,
+      972
+    ]
+  }
+]

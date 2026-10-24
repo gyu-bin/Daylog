@@ -1,0 +1,13 @@
+# Native scene validation
+
+- Mac Debug build PASS. Original scene regression suites: 22/22 PASS (RoutimoriSync2, RoutimoriVacation3, SyncScene7, VacationScene10). New vacation integration4/4 PASS after NSNumber bridge assertion correction. Native evidence XCTest3/3 PASS. Combined unique29 tests pass across recorded runs; no claim one final aggregate run.
+- iOS Simulator Debug build PASS `ios-build.log`; iPhone runtime evidence handled separately by cloud implementation agent.
+- `native-cloud-final/`: final84 cloud PNGs, all14 ×3states ×light/dark. Native layer model captures under explicit Reduce Motion, not full application screens or moving presentation frames. 60second stress JSON included.
+- Earlier `native-mac/` cloud captures precede the corrected independent frame230u/center215u that preventsfeetclipping. Final cloud capture +legacyRoutimoriSync2tests PASS in `mac-cloud-final.log`.
+- Vacation initially rawCGContext captures upside-down because existing AppKit root geometry is flipped. No app artwork/runtime modification made for this. `native-mac-corrected/`: corrected28 day/night neutral captures. `native-AppKit-proof/vacation-hanbok-night-AppKit-host.png`: actual NSWindow/NSView cacheDisplay proof upright, visually inspected.
+- Final `native-extremes/`: 85 PNG attachments: 28neutral, 56two-sided model sway extremes,1actualAppKit host proof. Model extreme screenshots use actualrig registered transforms but are not time-sampled animated frames. Each exported file has human-readable copy and original UUID file; do not double count duplicates.
+- First extreme test failed because test transform assignment created an implicit CA animation in attachedAppKit context. Corrected test transaction disables implicit actions; keeps zeroactive-track assertion. Final `mac-extremes-v2.log` PASS. Failedlogs retained.
+- Mac 60.00009second reconfiguration/stop stress:135858cycles, initial/max sampledRSS326565888bytes (311.44MiB), final208158720bytes (198.52MiB), finalzeroactiveCAtracks. Samples every100cycles; notcontinuousmemorymeasurement. iOS build ran concurrently. This tests repeated layer configuration/halt; no visiblelong-duration animation, GPU/energy or CPUcomparison. No monotonicallygrowingRSSobserved inthisboundedrun; long-termleakfreedom NOT_TESTED.
+- Reduce Motion configuration and stop logic tested natively; actualOS settingtoggle/VoiceOver usability NOT_TESTED here.
+- Actualentitledwardrobe-to-scene processrelaunch and productionCloudKit interaction NOT_TESTED here; test fixtures do notgrantownership.
+- All captures are isolated native test evidence. No productioninstallation, purchase, commit or deployment performed.

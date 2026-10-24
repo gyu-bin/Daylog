@@ -1,0 +1,370 @@
+diff --git a/Daylog.xcodeproj/project.pbxproj b/Daylog.xcodeproj/project.pbxproj
+index 05b146f..409b9e3 100644
+--- a/Daylog.xcodeproj/project.pbxproj
++++ b/Daylog.xcodeproj/project.pbxproj
+@@ -435,7 +435,7 @@
+ 		D10000000000000000000019 /* Release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-				EXCLUDED_SOURCE_FILE_NAMES = PioTrial.xcassets;
++				EXCLUDED_SOURCE_FILE_NAMES = "PioTrial.xcassets RoutimoriTrial.xcassets";
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+ 				CODE_SIGN_ENTITLEMENTS = Config/Daylog.entitlements;
+@@ -534,7 +534,7 @@
+ 		D20000000000000000000019 /* Release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-				EXCLUDED_SOURCE_FILE_NAMES = PioTrial.xcassets;
++				EXCLUDED_SOURCE_FILE_NAMES = "PioTrial.xcassets RoutimoriTrial.xcassets";
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+ 				CODE_SIGN_ENTITLEMENTS = Config/DaylogiOS.entitlements;
+diff --git a/Daylog/App/RootView.swift b/Daylog/App/RootView.swift
+index bb97f1f..56f3b55 100644
+--- a/Daylog/App/RootView.swift
++++ b/Daylog/App/RootView.swift
+@@ -12,6 +12,10 @@ struct RootView: View {
+     @State private var templateInbox = TemplateInbox.shared
+     /// 새 기기의 첫 동기화 안내. 떠 있는 동안에는 시작 안내와 알림 안내를 올리지 않는다.
+     @State private var firstSync = FirstSyncGate.shared
++    #if os(macOS)
++    @State private var showsRoutimoriSplash = RoutimoriSplashTrial.claimMac()
++    @State private var routimoriSplashIsLeaving = false
++    #endif
+     #if !os(macOS)
+     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+     @AppStorage(AppearanceMode.storageKey) private var appearance: AppearanceMode = .system
+@@ -128,12 +132,17 @@ struct RootView: View {
+         #if os(macOS)
+         SidebarNavigation()
+             // 안내에 가려진 화면은 누르거나 입력할 수 없게 한다(Tab으로 입력 칸에 들어가 루틴을 만드는 일을 막는다).
+-            .disabled(firstSync.isActive)
+-            .accessibilityHidden(firstSync.isActive)
++            .disabled(firstSync.isActive || isSplashShowing)
++            .accessibilityHidden(firstSync.isActive || isSplashShowing)
+             .overlay { firstSyncOverlay }
+             .animation(.easeOut(duration: 0.3), value: firstSync.isActive)
+             // 피오 시범의 스플래시(검증용 앱에서만, 실행할 때 한 번).
+             .overlay { PioTrialMacSplashOverlay() }
++            .overlay {
++                if showsRoutimoriSplash {
++                    RoutimoriSplashView(onLeaving: { routimoriSplashIsLeaving = true }) { showsRoutimoriSplash = false }
++                }
++            }
+             .overlay(alignment: .bottom) { PioTrialStagePreview() }
+             .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification)) { notification in
+                 // 창이 처음 앞에 올 때 첫 입력 칸이 전체 선택된 채 포커스를 받으면 실수로 덮어쓰기 쉽다.
+@@ -156,8 +165,8 @@ struct RootView: View {
+             }
+         }
+         // 안내에 가려진 화면은 누르거나 입력할 수 없게 한다(외장 키보드로 입력 칸에 들어가 루틴을 만드는 일을 막는다).
+-        .disabled(firstSync.isActive)
+-        .accessibilityHidden(firstSync.isActive)
++        .disabled(firstSync.isActive || (RoutimoriSplashTrial.isEnabled && isSplashShowing))
++        .accessibilityHidden(firstSync.isActive || (RoutimoriSplashTrial.isEnabled && isSplashShowing))
+         // 첫 동기화 안내는 화면 위, 스플래시 아래에 둔다.
+         .overlay { firstSyncOverlay }
+         .animation(.easeOut(duration: 0.3), value: firstSync.isActive)
+@@ -168,7 +177,9 @@ struct RootView: View {
+         // 실제 화면은 밑에서 이미 준비돼 있다. 스플래시는 그 위를 덮었다가 걷힌다.
+         .overlay {
+             if showsSplash {
+-                if PioTrial.isEnabled {
++                if RoutimoriSplashTrial.isEnabled {
++                    RoutimoriSplashView(onLeaving: { splashIsLeaving = true }) { showsSplash = false }
++                } else if PioTrial.isEnabled {
+                     // 피오 시범(검증용 앱에서만).
+                     PioTrialSplash(onLeaving: { splashIsLeaving = true }) { showsSplash = false }
+                 } else {
+@@ -206,7 +217,7 @@ struct RootView: View {
+     /// 첫 동기화 안내가 떠 있는 동안에도 올리지 않는다. 그 안내가 기록을 찾으면 시작 안내는 아예 건너뛴다.
+     private var isSplashShowing: Bool {
+         #if os(macOS)
+-        false
++        showsRoutimoriSplash && !routimoriSplashIsLeaving
+         #else
+         showsSplash && !splashIsLeaving
+         #endif
+diff --git a/Daylog/Components/PioTrial.swift b/Daylog/Components/PioTrial.swift
+index 89680b2..26342c1 100644
+--- a/Daylog/Components/PioTrial.swift
++++ b/Daylog/Components/PioTrial.swift
+@@ -31,14 +31,14 @@ enum PioTrial {
+             : ("pio_idle", CGRect(x: 94, y: 143, width: 819, height: 760))
+     }
+ 
+-    /// 그림이 준비된 성장 단계. 4단계 그림이 준비될 때까지 그 레벨에서도 3단계를 보여 준다.
+-    static let implementedStages = 3
++    /// 전용 부위 원화가 준비된 성장 단계.
++    static let implementedStages = 4
+ 
+     /// 그 레벨에서 보일 성장 단계 그림(1…`implementedStages`). XP·레벨 계산은 그대로 쓰고 경계만 본다.
+     static func artStage(level: Int) -> Int { min(stage(forLevel: level).number, implementedStages) }
+ 
+     /// 2단계 이후 같은 몸통 어깨를 쓴다(1536 원본: 왼쪽480,995 / 오른쪽1056,995).
+-    /// 4단계도 이 배치를 재사용할 수 있지만, 전용 원화가 없으므로 실제 그림은 여전히3단계까지다.
++    /// 3·4단계는 같은 크기와 부착점을 쓰고, 전용 원화의 디테일로 구분한다.
+     static func wingAttachment(stage: Int) -> SaessagiWingAttachment? {
+         guard stage >= 2 else { return nil }
+         return SaessagiWingAttachment(
+@@ -51,11 +51,12 @@ enum PioTrial {
+     /// 마스터를 부위로 나눈 레이어(`Tools/pio-rig`로 만든다, 모두 1536 캔버스·마스터와 같은 좌표).
+     /// 기준점은 1024 기준 좌표(마스터 픽셀 × 2/3): 볏 밑동, 두 눈의 가운데, 다리 사이, 양 어깨.
+     /// 성장 2단계부터 날개는 공통 몸통 어깨 뒤에 놓는다. 얼굴·몸·발과 원화 뿌리 좌표는 그대로다.
+-    /// 3단계는 승인된 날개와 새 볏·꼬리를 쓰며, 볏과 꼬리의 부착부는 몸 뒤에 놓는다.
++    /// 3·4단계는 각각 승인된 날개·볏·꼬리를 쓰며, 볏과 꼬리의 부착부는 몸 뒤에 놓는다.
+     static func rigLayers(stage: Int = 1) -> SaessagiLayerSet? {
+         guard isEnabled, !usesOldArt else { return nil }
++        let developedArt = stage >= 4 ? "pio_stage4" : "pio_stage3"
+         var set = SaessagiLayerSet(
+-            body: "pio_rig_body", leaf: stage >= 3 ? "pio_stage3_crest" : "pio_rig_crest", eyes: "pio_rig_eyes", mouth: nil,
++            body: "pio_rig_body", leaf: stage >= 3 ? "\(developedArt)_crest" : "pio_rig_crest", eyes: "pio_rig_eyes", mouth: nil,
+             footLeft: "pio_rig_foot_left", footRight: "pio_rig_foot_right",
+             leafPivot: CGPoint(x: 496.7, y: 392), eyeCenter: CGPoint(x: 512.8, y: 564.5), hip: CGPoint(x: 512, y: 820)
+         )
+@@ -65,13 +66,13 @@ enum PioTrial {
+         set.wingShadowLeft = "pio_rig_wing_left_shadow" + wings
+         set.wingShadowRight = "pio_rig_wing_right_shadow" + wings
+         if stage >= 3 {
+-            set.wingLeft = "pio_stage3_wing_left"
+-            set.wingRight = "pio_stage3_wing_right"
++            set.wingLeft = "\(developedArt)_wing_left"
++            set.wingRight = "\(developedArt)_wing_right"
+             set.wingShadowLeft = nil
+             set.wingShadowRight = nil
+             set.leafBehindBody = true
+-            set.tailLeft = "pio_stage3_tail_left"
+-            set.tailRight = "pio_stage3_tail_right"
++            set.tailLeft = "\(developedArt)_tail_left"
++            set.tailRight = "\(developedArt)_tail_right"
+         }
+         set.wingLeftPivot = CGPoint(x: 321.3, y: 626.7)
+         set.wingRightPivot = CGPoint(x: 702.7, y: 626.7)
+diff --git a/Daylog/Views/Dashboard/VacationRestView.swift b/Daylog/Views/Dashboard/VacationRestView.swift
+index 02ff4cb..cb41c5f 100644
+--- a/Daylog/Views/Dashboard/VacationRestView.swift
++++ b/Daylog/Views/Dashboard/VacationRestView.swift
+@@ -30,7 +30,11 @@ struct VacationRestView: View {
+             // 배경은 해먹 자리를 받아 그 자리에 해먹을, 그 둘레에 풍경을 그린다(스크롤하면 함께 움직인다).
+             .backgroundPreferenceValue(VacationSlotKey.self) { anchor in
+                 GeometryReader { area in
+-                    VacationSceneBackground(slot: anchor.map { area[$0] }, topInset: proxy.safeAreaInsets.top)
++                    if RoutimoriSplashTrial.isEnabled {
++                        RoutimoriVacationScene(slot: anchor.map { area[$0] })
++                    } else {
++                        VacationSceneBackground(slot: anchor.map { area[$0] }, topInset: proxy.safeAreaInsets.top)
++                    }
+                 }
+                 .ignoresSafeArea(edges: Self.backgroundEdges)
+             }
+@@ -71,10 +75,10 @@ struct VacationRestView: View {
+                     .font(.subheadline)
+                     .monospacedDigit()
+                     .foregroundStyle(.secondary)
+-                Text("오늘은\n쉬어가는 날이에요.")
++                Text(RoutimoriSplashTrial.isEnabled ? "지금은 휴식 중이에요" : "오늘은\n쉬어가는 날이에요.")
+                     .font(.title.bold())
+                     .accessibilityAddTraits(.isHeader)
+-                Text("잠시 멈춰도 괜찮아요.\n새싹이와 함께 여유로운 시간을 보내요.")
++                Text(RoutimoriSplashTrial.isEnabled ? "잠시 쉬어가요.\n더 좋은 내가 되기 위해서요." : "잠시 멈춰도 괜찮아요.\n새싹이와 함께 여유로운 시간을 보내요.")
+                     .font(.callout)
+                     .foregroundStyle(.secondary)
+             }
+@@ -87,7 +91,7 @@ struct VacationRestView: View {
+                 .frame(width: hammock, height: hammock * VacationArt.slotHeight / VacationArt.canvas)
+                 .anchorPreference(key: VacationSlotKey.self, value: .bounds) { $0 }
+                 .accessibilityElement()
+-                .accessibilityLabel("해먹에서 쉬는 새싹이")
++                .accessibilityLabel(RoutimoriSplashTrial.isEnabled ? "해먹에서 쉬는 루티모리" : "해먹에서 쉬는 새싹이")
+                 .accessibilityAddTraits(.isImage)
+ 
+             // 진행 상황과 단추는 한 카드에 담는다. 모래 위에 바로 두면 저녁 풍경에서 단추의 글자가 묻힌다.
+diff --git a/Daylog/Views/Onboarding/FirstSyncView.swift b/Daylog/Views/Onboarding/FirstSyncView.swift
+index a1d8b62..87ab56c 100644
+--- a/Daylog/Views/Onboarding/FirstSyncView.swift
++++ b/Daylog/Views/Onboarding/FirstSyncView.swift
+@@ -30,15 +30,19 @@ struct FirstSyncView: View {
+     @Environment(\.colorScheme) private var colorScheme
+     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+ 
++    private var usesRoutimori: Bool { RoutimoriSplashTrial.isEnabled }
++
+     var body: some View {
+         let phase = phase
+         let kind = SyncSceneKind(phase, isPreview: preview != nil)
+         GeometryReader { proxy in
+             // 글자를 크게 쓰면 한 화면을 넘을 수 있다. 넘치면 스크롤하고, 아니면 가운데에 둔다.
+             // 그림은 화면 높이에 맞춰 줄인다(작은 iPhone에서도 글과 단추가 잘리지 않게).
+-            let sceneHeight = min(400, max(210, proxy.size.height * 0.48))
++            let proposedHeight = min(400, max(210, proxy.size.height * 0.48))
++            let sceneHeight = usesRoutimori ? min(proposedHeight, max(140, proxy.size.width - 48)) : proposedHeight
+             ScrollView {
+                 VStack(spacing: 14) {
++                    if usesRoutimori { RoutimoriSyncBrand() }
+                     SyncScene(kind: kind, height: sceneHeight)
+                         .id(kind)
+                         .transition(.opacity)
+@@ -65,7 +69,7 @@ struct FirstSyncView: View {
+             .scrollBounceBehavior(.basedOnSize)
+         }
+         .background {
+-            LinearGradient(colors: SyncSceneBackground.colors(kind, dark: colorScheme == .dark), startPoint: .top, endPoint: .bottom)
++            LinearGradient(colors: usesRoutimori ? RoutimoriSyncStyle.background(dark: colorScheme == .dark) : SyncSceneBackground.colors(kind, dark: colorScheme == .dark), startPoint: .top, endPoint: .bottom)
+                 .animation(reduceMotion ? nil : .easeInOut(duration: 0.4), value: kind)
+                 .ignoresSafeArea()
+         }
+@@ -90,25 +94,25 @@ struct FirstSyncView: View {
+         case .found where preview != nil:
+             // 실제로는 기록을 찾으면 이 화면 없이 바로 오늘 화면으로 간다. 미리보기에서만 그 순간을 보여 준다.
+             message(
+-                title: "준비됐어요!\n오늘도 함께해요.",
+-                detail: "다른 기기의 기록을 확인했어요.\n이제 Daylog를 시작할 수 있어요."
++                title: usesRoutimori ? "동기화가 완료됐어요!" : "준비됐어요!\n오늘도 함께해요.",
++                detail: usesRoutimori ? "다른 기기의 기록을 확인했어요.\n오늘도 루티모리와 함께해요." : "다른 기기의 기록을 확인했어요.\n이제 Daylog를 시작할 수 있어요."
+             ) {
+                 Button(action: {}) {
+-                    Text("Daylog 시작하기").font(.headline).frame(maxWidth: .infinity)
++                    Text(usesRoutimori ? "확인" : "Daylog 시작하기").font(.headline).frame(maxWidth: .infinity)
+                 }
+                 .buttonStyle(.borderedProminent)
+-                .tint(Color(red: 0.3, green: 0.68, blue: 0.34))
++                .tint(usesRoutimori ? RoutimoriSyncStyle.green : Color(red: 0.3, green: 0.68, blue: 0.34))
+                 .controlSize(.large)
+                 .frame(maxWidth: 320)
+             }
+         case .waiting, .found, .empty:
+             // 기록을 찾았거나 없다고 본 순간에는 곧 이 화면이 걷힌다. 그 사이에 문구를 바꿔 깜빡이지 않게 한다.
+-            // 얼마나 받았는지는 알 수 없어 진행률·완료율은 보여 주지 않는다(점 세 개는 기다리는 표시일 뿐이다).
++            // 얼마나 받았는지는 알 수 없어 진행률·완료율은 보여 주지 않는다(점과 왕복 막대는 기다리는 표시일 뿐이다).
+             message(
+-                title: "새싹이가 iCloud 기록을\n확인하고 있어요!",
++                title: usesRoutimori ? "루티모리가 iCloud 기록을\n확인하고 있어요" : "새싹이가 iCloud 기록을\n확인하고 있어요!",
+                 detail: "다른 기기의 소중한 기록을\n가져와 정리하고 있어요."
+             ) {
+-                SyncWaitingDots()
++                if usesRoutimori { RoutimoriSyncActivity() } else { SyncWaitingDots() }
+             }
+         case .unavailable(let account):
+             // 계정 문제는 네트워크 문제라고 말하지 않는다.
+@@ -163,13 +167,13 @@ struct FirstSyncView: View {
+     private var choices: some View {
+         VStack(spacing: 10) {
+             Button(action: { if preview == nil { recheck() } }) {
+-                Text(isRechecking ? "확인 중…" : "다시 확인하기").font(.headline).frame(maxWidth: .infinity)
++                Text(isRechecking ? "확인 중…" : (usesRoutimori ? "다시 시도하기" : "다시 확인하기")).font(.headline).frame(maxWidth: .infinity)
+             }
+             .buttonStyle(.borderedProminent)
+-            .tint(Color(red: 0.25, green: 0.55, blue: 0.95))
++            .tint(usesRoutimori ? RoutimoriSyncStyle.green : Color(red: 0.25, green: 0.55, blue: 0.95))
+             .disabled(isRechecking)
+             Button(action: { if preview == nil { gate.finish() } }) {
+-                Text("일단 시작하기").frame(maxWidth: .infinity)
++                Text(usesRoutimori ? "나중에 하기" : "일단 시작하기").frame(maxWidth: .infinity)
+             }
+             .buttonStyle(.bordered)
+             .accessibilityHint("시작 안내로 넘어갑니다. 다른 기기의 기록이 나중에 오면 그대로 합쳐져요.")
+diff --git a/Daylog/Views/Onboarding/SyncScene.swift b/Daylog/Views/Onboarding/SyncScene.swift
+index e605b0b..6961762 100644
+--- a/Daylog/Views/Onboarding/SyncScene.swift
++++ b/Daylog/Views/Onboarding/SyncScene.swift
+@@ -18,12 +18,18 @@ struct SyncScene: View {
+     @State private var isVisible = false
+ 
+     var body: some View {
+-        SyncLayerView(
+-            configuration: SyncSceneStage.Configuration(
+-                kind: kind, height: height, dark: colorScheme == .dark, scale: displayScale, reduceMotion: reduceMotion
+-            ),
+-            isAnimating: isVisible && !reduceMotion && scenePhase == .active
+-        )
++        Group {
++            if RoutimoriSplashTrial.isEnabled {
++                RoutimoriSyncScene(kind: kind, height: height)
++            } else {
++                SyncLayerView(
++                    configuration: SyncSceneStage.Configuration(
++                        kind: kind, height: height, dark: colorScheme == .dark, scale: displayScale, reduceMotion: reduceMotion
++                    ),
++                    isAnimating: isVisible && !reduceMotion && scenePhase == .active
++                )
++            }
++        }
+         .frame(width: height, height: height)
+         .accessibilityHidden(true)
+         .onAppear { isVisible = true }
+diff --git a/DaylogTests/SaessagiTests.swift b/DaylogTests/SaessagiTests.swift
+index 177063c..04bd0bb 100644
+--- a/DaylogTests/SaessagiTests.swift
++++ b/DaylogTests/SaessagiTests.swift
+@@ -581,6 +581,7 @@ struct SaessagiHeaderActionTests {
+         #expect(PioTrial.stage(forLevel: 24).number == 2 && PioTrial.stage(forLevel: 25).number == 3 && PioTrial.stage(forLevel: 50).number == 4)
+         #expect(PioTrial.artStage(level: 1) == 1 && PioTrial.artStage(level: 10) == 2 && PioTrial.artStage(level: 60) == PioTrial.implementedStages)
+         #expect(PioTrial.artStage(level: 24) == 2 && PioTrial.artStage(level: 25) == 3 && PioTrial.artStage(level: 49) == 3)
++        #expect(PioTrial.artStage(level: 50) == 4 && PioTrial.artStage(level: 100) == 4)
+         #expect(GrowthCalculator.level(forXP: 900) == 10 && GrowthCalculator.level(forXP: 899) == 9)
+     }
+ 
+@@ -609,7 +610,7 @@ struct SaessagiHeaderActionTests {
+         #expect(second.wingAttachment?.rightShoulder == third.wingAttachment?.rightShoulder)
+         #expect(second.wingLeft == "pio_rig_wing_left_2" && third.wingLeft == "pio_stage3_wing_left")
+         #expect(PioTrial.wingAttachment(stage: 4)?.leftShoulder == third.wingAttachment?.leftShoulder)
+-        #expect(PioTrial.implementedStages == 3 && PioTrial.artStage(level: 50) == 3)
++        #expect(PioTrial.implementedStages == 4 && PioTrial.artStage(level: 49) == 3)
+         #expect(third.leafPivot == first.leafPivot && third.wingLeftPivot == first.wingLeftPivot && third.hip == first.hip)
+         for name in third.all { #expect(NSImage(named: name) != nil, "Missing Stage 3 layer: \(name)") }
+         for size in [48.0, 64.0, 76.0, 220.0] {
+@@ -628,6 +629,44 @@ struct SaessagiHeaderActionTests {
+         #expect(PioTrial.rigLayers(stage: 3) == nil)
+     }
+ 
++    @Test func pioStageFourUsesDedicatedArtWithoutChangingIdentityOrRegistration() throws {
++        let defaults = UserDefaults.standard
++        let oldCharacter = defaults.object(forKey: "DaylogDebugCharacter")
++        let oldArt = defaults.object(forKey: "DaylogDebugPioArt")
++        defer {
++            defaults.set(oldCharacter, forKey: "DaylogDebugCharacter")
++            defaults.set(oldArt, forKey: "DaylogDebugPioArt")
++        }
++        defaults.set("pio", forKey: "DaylogDebugCharacter")
++        defaults.removeObject(forKey: "DaylogDebugPioArt")
++        let third = try #require(PioTrial.rigLayers(stage: 3))
++        let fourth = try #require(PioTrial.rigLayers(stage: 4))
++        #expect(fourth.body == third.body && fourth.eyes == third.eyes && fourth.mouth == third.mouth)
++        #expect(fourth.footLeft == third.footLeft && fourth.footRight == third.footRight)
++        #expect(fourth.lidClosed == third.lidClosed && fourth.lidHappy == third.lidHappy && fourth.lidSleepy == third.lidSleepy)
++        #expect(fourth.leaf == "pio_stage4_crest" && fourth.leaf != third.leaf)
++        #expect(fourth.wingLeft == "pio_stage4_wing_left" && fourth.wingRight == "pio_stage4_wing_right")
++        #expect(fourth.tailLeft == "pio_stage4_tail_left" && fourth.tailRight == "pio_stage4_tail_right")
++        #expect(fourth.leafBehindBody && fourth.wingShadowLeft == nil && fourth.wingShadowRight == nil)
++        #expect(fourth.leafPivot == third.leafPivot && fourth.hip == third.hip && fourth.eyeCenter == third.eyeCenter)
++        #expect(fourth.wingLeftPivot == third.wingLeftPivot && fourth.wingRightPivot == third.wingRightPivot)
++        #expect(fourth.wingAttachment == third.wingAttachment)
++        for name in fourth.all { #expect(NSImage(named: name) != nil, "Missing Stage 4 layer: \(name)") }
++        for size: CGFloat in [48, 64, 76, 120, 220] {
++            let expectedPadding: CGFloat = size == 220 ? 5 : (size == 120 ? 3 : 2)
++            for scale: CGFloat in [1, 3] {
++                let rig = try #require(SaessagiRig(pose: .idle, size: size, displayScale: scale, pioStage: 4))
++                #expect(rig.leaf != nil && rig.tailLeft != nil && rig.tailRight != nil && rig.wingLeft != nil && rig.wingRight != nil)
++                #expect(rig.padding == expectedPadding)
++                #expect(rig.body.width == Int((size + rig.padding * 2) * scale))
++            }
++        }
++        defaults.set("v2", forKey: "DaylogDebugPioArt")
++        #expect(PioTrial.rigLayers(stage: 4) == nil)
++        defaults.removeObject(forKey: "DaylogDebugCharacter")
++        #expect(PioTrial.rigLayers(stage: 4) == nil)
++    }
++
+     @Test func developedWingRootsStayOnTorsoThroughRotationAndStopping() throws {
+         let defaults = UserDefaults.standard
+         let oldCharacter = defaults.object(forKey: "DaylogDebugCharacter")
+@@ -642,7 +681,7 @@ struct SaessagiHeaderActionTests {
+             if layer.name == name { return layer }
+             return layer.sublayers?.lazy.compactMap { named(name, in: $0) }.first
+         }
+-        for level in [1, 2, 3] {
++        for level in [1, 2, 3, 4] {
+             let rig = try #require(SaessagiRig(pose: .idle, size: 220, displayScale: 3, pioStage: level))
+             let host = CALayer(), stage = SaessagiStage()
+             stage.install(in: host, startX: 0, link: nil)

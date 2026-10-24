@@ -1,0 +1,135 @@
+[
+  {
+    "file": "output/pio-character-overhaul-artwork/cafe-v1/source/body-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "zeroAlpha": 801991,
+    "alpha16Bounds": [
+      202,
+      178,
+      1141,
+      1197
+    ],
+    "sha256": "5005ce65eab26ae679c0acf63f7ce4348edcdf64d78dce3de3bd7684ace6311e"
+  },
+  {
+    "file": "output/pio-character-overhaul-artwork/cafe-v1/source/body-v2-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "zeroAlpha": 788145,
+    "alpha16Bounds": [
+      194,
+      167,
+      1146,
+      1204
+    ],
+    "sha256": "2f02ae13cee78f6f3b967fa72da21349acc16c48c35b57e4098a881b79bc0cb6"
+  },
+  {
+    "file": "output/pio-character-overhaul-artwork/cafe-v1/source/cup-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "zeroAlpha": 1034965,
+    "alpha16Bounds": [
+      276,
+      167,
+      979,
+      1129
+    ],
+    "sha256": "5691fd855231178d3a0efd347c94531bf85745898ae37f5ffbf0dc94f0468ff4"
+  },
+  {
+    "file": "output/pio-character-overhaul-artwork/cafe-v1/source/hat-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "zeroAlpha": 971683,
+    "alpha16Bounds": [
+      70,
+      124,
+      1189,
+      1127
+    ],
+    "sha256": "d64f13dfeb4fbe6accb49b521602df3d627a4855fa4d73670287b181908a63d1"
+  },
+  {
+    "file": "output/pio-character-overhaul-artwork/cafe-v1/source/left-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "zeroAlpha": 1104396,
+    "alpha16Bounds": [
+      168,
+      240,
+      1137,
+      1041
+    ],
+    "sha256": "528f2ae916e183b5fef6537e48127f585b2c17403f89d0316851a678fa18414f"
+  },
+  {
+    "file": "output/pio-character-overhaul-artwork/cafe-v1/source/right-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "zeroAlpha": 1100716,
+    "alpha16Bounds": [
+      177,
+      239,
+      1179,
+      1116
+    ],
+    "sha256": "268e9a2f18291b5b5b2588df56d3a366d3b21f19afb8fa86ff153f34c2b30353"
+  },
+  {
+    "file": "output/pio-character-overhaul-artwork/cafe-v1/source/right-v2-candidate.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "alpha": [
+      0,
+      255
+    ],
+    "zeroAlpha": 1115201,
+    "alpha16Bounds": [
+      176,
+      242,
+      1181,
+      1117
+    ],
+    "sha256": "1e3214a0acb4b9044a3594d8d7f0179ba035172f3500dc3770858211ecd8320a"
+  }
+]

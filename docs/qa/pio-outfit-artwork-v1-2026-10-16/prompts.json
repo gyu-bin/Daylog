@@ -1,0 +1,126 @@
+{
+  "mode": "built-in image_gen",
+  "inputRoles": [
+    "Official basic full-size identity reference",
+    "User costume sheet design/material reference, never cropped"
+  ],
+  "outputs": [
+    {
+      "id": "cherryBlossom",
+      "prompt": "Use case: identity-preserve. Asset type: one genuine standalone full-body transparent PNG outfit illustration for the Routimori Pio shop. Input image1 is the official high-resolution BASE CHARACTER identity reference; image2 is ONLY a costume/material/style reference, NOT a sprite sheet to crop. Create ONE new individually rendered costumed Pio, not a collage. Keep image1's adorable chubby cream round body, soft fine plush feather texture, big glossy dark eyes, pink cheeks, tiny orange beak and feet, and TWO-LEAF green sprout. Match the premium cozy 2.5D tactile quality of the reference sheets, consistent facial proportions and body identity. Change clothing and small props only, with small natural wings. Front-facing, slight friendly pose, eyes open except pajamas, full body centered, compact balanced silhouette. Same virtual camera and soft neutral warm studio lighting across the set. Square 1536x1536 transparent canvas, all of sprout, outfit, props and feet comfortably inside with at least 7% padding. Character and clothing fill roughly80% height, feet near lower 89% line. Genuinely transparent RGBA background, no baked checkerboard, no colored background, no ground or drop shadow, no halo. No text, labels, logos, watermark or UI. This is a static costume illustration, not a rig/layer board. Design: CHERRY BLOSSOM: soft pastel-pink short blossom cape with a simple bow and flower clasp, one small pink cherry blossom beside the sprout. Sweet spring look, no floating petals.",
+      "references": [
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+        "/Users/mungyubin/Downloads/새싹 병아리 사계절 코스튬 컬렉션-2.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "summerVacation",
+      "prompt": "Use case: identity-preserve. Asset type: one genuine standalone full-body transparent PNG outfit illustration for the Routimori Pio shop. Input image1 is the official high-resolution BASE CHARACTER identity reference; image2 is ONLY a costume/material/style reference, NOT a sprite sheet to crop. Create ONE new individually rendered costumed Pio, not a collage. Keep image1's adorable chubby cream round body, soft fine plush feather texture, big glossy dark eyes, pink cheeks, tiny orange beak and feet, and TWO-LEAF green sprout. Match the premium cozy 2.5D tactile quality of the reference sheets, consistent facial proportions and body identity. Change clothing and small props only, with small natural wings. Front-facing, slight friendly pose, eyes open except pajamas, full body centered, compact balanced silhouette. Same virtual camera and soft neutral warm studio lighting across the set. Square 1536x1536 transparent canvas, all of sprout, outfit, props and feet comfortably inside with at least 7% padding. Character and clothing fill roughly80% height, feet near lower 89% line. Genuinely transparent RGBA background, no baked checkerboard, no colored background, no ground or drop shadow, no halo. No text, labels, logos, watermark or UI. This is a static costume illustration, not a rig/layer board. Design: SUMMER VACATION: blue aloha shirt with small white blossoms, soft straw sunhat, rounded black sunglasses, a single small orange juice cup with straw and lemon in one little wing. Keep outfit compact; preserve the visible green sprout above hat.",
+      "references": [
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+        "/Users/mungyubin/Downloads/새싹 병아리 사계절 코스튬 컬렉션-2.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "autumn",
+      "prompt": "Use case: identity-preserve. Asset type: one genuine standalone full-body transparent PNG outfit illustration for the Routimori Pio shop. Input image1 is the official high-resolution BASE CHARACTER identity reference; image2 is ONLY a costume/material/style reference, NOT a sprite sheet to crop. Create ONE new individually rendered costumed Pio, not a collage. Keep image1's adorable chubby cream round body, soft fine plush feather texture, big glossy dark eyes, pink cheeks, tiny orange beak and feet, and TWO-LEAF green sprout. Match the premium cozy 2.5D tactile quality of the reference sheets, consistent facial proportions and body identity. Change clothing and small props only, with small natural wings. Front-facing, slight friendly pose, eyes open except pajamas, full body centered, compact balanced silhouette. Same virtual camera and soft neutral warm studio lighting across the set. Square 1536x1536 transparent canvas, all of sprout, outfit, props and feet comfortably inside with at least 7% padding. Character and clothing fill roughly80% height, feet near lower 89% line. Genuinely transparent RGBA background, no baked checkerboard, no colored background, no ground or drop shadow, no halo. No text, labels, logos, watermark or UI. This is a static costume illustration, not a rig/layer board. Design: AUTUMN: warm brown plaid beret, cozy red-and-gold tartan scarf, one small orange maple-leaf pin, tiny leaf held close to the body. No coat hiding all roundness.",
+      "references": [
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+        "/Users/mungyubin/Downloads/새싹 병아리 사계절 코스튬 컬렉션-2.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "winter",
+      "prompt": "Use case: identity-preserve. Asset type: one genuine standalone full-body transparent PNG outfit illustration for the Routimori Pio shop. Input image1 is the official high-resolution BASE CHARACTER identity reference; image2 is ONLY a costume/material/style reference, NOT a sprite sheet to crop. Create ONE new individually rendered costumed Pio, not a collage. Keep image1's adorable chubby cream round body, soft fine plush feather texture, big glossy dark eyes, pink cheeks, tiny orange beak and feet, and TWO-LEAF green sprout. Match the premium cozy 2.5D tactile quality of the reference sheets, consistent facial proportions and body identity. Change clothing and small props only, with small natural wings. Front-facing, slight friendly pose, eyes open except pajamas, full body centered, compact balanced silhouette. Same virtual camera and soft neutral warm studio lighting across the set. Square 1536x1536 transparent canvas, all of sprout, outfit, props and feet comfortably inside with at least 7% padding. Character and clothing fill roughly80% height, feet near lower 89% line. Genuinely transparent RGBA background, no baked checkerboard, no colored background, no ground or drop shadow, no halo. No text, labels, logos, watermark or UI. This is a static costume illustration, not a rig/layer board. Design: WINTER: powder-blue knit bobble hat with fluffy white edge, blue scarf with subtle white snowflakes, cream mittens. Green sprout clearly peeks above the hat. Eyes and cheeks remain unobscured, no scenery snow.",
+      "references": [
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+        "/Users/mungyubin/Downloads/새싹 병아리 사계절 코스튬 컬렉션-2.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "halloween",
+      "prompt": "Use case: identity-preserve. Asset type: one genuine standalone full-body transparent PNG outfit illustration for the Routimori Pio shop. Input image1 is the official high-resolution BASE CHARACTER identity reference; image2 is ONLY a costume/material/style reference, NOT a sprite sheet to crop. Create ONE new individually rendered costumed Pio, not a collage. Keep image1's adorable chubby cream round body, soft fine plush feather texture, big glossy dark eyes, pink cheeks, tiny orange beak and feet, and TWO-LEAF green sprout. Match the premium cozy 2.5D tactile quality of the reference sheets, consistent facial proportions and body identity. Change clothing and small props only, with small natural wings. Front-facing, slight friendly pose, eyes open except pajamas, full body centered, compact balanced silhouette. Same virtual camera and soft neutral warm studio lighting across the set. Square 1536x1536 transparent canvas, all of sprout, outfit, props and feet comfortably inside with at least 7% padding. Character and clothing fill roughly80% height, feet near lower 89% line. Genuinely transparent RGBA background, no baked checkerboard, no colored background, no ground or drop shadow, no halo. No text, labels, logos, watermark or UI. This is a static costume illustration, not a rig/layer board. Design: HALLOWEEN: round soft orange pumpkin bodysuit with friendly jack-o-lantern face, pumpkin beret, small purple collar and a little pumpkin candy bucket held close. Cute and cheerful, no aggressive bat wings, no scary face.",
+      "references": [
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+        "/Users/mungyubin/Downloads/새싹 병아리 사계절 코스튬 컬렉션-2.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "christmas",
+      "prompt": "Use case: identity-preserve. Asset type: one genuine standalone full-body transparent PNG outfit illustration for the Routimori Pio shop. Input image1 is the official high-resolution BASE CHARACTER identity reference; image2 is ONLY a costume/material/style reference, NOT a sprite sheet to crop. Create ONE new individually rendered costumed Pio, not a collage. Keep image1's adorable chubby cream round body, soft fine plush feather texture, big glossy dark eyes, pink cheeks, tiny orange beak and feet, and TWO-LEAF green sprout. Match the premium cozy 2.5D tactile quality of the reference sheets, consistent facial proportions and body identity. Change clothing and small props only, with small natural wings. Front-facing, slight friendly pose, eyes open except pajamas, full body centered, compact balanced silhouette. Same virtual camera and soft neutral warm studio lighting across the set. Square 1536x1536 transparent canvas, all of sprout, outfit, props and feet comfortably inside with at least 7% padding. Character and clothing fill roughly80% height, feet near lower 89% line. Genuinely transparent RGBA background, no baked checkerboard, no colored background, no ground or drop shadow, no halo. No text, labels, logos, watermark or UI. This is a static costume illustration, not a rig/layer board. Design: CHRISTMAS: round red Santa coat with soft white trim, red floppy Santa cap, short red scarf and a small green present with red bow held close. Sprout visible above the cap, no human hands, no extra decorations.",
+      "references": [
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+        "/Users/mungyubin/Downloads/새싹 병아리 사계절 코스튬 컬렉션-2.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "hanbok",
+      "prompt": "Use case: identity-preserve. Asset type: one genuine standalone full-body transparent PNG outfit illustration for the Routimori Pio shop. Input image1 is the official high-resolution BASE CHARACTER identity reference; image2 is ONLY a costume/material/style reference, NOT a sprite sheet to crop. Create ONE new individually rendered costumed Pio, not a collage. Keep image1's adorable chubby cream round body, soft fine plush feather texture, big glossy dark eyes, pink cheeks, tiny orange beak and feet, and TWO-LEAF green sprout. Match the premium cozy 2.5D tactile quality of the reference sheets, consistent facial proportions and body identity. Change clothing and small props only, with small natural wings. Front-facing, slight friendly pose, eyes open except pajamas, full body centered, compact balanced silhouette. Same virtual camera and soft neutral warm studio lighting across the set. Square 1536x1536 transparent canvas, all of sprout, outfit, props and feet comfortably inside with at least 7% padding. Character and clothing fill roughly80% height, feet near lower 89% line. Genuinely transparent RGBA background, no baked checkerboard, no colored background, no ground or drop shadow, no halo. No text, labels, logos, watermark or UI. This is a static costume illustration, not a rig/layer board. Design: HANBOK: lovely Korean hanbok with cream-and-blush jeogori, softly rounded pastel-pink chima, muted navy ribbon sash, small pink blossom clasp. A tiny blossom hair ornament next to the sprout; preserve the compact cream chick identity.",
+      "references": [
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+        "/Users/mungyubin/Downloads/새싹 병아리 사계절 코스튬 컬렉션-2.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "cafe",
+      "prompt": "Use case: identity-preserve. Asset type: one genuine standalone full-body transparent PNG outfit illustration for the Routimori Pio shop. Input image1 is the official high-resolution BASE CHARACTER identity reference; image2 is ONLY a costume/material/style reference, NOT a sprite sheet to crop. Create ONE new individually rendered costumed Pio, not a collage. Keep image1's adorable chubby cream round body, soft fine plush feather texture, big glossy dark eyes, pink cheeks, tiny orange beak and feet, and TWO-LEAF green sprout. Match the premium cozy 2.5D tactile quality of the reference sheets, consistent facial proportions and body identity. Change clothing and small props only, with small natural wings. Front-facing, slight friendly pose, eyes open except pajamas, full body centered, compact balanced silhouette. Same virtual camera and soft neutral warm studio lighting across the set. Square 1536x1536 transparent canvas, all of sprout, outfit, props and feet comfortably inside with at least 7% padding. Character and clothing fill roughly80% height, feet near lower 89% line. Genuinely transparent RGBA background, no baked checkerboard, no colored background, no ground or drop shadow, no halo. No text, labels, logos, watermark or UI. This is a static costume illustration, not a rig/layer board. Design: CAFE: soft brown baker-style beret, forest-green apron with a very simple two-leaf emblem and cream shirt collar, a small takeaway coffee cup held close. Emblem is only leaf shapes, absolutely no letters.",
+      "references": [
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+        "/Users/mungyubin/Downloads/새싹 병아리 사계절 코스튬 컬렉션-2.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "student",
+      "prompt": "Use case: identity-preserve. Asset type: one genuine standalone full-body transparent PNG outfit illustration for the Routimori Pio shop. Input image1 is the official high-resolution BASE CHARACTER identity reference; image2 is ONLY a costume/material/style reference, NOT a sprite sheet to crop. Create ONE new individually rendered costumed Pio, not a collage. Keep image1's adorable chubby cream round body, soft fine plush feather texture, big glossy dark eyes, pink cheeks, tiny orange beak and feet, and TWO-LEAF green sprout. Match the premium cozy 2.5D tactile quality of the reference sheets, consistent facial proportions and body identity. Change clothing and small props only, with small natural wings. Front-facing, slight friendly pose, eyes open except pajamas, full body centered, compact balanced silhouette. Same virtual camera and soft neutral warm studio lighting across the set. Square 1536x1536 transparent canvas, all of sprout, outfit, props and feet comfortably inside with at least 7% padding. Character and clothing fill roughly80% height, feet near lower 89% line. Genuinely transparent RGBA background, no baked checkerboard, no colored background, no ground or drop shadow, no halo. No text, labels, logos, watermark or UI. This is a static costume illustration, not a rig/layer board. Design: STUDENT: round black glasses, navy knit vest over a cream shirt, small muted-red tie, tiny navy backpack and one small closed green book held close. Glossy eyes visible through clear lenses. No text on book.",
+      "references": [
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+        "/Users/mungyubin/Downloads/새싹 병아리 사계절 코스튬 컬렉션-2.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "fitness",
+      "prompt": "Use case: identity-preserve. Asset type: one genuine standalone full-body transparent PNG outfit illustration for the Routimori Pio shop. Input image1 is the official high-resolution BASE CHARACTER identity reference; image2 is ONLY a costume/material/style reference, NOT a sprite sheet to crop. Create ONE new individually rendered costumed Pio, not a collage. Keep image1's adorable chubby cream round body, soft fine plush feather texture, big glossy dark eyes, pink cheeks, tiny orange beak and feet, and TWO-LEAF green sprout. Match the premium cozy 2.5D tactile quality of the reference sheets, consistent facial proportions and body identity. Change clothing and small props only, with small natural wings. Front-facing, slight friendly pose, eyes open except pajamas, full body centered, compact balanced silhouette. Same virtual camera and soft neutral warm studio lighting across the set. Square 1536x1536 transparent canvas, all of sprout, outfit, props and feet comfortably inside with at least 7% padding. Character and clothing fill roughly80% height, feet near lower 89% line. Genuinely transparent RGBA background, no baked checkerboard, no colored background, no ground or drop shadow, no halo. No text, labels, logos, watermark or UI. This is a static costume illustration, not a rig/layer board. Design: FITNESS: forest-green and cream sporty tracksuit and soft striped headband, one tiny rounded dark-gray dumbbell in each little wing held close to the torso. Both wings compact, cheerful friendly face, green sprout uncovered.",
+      "references": [
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+        "/Users/mungyubin/Downloads/새싹 병아리 사계절 코스튬 컬렉션-2.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "rainyDay",
+      "prompt": "Use case: identity-preserve. Asset type: one genuine standalone full-body transparent PNG outfit illustration for the Routimori Pio shop. Input image1 is the official high-resolution BASE CHARACTER identity reference; image2 is ONLY a costume/material/style reference, NOT a sprite sheet to crop. Create ONE new individually rendered costumed Pio, not a collage. Keep image1's adorable chubby cream round body, soft fine plush feather texture, big glossy dark eyes, pink cheeks, tiny orange beak and feet, and TWO-LEAF green sprout. Match the premium cozy 2.5D tactile quality of the reference sheets, consistent facial proportions and body identity. Change clothing and small props only, with small natural wings. Front-facing, slight friendly pose, eyes open except pajamas, full body centered, compact balanced silhouette. Same virtual camera and soft neutral warm studio lighting across the set. Square 1536x1536 transparent canvas, all of sprout, outfit, props and feet comfortably inside with at least 7% padding. Character and clothing fill roughly80% height, feet near lower 89% line. Genuinely transparent RGBA background, no baked checkerboard, no colored background, no ground or drop shadow, no halo. No text, labels, logos, watermark or UI. This is a static costume illustration, not a rig/layer board. Design: RAINY DAY: buttery-yellow hooded raincoat with rounded buttons and matching tiny boots, compact yellow umbrella held to one side with short shaft. Sprout visible outside the hood; leave the face bright and clear. No falling rain particles.",
+      "references": [
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+        "/Users/mungyubin/Downloads/새싹 병아리 사계절 코스튬 컬렉션-2.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "pajamas",
+      "prompt": "Use case: identity-preserve. Asset type: one genuine standalone full-body transparent PNG outfit illustration for the Routimori Pio shop. Input image1 is the official high-resolution BASE CHARACTER identity reference; image2 is ONLY a costume/material/style reference, NOT a sprite sheet to crop. Create ONE new individually rendered costumed Pio, not a collage. Keep image1's adorable chubby cream round body, soft fine plush feather texture, big glossy dark eyes, pink cheeks, tiny orange beak and feet, and TWO-LEAF green sprout. Match the premium cozy 2.5D tactile quality of the reference sheets, consistent facial proportions and body identity. Change clothing and small props only, with small natural wings. Front-facing, slight friendly pose, eyes open except pajamas, full body centered, compact balanced silhouette. Same virtual camera and soft neutral warm studio lighting across the set. Square 1536x1536 transparent canvas, all of sprout, outfit, props and feet comfortably inside with at least 7% padding. Character and clothing fill roughly80% height, feet near lower 89% line. Genuinely transparent RGBA background, no baked checkerboard, no colored background, no ground or drop shadow, no halo. No text, labels, logos, watermark or UI. This is a static costume illustration, not a rig/layer board. Design: PAJAMAS: soft lavender pajama top and floppy nightcap with small cream stars, clutching one small cream pillow, gently sleepy closed eyes and a tiny happy beak. Sprout visible above cap. Upright full-body character, not lying down, no bed or ground.",
+      "references": [
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+        "/Users/mungyubin/Downloads/새싹 병아리 사계절 코스튬 컬렉션-2.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "id": "astronaut",
+      "prompt": "Use case: identity-preserve. Asset type: one genuine standalone full-body transparent PNG outfit illustration for the Routimori Pio shop. Input image1 is the official high-resolution BASE CHARACTER identity reference; image2 is ONLY a costume/material/style reference, NOT a sprite sheet to crop. Create ONE new individually rendered costumed Pio, not a collage. Keep image1's adorable chubby cream round body, soft fine plush feather texture, big glossy dark eyes, pink cheeks, tiny orange beak and feet, and TWO-LEAF green sprout. Match the premium cozy 2.5D tactile quality of the reference sheets, consistent facial proportions and body identity. Change clothing and small props only, with small natural wings. Front-facing, slight friendly pose, eyes open except pajamas, full body centered, compact balanced silhouette. Same virtual camera and soft neutral warm studio lighting across the set. Square 1536x1536 transparent canvas, all of sprout, outfit, props and feet comfortably inside with at least 7% padding. Character and clothing fill roughly80% height, feet near lower 89% line. Genuinely transparent RGBA background, no baked checkerboard, no colored background, no ground or drop shadow, no halo. No text, labels, logos, watermark or UI. This is a static costume illustration, not a rig/layer board. Design: ASTRONAUT: rounded pearly-white and soft-lavender spacesuit, padded circular open-faced helmet rim with a clear subtle visor, small rounded chest buttons and a tiny star patch. Keep the glossy black eyes, cheeks and beak clearly visible and the whole green sprout unobscured above the helmet. No background stars or floating particles.",
+      "references": [
+        "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_wardrobe_basic_reference.imageset/pio_wardrobe_basic_reference.png",
+        "/Users/mungyubin/Downloads/새싹 병아리 사계절 코스튬 컬렉션-2.png"
+      ],
+      "transparent_background": true
+    }
+  ]
+}

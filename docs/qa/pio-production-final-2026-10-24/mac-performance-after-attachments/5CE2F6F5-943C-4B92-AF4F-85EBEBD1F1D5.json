@@ -1,0 +1,1113 @@
+{
+  "basicRegistration" : "basic-production-hands-v2",
+  "candidateEyesFlag" : false,
+  "candidateHandsFlag" : false,
+  "final" : {
+    "cpuSeconds" : 2.173921,
+    "monotonicSeconds" : 94577.628568125016,
+    "rssBytes" : 320487424
+  },
+  "initial" : {
+    "cpuSeconds" : 1.5559880000000001,
+    "monotonicSeconds" : 94570.59312408336,
+    "rssBytes" : 164118528
+  },
+  "limitations" : "Debug XCTest host; RSS is not a leak assertion. Includes shared image\/cache\/allocator\/renderer residency. Not app cold-launch, production entitlement flow, actual OS backgrounding, full home\/vacation profiling, Instruments allocations, compositor\/GPU\/battery or long-term leak proof. No arbitrary memory threshold or retry sleep.",
+  "os" : "버전 27.0.1(빌드 26A434)",
+  "processorCount" : 10,
+  "rows" : [
+    {
+      "active" : {
+        "cpuSeconds" : 1.582797,
+        "monotonicSeconds" : 94570.778696041685,
+        "rssBytes" : 164462592
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.583553,
+        "monotonicSeconds" : 94570.779411791693,
+        "rssBytes" : 164478976
+      },
+      "before" : {
+        "cpuSeconds" : 1.55609,
+        "monotonicSeconds" : 94570.59322629169,
+        "rssBytes" : 164134912
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-basic",
+      "outfit" : "basic",
+      "pass" : 1,
+      "registration" : "basic-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.6326529999999999,
+        "monotonicSeconds" : 94570.975836250014,
+        "rssBytes" : 217284608
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.6336079999999999,
+        "monotonicSeconds" : 94570.976645458359,
+        "rssBytes" : 217284608
+      },
+      "before" : {
+        "cpuSeconds" : 1.588157,
+        "monotonicSeconds" : 94570.785460333354,
+        "rssBytes" : 164708352
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-cherryBlossom",
+      "outfit" : "cherryBlossom",
+      "pass" : 1,
+      "registration" : "cherryBlossom-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.668024,
+        "monotonicSeconds" : 94571.15825266669,
+        "rssBytes" : 237879296
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.669084,
+        "monotonicSeconds" : 94571.159168000027,
+        "rssBytes" : 237879296
+      },
+      "before" : {
+        "cpuSeconds" : 1.6360170000000001,
+        "monotonicSeconds" : 94570.979678041695,
+        "rssBytes" : 217366528
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-summerVacation",
+      "outfit" : "summerVacation",
+      "pass" : 1,
+      "registration" : "summerVacation-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.7034259999999999,
+        "monotonicSeconds" : 94571.347267708348,
+        "rssBytes" : 252542976
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.70425,
+        "monotonicSeconds" : 94571.34803829169,
+        "rssBytes" : 252542976
+      },
+      "before" : {
+        "cpuSeconds" : 1.6709049999999999,
+        "monotonicSeconds" : 94571.161341541694,
+        "rssBytes" : 237928448
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-autumn",
+      "outfit" : "autumn",
+      "pass" : 1,
+      "registration" : "autumn-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.733973,
+        "monotonicSeconds" : 94571.529496916686,
+        "rssBytes" : 266960896
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.734823,
+        "monotonicSeconds" : 94571.530198333348,
+        "rssBytes" : 266960896
+      },
+      "before" : {
+        "cpuSeconds" : 1.7061739999999999,
+        "monotonicSeconds" : 94571.350421666692,
+        "rssBytes" : 252592128
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-winter",
+      "outfit" : "winter",
+      "pass" : 1,
+      "registration" : "winter-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.7602069999999999,
+        "monotonicSeconds" : 94571.701496166686,
+        "rssBytes" : 281624576
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.7610809999999999,
+        "monotonicSeconds" : 94571.702236666693,
+        "rssBytes" : 281624576
+      },
+      "before" : {
+        "cpuSeconds" : 1.736456,
+        "monotonicSeconds" : 94571.532763500014,
+        "rssBytes" : 267059200
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-halloween",
+      "outfit" : "halloween",
+      "pass" : 1,
+      "registration" : "halloween-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.7877190000000001,
+        "monotonicSeconds" : 94571.881701958351,
+        "rssBytes" : 295813120
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.7887870000000001,
+        "monotonicSeconds" : 94571.882645958351,
+        "rssBytes" : 295813120
+      },
+      "before" : {
+        "cpuSeconds" : 1.7624610000000001,
+        "monotonicSeconds" : 94571.704391875028,
+        "rssBytes" : 281657344
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-christmas",
+      "outfit" : "christmas",
+      "pass" : 1,
+      "registration" : "christmas-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.821094,
+        "monotonicSeconds" : 94572.069296625021,
+        "rssBytes" : 310018048
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.8221180000000001,
+        "monotonicSeconds" : 94572.07021575002,
+        "rssBytes" : 310018048
+      },
+      "before" : {
+        "cpuSeconds" : 1.7905759999999999,
+        "monotonicSeconds" : 94571.885421458355,
+        "rssBytes" : 295862272
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-hanbok",
+      "outfit" : "hanbok",
+      "pass" : 1,
+      "registration" : "hanbok-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.85073,
+        "monotonicSeconds" : 94572.248918416692,
+        "rssBytes" : 324124672
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.851661,
+        "monotonicSeconds" : 94572.249702708359,
+        "rssBytes" : 324124672
+      },
+      "before" : {
+        "cpuSeconds" : 1.823777,
+        "monotonicSeconds" : 94572.072801041693,
+        "rssBytes" : 310067200
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-cafe",
+      "outfit" : "cafe",
+      "pass" : 1,
+      "registration" : "cafe-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.8803239999999999,
+        "monotonicSeconds" : 94572.43042045836,
+        "rssBytes" : 344522752
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.8812419999999999,
+        "monotonicSeconds" : 94572.43121241669,
+        "rssBytes" : 344522752
+      },
+      "before" : {
+        "cpuSeconds" : 1.8537330000000001,
+        "monotonicSeconds" : 94572.252381291692,
+        "rssBytes" : 324190208
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-student",
+      "outfit" : "student",
+      "pass" : 1,
+      "registration" : "student-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.9086959999999999,
+        "monotonicSeconds" : 94572.601878083355,
+        "rssBytes" : 358612992
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.909807,
+        "monotonicSeconds" : 94572.602860791681,
+        "rssBytes" : 358612992
+      },
+      "before" : {
+        "cpuSeconds" : 1.882984,
+        "monotonicSeconds" : 94572.433415291685,
+        "rssBytes" : 344588288
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-fitness",
+      "outfit" : "fitness",
+      "pass" : 1,
+      "registration" : "fitness-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.9372639999999999,
+        "monotonicSeconds" : 94572.775233666689,
+        "rssBytes" : 372621312
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.938177,
+        "monotonicSeconds" : 94572.775992166688,
+        "rssBytes" : 372621312
+      },
+      "before" : {
+        "cpuSeconds" : 1.911581,
+        "monotonicSeconds" : 94572.605609541686,
+        "rssBytes" : 358662144
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-rainyDay",
+      "outfit" : "rainyDay",
+      "pass" : 1,
+      "registration" : "rainyDay-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.9635769999999999,
+        "monotonicSeconds" : 94572.948742833352,
+        "rssBytes" : 386629632
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.9646680000000001,
+        "monotonicSeconds" : 94572.949704458355,
+        "rssBytes" : 386629632
+      },
+      "before" : {
+        "cpuSeconds" : 1.939934,
+        "monotonicSeconds" : 94572.778819666681,
+        "rssBytes" : 372670464
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-pajamas",
+      "outfit" : "pajamas",
+      "pass" : 1,
+      "registration" : "pajamas-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 1.9946950000000001,
+        "monotonicSeconds" : 94573.133436708347,
+        "rssBytes" : 407142400
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 1.995636,
+        "monotonicSeconds" : 94573.134225958347,
+        "rssBytes" : 407142400
+      },
+      "before" : {
+        "cpuSeconds" : 1.9665900000000001,
+        "monotonicSeconds" : 94572.952605833358,
+        "rssBytes" : 386695168
+      },
+      "hostReleased" : true,
+      "label" : "pass-1-astronaut",
+      "outfit" : "astronaut",
+      "pass" : 1,
+      "registration" : "astronaut-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0010430000000001,
+        "monotonicSeconds" : 94573.290524250027,
+        "rssBytes" : 407142400
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.0019420000000001,
+        "monotonicSeconds" : 94573.291283083352,
+        "rssBytes" : 407142400
+      },
+      "before" : {
+        "cpuSeconds" : 1.9957020000000001,
+        "monotonicSeconds" : 94573.13429258336,
+        "rssBytes" : 407142400
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-basic",
+      "outfit" : "basic",
+      "pass" : 2,
+      "registration" : "basic-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0073730000000003,
+        "monotonicSeconds" : 94573.448990166682,
+        "rssBytes" : 407142400
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.0084219999999999,
+        "monotonicSeconds" : 94573.449928541682,
+        "rssBytes" : 407142400
+      },
+      "before" : {
+        "cpuSeconds" : 2.002005,
+        "monotonicSeconds" : 94573.29134700002,
+        "rssBytes" : 407142400
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-cherryBlossom",
+      "outfit" : "cherryBlossom",
+      "pass" : 2,
+      "registration" : "cherryBlossom-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0141710000000002,
+        "monotonicSeconds" : 94573.613472708355,
+        "rssBytes" : 407142400
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.015063,
+        "monotonicSeconds" : 94573.614222208358,
+        "rssBytes" : 407142400
+      },
+      "before" : {
+        "cpuSeconds" : 2.0084999999999997,
+        "monotonicSeconds" : 94573.450005583349,
+        "rssBytes" : 407142400
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-summerVacation",
+      "outfit" : "summerVacation",
+      "pass" : 2,
+      "registration" : "summerVacation-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0210270000000001,
+        "monotonicSeconds" : 94573.775355791688,
+        "rssBytes" : 407142400
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.0219459999999998,
+        "monotonicSeconds" : 94573.77613475002,
+        "rssBytes" : 407142400
+      },
+      "before" : {
+        "cpuSeconds" : 2.0151300000000001,
+        "monotonicSeconds" : 94573.614289458361,
+        "rssBytes" : 407142400
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-autumn",
+      "outfit" : "autumn",
+      "pass" : 2,
+      "registration" : "autumn-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0274450000000002,
+        "monotonicSeconds" : 94573.933507833353,
+        "rssBytes" : 407142400
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.028419,
+        "monotonicSeconds" : 94573.934344208348,
+        "rssBytes" : 407142400
+      },
+      "before" : {
+        "cpuSeconds" : 2.0220060000000002,
+        "monotonicSeconds" : 94573.77619379168,
+        "rssBytes" : 407142400
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-winter",
+      "outfit" : "winter",
+      "pass" : 2,
+      "registration" : "winter-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0338529999999997,
+        "monotonicSeconds" : 94574.096987375015,
+        "rssBytes" : 407142400
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.0349659999999998,
+        "monotonicSeconds" : 94574.097936583348,
+        "rssBytes" : 407142400
+      },
+      "before" : {
+        "cpuSeconds" : 2.0284819999999999,
+        "monotonicSeconds" : 94573.934408583358,
+        "rssBytes" : 407142400
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-halloween",
+      "outfit" : "halloween",
+      "pass" : 2,
+      "registration" : "halloween-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0400119999999999,
+        "monotonicSeconds" : 94574.257343375022,
+        "rssBytes" : 407142400
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.0410159999999999,
+        "monotonicSeconds" : 94574.25818975002,
+        "rssBytes" : 407142400
+      },
+      "before" : {
+        "cpuSeconds" : 2.0350289999999998,
+        "monotonicSeconds" : 94574.098000333353,
+        "rssBytes" : 407142400
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-christmas",
+      "outfit" : "christmas",
+      "pass" : 2,
+      "registration" : "christmas-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0461770000000001,
+        "monotonicSeconds" : 94574.412823375023,
+        "rssBytes" : 407142400
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.0470109999999999,
+        "monotonicSeconds" : 94574.413524041694,
+        "rssBytes" : 407142400
+      },
+      "before" : {
+        "cpuSeconds" : 2.041086,
+        "monotonicSeconds" : 94574.258259833354,
+        "rssBytes" : 407142400
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-hanbok",
+      "outfit" : "hanbok",
+      "pass" : 2,
+      "registration" : "hanbok-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0525060000000002,
+        "monotonicSeconds" : 94574.573152500016,
+        "rssBytes" : 407142400
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.053363,
+        "monotonicSeconds" : 94574.573877541683,
+        "rssBytes" : 407142400
+      },
+      "before" : {
+        "cpuSeconds" : 2.0470660000000001,
+        "monotonicSeconds" : 94574.413578833351,
+        "rssBytes" : 407142400
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-cafe",
+      "outfit" : "cafe",
+      "pass" : 2,
+      "registration" : "cafe-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0582630000000002,
+        "monotonicSeconds" : 94574.735380833357,
+        "rssBytes" : 407076864
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.0591850000000003,
+        "monotonicSeconds" : 94574.736156583356,
+        "rssBytes" : 407076864
+      },
+      "before" : {
+        "cpuSeconds" : 2.0534210000000002,
+        "monotonicSeconds" : 94574.573935333348,
+        "rssBytes" : 407142400
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-student",
+      "outfit" : "student",
+      "pass" : 2,
+      "registration" : "student-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0647419999999999,
+        "monotonicSeconds" : 94574.899398125024,
+        "rssBytes" : 405946368
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.0656530000000002,
+        "monotonicSeconds" : 94574.900154833347,
+        "rssBytes" : 405946368
+      },
+      "before" : {
+        "cpuSeconds" : 2.0592480000000002,
+        "monotonicSeconds" : 94574.736219250015,
+        "rssBytes" : 407076864
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-fitness",
+      "outfit" : "fitness",
+      "pass" : 2,
+      "registration" : "fitness-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.071005,
+        "monotonicSeconds" : 94575.057442541685,
+        "rssBytes" : 384139264
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.0719799999999999,
+        "monotonicSeconds" : 94575.058261291691,
+        "rssBytes" : 384139264
+      },
+      "before" : {
+        "cpuSeconds" : 2.0657129999999997,
+        "monotonicSeconds" : 94574.900214375026,
+        "rssBytes" : 405946368
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-rainyDay",
+      "outfit" : "rainyDay",
+      "pass" : 2,
+      "registration" : "rainyDay-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0770679999999997,
+        "monotonicSeconds" : 94575.215407541691,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.07816,
+        "monotonicSeconds" : 94575.216333708348,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.0720460000000003,
+        "monotonicSeconds" : 94575.058327041683,
+        "rssBytes" : 384139264
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-pajamas",
+      "outfit" : "pajamas",
+      "pass" : 2,
+      "registration" : "pajamas-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.083971,
+        "monotonicSeconds" : 94575.375151833359,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.0849279999999997,
+        "monotonicSeconds" : 94575.375956875025,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.0782389999999999,
+        "monotonicSeconds" : 94575.216427166684,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-2-astronaut",
+      "outfit" : "astronaut",
+      "pass" : 2,
+      "registration" : "astronaut-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0901420000000002,
+        "monotonicSeconds" : 94575.532216416686,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.090992,
+        "monotonicSeconds" : 94575.532943208353,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.0849989999999998,
+        "monotonicSeconds" : 94575.376027916689,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-basic",
+      "outfit" : "basic",
+      "pass" : 3,
+      "registration" : "basic-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.0964559999999999,
+        "monotonicSeconds" : 94575.694370083351,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.0973059999999997,
+        "monotonicSeconds" : 94575.695085208354,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.0910479999999998,
+        "monotonicSeconds" : 94575.53299958336,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-cherryBlossom",
+      "outfit" : "cherryBlossom",
+      "pass" : 3,
+      "registration" : "cherryBlossom-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.1026720000000001,
+        "monotonicSeconds" : 94575.85783945836,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1037179999999998,
+        "monotonicSeconds" : 94575.85871637502,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.0973660000000001,
+        "monotonicSeconds" : 94575.695145500024,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-summerVacation",
+      "outfit" : "summerVacation",
+      "pass" : 3,
+      "registration" : "summerVacation-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.1091600000000001,
+        "monotonicSeconds" : 94576.017938166682,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1102959999999999,
+        "monotonicSeconds" : 94576.018980416688,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.1037939999999997,
+        "monotonicSeconds" : 94575.858792666681,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-autumn",
+      "outfit" : "autumn",
+      "pass" : 3,
+      "registration" : "autumn-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.1154250000000001,
+        "monotonicSeconds" : 94576.179272250025,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1163639999999999,
+        "monotonicSeconds" : 94576.180073125026,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.1103680000000002,
+        "monotonicSeconds" : 94576.019051750016,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-winter",
+      "outfit" : "winter",
+      "pass" : 3,
+      "registration" : "winter-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.121642,
+        "monotonicSeconds" : 94576.337915458353,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1225540000000001,
+        "monotonicSeconds" : 94576.338692208359,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.1164339999999999,
+        "monotonicSeconds" : 94576.180142541692,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-halloween",
+      "outfit" : "halloween",
+      "pass" : 3,
+      "registration" : "halloween-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.1284320000000001,
+        "monotonicSeconds" : 94576.498262000023,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1293600000000001,
+        "monotonicSeconds" : 94576.499040916693,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.122617,
+        "monotonicSeconds" : 94576.338755541685,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-christmas",
+      "outfit" : "christmas",
+      "pass" : 3,
+      "registration" : "christmas-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.134261,
+        "monotonicSeconds" : 94576.658232750022,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1352260000000003,
+        "monotonicSeconds" : 94576.659051666691,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.1294180000000003,
+        "monotonicSeconds" : 94576.499099208348,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-hanbok",
+      "outfit" : "hanbok",
+      "pass" : 3,
+      "registration" : "hanbok-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.1403319999999999,
+        "monotonicSeconds" : 94576.818313541691,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1413630000000001,
+        "monotonicSeconds" : 94576.819181958359,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.1352929999999999,
+        "monotonicSeconds" : 94576.659118583353,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-cafe",
+      "outfit" : "cafe",
+      "pass" : 3,
+      "registration" : "cafe-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.146916,
+        "monotonicSeconds" : 94576.981302916683,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1478320000000002,
+        "monotonicSeconds" : 94576.982057708359,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.1414309999999999,
+        "monotonicSeconds" : 94576.819250916684,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-student",
+      "outfit" : "student",
+      "pass" : 3,
+      "registration" : "student-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.1531060000000002,
+        "monotonicSeconds" : 94577.144110750014,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1540590000000002,
+        "monotonicSeconds" : 94577.144912541684,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.1478950000000001,
+        "monotonicSeconds" : 94576.982121041685,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-fitness",
+      "outfit" : "fitness",
+      "pass" : 3,
+      "registration" : "fitness-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.1597729999999999,
+        "monotonicSeconds" : 94577.299511416684,
+        "rssBytes" : 348110848
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1606939999999999,
+        "monotonicSeconds" : 94577.300288125014,
+        "rssBytes" : 348110848
+      },
+      "before" : {
+        "cpuSeconds" : 2.154121,
+        "monotonicSeconds" : 94577.144974041687,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-rainyDay",
+      "outfit" : "rainyDay",
+      "pass" : 3,
+      "registration" : "rainyDay-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.1662319999999999,
+        "monotonicSeconds" : 94577.465507291694,
+        "rssBytes" : 337494016
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1671640000000001,
+        "monotonicSeconds" : 94577.46628266669,
+        "rssBytes" : 337494016
+      },
+      "before" : {
+        "cpuSeconds" : 2.1607510000000003,
+        "monotonicSeconds" : 94577.300345375028,
+        "rssBytes" : 348110848
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-pajamas",
+      "outfit" : "pajamas",
+      "pass" : 3,
+      "registration" : "pajamas-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    },
+    {
+      "active" : {
+        "cpuSeconds" : 2.172993,
+        "monotonicSeconds" : 94577.627776750014,
+        "rssBytes" : 320487424
+      },
+      "activeCharacterTracks" : 7,
+      "actuallyVisible" : true,
+      "afterCleanup" : {
+        "cpuSeconds" : 2.1738720000000002,
+        "monotonicSeconds" : 94577.62851795835,
+        "rssBytes" : 320487424
+      },
+      "before" : {
+        "cpuSeconds" : 2.1672409999999998,
+        "monotonicSeconds" : 94577.466360541686,
+        "rssBytes" : 337494016
+      },
+      "hostReleased" : true,
+      "label" : "pass-3-astronaut",
+      "outfit" : "astronaut",
+      "pass" : 3,
+      "registration" : "astronaut-production-hands-v2",
+      "stageReleased" : true,
+      "tracksImmediatelyAfterDetach" : 0
+    }
+  ],
+  "scope" : "14 outfit registrations, three sequential passes in one native window; each visible scene starts, stops and is released"
+}

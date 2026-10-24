@@ -1,0 +1,363 @@
+{
+  "scope": "Offline artwork files only, not application verification",
+  "fileChecks": "PASS",
+  "visualApproval": "PENDING/PARTIAL",
+  "headUnchanged": true,
+  "trackedDiffUnchanged": true,
+  "approvedRuntimePNGsUnchanged": 69,
+  "nativeSourceReferencesUnchanged": 125,
+  "outfitCount": 14,
+  "transparentLayerFiles": 207,
+  "expressionCompositePNGs": 56,
+  "sizeThemeComparisonPNGs": 112,
+  "offlineActionKeyposePNGs": 112,
+  "offlineGIFs": 28,
+  "newGenuineSourceArtworks": 3,
+  "rows": [
+    {
+      "outfit": "basic",
+      "transparentLayerFiles": 14,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        500,
+        583,
+        863,
+        732
+      ],
+      "gifs": [
+        {
+          "file": "basic/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/basic/eight-actions-offline.gif",
+          "frames": 122,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    },
+    {
+      "outfit": "cherryBlossom",
+      "transparentLayerFiles": 15,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        471,
+        556,
+        867,
+        712
+      ],
+      "gifs": [
+        {
+          "file": "cherryBlossom/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/cherryBlossom/eight-actions-offline.gif",
+          "frames": 122,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    },
+    {
+      "outfit": "summerVacation",
+      "transparentLayerFiles": 14,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        471,
+        540,
+        874,
+        701
+      ],
+      "gifs": [
+        {
+          "file": "summerVacation/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/summerVacation/eight-actions-offline.gif",
+          "frames": 122,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    },
+    {
+      "outfit": "autumn",
+      "transparentLayerFiles": 15,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        490,
+        582,
+        892,
+        755
+      ],
+      "gifs": [
+        {
+          "file": "autumn/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/autumn/eight-actions-offline.gif",
+          "frames": 122,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    },
+    {
+      "outfit": "winter",
+      "transparentLayerFiles": 14,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        455,
+        577,
+        852,
+        751
+      ],
+      "gifs": [
+        {
+          "file": "winter/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/winter/eight-actions-offline.gif",
+          "frames": 122,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    },
+    {
+      "outfit": "halloween",
+      "transparentLayerFiles": 15,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        471,
+        566,
+        870,
+        725
+      ],
+      "gifs": [
+        {
+          "file": "halloween/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/halloween/eight-actions-offline.gif",
+          "frames": 122,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    },
+    {
+      "outfit": "christmas",
+      "transparentLayerFiles": 15,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        498,
+        552,
+        886,
+        699
+      ],
+      "gifs": [
+        {
+          "file": "christmas/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/christmas/eight-actions-offline.gif",
+          "frames": 122,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    },
+    {
+      "outfit": "hanbok",
+      "transparentLayerFiles": 14,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        484,
+        524,
+        877,
+        681
+      ],
+      "gifs": [
+        {
+          "file": "hanbok/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/hanbok/eight-actions-offline.gif",
+          "frames": 122,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    },
+    {
+      "outfit": "astronaut",
+      "transparentLayerFiles": 16,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        499,
+        578,
+        848,
+        724
+      ],
+      "gifs": [
+        {
+          "file": "astronaut/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/astronaut/eight-actions-offline.gif",
+          "frames": 122,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    },
+    {
+      "outfit": "rainyDay",
+      "transparentLayerFiles": 16,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        401,
+        558,
+        766,
+        717
+      ],
+      "gifs": [
+        {
+          "file": "rainyDay/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/rainyDay/eight-actions-offline.gif",
+          "frames": 122,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    },
+    {
+      "outfit": "cafe",
+      "transparentLayerFiles": 13,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        486,
+        554,
+        880,
+        730
+      ],
+      "gifs": [
+        {
+          "file": "cafe/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/cafe/eight-actions-offline.gif",
+          "frames": 122,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    },
+    {
+      "outfit": "student",
+      "transparentLayerFiles": 14,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        481,
+        547,
+        895,
+        706
+      ],
+      "gifs": [
+        {
+          "file": "student/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/student/eight-actions-offline.gif",
+          "frames": 122,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    },
+    {
+      "outfit": "fitness",
+      "transparentLayerFiles": 17,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        476,
+        532,
+        870,
+        700
+      ],
+      "gifs": [
+        {
+          "file": "fitness/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/fitness/eight-actions-offline.gif",
+          "frames": 116,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    },
+    {
+      "outfit": "pajamas",
+      "transparentLayerFiles": 15,
+      "expressionBoards": 8,
+      "expressionChangeBounds": [
+        508,
+        559,
+        877,
+        755
+      ],
+      "gifs": [
+        {
+          "file": "pajamas/independent-expression-offline.gif",
+          "frames": 6,
+          "durationMS": 2880
+        },
+        {
+          "file": "motion/pajamas/eight-actions-offline.gif",
+          "frames": 131,
+          "durationMS": 13220
+        }
+      ],
+      "status": "FILE_CHECKS_PASS_VISUAL_PARTIAL"
+    }
+  ],
+  "notTested": [
+    "Native Mac/iPhone playback",
+    "CPU/memory",
+    "Reduce Motion",
+    "Scene-specific vacation/cloud outfit coverage"
+  ],
+  "beforeAfterComparisonPNGs": 28,
+  "beforeAfterOverviewPNGs": 2,
+  "beforeAfterFilesDecoded": true
+}

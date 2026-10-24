@@ -1,0 +1,61 @@
+{
+  "seconds": 104.42862093448639,
+  "initialRSS": 180502528,
+  "finalRSS": 153550848,
+  "maxRSS": 700104704,
+  "phases": [
+    {
+      "cpuSeconds": 1.2495239999999996,
+      "finalRSS": 700104704,
+      "initialRSS": 180518912,
+      "phase": "cold",
+      "seconds": 24.353551030158997,
+      "cpuPercent": 5.130767165957079,
+      "maxRSS": 700088320,
+      "publicVisibleSamples": 42,
+      "configurationSamples": 42
+    },
+    {
+      "cpuSeconds": 0.2594890000000003,
+      "finalRSS": 206307328,
+      "initialRSS": 700104704,
+      "phase": "warm-1",
+      "seconds": 23.309036016464233,
+      "cpuPercent": 1.1132549617955518,
+      "maxRSS": 691027968,
+      "publicVisibleSamples": 42,
+      "configurationSamples": 42
+    },
+    {
+      "cpuSeconds": 0.2637039999999997,
+      "finalRSS": 201539584,
+      "initialRSS": 206307328,
+      "phase": "warm-2",
+      "seconds": 23.29153311252594,
+      "cpuPercent": 1.1321882450845733,
+      "maxRSS": 206389248,
+      "publicVisibleSamples": 42,
+      "configurationSamples": 42
+    },
+    {
+      "cpuSeconds": 0.23288399999999987,
+      "finalRSS": 156450816,
+      "initialRSS": 201539584,
+      "phase": "warm-3",
+      "seconds": 23.33513104915619,
+      "cpuPercent": 0.9979973950410752,
+      "maxRSS": 201588736,
+      "publicVisibleSamples": 42,
+      "configurationSamples": 42
+    }
+  ],
+  "allSceneInstancesReleased": [
+    true,
+    true,
+    true,
+    true
+  ],
+  "cooldownCPUPercent": 0.3392076202761965,
+  "noConcurrentBuilds": "Coordinated quiet slot with scene_validation and root; external OS processes not controlled",
+  "limits": "Process CPU/RSS only; external WindowServer/GPU excluded. Raw visibility sampled, never assumed. Bounded observations cannot prove absence of all leaks or battery efficiency."
+}

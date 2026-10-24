@@ -1,0 +1,7 @@
+Mac Debug: build succeeded, 37 tests in 4 focused suites passed.
+Mac optimized DEBUG: build succeeded; all five pio_stage4_* assets present in Assets.car.
+iOS Simulator Debug: build succeeded, arm64; not installed by build agent.
+Pure Mac Release: build succeeded; zero Pio-named assets in Assets.car.
+All five new catalog PNGs match approved candidate assets byte-for-byte.
+First test run failed in new CGFloat/Double padding assertions; typed CGFloat expectations corrected and complete four-suite rerun passed.
+Runtime and device verification owned by parent.

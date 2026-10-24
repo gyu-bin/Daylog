@@ -1,0 +1,45 @@
+{
+  "status": "DIAGNOSTIC_NOT_APPROVED",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "lensSource": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/lenses-v1-candidate.png",
+  "lensSourceSHA256": "62e5f8af15a3185ec317bf15236f7eb17154787b1a27cfeced972705144e5748",
+  "frameSource": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/sunglasses-frame-only-candidate.png",
+  "frameSourceSHA256": "df1ddbbb6e6fe8401492dcd41fbabd03110833f3fc44fec3c901a3e604d030c5",
+  "frameTransform": {
+    "id": "sunglasses",
+    "offset": [
+      275.16968987712113,
+      421.03861907548276
+    ],
+    "pivot": [
+      650,
+      625
+    ],
+    "scale": 0.4008191925102399,
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/sunglasses-frame-only-candidate.png",
+    "sourceSHA256": "df1ddbbb6e6fe8401492dcd41fbabd03110833f3fc44fec3c901a3e604d030c5"
+  },
+  "fits": [
+    {
+      "name": "centers-fit",
+      "scale": 0.37,
+      "offset": [
+        312,
+        438
+      ]
+    },
+    {
+      "name": "diameters-fit",
+      "scale": 0.28,
+      "offset": [
+        388,
+        480
+      ]
+    }
+  ],
+  "method": "Whole pair uniform downscale/translation only; no pane separation, masks, pixel changes or upscaling",
+  "primaryRegistrationSHA256": "9cd5617fb3496eb70426c7d78894f91f3ce55f406f7c8336a0ffa0cdb958d53b"
+}

@@ -1,0 +1,284 @@
+{
+  "sourcesUnchanged": true,
+  "files": [
+    {
+      "path": "registration/comparison-220pt-3x-dark.png",
+      "dimensions": [
+        4380,
+        810
+      ],
+      "bytes": 888919,
+      "sha256": "1687578136c2410dd2210471f598f91c4d001eb16df231ccffcc4a8145ee45d8"
+    },
+    {
+      "path": "registration/comparison-220pt-3x-light.png",
+      "dimensions": [
+        4380,
+        810
+      ],
+      "bytes": 877749,
+      "sha256": "96bbfe78cfc2f3dc120b877f2619c618860031f734b9961d5e2ae4fd1b096109"
+    },
+    {
+      "path": "registration/comparison-64pt-3x-dark.png",
+      "dimensions": [
+        1572,
+        342
+      ],
+      "bytes": 100447,
+      "sha256": "d3960a5ec55163ccfc29ceb64232b5ff016e73083ac9ab8541497f05839735f1"
+    },
+    {
+      "path": "registration/comparison-64pt-3x-light.png",
+      "dimensions": [
+        1572,
+        342
+      ],
+      "bytes": 98470,
+      "sha256": "fc7ca3864188eabc5c49e522e5197df41f69fa4d5fde14b81cb86889f1e7005a"
+    },
+    {
+      "path": "registration/eyes-closed-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1424992,
+      "sha256": "af68f359fa1d65eb2eaefc04236932465f14a1cb1038bcb4859f71301aa1d350"
+    },
+    {
+      "path": "registration/eyes-closed-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1219763,
+      "sha256": "813551d93bffd8d4a924ef87c57f96caa174ed04a40ef67b1edd6297d38742d3"
+    },
+    {
+      "path": "registration/eyes-closed-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1202931,
+      "sha256": "3147a0f3cfa6cbef1662c6c2aabb93245d14b204dd62d13d998bb078725ebb0f"
+    },
+    {
+      "path": "registration/layers/body-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1151903,
+      "sha256": "62f164ee4c9b7fa92082a26b572449274ad29e866321d040c037b9a7aeebf86c"
+    },
+    {
+      "path": "registration/layers/eyeLeft-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 24051,
+      "sha256": "f1a78eab341ac8e52afbf51d6300ab3ba34d7ba22b772962046d301794304779"
+    },
+    {
+      "path": "registration/layers/eyeRight-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 24028,
+      "sha256": "1a3442f5388331c3800c37487a1c33867b93536c4323ec66bedb6ba2e45a0045"
+    },
+    {
+      "path": "registration/layers/footLeft-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 24102,
+      "sha256": "de35a714329db0c142016d37920a4413bc9f9224f06481f3da19b241c80fe2bd"
+    },
+    {
+      "path": "registration/layers/footRight-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 30718,
+      "sha256": "75370d72e6de928f99b3f2ff6ea652118ac82e24917365c4a454c6107cda17bc"
+    },
+    {
+      "path": "registration/layers/glasses-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 92335,
+      "sha256": "6fb4775e416dd5e9d86c7dea3ba647051a8d5a91d8cde8444882a74d54f75ccb"
+    },
+    {
+      "path": "registration/layers/lidLeft-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 14303,
+      "sha256": "1d7a1e476e4021eb29251692454cc7f7796cf3a22514025e424f35c7b0149e23"
+    },
+    {
+      "path": "registration/layers/lidRight-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 14302,
+      "sha256": "af66870f65f25b438bc7e62d0a38d1c4d594abdc6ca28273ccf458a0f4d4f5ad"
+    },
+    {
+      "path": "registration/layers/prop-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 89351,
+      "sha256": "b2b707e15abf2335adb8f6b3650bf43a846b2eb93ba5ba7375f0f9feb75a34fc"
+    },
+    {
+      "path": "registration/layers/sprout-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 222196,
+      "sha256": "ed761907b836b9697a882e1a0cb32fcba54b93f3d4424feaf980b9c4a1a58329"
+    },
+    {
+      "path": "registration/layers/wingLeft-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 92600,
+      "sha256": "c7d283f96c13011ddb1f758b48dc81d6cbee5a5532d46cc9e1eb0478fd8b5214"
+    },
+    {
+      "path": "registration/layers/wingRight-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 76166,
+      "sha256": "20b6f13db04e2f2917ce48e3f5521b2505ffad1cd8fdbc2f2f9e57fbe3d28cbe"
+    },
+    {
+      "path": "registration/neutral-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1425389,
+      "sha256": "03925d1870b8b7e9dba643376806125ad589f66eac20155080fb7159632a62d9"
+    },
+    {
+      "path": "registration/neutral-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1220975,
+      "sha256": "8f9feefce9c5a56c3bab64c3937dc86c42e007670af6da2f1cb12c724d9e0d1b"
+    },
+    {
+      "path": "registration/neutral-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1203968,
+      "sha256": "56d1762040835b9e73b2710f2f23c117cb4fb2cebc48befe743018e44508db24"
+    },
+    {
+      "path": "registration/prop-raised-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1427412,
+      "sha256": "4dd16902ba41fd399c4bcf03ac4900eda5f54c1e0e26bd6845b60686187565fe"
+    },
+    {
+      "path": "registration/prop-raised-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1221577,
+      "sha256": "48cb182ad8fa3ed344e88542ae10844ceee88691a11fe5a20b04e934953d9c91"
+    },
+    {
+      "path": "registration/prop-raised-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1204575,
+      "sha256": "e1f2f3f02ef15ef3f8d5f777d79e3622f01314fa5b69875252d68ddedb432da5"
+    },
+    {
+      "path": "registration/wing-minus12-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1425239,
+      "sha256": "daa26e4bdb120c8828098932445c9cc46e200eede5c345c1426c891af291c228"
+    },
+    {
+      "path": "registration/wing-minus12-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1219002,
+      "sha256": "f128b784270e1efea687454b2fb2b2ce16f6734b14e9c6ed30af110754b9090f"
+    },
+    {
+      "path": "registration/wing-minus12-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1203053,
+      "sha256": "3cdb98a4b46dcde134e5d35d17c5095f84cb1ed819e77ce4b01f96b4340b70cb"
+    },
+    {
+      "path": "registration/wing-plus12-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1429426,
+      "sha256": "890aa8561e97a7f34d28ee0bae47eaea42b5d3c0124b253515e48303701bccdd"
+    },
+    {
+      "path": "registration/wing-plus12-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1222812,
+      "sha256": "5ae9779241e8601061b37fc6b112f466cb57a2f14006ae05c91e03e2401b97ab"
+    },
+    {
+      "path": "registration/wing-plus12-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1205976,
+      "sha256": "30644121124261b84f5c7100e2baee6a3cf1d1646df1dde9437cc8836ba4834c"
+    }
+  ]
+}

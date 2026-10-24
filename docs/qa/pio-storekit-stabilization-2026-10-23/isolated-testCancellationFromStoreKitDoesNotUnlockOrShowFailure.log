@@ -1,0 +1,43 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/DaylogiOSStoreKit_iphonesimulator27.1-arm64.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests/testCancellationFromStoreKitDoesNotUnlockOrShowFailure" -resultBundlePath /tmp/PioStoreKit-Stabilization-isolated-testCancellationFromStoreKitDoesNotUnlockOrShowFailure.xcresult
+
+Writing result bundle at path:
+	/tmp/PioStoreKit-Stabilization-isolated-testCancellationFromStoreKitDoesNotUnlockOrShowFailure.xcresult
+
+2026-10-23 20:26:33.605 xcodebuild[97325:834434] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:26:38.116929+0900 Daylog[97333:834690] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 20:26:39.170328+0900 Daylog[97333:834690] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 20:26:39.173261+0900 Daylog[97333:834690] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 20:26:39.176901+0900 Daylog[97333:834690] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 20:26:39.259.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 20:26:39.260.
+Test Suite 'PioStoreKitIntegrationTests' started at 2026-10-23 20:26:39.260.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testCancellationFromStoreKitDoesNotUnlockOrShowFailure]' started.
+PioStoreKit: client=1E272F9B time=1792754799.3064551 raw listener started subscription=AA73D9BF-56EC-47C1-AAD7-BD2C2C5B0B86
+2026-10-23 20:26:39.358065+0900 Daylog[97333:834917] [Default] Received error that does not have a corresponding StoreKit Error: Error Domain=ASDServerErrorDomain Code=907 "(null)" UserInfo={storefront-country-code=KOR, client-environment-type=XcodeTest}
+2026-10-23 20:26:39.367972+0900 Daylog[97333:834917] [Default] Purchase did not return a transaction: Error Domain=ASDServerErrorDomain Code=907 "(null)" UserInfo={storefront-country-code=KOR, client-environment-type=XcodeTest}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests.swift:354: error: -[DaylogStoreKitTests.PioStoreKitIntegrationTests testCancellationFromStoreKitDoesNotUnlockOrShowFailure] : XCTAssertEqual failed: ("failed(message: "App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.")") is not equal to ("cancelled")
+PioStoreKit: client=1E272F9B time=1792754799.426433 raw listener ended subscription=AA73D9BF-56EC-47C1-AAD7-BD2C2C5B0B86
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testCancellationFromStoreKitDoesNotUnlockOrShowFailure]' failed (0.173 seconds).
+Test Suite 'PioStoreKitIntegrationTests' failed at 2026-10-23 20:26:39.435.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.173 (0.175) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 20:26:39.435.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.173 (0.175) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 20:26:39.436.
+	 Executed 1 test, with 1 failure (0 unexpected) in 0.173 (0.176) seconds
+2026-10-23 20:26:39.451 xcodebuild[97325:834434] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:26:39.451 xcodebuild[97325:834434] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:26:39.452 xcodebuild[97325:834434] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:26:39.716 xcodebuild[97325:834434] [MT] IDETestOperationsObserverDebug: 6.213 elapsed -- Testing started completed.
+2026-10-23 20:26:39.716 xcodebuild[97325:834434] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 20:26:39.716 xcodebuild[97325:834434] [MT] IDETestOperationsObserverDebug: 6.213 sec, +6.213 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioStoreKit-Stabilization-isolated-testCancellationFromStoreKitDoesNotUnlockOrShowFailure.xcresult
+
+Failing tests:
+	PioStoreKitIntegrationTests.testCancellationFromStoreKitDoesNotUnlockOrShowFailure()
+
+** TEST EXECUTE FAILED **
+
+Testing started

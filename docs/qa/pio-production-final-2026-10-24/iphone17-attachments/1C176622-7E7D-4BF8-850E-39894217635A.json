@@ -1,0 +1,185 @@
+{
+  "holdIDs" : [
+    "tablet",
+    "armLeft",
+    "armRight"
+  ],
+  "independent" : [
+    "eyes",
+    "lids",
+    "shared arms\/tablet hold joint"
+  ],
+  "limits" : "Native presentation-layer component captures; candidate geometry still requires visual approval. Held parts never detach or wave independently of the prop. No purchase, preference or whole-screen workflow verification.",
+  "observations" : [
+    {
+      "elapsed" : 0.1883959166589193,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00049948553395832962,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 0.22100141666305717,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00049948553395832962,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 1.6864904999965802,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026141371870591224,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.7251514999952633,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026141371870591224,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.9562519583269022,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.024489954748725177,
+      "lidOpacity" : 1,
+      "side" : 64,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 2.0051431249885354,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.024489954748725177,
+      "lidOpacity" : 1,
+      "side" : 220,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 2.3307475833280478,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.015907515280815094,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 2.3636733749881387,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.015907515280815094,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 4.8602587083296385,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-negative"
+    },
+    {
+      "elapsed" : 4.8937777916580671,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-negative"
+    }
+  ],
+  "partAssets" : {
+    "armLeft" : "pio_cloud_prod_v2_basic_v1_armPair",
+    "armRight" : "pio_cloud_prod_v2_basic_v1_armPair",
+    "body" : "pio_cloud_prod_v2_basic_v1_torso",
+    "browLeft" : "pio_cloud_prod_v2_basic_v1_browLeft",
+    "browRight" : "pio_cloud_prod_v2_basic_v1_browRight",
+    "eyeLeft" : "pio_cloud_prod_v2_basic_v1_openPair",
+    "eyeRight" : "pio_cloud_prod_v2_basic_v1_openPair",
+    "footLeft" : "pio_cloud_prod_v2_basic_v1_feetPair",
+    "footRight" : "pio_cloud_prod_v2_basic_v1_feetPair",
+    "lidLeft" : "pio_cloud_prod_v2_basic_v1_closedPair",
+    "lidRight" : "pio_cloud_prod_v2_basic_v1_closedPair",
+    "tablet" : "pio_cloud_prod_v2_basic_v1_tablet"
+  },
+  "partRects" : {
+    "armLeft" : [
+      217,
+      832,
+      285,
+      228
+    ],
+    "armRight" : [
+      788,
+      832,
+      255,
+      228
+    ],
+    "body" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "browLeft" : [
+      440,
+      672,
+      90,
+      49.829999999999998
+    ],
+    "browRight" : [
+      746,
+      672,
+      90,
+      50
+    ],
+    "eyeLeft" : [
+      440,
+      692,
+      108,
+      108
+    ],
+    "eyeRight" : [
+      751,
+      692,
+      108,
+      108
+    ],
+    "footLeft" : [
+      370,
+      1059,
+      145,
+      123
+    ],
+    "footRight" : [
+      764,
+      1059,
+      145,
+      123
+    ],
+    "lidLeft" : [
+      440,
+      720,
+      108,
+      52.359999999999999
+    ],
+    "lidRight" : [
+      751,
+      720,
+      108,
+      51.909999999999997
+    ],
+    "tablet" : [
+      466,
+      851,
+      366,
+      316
+    ]
+  },
+  "platform" : "iPhone Simulator",
+  "revision" : "basic-production-hands-v2"
+}

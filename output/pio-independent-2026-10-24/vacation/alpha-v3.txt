@@ -1,0 +1,5 @@
+size 1024x1536, alphaInfo 3
+alpha>0: count=17045 bbox=81,245..993,1366
+alpha>32: count=11747 bbox=390,677..625,803
+alpha>128: count=9265 bbox=396,683..620,798
+alpha>240: count=7145 bbox=404,687..613,793

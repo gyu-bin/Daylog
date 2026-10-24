@@ -1,0 +1,236 @@
+{
+  "scope": "Actual native presentation frames opened via view_image. Not whole-screen/Release/user approval.",
+  "records": [
+    {
+      "platform": "mac",
+      "outfit": "cherryBlossom",
+      "state": "220pt-light-open",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/cherryBlossom-hands-v2-220pt-light-open-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "cherryBlossom",
+      "state": "220pt-dark-hold-negative",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/cherryBlossom-hands-v2-220pt-dark-hold-negative-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "cherryBlossom",
+      "state": "64pt-light-hold-positive",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/cherryBlossom-hands-v2-64pt-light-hold-positive-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "cherryBlossom",
+      "state": "64pt-dark-closed",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/cherryBlossom-hands-v2-64pt-dark-closed-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "autumn",
+      "state": "220pt-light-open",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/autumn-hands-v2-220pt-light-open-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "autumn",
+      "state": "220pt-dark-hold-negative",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/autumn-hands-v2-220pt-dark-hold-negative-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "autumn",
+      "state": "64pt-light-hold-positive",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/autumn-hands-v2-64pt-light-hold-positive-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "autumn",
+      "state": "64pt-dark-closed",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/autumn-hands-v2-64pt-dark-closed-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "winter",
+      "state": "220pt-light-open",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/winter-hands-v2-220pt-light-open-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "winter",
+      "state": "220pt-dark-hold-negative",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/winter-hands-v2-220pt-dark-hold-negative-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "winter",
+      "state": "64pt-light-hold-positive",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/winter-hands-v2-64pt-light-hold-positive-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "winter",
+      "state": "64pt-dark-closed",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/winter-hands-v2-64pt-dark-closed-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "astronaut",
+      "state": "220pt-light-open",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/astronaut-hands-v2-220pt-light-open-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "astronaut",
+      "state": "220pt-dark-hold-negative",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/astronaut-hands-v2-220pt-dark-hold-negative-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "astronaut",
+      "state": "64pt-light-hold-positive",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/astronaut-hands-v2-64pt-light-hold-positive-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "mac",
+      "outfit": "astronaut",
+      "state": "64pt-dark-closed",
+      "file": "docs/qa/pio-independent-2026-10-24/native/mac-expansion-batch/astronaut-hands-v2-64pt-dark-closed-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "ios",
+      "outfit": "cherryBlossom",
+      "state": "220pt-light-hold-positive",
+      "file": "docs/qa/pio-independent-2026-10-24/native/ios-expansion-batch/cherryBlossom-hands-v2-220pt-light-hold-positive-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "ios",
+      "outfit": "cherryBlossom",
+      "state": "220pt-dark-hold-negative",
+      "file": "docs/qa/pio-independent-2026-10-24/native/ios-expansion-batch/cherryBlossom-hands-v2-220pt-dark-hold-negative-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "ios",
+      "outfit": "cherryBlossom",
+      "state": "64pt-dark-closed",
+      "file": "docs/qa/pio-independent-2026-10-24/native/ios-expansion-batch/cherryBlossom-hands-v2-64pt-dark-closed-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "ios",
+      "outfit": "autumn",
+      "state": "220pt-light-hold-positive",
+      "file": "docs/qa/pio-independent-2026-10-24/native/ios-expansion-batch/autumn-hands-v2-220pt-light-hold-positive-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "ios",
+      "outfit": "autumn",
+      "state": "220pt-dark-hold-negative",
+      "file": "docs/qa/pio-independent-2026-10-24/native/ios-expansion-batch/autumn-hands-v2-220pt-dark-hold-negative-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "ios",
+      "outfit": "autumn",
+      "state": "64pt-dark-closed",
+      "file": "docs/qa/pio-independent-2026-10-24/native/ios-expansion-batch/autumn-hands-v2-64pt-dark-closed-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "ios",
+      "outfit": "winter",
+      "state": "220pt-light-hold-positive",
+      "file": "docs/qa/pio-independent-2026-10-24/native/ios-expansion-batch/winter-hands-v2-220pt-light-hold-positive-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "ios",
+      "outfit": "winter",
+      "state": "220pt-dark-hold-negative",
+      "file": "docs/qa/pio-independent-2026-10-24/native/ios-expansion-batch/winter-hands-v2-220pt-dark-hold-negative-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "ios",
+      "outfit": "winter",
+      "state": "64pt-dark-closed",
+      "file": "docs/qa/pio-independent-2026-10-24/native/ios-expansion-batch/winter-hands-v2-64pt-dark-closed-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "ios",
+      "outfit": "astronaut",
+      "state": "220pt-light-hold-positive",
+      "file": "docs/qa/pio-independent-2026-10-24/native/ios-expansion-batch/astronaut-hands-v2-220pt-light-hold-positive-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "ios",
+      "outfit": "astronaut",
+      "state": "220pt-dark-hold-negative",
+      "file": "docs/qa/pio-independent-2026-10-24/native/ios-expansion-batch/astronaut-hands-v2-220pt-dark-hold-negative-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    },
+    {
+      "platform": "ios",
+      "outfit": "astronaut",
+      "state": "64pt-dark-closed",
+      "file": "docs/qa/pio-independent-2026-10-24/native/ios-expansion-batch/astronaut-hands-v2-64pt-dark-closed-actual-presentation.png",
+      "visualGate": "PASS_COMPONENT_APPEARANCE",
+      "finding": "No obvious seam/clipping, cuff mismatch or detached tablet contact in inspected frame."
+    }
+  ],
+  "count": 28,
+  "limits": [
+    "held arms/tablet shared rigid group, no hand release/free waving",
+    "headwear/sprout/feet baked except Basic added feet",
+    "vacation still flattened, no independent eyes/hands/ropes",
+    "half-eye source not integrated for Basic"
+  ]
+}

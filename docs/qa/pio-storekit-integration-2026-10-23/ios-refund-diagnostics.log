@@ -1,0 +1,52 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -derivedDataPath /tmp/PioStoreKit-20261023-ios -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests/testRefundUpdateRevokesAccessAndRefreshResetsEquipment" -resultBundlePath /tmp/PioStoreKit-20261023-ios-refund-diagnostics.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/PioStoreKit-20261023-ios-refund-diagnostics.xcresult
+
+2026-10-23 19:30:24.594 xcodebuild[71139:672242] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:30:28.226373+0900 Daylog[71165:672592] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 19:30:28.650434+0900 Daylog[71165:672592] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 19:30:28.651381+0900 Daylog[71165:672592] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 19:30:28.651648+0900 Daylog[71165:672592] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 19:30:28.689.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 19:30:28.690.
+Test Suite 'PioStoreKitIntegrationTests' started at 2026-10-23 19:30:28.690.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment]' started.
+PioStoreKit: Transaction.updates listener started
+PioStoreKit: client=AE3F2E3C time=1792751428.763936 accepted id=33 product=outfit.winter revoked=false
+PioStoreKit: client=AE3F2E3C time=1792751428.7639909 finish requested id=33 cached=true inFlight=0
+PioStoreKit: client=AE3F2E3C time=1792751428.7640219 finish begin id=33 product=outfit.winter revoked=false
+PioStoreKit: client=AE3F2E3C time=1792751428.7679238 finish returned id=33
+PioStoreKit: raw verified update id=33 product=outfit.winter environment=Environment(rawValue: "Xcode") revoked=true
+PioStoreKit: client=AE3F2E3C time=1792751428.785017 accepted id=33 product=outfit.winter revoked=true
+PioStoreKit: client=AE3F2E3C time=1792751428.787912 finish requested id=33 cached=true inFlight=0
+PioStoreKit: client=AE3F2E3C time=1792751428.7879539 finish begin id=33 product=outfit.winter revoked=true
+PioStoreKit: client=AE3F2E3C time=1792751428.7885609 finish returned id=33
+PioStoreKit: Transaction.updates listener ended
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment]' passed (0.107 seconds).
+Test Suite 'PioStoreKitIntegrationTests' passed at 2026-10-23 19:30:28.800.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.107 (0.110) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-23 19:30:28.801.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.107 (0.111) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 19:30:28.801.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.107 (0.112) seconds
+2026-10-23 19:30:28.813 xcodebuild[71139:672242] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:30:28.814 xcodebuild[71139:672242] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:30:28.814 xcodebuild[71139:672242] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 19:30:29.083 xcodebuild[71139:672242] [MT] IDETestOperationsObserverDebug: 4.538 elapsed -- Testing started completed.
+2026-10-23 19:30:29.084 xcodebuild[71139:672242] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 19:30:29.084 xcodebuild[71139:672242] [MT] IDETestOperationsObserverDebug: 4.538 sec, +4.538 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioStoreKit-20261023-ios-refund-diagnostics.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

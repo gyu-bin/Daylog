@@ -1,0 +1,46 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -derivedDataPath /tmp/PioStoreKit-20261023-ios -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitRefundOrderingTests/testDirectWithEntitlementsReadAfterSubscription" -resultBundlePath /tmp/PioStoreKit-Stabilization-matched-testDirectWithEntitlementsReadAfterSubscription.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/PioStoreKit-Stabilization-matched-testDirectWithEntitlementsReadAfterSubscription.xcresult
+
+2026-10-23 20:40:11.436 xcodebuild[1159:873934] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:40:14.766066+0900 Daylog[1184:874240] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 20:40:15.137114+0900 Daylog[1184:874240] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 20:40:15.162686+0900 Daylog[1184:874240] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 20:40:15.165546+0900 Daylog[1184:874240] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 20:40:15.196.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 20:40:15.196.
+Test Suite 'PioStoreKitRefundOrderingTests' started at 2026-10-23 20:40:15.196.
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testDirectWithEntitlementsReadAfterSubscription]' started.
+PIO_REFUND_FACTOR fullCatalog=false readAfterSubscription=true childFinisher=false appReceiptAfterSubscription=false id=189
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitRefundOrderingTests.swift:104: error: -[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testDirectWithEntitlementsReadAfterSubscription] : Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: "Direct factor probe refund update".
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testDirectWithEntitlementsReadAfterSubscription]' failed (10.203 seconds).
+Test Suite 'PioStoreKitRefundOrderingTests' failed at 2026-10-23 20:40:25.404.
+	 Executed 1 test, with 1 failure (0 unexpected) in 10.203 (10.208) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 20:40:25.405.
+	 Executed 1 test, with 1 failure (0 unexpected) in 10.203 (10.208) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 20:40:25.405.
+	 Executed 1 test, with 1 failure (0 unexpected) in 10.203 (10.209) seconds
+2026-10-23 20:40:25.428 xcodebuild[1159:873934] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:40:25.428 xcodebuild[1159:873934] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:40:25.431 xcodebuild[1159:873934] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:40:25.698 xcodebuild[1159:873934] [MT] IDETestOperationsObserverDebug: 14.297 elapsed -- Testing started completed.
+2026-10-23 20:40:25.698 xcodebuild[1159:873934] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 20:40:25.698 xcodebuild[1159:873934] [MT] IDETestOperationsObserverDebug: 14.297 sec, +14.297 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioStoreKit-Stabilization-matched-testDirectWithEntitlementsReadAfterSubscription.xcresult
+
+Failing tests:
+	PioStoreKitRefundOrderingTests.testDirectWithEntitlementsReadAfterSubscription()
+
+** TEST EXECUTE FAILED **
+
+Testing started

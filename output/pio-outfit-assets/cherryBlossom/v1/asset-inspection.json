@@ -1,0 +1,97 @@
+{
+  "new_component_roles": 4,
+  "generated_source_files": 8,
+  "rejected_or_superseded": [
+    "body-candidate.png",
+    "body-v2-rejected-wing-remains.png",
+    "sprout-v1-rejected-halo.png",
+    "sprout-v2-rejected-halo.png"
+  ],
+  "active_candidates": [
+    {
+      "role": "clean body and cape",
+      "file": "body-v3-candidate.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha_bbox_gt8": [
+        239,
+        351,
+        1099,
+        1143
+      ],
+      "sha256": "956fd164e1402d25f665f4c49cbabaea6bf79b9e4733438c1a920f21e3a8f853",
+      "status": "NEW_ARTWORK_CANDIDATE_NOT_APPROVED_OR_INTEGRATED"
+    },
+    {
+      "role": "independent left wing",
+      "file": "wing-left-candidate.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha_bbox_gt8": [
+        293,
+        256,
+        1018,
+        1027
+      ],
+      "sha256": "4527de03a61fa227418caa657b7febbfd8353840a53243773d54907f295d6d5f",
+      "status": "NEW_ARTWORK_CANDIDATE_NOT_APPROVED_OR_INTEGRATED"
+    },
+    {
+      "role": "independent right wing",
+      "file": "wing-right-candidate.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha_bbox_gt8": [
+        113,
+        118,
+        1169,
+        1155
+      ],
+      "sha256": "18f390d03d104b162ec95e988d19688af60ffa46e122e7bf3973021d4b1ddc26",
+      "status": "NEW_ARTWORK_CANDIDATE_NOT_APPROVED_OR_INTEGRATED"
+    },
+    {
+      "role": "independent head flower",
+      "file": "head-flower-candidate.png",
+      "native_size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visible_alpha_bbox_gt8": [
+        155,
+        146,
+        1124,
+        1124
+      ],
+      "sha256": "f5dfde0a35ac6a9cdd949e34b4372ea895a8a5ada10b91320b4ce2b7a41a085b",
+      "status": "NEW_ARTWORK_CANDIDATE_NOT_APPROVED_OR_INTEGRATED"
+    }
+  ],
+  "finished_outfits": 0
+}

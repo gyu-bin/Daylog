@@ -1,0 +1,357 @@
+{
+  "status": "ARTWORK_CANDIDATE_NOT_APPROVED_NOT_RUNTIME",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "origin": "topLeft",
+  "method": "Full source unchanged; uniform downscale/translation and rigid articulated rotation only",
+  "reference": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_student.imageset/pio_outfit_student.png",
+  "parts": [
+    {
+      "id": "body",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/body-candidate.png",
+      "sourceSHA256": "738ccd864e67220173a4e2815778b3e21c9b3a5196a9d1f0a1dfc72e604c5221",
+      "scale": 0.85,
+      "offset": [
+        103,
+        198
+      ],
+      "pivot": [
+        680,
+        800
+      ],
+      "angle": 0,
+      "z": 2
+    },
+    {
+      "id": "sprout",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cherryBlossom-v2/source/sprout-v3-review.png",
+      "sourceSHA256": "639387f2916fb32af0ab30ebb8f43b09ed5e88366c052b7c7b8b91f51f893199",
+      "scale": 0.45629820051413883,
+      "offset": [
+        233.45758354755785,
+        -35.68766066838047
+      ],
+      "pivot": [
+        620,
+        380
+      ],
+      "angle": 0,
+      "z": 1,
+      "fitRect": [
+        280,
+        25,
+        670,
+        355
+      ],
+      "sourceAlpha16Bounds": [
+        102,
+        133,
+        1477,
+        911
+      ]
+    },
+    {
+      "id": "wingLeft",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/left-candidate.png",
+      "sourceSHA256": "a4e6daa2901e98299797863b853643e0aa5278507f64b8de2e13708155966fbf",
+      "scale": 0.2819332566168009,
+      "offset": [
+        183.78020713463752,
+        752.9746835443038
+      ],
+      "pivot": [
+        310,
+        875
+      ],
+      "angle": 0,
+      "z": 7,
+      "fitRect": [
+        210,
+        815,
+        280,
+        245
+      ],
+      "sourceAlpha16Bounds": [
+        93,
+        220,
+        1076,
+        1089
+      ]
+    },
+    {
+      "id": "wingRight",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/right-candidate.png",
+      "sourceSHA256": "89e8fbfdee6248bc633f6bbec56531381ce152668dfdd897fc1e5ea5a93ca40d",
+      "scale": 0.26345291479820626,
+      "offset": [
+        887.0347533632287,
+        581.5134529147982
+      ],
+      "pivot": [
+        990,
+        850
+      ],
+      "angle": 0,
+      "z": 6,
+      "fitRect": [
+        950,
+        640,
+        235,
+        260
+      ],
+      "sourceAlpha16Bounds": [
+        239,
+        222,
+        1131,
+        1088
+      ]
+    },
+    {
+      "id": "prop",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/book-candidate.png",
+      "sourceSHA256": "3ed20290bf022600d535b0bda0e5a49f2d61c300b2c16af3bb1300d0fe7f9f05",
+      "scale": 0.2664796633941094,
+      "offset": [
+        321.984572230014,
+        716.2482468443197
+      ],
+      "pivot": [
+        310,
+        875
+      ],
+      "angle": 0,
+      "z": 5,
+      "fitRect": [
+        395,
+        785,
+        190,
+        285
+      ],
+      "sourceAlpha16Bounds": [
+        274,
+        258,
+        987,
+        1133
+      ]
+    },
+    {
+      "id": "glasses",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/glasses-v2-candidate.png",
+      "sourceSHA256": "c85ed84fa2532db3717fda1560d257d3a597214034064d05f136ccea924d609f",
+      "scale": 0.4227212681638045,
+      "offset": [
+        271.0462351387054,
+        420.0330250990753
+      ],
+      "pivot": [
+        650,
+        625
+      ],
+      "angle": 0,
+      "z": 9,
+      "fitRect": [
+        326,
+        505,
+        640,
+        250
+      ],
+      "sourceAlpha16Bounds": [
+        130,
+        201,
+        1644,
+        731
+      ]
+    },
+    {
+      "id": "eyeLeft",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+      "sourceSHA256": "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "scale": 0.13089005235602094,
+      "offset": [
+        448.74345549738223,
+        572.9319371727748
+      ],
+      "pivot": [
+        535.0,
+        657.5
+      ],
+      "angle": 0,
+      "z": 3,
+      "fitRect": [
+        485,
+        605,
+        100,
+        105
+      ],
+      "sourceAlpha16Bounds": [
+        277,
+        245,
+        1041,
+        995
+      ]
+    },
+    {
+      "id": "lidLeft",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+      "sourceSHA256": "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "scale": 0.12406947890818859,
+      "offset": [
+        452.86600496277913,
+        580.6136476426799
+      ],
+      "pivot": [
+        535.0,
+        657.5
+      ],
+      "angle": 0,
+      "z": 4,
+      "fitRect": [
+        485,
+        649.1,
+        100,
+        38
+      ],
+      "sourceAlpha16Bounds": [
+        259,
+        552,
+        1065,
+        845
+      ]
+    },
+    {
+      "id": "footLeft",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+      "sourceSHA256": "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+      "scale": 0.11229314420803782,
+      "offset": [
+        450.0118203309693,
+        1097.5413711583924
+      ],
+      "pivot": [
+        545.0,
+        1167.5
+      ],
+      "angle": 0,
+      "z": 0,
+      "fitRect": [
+        470,
+        1120,
+        150,
+        95
+      ],
+      "sourceAlpha16Bounds": [
+        178,
+        200,
+        1147,
+        1046
+      ]
+    },
+    {
+      "id": "eyeRight",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+      "sourceSHA256": "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "scale": 0.13089005235602094,
+      "offset": [
+        753.7434554973822,
+        532.9319371727748
+      ],
+      "pivot": [
+        840.0,
+        617.5
+      ],
+      "angle": 0,
+      "z": 3,
+      "fitRect": [
+        790,
+        565,
+        100,
+        105
+      ],
+      "sourceAlpha16Bounds": [
+        277,
+        245,
+        1041,
+        995
+      ]
+    },
+    {
+      "id": "lidRight",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+      "sourceSHA256": "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "scale": 0.12406947890818859,
+      "offset": [
+        757.8660049627791,
+        540.6136476426799
+      ],
+      "pivot": [
+        840.0,
+        617.5
+      ],
+      "angle": 0,
+      "z": 4,
+      "fitRect": [
+        790,
+        609.1,
+        100,
+        38
+      ],
+      "sourceAlpha16Bounds": [
+        259,
+        552,
+        1065,
+        845
+      ]
+    },
+    {
+      "id": "footRight",
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+      "sourceSHA256": "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+      "scale": 0.13002364066193853,
+      "offset": [
+        746.855791962175,
+        1068.9952718676122
+      ],
+      "pivot": [
+        845.0,
+        1150.0
+      ],
+      "angle": -20,
+      "z": 0,
+      "fitRect": [
+        770,
+        1095,
+        150,
+        110
+      ],
+      "sourceAlpha16Bounds": [
+        178,
+        200,
+        1147,
+        1046
+      ]
+    }
+  ],
+  "grip": {
+    "parts": [
+      "wingLeft",
+      "prop"
+    ],
+    "pivot": [
+      310,
+      875
+    ],
+    "endpointAngle": -6,
+    "endpointTranslation": [
+      0,
+      -25
+    ]
+  },
+  "limitations": [
+    "Reconstruction differs from approved original pixels",
+    "No native app or performance verification",
+    "Garment details baked into body",
+    "Shared feet and eyes differ slightly from original"
+  ]
+}

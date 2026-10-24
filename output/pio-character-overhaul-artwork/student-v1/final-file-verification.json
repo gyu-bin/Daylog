@@ -1,0 +1,483 @@
+{
+  "pngs": [
+    {
+      "file": "qa/body-candidate-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1288555,
+      "sha256": "f8b984137c94e1116728dd5308b0cad8fd892aafed43f7edead1a5fa67cfc550"
+    },
+    {
+      "file": "qa/body-candidate-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1270290,
+      "sha256": "1dba2a69a7ddc76c5d0be18d7be86f7d71970a1a0be70c1928d60f850f01758c"
+    },
+    {
+      "file": "qa/book-candidate-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 903347,
+      "sha256": "532550e5a806258670fbd182ace315fda9d391f27b34c3fc9330403aeea36777"
+    },
+    {
+      "file": "qa/book-candidate-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 932907,
+      "sha256": "602f1578a282ab5afc602412eb624387e281172044205f2184a00ff22e974e58"
+    },
+    {
+      "file": "qa/components-dark.png",
+      "dimensions": [
+        1500,
+        900
+      ],
+      "bytes": 495125,
+      "sha256": "1b9f14e170b2ecfaef940b5665d4d0c6abb4637737639d9ef511c60493342aaf"
+    },
+    {
+      "file": "qa/components-light.png",
+      "dimensions": [
+        1500,
+        900
+      ],
+      "bytes": 500921,
+      "sha256": "9fd3ced7f358ff0fb45b7b939f06ff0272ed8948e679cb53e2330a9c0ef931f5"
+    },
+    {
+      "file": "qa/glasses-candidate-dark.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "bytes": 321107,
+      "sha256": "340910795f79b8015388ff989292420ada30f01a653c6cb430e7dbe98632e25e"
+    },
+    {
+      "file": "qa/glasses-candidate-light.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "bytes": 363355,
+      "sha256": "deae43f6d523f1a34468a155c3ad6204aeb4a9ec48e73f8cd548e94a8b9ab69f"
+    },
+    {
+      "file": "qa/glasses-v2-candidate-dark.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "bytes": 253528,
+      "sha256": "0f66d6ba34eb50a2039838516521dfb23f0a0939f5c9be76bd2b385c68de118e"
+    },
+    {
+      "file": "qa/glasses-v2-candidate-light.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "bytes": 294248,
+      "sha256": "80f4f7aa2e65929e8dcb97afe346f4568d48ec940ba66b00f9421af571d93bd2"
+    },
+    {
+      "file": "qa/left-candidate-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 784211,
+      "sha256": "4b359ec86e31fdff900207391e73a579ee19113428629fd7a1a6128ad4b0b784"
+    },
+    {
+      "file": "qa/left-candidate-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 760413,
+      "sha256": "6e339ccfe2c9bfe16aadad278dd96bf2eafc8a83447dfeaa0751031f4888dcbd"
+    },
+    {
+      "file": "qa/right-candidate-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 698755,
+      "sha256": "03069094da21954663ab6a907366b72db0a2656679a2c0bac2c7a8a9d91fbe0b"
+    },
+    {
+      "file": "qa/right-candidate-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 672630,
+      "sha256": "d98d45d587914ae369da0c5a568a4efd8798fe229fc99e3f8fcf7a582337a756"
+    },
+    {
+      "file": "registration/comparison-220pt-3x-dark.png",
+      "dimensions": [
+        4380,
+        810
+      ],
+      "bytes": 888919,
+      "sha256": "1687578136c2410dd2210471f598f91c4d001eb16df231ccffcc4a8145ee45d8"
+    },
+    {
+      "file": "registration/comparison-220pt-3x-light.png",
+      "dimensions": [
+        4380,
+        810
+      ],
+      "bytes": 877749,
+      "sha256": "96bbfe78cfc2f3dc120b877f2619c618860031f734b9961d5e2ae4fd1b096109"
+    },
+    {
+      "file": "registration/comparison-64pt-3x-dark.png",
+      "dimensions": [
+        1572,
+        342
+      ],
+      "bytes": 100447,
+      "sha256": "d3960a5ec55163ccfc29ceb64232b5ff016e73083ac9ab8541497f05839735f1"
+    },
+    {
+      "file": "registration/comparison-64pt-3x-light.png",
+      "dimensions": [
+        1572,
+        342
+      ],
+      "bytes": 98470,
+      "sha256": "fc7ca3864188eabc5c49e522e5197df41f69fa4d5fde14b81cb86889f1e7005a"
+    },
+    {
+      "file": "registration/eyes-closed-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1424992,
+      "sha256": "af68f359fa1d65eb2eaefc04236932465f14a1cb1038bcb4859f71301aa1d350"
+    },
+    {
+      "file": "registration/eyes-closed-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1219763,
+      "sha256": "813551d93bffd8d4a924ef87c57f96caa174ed04a40ef67b1edd6297d38742d3"
+    },
+    {
+      "file": "registration/eyes-closed-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1202931,
+      "sha256": "3147a0f3cfa6cbef1662c6c2aabb93245d14b204dd62d13d998bb078725ebb0f"
+    },
+    {
+      "file": "registration/layers/body-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1151903,
+      "sha256": "62f164ee4c9b7fa92082a26b572449274ad29e866321d040c037b9a7aeebf86c"
+    },
+    {
+      "file": "registration/layers/eyeLeft-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 24051,
+      "sha256": "f1a78eab341ac8e52afbf51d6300ab3ba34d7ba22b772962046d301794304779"
+    },
+    {
+      "file": "registration/layers/eyeRight-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 24028,
+      "sha256": "1a3442f5388331c3800c37487a1c33867b93536c4323ec66bedb6ba2e45a0045"
+    },
+    {
+      "file": "registration/layers/footLeft-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 24102,
+      "sha256": "de35a714329db0c142016d37920a4413bc9f9224f06481f3da19b241c80fe2bd"
+    },
+    {
+      "file": "registration/layers/footRight-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 30718,
+      "sha256": "75370d72e6de928f99b3f2ff6ea652118ac82e24917365c4a454c6107cda17bc"
+    },
+    {
+      "file": "registration/layers/glasses-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 92335,
+      "sha256": "6fb4775e416dd5e9d86c7dea3ba647051a8d5a91d8cde8444882a74d54f75ccb"
+    },
+    {
+      "file": "registration/layers/lidLeft-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 14303,
+      "sha256": "1d7a1e476e4021eb29251692454cc7f7796cf3a22514025e424f35c7b0149e23"
+    },
+    {
+      "file": "registration/layers/lidRight-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 14302,
+      "sha256": "af66870f65f25b438bc7e62d0a38d1c4d594abdc6ca28273ccf458a0f4d4f5ad"
+    },
+    {
+      "file": "registration/layers/prop-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 89351,
+      "sha256": "b2b707e15abf2335adb8f6b3650bf43a846b2eb93ba5ba7375f0f9feb75a34fc"
+    },
+    {
+      "file": "registration/layers/sprout-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 222196,
+      "sha256": "ed761907b836b9697a882e1a0cb32fcba54b93f3d4424feaf980b9c4a1a58329"
+    },
+    {
+      "file": "registration/layers/wingLeft-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 92600,
+      "sha256": "c7d283f96c13011ddb1f758b48dc81d6cbee5a5532d46cc9e1eb0478fd8b5214"
+    },
+    {
+      "file": "registration/layers/wingRight-1254.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 76166,
+      "sha256": "20b6f13db04e2f2917ce48e3f5521b2505ffad1cd8fdbc2f2f9e57fbe3d28cbe"
+    },
+    {
+      "file": "registration/neutral-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1425389,
+      "sha256": "03925d1870b8b7e9dba643376806125ad589f66eac20155080fb7159632a62d9"
+    },
+    {
+      "file": "registration/neutral-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1220975,
+      "sha256": "8f9feefce9c5a56c3bab64c3937dc86c42e007670af6da2f1cb12c724d9e0d1b"
+    },
+    {
+      "file": "registration/neutral-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1203968,
+      "sha256": "56d1762040835b9e73b2710f2f23c117cb4fb2cebc48befe743018e44508db24"
+    },
+    {
+      "file": "registration/offline-motion-frames.png",
+      "dimensions": [
+        1320,
+        440
+      ],
+      "bytes": 239373,
+      "sha256": "607efcc6caf67c23aa48331260f0c632fe3618fe3c1f7ea95b8a99019b79f207"
+    },
+    {
+      "file": "registration/prop-raised-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1427412,
+      "sha256": "4dd16902ba41fd399c4bcf03ac4900eda5f54c1e0e26bd6845b60686187565fe"
+    },
+    {
+      "file": "registration/prop-raised-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1221577,
+      "sha256": "48cb182ad8fa3ed344e88542ae10844ceee88691a11fe5a20b04e934953d9c91"
+    },
+    {
+      "file": "registration/prop-raised-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1204575,
+      "sha256": "e1f2f3f02ef15ef3f8d5f777d79e3622f01314fa5b69875252d68ddedb432da5"
+    },
+    {
+      "file": "registration/wing-minus12-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1425239,
+      "sha256": "daa26e4bdb120c8828098932445c9cc46e200eede5c345c1426c891af291c228"
+    },
+    {
+      "file": "registration/wing-minus12-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1219002,
+      "sha256": "f128b784270e1efea687454b2fb2b2ce16f6734b14e9c6ed30af110754b9090f"
+    },
+    {
+      "file": "registration/wing-minus12-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1203053,
+      "sha256": "3cdb98a4b46dcde134e5d35d17c5095f84cb1ed819e77ce4b01f96b4340b70cb"
+    },
+    {
+      "file": "registration/wing-plus12-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1429426,
+      "sha256": "890aa8561e97a7f34d28ee0bae47eaea42b5d3c0124b253515e48303701bccdd"
+    },
+    {
+      "file": "registration/wing-plus12-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1222812,
+      "sha256": "5ae9779241e8601061b37fc6b112f466cb57a2f14006ae05c91e03e2401b97ab"
+    },
+    {
+      "file": "registration/wing-plus12-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1205976,
+      "sha256": "30644121124261b84f5c7100e2baee6a3cf1d1646df1dde9437cc8836ba4834c"
+    },
+    {
+      "file": "source/body-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1586833,
+      "sha256": "738ccd864e67220173a4e2815778b3e21c9b3a5196a9d1f0a1dfc72e604c5221"
+    },
+    {
+      "file": "source/book-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1169345,
+      "sha256": "3ed20290bf022600d535b0bda0e5a49f2d61c300b2c16af3bb1300d0fe7f9f05"
+    },
+    {
+      "file": "source/glasses-candidate.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "bytes": 569747,
+      "sha256": "318cd2b4746121e5d6588d97bd7a9e8db2199e8189c5afdc5b8b450232783c7f"
+    },
+    {
+      "file": "source/glasses-v2-candidate.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "bytes": 366586,
+      "sha256": "c85ed84fa2532db3717fda1560d257d3a597214034064d05f136ccea924d609f"
+    },
+    {
+      "file": "source/left-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 973266,
+      "sha256": "a4e6daa2901e98299797863b853643e0aa5278507f64b8de2e13708155966fbf"
+    },
+    {
+      "file": "source/right-candidate.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 872411,
+      "sha256": "89e8fbfdee6248bc633f6bbec56531381ce152668dfdd897fc1e5ea5a93ca40d"
+    }
+  ],
+  "gif": {
+    "file": "registration/offline-independent-proof.gif",
+    "dimensions": [
+      440,
+      440
+    ],
+    "frames": 40,
+    "frameMilliseconds": 80,
+    "bytes": 2780011,
+    "sha256": "d2b83bf7c07745c191204e5511118d17c77bd47a8fa928b3774a2f01b23b9823"
+  }
+}

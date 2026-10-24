@@ -1,0 +1,35 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "44282D50-640D-4628-BE46-7729F4AF42F8.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Local StoreKit transaction ledger_0_D3EB3123-9EBF-49F2-8E64-90F68027FA5A.txt",
+        "timestamp" : 1792129133.079
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "4B8DA583-A46D-40EA-A1D7-86B5AFF0F19A.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "StoreKit product prices and JSON_0_6C7D65D6-0D54-484B-9EB1-5E65D9D6AA2C.txt",
+        "timestamp" : 1792129132.746
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "B35D4F93-54A4-4B0C-BE1E-EC28A72649F4.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Local StoreKit session setup_0_EFABC22E-7517-4077-AE9D-AADD93E9A5D8.txt",
+        "timestamp" : 1792129132.725
+      }
+    ],
+    "testIdentifier" : "PioStoreKitIntegrationTests/testConfigurationLoadsThirteenNonConsumablesAtKoreanTestPrice()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioStoreKitIntegrationTests/testConfigurationLoadsThirteenNonConsumablesAtKoreanTestPrice"
+  }
+]

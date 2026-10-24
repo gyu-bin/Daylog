@@ -1,0 +1,210 @@
+{
+  "cycles" : [
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 218841088,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 218841088,
+      "beforeRSS" : 181600256,
+      "cycle" : 1,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 219086848,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 219086848,
+      "beforeRSS" : 218841088,
+      "cycle" : 2,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 219103232,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 219103232,
+      "beforeRSS" : 219086848,
+      "cycle" : 3,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 219119616,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 219119616,
+      "beforeRSS" : 219103232,
+      "cycle" : 4,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 219119616,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 219136000,
+      "beforeRSS" : 219119616,
+      "cycle" : 5,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 219152384,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 219152384,
+      "beforeRSS" : 219136000,
+      "cycle" : 6,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 219168768,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 219168768,
+      "beforeRSS" : 219152384,
+      "cycle" : 7,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 219185152,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 219185152,
+      "beforeRSS" : 219168768,
+      "cycle" : 8,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 219185152,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 219185152,
+      "beforeRSS" : 219185152,
+      "cycle" : 9,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 219217920,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 219217920,
+      "beforeRSS" : 219185152,
+      "cycle" : 10,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 218972160,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 218972160,
+      "beforeRSS" : 219217920,
+      "cycle" : 11,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 218759168,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 218759168,
+      "beforeRSS" : 218972160,
+      "cycle" : 12,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 217923584,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 217923584,
+      "beforeRSS" : 218759168,
+      "cycle" : 13,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 217808896,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 217808896,
+      "beforeRSS" : 217923584,
+      "cycle" : 14,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 213483520,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 213483520,
+      "beforeRSS" : 217808896,
+      "cycle" : 15,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 213385216,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 213385216,
+      "beforeRSS" : 213483520,
+      "cycle" : 16,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 213401600,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 213401600,
+      "beforeRSS" : 213401600,
+      "cycle" : 17,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 213401600,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 213401600,
+      "beforeRSS" : 213401600,
+      "cycle" : 18,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 213401600,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 213401600,
+      "beforeRSS" : 213401600,
+      "cycle" : 19,
+      "hostReleased" : true,
+      "stageReleased" : true
+    },
+    {
+      "activeCharacterTracks" : 6,
+      "activeRSS" : 212844544,
+      "actuallyVisible" : true,
+      "afterCleanupRSS" : 212860928,
+      "beforeRSS" : 213401600,
+      "cycle" : 20,
+      "hostReleased" : true,
+      "stageReleased" : true
+    }
+  ],
+  "finalRSS" : 212860928,
+  "initialRSS" : 181518336,
+  "limits" : "Object release and zero-track assertions are lifecycle checks. RSS is observed, not asserted below an arbitrary threshold. Not long-term leak, Release, battery or external compositor\/GPU proof.",
+  "processCPUSeconds" : 0.22562300000000002,
+  "scope" : "20 production Basic visible attach\/start\/150ms\/stop\/detach cycles, same process, no candidate flags, no preferences or StoreKit",
+  "seconds" : 3.2618659734725952
+}

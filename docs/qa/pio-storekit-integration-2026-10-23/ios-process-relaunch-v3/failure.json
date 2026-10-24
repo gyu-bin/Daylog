@@ -1,0 +1,7 @@
+{
+  "runID": "e9ea966e-f31c-4ae7-98cf-3e8b84f1717d",
+  "seedMethod": "product-purchase",
+  "status": "FAIL",
+  "error": "seed failed (65); inspect /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-integration-2026-10-23/ios-process-relaunch-v3/seed.log",
+  "cleanup": "Temporary xctestrun files removed; inspect phase evidence for fixture ledger/preferences cleanup"
+}

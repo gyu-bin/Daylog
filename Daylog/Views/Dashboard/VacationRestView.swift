@@ -98,7 +98,9 @@ struct VacationRestView: View {
                 .anchorPreference(key: VacationSlotKey.self, value: .bounds) { $0 }
                 .accessibilityElement()
                 .accessibilityLabel(PioCharacter.isEnabled
-                    ? "해먹에서 쉬는 \(appearance.outfitApplied ? appearance.outfit.title : "기본 피오"). \(appearance.compatibilityNote ?? "")"
+                    ? (appearance.isAwaitingVerification
+                        ? "피오 의상을 확인하는 중"
+                        : "해먹에서 쉬는 \(appearance.outfitApplied ? appearance.outfit.title : "기본 피오"). \(appearance.compatibilityNote ?? "")")
                     : "해먹에서 쉬는 새싹이")
                 .accessibilityAddTraits(.isImage)
 

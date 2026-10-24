@@ -1,0 +1,37 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioCharacterFinalLive.xctestrun -destination "platform=iOS Simulator,id=89B877BB-6094-4A27-B108-3A958EF23D9B" -parallel-testing-enabled NO -resultBundlePath /tmp/PioCharacterFinal-iPhone-live-20261024.xcresult "-only-testing:DaylogStoreKitTests/PioCharacterDeviceLayoutTests/testLiveVacationScreensForExternalFrameBufferCapture"
+
+Writing result bundle at path:
+	/tmp/PioCharacterFinal-iPhone-live-20261024.xcresult
+
+2026-10-24 17:17:58.866 xcodebuild[37783:2585382] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 17:18:16.140585+0900 Daylog[37843:2586048] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 17:18:17.400217+0900 Daylog[37843:2586048] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 17:18:17.402177+0900 Daylog[37843:2586048] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 17:18:17.405419+0900 Daylog[37843:2586048] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-24 17:18:17.518.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 17:18:17.519.
+Test Suite 'PioCharacterDeviceLayoutTests' started at 2026-10-24 17:18:17.519.
+Test Case '-[DaylogStoreKitTests.PioCharacterDeviceLayoutTests testLiveVacationScreensForExternalFrameBufferCapture]' started.
+PIO_LIVE_FRAMEBUFFER_READY vacation-day
+PIO_LIVE_FRAMEBUFFER_READY vacation-night
+Test Case '-[DaylogStoreKitTests.PioCharacterDeviceLayoutTests testLiveVacationScreensForExternalFrameBufferCapture]' passed (31.141 seconds).
+Test Suite 'PioCharacterDeviceLayoutTests' passed at 2026-10-24 17:18:48.667.
+	 Executed 1 test, with 0 failures (0 unexpected) in 31.141 (31.148) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-24 17:18:48.669.
+	 Executed 1 test, with 0 failures (0 unexpected) in 31.141 (31.150) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 17:18:48.669.
+	 Executed 1 test, with 0 failures (0 unexpected) in 31.141 (31.151) seconds
+2026-10-24 17:18:48.694 xcodebuild[37783:2585382] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 17:18:48.694 xcodebuild[37783:2585382] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 17:18:48.695 xcodebuild[37783:2585382] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 17:18:48.962 xcodebuild[37783:2585382] [MT] IDETestOperationsObserverDebug: 50.191 elapsed -- Testing started completed.
+2026-10-24 17:18:48.962 xcodebuild[37783:2585382] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 17:18:48.962 xcodebuild[37783:2585382] [MT] IDETestOperationsObserverDebug: 50.191 sec, +50.191 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCharacterFinal-iPhone-live-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

@@ -1,0 +1,53 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "5F80421E-2109-4B11-AB5B-0D0741037912.json",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "verified-shared-56-scenes_0_4622198A-E700-4C53-B446-8D75397AAA0F.json",
+        "timestamp" : 1792825773.565
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "9A45C9FC-A519-40CD-92C9-1925F8F3D35C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "verified-basic-vacationNight-active_0_835C29CF-3FE6-4620-ABE3-2645FF12050B.png",
+        "timestamp" : 1792825771.517
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "741DFCFB-0267-46CC-9953-48FFAE54AC42.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "verified-basic-vacationDay-active_0_2E745FA1-31C3-492F-A15B-F851B5171D60.png",
+        "timestamp" : 1792825768.276
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "3720A1B8-9998-42CF-BA0E-35EA39B1C1BE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "verified-basic-cloudDownloading-active_0_556301F6-64C7-4747-BCB7-FADB6344B6D7.png",
+        "timestamp" : 1792825764.994
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "685CA4B0-8423-43F4-97DC-BF2B295B909E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "verified-basic-dashboard-active_0_62CED63A-4462-4B6B-A3F0-ABFC3D70162C.png",
+        "timestamp" : 1792825761.764
+      }
+    ],
+    "testIdentifier" : "PioCharacterVerifiedSceneIntegrationTests/testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioCharacterVerifiedSceneIntegrationTests/testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes"
+  }
+]

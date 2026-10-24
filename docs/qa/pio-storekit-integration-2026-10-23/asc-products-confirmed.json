@@ -1,0 +1,25 @@
+{
+  "capturedAt": {"utc":"2026-10-23T09:34:46.913Z","kst":"2026-10-23T18:34:46+09:00"},
+  "mode":"READ_ONLY_GET",
+  "provenance":"Aside session neRs2ljcZgQFRD08 live App Store Connect inspection; exported here by Codex from returned JSON because Aside lacked Desktop file-write permission",
+  "app":{"appleId":"6821788787","name":"Routimori","bundleId":"com.mungyubin.daylog.ios"},
+  "sources":["https://appstoreconnect.apple.com/apps/6821788787/distribution/iaps","https://appstoreconnect.apple.com/iris/v1/apps/6821788787/inAppPurchasesV2?limit=200","https://appstoreconnect.apple.com/iris/v2/inAppPurchases/{ascId}/inAppPurchaseLocalizations","https://appstoreconnect.apple.com/iris/v1/inAppPurchasePriceSchedules/{ascId}/manualPrices?include=inAppPurchasePricePoint,territory","https://appstoreconnect.apple.com/iris/v2/inAppPurchases/{ascId}/appStoreReviewScreenshot"],
+  "common":{"type":"NON_CONSUMABLE","familySharable":false,"korPriceKRW":2500,"territories":175,"state":"MISSING_METADATA","requiredMissing":["appStoreReviewScreenshot"],"optionalMissing":["reviewNote","promotionalImage"]},
+  "fields":["productId","ascId","koName"],
+  "products":[
+    ["outfit.cherryblossom","6823655655","벚꽃 피오"],
+    ["outfit.summer","6823655944","여름휴가 피오"],
+    ["outfit.autumn","6823656729","가을 피오"],
+    ["outfit.winter","6823657805","겨울 피오"],
+    ["outfit.halloween","6823658427","할로윈 피오"],
+    ["outfit.christmas","6823658798","크리스마스 피오"],
+    ["outfit.hanbok","6823659160","한복 피오"],
+    ["outfit.cafe","6826170409","카페 피오"],
+    ["outfit.student","6826170542","학생 피오"],
+    ["outfit.workout","6826170417","운동 피오"],
+    ["outfit.rainy","6826170753","비 오는 날 피오"],
+    ["outfit.pajamas","6826170450","잠옷 피오"],
+    ["outfit.space","6826170811","우주복 피오"]
+  ],
+  "unverified":["StoreKit product fetch on device/sandbox","Paid Apps agreement/banking/tax","non-KOR prices","Sandbox purchase/restore/refund"]
+}

@@ -1,0 +1,73 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /private/tmp/PioStoreKit-20261023-ios/Build/Products/PioIsolation-27e9e1be-173e-4947-8f71-a295a40ec7a8-seed.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitIsolationTests/testScenario" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-interrupt-seed.xcresult
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-interrupt-seed.xcresult
+
+2026-10-23 21:02:56.575 xcodebuild[5583:927463] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:02:59.987481+0900 Daylog[5595:927569] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 21:03:00.391984+0900 Daylog[5595:927569] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 21:03:00.395556+0900 Daylog[5595:927569] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 21:03:00.396296+0900 Daylog[5595:927569] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 21:03:00.480.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 21:03:00.481.
+Test Suite 'PioStoreKitIsolationTests' started at 2026-10-23 21:03:00.481.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario]' started.
+PIO_ISOLATION {"appEnvironment":"Environment(rawValue: \"Xcode\")","elapsed":"0.080564625 seconds","event":"environment","mode":"manager","os":"Version 27.0 (Build 24A434)","phase":"seed","pid":5595,"run":"27e9e1be-173e-4947-8f71-a295a40ec7a8","scenario":"interrupt","wallTime":1792756980.510057}
+PIO_ISOLATION {"elapsed":"0.087011166 seconds","event":"SKTestSession.init.return","wallTime":1792756980.5165029}
+PIO_ISOLATION {"elapsed":"0.087520416 seconds","event":"resetToDefaultState.return","wallTime":1792756980.5170131}
+PIO_ISOLATION {"elapsed":"0.088718458 seconds","event":"clearTransactions.return","wallTime":1792756980.5182109}
+PIO_ISOLATION {"dialogsDisabled":true,"elapsed":"0.104937166 seconds","event":"fixture.ready","purchaseError":"nil","storefront":"KOR","wallTime":1792756980.5344291}
+PIO_ISOLATION {"elapsed":"0.10635025 seconds","event":"manager.start.begin","wallTime":1792756980.535841}
+PioStoreKit: client=F9287938 time=1792756980.536133 raw listener started subscription=4AA26682-6A40-48D0-B9B2-D24B2C208273
+PIO_ISOLATION {"elapsed":"0.111963666 seconds","event":"manager.ownership","owned":["basic"],"wallTime":1792756980.541456}
+PIO_ISOLATION {"elapsed":"0.12601325 seconds","event":"manager.start.return","wallTime":1792756980.555506}
+PIO_ISOLATION {"elapsed":"0.126072291 seconds","event":"snapshot.begin","label":"before-scenario","wallTime":1792756980.5555649}
+PIO_ISOLATION {"currentEntitlements":[],"driverLedger":[],"elapsed":"0.13103925 seconds","equipped":"basic","event":"snapshot.return","label":"before-scenario","managerOwned":["basic"],"unfinished":[],"wallTime":1792756980.5605321}
+PIO_ISOLATION {"elapsed":"0.13261725 seconds","event":"interruptedPurchasesEnabled.set","value":true,"wallTime":1792756980.562109}
+PIO_ISOLATION {"elapsed":"0.132745875 seconds","event":"purchase.begin","product":"outfit.rainy","wallTime":1792756980.5622392}
+PioStoreKit: client=F9287938 time=1792756980.583527 raw verified update id=200 product=outfit.rainy environment=Environment(rawValue: "Xcode") revoked=false
+PioStoreKit: client=F9287938 time=1792756980.583582 accepted id=200 product=outfit.rainy revoked=false
+PIO_ISOLATION {"elapsed":"0.154176333 seconds","event":"manager.ownership","owned":["basic","rainyDay"],"wallTime":1792756980.5836689}
+PioStoreKit: client=F9287938 time=1792756980.5837278 finish requested id=200 cached=true inFlight=0
+PioStoreKit: client=F9287938 time=1792756980.5837622 finish begin id=200 product=outfit.rainy revoked=false
+2026-10-23 21:03:00.586568+0900 Daylog[5595:927700] [Default] Received error that does not have a corresponding StoreKit Error: Error Domain=ASDErrorDomain Code=825 "No transactions in response" UserInfo={storefront-country-code=KOR, NSLocalizedFailureReason=No transactions in response, client-environment-type=XcodeTest}
+PioStoreKit: client=F9287938 time=1792756980.5879211 finish returned id=200
+2026-10-23 21:03:00.594312+0900 Daylog[5595:927700] [Default] Purchase did not return a transaction: Error Domain=ASDErrorDomain Code=825 "No transactions in response" UserInfo={storefront-country-code=KOR, NSLocalizedFailureReason=No transactions in response, client-environment-type=XcodeTest}
+PIO_ISOLATION {"busy":false,"elapsed":"0.169787 seconds","event":"manager.purchase.return","result":"failed(message: \"App Store에 연결하지 못했어요. 네트워크를 확인하고 잠시 후 다시 시도해 주세요.\")","wallTime":1792756980.599278}
+PIO_ISOLATION {"elapsed":"0.169868958 seconds","event":"snapshot.begin","label":"before-resolve","wallTime":1792756980.5993619}
+PIO_ISOLATION {"currentEntitlements":[{"environment":"Environment(rawValue: \"Xcode\")","id":"200","product":"outfit.rainy","revoked":false,"verification":"verified"}],"driverLedger":[{"id":"200","issue":true,"pending":false,"product":"outfit.rainy","state":"SKPaymentTransactionState(rawValue: 2)"}],"elapsed":"0.1771955 seconds","equipped":"basic","event":"snapshot.return","label":"before-resolve","managerOwned":["basic","rainyDay"],"unfinished":[],"wallTime":1792756980.6066871}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIsolationTests.swift:170: error: -[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario] : XCTAssertTrue failed - Unresolved issue must not already be entitled
+PIO_ISOLATION {"elapsed":"0.202711166 seconds","event":"interruptedPurchasesEnabled.set","value":false,"wallTime":1792756980.6322031}
+PIO_ISOLATION {"elapsed":"0.202776333 seconds","event":"resolveIssue.begin","id":"200","wallTime":1792756980.6322689}
+PIO_ISOLATION {"elapsed":"0.2036635 seconds","event":"resolveIssue.return","wallTime":1792756980.6331558}
+PIO_ISOLATION {"elapsed":"10.227048457999999 seconds","event":"resolve.notification","received":false,"wallTime":1792756990.6565361}
+PIO_ISOLATION {"elapsed":"10.227115083000001 seconds","event":"snapshot.begin","label":"after-resolve","wallTime":1792756990.6566041}
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitIsolationTests.swift:177: error: -[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario] : Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: "Resolved interrupted purchase notification".
+PIO_ISOLATION {"currentEntitlements":[{"environment":"Environment(rawValue: \"Xcode\")","id":"200","product":"outfit.rainy","revoked":false,"verification":"verified"}],"driverLedger":[{"id":"200","issue":false,"pending":false,"product":"outfit.rainy","state":"SKPaymentTransactionState(rawValue: 1)"}],"elapsed":"10.241348125 seconds","equipped":"basic","event":"snapshot.return","label":"after-resolve","managerOwned":["basic","rainyDay"],"unfinished":[],"wallTime":1792756990.670835}
+PioStoreKit: client=F9287938 time=1792756990.671382 raw listener ended subscription=4AA26682-6A40-48D0-B9B2-D24B2C208273
+PIO_ISOLATION {"elapsed":"10.241994083 seconds","event":"adapter.trace","events":["client=F9287938 time=1792756980.536133 raw listener started subscription=4AA26682-6A40-48D0-B9B2-D24B2C208273","client=F9287938 time=1792756980.583527 raw verified update id=200 product=outfit.rainy environment=Environment(rawValue: \"Xcode\") revoked=false","client=F9287938 time=1792756980.583582 accepted id=200 product=outfit.rainy revoked=false","client=F9287938 time=1792756980.5837278 finish requested id=200 cached=true inFlight=0","client=F9287938 time=1792756980.5837622 finish begin id=200 product=outfit.rainy revoked=false","client=F9287938 time=1792756980.5879211 finish returned id=200","client=F9287938 time=1792756990.671382 raw listener ended subscription=4AA26682-6A40-48D0-B9B2-D24B2C208273"],"remainingListeners":0,"wallTime":1792756990.6714821}
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario]' failed (10.191 seconds).
+Test Suite 'PioStoreKitIsolationTests' failed at 2026-10-23 21:03:10.674.
+	 Executed 1 test, with 2 failures (0 unexpected) in 10.191 (10.193) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 21:03:10.674.
+	 Executed 1 test, with 2 failures (0 unexpected) in 10.191 (10.194) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 21:03:10.675.
+	 Executed 1 test, with 2 failures (0 unexpected) in 10.191 (10.195) seconds
+2026-10-23 21:03:10.694 xcodebuild[5583:927463] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:10.694 xcodebuild[5583:927463] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:10.695 xcodebuild[5583:927463] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:10.966 xcodebuild[5583:927463] [MT] IDETestOperationsObserverDebug: 14.423 elapsed -- Testing started completed.
+2026-10-23 21:03:10.966 xcodebuild[5583:927463] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 21:03:10.966 xcodebuild[5583:927463] [MT] IDETestOperationsObserverDebug: 14.423 sec, +14.423 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-interrupt-seed.xcresult
+
+Failing tests:
+	PioStoreKitIsolationTests.testScenario()
+	PioStoreKitIsolationTests.testScenario()
+
+** TEST EXECUTE FAILED **
+
+Testing started

@@ -1,0 +1,100 @@
+Window: "Daylog Wardrobe iPhone 17", App: Device Hub.
+0 standard window Daylog Wardrobe iPhone 17 – iOS 27.0, ID: com.apple.dt.DeviceKit.DeviceManagementWindow-AppWindow-1, Secondary Actions: Raise
+	1 split group
+		2 split group com.apple.dt.DeviceKit.DeviceManagementWindow-AppWindow-1, SidebarNavigationSplitView
+			3 scroll area
+				4 list Sidebar
+					5 row (selectable) Description: Available, Value: Expanded
+					6 row (selected) Description: Iphone, Third Generation, Value: Daylog Wardrobe iPhone 17
+27.0
+Simulator
+					7 row (selectable) Description: Iphone, Third Generation, Value: Daylog Store iPhone 17 Pro Max
+27.0
+Simulator
+					8 row (selectable) Description: Iphone, Third Generation, Value: iPhone 17
+27.0
+Simulator
+					9 row (selectable) Description: Iphone, Third Generation, Value: iPhone
+27.0.1
+iPhone 14 Pro
+					10 row (selectable) Description: Iphone, First Generation, Value: Daylog QA iPhone-SE-3rd-generation
+27.0
+Simulator
+					11 row (selectable) Description: Ipad, Value: Daylog Store iPad Pro 13
+27.0
+Simulator
+					12 row (selectable) Description: Ipad, Value: iPad Pro 13-inch (M5)
+27.0
+Simulator
+			13 search text field (settable) Search
+				14 button Search
+			15 splitter (disabled, settable, float) 240
+			16 container
+				17 container
+					18 back button Description: 손쉬운 사용, ID: BackButton, Secondary Actions: Cancel
+					19 heading Description: 동작, Secondary Actions: Cancel
+					20 container Secondary Actions: Cancel
+						21 switch Description: 동작 줄이기, Value: 0, ID: REDUCE_MOTION, Secondary Actions: Cancel
+						22 element Description: 아이콘의 시차 효과를 포함한 사용자 인터페이스 동작을 감소시킵니다., Secondary Actions: Cancel
+						23 switch Description: 크로스페이드 전환 선호, Value: 0, ID: REDUCE_MOTION_REDUCE_SLIDE_ANIMATIONS
+						24 element Description: 앱 실행 또는 전환과 같은 화면 요소 및 화면 동작의 움직임을 줄여, 동작에 민감한 사용자에게 도움을 줍니다., Secondary Actions: Cancel
+						25 switch Description: 움직이는 이미지 자동 재생, Value: 1, ID: REDUCE_MOTION_AUTOPLAY_ANIMATED_IMAGES
+						26 switch Description: 비디오 미리보기 자동 재생, Value: 1, ID: REDUCE_MOTION_AUTOPLAY_VIDEO_PREVIEWS
+						27 switch Description: 메시지 효과 자동 재생, Value: 1, ID: ReduceMotionAutoplayMessagesEffects
+						28 element Description: 메시지 내의 비디오, 움직이는 이미지 및 전체 화면 효과를 자동 재생할지 여부를 제어할 수 있습니다., Secondary Actions: Cancel
+						29 switch Description: 깜박이지 않는 커서 선호, Value: 0, ID: PREFER_NONBLINKING_CURSOR
+						30 element Description: 텍스트에서 커서 표시가 깜박이지 않는 것을 선호합니다., Secondary Actions: Cancel
+				31 button Description: Home, ID: app.grid.3x3
+				32 button Description: Screenshot, ID: camera.viewfinder
+				33 button Description: Record, ID: record.circle
+				34 button Rotate Left
+		35 splitter (disabled, settable, float) 799
+		36 container
+			37 tab group Inspector Subcategory
+				38 tab Description: Info, Value: 1, ID: InspectorButton.com.apple.devicekit.inspector.info
+				39 tab Description: Apps, Value: 0, ID: InspectorButton.com.apple.devicekit.inspector.apps
+				40 tab Description: Profiles, Value: 0, ID: InspectorButton.com.apple.devicekit.inspector.profiles
+			41 scroll area Description: Info, ID: Inspector.com.apple.devicekit.inspector.info
+				42 container
+					43 text Name, Help: Daylog Wardrobe iPhone 17, Value: iPhone 17 iOS 27.0, ID: info.inspector.item.name.value
+				44 container
+					45 text Model, Help: iPhone 17, Value: iPhone 17 66B81EA7-8132-4677-A443-2C5F96FB06ED
+				46 heading Paired Simulators
+				47 container
+					48 scroll area
+						49 list
+							50 row (selectable) No Paired Watch Simulators
+					51 button (disabled) Description: Add, Help: Pair Apple Watch
+					52 button (disabled) Description: Remove, Help: Unpair Apple Watch
+				53 button Edit Visibility
+			54 container Description: Info, ID: Inspector.com.apple.devicekit.inspector.info
+	55 toolbar
+		56 menu button Add Device, ID: plus
+		57 toggle button Description: Filter, Help: Sort and Filter, Value: off
+		58 button Description: Hide Sidebar, Secondary Actions: Increment, Decrement, Delete, Cancel
+		59 toggle button Description: Capture Keyboard, Value: off
+		60 toggle button Description: Resize mode, Help: Enter resize mode, Value: off
+		61 Zoom
+			62 radio button Description: Zoom Out, Value: 0, ID: minus.magnifyingglass
+			63 radio button Description: Up, Right, Down, And Left Triangles In A Magnifying Glass, Help: Zoom to Fit, Value: 0, ID: arrowtriangles.up.right.down.left.magnifyingglass
+			64 radio button Description: Zoom To Actual Size, Help: Physical Size, Value: 1, ID: 1.magnifyingglass
+			65 radio button Description: Zoom In, Value: 0, ID: plus.magnifyingglass
+		66 button Description: Open in New Window, Help: Switch to compact window, Secondary Actions: Increment, Decrement, Delete, Cancel, Move previous, Move next, Remove from toolbar
+		67 menu button More Actions, ID: ellipsis
+		68 Inspector Category
+			69 radio button Description: Edit, Help: Settings, Value: 0, ID: slider.horizontal.3
+			70 radio button Description: Text Document, Help: Reports, Value: 0, ID: text.document
+			71 radio button Description: Info, Value: 1, ID: info
+	72 close button
+	73 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	74 minimize button
+	75 text Daylog Wardrobe iPhone 17 iOS 27.0
+76 menu bar
+	77 Device Hub
+	78 File
+	79 Edit
+	80 View
+	81 Device
+	82 Controls
+	83 Window
+	84 Help

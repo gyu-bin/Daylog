@@ -1,0 +1,39 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /private/tmp/PioStoreKit-20261023-ios/Build/Products/PioIsolation-a8e8b5f3-802b-473a-8edb-5379aab98053-verify.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitIsolationTests/testFinishInFreshProcess" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-finish-verify.xcresult
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-finish-verify.xcresult
+
+2026-10-23 21:03:22.355 xcodebuild[5694:929115] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:26.102231+0900 Daylog[5708:929283] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 21:03:26.848977+0900 Daylog[5708:929283] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 21:03:26.874976+0900 Daylog[5708:929283] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 21:03:26.878489+0900 Daylog[5708:929283] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 21:03:27.056.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 21:03:27.056.
+Test Suite 'PioStoreKitIsolationTests' started at 2026-10-23 21:03:27.056.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testFinishInFreshProcess]' started.
+PIO_ISOLATION {"appEnvironment":"Environment(rawValue: \"Xcode\")","elapsed":"0.148784125 seconds","event":"environment","mode":"manager","os":"Version 27.0 (Build 24A434)","phase":"verify","pid":5708,"run":"a8e8b5f3-802b-473a-8edb-5379aab98053","scenario":"finish","wallTime":1792757007.116008}
+PIO_ISOLATION {"elapsed":"0.149817125 seconds","event":"snapshot.begin","label":"fresh-process-before-session-init","wallTime":1792757007.1170421}
+PIO_ISOLATION {"currentEntitlements":[{"environment":"Environment(rawValue: \"Xcode\")","id":"203","product":"outfit.cafe","revoked":false,"verification":"verified"},{"environment":"Environment(rawValue: \"Xcode\")","id":"202","product":"outfit.space","revoked":false,"verification":"verified"}],"driverLedger":[],"elapsed":"0.186853792 seconds","equipped":"not-applicable","event":"snapshot.return","label":"fresh-process-before-session-init","managerOwned":[],"unfinished":[],"wallTime":1792757007.154078}
+PIO_ISOLATION {"elapsed":"0.187495875 seconds","event":"adapter.trace","events":[],"remainingListeners":0,"wallTime":1792757007.1547198}
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testFinishInFreshProcess]' passed (0.101 seconds).
+Test Suite 'PioStoreKitIsolationTests' passed at 2026-10-23 21:03:27.164.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.101 (0.108) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-23 21:03:27.165.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.101 (0.108) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 21:03:27.165.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.101 (0.109) seconds
+2026-10-23 21:03:27.187 xcodebuild[5694:929115] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:27.187 xcodebuild[5694:929115] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:27.188 xcodebuild[5694:929115] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:27.454 xcodebuild[5694:929115] [MT] IDETestOperationsObserverDebug: 5.140 elapsed -- Testing started completed.
+2026-10-23 21:03:27.454 xcodebuild[5694:929115] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 21:03:27.454 xcodebuild[5694:929115] [MT] IDETestOperationsObserverDebug: 5.140 sec, +5.140 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-finish-verify.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

@@ -1,0 +1,7 @@
+The following is a diff from the previous accessibility tree for Window: "피오 옷장" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
++					68 버튼 Description: 학생 피오, 일상, 출시 예정 · 약 ₩1,000. 자세히 보기, ID: wardrobe.outfit.student
++					69 버튼 Description: 운동 피오, 일상, 출시 예정 · 약 ₩1,000. 자세히 보기, ID: wardrobe.outfit.fitness
++					70 버튼 Description: 비 오는 날 피오, 일상, 출시 예정 · 약 ₩1,000. 자세히 보기, ID: wardrobe.outfit.rainyDay
+~				48 스크롤 막대 (settable, float) 0.2008059100067159
+~					49 값 표시기 (settable, float) 0.2008059100067159
+The focused UI element is 0 표준 윈도우 피오 옷장, ID: main, Secondary Actions: Raise

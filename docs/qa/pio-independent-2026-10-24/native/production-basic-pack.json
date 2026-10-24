@@ -1,0 +1,36 @@
+{
+  "scope": "5 unchanged genuine source PNGs, unique production asset names, no candidate hand/torso assets",
+  "totalPNGBytes": 1211441,
+  "assets": [
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_body.imageset/pio_cloud_basic_v1_body.png",
+      "asset": "pio_cloud_basic_prod_v1_body",
+      "sha256": "acb6052c7c539110edeae3a263fb03c5be7ed50b8dfa9d1911a06b3c5eb8581f",
+      "bytes": 948834
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_openPair.imageset/pio_cloud_basic_v1_openPair.png",
+      "asset": "pio_cloud_basic_prod_v1_openPair",
+      "sha256": "16d55cbd39b8be2f91af59d7c866db352cb8e14d71988fbdeea350aba8609a18",
+      "bytes": 106193
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_closedPair.imageset/pio_cloud_basic_v1_closedPair.png",
+      "asset": "pio_cloud_basic_prod_v1_closedPair",
+      "sha256": "9107ae63aa885f8b85403f2e86c30f62286b0daceeda12adce56265502b83fd9",
+      "bytes": 125419
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_browLeft.imageset/pio_cloud_basic_v1_browLeft.png",
+      "asset": "pio_cloud_basic_prod_v1_browLeft",
+      "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0",
+      "bytes": 15698
+    },
+    {
+      "source": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_basic_v1_browRight.imageset/pio_cloud_basic_v1_browRight.png",
+      "asset": "pio_cloud_basic_prod_v1_browRight",
+      "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7",
+      "bytes": 15297
+    }
+  ]
+}

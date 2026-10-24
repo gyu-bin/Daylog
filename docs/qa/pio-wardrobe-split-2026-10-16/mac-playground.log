@@ -1,0 +1,51 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme DaylogWardrobePlayground -configuration Debug -destination platform=macOS -derivedDataPath /tmp/RoutimoriStoreKit.noindex/mac -clonedSourcePackagesDirPath /tmp/DaylogStage4.noindex/verify/SourcePackages -disableAutomaticPackageResolution -parallel-testing-enabled NO -resultBundlePath /tmp/Routimori-wardrobe-playground-ui.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/Routimori-wardrobe-playground-ui.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+2026-10-16 17:45:58.058597+0900 Daylog[36230:31946408] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 17:45:58.058772+0900 Daylog[36230:31946408] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 17:45:58.059663+0900 Daylog[36230:31946412] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 17:45:58.059676+0900 Daylog[36230:31946412] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 17:45:58.060646+0900 Daylog[36230:31946409] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 17:45:58.060663+0900 Daylog[36230:31946409] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 17:45:58.061550+0900 Daylog[36230:31946409] [Connection] Will NOT re-try to establish the connection
+2026-10-16 17:45:58.061568+0900 Daylog[36230:31946408] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 17:45:58.061577+0900 Daylog[36230:31946408] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-16 17:45:58.128752+0900 Daylog[36230:31946370] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.mungyubin.daylog.savedState
+2026-10-16 17:45:58.645439+0900 Daylog[36230:31946510] [Common] Unable to obtain a task name port right for pid 615: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-16 17:45:58.730.
+Test Suite 'DaylogTests.xctest' started at 2026-10-16 17:45:58.730.
+Test Suite 'PioWardrobePlaygroundReviewTests' started at 2026-10-16 17:45:58.731.
+Test Case '-[DaylogTests.PioWardrobePlaygroundReviewTests testInteractiveWardrobePlayground]' started.
+PIO_WARDROBE_PLAYGROUND_READY stop=/var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/routimori-wardrobe-playground.stop
+2026-10-16 17:45:58.982074+0900 Daylog[36230:31946370] [SafariPlatformSupport] Asked to display OTP completion list, but could not identify a key window. Bailing.
+2026-10-16 17:52:39.099888+0900 Daylog[36230:31946370] [Critical] [!] <AppKitGestureRecognizer: 0x7aa9252400; id = 507; cid = 2; phase = active | active> has been in active phase for 23.722379083 seconds
+2026-10-16 17:52:39.100198+0900 Daylog[36230:31946370] [Critical] [!] <AppKitGestureRecognizer: 0x7aa9252580; id = 506; cid = 2; phase = active | active> has been in active phase for 23.722332625 seconds
+Test Case '-[DaylogTests.PioWardrobePlaygroundReviewTests testInteractiveWardrobePlayground]' passed (454.113 seconds).
+Test Suite 'PioWardrobePlaygroundReviewTests' passed at 2026-10-16 17:53:32.846.
+	 Executed 1 test, with 0 failures (0 unexpected) in 454.113 (454.116) seconds
+Test Suite 'DaylogTests.xctest' passed at 2026-10-16 17:53:32.847.
+	 Executed 1 test, with 0 failures (0 unexpected) in 454.113 (454.116) seconds
+Test Suite 'Selected tests' passed at 2026-10-16 17:53:32.847.
+	 Executed 1 test, with 0 failures (0 unexpected) in 454.113 (454.117) seconds
+2026-10-16 17:53:33.244 xcodebuild[36184:31946106] [MT] IDETestOperationsObserverDebug: 455.579 elapsed -- Testing started completed.
+2026-10-16 17:53:33.244 xcodebuild[36184:31946106] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-16 17:53:33.244 xcodebuild[36184:31946106] [MT] IDETestOperationsObserverDebug: 455.579 sec, +455.579 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/Routimori-wardrobe-playground-ui.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

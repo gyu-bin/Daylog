@@ -1,0 +1,18 @@
+[
+  {
+    "generatedOriginal": "/Users/mungyubin/.codex/generated_images/01a168c7-e8fb-7b10-9851-74e8cb6b6131/exec-0d59e075-4fa1-46b3-ae1c-9391dd93aa93.png",
+    "output": "output/pio-independent-2026-10-24/summerVacation-cloud/torso-candidate-v1.png",
+    "sha256": "dc27e044c686ab77260c5642cc05a9dd456196de4d58599c09f52f399fba7ee5",
+    "catalogCopyByteIdentical": true,
+    "metadata": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-independent-2026-10-24/summerVacation-cloud/torso-candidate-v1.png\n  pixelWidth: 1254\n  pixelHeight: 1254\n  hasAlpha: yes\n",
+    "prompt": "Precise-object-edit. Existing approved summerVacation Pio cloud artwork is edit target. Output EXACT1254x1254 transparent RGBA in SAME source coordinates, no recenter/rescale. Remove only green tablet AND both entire arms/hands/sleeves in foreground. Paint naturally complete hidden torso clothing/fur behind them, including hidden shoulder roots, matching existing summerVacation costume material and pattern. Keep entire head, sprout, hat, cheeks, beak, feet, body silhouette and original costume design and positions unchanged. Face intentionally has no eyes: do not add any eyes/sunglasses. No new accessories. No glow/background/shadow. This is layered animation torso reconstruction, not redesign."
+  },
+  {
+    "generatedOriginal": "/Users/mungyubin/.codex/generated_images/01a168c7-e8fb-7b10-9851-74e8cb6b6131/exec-88f934bd-de22-44aa-a626-566175f7ecb2.png",
+    "output": "output/pio-independent-2026-10-24/summerVacation-cloud/arms-candidate-v1.png",
+    "sha256": "cc16490a67268d9034664edf49ca509d6d16d9aa0bce7661f35b012cb4f8643d",
+    "catalogCopyByteIdentical": true,
+    "metadata": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-independent-2026-10-24/summerVacation-cloud/arms-candidate-v1.png\n  pixelWidth: 1254\n  pixelHeight: 1254\n  hasAlpha: yes\n",
+    "prompt": "Background-extraction and hidden-root reconstruction. Existing approved summerVacation Pio cloud art is reference. Output EXACT1254x1254 transparent RGBA atlas with ONLY left and right complete sleeve+cream hand, in same original pose at original positions, separated by clear central emptyspace. Remove head/body/tablet/feet/hat/background entirely. Preserve original sleeve colors/patterns/material, hands point inward gripping invisible tablet. Extend each sleeve only20px at hidden shoulder root to permit overlap. Left part roughlyx220\u2013550,y820\u20131080; rightx800\u20131090,y820\u20131080. No canvas recenter or upscale, no text, no shadow or halo, genuine plush textured source style."
+  }
+]

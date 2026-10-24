@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "products": 13,
+  "exactIDSetMatchesASCAndSwiftAndConfiguration": true,
+  "uniquePaidOutfitMappings": true,
+  "basicHasNoProduct": true,
+  "localPriceKRW": 2500,
+  "allLocalProductsNonConsumable": true,
+  "localizedNamesMatchRecordedASC": true
+}

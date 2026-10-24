@@ -1,0 +1,217 @@
+{
+  "outfit": "winter",
+  "canvas": 1254,
+  "revision": "runtime-v2-candidate",
+  "parts": [
+    {
+      "id": "wingRight",
+      "asset": "pio_home_production_winter_wingRight",
+      "rect": [
+        888,
+        707,
+        286,
+        259
+      ],
+      "pivot": [
+        975,
+        915
+      ],
+      "z": 0
+    },
+    {
+      "id": "footLeft",
+      "asset": "pio_home_production_fitness_footRight",
+      "rect": [
+        423,
+        1082,
+        148,
+        130
+      ],
+      "pivot": [
+        500,
+        1130
+      ],
+      "z": 1
+    },
+    {
+      "id": "footRight",
+      "asset": "pio_home_production_winter_footRight",
+      "rect": [
+        737,
+        1082,
+        141,
+        123
+      ],
+      "pivot": [
+        815,
+        1130
+      ],
+      "z": 2
+    },
+    {
+      "id": "body",
+      "asset": "pio_home_production_winter_body",
+      "rect": [
+        45,
+        101,
+        1153,
+        1149
+      ],
+      "pivot": [
+        650,
+        800
+      ],
+      "z": 3
+    },
+    {
+      "id": "wingLeft",
+      "asset": "pio_home_production_winter_wingLeft",
+      "rect": [
+        189,
+        791,
+        301,
+        261
+      ],
+      "pivot": [
+        430,
+        865
+      ],
+      "z": 4
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_home_production_autumn_eyeRight",
+      "rect": [
+        457,
+        613,
+        108,
+        138
+      ],
+      "pivot": [
+        510,
+        688
+      ],
+      "z": 5
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_home_production_cafe_eyeLeft",
+      "rect": [
+        745,
+        577,
+        105,
+        133
+      ],
+      "pivot": [
+        797,
+        650
+      ],
+      "z": 6
+    },
+    {
+      "id": "headwear",
+      "asset": "pio_home_production_winter_headwear",
+      "rect": [
+        57,
+        12,
+        1138,
+        713
+      ],
+      "pivot": [
+        650,
+        430
+      ],
+      "z": 7
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_home_production_autumn_halfRight",
+      "rect": [
+        443,
+        609,
+        138,
+        152
+      ],
+      "pivot": [
+        510.49999999999994,
+        682.5562827225132
+      ],
+      "z": 8
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_home_production_autumn_lidRight",
+      "rect": [
+        457,
+        680,
+        107,
+        42
+      ],
+      "pivot": [
+        510.49999999999994,
+        682.5562827225132
+      ],
+      "z": 9
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_home_production_pajamas_halfLeft",
+      "rect": [
+        731,
+        573,
+        134,
+        148
+      ],
+      "pivot": [
+        797.0000000000001,
+        644.0837696335078
+      ],
+      "z": 10
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_home_production_pajamas_lidLeft",
+      "rect": [
+        745,
+        643,
+        104,
+        40
+      ],
+      "pivot": [
+        797.0000000000001,
+        644.0837696335078
+      ],
+      "z": 11
+    },
+    {
+      "id": "happyLeft",
+      "asset": "pio_home_production_autumn_happyRight",
+      "rect": [
+        455,
+        661,
+        112,
+        55
+      ],
+      "pivot": [
+        510,
+        688
+      ],
+      "z": 5
+    },
+    {
+      "id": "happyRight",
+      "asset": "pio_home_production_cafe_happyLeft",
+      "rect": [
+        743,
+        623,
+        109,
+        53
+      ],
+      "pivot": [
+        797,
+        650
+      ],
+      "z": 6
+    }
+  ]
+}

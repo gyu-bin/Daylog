@@ -1,0 +1,251 @@
+{
+  "outfit": "cafe",
+  "canvas": 1254,
+  "revision": "cafe-hands-v2",
+  "approval": "CANDIDATE_REQUIRES_NATIVE_NEUTRAL_AND_HOLD_EXTREME_QA_NOT_PROMOTED",
+  "originalSource": "output/pio-completion-2026-10-23/cloud/cafe/layers/body.png",
+  "parts": [
+    {
+      "id": "body",
+      "asset": "pio_cloud_cafe_v2_torso",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 0
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_cloud_cafe_eyeLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 1
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_cloud_cafe_eyeRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 2
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_cloud_cafe_lidLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 3
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_cloud_cafe_lidRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 4
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_cloud_cafe_halfLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 5
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_cloud_cafe_halfRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 6
+    },
+    {
+      "id": "browLeft",
+      "asset": "pio_cloud_cafe_browLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 7
+    },
+    {
+      "id": "browRight",
+      "asset": "pio_cloud_cafe_browRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 8
+    },
+    {
+      "id": "tablet",
+      "asset": "pio_cloud_basic_v1_tablet",
+      "rect": [
+        495,
+        850,
+        362,
+        238
+      ],
+      "pivot": [
+        676,
+        970
+      ],
+      "z": 10,
+      "contentsRect": [
+        0.23046251993620415,
+        0.4059011164274322,
+        0.5422647527910686,
+        0.4354066985645933
+      ]
+    },
+    {
+      "id": "armLeft",
+      "asset": "pio_cloud_cafe_v2_armPair",
+      "rect": [
+        282,
+        850,
+        270,
+        228
+      ],
+      "pivot": [
+        676,
+        970
+      ],
+      "z": 11,
+      "contentsRect": [
+        0.11403508771929824,
+        0.5685805422647527,
+        0.31658692185007975,
+        0.3269537480063796
+      ]
+    },
+    {
+      "id": "armRight",
+      "asset": "pio_cloud_cafe_v2_armPair",
+      "rect": [
+        803,
+        850,
+        260,
+        228
+      ],
+      "pivot": [
+        676,
+        970
+      ],
+      "z": 12,
+      "contentsRect": [
+        0.5885167464114832,
+        0.5669856459330144,
+        0.32216905901116427,
+        0.3317384370015949
+      ]
+    }
+  ],
+  "holdGroup": {
+    "ids": [
+      "tablet",
+      "armLeft",
+      "armRight"
+    ],
+    "pivot": [
+      676,
+      970
+    ],
+    "degrees": 1.5
+  },
+  "independent": [
+    "existing genuine eyes/lids/brows",
+    "genuine newly restored torso",
+    "separate generated arms and complete tablet"
+  ],
+  "tableSourceNote": "Reuses new Basic green tablet source; registered to original Caf\u00e9 tablet visible bbox[498,853,854,1085]. Not a flat geometric replacement.",
+  "candidateShoulderLocations": {
+    "Left": [
+      350,
+      865
+    ],
+    "Right": [
+      1000,
+      865
+    ]
+  },
+  "candidateShoulderLocationsApproved": false,
+  "unsupported": [
+    "free hand release/wave",
+    "independently moving two hands while both grip tablet",
+    "Caf\u00e9 coffee-cup action in seated tablet pose"
+  ],
+  "sourcePixelEdits": false,
+  "safeTransformRange": {
+    "holdGroup": "\u00b11.5deg candidate; reject if shoulders/sleeves detach",
+    "eyes": "existing one-hot opacity; no body transform"
+  },
+  "qualityNotes": [
+    "Existing Caf\u00e9 costume/beret/sprout/collar/apron/feet preserved by generated torso candidate.",
+    "Generated detached arms larger than reference; runtime sampler/target rectangles register to original cuff/hand positions. No upscale claim.",
+    "Shoulder root continuity and cuff bulk require actual native neutral/extreme visual review before promotion."
+  ]
+}

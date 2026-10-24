@@ -1,0 +1,38 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioCloudPilotFinaliOS-cafe.xctestrun -destination "platform=iOS Simulator,id=89B877BB-6094-4A27-B108-3A958EF23D9B" -parallel-testing-enabled NO "-only-testing:DaylogStoreKitTests/PioCloudCandidateReviewTests/testCandidateRegistrationNeutralAndStop" "-only-testing:DaylogStoreKitTests/PioCloudCandidateReviewTests/testActualIndependentBlinkAndHeldPresentation" -resultBundlePath /tmp/PioCloudPilot-iOS-cafe-20261024.xcresult
+
+Writing result bundle at path:
+	/tmp/PioCloudPilot-iOS-cafe-20261024.xcresult
+
+2026-10-24 13:11:50.714 xcodebuild[76364:2027030] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 13:12:23.275934+0900 Daylog[76629:2030373] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 13:12:24.047659+0900 Daylog[76629:2030373] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 13:12:24.049290+0900 Daylog[76629:2030373] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 13:12:24.050801+0900 Daylog[76629:2030373] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-24 13:12:24.322.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 13:12:24.323.
+Test Suite 'PioCloudCandidateReviewTests' started at 2026-10-24 13:12:24.323.
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testActualIndependentBlinkAndHeldPresentation]' started.
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testActualIndependentBlinkAndHeldPresentation]' passed (4.995 seconds).
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testCandidateRegistrationNeutralAndStop]' started.
+IOSurfaceClientSetSurfaceNotify failed e00002c7
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testCandidateRegistrationNeutralAndStop]' passed (0.189 seconds).
+Test Suite 'PioCloudCandidateReviewTests' passed at 2026-10-24 13:12:29.510.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 5.185 (5.187) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-24 13:12:29.510.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 5.185 (5.187) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 13:12:29.510.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 5.185 (5.188) seconds
+2026-10-24 13:12:29.534 xcodebuild[76364:2027030] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 13:12:29.535 xcodebuild[76364:2027030] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 13:12:29.538 xcodebuild[76364:2027030] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 13:12:29.836 xcodebuild[76364:2027030] [MT] IDETestOperationsObserverDebug: 49.920 elapsed -- Testing started completed.
+2026-10-24 13:12:29.836 xcodebuild[76364:2027030] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 13:12:29.836 xcodebuild[76364:2027030] [MT] IDETestOperationsObserverDebug: 49.920 sec, +49.920 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCloudPilot-iOS-cafe-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

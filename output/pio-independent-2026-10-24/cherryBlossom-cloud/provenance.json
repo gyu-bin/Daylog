@@ -1,0 +1,52 @@
+[
+  {
+    "part": "torso",
+    "generatorOutput": "/Users/mungyubin/.codex/generated_images/01a167e0-d86f-7633-94a1-40ac5235c4f4/exec-2ce4b6dc-bd5e-4349-8a8d-6e204e35ba0d.png",
+    "source": "output/pio-independent-2026-10-24/cherryBlossom-cloud/source/torso-candidate-v1.png",
+    "asset": "pio_cloud_cherryBlossom_v2_torso",
+    "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_cherryBlossom_v2_torso.imageset/pio_cloud_cherryBlossom_v2_torso.png",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alpha16bbox": [
+      115,
+      50,
+      1175,
+      1217
+    ],
+    "sha256": "440775d3be6812899a1732c07c6245a3c0a34bd5dd2816678aae8346db9db3c0",
+    "pixelsChanged": false,
+    "approved": false
+  },
+  {
+    "part": "armPair",
+    "generatorOutput": "/Users/mungyubin/.codex/generated_images/01a167e0-d86f-7633-94a1-40ac5235c4f4/exec-37ad68d6-417a-4cf2-878a-4fbf153ad74c.png",
+    "source": "output/pio-independent-2026-10-24/cherryBlossom-cloud/source/armPair-candidate-v1.png",
+    "asset": "pio_cloud_cherryBlossom_v2_armPair",
+    "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_cherryBlossom_v2_armPair.imageset/pio_cloud_cherryBlossom_v2_armPair.png",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alpha16bbox": [
+      34,
+      744,
+      1222,
+      1125
+    ],
+    "sha256": "7cad52c9584aea599d50351992947696c3ffcada21e063b7a70945643e5f57bb",
+    "pixelsChanged": false,
+    "approved": false
+  }
+]

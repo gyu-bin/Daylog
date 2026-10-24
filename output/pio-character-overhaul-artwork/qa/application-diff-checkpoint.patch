@@ -1,0 +1,1407 @@
+diff --git a/Daylog.xcodeproj/project.pbxproj b/Daylog.xcodeproj/project.pbxproj
+index 05b146f..5c10f15 100644
+--- a/Daylog.xcodeproj/project.pbxproj
++++ b/Daylog.xcodeproj/project.pbxproj
+@@ -9,6 +9,8 @@
+ /* Begin PBXBuildFile section */
+ 		D20000000000000000000020 /* DaylogWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D40000000000000000000004 /* DaylogWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+ 		D50000000000000000000001 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = D50000000000000000000002 /* Sparkle */; };
++		E71000000000000000000013 = {isa = PBXBuildFile; fileRef = E71000000000000000000003; };
++		E71000000000000000000014 = {isa = PBXBuildFile; fileRef = E71000000000000000000003; };
+ /* End PBXBuildFile section */
+ 
+ /* Begin PBXContainerItemProxy section */
+@@ -26,6 +28,7 @@
+ 			remoteGlobalIDString = D4000000000000000000000A;
+ 			remoteInfo = DaylogWidgets;
+ 		};
++		E71000000000000000000005 /* PBXContainerItemProxy */ = {isa = PBXContainerItemProxy; containerPortal = D10000000000000000000001; proxyType = 1; remoteGlobalIDString = D2000000000000000000000A; remoteInfo = DaylogiOS; };
+ /* End PBXContainerItemProxy section */
+ 
+ /* Begin PBXCopyFilesBuildPhase section */
+@@ -51,6 +54,8 @@
+ 		D40000000000000000000004 /* DaylogWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DaylogWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		D40000000000000000000008 /* DaylogWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DaylogWidgets.entitlements; sourceTree = "<group>"; };
+ 		D40000000000000000000009 /* DaylogWidgets-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DaylogWidgets-Info.plist"; sourceTree = "<group>"; };
++		E71000000000000000000002 /* DaylogStoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = DaylogStoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
++		E71000000000000000000003 /* Routimori.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Routimori.storekit; sourceTree = "<group>"; };
+ /* End PBXFileReference section */
+ 
+ /* Begin PBXFileSystemSynchronizedRootGroup section */
+@@ -74,6 +79,7 @@
+ 			path = DaylogWidgets;
+ 			sourceTree = "<group>";
+ 		};
++		E71000000000000000000004 /* DaylogStoreKitTests */ = {isa = PBXFileSystemSynchronizedRootGroup; path = DaylogStoreKitTests; sourceTree = "<group>"; };
+ /* End PBXFileSystemSynchronizedRootGroup section */
+ 
+ /* Begin PBXFrameworksBuildPhase section */
+@@ -106,6 +112,7 @@
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
++		E71000000000000000000009 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+ /* End PBXFrameworksBuildPhase section */
+ 
+ /* Begin PBXGroup section */
+@@ -116,6 +123,8 @@
+ 				D30000000000000000000006 /* DaylogShared */,
+ 				D40000000000000000000006 /* DaylogWidgets */,
+ 				D10000000000000000000007 /* DaylogTests */,
++				E71000000000000000000004 /* DaylogStoreKitTests */,
++				E71000000000000000000003 /* Routimori.storekit */,
+ 				D10000000000000000000009 /* Config */,
+ 				D10000000000000000000003 /* Products */,
+ 			);
+@@ -126,6 +135,7 @@
+ 			children = (
+ 				D10000000000000000000004 /* Daylog.app */,
+ 				D10000000000000000000005 /* DaylogTests.xctest */,
++				E71000000000000000000002 /* DaylogStoreKitTests.xctest */,
+ 				D20000000000000000000004 /* Daylog.app (iOS) */,
+ 				D40000000000000000000004 /* DaylogWidgets.appex */,
+ 			);
+@@ -185,6 +195,7 @@
+ 			);
+ 			fileSystemSynchronizedGroups = (
+ 				D10000000000000000000007 /* DaylogTests */,
++				E71000000000000000000004 /* DaylogStoreKitTests */,
+ 			);
+ 			name = DaylogTests;
+ 			packageProductDependencies = (
+@@ -241,6 +252,18 @@
+ 			productReference = D40000000000000000000004 /* DaylogWidgets.appex */;
+ 			productType = "com.apple.product-type.app-extension";
+ 		};
++		E71000000000000000000001 /* DaylogStoreKitTests */ = {
++			isa = PBXNativeTarget;
++			buildConfigurationList = E71000000000000000000010;
++			buildPhases = (E71000000000000000000007, E71000000000000000000009, E71000000000000000000008);
++			buildRules = ();
++			dependencies = (E71000000000000000000006);
++			fileSystemSynchronizedGroups = (E71000000000000000000004);
++			name = DaylogStoreKitTests;
++			productName = DaylogStoreKitTests;
++			productReference = E71000000000000000000002;
++			productType = "com.apple.product-type.bundle.unit-test";
++		};
+ /* End PBXNativeTarget section */
+ 
+ /* Begin PBXProject section */
+@@ -287,6 +310,7 @@
+ 				D1000000000000000000000B /* DaylogTests */,
+ 				D2000000000000000000000A /* DaylogiOS */,
+ 				D4000000000000000000000A /* DaylogWidgets */,
++				E71000000000000000000001 /* DaylogStoreKitTests */,
+ 			);
+ 		};
+ /* End PBXProject section */
+@@ -303,6 +327,7 @@
+ 			isa = PBXResourcesBuildPhase;
+ 			buildActionMask = 2147483647;
+ 			files = (
++				E71000000000000000000013 /* Routimori.storekit in Resources */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+@@ -320,6 +345,7 @@
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
++		E71000000000000000000008 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (E71000000000000000000014); runOnlyForDeploymentPostprocessing = 0; };
+ /* End PBXResourcesBuildPhase section */
+ 
+ /* Begin PBXSourcesBuildPhase section */
+@@ -351,6 +377,7 @@
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
++		E71000000000000000000007 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+ /* End PBXSourcesBuildPhase section */
+ 
+ /* Begin PBXTargetDependency section */
+@@ -364,6 +391,7 @@
+ 			target = D4000000000000000000000A /* DaylogWidgets */;
+ 			targetProxy = D20000000000000000000022 /* PBXContainerItemProxy */;
+ 		};
++		E71000000000000000000006 /* PBXTargetDependency */ = {isa = PBXTargetDependency; target = D2000000000000000000000A; targetProxy = E71000000000000000000005; };
+ /* End PBXTargetDependency section */
+ 
+ /* Begin XCBuildConfiguration section */
+@@ -435,7 +463,7 @@
+ 		D10000000000000000000019 /* Release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-				EXCLUDED_SOURCE_FILE_NAMES = PioTrial.xcassets;
++				EXCLUDED_SOURCE_FILE_NAMES = "PioTrial.xcassets RoutimoriTrial.xcassets PioLayeredTrial.xcassets";
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+ 				CODE_SIGN_ENTITLEMENTS = Config/Daylog.entitlements;
+@@ -534,7 +562,7 @@
+ 		D20000000000000000000019 /* Release */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+-				EXCLUDED_SOURCE_FILE_NAMES = PioTrial.xcassets;
++				EXCLUDED_SOURCE_FILE_NAMES = "PioTrial.xcassets RoutimoriTrial.xcassets PioLayeredTrial.xcassets";
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+ 				CODE_SIGN_ENTITLEMENTS = Config/DaylogiOS.entitlements;
+@@ -628,6 +656,42 @@
+ 			};
+ 			name = Release;
+ 		};
++		E71000000000000000000011 /* Debug */ = {
++			isa = XCBuildConfiguration;
++			buildSettings = {
++				BUNDLE_LOADER = "$(TEST_HOST)";
++				CODE_SIGN_STYLE = Automatic;
++				DEVELOPMENT_TEAM = 6YASPU77L7;
++				GENERATE_INFOPLIST_FILE = YES;
++				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
++				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios.storekittests;
++				PRODUCT_NAME = "$(TARGET_NAME)";
++				SDKROOT = iphoneos;
++				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
++				TARGETED_DEVICE_FAMILY = "1,2";
++				SWIFT_EMIT_LOC_STRINGS = NO;
++				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daylog.app/Daylog";
++			};
++			name = Debug;
++		};
++		E71000000000000000000012 /* Release */ = {
++			isa = XCBuildConfiguration;
++			buildSettings = {
++				BUNDLE_LOADER = "$(TEST_HOST)";
++				CODE_SIGN_STYLE = Automatic;
++				DEVELOPMENT_TEAM = 6YASPU77L7;
++				GENERATE_INFOPLIST_FILE = YES;
++				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
++				PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios.storekittests;
++				PRODUCT_NAME = "$(TARGET_NAME)";
++				SDKROOT = iphoneos;
++				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
++				TARGETED_DEVICE_FAMILY = "1,2";
++				SWIFT_EMIT_LOC_STRINGS = NO;
++				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daylog.app/Daylog";
++			};
++			name = Release;
++		};
+ /* End XCBuildConfiguration section */
+ 
+ /* Begin XCConfigurationList section */
+@@ -676,6 +740,7 @@
+ 			defaultConfigurationIsVisible = 0;
+ 			defaultConfigurationName = Release;
+ 		};
++		E71000000000000000000010 = {isa = XCConfigurationList; buildConfigurations = (E71000000000000000000011, E71000000000000000000012); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+ /* End XCConfigurationList section */
+ 
+ /* Begin XCRemoteSwiftPackageReference section */
+diff --git a/Daylog/App/AppSection.swift b/Daylog/App/AppSection.swift
+index 321dee5..f341813 100644
+--- a/Daylog/App/AppSection.swift
++++ b/Daylog/App/AppSection.swift
+@@ -4,7 +4,7 @@ extension AppStore {
+     /// 앱의 메뉴. macOS와 iPad는 사이드바에 모두 보이고, iPhone은 캘린더·휴가·템플릿을 뺀 다섯 개를 아래 탭에 둔다.
+     /// 템플릿은 기존 메뉴의 순서와 단축키 번호가 바뀌지 않게 설정 바로 앞에 둔다.
+     enum Section: String, CaseIterable, Identifiable {
+-        case dashboard, routines, meals, statistics, calendar, vacation, templates, settings
++        case dashboard, routines, meals, statistics, calendar, vacation, templates, wardrobe, settings
+ 
+         var id: String { rawValue }
+ 
+@@ -18,6 +18,7 @@ extension AppStore {
+             case .calendar: return "캘린더"
+             case .vacation: return "휴가"
+             case .templates: return "템플릿"
++            case .wardrobe: return "피오 옷장"
+             case .settings: return "설정"
+             }
+         }
+@@ -31,6 +32,7 @@ extension AppStore {
+             case .calendar: return "calendar"
+             case .vacation: return "beach.umbrella"
+             case .templates: return "rectangle.stack"
++            case .wardrobe: return "tshirt"
+             case .settings: return "gearshape"
+             }
+         }
+@@ -38,5 +40,23 @@ extension AppStore {
+         /// iPhone의 아래 탭에 두는 메뉴. 캘린더는 통계 화면에서, 휴가는 오늘 화면의 휴가 카드와 설정에서,
+         /// 템플릿은 루틴 탭의 [템플릿] 단추로 들어간다.
+         static let phoneTabs: [Section] = [.dashboard, .routines, .meals, .statistics, .settings]
++
++        /// Keep the existing numbered shortcuts when adding the wardrobe.
++        var shortcutNumber: Int {
++            switch self {
++            case .wardrobe: return 9
++            case .settings: return 8
++            default: return Self.allCases.firstIndex(of: self)! + 1
++            }
++        }
++
++        @MainActor var isAvailable: Bool {
++            guard self == .wardrobe else { return true }
++            #if DEBUG
++            return PioOutfitMotionView.isTrialEnabled || PioWardrobeStore.outfitTestingEnabled(arguments: ProcessInfo.processInfo.arguments)
++            #else
++            return false
++            #endif
++        }
+     }
+ }
+diff --git a/Daylog/App/DaylogCommands.swift b/Daylog/App/DaylogCommands.swift
+index 641be36..05d8d5d 100644
+--- a/Daylog/App/DaylogCommands.swift
++++ b/Daylog/App/DaylogCommands.swift
+@@ -38,9 +38,9 @@ struct DaylogCommands: Commands {
+             Button("오늘 날짜") { if !Platform.isShowingSheet { store?.goToToday() } }
+                 .keyboardShortcut("t")
+             Divider()
+-            ForEach(Array(DevicePreferences.shared.navigationSections(phone: false).enumerated()), id: \.element) { index, section in
++            ForEach(DevicePreferences.shared.navigationSections(phone: false)) { section in
+                 Button(section.title) { store?.go(to: section, isShowingSheet: Platform.isShowingSheet) }
+-                    .keyboardShortcut(KeyEquivalent(Character("\(index + 1)")))
++                    .keyboardShortcut(KeyEquivalent(Character("\(section.shortcutNumber)")))
+             }
+         }
+     }
+diff --git a/Daylog/App/RootView.swift b/Daylog/App/RootView.swift
+index bb97f1f..b653a82 100644
+--- a/Daylog/App/RootView.swift
++++ b/Daylog/App/RootView.swift
+@@ -8,10 +8,15 @@ import UIKit
+ /// 화면의 뿌리. 플랫폼과 창 너비에 맞는 탐색 구조를 고른다.
+ struct RootView: View {
+     @Environment(AppStore.self) private var store
++    @Environment(\.scenePhase) private var purchaseScenePhase
+     @State private var preferences = DevicePreferences.shared
+     @State private var templateInbox = TemplateInbox.shared
+     /// 새 기기의 첫 동기화 안내. 떠 있는 동안에는 시작 안내와 알림 안내를 올리지 않는다.
+     @State private var firstSync = FirstSyncGate.shared
++    #if os(macOS)
++    @State private var showsRoutimoriSplash = RoutimoriSplashTrial.claimMac()
++    @State private var routimoriSplashIsLeaving = false
++    #endif
+     #if !os(macOS)
+     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+     @AppStorage(AppearanceMode.storageKey) private var appearance: AppearanceMode = .system
+@@ -29,6 +34,16 @@ struct RootView: View {
+ 
+     var body: some View {
+         navigation
++            .task {
++                let appStore = store
++                PioAppearanceCoordinator.shared.bindGrowthSource { [weak appStore] in appStore?.growth.level ?? 1 }
++                if !RuntimeEnvironment.isRunningTests { await PioWardrobeStore.shared.start() }
++            }
++            .onChange(of: purchaseScenePhase) { _, phase in
++                if phase == .active, !RuntimeEnvironment.isRunningTests {
++                    Task { await PioWardrobeStore.shared.refreshEntitlements() }
++                }
++            }
+             .environment(preferences)
+             .environment(DashboardDecor.shared)
+             .environment(CommunityStore.shared)
+@@ -125,15 +140,35 @@ struct RootView: View {
+ 
+     @ViewBuilder
+     private var navigation: some View {
++        #if DEBUG
++        if PioLayeredDiagnosticsView.isEnabled {
++            PioLayeredDiagnosticsView()
++        } else if PioOutfitDiagnosticsView.isEnabled {
++            PioOutfitDiagnosticsView()
++        } else {
++            applicationNavigation
++        }
++        #else
++        applicationNavigation
++        #endif
++    }
++
++    @ViewBuilder
++    private var applicationNavigation: some View {
+         #if os(macOS)
+         SidebarNavigation()
+             // 안내에 가려진 화면은 누르거나 입력할 수 없게 한다(Tab으로 입력 칸에 들어가 루틴을 만드는 일을 막는다).
+-            .disabled(firstSync.isActive)
+-            .accessibilityHidden(firstSync.isActive)
++            .disabled(firstSync.isActive || isSplashShowing)
++            .accessibilityHidden(firstSync.isActive || isSplashShowing)
+             .overlay { firstSyncOverlay }
+             .animation(.easeOut(duration: 0.3), value: firstSync.isActive)
+             // 피오 시범의 스플래시(검증용 앱에서만, 실행할 때 한 번).
+             .overlay { PioTrialMacSplashOverlay() }
++            .overlay {
++                if showsRoutimoriSplash {
++                    RoutimoriSplashView(onLeaving: { routimoriSplashIsLeaving = true }) { showsRoutimoriSplash = false }
++                }
++            }
+             .overlay(alignment: .bottom) { PioTrialStagePreview() }
+             .onReceive(NotificationCenter.default.publisher(for: NSWindow.didBecomeKeyNotification)) { notification in
+                 // 창이 처음 앞에 올 때 첫 입력 칸이 전체 선택된 채 포커스를 받으면 실수로 덮어쓰기 쉽다.
+@@ -150,14 +185,25 @@ struct RootView: View {
+         Group {
+             // 창이 좁으면(iPhone, iPad의 좁은 Split View·Stage Manager 창) 아래 탭, 넓으면 사이드바.
+             if horizontalSizeClass == .compact {
+-                TabNavigation()
++                if store.section == .wardrobe && AppStore.Section.wardrobe.isAvailable {
++                    NavigationStack {
++                        PioWardrobeView()
++                            .toolbar {
++                                ToolbarItem(placement: .topBarLeading) {
++                                    Button("오늘로 돌아가기") { store.section = .dashboard }
++                                }
++                            }
++                    }
++                } else {
++                    TabNavigation()
++                }
+             } else {
+                 SidebarNavigation()
+             }
+         }
+         // 안내에 가려진 화면은 누르거나 입력할 수 없게 한다(외장 키보드로 입력 칸에 들어가 루틴을 만드는 일을 막는다).
+-        .disabled(firstSync.isActive)
+-        .accessibilityHidden(firstSync.isActive)
++        .disabled(firstSync.isActive || (RoutimoriSplashTrial.isEnabled && isSplashShowing))
++        .accessibilityHidden(firstSync.isActive || (RoutimoriSplashTrial.isEnabled && isSplashShowing))
+         // 첫 동기화 안내는 화면 위, 스플래시 아래에 둔다.
+         .overlay { firstSyncOverlay }
+         .animation(.easeOut(duration: 0.3), value: firstSync.isActive)
+@@ -168,7 +214,9 @@ struct RootView: View {
+         // 실제 화면은 밑에서 이미 준비돼 있다. 스플래시는 그 위를 덮었다가 걷힌다.
+         .overlay {
+             if showsSplash {
+-                if PioTrial.isEnabled {
++                if RoutimoriSplashTrial.isEnabled {
++                    RoutimoriSplashView(onLeaving: { splashIsLeaving = true }) { showsSplash = false }
++                } else if PioTrial.isEnabled {
+                     // 피오 시범(검증용 앱에서만).
+                     PioTrialSplash(onLeaving: { splashIsLeaving = true }) { showsSplash = false }
+                 } else {
+@@ -206,7 +254,7 @@ struct RootView: View {
+     /// 첫 동기화 안내가 떠 있는 동안에도 올리지 않는다. 그 안내가 기록을 찾으면 시작 안내는 아예 건너뛴다.
+     private var isSplashShowing: Bool {
+         #if os(macOS)
+-        false
++        showsRoutimoriSplash && !routimoriSplashIsLeaving
+         #else
+         showsSplash && !splashIsLeaving
+         #endif
+@@ -291,6 +339,8 @@ struct SectionContent: View {
+             case .calendar: CalendarView()
+             case .vacation: VacationView()
+             case .templates: TemplateLibraryView()
++            case .wardrobe:
++                if section.isAvailable { PioWardrobeView() } else { SettingsView() }
+             case .settings: SettingsView()
+             }
+         }
+@@ -373,6 +423,7 @@ extension TabNavigation {
+         case .calendar: return .statistics
+         case .vacation: return .dashboard
+         case .templates: return .routines
++        case .wardrobe: return .dashboard
+         default: return section
+         }
+     }
+diff --git a/Daylog/Components/PioTrial.swift b/Daylog/Components/PioTrial.swift
+index 89680b2..26342c1 100644
+--- a/Daylog/Components/PioTrial.swift
++++ b/Daylog/Components/PioTrial.swift
+@@ -31,14 +31,14 @@ enum PioTrial {
+             : ("pio_idle", CGRect(x: 94, y: 143, width: 819, height: 760))
+     }
+ 
+-    /// 그림이 준비된 성장 단계. 4단계 그림이 준비될 때까지 그 레벨에서도 3단계를 보여 준다.
+-    static let implementedStages = 3
++    /// 전용 부위 원화가 준비된 성장 단계.
++    static let implementedStages = 4
+ 
+     /// 그 레벨에서 보일 성장 단계 그림(1…`implementedStages`). XP·레벨 계산은 그대로 쓰고 경계만 본다.
+     static func artStage(level: Int) -> Int { min(stage(forLevel: level).number, implementedStages) }
+ 
+     /// 2단계 이후 같은 몸통 어깨를 쓴다(1536 원본: 왼쪽480,995 / 오른쪽1056,995).
+-    /// 4단계도 이 배치를 재사용할 수 있지만, 전용 원화가 없으므로 실제 그림은 여전히3단계까지다.
++    /// 3·4단계는 같은 크기와 부착점을 쓰고, 전용 원화의 디테일로 구분한다.
+     static func wingAttachment(stage: Int) -> SaessagiWingAttachment? {
+         guard stage >= 2 else { return nil }
+         return SaessagiWingAttachment(
+@@ -51,11 +51,12 @@ enum PioTrial {
+     /// 마스터를 부위로 나눈 레이어(`Tools/pio-rig`로 만든다, 모두 1536 캔버스·마스터와 같은 좌표).
+     /// 기준점은 1024 기준 좌표(마스터 픽셀 × 2/3): 볏 밑동, 두 눈의 가운데, 다리 사이, 양 어깨.
+     /// 성장 2단계부터 날개는 공통 몸통 어깨 뒤에 놓는다. 얼굴·몸·발과 원화 뿌리 좌표는 그대로다.
+-    /// 3단계는 승인된 날개와 새 볏·꼬리를 쓰며, 볏과 꼬리의 부착부는 몸 뒤에 놓는다.
++    /// 3·4단계는 각각 승인된 날개·볏·꼬리를 쓰며, 볏과 꼬리의 부착부는 몸 뒤에 놓는다.
+     static func rigLayers(stage: Int = 1) -> SaessagiLayerSet? {
+         guard isEnabled, !usesOldArt else { return nil }
++        let developedArt = stage >= 4 ? "pio_stage4" : "pio_stage3"
+         var set = SaessagiLayerSet(
+-            body: "pio_rig_body", leaf: stage >= 3 ? "pio_stage3_crest" : "pio_rig_crest", eyes: "pio_rig_eyes", mouth: nil,
++            body: "pio_rig_body", leaf: stage >= 3 ? "\(developedArt)_crest" : "pio_rig_crest", eyes: "pio_rig_eyes", mouth: nil,
+             footLeft: "pio_rig_foot_left", footRight: "pio_rig_foot_right",
+             leafPivot: CGPoint(x: 496.7, y: 392), eyeCenter: CGPoint(x: 512.8, y: 564.5), hip: CGPoint(x: 512, y: 820)
+         )
+@@ -65,13 +66,13 @@ enum PioTrial {
+         set.wingShadowLeft = "pio_rig_wing_left_shadow" + wings
+         set.wingShadowRight = "pio_rig_wing_right_shadow" + wings
+         if stage >= 3 {
+-            set.wingLeft = "pio_stage3_wing_left"
+-            set.wingRight = "pio_stage3_wing_right"
++            set.wingLeft = "\(developedArt)_wing_left"
++            set.wingRight = "\(developedArt)_wing_right"
+             set.wingShadowLeft = nil
+             set.wingShadowRight = nil
+             set.leafBehindBody = true
+-            set.tailLeft = "pio_stage3_tail_left"
+-            set.tailRight = "pio_stage3_tail_right"
++            set.tailLeft = "\(developedArt)_tail_left"
++            set.tailRight = "\(developedArt)_tail_right"
+         }
+         set.wingLeftPivot = CGPoint(x: 321.3, y: 626.7)
+         set.wingRightPivot = CGPoint(x: 702.7, y: 626.7)
+diff --git a/Daylog/Components/Saessagi.swift b/Daylog/Components/Saessagi.swift
+index a35c140..d51af1a 100644
+--- a/Daylog/Components/Saessagi.swift
++++ b/Daylog/Components/Saessagi.swift
+@@ -186,15 +186,35 @@ struct TodaySaessagi: View {
+     }
+ 
+     /// 걸어 다니는 날인가: 움직임 줄이기를 켰거나 휴가인 날(쉬는 모습)에는 자리를 늘리지 않는다.
++    private var usesOutfitTrial: Bool {
++        #if DEBUG
++        RoutimoriSplashTrial.isEnabled
++        #else
++        false
++        #endif
++    }
++
+     private var canWalk: Bool {
+-        !reduceMotion && !store.isVacation(on: store.selectedDay)
++        !usesOutfitTrial && !reduceMotion && !store.isVacation(on: store.selectedDay)
++    }
++
++    private var outfitAppearance: PioResolvedAppearance {
++        PioAppearanceCoordinator.shared.resolve(
++            level: store.growth.level, context: .dashboard,
++            motion: pose == .idle ? .idle : (pose == .rest || pose == .sleep ? .rest : .celebration)
++        )
+     }
+ 
+     var body: some View {
+         ZStack(alignment: .leading) {
+             Group {
+                 // 평소 모습일 때만 살아 움직인다. 반응(기쁨·휴식)이 시작되면 그 그림으로 바뀌며 움직임도 멈춘다.
+-                if pose == .idle {
++                if usesOutfitTrial {
++                    PioAppearanceView(appearance: outfitAppearance, isAnimating: scenePhase == .active)
++                    .frame(width: size, height: size)
++                    .id(outfitAppearance.outfit)
++                    .transition(reduceMotion ? .identity : .opacity)
++                } else if pose == .idle {
+                     SaessagiAnimatedView(
+                         pose: .idle, size: size, behavior: .today, fillsLane: true, maxRange: fillsWidth ? .infinity : walkRange,
+                         startX: canWalk ? awayX : 0, link: link, clipsLaneEnd: fillsWidth,
+@@ -215,6 +235,9 @@ struct TodaySaessagi: View {
+             alignment: .leading
+         )
+         .animation(reduceMotion ? nil : .easeInOut(duration: 0.18), value: pose)
++        #if DEBUG
++        .animation(reduceMotion ? nil : .easeInOut(duration: 0.18), value: outfitAppearance.outfit)
++        #endif
+         .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { laneWidth = $0 }
+         .saessagiDebugFrame("lane")
+         .onChange(of: progress) { old, new in
+@@ -248,7 +271,7 @@ struct TodaySaessagi: View {
+         // 앞의 반응이 뛰던 중이었으면 제자리에서 다시 시작한다.
+         lift = 0
+         pending = Task {
+-            if next == .completed, !reduceMotion {
++            if next == .completed, !reduceMotion, !usesOutfitTrial {
+                 // 한 번 통통: 살짝 떴다가 제자리로 튕겨 내려온다.
+                 withAnimation(.easeOut(duration: 0.14)) { lift = -size * 0.16 }
+                 try? await Task.sleep(for: .milliseconds(140))
+diff --git a/Daylog/Models/DevicePreferences.swift b/Daylog/Models/DevicePreferences.swift
+index 8fdd621..ff4ba6b 100644
+--- a/Daylog/Models/DevicePreferences.swift
++++ b/Daylog/Models/DevicePreferences.swift
+@@ -5,7 +5,15 @@ import Observation
+ @MainActor
+ @Observable
+ final class DevicePreferences {
+-    static let shared = DevicePreferences()
++    static let shared: DevicePreferences = {
++        #if DEBUG
++        if PioWardrobeStore.outfitTestingEnabled(arguments: ProcessInfo.processInfo.arguments),
++           let defaults = UserDefaults(suiteName: "com.mungyubin.daylog.pio-wardrobe-testing.device-preferences") {
++            return DevicePreferences(defaults: defaults)
++        }
++        #endif
++        return DevicePreferences()
++    }()
+     static let mealsKey = "device.mealsEnabled"
+     static let orderKey = "device.dashboard.order"
+     static let hiddenKey = "device.dashboard.hidden"
+@@ -152,7 +160,8 @@ final class DevicePreferences {
+     }
+ 
+     func navigationSections(phone: Bool) -> [AppStore.Section] {
+-        (phone ? AppStore.Section.phoneTabs : AppStore.Section.allCases).filter { $0 != .meals || mealsEnabled }
++        (phone ? AppStore.Section.phoneTabs : AppStore.Section.allCases)
++            .filter { $0.isAvailable && ($0 != .meals || mealsEnabled) }
+     }
+ 
+     func safeSelection(_ section: AppStore.Section) -> AppStore.Section {
+diff --git a/Daylog/Views/Dashboard/RestartCard.swift b/Daylog/Views/Dashboard/RestartCard.swift
+index b4d35ae..6055dc0 100644
+--- a/Daylog/Views/Dashboard/RestartCard.swift
++++ b/Daylog/Views/Dashboard/RestartCard.swift
+@@ -11,7 +11,13 @@ struct RestartCard: View {
+         Card(fillsHeight: false) {
+             HStack(alignment: .center, spacing: 12) {
+                 // 반갑게 까딱이며 인사하고 가끔 통 뛴다.
+-                SaessagiAnimatedView(pose: .welcome, size: 60)
++                if PioOutfitMotionView.isTrialEnabled {
++                    PioAppearanceView(appearance: PioAppearanceCoordinator.shared.resolve(
++                        level: store.growth.level, context: .welcome, motion: .wave))
++                        .frame(width: 60, height: 60)
++                } else {
++                    SaessagiAnimatedView(pose: .welcome, size: 60)
++                }
+                 VStack(alignment: .leading, spacing: 4) {
+                     Text("오늘부터 다시 시작해 볼까요?")
+                         .font(.headline)
+diff --git a/Daylog/Views/Dashboard/SaessagiGrowthCard.swift b/Daylog/Views/Dashboard/SaessagiGrowthCard.swift
+index 217bd4c..61ba8bd 100644
+--- a/Daylog/Views/Dashboard/SaessagiGrowthCard.swift
++++ b/Daylog/Views/Dashboard/SaessagiGrowthCard.swift
+@@ -22,20 +22,31 @@ struct SaessagiGrowthCard: View {
+ 
+     var body: some View {
+         let growth = store.growth
+-        Card(fillsHeight: false) {
+-            VStack(alignment: .leading, spacing: 10) {
+-                CardHeader(symbol: "sparkles", title: PioTrial.isEnabled ? "피오 성장" : "새싹이 성장", tint: growth.stage.tint)
+-                HStack(alignment: .center, spacing: 14) {
+-                    mascot(growth)
+-                    details(growth)
+-                        .frame(maxWidth: .infinity, alignment: .leading)
++        Group {
++            if PioOutfitMotionView.isTrialEnabled {
++                PioHomeGrowthPresentation(growth: growth, event: shown, burst: burst)
++            } else {
++                Card(fillsHeight: false) {
++                    VStack(alignment: .leading, spacing: 10) {
++                        CardHeader(symbol: "sparkles", title: PioTrial.isEnabled ? "피오 성장" : "새싹이 성장", tint: growth.stage.tint)
++                        HStack(alignment: .center, spacing: 14) {
++                            mascot(growth)
++                            details(growth)
++                                .frame(maxWidth: .infinity, alignment: .leading)
++                        }
++                    }
+                 }
+             }
+         }
+         .onChange(of: store.growthEvent) { _, event in
+             if let event { react(event) }
+         }
+-        .onDisappear { pending?.cancel() }
++        .onDisappear {
++            pending?.cancel()
++            // A cancelled dismissal timer must not leave the trial celebrating
++            // indefinitely when this card is shown again.
++            if PioOutfitMotionView.isTrialEnabled { shown = nil }
++        }
+     }
+ 
+     // MARK: - 새싹이
+@@ -48,7 +59,17 @@ struct SaessagiGrowthCard: View {
+                 .frame(width: size * 1.12, height: size * 1.12)
+                 .offset(y: size * 0.06)
+             Group {
+-                if PioTrial.isEnabled {
++                if PioOutfitMotionView.isTrialEnabled {
++                    let appearance = PioAppearanceCoordinator.shared.resolve(
++                        level: growth.level, context: .growth, motion: shown == nil ? .idle : .celebration)
++                    ZStack {
++                        PioAppearanceView(appearance: appearance)
++                        .id(appearance.outfit)
++                        .transition(reduceMotion ? .identity : .opacity)
++                    }
++                    .frame(width: size, height: size)
++                    .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: appearance.outfit)
++                } else if PioTrial.isEnabled {
+                     // 피오 시범(검증용 앱에서만): 부위 리그로 그 레벨의 성장 단계(1·2) 피오가 움직인다.
+                     SaessagiAnimatedView(
+                         pose: .idle, size: size, behavior: .growing, pioStage: PioTrial.artStage(level: growth.level)
+@@ -62,7 +83,7 @@ struct SaessagiGrowthCard: View {
+                     .id(growth.stage)
+                 }
+             }
+-            .offset(y: lift)
++            .offset(y: PioOutfitMotionView.isTrialEnabled ? 0 : lift)
+             SparkleBurst(trigger: burst, count: shown.map { $0.leveledUp ? 9 : 5 } ?? 5, radius: size * 0.62, tint: growth.stage.tint)
+                 .allowsHitTesting(false)
+         }
+@@ -96,7 +117,9 @@ struct SaessagiGrowthCard: View {
+                     .font(.title2.weight(.bold))
+                     .monospacedDigit()
+                     .contentTransition(.numericText(value: Double(growth.level)))
+-                Text(PioTrial.isEnabled ? PioTrial.stageTitle(level: growth.level) : growth.stage.title)
++                Text(PioOutfitMotionView.isTrialEnabled
++                     ? "\(PioTrial.stage(forLevel: growth.level).number)단계"
++                     : (PioTrial.isEnabled ? PioTrial.stageTitle(level: growth.level) : growth.stage.title))
+                     .font(.caption.weight(.semibold))
+                     .foregroundStyle(growth.stage.tint)
+                     .padding(.horizontal, 8)
+@@ -110,6 +133,11 @@ struct SaessagiGrowthCard: View {
+                     .lineLimit(1)
+                     .layoutPriority(1)
+             }
++            if PioOutfitMotionView.isTrialEnabled {
++                Text("단계별 전용 원화 준비 중")
++                    .font(.caption2)
++                    .foregroundStyle(.secondary)
++            }
+             GeometryReader { proxy in
+                 ZStack(alignment: .leading) {
+                     Capsule().fill(Theme.track)
+@@ -127,7 +155,9 @@ struct SaessagiGrowthCard: View {
+                         .foregroundStyle(growth.stage.tint)
+                         .fontWeight(.semibold)
+                 } else {
+-                    Text(PioTrial.isEnabled ? PioTrial.nextStageNote(level: growth.level) : growth.nextStageNote)
++                    Text(PioOutfitMotionView.isTrialEnabled
++                         ? "성장해도 선택한 의상을 유지해요."
++                         : (PioTrial.isEnabled ? PioTrial.nextStageNote(level: growth.level) : growth.nextStageNote))
+                         .foregroundStyle(.secondary)
+                 }
+             }
+@@ -135,7 +165,9 @@ struct SaessagiGrowthCard: View {
+             .fixedSize(horizontal: false, vertical: true)
+         }
+         .accessibilityElement(children: .ignore)
+-        .accessibilityLabel(growth.accessibilityLabel)
++        .accessibilityLabel(PioOutfitMotionView.isTrialEnabled
++            ? "피오 성장. 레벨 \(growth.level), \(PioTrial.stage(forLevel: growth.level).number)단계. \(PioAppearanceCoordinator.shared.resolve(level: growth.level, context: .growth).outfit.title). 단계별 전용 원화 준비 중. \(growth.xpIntoLevel) / \(growth.xpForNextLevel) XP"
++            : growth.accessibilityLabel)
+     }
+ 
+     // MARK: - 반응
+@@ -151,8 +183,9 @@ struct SaessagiGrowthCard: View {
+         pending = Task {
+             if !reduceMotion {
+                 burst += 1
+-                // 기분 좋게 폴짝: 레벨이 오르면 더 높이, 두 번.
+-                let hops = event.leveledUp ? 2 : 1
++                // 의상 시범은 Core Animation 축하 동작이 담당한다. 중복으로 띄우지 않는다.
++                // 기존 새싹이·피오 경로의 반응은 그대로 유지한다.
++                let hops = PioOutfitMotionView.isTrialEnabled ? 0 : (event.leveledUp ? 2 : 1)
+                 for _ in 0..<hops {
+                     withAnimation(.easeOut(duration: 0.16)) { lift = -size * (event.leveledUp ? 0.3 : 0.2) }
+                     try? await Task.sleep(for: .milliseconds(160))
+@@ -170,6 +203,224 @@ struct SaessagiGrowthCard: View {
+     }
+ }
+ 
++/// The home presentation uses the approved full-body artwork and its existing
++/// motion host. Layout never changes the costume or invents growth-stage art.
++private struct PioHomeGrowthPresentation: View {
++    @Environment(AppStore.self) private var store
++    let growth: SaessagiGrowth
++    let event: GrowthEvent?
++    let burst: Int
++    @Environment(\.colorScheme) private var colorScheme
++    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
++    @Environment(\.accessibilityReduceMotion) private var reduceMotion
++    @State private var showsWardrobe = false
++
++    private var appearance: PioResolvedAppearance {
++        PioAppearanceCoordinator.shared.resolve(level: growth.level, context: .growth,
++                                                motion: event == nil ? .idle : .celebration)
++    }
++    private var outfit: PioOutfitID { appearance.outfit }
++    private var dark: Bool { colorScheme == .dark }
++    private var ink: Color {
++        dark ? Color(red: 0.92, green: 0.95, blue: 0.86) : Color(red: 0.18, green: 0.29, blue: 0.20)
++    }
++    private var secondaryInk: Color {
++        dark ? Color(red: 0.72, green: 0.80, blue: 0.72) : Color(red: 0.36, green: 0.44, blue: 0.35)
++    }
++    private var accent: Color {
++        dark ? Color(red: 0.68, green: 0.82, blue: 0.58) : Color(red: 0.28, green: 0.43, blue: 0.25)
++    }
++    private var surface: Color {
++        dark ? Color(red: 0.10, green: 0.16, blue: 0.12) : Color(red: 0.99, green: 0.98, blue: 0.94)
++    }
++
++    var body: some View {
++        VStack(alignment: .leading, spacing: 14) {
++            CardHeader(symbol: "leaf.fill", title: "피오와 함께", tint: accent) {
++                Button {
++                    #if os(macOS)
++                    store.section = .wardrobe
++                    #else
++                    showsWardrobe = true
++                    #endif
++                } label: {
++                    Label("옷장", systemImage: "tshirt")
++                        .font(.subheadline.weight(.semibold))
++                        .padding(.horizontal, 12)
++                        .frame(minHeight: 44)
++                        .background(accent.opacity(dark ? 0.13 : 0.08), in: Capsule())
++                }
++                .buttonStyle(.plain)
++                .foregroundStyle(accent)
++                .accessibilityLabel("피오 옷장 열기")
++                .accessibilityIdentifier("home.pio.wardrobe")
++            }
++
++            if dynamicTypeSize.isAccessibilitySize {
++                stackedCharacter
++            } else {
++                ViewThatFits(in: .horizontal) {
++                    HStack(spacing: 12) {
++                        character(size: 156)
++                        identity.frame(minWidth: 150, maxWidth: .infinity, alignment: .leading)
++                    }
++                    stackedCharacter
++                }
++            }
++
++            progress
++            PioAppearanceNotice(appearance: appearance)
++        }
++        .padding(18)
++        .frame(maxWidth: .infinity, alignment: .leading)
++        .foregroundStyle(ink)
++        .background(surface, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
++        .overlay {
++            RoundedRectangle(cornerRadius: 22, style: .continuous)
++                .strokeBorder(accent.opacity(dark ? 0.20 : 0.13), lineWidth: 1)
++                .allowsHitTesting(false)
++        }
++        .accessibilityIdentifier("home.pio.card")
++        .sheet(isPresented: $showsWardrobe) {
++            NavigationStack {
++                PioWardrobeView()
++                    .toolbar {
++                        ToolbarItem(placement: .confirmationAction) {
++                            Button("완료") { showsWardrobe = false }
++                        }
++                    }
++            }
++            #if os(macOS)
++            .frame(minWidth: 540, idealWidth: 740, minHeight: 560, idealHeight: 760)
++            #endif
++        }
++    }
++
++    private var stackedCharacter: some View {
++        VStack(alignment: .leading, spacing: 12) {
++            character(size: 180)
++                .frame(maxWidth: .infinity)
++            identity
++        }
++    }
++
++    private func character(size: CGFloat) -> some View {
++        ZStack {
++            Circle()
++                .fill(RadialGradient(colors: [accent.opacity(dark ? 0.18 : 0.12), accent.opacity(0.025)],
++                                     center: .center, startRadius: 0, endRadius: size * 0.54))
++                .frame(width: size * 0.94, height: size * 0.94)
++            Ellipse()
++                .fill(accent.opacity(dark ? 0.12 : 0.08))
++                .frame(width: size * 0.54, height: size * 0.08)
++                .offset(y: size * 0.40)
++            PioAppearanceView(appearance: appearance)
++                .frame(width: size, height: size)
++                .id(outfit)
++                .transition(.opacity)
++            SparkleBurst(trigger: burst, count: event?.leveledUp == true ? 9 : 5,
++                         radius: size * 0.49, tint: accent)
++                .allowsHitTesting(false)
++        }
++        .frame(width: size, height: size + 20)
++        .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: outfit)
++        .overlay(alignment: .topTrailing) {
++            if let event {
++                Text("+\(event.gained) XP")
++                    .font(.caption.weight(.bold))
++                    .monospacedDigit()
++                    .foregroundStyle(accent)
++                    .padding(.horizontal, 9)
++                    .padding(.vertical, 5)
++                    .background(surface, in: Capsule())
++                    .overlay(Capsule().strokeBorder(accent.opacity(0.3), lineWidth: 1))
++                    .fixedSize()
++                    .transition(.opacity)
++                    .id(event.id)
++            }
++        }
++        .accessibilityHidden(true)
++    }
++
++    private var identity: some View {
++        VStack(alignment: .leading, spacing: 8) {
++            Text("오늘의 작은 동행")
++                .font(.caption.weight(.medium))
++                .foregroundStyle(secondaryInk)
++            Text(outfit.title)
++                .font(.system(.title2, design: .rounded, weight: .bold))
++                .fixedSize(horizontal: false, vertical: true)
++                .accessibilityIdentifier("home.pio.outfit")
++            Text(outfit.description)
++                .font(.subheadline)
++                .foregroundStyle(secondaryInk)
++                .fixedSize(horizontal: false, vertical: true)
++        }
++        .accessibilityElement(children: .combine)
++    }
++
++    private var progress: some View {
++        VStack(alignment: .leading, spacing: 10) {
++            if dynamicTypeSize.isAccessibilitySize {
++                VStack(alignment: .leading, spacing: 6) {
++                    level
++                    xp
++                }
++            } else {
++                ViewThatFits(in: .horizontal) {
++                    HStack(alignment: .firstTextBaseline, spacing: 12) {
++                        level
++                        Spacer(minLength: 0)
++                        xp
++                    }
++                    VStack(alignment: .leading, spacing: 6) {
++                        level
++                        xp
++                    }
++                }
++            }
++            ProgressView(value: growth.progress)
++                .tint(accent)
++                .animation(reduceMotion ? nil : .easeOut(duration: 0.5), value: growth.xp)
++            Text(event.flatMap { $0.celebration ?? $0.detail }
++                 ?? "다음 레벨까지 \(max(0, growth.xpForNextLevel - growth.xpIntoLevel)) XP · 작은 실천을 쌓아가요.")
++                .font(.caption)
++                .foregroundStyle(event == nil ? secondaryInk : accent)
++                .fixedSize(horizontal: false, vertical: true)
++        }
++        .padding(14)
++        .background(accent.opacity(dark ? 0.075 : 0.045), in: RoundedRectangle(cornerRadius: 14))
++        .accessibilityElement(children: .ignore)
++        .accessibilityLabel("피오 성장, 레벨 \(growth.level), \(PioTrial.stage(forLevel: growth.level).number)단계")
++        .accessibilityValue("\(growth.xpIntoLevel) / \(growth.xpForNextLevel) XP. 다음 레벨까지 \(max(0, growth.xpForNextLevel - growth.xpIntoLevel)) XP")
++        .accessibilityIdentifier("home.pio.progress")
++    }
++
++    private var level: some View {
++        let layout = dynamicTypeSize.isAccessibilitySize
++            ? AnyLayout(VStackLayout(alignment: .leading, spacing: 6))
++            : AnyLayout(HStackLayout(alignment: .firstTextBaseline, spacing: 8))
++        return layout {
++            Text("Lv.\(growth.level)")
++                .font(.system(.title3, design: .rounded, weight: .bold))
++                .monospacedDigit()
++                .contentTransition(.numericText(value: Double(growth.level)))
++            Text("성장 \(PioTrial.stage(forLevel: growth.level).number)단계")
++                .font(.caption.weight(.medium))
++                .foregroundStyle(secondaryInk)
++        }
++        .fixedSize(horizontal: !dynamicTypeSize.isAccessibilitySize, vertical: true)
++    }
++
++    private var xp: some View {
++        Text("\(growth.xpIntoLevel) / \(growth.xpForNextLevel) XP")
++            .font(.caption.weight(.medium))
++            .monospacedDigit()
++            .foregroundStyle(secondaryInk)
++            .fixedSize(horizontal: !dynamicTypeSize.isAccessibilitySize, vertical: true)
++    }
++}
++
+ extension GrowthStage {
+     /// 카드의 포인트 색: 새싹은 민트, 잎사귀는 초록, 꽃은 코랄. 모두 부드러운 파스텔이다.
+     var tint: Color {
+diff --git a/Daylog/Views/Dashboard/VacationRestView.swift b/Daylog/Views/Dashboard/VacationRestView.swift
+index 02ff4cb..08a0d70 100644
+--- a/Daylog/Views/Dashboard/VacationRestView.swift
++++ b/Daylog/Views/Dashboard/VacationRestView.swift
+@@ -6,6 +6,7 @@ import SwiftUI
+ /// 풍경과 해먹은 배경(`VacationSceneBackground`)이 그린다. 이 뷰는 문구와 단추를 놓고, 그 사이에 해먹이 들어갈 자리를 비워 둔다.
+ struct VacationRestView: View {
+     @Environment(AppStore.self) private var store
++    @Environment(\.colorScheme) private var colorScheme
+     /// 해먹 말고 나머지(문구, 진행 카드, 단추, 여백)가 쓰는 높이의 어림값. 글자 크기를 따라 커진다.
+     @ScaledMetric(relativeTo: .body) private var reservedHeight: CGFloat = Self.baseReservedHeight
+     /// [유지할 루틴 보기]. 휴가 중에 이어 가는 루틴이 없으면 nil이고 단추를 보여 주지 않는다.
+@@ -15,6 +16,11 @@ struct VacationRestView: View {
+     /// 설정의 미리보기로 띄웠을 때: 예시 휴가 기간과 낮·밤 전환, [미리보기 종료]. 실제 기록과 휴가는 읽기만 한다.
+     var preview: VacationRestPreview?
+ 
++    private var appearance: PioResolvedAppearance {
++        PioAppearanceCoordinator.shared.resolve(level: store.growth.level,
++            context: colorScheme == .dark ? .vacationNight : .vacationDay, motion: .rest)
++    }
++
+     var body: some View {
+         GeometryReader { proxy in
+             // 미리보기는 맨 위의 표시와 낮·밤 전환이 더 있다(유지할 루틴 단추는 없다).
+@@ -30,7 +36,11 @@ struct VacationRestView: View {
+             // 배경은 해먹 자리를 받아 그 자리에 해먹을, 그 둘레에 풍경을 그린다(스크롤하면 함께 움직인다).
+             .backgroundPreferenceValue(VacationSlotKey.self) { anchor in
+                 GeometryReader { area in
+-                    VacationSceneBackground(slot: anchor.map { area[$0] }, topInset: proxy.safeAreaInsets.top)
++                    if RoutimoriSplashTrial.isEnabled {
++                        RoutimoriVacationScene(slot: anchor.map { area[$0] })
++                    } else {
++                        VacationSceneBackground(slot: anchor.map { area[$0] }, topInset: proxy.safeAreaInsets.top)
++                    }
+                 }
+                 .ignoresSafeArea(edges: Self.backgroundEdges)
+             }
+@@ -71,10 +81,10 @@ struct VacationRestView: View {
+                     .font(.subheadline)
+                     .monospacedDigit()
+                     .foregroundStyle(.secondary)
+-                Text("오늘은\n쉬어가는 날이에요.")
++                Text(RoutimoriSplashTrial.isEnabled ? "지금은 휴식 중이에요" : "오늘은\n쉬어가는 날이에요.")
+                     .font(.title.bold())
+                     .accessibilityAddTraits(.isHeader)
+-                Text("잠시 멈춰도 괜찮아요.\n새싹이와 함께 여유로운 시간을 보내요.")
++                Text(RoutimoriSplashTrial.isEnabled ? "잠시 쉬어가요.\n더 좋은 내가 되기 위해서요." : "잠시 멈춰도 괜찮아요.\n새싹이와 함께 여유로운 시간을 보내요.")
+                     .font(.callout)
+                     .foregroundStyle(.secondary)
+             }
+@@ -87,11 +97,16 @@ struct VacationRestView: View {
+                 .frame(width: hammock, height: hammock * VacationArt.slotHeight / VacationArt.canvas)
+                 .anchorPreference(key: VacationSlotKey.self, value: .bounds) { $0 }
+                 .accessibilityElement()
+-                .accessibilityLabel("해먹에서 쉬는 새싹이")
++                .accessibilityLabel(RoutimoriSplashTrial.isEnabled
++                    ? "해먹에서 쉬는 \(appearance.outfitApplied ? appearance.outfit.title : "기본 피오"). \(appearance.compatibilityNote ?? "")"
++                    : "해먹에서 쉬는 새싹이")
+                 .accessibilityAddTraits(.isImage)
+ 
+             // 진행 상황과 단추는 한 카드에 담는다. 모래 위에 바로 두면 저녁 풍경에서 단추의 글자가 묻힌다.
+             VStack(spacing: 14) {
++                if RoutimoriSplashTrial.isEnabled {
++                    PioAppearanceNotice(appearance: appearance)
++                }
+                 if let info = preview?.info ?? VacationRestInfo.make(periods: store.vacationPeriods, today: store.today) {
+                     progress(info)
+                 }
+diff --git a/Daylog/Views/Dashboard/WeeklyReviewCard.swift b/Daylog/Views/Dashboard/WeeklyReviewCard.swift
+index 65a9d0b..d583206 100644
+--- a/Daylog/Views/Dashboard/WeeklyReviewCard.swift
++++ b/Daylog/Views/Dashboard/WeeklyReviewCard.swift
+@@ -15,7 +15,7 @@ struct WeeklyReviewCard: View {
+         let stage = store.growth.stage
+         Card(fillsHeight: false) {
+             VStack(alignment: .leading, spacing: 12) {
+-                CardHeader(symbol: "leaf.circle.fill", title: "새싹이의 주간 회고", tint: stage.tint) {
++                CardHeader(symbol: "leaf.circle.fill", title: PioOutfitMotionView.isTrialEnabled ? "피오의 주간 회고" : "새싹이의 주간 회고", tint: stage.tint) {
+                     Button("자세히 보기") { showsDetail = true }
+                         .font(.caption.weight(.semibold))
+                         .buttonStyle(.borderless)
+@@ -162,25 +162,40 @@ struct WeeklyReviewSheet: View {
+     let review: WeeklyReview
+     let stage: GrowthStage
+     @Environment(\.dismiss) private var dismiss
++    private var appearance: PioResolvedAppearance {
++        PioAppearanceCoordinator.shared.resolve(context: .weeklyReview, motion: .idle)
++    }
+ 
+     var body: some View {
+-        SheetScaffold(title: "새싹이의 주간 회고", subtitle: review.periodTitle, cancelTitle: "닫기", cancel: { dismiss() }) {
++        SheetScaffold(title: PioOutfitMotionView.isTrialEnabled ? "피오의 주간 회고" : "새싹이의 주간 회고", subtitle: review.periodTitle, cancelTitle: "닫기", cancel: { dismiss() }) {
+             VStack(alignment: .leading, spacing: 16) {
+                 HStack(alignment: .center, spacing: 16) {
+                     // 열면 반갑게 한 번 뛰고, 그다음은 한 주의 분위기대로 움직인다.
+-                    SaessagiAnimatedView(pose: stage.pose, size: 96, behavior: review.saessagiBehavior, entrance: .hello)
++                    Group {
++                        if PioOutfitMotionView.isTrialEnabled {
++                            PioAppearanceView(appearance: appearance)
++                                .frame(width: 96, height: 96)
++                        } else {
++                            SaessagiAnimatedView(pose: stage.pose, size: 96, behavior: review.saessagiBehavior, entrance: .hello)
++                        }
++                    }
+                         .padding(10)
+                         .background(stage.tint.opacity(0.12), in: Circle())
+                     VStack(alignment: .leading, spacing: 6) {
+                         Text("“\(review.headline)”")
+                             .font(.headline)
+                             .fixedSize(horizontal: false, vertical: true)
+-                        Text("\(stage.title) 단계의 새싹이가 지난주를 함께 돌아봤어요.")
++                        Text(PioOutfitMotionView.isTrialEnabled
++                             ? "\(appearance.outfit.title)와 지난주를 함께 돌아봐요."
++                             : "\(stage.title) 단계의 새싹이가 지난주를 함께 돌아봤어요.")
+                             .font(.caption)
+                             .foregroundStyle(.secondary)
+                             .fixedSize(horizontal: false, vertical: true)
+                     }
+                 }
++                if PioOutfitMotionView.isTrialEnabled {
++                    PioAppearanceNotice(appearance: appearance)
++                }
+                 WeeklyReviewDays(review: review, tint: stage.tint)
+                 if review.hasRecords {
+                     WeeklyReviewFigures(review: review)
+diff --git a/Daylog/Views/Onboarding/FirstSyncView.swift b/Daylog/Views/Onboarding/FirstSyncView.swift
+index a1d8b62..2426c17 100644
+--- a/Daylog/Views/Onboarding/FirstSyncView.swift
++++ b/Daylog/Views/Onboarding/FirstSyncView.swift
+@@ -30,18 +30,26 @@ struct FirstSyncView: View {
+     @Environment(\.colorScheme) private var colorScheme
+     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+ 
++    private var usesRoutimori: Bool { RoutimoriSplashTrial.isEnabled }
++
+     var body: some View {
+         let phase = phase
+         let kind = SyncSceneKind(phase, isPreview: preview != nil)
+         GeometryReader { proxy in
+             // 글자를 크게 쓰면 한 화면을 넘을 수 있다. 넘치면 스크롤하고, 아니면 가운데에 둔다.
+             // 그림은 화면 높이에 맞춰 줄인다(작은 iPhone에서도 글과 단추가 잘리지 않게).
+-            let sceneHeight = min(400, max(210, proxy.size.height * 0.48))
++            let proposedHeight = min(400, max(210, proxy.size.height * 0.48))
++            let sceneHeight = usesRoutimori ? min(proposedHeight, max(140, proxy.size.width - 48)) : proposedHeight
+             ScrollView {
+                 VStack(spacing: 14) {
++                    if usesRoutimori { RoutimoriSyncBrand() }
+                     SyncScene(kind: kind, height: sceneHeight)
+                         .id(kind)
+                         .transition(.opacity)
++                    if usesRoutimori {
++                        PioAppearanceNotice(appearance: PioAppearanceCoordinator.shared.resolve(
++                            level: store.growth.level, context: kind.pioAppearanceContext))
++                    }
+                     content(phase)
+                         .id(kind)
+                         .transition(.opacity)
+@@ -65,7 +73,7 @@ struct FirstSyncView: View {
+             .scrollBounceBehavior(.basedOnSize)
+         }
+         .background {
+-            LinearGradient(colors: SyncSceneBackground.colors(kind, dark: colorScheme == .dark), startPoint: .top, endPoint: .bottom)
++            LinearGradient(colors: usesRoutimori ? RoutimoriSyncStyle.background(dark: colorScheme == .dark) : SyncSceneBackground.colors(kind, dark: colorScheme == .dark), startPoint: .top, endPoint: .bottom)
+                 .animation(reduceMotion ? nil : .easeInOut(duration: 0.4), value: kind)
+                 .ignoresSafeArea()
+         }
+@@ -90,25 +98,25 @@ struct FirstSyncView: View {
+         case .found where preview != nil:
+             // 실제로는 기록을 찾으면 이 화면 없이 바로 오늘 화면으로 간다. 미리보기에서만 그 순간을 보여 준다.
+             message(
+-                title: "준비됐어요!\n오늘도 함께해요.",
+-                detail: "다른 기기의 기록을 확인했어요.\n이제 Daylog를 시작할 수 있어요."
++                title: usesRoutimori ? "동기화가 완료됐어요!" : "준비됐어요!\n오늘도 함께해요.",
++                detail: usesRoutimori ? "다른 기기의 기록을 확인했어요.\n오늘도 루티모리와 함께해요." : "다른 기기의 기록을 확인했어요.\n이제 Daylog를 시작할 수 있어요."
+             ) {
+                 Button(action: {}) {
+-                    Text("Daylog 시작하기").font(.headline).frame(maxWidth: .infinity)
++                    Text(usesRoutimori ? "확인" : "Daylog 시작하기").font(.headline).frame(maxWidth: .infinity)
+                 }
+                 .buttonStyle(.borderedProminent)
+-                .tint(Color(red: 0.3, green: 0.68, blue: 0.34))
++                .tint(usesRoutimori ? RoutimoriSyncStyle.green : Color(red: 0.3, green: 0.68, blue: 0.34))
+                 .controlSize(.large)
+                 .frame(maxWidth: 320)
+             }
+         case .waiting, .found, .empty:
+             // 기록을 찾았거나 없다고 본 순간에는 곧 이 화면이 걷힌다. 그 사이에 문구를 바꿔 깜빡이지 않게 한다.
+-            // 얼마나 받았는지는 알 수 없어 진행률·완료율은 보여 주지 않는다(점 세 개는 기다리는 표시일 뿐이다).
++            // 얼마나 받았는지는 알 수 없어 진행률·완료율은 보여 주지 않는다(점과 왕복 막대는 기다리는 표시일 뿐이다).
+             message(
+-                title: "새싹이가 iCloud 기록을\n확인하고 있어요!",
++                title: usesRoutimori ? "루티모리가 iCloud 기록을\n확인하고 있어요" : "새싹이가 iCloud 기록을\n확인하고 있어요!",
+                 detail: "다른 기기의 소중한 기록을\n가져와 정리하고 있어요."
+             ) {
+-                SyncWaitingDots()
++                if usesRoutimori { RoutimoriSyncActivity() } else { SyncWaitingDots() }
+             }
+         case .unavailable(let account):
+             // 계정 문제는 네트워크 문제라고 말하지 않는다.
+@@ -163,13 +171,13 @@ struct FirstSyncView: View {
+     private var choices: some View {
+         VStack(spacing: 10) {
+             Button(action: { if preview == nil { recheck() } }) {
+-                Text(isRechecking ? "확인 중…" : "다시 확인하기").font(.headline).frame(maxWidth: .infinity)
++                Text(isRechecking ? "확인 중…" : (usesRoutimori ? "다시 시도하기" : "다시 확인하기")).font(.headline).frame(maxWidth: .infinity)
+             }
+             .buttonStyle(.borderedProminent)
+-            .tint(Color(red: 0.25, green: 0.55, blue: 0.95))
++            .tint(usesRoutimori ? RoutimoriSyncStyle.green : Color(red: 0.25, green: 0.55, blue: 0.95))
+             .disabled(isRechecking)
+             Button(action: { if preview == nil { gate.finish() } }) {
+-                Text("일단 시작하기").frame(maxWidth: .infinity)
++                Text(usesRoutimori ? "나중에 하기" : "일단 시작하기").frame(maxWidth: .infinity)
+             }
+             .buttonStyle(.bordered)
+             .accessibilityHint("시작 안내로 넘어갑니다. 다른 기기의 기록이 나중에 오면 그대로 합쳐져요.")
+diff --git a/Daylog/Views/Onboarding/SyncScene.swift b/Daylog/Views/Onboarding/SyncScene.swift
+index e605b0b..6961762 100644
+--- a/Daylog/Views/Onboarding/SyncScene.swift
++++ b/Daylog/Views/Onboarding/SyncScene.swift
+@@ -18,12 +18,18 @@ struct SyncScene: View {
+     @State private var isVisible = false
+ 
+     var body: some View {
+-        SyncLayerView(
+-            configuration: SyncSceneStage.Configuration(
+-                kind: kind, height: height, dark: colorScheme == .dark, scale: displayScale, reduceMotion: reduceMotion
+-            ),
+-            isAnimating: isVisible && !reduceMotion && scenePhase == .active
+-        )
++        Group {
++            if RoutimoriSplashTrial.isEnabled {
++                RoutimoriSyncScene(kind: kind, height: height)
++            } else {
++                SyncLayerView(
++                    configuration: SyncSceneStage.Configuration(
++                        kind: kind, height: height, dark: colorScheme == .dark, scale: displayScale, reduceMotion: reduceMotion
++                    ),
++                    isAnimating: isVisible && !reduceMotion && scenePhase == .active
++                )
++            }
++        }
+         .frame(width: height, height: height)
+         .accessibilityHidden(true)
+         .onAppear { isVisible = true }
+diff --git a/Daylog/Views/Settings/SettingsView.swift b/Daylog/Views/Settings/SettingsView.swift
+index e838ff3..de4cd61 100644
+--- a/Daylog/Views/Settings/SettingsView.swift
++++ b/Daylog/Views/Settings/SettingsView.swift
+@@ -256,46 +256,47 @@ struct SettingsView: View {
+ 
+     // MARK: - 갈래별 설정
+ 
++    @ViewBuilder
+     private func detail(_ category: SettingsCategory) -> some View {
+-        Form {
+-            switch category {
+-            case .sync:
+-                syncSection
+-                devicesSection
+-            case .general:
+-                AppearanceSection()
+-                #if os(macOS)
+-                MenuBarSettingsSection()
+-                #else
+-                WidgetGuideSection()
+-                #endif
+-            case .today:
+-                DevicePreferenceSections()
+-            case .routine:
+-                Section {
+-                    ThresholdControl()
+-                } header: {
+-                    Text("달성한 날 기준값")
+-                } footer: {
+-                    Text("하루 달성률이 이 값 이상이면 달성한 날로 세요.")
++            Form {
++                switch category {
++                case .sync:
++                    syncSection
++                    devicesSection
++                case .general:
++                    AppearanceSection()
++                    #if os(macOS)
++                    MenuBarSettingsSection()
++                    #else
++                    WidgetGuideSection()
++                    #endif
++                case .today:
++                    DevicePreferenceSections()
++                case .routine:
++                    Section {
++                        ThresholdControl()
++                    } header: {
++                        Text("달성한 날 기준값")
++                    } footer: {
++                        Text("하루 달성률이 이 값 이상이면 달성한 날로 세요.")
++                    }
++                case .calendar:
++                    CalendarSettingsSection()
++                case .notifications:
++                    NotificationSettingsSection()
++                    ComebackSettingsSection()
++                case .vacation:
++                    VacationSettingsSection()
++                case .data:
++                    DataTransferSettingsSection()
++                case .about:
++                    aboutSection
+                 }
+-            case .calendar:
+-                CalendarSettingsSection()
+-            case .notifications:
+-                NotificationSettingsSection()
+-                ComebackSettingsSection()
+-            case .vacation:
+-                VacationSettingsSection()
+-            case .data:
+-                DataTransferSettingsSection()
+-            case .about:
+-                aboutSection
+             }
+-        }
+-        .formStyle(.grouped)
+-        #if os(macOS)
+-        .scrollContentBackground(.hidden)
+-        #endif
++            .formStyle(.grouped)
++            #if os(macOS)
++            .scrollContentBackground(.hidden)
++            #endif
+     }
+ 
+     /// 개인정보 처리방침이 있는 곳. 이미 깔린 앱이 계속 여는 주소이므로 옮기지 않는다(App Store Connect에도 같은 주소를 적는다).
+diff --git a/Daylog/Views/Sidebar/SidebarView.swift b/Daylog/Views/Sidebar/SidebarView.swift
+index 2bbaed1..0b11368 100644
+--- a/Daylog/Views/Sidebar/SidebarView.swift
++++ b/Daylog/Views/Sidebar/SidebarView.swift
+@@ -17,7 +17,7 @@ struct SidebarView: View {
+             ScrollView {
+                 VStack(alignment: .leading, spacing: 4) {
+                     ForEach(sections.filter { $0 != .settings }) { section in
+-                        row(section, shortcut: sections.firstIndex(of: section).map { $0 + 1 })
++                        row(section, shortcut: section.shortcutNumber)
+                     }
+                 }
+             }
+@@ -26,7 +26,7 @@ struct SidebarView: View {
+             Divider()
+                 .padding(.horizontal, 8)
+                 .padding(.vertical, 8)
+-            row(.settings, shortcut: sections.firstIndex(of: .settings).map { $0 + 1 })
++            row(.settings, shortcut: AppStore.Section.settings.shortcutNumber)
+                 .padding(.bottom, 8)
+         }
+         .padding(.horizontal, 10)
+@@ -149,6 +149,7 @@ extension AppStore.Section {
+         case .calendar: return GroupColor.orange.color
+         case .vacation: return Theme.vacationTint
+         case .templates: return GroupColor.yellow.color
++        case .wardrobe: return GroupColor.green.color
+         case .settings: return GroupColor.blue.color
+         }
+     }
+@@ -163,6 +164,7 @@ extension AppStore.Section {
+         case .calendar: return GroupColor.orange.ink
+         case .vacation: return GroupColor.coral.ink
+         case .templates: return GroupColor.yellow.ink
++        case .wardrobe: return GroupColor.green.ink
+         case .settings: return GroupColor.blue.ink
+         }
+     }
+@@ -206,6 +208,7 @@ extension AppStore.Section {
+         case .calendar: return "calendar"
+         case .vacation: return "beach.umbrella.fill"
+         case .templates: return "rectangle.stack.fill"
++        case .wardrobe: return "tshirt.fill"
+         case .settings: return "gearshape.fill"
+         }
+     }
+diff --git a/DaylogTests/ProductUXTests.swift b/DaylogTests/ProductUXTests.swift
+index 412db77..b4e0887 100644
+--- a/DaylogTests/ProductUXTests.swift
++++ b/DaylogTests/ProductUXTests.swift
+@@ -188,7 +188,7 @@ struct ProductUXTests {
+     // MARK: - 메뉴와 설정 갈래
+ 
+     @Test func vacationMenuIsInTheSidebarButNotInPhoneTabs() throws {
+-        #expect(AppStore.Section.allCases == [.dashboard, .routines, .meals, .statistics, .calendar, .vacation, .templates, .settings])
++        #expect(AppStore.Section.allCases == [.dashboard, .routines, .meals, .statistics, .calendar, .vacation, .templates, .wardrobe, .settings])
+         #expect(AppStore.Section.phoneTabs == [.dashboard, .routines, .meals, .statistics, .settings], "iPhone 탭은 다섯 개 그대로.")
+         let suite = "daylog.tests.sections.\(UUID().uuidString)"
+         let defaults = try #require(UserDefaults(suiteName: suite))
+@@ -197,6 +197,9 @@ struct ProductUXTests {
+         #expect(preferences.navigationSections(phone: false).last == .settings)
+         #expect(preferences.navigationSections(phone: false).contains(.vacation))
+         #expect(!preferences.navigationSections(phone: true).contains(.vacation))
++        #expect(AppStore.Section.wardrobe.shortcutNumber == 9)
++        #expect(AppStore.Section.settings.shortcutNumber == 8)
++        #expect(!AppStore.Section.phoneTabs.contains(.wardrobe))
+         #expect(Set(AppStore.Section.allCases.map(\.symbol)).count == AppStore.Section.allCases.count, "메뉴 아이콘은 서로 달라야 한다.")
+     }
+ 
+diff --git a/DaylogTests/SaessagiTests.swift b/DaylogTests/SaessagiTests.swift
+index 177063c..04bd0bb 100644
+--- a/DaylogTests/SaessagiTests.swift
++++ b/DaylogTests/SaessagiTests.swift
+@@ -581,6 +581,7 @@ struct SaessagiHeaderActionTests {
+         #expect(PioTrial.stage(forLevel: 24).number == 2 && PioTrial.stage(forLevel: 25).number == 3 && PioTrial.stage(forLevel: 50).number == 4)
+         #expect(PioTrial.artStage(level: 1) == 1 && PioTrial.artStage(level: 10) == 2 && PioTrial.artStage(level: 60) == PioTrial.implementedStages)
+         #expect(PioTrial.artStage(level: 24) == 2 && PioTrial.artStage(level: 25) == 3 && PioTrial.artStage(level: 49) == 3)
++        #expect(PioTrial.artStage(level: 50) == 4 && PioTrial.artStage(level: 100) == 4)
+         #expect(GrowthCalculator.level(forXP: 900) == 10 && GrowthCalculator.level(forXP: 899) == 9)
+     }
+ 
+@@ -609,7 +610,7 @@ struct SaessagiHeaderActionTests {
+         #expect(second.wingAttachment?.rightShoulder == third.wingAttachment?.rightShoulder)
+         #expect(second.wingLeft == "pio_rig_wing_left_2" && third.wingLeft == "pio_stage3_wing_left")
+         #expect(PioTrial.wingAttachment(stage: 4)?.leftShoulder == third.wingAttachment?.leftShoulder)
+-        #expect(PioTrial.implementedStages == 3 && PioTrial.artStage(level: 50) == 3)
++        #expect(PioTrial.implementedStages == 4 && PioTrial.artStage(level: 49) == 3)
+         #expect(third.leafPivot == first.leafPivot && third.wingLeftPivot == first.wingLeftPivot && third.hip == first.hip)
+         for name in third.all { #expect(NSImage(named: name) != nil, "Missing Stage 3 layer: \(name)") }
+         for size in [48.0, 64.0, 76.0, 220.0] {
+@@ -628,6 +629,44 @@ struct SaessagiHeaderActionTests {
+         #expect(PioTrial.rigLayers(stage: 3) == nil)
+     }
+ 
++    @Test func pioStageFourUsesDedicatedArtWithoutChangingIdentityOrRegistration() throws {
++        let defaults = UserDefaults.standard
++        let oldCharacter = defaults.object(forKey: "DaylogDebugCharacter")
++        let oldArt = defaults.object(forKey: "DaylogDebugPioArt")
++        defer {
++            defaults.set(oldCharacter, forKey: "DaylogDebugCharacter")
++            defaults.set(oldArt, forKey: "DaylogDebugPioArt")
++        }
++        defaults.set("pio", forKey: "DaylogDebugCharacter")
++        defaults.removeObject(forKey: "DaylogDebugPioArt")
++        let third = try #require(PioTrial.rigLayers(stage: 3))
++        let fourth = try #require(PioTrial.rigLayers(stage: 4))
++        #expect(fourth.body == third.body && fourth.eyes == third.eyes && fourth.mouth == third.mouth)
++        #expect(fourth.footLeft == third.footLeft && fourth.footRight == third.footRight)
++        #expect(fourth.lidClosed == third.lidClosed && fourth.lidHappy == third.lidHappy && fourth.lidSleepy == third.lidSleepy)
++        #expect(fourth.leaf == "pio_stage4_crest" && fourth.leaf != third.leaf)
++        #expect(fourth.wingLeft == "pio_stage4_wing_left" && fourth.wingRight == "pio_stage4_wing_right")
++        #expect(fourth.tailLeft == "pio_stage4_tail_left" && fourth.tailRight == "pio_stage4_tail_right")
++        #expect(fourth.leafBehindBody && fourth.wingShadowLeft == nil && fourth.wingShadowRight == nil)
++        #expect(fourth.leafPivot == third.leafPivot && fourth.hip == third.hip && fourth.eyeCenter == third.eyeCenter)
++        #expect(fourth.wingLeftPivot == third.wingLeftPivot && fourth.wingRightPivot == third.wingRightPivot)
++        #expect(fourth.wingAttachment == third.wingAttachment)
++        for name in fourth.all { #expect(NSImage(named: name) != nil, "Missing Stage 4 layer: \(name)") }
++        for size: CGFloat in [48, 64, 76, 120, 220] {
++            let expectedPadding: CGFloat = size == 220 ? 5 : (size == 120 ? 3 : 2)
++            for scale: CGFloat in [1, 3] {
++                let rig = try #require(SaessagiRig(pose: .idle, size: size, displayScale: scale, pioStage: 4))
++                #expect(rig.leaf != nil && rig.tailLeft != nil && rig.tailRight != nil && rig.wingLeft != nil && rig.wingRight != nil)
++                #expect(rig.padding == expectedPadding)
++                #expect(rig.body.width == Int((size + rig.padding * 2) * scale))
++            }
++        }
++        defaults.set("v2", forKey: "DaylogDebugPioArt")
++        #expect(PioTrial.rigLayers(stage: 4) == nil)
++        defaults.removeObject(forKey: "DaylogDebugCharacter")
++        #expect(PioTrial.rigLayers(stage: 4) == nil)
++    }
++
+     @Test func developedWingRootsStayOnTorsoThroughRotationAndStopping() throws {
+         let defaults = UserDefaults.standard
+         let oldCharacter = defaults.object(forKey: "DaylogDebugCharacter")
+@@ -642,7 +681,7 @@ struct SaessagiHeaderActionTests {
+             if layer.name == name { return layer }
+             return layer.sublayers?.lazy.compactMap { named(name, in: $0) }.first
+         }
+-        for level in [1, 2, 3] {
++        for level in [1, 2, 3, 4] {
+             let rig = try #require(SaessagiRig(pose: .idle, size: 220, displayScale: 3, pioStage: level))
+             let host = CALayer(), stage = SaessagiStage()
+             stage.install(in: host, startX: 0, link: nil)

@@ -1,0 +1,674 @@
+{
+  "canvas": [
+    1254,
+    1254
+  ],
+  "parts": [
+    {
+      "outfit": "basic",
+      "part": "wingLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/base-half-a/wingLeft.png",
+      "source": "wing-left-v1.png",
+      "sha256": "26b3cc73e62a07dc1c754e05f9105afe4941ae50c2bef51d7610806e46f36513",
+      "scale": 0.322265625,
+      "pivot": [
+        375,
+        810
+      ],
+      "z": 0
+    },
+    {
+      "outfit": "basic",
+      "part": "wingRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/base-half-a/wingRight.png",
+      "source": "wing-right-v1.png",
+      "sha256": "38fbedae31b04fb97c29a34590838d6723cbd1f97284a9241c16635818380bd1",
+      "scale": 0.27450980392156865,
+      "pivot": [
+        940,
+        830
+      ],
+      "z": 1
+    },
+    {
+      "outfit": "basic",
+      "part": "footLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/base-half-a/footLeft.png",
+      "source": "foot-v1.png",
+      "sha256": "f353490759240102cf19010dd7d279cfef0435ef388abae184caaea6f4fa281a",
+      "scale": 0.13415892672858618,
+      "pivot": [
+        550,
+        1010
+      ],
+      "z": 2
+    },
+    {
+      "outfit": "basic",
+      "part": "footRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/base-half-a/footRight.png",
+      "source": "foot-v1.png",
+      "sha256": "0f0914620ecf04d2be6bc3fd382d197e61f64d8d17909ab9f03788701fd320f3",
+      "scale": 0.13415892672858618,
+      "pivot": [
+        815,
+        975
+      ],
+      "z": 3
+    },
+    {
+      "outfit": "basic",
+      "part": "sprout",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/base-half-a/sprout.png",
+      "source": "sprout-v1.png",
+      "sha256": "079d6e8d846f04d24c9aa4f639b7f75fc66a57ab00f4fa2a5c4c4281d703d936",
+      "scale": 0.36,
+      "pivot": [
+        650,
+        430
+      ],
+      "z": 4
+    },
+    {
+      "outfit": "basic",
+      "part": "body",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/base-half-a/body.png",
+      "source": "body-clean-v1.png",
+      "sha256": "183eb29ca31c9272c46cebc3b312bf54d37942af9329b6b8afde55b674133ec0",
+      "scale": 0.768361581920904,
+      "pivot": [
+        650,
+        740
+      ],
+      "z": 5
+    },
+    {
+      "outfit": "basic",
+      "part": "eyeLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/base-half-a/eyeLeft.png",
+      "source": "eye-open-v1.png",
+      "sha256": "65a04719ec2de52d3c162949a58012bb6065334f3c4ddbe0f6e958eb4681cba4",
+      "scale": 0.12041884816753927,
+      "pivot": [
+        550,
+        689
+      ],
+      "z": 6
+    },
+    {
+      "outfit": "basic",
+      "part": "eyeRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/base-half-a/eyeRight.png",
+      "source": "eye-open-v1.png",
+      "sha256": "b1fd5143f6e3b3bdc4aa6f82fb2ea3170b4d75672dc9f614435483a3f84091a1",
+      "scale": 0.11518324607329843,
+      "pivot": [
+        815,
+        644
+      ],
+      "z": 7
+    },
+    {
+      "outfit": "basic",
+      "part": "lidLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/base-half-a/lidLeft.png",
+      "source": "eyelid-closed-v1.png",
+      "sha256": "2f206a7d544605ca7dca42e67a15bc2f65542b5b10cf9694731073d59ae403c6",
+      "scale": 0.12158808933002481,
+      "pivot": [
+        550,
+        695
+      ],
+      "z": 8
+    },
+    {
+      "outfit": "basic",
+      "part": "lidRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/base-half-a/lidRight.png",
+      "source": "eyelid-closed-v1.png",
+      "sha256": "a6e5f2d83043da969e195749ff576c0afdd5f9f9121be40cd1042794c80e135a",
+      "scale": 0.11662531017369727,
+      "pivot": [
+        815,
+        649
+      ],
+      "z": 9
+    },
+    {
+      "outfit": "basic",
+      "part": "halfLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/base-half-a/halfLeft.png",
+      "source": "candidates/base/eye-half-v1.png",
+      "sha256": "edeec9df49461258c39edbc94ac4dfb139338cf1228ebe48785db3820eb9c2c8",
+      "scale": 0.13829787234042554,
+      "pivot": [
+        550.5,
+        685
+      ],
+      "z": 10
+    },
+    {
+      "outfit": "basic",
+      "part": "halfRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/base-half-a/halfRight.png",
+      "source": "candidates/base/eye-half-v1.png",
+      "sha256": "6e284e0e6d7a333e91eeca4b82ced764f8f4edc26932dee1fc66f479021ac5f4",
+      "scale": 0.1337386018237082,
+      "pivot": [
+        815,
+        640.5
+      ],
+      "z": 11
+    },
+    {
+      "outfit": "christmas",
+      "part": "footLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/christmas-half-a/footLeft.png",
+      "source": "candidates/base/foot-v1.png",
+      "sha256": "608c193ebeffbec1bfb8fb2f2671094c2a8a2fab58a5bed1965142a25250a135",
+      "scale": 0.17027863777089783,
+      "pivot": [
+        530,
+        1070
+      ],
+      "z": 0
+    },
+    {
+      "outfit": "christmas",
+      "part": "footRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/christmas-half-a/footRight.png",
+      "source": "candidates/base/foot-v1.png",
+      "sha256": "c534212d84d514fad4767f66a136e7b80aefd79b6ebfe63d15fcecdddc85a413",
+      "scale": 0.15479876160990713,
+      "pivot": [
+        817,
+        1070
+      ],
+      "z": 1
+    },
+    {
+      "outfit": "christmas",
+      "part": "body",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/christmas-half-a/body.png",
+      "source": "candidates/christmas/body-clean-v1.png",
+      "sha256": "0daeef7e3cf59c17c7920d1d9105befdac3de04ce41d0df0cba97d40dbfd7e3e",
+      "scale": 0.7992125984251969,
+      "pivot": [
+        650,
+        780
+      ],
+      "z": 2
+    },
+    {
+      "outfit": "christmas",
+      "part": "hat",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/christmas-half-a/hat.png",
+      "source": "candidates/christmas/headwear-v2.png",
+      "sha256": "d08dbc374dc09a383f7ba4cf2ff204e2dd8c2ee0099eab03a8a37827cb956aa7",
+      "scale": 0.7253886010362695,
+      "pivot": [
+        660,
+        450
+      ],
+      "z": 3
+    },
+    {
+      "outfit": "christmas",
+      "part": "eyeLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/christmas-half-a/eyeLeft.png",
+      "source": "candidates/base/eye-open-v1.png",
+      "sha256": "b3a2ea2ce0f44a706423b28c152896bcbc94c1cef8901bbf6772937dd4b17fe5",
+      "scale": 0.12827225130890052,
+      "pivot": [
+        551,
+        652
+      ],
+      "z": 4
+    },
+    {
+      "outfit": "christmas",
+      "part": "eyeRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/christmas-half-a/eyeRight.png",
+      "source": "candidates/base/eye-open-v1.png",
+      "sha256": "d378c26d7b61c3e7edcb23897eeda22954ce246a192e0d7acbf055903517d83d",
+      "scale": 0.1256544502617801,
+      "pivot": [
+        833,
+        618
+      ],
+      "z": 5
+    },
+    {
+      "outfit": "christmas",
+      "part": "lidLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/christmas-half-a/lidLeft.png",
+      "source": "candidates/base/eyelid-closed-v1.png",
+      "sha256": "57904182fc51405c92492e11dd583d7dfc52c5a8520165ccb986678221f7fcdb",
+      "scale": 0.12655086848635236,
+      "pivot": [
+        551,
+        658
+      ],
+      "z": 6
+    },
+    {
+      "outfit": "christmas",
+      "part": "lidRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/christmas-half-a/lidRight.png",
+      "source": "candidates/base/eyelid-closed-v1.png",
+      "sha256": "c14d8340c490528a65f9ef2d388a826b2c788685839aafa6c04172c8101bf230",
+      "scale": 0.12406947890818859,
+      "pivot": [
+        833,
+        622
+      ],
+      "z": 7
+    },
+    {
+      "outfit": "christmas",
+      "part": "gift",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/christmas-half-a/gift.png",
+      "source": "candidates/christmas/gift-v1.png",
+      "sha256": "576882b061afb0574d79e1368bf5080e4afc40379c1a5a560deb6dd6921d9055",
+      "scale": 0.3125,
+      "pivot": [
+        790,
+        925
+      ],
+      "z": 8
+    },
+    {
+      "outfit": "christmas",
+      "part": "handLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/christmas-half-a/handLeft.png",
+      "source": "candidates/christmas/hand-left-v2.png",
+      "sha256": "bbe474e3eb01e44fa4504ebb4e55bd90e79ce203a0ec5c0387fd88c814b2040b",
+      "scale": 0.37542662116040953,
+      "pivot": [
+        513,
+        870
+      ],
+      "z": 9
+    },
+    {
+      "outfit": "christmas",
+      "part": "handRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/christmas-half-a/handRight.png",
+      "source": "candidates/christmas/hand-right-v2.png",
+      "sha256": "11a239187646700205c6320b93d305dafb8eab05aa7a453b7cfb83e079fd9e3b",
+      "scale": 0.26,
+      "pivot": [
+        1050,
+        790
+      ],
+      "z": 10
+    },
+    {
+      "outfit": "christmas",
+      "part": "halfLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/christmas-half-a/halfLeft.png",
+      "source": "candidates/base/eye-half-v1.png",
+      "sha256": "6aa14706070116ef90e270fe63fb054a276e0069edfa7342d8df484e90190a51",
+      "scale": 0.14893617021276595,
+      "pivot": [
+        551,
+        650
+      ],
+      "z": 11
+    },
+    {
+      "outfit": "christmas",
+      "part": "halfRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/christmas-half-a/halfRight.png",
+      "source": "candidates/base/eye-half-v1.png",
+      "sha256": "8497c281feec9ac0df122d4eb98c553d01ac44d70c0f588607fff102a8f8b451",
+      "scale": 0.1458966565349544,
+      "pivot": [
+        833,
+        616
+      ],
+      "z": 12
+    },
+    {
+      "outfit": "hanbok",
+      "part": "wingRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/hanbok-half-a/wingRight.png",
+      "source": "candidates/hanbok/sleeve-right-v2.png",
+      "sha256": "6f3c347d4464fa7d7e6dff453633bec7e186d367db1f549b6b8eced7f6ad8bb6",
+      "scale": 0.27,
+      "pivot": [
+        975,
+        810
+      ],
+      "z": 0
+    },
+    {
+      "outfit": "hanbok",
+      "part": "footLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/hanbok-half-a/footLeft.png",
+      "source": "candidates/base/foot-v1.png",
+      "sha256": "7182cb23ea7468d417d9baa7ad221b02c9fd7f8632f2f1bb73bb64098b757501",
+      "scale": 0.1651186790505676,
+      "pivot": [
+        530,
+        1100
+      ],
+      "z": 1
+    },
+    {
+      "outfit": "hanbok",
+      "part": "footRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/hanbok-half-a/footRight.png",
+      "source": "candidates/base/foot-v1.png",
+      "sha256": "86b122e1e7868fa36190dcdfda843181e7212f8aaf7ba8a51f165ec17ea2993f",
+      "scale": 0.15479876160990713,
+      "pivot": [
+        817,
+        1095
+      ],
+      "z": 2
+    },
+    {
+      "outfit": "hanbok",
+      "part": "sprout",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/hanbok-half-a/sprout.png",
+      "source": "candidates/base/sprout-v1.png",
+      "sha256": "bc6cc8e6ee6a19fd76d8d4eaee164bc021b09b9e0c52826eb4f55494fdf9fc13",
+      "scale": 0.37,
+      "pivot": [
+        625,
+        365
+      ],
+      "z": 3
+    },
+    {
+      "outfit": "hanbok",
+      "part": "body",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/hanbok-half-a/body.png",
+      "source": "candidates/hanbok/body-clean-v1.png",
+      "sha256": "835a85c3644ec94a6568f66301411e658efb0c13926a2628c39f7dc0a48a6d46",
+      "scale": 0.8624127617148555,
+      "pivot": [
+        650,
+        780
+      ],
+      "z": 4
+    },
+    {
+      "outfit": "hanbok",
+      "part": "eyeLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/hanbok-half-a/eyeLeft.png",
+      "source": "candidates/base/eye-open-v1.png",
+      "sha256": "65ac8f029ca00e264de87d036af9e7fa3fba577fe66c0f32ad160620c41bc0d2",
+      "scale": 0.13350785340314136,
+      "pivot": [
+        539,
+        631
+      ],
+      "z": 5
+    },
+    {
+      "outfit": "hanbok",
+      "part": "eyeRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/hanbok-half-a/eyeRight.png",
+      "source": "candidates/base/eye-open-v1.png",
+      "sha256": "7c39bc0ca883f79dd7fab81d9f18d86ed8f4406fcf3aa4819eb935fe137aa1a3",
+      "scale": 0.12827225130890052,
+      "pivot": [
+        824,
+        592
+      ],
+      "z": 6
+    },
+    {
+      "outfit": "hanbok",
+      "part": "lidLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/hanbok-half-a/lidLeft.png",
+      "source": "candidates/base/eyelid-closed-v1.png",
+      "sha256": "c6eff1c7188e74e811d0d75cfc22dff7ac7f44961c7e1065a7b97c68408dfd0b",
+      "scale": 0.12903225806451613,
+      "pivot": [
+        539,
+        639
+      ],
+      "z": 7
+    },
+    {
+      "outfit": "hanbok",
+      "part": "lidRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/hanbok-half-a/lidRight.png",
+      "source": "candidates/base/eyelid-closed-v1.png",
+      "sha256": "98ad047eb122ca5e7113852cad3d13a3a11d8ebfe7e8ffa6a2b163d60f75e2b3",
+      "scale": 0.12406947890818859,
+      "pivot": [
+        824,
+        598
+      ],
+      "z": 8
+    },
+    {
+      "outfit": "hanbok",
+      "part": "halfLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/hanbok-half-a/halfLeft.png",
+      "source": "candidates/base/eye-half-v1.png",
+      "sha256": "2a10df3ad51f11079c58968d0e0f4d42de7f211b2ac79477be4dce9c02c01a9f",
+      "scale": 0.1519756838905775,
+      "pivot": [
+        539,
+        629
+      ],
+      "z": 9
+    },
+    {
+      "outfit": "hanbok",
+      "part": "halfRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/hanbok-half-a/halfRight.png",
+      "source": "candidates/base/eye-half-v1.png",
+      "sha256": "ac29c546269bab5cfdcc340a8b13b70205b81addc16bb2175de8b016595817c9",
+      "scale": 0.14893617021276595,
+      "pivot": [
+        824,
+        589
+      ],
+      "z": 10
+    },
+    {
+      "outfit": "hanbok",
+      "part": "wingLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/hanbok-half-a/wingLeft.png",
+      "source": "candidates/hanbok/sleeve-left-v3.png",
+      "sha256": "62a8b7d07cef7fdca8d8a39fd015df3401b32cc913ee292aaef09b8183c2c337",
+      "scale": 0.28554778554778554,
+      "pivot": [
+        400,
+        790
+      ],
+      "z": 11
+    },
+    {
+      "outfit": "astronaut",
+      "part": "footLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/footLeft.png",
+      "source": "candidates/base/foot-v1.png",
+      "sha256": "6ea400f2910a6fdd4afcc7fcdcf498c84760517455f342f35c72179e25dd968e",
+      "scale": 0.14963880288957687,
+      "pivot": [
+        572,
+        1060
+      ],
+      "z": 0
+    },
+    {
+      "outfit": "astronaut",
+      "part": "footRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/footRight.png",
+      "source": "candidates/base/foot-v1.png",
+      "sha256": "be405ddb5a56d117df08ae4abf41b6199127f0c49196b2c744b6321547b6ec1d",
+      "scale": 0.14420803782505912,
+      "pivot": [
+        770,
+        1060
+      ],
+      "z": 1
+    },
+    {
+      "outfit": "astronaut",
+      "part": "wingRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/wingRight.png",
+      "source": "candidates/astronaut/glove-right-v1.png",
+      "sha256": "d51c9399224175ccdb8b43dcf7e5cc2731d27161daa57f970d713d7df4625bb3",
+      "scale": 0.24,
+      "pivot": [
+        933,
+        855
+      ],
+      "z": 2
+    },
+    {
+      "outfit": "astronaut",
+      "part": "sprout",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/sprout.png",
+      "source": "candidates/base/sprout-v1.png",
+      "sha256": "552faaa7e5bc0b4d9c0b4d241869a05d041316df54ea7edd99e8f771cd6d0f12",
+      "scale": 0.37,
+      "pivot": [
+        625,
+        400
+      ],
+      "z": 3
+    },
+    {
+      "outfit": "astronaut",
+      "part": "body",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/body.png",
+      "source": "candidates/astronaut/body-clean-v1.png",
+      "sha256": "deb0873ab1889c505a8b6440e57a4bf4e9e258b78583e8d450f7f9949d61e9ef",
+      "scale": 0.82,
+      "pivot": [
+        650,
+        800
+      ],
+      "z": 4
+    },
+    {
+      "outfit": "astronaut",
+      "part": "eyeLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/eyeLeft.png",
+      "source": "candidates/base/eye-open-v1.png",
+      "sha256": "fb9ebc5e3bdc3d0037a9e8f17e2040be080b5c657e029911f8b198523d0ddfc3",
+      "scale": 0.12303664921465969,
+      "pivot": [
+        550,
+        679
+      ],
+      "z": 5
+    },
+    {
+      "outfit": "astronaut",
+      "part": "eyeRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/eyeRight.png",
+      "source": "candidates/base/eye-open-v1.png",
+      "sha256": "30266a2fbbf25a3a421c9af3b01330ba6b402da423f28eafa847eaa62de355b9",
+      "scale": 0.11910994764397906,
+      "pivot": [
+        799,
+        642
+      ],
+      "z": 6
+    },
+    {
+      "outfit": "astronaut",
+      "part": "lidLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/lidLeft.png",
+      "source": "candidates/base/eyelid-closed-v1.png",
+      "sha256": "3592601acc49cc0880a35fa6b16cb855d2af9937e54baabbe80671f72b23dd88",
+      "scale": 0.11910669975186104,
+      "pivot": [
+        550,
+        685
+      ],
+      "z": 7
+    },
+    {
+      "outfit": "astronaut",
+      "part": "lidRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/lidRight.png",
+      "source": "candidates/base/eyelid-closed-v1.png",
+      "sha256": "04747d19e91be01e4fd5de94530a045e7587f5b4e3449fcdbdd7d34da21a6e08",
+      "scale": 0.11538461538461539,
+      "pivot": [
+        799,
+        648
+      ],
+      "z": 8
+    },
+    {
+      "outfit": "astronaut",
+      "part": "halfLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/halfLeft.png",
+      "source": "candidates/base/eye-half-v1.png",
+      "sha256": "f638246164edf4f17429f02fc9f8a4ed253f2b3fc023657ce74c4cc672f5dd3e",
+      "scale": 0.1398176291793313,
+      "pivot": [
+        550,
+        676.5
+      ],
+      "z": 9
+    },
+    {
+      "outfit": "astronaut",
+      "part": "halfRight",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/halfRight.png",
+      "source": "candidates/base/eye-half-v1.png",
+      "sha256": "37a6a26e07748c8f22a1e5bd118f01f8758faf1fbdab5887318fd4cf5371dc53",
+      "scale": 0.135258358662614,
+      "pivot": [
+        799.5,
+        639
+      ],
+      "z": 10
+    },
+    {
+      "outfit": "astronaut",
+      "part": "wingLeft",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/wingLeft.png",
+      "source": "candidates/astronaut/glove-left-v1.png",
+      "sha256": "d4659ba4fe9b2a4db43e9d8eb3a1be87fe8a4802d3055bd91c37f9bb8e58f3ec",
+      "scale": 0.28,
+      "pivot": [
+        515,
+        870
+      ],
+      "z": 11
+    },
+    {
+      "outfit": "astronaut",
+      "part": "visor",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/visor.png",
+      "source": "candidates/astronaut/visor-v1.png",
+      "sha256": "13f3986cbeaab881e3018d56b7e5362e8e6b4f2381047ca630fc75198bed4ff2",
+      "scale": 0.54178145087236,
+      "pivot": [
+        650,
+        650
+      ],
+      "z": 12
+    },
+    {
+      "outfit": "astronaut",
+      "part": "helmet",
+      "registeredFile": "docs/qa/pio-outfit-phase2.2-2026-10-16/registered/astronaut-half-a/helmet.png",
+      "source": "candidates/astronaut/helmet-shell-v2.png",
+      "sha256": "8bdd1d9ad2152733ca625785965cf38def9c8a1fe5ec175ebb2a427809e84ba0",
+      "scale": 0.63,
+      "pivot": [
+        650,
+        650
+      ],
+      "z": 13
+    }
+  ],
+  "sourceMethod": "Built-in image_gen native raster reconstruction, no original wardrobe edits; uniform registration, no source upscaling",
+  "prompts": "generation-prompts.json",
+  "finalGate": "final-art-gate.md"
+}

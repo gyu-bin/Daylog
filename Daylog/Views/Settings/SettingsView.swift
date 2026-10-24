@@ -153,7 +153,7 @@ struct SettingsView: View {
 
     private var wideSettings: some View {
         VStack(alignment: .leading, spacing: Theme.spacing) {
-            PageTitle(title: "설정", subtitle: "Daylog를 내 방식에 맞게 바꿔요.")
+            PageTitle(title: "설정", subtitle: "RoutiMori를 내 방식에 맞게 바꿔요.")
                 .padding(.horizontal, Theme.pagePadding)
                 .padding(.top, Theme.pagePadding)
             HStack(alignment: .top, spacing: 24) {
@@ -330,7 +330,7 @@ struct SettingsView: View {
             HStack(spacing: 12) {
                 BrandIcon(size: 44)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Daylog")
+                    Text("RoutiMori")
                         .font(.headline)
                     Text("버전 \(Self.version)")
                         .font(.callout)
@@ -496,7 +496,7 @@ struct SettingsView: View {
             } header: {
                 Text("이 계정으로 쓰는 기기")
             } footer: {
-                Text("각 기기가 마지막으로 Daylog를 쓴 때예요. 이 기능이 들어간 버전으로 업데이트한 기기만 나와요.")
+                Text("각 기기가 마지막으로 RoutiMori를 쓴 때예요. 이 기능이 들어간 버전으로 업데이트한 기기만 나와요.")
             }
         }
     }
@@ -545,7 +545,7 @@ private struct AppearanceSection: View {
         } header: {
             Text("외관")
         } footer: {
-            Text("라이트·다크를 고르면 Daylog만 그 모드로 보여요. \(Platform.thisDevice)에만 적용돼요.")
+            Text("라이트·다크를 고르면 RoutiMori만 그 모드로 보여요. \(Platform.thisDevice)에만 적용돼요.")
         }
     }
 }

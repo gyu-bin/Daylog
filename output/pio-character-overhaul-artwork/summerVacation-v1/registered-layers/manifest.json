@@ -1,0 +1,400 @@
+{
+  "canvas" : [
+    1254,
+    1254
+  ],
+  "layers" : [
+    {
+      "file" : "footLeft.png",
+      "height" : 1254,
+      "id" : "footLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        418.69976359338062,
+        1060.4491725768321
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        520,
+        1135
+      ],
+      "scale" : 0.14775413711583923,
+      "sha256" : "407981d5e75a74d4900d761383f276a3d48bff736ee242129f8e873a277ede09",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/foot-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 0
+    },
+    {
+      "file" : "footRight.png",
+      "height" : 1254,
+      "id" : "footRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        727.9078014184397,
+        1085.177304964539
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        815,
+        1145
+      ],
+      "scale" : 0.12411347517730496,
+      "sha256" : "ca780229235afad974f5c6a3d4542d92c6a5548d7d79fe0730e23381654524f9",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/foot-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 1
+    },
+    {
+      "file" : "wingRight.png",
+      "height" : 1254,
+      "id" : "wingRight",
+      "neutralAngleDegrees" : -35,
+      "offset" : [
+        934,
+        787
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        1000,
+        930
+      ],
+      "scale" : 0.22,
+      "sha256" : "e32a331c6f38c4cf65d41b13d055f031f038898d2d2fec431e888fd18af90c3f",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/summerVacation-v1\/source\/wing-right-candidate.png",
+      "sourcePixels" : [
+        1374,
+        1145
+      ],
+      "sourceSHA256" : "973a43ab9b9666fb1f968490726df158e900f97bdaec2de8261304230005f7a0",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 2
+    },
+    {
+      "file" : "body.png",
+      "height" : 1254,
+      "id" : "body",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        0,
+        0
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        650,
+        800
+      ],
+      "scale" : 1,
+      "sha256" : "dc01679718fe08ef09af9fb97883ec42ebd1affb9b2ad850ed87fddbc0b5d4d7",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/summerVacation-v1\/source\/body-candidate.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "342e0cb81ea9f080652e5b127dd55c43938ed1756767f2eb486ae71e2345d91d",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 3
+    },
+    {
+      "file" : "eyeLeft.png",
+      "height" : 1254,
+      "id" : "eyeLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        445.11780104712039,
+        539.72513089005236
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        540,
+        635
+      ],
+      "scale" : 0.14397905759162305,
+      "sha256" : "2addd19f5e019868bb6e1cd9060e50838440f13f329cce2d2a02e97be5e783be",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-open-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 4
+    },
+    {
+      "file" : "eyeRight.png",
+      "height" : 1254,
+      "id" : "eyeRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        750.11780104712045,
+        494.72513089005236
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        845,
+        590
+      ],
+      "scale" : 0.14397905759162305,
+      "sha256" : "72cb62f8244a9ea07b5073742d213cfdc9c19017d7c4081bd344f765e01898de",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-open-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 5
+    },
+    {
+      "file" : "sunglasses.png",
+      "height" : 1254,
+      "id" : "sunglasses",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        244.95657568238215,
+        409.06327543424317
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        650,
+        625
+      ],
+      "scale" : 0.42493796526054589,
+      "sha256" : "58ec3f1c627af80a77426a181d9029fc97dfb145daf53814254d71f7c7d902fc",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/summerVacation-v1\/source\/sunglasses-candidate.png",
+      "sourcePixels" : [
+        1774,
+        887
+      ],
+      "sourceSHA256" : "f401e1ccdf582be82673287d9f80244354d6e5bb6f4f42590e76295dceeed65e",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 6
+    },
+    {
+      "file" : "wingLeft.png",
+      "height" : 1254,
+      "id" : "wingLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        74,
+        742
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        360,
+        885
+      ],
+      "scale" : 0.26000000000000001,
+      "sha256" : "577ff4dfa018947658df248d2167aea6511a427236f2e27e892fbf16543da4a7",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/summerVacation-v1\/source\/wing-left-candidate.png",
+      "sourcePixels" : [
+        1402,
+        1122
+      ],
+      "sourceSHA256" : "73ccfddfe0e8e09cc506d02b64e89dc03eb446436009461f0bf76972ab14e2cb",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 7
+    },
+    {
+      "file" : "drink.png",
+      "height" : 1254,
+      "id" : "drink",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        885.36072144288573,
+        583.62725450901803
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        1000,
+        930
+      ],
+      "scale" : 0.27054108216432865,
+      "sha256" : "006fd7c7ac7579695384b806e4b95f4f842121632b83841916f8ab35fb231000",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/summerVacation-v1\/source\/drink-candidate.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "4bddcb5e1a8ae6764af4a74daff8a2538acbb6bded8b59fcd351b5d7ce47e12b",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 8
+    },
+    {
+      "file" : "headwear.png",
+      "height" : 1254,
+      "id" : "headwear",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        43.505434782608702,
+        11.880434782608702
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        650,
+        440
+      ],
+      "scale" : 0.72282608695652173,
+      "sha256" : "570c887e108102e0c89469e6eefa878f31b1359856f5b96709104b36c6218a6a",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/summerVacation-v1\/source\/headwear-v2-candidate.png",
+      "sourcePixels" : [
+        1536,
+        1024
+      ],
+      "sourceSHA256" : "09008d9182fbc5d9c78c4d14b79a86793a3ee9a4083653aa96c36fe693ea12fc",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 9
+    },
+    {
+      "file" : "halfLeft.png",
+      "height" : 1254,
+      "id" : "halfLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        435.45676252009105,
+        513.27018252995754
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        540,
+        628.99214659685867
+      ],
+      "scale" : 0.16673562596476713,
+      "sha256" : "bbbfe5a0ecabdad3edef359652d050869cc41c3b5fb2eae09962cbfa04b4304f",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-half-v1.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 10
+    },
+    {
+      "file" : "lidLeft.png",
+      "height" : 1254,
+      "id" : "lidLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        449.88911696309094,
+        553.85437101321247
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        540,
+        649.83743455497381
+      ],
+      "scale" : 0.13611915866602578,
+      "sha256" : "9054ec9c3f3bc11eb8b8549ccc50a50f2cc4e7d813e1430a56275f5a62cf67d9",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eyelid-closed-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 11
+    },
+    {
+      "file" : "halfRight.png",
+      "height" : 1254,
+      "id" : "halfRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        740.45676252009105,
+        468.27018252995754
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        845,
+        583.99214659685867
+      ],
+      "scale" : 0.16673562596476713,
+      "sha256" : "cc6eefaada3bd86b940488118e2598d34432f463469633ffc2a7ad424e23cf41",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eye-half-v1.png",
+      "sourcePixels" : [
+        1254,
+        1254
+      ],
+      "sourceSHA256" : "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 12
+    },
+    {
+      "file" : "lidRight.png",
+      "height" : 1254,
+      "id" : "lidRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        754.88911696309094,
+        508.85437101321247
+      ],
+      "outsideCanvasAlpha16Pixels" : 0,
+      "outsideCanvasAnyAlphaPixels" : 0,
+      "pivot" : [
+        845,
+        604.83743455497381
+      ],
+      "scale" : 0.13611915866602578,
+      "sha256" : "2ea58bf736089e37902297ccf2ca9f008f76a81543244bfce671a9e36f1fd474",
+      "source" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/docs\/qa\/pio-outfit-phase2.2-2026-10-16\/candidates\/base\/eyelid-closed-v1.png",
+      "sourcePixels" : [
+        1319,
+        1192
+      ],
+      "sourceSHA256" : "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "warning" : "none",
+      "width" : 1254,
+      "z" : 13
+    }
+  ],
+  "newlyAuthoredSourceCount" : 0,
+  "notes" : [
+    "These are derivative exports, not newly authored source artwork",
+    "Neutral rigid rotations baked into derivative canvas; retain pivots for future motion",
+    "Full source artwork preserved unchanged; no masks or painting",
+    "Eye open\/half\/closed are mutually exclusive alternatives, not simultaneously visible layers",
+    "Summer primary opaque lenses obscure eye alternatives",
+    "Summer added half\/closed registration is a provisional static fit, not native blink approval",
+    "Partial transparency preserved; outside-canvas counts warn rather than silently ignore clipped source"
+  ],
+  "origin" : "topLeft",
+  "sourceRegistration" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/output\/pio-character-overhaul-artwork\/summerVacation-v1\/registration\/registration-candidate.json",
+  "sourceRegistrationSHA256" : "9cd5617fb3496eb70426c7d78894f91f3ce55f406f7c8336a0ffa0cdb958d53b",
+  "status" : "UNAPPROVED_CANDIDATE_REGISTERED_DERIVATIVES"
+}

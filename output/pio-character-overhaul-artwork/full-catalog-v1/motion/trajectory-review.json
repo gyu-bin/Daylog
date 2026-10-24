@@ -1,0 +1,64 @@
+{
+  "status": "PARTIAL_OFFLINE_STUDIES",
+  "keyposeBoundaryAudit": [
+    {
+      "outfit": "halloween",
+      "keyposesWithAlphaTouchingBoundary": []
+    },
+    {
+      "outfit": "cherryBlossom",
+      "keyposesWithAlphaTouchingBoundary": []
+    },
+    {
+      "outfit": "autumn",
+      "keyposesWithAlphaTouchingBoundary": []
+    },
+    {
+      "outfit": "rainyDay",
+      "keyposesWithAlphaTouchingBoundary": []
+    },
+    {
+      "outfit": "student",
+      "keyposesWithAlphaTouchingBoundary": []
+    },
+    {
+      "outfit": "basic",
+      "keyposesWithAlphaTouchingBoundary": []
+    },
+    {
+      "outfit": "astronaut",
+      "keyposesWithAlphaTouchingBoundary": []
+    },
+    {
+      "outfit": "christmas",
+      "keyposesWithAlphaTouchingBoundary": []
+    },
+    {
+      "outfit": "winter",
+      "keyposesWithAlphaTouchingBoundary": []
+    },
+    {
+      "outfit": "cafe",
+      "keyposesWithAlphaTouchingBoundary": []
+    },
+    {
+      "outfit": "hanbok",
+      "keyposesWithAlphaTouchingBoundary": []
+    },
+    {
+      "outfit": "fitness",
+      "keyposesWithAlphaTouchingBoundary": []
+    },
+    {
+      "outfit": "pajamas",
+      "keyposesWithAlphaTouchingBoundary": []
+    },
+    {
+      "outfit": "summerVacation",
+      "keyposesWithAlphaTouchingBoundary": []
+    }
+  ],
+  "allKeyposesClearOf400pxBoundary": true,
+  "actualReview": "14 contact boards plus actual decoded GIF all14 greet montage; decoded Basic/Rainy/Christmas/Pajamas/Fitness sample strips and Basic eight-action time-based trajectories.",
+  "limits": "Whole-body affine squash/lift/lean is explicitly whole-body; no face reconstruction or fullclothdeformation claimed."
+}

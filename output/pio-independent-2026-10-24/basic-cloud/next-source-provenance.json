@@ -1,0 +1,55 @@
+[
+  {
+    "id": "halfPair",
+    "source": "output/pio-independent-2026-10-24/basic-cloud/source/halfPair-v1.png",
+    "sha256": "86a004ff952ef3301c71ece8f661b6cee0444199346b66c6a9837f683695e1b4",
+    "canvas": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha16_bounds": {
+      "Left": [
+        427,
+        738,
+        580,
+        886
+      ],
+      "Right": [
+        772,
+        739,
+        926,
+        886
+      ]
+    },
+    "runtime_registered": false,
+    "approval": "CANDIDATE_PENDING_NATIVE_REVIEW"
+  },
+  {
+    "id": "feetPair",
+    "source": "output/pio-independent-2026-10-24/basic-cloud/source/feetPair-v1.png",
+    "sha256": "d19d435181acd1c020eecfb5952074ae4cc5a46163e8062126cc6d2713e76345",
+    "canvas": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha16_bounds": {
+      "Left": [
+        291,
+        993,
+        504,
+        1169
+      ],
+      "Right": [
+        796,
+        998,
+        1010,
+        1169
+      ]
+    },
+    "runtime_registered": true,
+    "approval": "CANDIDATE_PENDING_NATIVE_REVIEW",
+    "runtime_scope": "DEBUG hands-V2 candidate only; native foreground occlusion review pending"
+  }
+]

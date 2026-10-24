@@ -1,0 +1,22 @@
+{
+  "output/pio-character-overhaul-artwork/qa/summer-motion/summer-grip-offline-proof.gif": {
+    "bytes": 3185649,
+    "dimensions": [
+      440,
+      440
+    ],
+    "frames": 48,
+    "frame_duration_ms": 80,
+    "sha256": "0caae6aff5a2836dcbdb1b2a33b9c1aa90835f00503f8874bcd4adb367ab73ce"
+  },
+  "output/pio-character-overhaul-artwork/qa/cherry-motion/cherry-independent-offline-proof.gif": {
+    "bytes": 2951339,
+    "dimensions": [
+      440,
+      440
+    ],
+    "frames": 48,
+    "frame_duration_ms": 80,
+    "sha256": "b91ee673c3a8bc11c9fbb3684b4db1d26e3a018633db182279039436fb72485d"
+  }
+}

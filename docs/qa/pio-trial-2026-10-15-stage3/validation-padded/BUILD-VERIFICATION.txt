@@ -1,0 +1,36 @@
+Stage 3 implementation verification — 2026-10-15
+
+PASS: macOS Debug isolated build.
+  DAYLOG_DEV_DIR=/tmp/DaylogStage3.noindex Tools/dev.sh build
+  /tmp/pio-stage3-mac-build.log
+
+PASS: targeted tests — 26 tests, 2 suites, 0.407 seconds.
+  DAYLOG_DEV_DIR=/tmp/DaylogStage3.noindex Tools/dev.sh test -only-testing:DaylogTests/SaessagiTests -only-testing:DaylogTests/SaessagiGrowthTests
+  /tmp/pio-stage3-tests.log
+  /tmp/DaylogStage3.noindex/verify/Logs/Test/Test-Daylog-2026.10.15_15-56-00-+0900.xcresult
+
+PASS: iOS Simulator Debug build.
+  /tmp/pio-stage3-ios-build.log
+  /tmp/DaylogStage3.noindex/ios/Build/Products/Debug-iphonesimulator/Daylog.app
+  Isolated bundle ID com.daylog.verify.ios.
+  Build-only caveat: overriding PRODUCT_BUNDLE_IDENTIFIER globally also sets the widget bundle ID to the app ID. Before installation, parent corrects only generated DaylogWidgets.appex/Info.plist to com.daylog.verify.ios.widgets and ad-hoc signs extension/app. Source project settings remain unchanged.
+
+PASS: pure macOS Release build.
+  DAYLOG_DEV_DIR=/tmp/DaylogStage3.noindex Tools/dev.sh build Release
+  /tmp/pio-stage3-release-build.log
+  assetutil -I inspection: zero Pio names in Release Assets.car. PioTrial.xcassets excluded; DEBUG-only selection unchanged.
+
+PASS: standalone CALayer validator compiled and rendered all requested static poses.
+  swiftc -module-cache-path /tmp/pio-stage3-module-cache -O Tools/pio-rig/validate-stage3.swift -o /tmp/pio-validate-stage3
+  /tmp/pio-validate-stage3 docs/qa/pio-trial-2026-10-15-stage3/assets docs/qa/pio-trial-2026-10-15-stage3/validation-padded --stage3-padding
+
+PASS: git diff --check and candidate/catalog byte-identity comparison for all five new PNGs. No original Stage 1/2 asset changes.
+
+Runtime animation, Reduce Motion and process CPU/RSS evidence are recorded separately by parent. Static renderer is not runtime/performance evidence.
+
+PASS: optimized macOS performance build (Release optimization + DEBUG arguments).
+  /tmp/DaylogStage3.noindex/verify-perf/Build/Products/Release/Daylog.app
+  /tmp/pio-stage3-perf-build-final.log
+  Build overrides: OTHER_SWIFT_FLAGS=$(inherited) -DDEBUG, ENABLE_HARDENED_RUNTIME=NO, EXCLUDED_SOURCE_FILE_NAMES=.
+  The last override is confined to this verification build: normal Release excludes the trial catalog even with DEBUG defined.
+  assetutil confirms all five pio_stage3_* names in the performance app's Assets.car.

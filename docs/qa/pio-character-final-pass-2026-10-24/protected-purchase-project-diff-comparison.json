@@ -1,0 +1,20 @@
+{
+  "Routimori.storekit": {
+    "trackedDiffEqualsStart": true
+  },
+  "Daylog.xcodeproj/project.pbxproj": {
+    "trackedDiffEqualsStart": true
+  },
+  "Daylog/Services/PioPurchaseManager.swift": {
+    "trackedDiffEqualsStart": true
+  },
+  "Daylog/Services/PioProductRegistry.swift": {
+    "trackedDiffEqualsStart": true
+  },
+  "Daylog/Services/PioAppearanceCoordinator.swift": {
+    "trackedDiffEqualsStart": true
+  },
+  "Daylog/Services/PioWardrobe.swift": {
+    "trackedDiffEqualsStart": true
+  }
+}

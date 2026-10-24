@@ -1,0 +1,226 @@
+{
+  "canvas": [
+    1254,
+    1254
+  ],
+  "notes": [
+    "Top-left 1254 canvas; whole source affine transforms only, no source crop/mask/painting/alpha cleanup/upscale.",
+    "One newly generated broad oval arm source reused with full-image horizontal mirror for opposite side. Existing body/headwear/pillow and shared eyelids/feet reused. No source pixel cleanup.",
+    "Default closed eyes and existing open beak. Both hands + pillow move together by \u00b13 degrees; body fixed.",
+    "Offline compositing proof only; app animation and target rendering not tested."
+  ],
+  "origin": "topLeft",
+  "original": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/PioWardrobe.xcassets/pio_outfit_pajamas.imageset/pio_outfit_pajamas.png",
+  "parts": [
+    {
+      "angle": 0,
+      "id": "footLeft",
+      "offset": [
+        441.22458628841605,
+        1048.2860520094562
+      ],
+      "pivot": [
+        535,
+        1120
+      ],
+      "scale": 0.13356973995271867,
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+      "sourceSHA256": "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+      "z": 0
+    },
+    {
+      "angle": 0,
+      "id": "footRight",
+      "offset": [
+        716.855791962175,
+        1048.9952718676122
+      ],
+      "pivot": [
+        810,
+        1120
+      ],
+      "scale": 0.13002364066193853,
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+      "sourceSHA256": "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+      "z": 1
+    },
+    {
+      "angle": 0,
+      "id": "body",
+      "offset": [
+        150,
+        220
+      ],
+      "pivot": [
+        650,
+        800
+      ],
+      "scale": 0.78,
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/body-candidate.png",
+      "sourceSHA256": "b12029ead08697f54f3720f494cc24d7c8af8cb430ae7fc97913ef27b78e9f2f",
+      "z": 2
+    },
+    {
+      "angle": 0,
+      "id": "eyeLeft",
+      "offset": [
+        475.74345549738223,
+        607.9319371727748
+      ],
+      "pivot": [
+        562,
+        694
+      ],
+      "scale": 0.13089005235602094,
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+      "sourceSHA256": "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "z": 3
+    },
+    {
+      "angle": 0,
+      "id": "eyeRight",
+      "offset": [
+        735.7434554973822,
+        544.9319371727748
+      ],
+      "pivot": [
+        822,
+        631
+      ],
+      "scale": 0.13089005235602094,
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+      "sourceSHA256": "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+      "z": 4
+    },
+    {
+      "angle": 0,
+      "id": "headwear",
+      "offset": [
+        126.31441048034935,
+        -5.886462882096069
+      ],
+      "pivot": [
+        650,
+        430
+      ],
+      "scale": 0.7161572052401747,
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/headwear-candidate.png",
+      "sourceSHA256": "e9e315e9c668ccfcb715de512b1113152fa1f68248750abc1b7be97614e5582a",
+      "z": 5
+    },
+    {
+      "angle": -10,
+      "id": "pillow",
+      "offset": [
+        572.2519413287316,
+        614.3313201035376
+      ],
+      "pivot": [
+        820,
+        900
+      ],
+      "scale": 0.4141501294219154,
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/pillow-candidate.png",
+      "sourceSHA256": "8dde4bc43a68c3af3990fbb3f4c395ef39e525ba41459e19ef21cd877aeb5e6d",
+      "z": 6
+    },
+    {
+      "angle": 0,
+      "id": "wingLeft",
+      "offset": [
+        405.0,
+        774.0566037735849
+      ],
+      "pivot": [
+        456,
+        844
+      ],
+      "scale": 0.2830188679245283,
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/wing-oval-compact-candidate-v5.png",
+      "sourceSHA256": "038b650dc4a41fa00538a276158fcd8feeba6fe6d34376f2c62c2231c32d1a8e",
+      "z": 7,
+      "mirrorX": true
+    },
+    {
+      "angle": 0,
+      "id": "wingRight",
+      "offset": [
+        820.4528301886793,
+        771.1462264150944
+      ],
+      "pivot": [
+        1100,
+        860
+      ],
+      "scale": 0.23113207547169812,
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/wing-oval-compact-candidate-v5.png",
+      "sourceSHA256": "038b650dc4a41fa00538a276158fcd8feeba6fe6d34376f2c62c2231c32d1a8e",
+      "z": 8
+    },
+    {
+      "angle": 0,
+      "id": "halfLeft",
+      "offset": [
+        466.96069320008286,
+        583.8819841181431
+      ],
+      "pivot": [
+        562.0000000000001,
+        689.0837696335078
+      ],
+      "scale": 0.1515778417861519,
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+      "sourceSHA256": "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+      "z": 9
+    },
+    {
+      "angle": 0,
+      "id": "lidLeft",
+      "offset": [
+        480.0810154209919,
+        620.7767009211021
+      ],
+      "pivot": [
+        562.0000000000001,
+        689.0837696335078
+      ],
+      "scale": 0.12374468969638704,
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+      "sourceSHA256": "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "z": 10
+    },
+    {
+      "angle": 0,
+      "id": "halfRight",
+      "offset": [
+        726.9606932000829,
+        520.8819841181431
+      ],
+      "pivot": [
+        822.0000000000001,
+        626.0837696335078
+      ],
+      "scale": 0.1515778417861519,
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+      "sourceSHA256": "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+      "z": 11
+    },
+    {
+      "angle": 0,
+      "id": "lidRight",
+      "offset": [
+        740.0810154209919,
+        557.7767009211021
+      ],
+      "pivot": [
+        822.0000000000001,
+        626.0837696335078
+      ],
+      "scale": 0.12374468969638704,
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+      "sourceSHA256": "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+      "z": 12
+    }
+  ],
+  "status": "ARTWORK_CANDIDATE_PENDING_USER_VISUAL_APPROVAL"
+}

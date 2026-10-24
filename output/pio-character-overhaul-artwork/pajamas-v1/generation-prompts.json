@@ -1,0 +1,42 @@
+[
+  {
+    "role": "pajamasBody",
+    "prompt": "Use case: precise-object-edit. Edit target approved Pajamas Pio. Create ONE clean body rig layer preserving exact existing sleepypose, tilt, round cream face, orange yawning-smiling mouth, rosycheeks, lavenderpajamarobe with creamstars, lapel/trim andplushmaterial. Preserve original1254square position/framing; beakcenteraround(700,690), robe bottomsaroundy1110. REMOVE both closedeyes and reconstructcontinuouscleancreamfur. REMOVE entire cap/pompom/sprout; reconstructroundheadhiddenunderhat. REMOVE pillow andbotharms/hands/sleeves andfeet, genuinelyreconstructfull hiddenlavenderrobe torso, starpatterns andneckcollarunderpillow andshoulder/ankleroots. Keep approved originaldesign, notnewstandingpose, notopeneyedwholecharacter. Bodyonly: noeyes,limbs,pillow,headwear,sprout,feet. Highresolution actualrigcomponent withtransparentRGBA exterior, no glow,background,castshadow,text,watermark. Hidden surfaces must becompletepremiumtexturedart, not flatpatches or lowrescrops.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-50fb9d7c-5587-4d7f-a8eb-e7cd5aa3fa54.png",
+    "file": "body-candidate.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  },
+  {
+    "role": "pajamasHat",
+    "prompt": "Use case: precise-object-edit. From approved Pajamas Pio make ONLY combined lavender nightcap+creamwhite fluffy pompom+green two-leaf sprout. Preserve exact creamstarpattern, approved droop towardscreenleft, softfur band following tiltedforehead, fuzzyvelvetlavendermaterial, originalleafdirection andpompomatscreenleft. NO character,face,eyes,beak,body,robe,pillow,hands,feet. One genuine detailed standaloneheadwear component with completehiddenattachmentseat. Centralfaceopening UNDER curvedwhitebrim is fullytransparent, NOT a solid undersideplane. Fullcap/leaves/pompomvisibleuncropped with ampletransparentpadding, no castshadow,glow,background,text orsheet. Premium2.5Dsoftplushmatchingapprovedreference, no redesign.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-32c2b81b-42ba-46b8-a40f-89ec1b0ef073.png",
+    "file": "headwear-candidate.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  },
+  {
+    "role": "pajamasLeft",
+    "prompt": "Use case: precise-object-edit. Extract and genuinely reconstruct ONLY SCREEN-LEFT pillowhugging arm from approved Pajamas Pio. One complete short lavender starpattern sleeve with white pipingcuff, creamplushrounded hand touchingfrontpillow, and generous hidden shoulderroot extending upperleftbehindbody. Preserve exact original cuddlyshortarm, hand on rightof its sleeve pointinginwardtowardscreenright, softtextileandfur2.5D shading. No pillow,body,face,otherarm,hat,sprout orfeet. Fullhand/sleeve/rootuncropped withtransparentpadding, anatomicallynaturalcompactnoelongatedtube. Genuine highresolution transparentRGBA component, not cropupscale orconceptsheet, no glow,background,castshadow,text. Mustmatchapprovedlavendercreamstarrobe.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-1e620274-7383-4720-88bb-aac9feaeb0f8.png",
+    "file": "wing-left-candidate.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  },
+  {
+    "role": "pajamasRight",
+    "prompt": "Use case: precise-object-edit. Reconstruct ONLY SCREEN-RIGHT pillowhugging arm of supplied approved Pajamas Pio. One short lavender creamstarpattern sleevewithwhitecuffpiping plus rounded creamfurhand at inward SCREEN-LEFT end, with complete hidden shoulderroot extending rightbehindtorso. Preserve original chubby cozy hand cuppingrightsideofpillow, NOT raisedwave. Handpointsleftinwards;lavendersleeveandrootpointoutwardright. Genuine highresolution premium2.5D plushtextile/furart, same colors/texture as approvedrobe. NO pillow,body,eyes,face,hat,sprout,otherarm,feet. Entirecomponent/rootinside generous transparentpadding, actualtransparentRGBA background. No glow,shadow,text,conceptsheet,flatshapes or longtube.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-91b9dc74-fe09-4e78-8d65-9401a56aff7c.png",
+    "file": "wing-right-candidate.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  },
+  {
+    "role": "pajamasPillow",
+    "prompt": "Use case: precise-object-edit. Reconstruct ONLY approved Pajamas Pio's plain ivorywhite rectangularhuggingpillow, complete object with hiddenedges/backcorners, no handimprints. Same slightlydiagonaltilt risingtowardscreenright, plump soft rectangularcushion, roundedcorners, subtle sewnseams/clothweave, gentlecentercompression matchingreferencehug. No characters,arms,robe,stars,hat,eyes,leaves,feet,bed or background. One genuine highresolution standalone gameprop forsharedgripattachment, transparentRGBA outsidefullpillow, uncroppedwithpadding. Preserve approved2.5D plushsoft shading, no glow,castshadow,outline,text or conceptsheet.",
+    "generatedPath": "/Users/mungyubin/.codex/generated_images/01a1440d-6c22-7702-a43a-624e66ea7154/exec-ac8d02f1-5a59-45e2-a184-ada53b6f3a27.png",
+    "file": "pillow-candidate.png",
+    "tool": "built-in image_gen",
+    "candidate": true
+  }
+]

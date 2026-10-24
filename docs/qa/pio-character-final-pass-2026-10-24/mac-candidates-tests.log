@@ -1,0 +1,80 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioCharacterFinalMain.xctestrun -destination platform=macOS -parallel-testing-enabled NO -resultBundlePath /tmp/PioCharacterFinal-Mac-candidates-20261024.xcresult "-only-testing:DaylogTests/PioVacationNightArtworkTests" "-only-testing:DaylogTests/PioVacationComponentArtworkTests" "-only-testing:DaylogTests/PioVacationAnchorMotionTests" "-only-testing:DaylogTests/PioVacationHingeNativeTests" "-only-testing:DaylogTests/PioCharacterHomeNativeReviewTests/testThreeAuthoredGesturesActuallySettleAfterPlayback"
+
+Writing result bundle at path:
+	/tmp/PioCharacterFinal-Mac-candidates-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 16:19:13.422893+0900 Daylog[24073:2461554] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:19:13.423455+0900 Daylog[24073:2461554] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:19:13.424312+0900 Daylog[24073:2461614] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:19:13.424347+0900 Daylog[24073:2461614] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:19:13.426014+0900 Daylog[24073:2461555] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:19:13.426070+0900 Daylog[24073:2461555] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:19:13.427593+0900 Daylog[24073:2461555] [Connection] Will NOT re-try to establish the connection
+2026-10-24 16:19:13.427698+0900 Daylog[24073:2461613] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:19:13.427741+0900 Daylog[24073:2461613] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:19:13.532353+0900 Daylog[24073:2461499] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 16:19:14.210108+0900 Daylog[24073:2461555] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 16:19:15.156.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 16:19:15.157.
+Test Suite 'PioCharacterHomeNativeReviewTests' started at 2026-10-24 16:19:15.157.
+Test Case '-[DaylogTests.PioCharacterHomeNativeReviewTests testThreeAuthoredGesturesActuallySettleAfterPlayback]' started.
+Test Case '-[DaylogTests.PioCharacterHomeNativeReviewTests testThreeAuthoredGesturesActuallySettleAfterPlayback]' passed (9.167 seconds).
+Test Suite 'PioCharacterHomeNativeReviewTests' passed at 2026-10-24 16:19:24.324.
+	 Executed 1 test, with 0 failures (0 unexpected) in 9.167 (9.167) seconds
+Test Suite 'PioVacationComponentArtworkTests' started at 2026-10-24 16:19:24.324.
+Test Case '-[DaylogTests.PioVacationComponentArtworkTests testChristmasNightEyeRegistration]' started.
+Test Case '-[DaylogTests.PioVacationComponentArtworkTests testChristmasNightEyeRegistration]' passed (0.935 seconds).
+Test Suite 'PioVacationComponentArtworkTests' passed at 2026-10-24 16:19:25.259.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.935 (0.935) seconds
+Test Suite 'PioVacationHingeNativeTests' started at 2026-10-24 16:19:25.259.
+Test Case '-[DaylogTests.PioVacationHingeNativeTests testBasicDayNightHingeKeepsBothVisibleSourcePointsFixed]' started.
+Test Case '-[DaylogTests.PioVacationHingeNativeTests testBasicDayNightHingeKeepsBothVisibleSourcePointsFixed]' passed (16.146 seconds).
+Test Suite 'PioVacationHingeNativeTests' passed at 2026-10-24 16:19:41.408.
+	 Executed 1 test, with 0 failures (0 unexpected) in 16.146 (16.149) seconds
+Test Suite 'PioVacationNightArtworkTests' started at 2026-10-24 16:19:41.409.
+Test Case '-[DaylogTests.PioVacationNightArtworkTests testNightCandidate1024StaticRegistration]' started.
+Test Case '-[DaylogTests.PioVacationNightArtworkTests testNightCandidate1024StaticRegistration]' passed (0.902 seconds).
+Test Case '-[DaylogTests.PioVacationNightArtworkTests testNightCandidateNativePresentationAt64And220]' started.
+Test Case '-[DaylogTests.PioVacationNightArtworkTests testNightCandidateNativePresentationAt64And220]' passed (4.246 seconds).
+Test Case '-[DaylogTests.PioVacationNightArtworkTests testNightCandidateResourcesAndLifecycle]' started.
+Test Case '-[DaylogTests.PioVacationNightArtworkTests testNightCandidateResourcesAndLifecycle]' passed (0.890 seconds).
+Test Suite 'PioVacationNightArtworkTests' passed at 2026-10-24 16:19:47.448.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 6.038 (6.039) seconds
+Test Suite 'DaylogTests.xctest' passed at 2026-10-24 16:19:47.448.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 32.286 (32.292) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 16:19:47.449.
+	 Executed 6 tests, with 0 failures (0 unexpected) in 32.286 (32.292) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite PioVacationAnchorMotionTests started.
+◇ Test twoSourceAttachmentPointsStayFixedAcrossWholeHingeCycle() started.
+✔ Test twoSourceAttachmentPointsStayFixedAcrossWholeHingeCycle() passed after 0.001 seconds.
+◇ Test projectedCharacterMovementIsSmallAndExistingPeriodIsPreserved() started.
+✔ Test projectedCharacterMovementIsSmallAndExistingPeriodIsPreserved() passed after 0.001 seconds.
+◇ Test invalidOrAggressiveRegistrationIsRejected() started.
+✔ Test invalidOrAggressiveRegistrationIsRejected() passed after 0.001 seconds.
+✔ Suite PioVacationAnchorMotionTests passed after 0.002 seconds.
+✔ Test run with 3 tests in 1 suite passed after 0.002 seconds.
+2026-10-24 16:19:47.838 xcodebuild[24064:2461369] [MT] IDETestOperationsObserverDebug: 35.195 elapsed -- Testing started completed.
+2026-10-24 16:19:47.839 xcodebuild[24064:2461369] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 16:19:47.839 xcodebuild[24064:2461369] [MT] IDETestOperationsObserverDebug: 35.195 sec, +35.195 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCharacterFinal-Mac-candidates-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

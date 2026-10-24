@@ -1,0 +1,140 @@
+{
+  "status": "PASS_FILE_EXISTENCE_AND_PNG_HEADER_ONLY",
+  "artworkApproval": false,
+  "count": 19,
+  "files": [
+    {
+      "file": "closed-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1185481,
+      "sha256": "941ee00673d8b94eb5b275bfb67daf28cf80d03e6532585730e1e2577c21b5ff"
+    },
+    {
+      "file": "closed-dark.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1140974,
+      "sha256": "917e0bc470a4da6e689f2489da9453557e5467134081917e08bba6611b69df56"
+    },
+    {
+      "file": "closed-light.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1134045,
+      "sha256": "3463691975e789bdc2a21abf3a30eeeecda5e9441865e065b2f48b8c286f8ff8"
+    },
+    {
+      "file": "comparison-220pt-3x-dark.png",
+      "width": 4380,
+      "height": 828,
+      "bytes": 957226,
+      "sha256": "9e6a25e947e1013dfdf45e02ad24b2279f9a85ca53f3ca382adbf9c4c38844ab"
+    },
+    {
+      "file": "comparison-220pt-3x-light.png",
+      "width": 4380,
+      "height": 828,
+      "bytes": 943164,
+      "sha256": "f3c313a4288a10da9625d5ccf0f0248f891000637ccb544b1f0982a9a1ace82a"
+    },
+    {
+      "file": "comparison-64pt-3x-dark.png",
+      "width": 1572,
+      "height": 360,
+      "bytes": 119954,
+      "sha256": "229700f5dcf0d458389f608e459f531e5901b2ca07e9ca43e1bfd5200380a850"
+    },
+    {
+      "file": "comparison-64pt-3x-light.png",
+      "width": 1572,
+      "height": 360,
+      "bytes": 116538,
+      "sha256": "eb85d5417d139b1307583a21beaf6880f53d8f7f21623a8385281046ec045ca5"
+    },
+    {
+      "file": "half-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1195085,
+      "sha256": "130f4c01535e2f8bb2100be36e2ad8e83d95a0afc40e8f3f1755417eb899ad9c"
+    },
+    {
+      "file": "half-dark.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1149997,
+      "sha256": "2d7c0cf655e4aeabb4e7836750066f9b016b2be362291ad5b7042d933990c0fb"
+    },
+    {
+      "file": "half-light.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1142954,
+      "sha256": "ff121092bf36ec6d3d7b3cf176239eb17713ea23e01364aabb3f646d8afb2a0a"
+    },
+    {
+      "file": "neutral-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1192077,
+      "sha256": "bf011cc493b1cb63bc7b8a133c18168665ad5a01d604a6453c7fd6a41b9aa843"
+    },
+    {
+      "file": "neutral-dark.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1147105,
+      "sha256": "a14a83469db620066d0b10fa6806891739b73e9fad5cfd4d5c8ce2d5466bcb3b"
+    },
+    {
+      "file": "neutral-light.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1140667,
+      "sha256": "d782d0433ebce5048a5f8a731cb30dced59470cbf05811e4158d9413a08fdf76"
+    },
+    {
+      "file": "wings-minus12-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1183106,
+      "sha256": "ba338b811a10805c73d439ad8ab10a6c20864196a93f13ee2a7347e2fc24c2c7"
+    },
+    {
+      "file": "wings-minus12-dark.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1137957,
+      "sha256": "89cb820e24a964c6b1ebc8e5f3826c7fd992b6b20f4b51fe714f665d9a17421c"
+    },
+    {
+      "file": "wings-minus12-light.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1131974,
+      "sha256": "be4367c67613a187dfd4ee4bf0ab1a7c7e8ef80bc0cca2b5c9e23ac36d454aa7"
+    },
+    {
+      "file": "wings-plus12-alpha.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1198943,
+      "sha256": "15cd64a65a3bb2bbb2fc6f3e525de204ecb159245e0baf3cc0f3ece73d814c64"
+    },
+    {
+      "file": "wings-plus12-dark.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1153259,
+      "sha256": "e84dceefe76d1a587d63761687bf920b2a0fe3ecc3c82e41bcc451c9c0883bcd"
+    },
+    {
+      "file": "wings-plus12-light.png",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1145443,
+      "sha256": "4a19ca54019d12bd3f50ee0d6e8b91c632784430b0512298e6866a982ff8a28d"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "mode": "built-in image_gen",
+  "finalRequests": [
+    {
+      "key": "vacation-hammock",
+      "prompt": "Edit target: supplied Routimori vacation poster. Extract ONLY the complete hammock assembly with resting bird character, drink, orange feet, green/cream striped hammock cloth, wooden spreader, and every suspension rope, as a standalone genuinely transparent PNG on the SAME portrait 1024x1536 canvas and exact original coordinates. Bird head center about x500,y720; sprout top around y500; hammock spans from left edge y690 across lower center y930 to right rope knot x975,y430. Preserve original full-canvas registration, scale and silhouette. Character is smiling closed eyes, fuzzy warm ivory plush round body, peach cheeks, orange little beak/feet, natural green sprout, holding yellow lemonade with straw/lemon slice. Keep all original style, texture and light. Include ropes reaching both canvas edges without tree. Do not add new decorations. REMOVE all beach, sky, palms, tree, sign, ground shadow, letters, logo, UI buttons, captions. Everything except character + drink + hammock assembly must be actual transparent alpha, including gaps between ropes and area above/below. Do not center or enlarge the subject: keep its original position/size within original whole poster canvas for layer compositing.",
+      "referenced_image_paths": [
+        "/var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/codex-clipboard-c60b5a31-7232-44a5-93cc-2495776f05e1.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "key": "sync-success",
+      "prompt": "Use case precise-object-edit / background-extraction. Image1 is cloud screen reference; isolate only its MIDDLE panel happy bird. Image2 is the final loading bird identity reference: keep that same soft fluffy warm cream chubby bird, rounded body, natural two sage sprout leaves, peach cheeks, premium soft 2.5D texture and lights. Make ONE full front-facing bird standing with both SMALL CREAM wings lifted happily, smiling gently with closed arc eyes and tiny orange open smiling beak, small orange feet. No tablet for success. Faithfully match middle-panel source pose and proportions. Actual transparent PNG, square1280x1280canvas, centered with entire sprout/wings/feet comfortably inside. Character visible size about1100px tall like loading reference. No cloud/checkmark/confetti/exclamation/text/shadow/background/floor/border. No sheet, no conceptboard, no extra objects. Cream wings attached naturally below cheeks; keep extreme cuteness.",
+      "referenced_image_paths": [
+        "/var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/codex-clipboard-857b0839-3530-446f-aff0-28804b16ce04.png",
+        "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-85e0577d-7f1d-4d20-a607-50d0b0efbe46.png"
+      ],
+      "transparent_background": true
+    },
+    {
+      "key": "sync-failure",
+      "prompt": "Use case precise-object-edit / background-extraction. Image1 cloud screen rightmost panel is pose and expression target. Image2 loading bird is identity and composition lock. Create ONE standalone transparent character, same frontal sitting chubby fluffy warm cream bird holding same sage green tablet with cream sprout icon, same smallcream wings wrapped around tablet, same sprout, orange feet/beak, gloss eyes and peach cheeks as image2. Change only facial expression to gently concerned: inner eyebrows raised, slightly drooping upper eyelids, small closed beak, kind and cute rather than crying. Match rightmost panel source. Preserve image2 scale/centering/outline as closely as possible, square1280x1280canvas, all sprout and feet visible. NO cloud/cross/scribble/text/shadow/background/floor/border/extra object. True alpha transparent background. Premium natural2.5D plush material, no dramatic sad tears, not sharp or scary.",
+      "referenced_image_paths": [
+        "/var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/codex-clipboard-857b0839-3530-446f-aff0-28804b16ce04.png",
+        "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-85e0577d-7f1d-4d20-a607-50d0b0efbe46.png"
+      ],
+      "transparent_background": true
+    }
+  ],
+  "finalHammockAlphaRefinement": "Edit only the alpha cutout quality of the supplied hammock PNG. Preserve ALL actual hammock, rope, bird, leaves, cup, cloth RGB details and their exact coordinates, size, pose and 1024x1536canvas registration. Remove the broad blurred green/beige ambient glow/haze which is still around the subject; it is unwanted background contamination, not part of subject. Every pixel outside the precise actual silhouette of hammock cloth, ropes, bird, sprout, drink must be fully transparent, including every gap between ropes. No backdrop, gradient, vignette, halos, fog, ambient light painted outside objects, shadow under hammock. Clean professional isolated PNG with real alpha. Keep only natural subpixel antialias at actual physical edges. Do not crop, recenter, enlarge, redesign, relight or addanything. Same fullcanvas asinput.",
+  "unusedCompactAttempt": "Create a clean isolated product cutout PNG of ONLY the adorable Routimori bird resting in its green-and-cream striped hammock from the reference. GENUINELY TRANSPARENT EMPTY BACKGROUND. No ambient glow, no halos, no haze, no vignette, no backdrop colors, no lights painted outside the physical object. Do not preserve any beach, sky or background pixels. Standalone object: smiling closed-eye fluffy ivory sprout bird with tiny orange beak and feet, holding lemonade cup with straw and lemon; lying inside striped sage/cream cloth hammock with wooden spreader and slender suspension ropes extending toward left/right image corners. Preserve reference character identity, pose, soft premium 2.5D materials and cozy charm. Compact landscape canvas1536x1024, center the entire bird+hammock+ropes assembly with modest empty padding; object fills most width. Only physical subject pixels opaque; all surrounding and gaps between ropes fully transparent alpha. No text, sign, logo, ground, cast shadow or environment. Background must be empty transparent rather than blurry.",
+  "firstRequests": [
+    {
+      "key": "vacation-background",
+      "prompt": "Edit target: supplied Routimori vacation poster. Produce ONLY a clean background plate for a native animated app scene, portrait canvas 1024x1536. Remove ALL text, wordmarks, buttons, sign and its posts, the bird character, drink, the entire hammock and ropes. Reconstruct the soft beach, sand, sea horizon, sky behind them naturally. Preserve original premium warm cream and sage green beach lighting, right-edge palm tree and upper palm leaves, distant green island, blurry foliage lower left/right. Keep clean cream negative space upper 25% and lower 25%, open middle with beach for animated hammock to overlay. Absolutely no character, no hammock, no ropes, no letters, no UI, no sign, no watermark. Keep this exact photographic 2.5D scene mood, not a new illustration."
+    },
+    {
+      "key": "sync-loading",
+      "prompt": "Use case background-extraction. Edit target: three-panel Routimori cloud screenshot. Isolate ONLY the LEFT PANEL bird holding the green tablet into a genuine transparent PNG. One standalone full character centered in square 1024x1024 canvas with small padding, full sprout and orange feet visible, original neutral glossy black eyes and closed small orange beak. Keep the exact fluffy soft cream round chubby body, rosy cheeks, two natural sage green sprout leaves, cream small wings gently embracing a sage green rounded tablet bearing a simple cream sprout icon. Match this source premium soft 2.5D material, original cute proportions and identity. No cloud, arrow, wordmark, captions, button, floor, cast shadow, background or border; actual transparent alpha. This is an isolated real app character asset, not a sheet or concept board. Do not include any other panel character."
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -derivedDataPath /tmp/PioStoreKit-20261023-ios -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitRefundOrderingTests/testAdapterOnlyAfterProductPreparation" "-only-testing:DaylogStoreKitTests/PioStoreKitRefundOrderingTests/testDirectWithFullCatalog" "-only-testing:DaylogStoreKitTests/PioStoreKitRefundOrderingTests/testDirectWithEntitlementsReadAfterSubscription" "-only-testing:DaylogStoreKitTests/PioStoreKitRefundOrderingTests/testDirectWithChildTaskFinisher" -resultBundlePath /tmp/PioStoreKit-Stabilization-refund-factors.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/tmp/PioStoreKit-Stabilization-refund-factors.xcresult
+
+2026-10-23 20:37:22.615 xcodebuild[316:865951] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:37:26.882530+0900 Daylog[340:866302] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 20:37:27.564050+0900 Daylog[340:866302] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 20:37:27.568724+0900 Daylog[340:866302] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 20:37:27.568952+0900 Daylog[340:866302] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 20:37:27.636.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 20:37:27.636.
+Test Suite 'PioStoreKitRefundOrderingTests' started at 2026-10-23 20:37:27.636.
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testAdapterOnlyAfterProductPreparation]' started.
+PioStoreKit: client=F66F5FB0 time=1792755447.68407 raw listener started subscription=79678301-17F8-4F05-82A2-4593825E2069
+PioStoreKit: client=F66F5FB0 time=1792755447.691474 accepted id=183 product=outfit.winter revoked=false
+PioStoreKit: client=F66F5FB0 time=1792755447.691509 finish requested id=183 cached=true inFlight=0
+PioStoreKit: client=F66F5FB0 time=1792755447.691536 finish begin id=183 product=outfit.winter revoked=false
+PioStoreKit: client=F66F5FB0 time=1792755447.6931372 finish returned id=183
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitRefundOrderingTests.swift:72: error: -[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testAdapterOnlyAfterProductPreparation] : Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: "Adapter-only refund update".
+PioStoreKit: client=F66F5FB0 time=1792755457.834558 raw listener ended subscription=79678301-17F8-4F05-82A2-4593825E2069
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testAdapterOnlyAfterProductPreparation]' failed (10.199 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testDirectWithChildTaskFinisher]' started.
+PIO_REFUND_FACTOR fullCatalog=false readAfterSubscription=false childFinisher=true id=184
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitRefundOrderingTests.swift:100: error: -[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testDirectWithChildTaskFinisher] : Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: "Direct factor probe refund update".
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testDirectWithChildTaskFinisher]' failed (10.095 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testDirectWithEntitlementsReadAfterSubscription]' started.
+PIO_REFUND_FACTOR fullCatalog=false readAfterSubscription=true childFinisher=false id=185
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitRefundOrderingTests.swift:100: error: -[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testDirectWithEntitlementsReadAfterSubscription] : Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: "Direct factor probe refund update".
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testDirectWithEntitlementsReadAfterSubscription]' failed (10.154 seconds).
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testDirectWithFullCatalog]' started.
+PIO_REFUND_FACTOR fullCatalog=true readAfterSubscription=false childFinisher=false id=186
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioStoreKitRefundOrderingTests.swift:100: error: -[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testDirectWithFullCatalog] : Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: "Direct factor probe refund update".
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundOrderingTests testDirectWithFullCatalog]' failed (10.054 seconds).
+Test Suite 'PioStoreKitRefundOrderingTests' failed at 2026-10-23 20:38:08.143.
+	 Executed 4 tests, with 4 failures (0 unexpected) in 40.503 (40.507) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-23 20:38:08.143.
+	 Executed 4 tests, with 4 failures (0 unexpected) in 40.503 (40.507) seconds
+Test Suite 'Selected tests' failed at 2026-10-23 20:38:08.144.
+	 Executed 4 tests, with 4 failures (0 unexpected) in 40.503 (40.508) seconds
+2026-10-23 20:38:08.191 xcodebuild[316:865951] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:38:08.191 xcodebuild[316:865951] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:38:08.193 xcodebuild[316:865951] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 20:38:08.468 xcodebuild[316:865951] [MT] IDETestOperationsObserverDebug: 45.937 elapsed -- Testing started completed.
+2026-10-23 20:38:08.468 xcodebuild[316:865951] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 20:38:08.469 xcodebuild[316:865951] [MT] IDETestOperationsObserverDebug: 45.937 sec, +45.937 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioStoreKit-Stabilization-refund-factors.xcresult
+
+Failing tests:
+	PioStoreKitRefundOrderingTests.testAdapterOnlyAfterProductPreparation()
+	PioStoreKitRefundOrderingTests.testDirectWithChildTaskFinisher()
+	PioStoreKitRefundOrderingTests.testDirectWithEntitlementsReadAfterSubscription()
+	PioStoreKitRefundOrderingTests.testDirectWithFullCatalog()
+
+** TEST EXECUTE FAILED **
+
+Testing started

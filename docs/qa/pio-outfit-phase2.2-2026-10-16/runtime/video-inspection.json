@@ -1,0 +1,23 @@
+{
+  "excerpts": "Unretimed first1\u20139s of genuine native DeviceHub videos, downscaled and exported30fps. Not an app FPS measurement.",
+  "wingSampleSeconds": [
+    0,
+    0.5,
+    1,
+    1.5,
+    2,
+    2.5,
+    3,
+    3.5
+  ],
+  "blinkSelectedFrameIndices": [
+    100,
+    103,
+    105,
+    108
+  ],
+  "blinkDarkPixelRange": [
+    25,
+    809
+  ]
+}

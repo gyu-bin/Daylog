@@ -1,0 +1,117 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioCharacterFinalVerified.xctestrun -destination platform=macOS -parallel-testing-enabled NO -resultBundlePath /tmp/PioCharacterFinal-Mac-verified-20261024.xcresult "-only-testing:DaylogTests/PioCharacterVerifiedSceneIntegrationTests"
+
+Writing result bundle at path:
+	/tmp/PioCharacterFinal-Mac-verified-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 16:09:18.897498+0900 Daylog[22348:2443501] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:09:18.897764+0900 Daylog[22348:2443501] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:09:18.898712+0900 Daylog[22348:2443502] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:09:18.898727+0900 Daylog[22348:2443502] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:09:18.899811+0900 Daylog[22348:2443557] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:09:18.899823+0900 Daylog[22348:2443557] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:09:18.900879+0900 Daylog[22348:2443557] [Connection] Will NOT re-try to establish the connection
+2026-10-24 16:09:18.900897+0900 Daylog[22348:2443501] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:09:18.900912+0900 Daylog[22348:2443501] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 16:09:19.044415+0900 Daylog[22348:2443491] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 16:09:20.045886+0900 Daylog[22348:2443502] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 16:09:20.128.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 16:09:20.128.
+Test Suite 'PioCharacterVerifiedSceneIntegrationTests' started at 2026-10-24 16:09:20.128.
+Test Case '-[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testGenuineSavedSelectionRemainsHiddenUntilFreshManagerVerifies]' started.
+2026-10-24 16:09:20.271741+0900 Daylog[22348:2443491] [SKTestSession] Error saving configuration file: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c867076c0 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.354608+0900 Daylog[22348:2443491] [SKTestSession] Error clearing overrides: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c867079f0 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.355101+0900 Daylog[22348:2443491] [SKTestSession] Error deleting all transactions: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c86707810 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.355820+0900 Daylog[22348:2443491] [SKTestSession] Error setting value to 1 for identifier 2 for com.daylog.verify: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c867076f0 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.356048+0900 Daylog[22348:2443491] [SKTestSession] Error setting value to 0 for identifier 0 for com.daylog.verify: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c86707a50 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.356227+0900 Daylog[22348:2443491] [SKTestSession] Error setting value to 0 for identifier 1 for com.daylog.verify: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c867077b0 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.357821+0900 Daylog[22348:2443491] [SKTestSession] Error setting storefront to KOR for com.daylog.verify: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c86707810 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.358136+0900 Daylog[22348:2443491] [SKTestSession] Error setting value to ko_KR for identifier 4 for com.daylog.verify: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c867076f0 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.434566+0900 Daylog[22348:2443655] Off-device purchase of outfit.cafe failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:178: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testGenuineSavedSelectionRemainsHiddenUntilFreshManagerVerifies] : failed: caught error: "notEntitled"
+2026-10-24 16:09:20.557934+0900 Daylog[22348:2443491] [SKTestSession] Error deleting all transactions: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c86750a20 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.558126+0900 Daylog[22348:2443491] [SKTestSession] Error clearing overrides: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c86751290 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+Test Case '-[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testGenuineSavedSelectionRemainsHiddenUntilFreshManagerVerifies]' failed (0.430 seconds).
+Test Case '-[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes]' started.
+2026-10-24 16:09:20.560652+0900 Daylog[22348:2443491] [SKTestSession] Error saving configuration file: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c867506c0 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.564948+0900 Daylog[22348:2443491] [SKTestSession] Error clearing overrides: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c86751200 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.565140+0900 Daylog[22348:2443491] [SKTestSession] Error deleting all transactions: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c867501e0 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.565317+0900 Daylog[22348:2443491] [SKTestSession] Error setting value to 1 for identifier 2 for com.daylog.verify: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c867509c0 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.565459+0900 Daylog[22348:2443491] [SKTestSession] Error setting value to 0 for identifier 0 for com.daylog.verify: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c86751230 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.565585+0900 Daylog[22348:2443491] [SKTestSession] Error setting value to 0 for identifier 1 for com.daylog.verify: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c86750f00 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.566239+0900 Daylog[22348:2443491] [SKTestSession] Error setting storefront to KOR for com.daylog.verify: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c867501e0 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:20.566429+0900 Daylog[22348:2443491] [SKTestSession] Error setting value to ko_KR for identifier 4 for com.daylog.verify: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c86750f00 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:33.539796+0900 Daylog[22348:2443661] Off-device purchase of outfit.cherryblossom failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:130: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed - cherryBlossom local verified integration failed: notEntitled
+2026-10-24 16:09:33.542957+0900 Daylog[22348:2443661] Off-device purchase of outfit.summer failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:130: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed - summerVacation local verified integration failed: notEntitled
+2026-10-24 16:09:33.545605+0900 Daylog[22348:2443658] Off-device purchase of outfit.autumn failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:130: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed - autumn local verified integration failed: notEntitled
+2026-10-24 16:09:33.548028+0900 Daylog[22348:2443658] Off-device purchase of outfit.winter failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:130: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed - winter local verified integration failed: notEntitled
+2026-10-24 16:09:33.550343+0900 Daylog[22348:2443658] Off-device purchase of outfit.halloween failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:130: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed - halloween local verified integration failed: notEntitled
+2026-10-24 16:09:33.552780+0900 Daylog[22348:2443661] Off-device purchase of outfit.christmas failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:130: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed - christmas local verified integration failed: notEntitled
+2026-10-24 16:09:33.555151+0900 Daylog[22348:2443658] Off-device purchase of outfit.hanbok failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:130: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed - hanbok local verified integration failed: notEntitled
+2026-10-24 16:09:33.557204+0900 Daylog[22348:2443660] Off-device purchase of outfit.cafe failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:130: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed - cafe local verified integration failed: notEntitled
+2026-10-24 16:09:33.559115+0900 Daylog[22348:2443658] Off-device purchase of outfit.student failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:130: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed - student local verified integration failed: notEntitled
+2026-10-24 16:09:33.561209+0900 Daylog[22348:2443660] Off-device purchase of outfit.workout failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:130: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed - fitness local verified integration failed: notEntitled
+2026-10-24 16:09:33.562854+0900 Daylog[22348:2443658] Off-device purchase of outfit.rainy failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:130: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed - rainyDay local verified integration failed: notEntitled
+2026-10-24 16:09:33.563650+0900 Daylog[22348:2443658] Off-device purchase of outfit.pajamas failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:130: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed - pajamas local verified integration failed: notEntitled
+2026-10-24 16:09:33.564314+0900 Daylog[22348:2443660] Off-device purchase of outfit.space failed: 요청을 완료할 수 없음
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:130: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : failed - astronaut local verified integration failed: notEntitled
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift:134: error: -[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes] : XCTAssertEqual failed: ("4") is not equal to ("56") - Missing verified receipts must not be replaced with preview entitlements
+2026-10-24 16:09:33.569236+0900 Daylog[22348:2443491] [SKTestSession] Error deleting all transactions: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c8590ad90 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+2026-10-24 16:09:33.569490+0900 Daylog[22348:2443491] [SKTestSession] Error clearing overrides: Error Domain=SKServiceErrorDomain Code=2 "(null)" UserInfo={NSUnderlyingError=0x7c8590adf0 {Error Domain=SKInternalErrorDomain Code=4 "(null)"}}
+Test Case '-[DaylogTests.PioCharacterVerifiedSceneIntegrationTests testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes]' failed (13.013 seconds).
+Test Suite 'PioCharacterVerifiedSceneIntegrationTests' failed at 2026-10-24 16:09:33.573.
+	 Executed 2 tests, with 15 failures (1 unexpected) in 13.443 (13.444) seconds
+Test Suite 'DaylogTests.xctest' failed at 2026-10-24 16:09:33.573.
+	 Executed 2 tests, with 15 failures (1 unexpected) in 13.443 (13.445) seconds
+Test Suite 'Selected tests' failed at 2026-10-24 16:09:33.573.
+	 Executed 2 tests, with 15 failures (1 unexpected) in 13.443 (13.445) seconds
+2026-10-24 16:09:40.763 xcodebuild[22329:2443316] [MT] IDETestOperationsObserverDebug: 22.308 elapsed -- Testing started completed.
+2026-10-24 16:09:40.763 xcodebuild[22329:2443316] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 16:09:40.763 xcodebuild[22329:2443316] [MT] IDETestOperationsObserverDebug: 22.308 sec, +22.308 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCharacterFinal-Mac-verified-20261024.xcresult
+
+Failing tests:
+	PioCharacterVerifiedSceneIntegrationTests.testGenuineSavedSelectionRemainsHiddenUntilFreshManagerVerifies()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+	PioCharacterVerifiedSceneIntegrationTests.testVerifiedSharedFourteenOutfitsAcrossFiftySixNativeScenes()
+
+** TEST EXECUTE FAILED **
+
+Testing started

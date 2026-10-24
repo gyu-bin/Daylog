@@ -1,0 +1,307 @@
+--- phase21-before/Daylog/Components/PioOutfitMotion.swift
++++ Daylog/Components/PioOutfitMotion.swift
+@@ -121,6 +121,40 @@
+ }
+ 
+ #if DEBUG
++/// Passive counters: reading/resetting a snapshot never invalidates SwiftUI,
++/// clears an image cache, or changes the renderer's animation/layout behavior.
++@MainActor
++enum PioOutfitMotionDiagnostics {
++    enum Event: String, CaseIterable {
++        case hostUpdates, nativeRefreshes, layoutCalls, effectiveLayouts
++        case layoutTransactions, configurations, sourceLoads
++    }
++    private static var counts: [Event: Int] = [:]
++    private final class WeakRig {
++        weak var value: PioOutfitMotionRig?
++        init(_ value: PioOutfitMotionRig) { self.value = value }
++    }
++    private static var active: [ObjectIdentifier: WeakRig] = [:]
++    static var snapshot: [String: Int] {
++        var result = Dictionary(uniqueKeysWithValues: Event.allCases.map { ($0.rawValue, counts[$0, default: 0]) })
++        result["cachedImages"] = PioOutfitMotionImageCache.cachedImageCount
++        // A destroyed host/test rig must not stay active merely because it did
++        // not receive a final stop callback. Weak references also avoid retention.
++        active = active.filter { $0.value.value?.isAnimating == true }
++        let rigs = active.values.compactMap(\.value)
++        result["activeRigs"] = rigs.count
++        result["activeAnimationTracks"] = rigs.reduce(0) { $0 + $1.animationCount }
++        return result
++    }
++    static func reset() { counts.removeAll(keepingCapacity: true) }
++    static func record(_ event: Event) { counts[event, default: 0] += 1 }
++    static func setActive(_ isActive: Bool, rig: PioOutfitMotionRig) {
++        let id = ObjectIdentifier(rig)
++        if isActive { active[id] = WeakRig(rig) }
++        else { active.removeValue(forKey: id) }
++    }
++}
++
+ @MainActor
+ enum PioOutfitMotionImageCache {
+     private static var images: [String: CGImage] = [:]
+@@ -138,6 +172,7 @@
+         // The catalog bounds this cache at fourteen decoded source images.
+         images[name] = image
+         decodeCount += 1
++        PioOutfitMotionDiagnostics.record(.sourceLoads)
+         return image
+     }
+ }
+@@ -155,6 +190,12 @@
+     private(set) var isAnimating = false
+     private var source: CGImage?
+     private var configuration: Configuration?
++    // Diagnostic comparison only; repeated layouts still execute unchanged.
++    private var measuredLayout: MeasuredLayout?
++    private struct MeasuredLayout: Equatable {
++        let bounds: CGRect
++        let displayScale: CGFloat
++    }
+     private struct Configuration: Equatable {
+         let outfit: PioOutfitID
+         let motion: PioOutfitMotion
+@@ -186,6 +227,7 @@
+         setAnimating(false)
+         configuration = next
+         configurationCount += 1
++        PioOutfitMotionDiagnostics.record(.configurations)
+         self.outfit = outfit
+         self.motion = motion
+         source = PioOutfitMotionImageCache.image(for: outfit)
+@@ -221,6 +263,13 @@
+     }
+ 
+     func layout(in bounds: CGRect, displayScale: CGFloat) {
++        PioOutfitMotionDiagnostics.record(.layoutCalls)
++        let measured = MeasuredLayout(bounds: bounds, displayScale: max(displayScale, 1))
++        if measuredLayout != measured {
++            PioOutfitMotionDiagnostics.record(.effectiveLayouts)
++            measuredLayout = measured
++        }
++        PioOutfitMotionDiagnostics.record(.layoutTransactions)
+         CATransaction.begin()
+         CATransaction.setDisableActions(true)
+         root.frame = bounds
+@@ -236,6 +285,7 @@
+         let active = requested && !reduceMotion && source != nil
+         guard active != isAnimating else { return }
+         isAnimating = active
++        PioOutfitMotionDiagnostics.setActive(active, rig: self)
+         if !active {
+             approvedWave?.setAnimating(false)
+             artwork.removeAllAnimations()
+@@ -308,6 +358,7 @@
+     let isAnimating: Bool
+     func makeNSView(context: Context) -> PioOutfitMotionNativeView { PioOutfitMotionNativeView() }
+     func updateNSView(_ view: PioOutfitMotionNativeView, context: Context) {
++        PioOutfitMotionDiagnostics.record(.hostUpdates)
+         view.rig.configure(outfit: outfit, stage: stage, motion: motion)
+         view.requestedAnimation = isAnimating
+         view.refresh()
+@@ -323,6 +374,7 @@
+     override func layout() { super.layout(); refresh() }
+     override func viewDidMoveToWindow() { super.viewDidMoveToWindow(); refresh() }
+     func refresh() {
++        PioOutfitMotionDiagnostics.record(.nativeRefreshes)
+         rig.layout(in: bounds, displayScale: window?.backingScaleFactor ?? 2)
+         rig.setAnimating(requestedAnimation && window != nil)
+     }
+@@ -335,6 +387,7 @@
+     let isAnimating: Bool
+     func makeUIView(context: Context) -> PioOutfitMotionNativeView { PioOutfitMotionNativeView() }
+     func updateUIView(_ view: PioOutfitMotionNativeView, context: Context) {
++        PioOutfitMotionDiagnostics.record(.hostUpdates)
+         view.rig.configure(outfit: outfit, stage: stage, motion: motion)
+         view.requestedAnimation = isAnimating
+         view.refresh()
+@@ -349,6 +402,7 @@
+     override func layoutSubviews() { super.layoutSubviews(); refresh() }
+     override func didMoveToWindow() { super.didMoveToWindow(); refresh() }
+     func refresh() {
++        PioOutfitMotionDiagnostics.record(.nativeRefreshes)
+         rig.layout(in: bounds, displayScale: window?.screen.scale ?? 2)
+         rig.setAnimating(requestedAnimation && window != nil)
+     }
+--- phase21-before/DaylogTests/PioOutfitMotionTests.swift
++++ DaylogTests/PioOutfitMotionTests.swift
+@@ -40,6 +40,27 @@
+             rig.setAnimating(true, reduceMotion: true)
+             #expect(rig.animationCount == 0)
+         }
++    }
++
++    @Test func activeTelemetrySurvivesResetAndDoesNotRetainDestroyedRigs() {
++        let baseline = PioOutfitMotionDiagnostics.snapshot
++        var rig: PioOutfitMotionRig? = PioOutfitMotionRig()
++        weak var weakRig = rig
++        rig?.configure(outfit: .halloween, stage: 1, motion: .jump)
++        rig?.setAnimating(true)
++        let tracks = rig?.animationCount ?? 0
++        #expect(tracks > 0)
++        PioOutfitMotionDiagnostics.reset()
++        #expect(PioOutfitMotionDiagnostics.snapshot["activeRigs"] == (baseline["activeRigs"] ?? 0) + 1)
++        #expect(PioOutfitMotionDiagnostics.snapshot["activeAnimationTracks"] == (baseline["activeAnimationTracks"] ?? 0) + tracks)
++        rig?.setAnimating(false)
++        #expect(PioOutfitMotionDiagnostics.snapshot["activeRigs"] == baseline["activeRigs"])
++        #expect(PioOutfitMotionDiagnostics.snapshot["activeAnimationTracks"] == baseline["activeAnimationTracks"])
++        rig?.setAnimating(true)
++        rig = nil
++        #expect(weakRig == nil)
++        #expect(PioOutfitMotionDiagnostics.snapshot["activeRigs"] == baseline["activeRigs"])
++        #expect(PioOutfitMotionDiagnostics.snapshot["activeAnimationTracks"] == baseline["activeAnimationTracks"])
+     }
+ 
+     @Test func unchangedUpdatesAndPartialStageChangesDoNotReconfigureOrDecode() {
+--- phase21-before/Daylog/App/RootView.swift
++++ Daylog/App/RootView.swift
+@@ -129,6 +129,19 @@
+ 
+     @ViewBuilder
+     private var navigation: some View {
++        #if DEBUG
++        if PioOutfitDiagnosticsView.isEnabled {
++            PioOutfitDiagnosticsView()
++        } else {
++            applicationNavigation
++        }
++        #else
++        applicationNavigation
++        #endif
++    }
++
++    @ViewBuilder
++    private var applicationNavigation: some View {
+         #if os(macOS)
+         SidebarNavigation()
+             // 안내에 가려진 화면은 누르거나 입력할 수 없게 한다(Tab으로 입력 칸에 들어가 루틴을 만드는 일을 막는다).
+--- /dev/null
++++ Daylog/Components/PioOutfitDiagnosticsView.swift
+@@ -0,0 +1,126 @@
++#if DEBUG
++import SwiftUI
++
++/// Opt-in, isolated renderer QA. It bypasses dashboard/shop content so cases
++/// share one fixed host and no hidden animated character contaminates CPU samples.
++struct PioOutfitDiagnosticsView: View {
++    static var isEnabled: Bool {
++        RoutimoriSplashTrial.isEnabled && UserDefaults.standard.bool(forKey: "DaylogDebugOutfitDiagnostics")
++    }
++    @State private var outfit: PioOutfitID = .basic
++    @State private var motion: PioOutfitMotion = .idle
++    @State private var size = 220
++    @State private var stage = 1
++    @State private var animating = false
++    @State private var showCharacter = true
++    @State private var forcedReduceMotion = false
++    @State private var dark = false
++    @State private var switching = false
++    @State private var switches = 0
++    @State private var metrics = "측정값을 새로고침하세요."
++    @Environment(\.accessibilityReduceMotion) private var systemReduceMotion
++    @Environment(\.scenePhase) private var scenePhase
++    private let outfits: [PioOutfitID] = [.basic, .christmas, .hanbok, .astronaut]
++
++    init() {
++        let test = UserDefaults.standard.string(forKey: "DaylogDebugOutfitCase") ?? "baseStatic"
++        let selected: PioOutfitID = test.hasPrefix("christmas") ? .christmas
++            : test.hasPrefix("hanbok") ? .hanbok : test.hasPrefix("astronaut") ? .astronaut : .basic
++        _outfit = State(initialValue: selected)
++        _motion = State(initialValue: test.hasSuffix("Jump") || test == "switching" ? .jump : .idle)
++        _animating = State(initialValue: !test.hasSuffix("Static"))
++        _showCharacter = State(initialValue: test != "offscreen")
++        _switching = State(initialValue: test == "switching")
++        let requestedSize = UserDefaults.standard.integer(forKey: "DaylogDebugOutfitSize")
++        _size = State(initialValue: [64,120,220].contains(requestedSize) ? requestedSize : 220)
++        let requestedStage = UserDefaults.standard.integer(forKey: "DaylogDebugOutfitStage")
++        _stage = State(initialValue: (1...4).contains(requestedStage) ? requestedStage : 1)
++        _dark = State(initialValue: UserDefaults.standard.string(forKey: "DaylogDebugAppearance") == "dark")
++    }
++
++    var body: some View {
++        ScrollView {
++            VStack(alignment: .leading, spacing: 10) {
++                Text("피오 동작 검토").font(.title2.bold())
++                Text("개발 검토 전용 · 원화와 실제 보유 내역을 바꾸지 않아요.")
++                    .font(.caption).foregroundStyle(.secondary)
++                Picker("의상", selection: $outfit) {
++                    ForEach(outfits) { Text($0.title).tag($0) }
++                }.accessibilityIdentifier("outfitQA.outfit")
++                Picker("동작", selection: $motion) {
++                    ForEach(PioOutfitCapabilities(outfit: outfit).supportedMotions) { Text($0.title).tag($0) }
++                }.accessibilityIdentifier("outfitQA.motion")
++                HStack {
++                    Picker("크기", selection: $size) {
++                        ForEach([64,120,220], id: \.self) { Text("\($0)pt").tag($0) }
++                    }.accessibilityIdentifier("outfitQA.size")
++                    Picker("단계", selection: $stage) {
++                        ForEach(1...4, id: \.self) { Text("\($0)단계").tag($0) }
++                    }.accessibilityIdentifier("outfitQA.stage")
++                }
++                HStack {
++                    Toggle("동작 켜기", isOn: $animating).accessibilityIdentifier("outfitQA.animate")
++                    Toggle("캐릭터 표시", isOn: $showCharacter).accessibilityIdentifier("outfitQA.visible")
++                }
++                HStack {
++                    Toggle("정지 요청 검토", isOn: $forcedReduceMotion).accessibilityIdentifier("outfitQA.reduceMotion")
++                    Toggle("어두운 배경", isOn: $dark).accessibilityIdentifier("outfitQA.dark")
++                }
++                ZStack {
++                    RoundedRectangle(cornerRadius: 24)
++                        .fill(dark ? Color(red:0.06,green:0.12,blue:0.1) : Color(red:0.98,green:0.97,blue:0.94))
++                    if showCharacter {
++                        PioOutfitMotionView(outfit: outfit, stage: stage, motion: motion, isAnimating: animating && !forcedReduceMotion)
++                            .frame(width: CGFloat(size), height: CGFloat(size))
++                    }
++                }.frame(height: 270).frame(maxWidth: .infinity)
++                Text("\(outfit.title) · \(motion.title) · \(size)pt · \(stage)단계")
++                    .font(.caption).accessibilityIdentifier("outfitQA.selection")
++                Text("시스템 움직임 줄이기: \(systemReduceMotion ? "켜짐" : "꺼짐") · 화면: \(scenePhase == .active ? "활성" : "비활성")")
++                    .font(.caption).accessibilityIdentifier("outfitQA.systemReduceMotion")
++                Text("세 의상은 한 장의 원화예요. 눈·날개·소품의 독립 동작과 단계별 외형은 지원하지 않아요.")
++                    .font(.caption).foregroundStyle(.secondary)
++                HStack {
++                    Button(switching ? "전환 멈추기" : "30회 의상 전환") { switching.toggle() }
++                        .accessibilityIdentifier("outfitQA.switch")
++                    Text("\(switches)회").monospacedDigit()
++                }
++                HStack {
++                    Button("측정값 초기화") { PioOutfitMotionDiagnostics.reset(); refreshMetrics() }
++                        .accessibilityIdentifier("outfitQA.resetMetrics")
++                    Button("측정값 새로고침") { refreshMetrics() }
++                        .accessibilityIdentifier("outfitQA.metrics")
++                }
++                Text(metrics).font(.system(.caption, design: .monospaced))
++                    .textSelection(.enabled).accessibilityIdentifier("outfitQA.metricValues")
++            }.padding(20).frame(maxWidth: 760).frame(maxWidth: .infinity)
++        }
++        .preferredColorScheme(dark ? .dark : .light)
++        .onAppear {
++            // Preload the same four images before every comparison. This counts
++            // successful CGImage retrieval, not physical decoder work.
++            for item in outfits { _ = PioOutfitMotionImageCache.image(for: item) }
++            refreshMetrics()
++        }
++        .onChange(of: outfit) { _, next in
++            if !PioOutfitCapabilities(outfit: next).supportedMotions.contains(motion) { motion = .idle }
++        }
++        .task(id: switching) {
++            guard switching else { return }
++            switches = 0
++            for index in 0..<30 {
++                do { try await Task.sleep(for: .seconds(1)) } catch { return }
++                guard !Task.isCancelled else { return }
++                outfit = [.christmas, .hanbok, .astronaut][index % 3]
++                switches = index + 1
++            }
++            switching = false
++        }
++    }
++
++    private func refreshMetrics() {
++        let counters = PioOutfitMotionDiagnostics.snapshot
++        metrics = counters.keys.sorted().map { "\($0)=\(counters[$0]!)" }.joined(separator: " · ")
++    }
++}
++#endif

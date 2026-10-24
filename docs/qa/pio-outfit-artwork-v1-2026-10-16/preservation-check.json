@@ -1,0 +1,9 @@
+{
+  "baselineFileCount": 530,
+  "changedExistingFiles": [
+    "Daylog/Services/PioWardrobe.swift",
+    "Daylog/Views/Wardrobe/PioWardrobeView.swift",
+    "DaylogTests/PioWardrobeTests.swift"
+  ],
+  "missingExistingFiles": []
+}

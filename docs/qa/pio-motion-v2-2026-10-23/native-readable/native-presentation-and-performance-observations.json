@@ -1,0 +1,213 @@
+{
+  "comparisons" : [
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.20213214952290834,
+      "residentAfterBytes" : 189956096,
+      "residentBeforeBytes" : 192479232,
+      "scenario" : "old-base-jump",
+      "trial" : 1,
+      "wallSeconds" : 2.0194709300994873
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.30149506851744146,
+      "residentAfterBytes" : 190087168,
+      "residentBeforeBytes" : 190414848,
+      "scenario" : "new-base-static",
+      "trial" : 1,
+      "wallSeconds" : 2.0567500591278076
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.35914542695360518,
+      "residentAfterBytes" : 190103552,
+      "residentBeforeBytes" : 190103552,
+      "scenario" : "new-base-jump",
+      "trial" : 1,
+      "wallSeconds" : 2.018123984336853
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.27708825783575486,
+      "residentAfterBytes" : 190234624,
+      "residentBeforeBytes" : 190201856,
+      "scenario" : "new-christmas-jump",
+      "trial" : 1,
+      "wallSeconds" : 2.016685962677002
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.327942898765122,
+      "residentAfterBytes" : 190693376,
+      "residentBeforeBytes" : 190693376,
+      "scenario" : "old-base-jump",
+      "trial" : 2,
+      "wallSeconds" : 2.0192539691925049
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.3536283238332108,
+      "residentAfterBytes" : 190513152,
+      "residentBeforeBytes" : 191037440,
+      "scenario" : "new-base-static",
+      "trial" : 2,
+      "wallSeconds" : 2.0049299001693726
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.26376915695442477,
+      "residentAfterBytes" : 190185472,
+      "residentBeforeBytes" : 190513152,
+      "scenario" : "new-base-jump",
+      "trial" : 2,
+      "wallSeconds" : 2.0165359973907471
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.34997349383517018,
+      "residentAfterBytes" : 189382656,
+      "residentBeforeBytes" : 190119936,
+      "scenario" : "new-christmas-jump",
+      "trial" : 2,
+      "wallSeconds" : 2.1001590490341187
+    }
+  ],
+  "limits" : [
+    "Debug CPU process time only; excludes compositor and GPU",
+    "Not iPhone runtime profiling",
+    "Programmatic setActive(false) verified; scroll visibility and Reduce Motion UI require separate verification",
+    "RSS includes XCTest host and cache; no leak verdict from short observation"
+  ],
+  "presentationEvidence" : [
+    {
+      "action" : "jump",
+      "outfit" : "basic",
+      "presentationPNGChanges" : true,
+      "sampledTranslationY" : [
+        -4.7130050659179688,
+        161.28045380115509,
+        182.49462604522705
+      ]
+    },
+    {
+      "action" : "greet",
+      "outfit" : "basic",
+      "presentationPNGChanges" : true,
+      "sampledTranslationY" : [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "action" : "celebrate",
+      "outfit" : "basic",
+      "presentationPNGChanges" : true,
+      "sampledTranslationY" : [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "action" : "jump",
+      "outfit" : "christmas",
+      "presentationPNGChanges" : true,
+      "sampledTranslationY" : [
+        -4.8917021751403809,
+        164.85564172267914,
+        183.65415573120117
+      ]
+    },
+    {
+      "action" : "greet",
+      "outfit" : "christmas",
+      "presentationPNGChanges" : true,
+      "sampledTranslationY" : [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "action" : "celebrate",
+      "outfit" : "christmas",
+      "presentationPNGChanges" : true,
+      "sampledTranslationY" : [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "action" : "jump",
+      "outfit" : "hanbok",
+      "presentationPNGChanges" : true,
+      "sampledTranslationY" : [
+        -4.7850341796875,
+        159.24702882766724,
+        188.66100668907166
+      ]
+    },
+    {
+      "action" : "greet",
+      "outfit" : "hanbok",
+      "presentationPNGChanges" : true,
+      "sampledTranslationY" : [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "action" : "celebrate",
+      "outfit" : "hanbok",
+      "presentationPNGChanges" : true,
+      "sampledTranslationY" : [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "action" : "jump",
+      "outfit" : "astronaut",
+      "presentationPNGChanges" : true,
+      "sampledTranslationY" : [
+        -4.8642716407775879,
+        161.75432831048965,
+        187.41938352584839
+      ]
+    },
+    {
+      "action" : "greet",
+      "outfit" : "astronaut",
+      "presentationPNGChanges" : true,
+      "sampledTranslationY" : [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "action" : "celebrate",
+      "outfit" : "astronaut",
+      "presentationPNGChanges" : true,
+      "sampledTranslationY" : [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "status" : "OBSERVATIONS_NOT_PERFORMANCE_CERTIFICATION",
+  "switching" : {
+    "inactiveAnimationTracks" : 0,
+    "residentAfterBytes" : 193265664,
+    "residentAfterSettlingBytes" : 308166656,
+    "residentBeforeBytes" : 189382656,
+    "switchCount" : 42,
+    "wallSeconds" : 1.0922120809555054
+  }
+}

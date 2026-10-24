@@ -1,0 +1,33 @@
+{
+  "view": "PioOutfitMotionView; DEBUG + DaylogDebugCharacter routimori opt-in",
+  "rendering": "Native NSView/UIView with Core Animation layers; no per-frame SwiftUI timer",
+  "hierarchy": {
+    "root": "viewport",
+    "canvas": "aspect-fit original source with14percent external motion clearance",
+    "artwork": "approved flattened costume; whole-character tracks only",
+    "basicWave": "existing RoutimoriSplashRig with same basic source and existing right-wing mask, limited exposed-wing motion only"
+  },
+  "sharedMotionSource": "SaessagiIdleMotion.breathHalfPeriod and SaessagiMotionPlan bounce/hop/cheer tracks, damped for this art",
+  "cache": "Bounded14native CGImages; repeated outfit/stage/layout update reuses source; no per-frame decoding",
+  "supportedWholeCharacterMotions": [
+    "idle breathing",
+    "bounce",
+    "jump",
+    "landing settling",
+    "celebration",
+    "rest breathing"
+  ],
+  "missingIndependentMotions": [
+    "blink",
+    "waddle/walk",
+    "run",
+    "costume wave",
+    "costume flap",
+    "separate prop/hat/scarf movement"
+  ],
+  "stageBehavior": "All1...4 preserve outfit/source/ownership; same artwork deliberately retained; no stage-specific placement or silhouette support asserted",
+  "state": "Preview stage1...4 in independent local key; owned outfit and icon guards unchanged; Release ignores mock ownership",
+  "lifecycle": "scenePhase, appear/disappear, native window attachment and dismantle stop tracks; scroll visibility on macOS15/iOS18+; Reduce Motion environment disables all tracks",
+  "integration": "Wardrobe hero/detail and DEBUG Routimori dashboard header/growthcard; normal and Release dashboard unchanged",
+  "transition": "Short opacity change; disabled under Reduce Motion"
+}

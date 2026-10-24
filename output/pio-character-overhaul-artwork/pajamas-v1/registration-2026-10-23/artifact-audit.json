@@ -1,0 +1,129 @@
+{
+  "exports": [
+    {
+      "file": "body-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "transparentPixels": 1084217
+    },
+    {
+      "file": "eyeLeft-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "transparentPixels": 1564765
+    },
+    {
+      "file": "eyeRight-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "transparentPixels": 1564765
+    },
+    {
+      "file": "footLeft-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "transparentPixels": 1562807
+    },
+    {
+      "file": "footRight-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "transparentPixels": 1563317
+    },
+    {
+      "file": "halfLeft-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "transparentPixels": 1561257
+    },
+    {
+      "file": "halfRight-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "transparentPixels": 1561257
+    },
+    {
+      "file": "headwear-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "transparentPixels": 1264350
+    },
+    {
+      "file": "lidLeft-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "transparentPixels": 1570202
+    },
+    {
+      "file": "lidRight-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "transparentPixels": 1570202
+    },
+    {
+      "file": "pillow-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "transparentPixels": 1457939
+    },
+    {
+      "file": "wingLeft-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "transparentPixels": 1540040
+    },
+    {
+      "file": "wingRight-1254.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "transparentPixels": 1538993
+    }
+  ],
+  "gifFrames": 32,
+  "gifSize": [
+    440,
+    440
+  ],
+  "sourceHashesMatch": true,
+  "uniformDownscalesOnly": true,
+  "appTestsRun": false
+}

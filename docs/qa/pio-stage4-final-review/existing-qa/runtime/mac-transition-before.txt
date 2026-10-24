@@ -1,0 +1,74 @@
+Window: "Daylog", App: Daylog.
+0 표준 윈도우 Daylog, ID: main, Secondary Actions: Raise
+	1 자르기 그룹 main, SidebarNavigationSplitView
+		2 자르기 도구 (disabled, settable, float) -1
+		3 스크롤 영역 Secondary Actions: Scroll Up, Scroll Down
+			4 머리말 2026년 10월 15일 (목), 오늘도 좋은 하루예요
+			5 버튼 Description: 이전 날짜, Help: 이전 날짜 (⌘[), ID: chevron.left
+			6 버튼 (disabled) Description: 다음 날짜, Help: 다음 날짜 (⌘]), ID: chevron.right
+			7 버튼 (disabled) Description: 오늘로 이동, Help: 오늘로 이동 (⌘T)
+			8 버튼 Description: 대시보드 편집, Help: 대시보드 편집: 카드 순서·열·표시 바꾸기, ID: square.grid.2x2
+			9 버튼 Description: 루틴 추가, Help: 루틴 추가 (⌘N), ID: plus
+			10 container
+				11 텍스트 오늘의 루틴
+				12 버튼 루틴 관리
+			13 container
+				14 텍스트 이번 주의 성장
+				15 메뉴 버튼 주간 목표 5일, Help: 주간 목표를 1일에서 7일 사이로 바꿉니다.
+			16 버튼 Description: 기본 루틴 그룹, 1개 중 0개 완료, Help: 누르면 접거나 펼칩니다., Value: 펼침
+			17 버튼 Description: 기본 루틴 그룹에 항목 추가, Help: 기본 루틴에 항목 추가, ID: plus
+			18 unknown 이번 주의 성장. 목표 5일 중 0일 실천. 이번 주는 아직 실천한 날이 없어요. 오늘도 작은 습관 하나부터 시작해 보세요.
+			19 텍스트 Stage3-QA
+			20 버튼 (selected) Description: Stage3-QA 완료, Help: 누르면 완료로 기록합니다., Value: 꺼짐, ID: checkmark
+			21 버튼 Description: Stage3-QA 건너뛰기, Help: 누르면 건너뜀으로 기록합니다., Value: 꺼짐, ID: chevron.right.2
+			22 unknown 전체 달성률 0%, 1개 중 0개 완료
+			23 텍스트 오늘의 식사 기록
+			24 텍스트 피오 성장
+			25 텍스트 필드 (settable) Description: 아침, Help: Enter로 다음 칸, Shift+Enter로 줄바꿈, Placeholder: 무엇을 드셨나요?
+			26 텍스트 필드 (settable) Description: 점심, Help: Enter로 다음 칸, Shift+Enter로 줄바꿈, Placeholder: 무엇을 드셨나요?
+			27 unknown 새싹이 성장. 레벨 49, 꽃 단계. 다음 레벨까지 90 / 100 XP. 꽃이 활짝 피었어요. 꾸준함이 계속 쌓이고 있어요.
+			28 텍스트 필드 (settable) Description: 저녁, Help: Enter로 다음 칸, Shift+Enter로 줄바꿈, Placeholder: 무엇을 드셨나요?
+			29 텍스트 필드 (settable) Description: 간식, Help: Enter로 다음 칸, Shift+Enter로 줄바꿈, Placeholder: 무엇을 드셨나요?
+			30 텍스트 식사 메모
+			31 스크롤 영역 Secondary Actions: Scroll Up, Scroll Down
+				32 텍스트 엔트리 영역 (settable) 식사 메모
+				33 스크롤 막대 (disabled, settable, float) 0
+			34 텍스트 오늘의 달성 현황
+			35 unknown 전체 달성률 0%, 1개 중 0개 완료
+			36 unknown 기본 루틴 그룹, 1개 중 0개 완료
+			37 container
+				38 텍스트 최근 7일 기록
+				39 버튼 전체 보기
+			40 버튼 Description: 10월 9일 금요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동
+			41 버튼 Description: 10월 10일 토요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동
+			42 버튼 Description: 10월 11일 일요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동
+			43 버튼 Description: 10월 12일 월요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동
+			44 버튼 Description: 10월 13일 화요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동
+			45 버튼 Description: 10월 14일 수요일, 통계 시작 전, Help: 이 날짜의 기록으로 이동
+			46 버튼 Description: 10월 15일 목요일, 1개 중 0개 완료, 달성률 0%, 기준 미달, Help: 이 날짜의 기록으로 이동
+			47 unknown 이번 주 평균 0%, 집계한 1일 중 0일 달성
+			48 텍스트 내일 오전 할 일
+			49 텍스트 필드 (settable) Description: 내일 오전 할 일, Placeholder: 한 줄로 적어 두세요
+			50 머리말 건강
+			51 스크롤 막대 (settable, float) 0
+				52 값 표시기 (settable, float) 0
+				53 화살표 증가 버튼
+				54 화살표 감소 버튼
+				55 페이지 증가 버튼
+				56 페이지 감소 버튼
+	57 도구 막대
+		58 버튼 Description: 사이드바 보기, Secondary Actions: Increment, Decrement, Delete, Cancel
+	59 닫기 버튼
+	60 전체 화면 버튼 Help: 이 버튼을 누르면 윈도우를 확대/축소합니다., Secondary Actions: 윈도우 확대/축소
+	61 최소화 버튼
+	62 텍스트 Daylog
+63 menu bar
+	64 Daylog
+	65 파일
+	66 편집
+	67 보기
+	68 이동
+	69 윈도우
+	70 도움말
+
+The focused UI element is 0 표준 윈도우 Daylog, ID: main, Secondary Actions: Raise

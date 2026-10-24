@@ -1,0 +1,53 @@
+{
+  "outfit": "winter",
+  "status": "PARTIAL_OFFLINE_STUDY",
+  "canonicalSourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/wingRight.png": "a04f120740b5e2534b449e811af4fc635a011958f9e65f0559a1c65770cfe10a",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/footLeft.png": "1ea8fb502ddef462111e63b8557c095379b234ae232d93237764af86b5df93df",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/footRight.png": "e3d7bc03e3ce7e527feac105336f0e59c40c5e30f56ac69ccf63ee67f48a1f80",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/body.png": "ceee36d4b3c14498ddda40ed7e351a4ede2db75e6f81f606a3717e48f9b04eb1",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/wingLeft.png": "aa905cec78b2d09ca522e9ab010eb4f289e57f937134143d7150c21e4021de96",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/eyeLeft.png": "dfc5b0dc1e61af4718f5e78761338f9b353dfb73106c796fa59e0a2469e6f9eb",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/eyeRight.png": "c6b2db5d5685021995be3ff0acd49e66cbf640084f7f1b227011dc8c8ac63cf6",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/headwear.png": "51223655a58dd427145d6a8d7802db272120b345c11ad8d33f009f1e5a49d4c1",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/halfLeft.png": "c46cec1e78e6aa02fcfb163b8d3f619716ca46b20f1dc41b1b8720c9697b129c",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/lidLeft.png": "d5cf60bbce488f2ca6a1746fe91c7fcfcfdf8304c8f4282bf8e8f00bf594629d",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/halfRight.png": "0ca6e5e87c13cb9b937912ab73e7c630218d273c4bf7be19521f256e8bb5a08a",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/lidRight.png": "4e27f20136e9449437a41907dd4fefd56f1e79f19e953b703f1a932245f309e5",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/happyLeft.png": "ddc1181c0e1de238d1d5c499a606806487390f1e2ccd7f8963f490ad5fa278f1",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/winter/layers/happyRight.png": "16647bc008396ed06904290a1681fb94312715d477e0bfa0a1228f92d49811d0"
+  },
+  "actions": [
+    "idle",
+    "greet",
+    "walk",
+    "bounce",
+    "jump",
+    "celebrate",
+    "bow",
+    "sleepy",
+    "surprised",
+    "encourage",
+    "special"
+  ],
+  "specialAction": "cozy shoulder tuck",
+  "framesPerAction": 32,
+  "durationMs": 70,
+  "maxAlphaOnFrameBorder": 0,
+  "canvas": [
+    480,
+    516
+  ],
+  "characterCanvas": [
+    350,
+    350
+  ],
+  "limits": [
+    "2D front-view stepping, no authored turn or gait occlusion change.",
+    "Bow is frontal lean/compression, not a reconstructed 3D head turn.",
+    "Hat and fabric stay rigid with torso.",
+    "Held props rigidly follow hands; no release or articulation.",
+    "No app/runtime/performance claim."
+  ]
+}

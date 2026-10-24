@@ -1,0 +1,47 @@
+[
+  {
+    "file": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2-2026-10-16/animation-videos/iphone17-basic-wave.mp4",
+    "durationSeconds": 8.058333,
+    "bytes": 4285859,
+    "width": 1206,
+    "height": 2622,
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2-2026-10-16/live-app/iphone17-basic-wave.mp4",
+    "capture": "Native Device Hub Record on dedicated iPhone17; original pixels preserved with stream-copy trim nominal8seconds; actual packet-aligned duration recorded separately"
+  },
+  {
+    "file": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2-2026-10-16/animation-videos/iphone17-halloween-jump.mp4",
+    "durationSeconds": 10.443333,
+    "bytes": 8872520,
+    "width": 1206,
+    "height": 2622,
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2-2026-10-16/live-app/iphone17-halloween-jump.mp4",
+    "capture": "Native Device Hub Record on dedicated iPhone17; original pixels preserved with stream-copy trim nominal8seconds; actual packet-aligned duration recorded separately"
+  },
+  {
+    "file": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2-2026-10-16/animation-videos/iphone17-christmas-celebration.mp4",
+    "durationSeconds": 9.581979,
+    "bytes": 12993323,
+    "width": 1206,
+    "height": 2622,
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2-2026-10-16/live-app/iphone17-christmas-celebration.mp4",
+    "capture": "Native Device Hub Record on dedicated iPhone17; original pixels preserved with stream-copy trim nominal8seconds; actual packet-aligned duration recorded separately"
+  },
+  {
+    "file": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2-2026-10-16/animation-videos/iphone17-hanbok-bounce.mp4",
+    "durationSeconds": 10.176667,
+    "bytes": 8067983,
+    "width": 1206,
+    "height": 2622,
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2-2026-10-16/live-app/iphone17-hanbok-bounce.mp4",
+    "capture": "Native Device Hub Record on dedicated iPhone17; original pixels preserved with stream-copy trim nominal8seconds; actual packet-aligned duration recorded separately"
+  },
+  {
+    "file": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2-2026-10-16/animation-videos/iphone17-astronaut-jump.mp4",
+    "durationSeconds": 9.701667,
+    "bytes": 5731904,
+    "width": 1206,
+    "height": 2622,
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2-2026-10-16/live-app/iphone17-astronaut-jump.mp4",
+    "capture": "Native Device Hub Record on dedicated iPhone17; original pixels preserved with stream-copy trim nominal8seconds; actual packet-aligned duration recorded separately"
+  }
+]

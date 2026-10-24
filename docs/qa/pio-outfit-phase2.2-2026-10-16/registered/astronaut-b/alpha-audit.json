@@ -1,0 +1,272 @@
+[
+  {
+    "alpha" : {
+      "alpha0" : 1062362,
+      "alpha1to254" : 509761,
+      "alpha255" : 393
+    },
+    "boundsAlpha1" : [
+      0,
+      49,
+      1238,
+      1173
+    ],
+    "boundsAlpha16" : [
+      304,
+      299,
+      699,
+      868
+    ],
+    "boundsAlpha128" : [
+      307,
+      305,
+      695,
+      861
+    ],
+    "height" : 1254,
+    "name" : "body-clean",
+    "sha256" : "92623c6b6911e0c5094b19b54db6835c4988e7e40913242cf88c033a4db1b520",
+    "source" : "candidates\/astronaut\/body-clean-v1.png",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1140019,
+      "alpha1to254" : 432106,
+      "alpha255" : 391
+    },
+    "boundsAlpha1" : [
+      0,
+      0,
+      1226,
+      1254
+    ],
+    "boundsAlpha16" : [
+      162,
+      319,
+      1002,
+      736
+    ],
+    "boundsAlpha128" : [
+      164,
+      320,
+      999,
+      733
+    ],
+    "height" : 1254,
+    "name" : "glove-left",
+    "sha256" : "7253c02713087f71e9f3763b71b352a1a77d4dc70da6157ef1231b242baa6bca",
+    "source" : "candidates\/astronaut\/glove-left-v1.png",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1079738,
+      "alpha1to254" : 492516,
+      "alpha255" : 262
+    },
+    "boundsAlpha1" : [
+      33,
+      12,
+      1201,
+      1225
+    ],
+    "boundsAlpha16" : [
+      150,
+      210,
+      1022,
+      853
+    ],
+    "boundsAlpha128" : [
+      151,
+      212,
+      1019,
+      850
+    ],
+    "height" : 1254,
+    "name" : "glove-right",
+    "sha256" : "92fd74ea6cc19692876b870c985cda5dc08d016316c847e6d94081f8496ed5be",
+    "source" : "candidates\/astronaut\/glove-right-v1.png",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1243077,
+      "alpha1to254" : 328417,
+      "alpha255" : 1022
+    },
+    "boundsAlpha1" : [
+      0,
+      53,
+      1242,
+      1201
+    ],
+    "boundsAlpha16" : [
+      32,
+      208,
+      1196,
+      840
+    ],
+    "boundsAlpha128" : [
+      33,
+      209,
+      1195,
+      838
+    ],
+    "height" : 1254,
+    "name" : "helmet-shell",
+    "sha256" : "600625f57e219d44ba302ab3158132dbadeb4d87bdec3f892c3ddc9bccab8f04",
+    "source" : "candidates\/astronaut\/helmet-shell-v2.png",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 884797,
+      "alpha1to254" : 686771,
+      "alpha255" : 948
+    },
+    "boundsAlpha1" : [
+      0,
+      21,
+      1248,
+      1233
+    ],
+    "boundsAlpha16" : [
+      88,
+      287,
+      1089,
+      719
+    ],
+    "boundsAlpha128" : [
+      89,
+      288,
+      1087,
+      718
+    ],
+    "height" : 1254,
+    "name" : "visor",
+    "sha256" : "b00071c4e504aaffdf788422aad3c43c29d43e22bda4c2d19255457bdd81b954",
+    "source" : "candidates\/astronaut\/visor-v1.png",
+    "width" : 1254
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1117569,
+      "alpha1to254" : 453853,
+      "alpha255" : 826
+    },
+    "boundsAlpha1" : [
+      33,
+      32,
+      1198,
+      1142
+    ],
+    "boundsAlpha16" : [
+      277,
+      245,
+      764,
+      750
+    ],
+    "boundsAlpha128" : [
+      278,
+      246,
+      762,
+      748
+    ],
+    "height" : 1192,
+    "name" : "eye-open",
+    "sha256" : "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+    "source" : "candidates\/base\/eye-open-v1.png",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1417434,
+      "alpha1to254" : 154588,
+      "alpha255" : 226
+    },
+    "boundsAlpha1" : [
+      37,
+      20,
+      1263,
+      1116
+    ],
+    "boundsAlpha16" : [
+      259,
+      552,
+      806,
+      293
+    ],
+    "boundsAlpha128" : [
+      267,
+      559,
+      793,
+      285
+    ],
+    "height" : 1192,
+    "name" : "eyelid-closed",
+    "sha256" : "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+    "source" : "candidates\/base\/eyelid-closed-v1.png",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1023245,
+      "alpha1to254" : 548821,
+      "alpha255" : 182
+    },
+    "boundsAlpha1" : [
+      0,
+      9,
+      1305,
+      1158
+    ],
+    "boundsAlpha16" : [
+      178,
+      200,
+      969,
+      846
+    ],
+    "boundsAlpha128" : [
+      179,
+      201,
+      967,
+      845
+    ],
+    "height" : 1192,
+    "name" : "foot",
+    "sha256" : "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+    "source" : "candidates\/base\/foot-v1.png",
+    "width" : 1319
+  },
+  {
+    "alpha" : {
+      "alpha0" : 1026182,
+      "alpha1to254" : 546682,
+      "alpha255" : 0
+    },
+    "boundsAlpha1" : [
+      49,
+      57,
+      1467,
+      967
+    ],
+    "boundsAlpha16" : [
+      91,
+      66,
+      1381,
+      896
+    ],
+    "boundsAlpha128" : [
+      92,
+      67,
+      1379,
+      894
+    ],
+    "height" : 1024,
+    "name" : "sprout",
+    "sha256" : "56b0770a054cf8b0423c844c8db8796a096cb232e9691c826ecf171ca6905673",
+    "source" : "candidates\/base\/sprout-v1.png",
+    "width" : 1536
+  }
+]

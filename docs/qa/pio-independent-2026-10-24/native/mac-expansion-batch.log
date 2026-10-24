@@ -1,0 +1,71 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioCloudExpansionBatchFinal.xctestrun -destination platform=macOS -parallel-testing-enabled NO "-only-testing:DaylogTests/PioCloudCandidateReviewTests/testBatchCandidateRegistrationNeutralAndStop" "-only-testing:DaylogTests/PioCloudCandidateReviewTests/testBatchActualIndependentBlinkAndHeldPresentation" -resultBundlePath /tmp/PioCloudExpansion-Mac-batch-20261024.xcresult
+
+Writing result bundle at path:
+	/tmp/PioCloudExpansion-Mac-batch-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 13:32:51.067205+0900 Daylog[82204:2079534] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:32:51.068087+0900 Daylog[82204:2079534] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:32:51.104487+0900 Daylog[82204:2079535] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:32:51.104555+0900 Daylog[82204:2079535] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:32:51.209703+0900 Daylog[82204:2079472] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 13:32:51.210919+0900 Daylog[82204:2079551] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:32:51.219145+0900 Daylog[82204:2079551] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:32:51.652850+0900 Daylog[82204:2079533] [Connection] Will NOT re-try to establish the connection
+2026-10-24 13:32:51.673271+0900 Daylog[82204:2079535] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:32:51.673649+0900 Daylog[82204:2079535] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 13:32:52.391529+0900 Daylog[82204:2079564] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 13:32:52.655.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 13:32:52.655.
+Test Suite 'PioCloudCandidateReviewTests' started at 2026-10-24 13:32:52.656.
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testBatchActualIndependentBlinkAndHeldPresentation]' started.
+PIO_CANDIDATE_BATCH_BEGIN presentation cherryBlossom
+PIO_CANDIDATE_BATCH_BEGIN presentation autumn
+PIO_CANDIDATE_BATCH_BEGIN presentation winter
+PIO_CANDIDATE_BATCH_BEGIN presentation summerVacation
+PIO_CANDIDATE_BATCH_BEGIN presentation halloween
+PIO_CANDIDATE_BATCH_BEGIN presentation pajamas
+PIO_CANDIDATE_BATCH_BEGIN presentation student
+PIO_CANDIDATE_BATCH_BEGIN presentation fitness
+PIO_CANDIDATE_BATCH_BEGIN presentation rainyDay
+PIO_CANDIDATE_BATCH_BEGIN presentation astronaut
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testBatchActualIndependentBlinkAndHeldPresentation]' passed (49.602 seconds).
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testBatchCandidateRegistrationNeutralAndStop]' started.
+PIO_CANDIDATE_BATCH_BEGIN neutral cherryBlossom
+PIO_CANDIDATE_BATCH_BEGIN neutral autumn
+PIO_CANDIDATE_BATCH_BEGIN neutral winter
+PIO_CANDIDATE_BATCH_BEGIN neutral summerVacation
+PIO_CANDIDATE_BATCH_BEGIN neutral halloween
+PIO_CANDIDATE_BATCH_BEGIN neutral pajamas
+PIO_CANDIDATE_BATCH_BEGIN neutral student
+PIO_CANDIDATE_BATCH_BEGIN neutral fitness
+PIO_CANDIDATE_BATCH_BEGIN neutral rainyDay
+PIO_CANDIDATE_BATCH_BEGIN neutral astronaut
+Test Case '-[DaylogTests.PioCloudCandidateReviewTests testBatchCandidateRegistrationNeutralAndStop]' passed (1.647 seconds).
+Test Suite 'PioCloudCandidateReviewTests' passed at 2026-10-24 13:33:43.906.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 51.248 (51.250) seconds
+Test Suite 'DaylogTests.xctest' passed at 2026-10-24 13:33:43.906.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 51.248 (51.251) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 13:33:43.906.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 51.248 (51.251) seconds
+2026-10-24 13:33:44.253 xcodebuild[82145:2079112] [MT] IDETestOperationsObserverDebug: 54.878 elapsed -- Testing started completed.
+2026-10-24 13:33:44.253 xcodebuild[82145:2079112] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 13:33:44.253 xcodebuild[82145:2079112] [MT] IDETestOperationsObserverDebug: 54.878 sec, +54.878 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCloudExpansion-Mac-batch-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

@@ -1,0 +1,1046 @@
+{
+  "status": "PARTIAL_OFFLINE_ACTION_STUDIES_ONLY",
+  "catalogCount": 14,
+  "actionCount": 8,
+  "keyposePNGCount": 112,
+  "gifCount": 14,
+  "allCanonicalInputsUnchanged": true,
+  "outfits": [
+    {
+      "outfit": "basic",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 122,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 110,
+      "allCanonicalInputsUnchanged": true
+    },
+    {
+      "outfit": "cherryBlossom",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 122,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 110,
+      "allCanonicalInputsUnchanged": true
+    },
+    {
+      "outfit": "summerVacation",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 122,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 110,
+      "allCanonicalInputsUnchanged": true
+    },
+    {
+      "outfit": "autumn",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 122,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 110,
+      "allCanonicalInputsUnchanged": true
+    },
+    {
+      "outfit": "winter",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 122,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 110,
+      "allCanonicalInputsUnchanged": true
+    },
+    {
+      "outfit": "halloween",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 122,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 110,
+      "allCanonicalInputsUnchanged": true
+    },
+    {
+      "outfit": "christmas",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 122,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 108,
+      "allCanonicalInputsUnchanged": true
+    },
+    {
+      "outfit": "hanbok",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 122,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 110,
+      "allCanonicalInputsUnchanged": true
+    },
+    {
+      "outfit": "astronaut",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 122,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 110,
+      "allCanonicalInputsUnchanged": true
+    },
+    {
+      "outfit": "rainyDay",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 122,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 110,
+      "allCanonicalInputsUnchanged": true
+    },
+    {
+      "outfit": "cafe",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 122,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 110,
+      "allCanonicalInputsUnchanged": true
+    },
+    {
+      "outfit": "student",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 122,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 110,
+      "allCanonicalInputsUnchanged": true
+    },
+    {
+      "outfit": "fitness",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 116,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 102,
+      "allCanonicalInputsUnchanged": true
+    },
+    {
+      "outfit": "pajamas",
+      "status": "PARTIAL_OFFLINE_ARTWORK_MOTION_STUDY",
+      "keyposePNGCount": 8,
+      "gifFrames": 131,
+      "sampledFrames": 158,
+      "borderAlphaCheck": {
+        "checkedFrames": 158,
+        "maxAlphaOnBorder": 0,
+        "allBordersTransparent": true,
+        "note": "Output border numeric check only, not strict source-bound or all-alpha clipping certification."
+      },
+      "durationMs": 13220,
+      "sequences": [
+        {
+          "action": "idle",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 0,
+          "endMs": 2160
+        },
+        {
+          "action": "bounce",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 2160,
+          "endMs": 3000
+        },
+        {
+          "action": "jump",
+          "sampledFrames": 18,
+          "sampleDurationMs": 70,
+          "startMs": 3000,
+          "endMs": 4260
+        },
+        {
+          "action": "celebrate",
+          "sampledFrames": 22,
+          "sampleDurationMs": 80,
+          "startMs": 4260,
+          "endMs": 6020
+        },
+        {
+          "action": "greet",
+          "sampledFrames": 20,
+          "sampleDurationMs": 80,
+          "startMs": 6020,
+          "endMs": 7620
+        },
+        {
+          "action": "sleepy",
+          "sampledFrames": 26,
+          "sampleDurationMs": 100,
+          "startMs": 7620,
+          "endMs": 10220
+        },
+        {
+          "action": "surprised",
+          "sampledFrames": 12,
+          "sampleDurationMs": 70,
+          "startMs": 10220,
+          "endMs": 11060
+        },
+        {
+          "action": "encourage",
+          "sampledFrames": 24,
+          "sampleDurationMs": 90,
+          "startMs": 11060,
+          "endMs": 13220
+        }
+      ],
+      "uniqueGIFFrames": 123,
+      "allCanonicalInputsUnchanged": true
+    }
+  ]
+}

@@ -1,0 +1,276 @@
+{
+  "checks" : [
+    "42 coordinator mappings",
+    "Reduce Motion configuration removes CA tracks",
+    "hidden verification character has zero tracks",
+    "native window detach halts tracks",
+    "vacation hidden foreground halts swing"
+  ],
+  "cloudMappings" : [
+    {
+      "asset" : "routimori_sync_loading",
+      "independent" : false,
+      "outfit" : "basic",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_wardrobe_basic_reference",
+      "independent" : true,
+      "outfit" : "basic",
+      "state" : "ready"
+    },
+    {
+      "asset" : "routimori_sync_failure",
+      "independent" : false,
+      "outfit" : "basic",
+      "state" : "trouble"
+    },
+    {
+      "asset" : "pio_cloud_cherryBlossom_body",
+      "independent" : true,
+      "outfit" : "cherryBlossom",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_outfit_cherryBlossom",
+      "independent" : true,
+      "outfit" : "cherryBlossom",
+      "state" : "ready"
+    },
+    {
+      "asset" : "pio_cloud_cherryBlossom_body",
+      "independent" : true,
+      "outfit" : "cherryBlossom",
+      "state" : "trouble"
+    },
+    {
+      "asset" : "pio_cloud_summerVacation_body",
+      "independent" : true,
+      "outfit" : "summerVacation",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_outfit_summerVacation",
+      "independent" : true,
+      "outfit" : "summerVacation",
+      "state" : "ready"
+    },
+    {
+      "asset" : "pio_cloud_summerVacation_body",
+      "independent" : true,
+      "outfit" : "summerVacation",
+      "state" : "trouble"
+    },
+    {
+      "asset" : "pio_cloud_autumn_body",
+      "independent" : true,
+      "outfit" : "autumn",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_outfit_autumn",
+      "independent" : true,
+      "outfit" : "autumn",
+      "state" : "ready"
+    },
+    {
+      "asset" : "pio_cloud_autumn_body",
+      "independent" : true,
+      "outfit" : "autumn",
+      "state" : "trouble"
+    },
+    {
+      "asset" : "pio_cloud_winter_body",
+      "independent" : true,
+      "outfit" : "winter",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_outfit_winter",
+      "independent" : true,
+      "outfit" : "winter",
+      "state" : "ready"
+    },
+    {
+      "asset" : "pio_cloud_winter_body",
+      "independent" : true,
+      "outfit" : "winter",
+      "state" : "trouble"
+    },
+    {
+      "asset" : "pio_cloud_halloween_body",
+      "independent" : true,
+      "outfit" : "halloween",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_outfit_halloween",
+      "independent" : true,
+      "outfit" : "halloween",
+      "state" : "ready"
+    },
+    {
+      "asset" : "pio_cloud_halloween_body",
+      "independent" : true,
+      "outfit" : "halloween",
+      "state" : "trouble"
+    },
+    {
+      "asset" : "pio_cloud_christmas_body",
+      "independent" : true,
+      "outfit" : "christmas",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_outfit_christmas",
+      "independent" : true,
+      "outfit" : "christmas",
+      "state" : "ready"
+    },
+    {
+      "asset" : "pio_cloud_christmas_body",
+      "independent" : true,
+      "outfit" : "christmas",
+      "state" : "trouble"
+    },
+    {
+      "asset" : "pio_cloud_hanbok_body",
+      "independent" : true,
+      "outfit" : "hanbok",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_outfit_hanbok",
+      "independent" : true,
+      "outfit" : "hanbok",
+      "state" : "ready"
+    },
+    {
+      "asset" : "pio_cloud_hanbok_body",
+      "independent" : true,
+      "outfit" : "hanbok",
+      "state" : "trouble"
+    },
+    {
+      "asset" : "pio_cloud_cafe_body",
+      "independent" : true,
+      "outfit" : "cafe",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_outfit_cafe",
+      "independent" : true,
+      "outfit" : "cafe",
+      "state" : "ready"
+    },
+    {
+      "asset" : "pio_cloud_cafe_body",
+      "independent" : true,
+      "outfit" : "cafe",
+      "state" : "trouble"
+    },
+    {
+      "asset" : "pio_cloud_student_body",
+      "independent" : true,
+      "outfit" : "student",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_outfit_student",
+      "independent" : true,
+      "outfit" : "student",
+      "state" : "ready"
+    },
+    {
+      "asset" : "pio_cloud_student_body",
+      "independent" : true,
+      "outfit" : "student",
+      "state" : "trouble"
+    },
+    {
+      "asset" : "pio_cloud_fitness_body",
+      "independent" : true,
+      "outfit" : "fitness",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_outfit_fitness",
+      "independent" : true,
+      "outfit" : "fitness",
+      "state" : "ready"
+    },
+    {
+      "asset" : "pio_cloud_fitness_body",
+      "independent" : true,
+      "outfit" : "fitness",
+      "state" : "trouble"
+    },
+    {
+      "asset" : "pio_cloud_rainyDay_body",
+      "independent" : true,
+      "outfit" : "rainyDay",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_outfit_rainyDay",
+      "independent" : true,
+      "outfit" : "rainyDay",
+      "state" : "ready"
+    },
+    {
+      "asset" : "pio_cloud_rainyDay_body",
+      "independent" : true,
+      "outfit" : "rainyDay",
+      "state" : "trouble"
+    },
+    {
+      "asset" : "pio_cloud_pajamas_body",
+      "independent" : true,
+      "outfit" : "pajamas",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_outfit_pajamas",
+      "independent" : true,
+      "outfit" : "pajamas",
+      "state" : "ready"
+    },
+    {
+      "asset" : "pio_cloud_pajamas_body",
+      "independent" : true,
+      "outfit" : "pajamas",
+      "state" : "trouble"
+    },
+    {
+      "asset" : "pio_cloud_astronaut_body",
+      "independent" : true,
+      "outfit" : "astronaut",
+      "state" : "receiving"
+    },
+    {
+      "asset" : "pio_outfit_astronaut",
+      "independent" : true,
+      "outfit" : "astronaut",
+      "state" : "ready"
+    },
+    {
+      "asset" : "pio_cloud_astronaut_body",
+      "independent" : true,
+      "outfit" : "astronaut",
+      "state" : "trouble"
+    }
+  ],
+  "limits" : [
+    "No StoreKit transactions",
+    "No production preference or data writes",
+    "No iPhone CPU\/RSS profiling",
+    "Native scene components, not full cloud workflow screenshots",
+    "Basic seated eyes and premium seated hands\/tablet remain flattened",
+    "Vacation foregrounds sway as whole authored images; no independent eyes\/hands"
+  ],
+  "nativeBlinkPNGs" : 2,
+  "nativeCloudPilotPNGs" : 9,
+  "nativeVacationPNGs" : 6,
+  "platform" : "iPhone17 simulator",
+  "status" : "NATIVE_SCENE_PILOT_EVIDENCE"
+}

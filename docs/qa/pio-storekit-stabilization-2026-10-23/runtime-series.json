@@ -1,0 +1,333 @@
+[
+  {
+    "name": "isolated-testCancellationFromStoreKitDoesNotUnlockOrShowFailure",
+    "exitCode": 65,
+    "resultBundle": "/tmp/PioStoreKit-Stabilization-isolated-testCancellationFromStoreKitDoesNotUnlockOrShowFailure.xcresult",
+    "expectedTests": 1,
+    "random": false,
+    "tests": [
+      {
+        "name": "testCancellationFromStoreKitDoesNotUnlockOrShowFailure()",
+        "result": "Failed"
+      }
+    ],
+    "counts": {
+      "Passed": 0,
+      "Failed": 1,
+      "Skipped": 0
+    },
+    "allRequiredPassed": false
+  },
+  {
+    "name": "isolated-testInterruptedPurchaseOnlyUnlocksAfterResolution",
+    "exitCode": 65,
+    "resultBundle": "/tmp/PioStoreKit-Stabilization-isolated-testInterruptedPurchaseOnlyUnlocksAfterResolution.xcresult",
+    "expectedTests": 1,
+    "random": false,
+    "tests": [
+      {
+        "name": "testInterruptedPurchaseOnlyUnlocksAfterResolution()",
+        "result": "Failed"
+      }
+    ],
+    "counts": {
+      "Passed": 0,
+      "Failed": 1,
+      "Skipped": 0
+    },
+    "allRequiredPassed": false
+  },
+  {
+    "name": "isolated-testRefundUpdateRevokesAccessAndRefreshResetsEquipment",
+    "exitCode": 65,
+    "resultBundle": "/tmp/PioStoreKit-Stabilization-isolated-testRefundUpdateRevokesAccessAndRefreshResetsEquipment.xcresult",
+    "expectedTests": 1,
+    "random": false,
+    "tests": [
+      {
+        "name": "testRefundUpdateRevokesAccessAndRefreshResetsEquipment()",
+        "result": "Failed"
+      }
+    ],
+    "counts": {
+      "Passed": 0,
+      "Failed": 1,
+      "Skipped": 0
+    },
+    "allRequiredPassed": false
+  },
+  {
+    "name": "isolated-testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork",
+    "exitCode": 65,
+    "resultBundle": "/tmp/PioStoreKit-Stabilization-isolated-testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork.xcresult",
+    "expectedTests": 1,
+    "random": false,
+    "tests": [
+      {
+        "name": "testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()",
+        "result": "Failed"
+      }
+    ],
+    "counts": {
+      "Passed": 0,
+      "Failed": 1,
+      "Skipped": 0
+    },
+    "allRequiredPassed": false
+  },
+  {
+    "name": "isolated-testVerificationFailureNeverGrantsFreshManagerOwnership",
+    "exitCode": 0,
+    "resultBundle": "/tmp/PioStoreKit-Stabilization-isolated-testVerificationFailureNeverGrantsFreshManagerOwnership.xcresult",
+    "expectedTests": 1,
+    "random": false,
+    "tests": [
+      {
+        "name": "testVerificationFailureNeverGrantsFreshManagerOwnership()",
+        "result": "Passed"
+      }
+    ],
+    "counts": {
+      "Passed": 1,
+      "Failed": 0,
+      "Skipped": 0
+    },
+    "allRequiredPassed": true
+  },
+  {
+    "name": "full-final-1",
+    "exitCode": 65,
+    "resultBundle": "/tmp/PioStoreKit-Stabilization-full-final-1.xcresult",
+    "expectedTests": 11,
+    "random": false,
+    "tests": [
+      {
+        "name": "testCancellationFromStoreKitDoesNotUnlockOrShowFailure()",
+        "result": "Failed"
+      },
+      {
+        "name": "testConfigurationLoadsThirteenNonConsumablesAtKoreanDisplayPrice()",
+        "result": "Passed"
+      },
+      {
+        "name": "testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()",
+        "result": "Failed"
+      },
+      {
+        "name": "testExplicitRestoreRecoversExternalPurchase()",
+        "result": "Passed"
+      },
+      {
+        "name": "testInterruptedPurchaseOnlyUnlocksAfterResolution()",
+        "result": "Failed"
+      },
+      {
+        "name": "testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate()",
+        "result": "Passed"
+      },
+      {
+        "name": "testProductLoadFailureAndRetryUseRealStoreKitAPI()",
+        "result": "Passed"
+      },
+      {
+        "name": "testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()",
+        "result": "Passed"
+      },
+      {
+        "name": "testPurchaseFailureLeavesLockedAndAllowsRetry()",
+        "result": "Passed"
+      },
+      {
+        "name": "testRefundUpdateRevokesAccessAndRefreshResetsEquipment()",
+        "result": "Failed"
+      },
+      {
+        "name": "testVerificationFailureNeverGrantsFreshManagerOwnership()",
+        "result": "Passed"
+      }
+    ],
+    "counts": {
+      "Passed": 7,
+      "Failed": 4,
+      "Skipped": 0
+    },
+    "allRequiredPassed": false
+  },
+  {
+    "name": "full-final-2",
+    "exitCode": 65,
+    "resultBundle": "/tmp/PioStoreKit-Stabilization-full-final-2.xcresult",
+    "expectedTests": 11,
+    "random": false,
+    "tests": [
+      {
+        "name": "testCancellationFromStoreKitDoesNotUnlockOrShowFailure()",
+        "result": "Failed"
+      },
+      {
+        "name": "testConfigurationLoadsThirteenNonConsumablesAtKoreanDisplayPrice()",
+        "result": "Passed"
+      },
+      {
+        "name": "testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()",
+        "result": "Failed"
+      },
+      {
+        "name": "testExplicitRestoreRecoversExternalPurchase()",
+        "result": "Passed"
+      },
+      {
+        "name": "testInterruptedPurchaseOnlyUnlocksAfterResolution()",
+        "result": "Failed"
+      },
+      {
+        "name": "testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate()",
+        "result": "Passed"
+      },
+      {
+        "name": "testProductLoadFailureAndRetryUseRealStoreKitAPI()",
+        "result": "Passed"
+      },
+      {
+        "name": "testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()",
+        "result": "Passed"
+      },
+      {
+        "name": "testPurchaseFailureLeavesLockedAndAllowsRetry()",
+        "result": "Passed"
+      },
+      {
+        "name": "testRefundUpdateRevokesAccessAndRefreshResetsEquipment()",
+        "result": "Failed"
+      },
+      {
+        "name": "testVerificationFailureNeverGrantsFreshManagerOwnership()",
+        "result": "Passed"
+      }
+    ],
+    "counts": {
+      "Passed": 7,
+      "Failed": 4,
+      "Skipped": 0
+    },
+    "allRequiredPassed": false
+  },
+  {
+    "name": "full-final-3",
+    "exitCode": 65,
+    "resultBundle": "/tmp/PioStoreKit-Stabilization-full-final-3.xcresult",
+    "expectedTests": 11,
+    "random": false,
+    "tests": [
+      {
+        "name": "testCancellationFromStoreKitDoesNotUnlockOrShowFailure()",
+        "result": "Failed"
+      },
+      {
+        "name": "testConfigurationLoadsThirteenNonConsumablesAtKoreanDisplayPrice()",
+        "result": "Passed"
+      },
+      {
+        "name": "testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()",
+        "result": "Failed"
+      },
+      {
+        "name": "testExplicitRestoreRecoversExternalPurchase()",
+        "result": "Passed"
+      },
+      {
+        "name": "testInterruptedPurchaseOnlyUnlocksAfterResolution()",
+        "result": "Failed"
+      },
+      {
+        "name": "testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate()",
+        "result": "Passed"
+      },
+      {
+        "name": "testProductLoadFailureAndRetryUseRealStoreKitAPI()",
+        "result": "Passed"
+      },
+      {
+        "name": "testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()",
+        "result": "Passed"
+      },
+      {
+        "name": "testPurchaseFailureLeavesLockedAndAllowsRetry()",
+        "result": "Passed"
+      },
+      {
+        "name": "testRefundUpdateRevokesAccessAndRefreshResetsEquipment()",
+        "result": "Failed"
+      },
+      {
+        "name": "testVerificationFailureNeverGrantsFreshManagerOwnership()",
+        "result": "Passed"
+      }
+    ],
+    "counts": {
+      "Passed": 7,
+      "Failed": 4,
+      "Skipped": 0
+    },
+    "allRequiredPassed": false
+  },
+  {
+    "name": "full-random",
+    "exitCode": 65,
+    "resultBundle": "/tmp/PioStoreKit-Stabilization-full-random.xcresult",
+    "expectedTests": 11,
+    "random": true,
+    "tests": [
+      {
+        "name": "testPendingAskToBuyDoesNotUnlockUntilApprovedUpdate()",
+        "result": "Passed"
+      },
+      {
+        "name": "testCancellationFromStoreKitDoesNotUnlockOrShowFailure()",
+        "result": "Failed"
+      },
+      {
+        "name": "testProductLoadFailureAndRetryUseRealStoreKitAPI()",
+        "result": "Passed"
+      },
+      {
+        "name": "testConfigurationLoadsThirteenNonConsumablesAtKoreanDisplayPrice()",
+        "result": "Passed"
+      },
+      {
+        "name": "testInterruptedPurchaseOnlyUnlocksAfterResolution()",
+        "result": "Failed"
+      },
+      {
+        "name": "testPurchaseFailureLeavesLockedAndAllowsRetry()",
+        "result": "Passed"
+      },
+      {
+        "name": "testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()",
+        "result": "Failed"
+      },
+      {
+        "name": "testRefundUpdateRevokesAccessAndRefreshResetsEquipment()",
+        "result": "Failed"
+      },
+      {
+        "name": "testVerificationFailureNeverGrantsFreshManagerOwnership()",
+        "result": "Passed"
+      },
+      {
+        "name": "testPurchaseDuplicateRelaunchAndRepeatedEquipmentUseVerifiedLedger()",
+        "result": "Passed"
+      },
+      {
+        "name": "testExplicitRestoreRecoversExternalPurchase()",
+        "result": "Passed"
+      }
+    ],
+    "counts": {
+      "Passed": 7,
+      "Failed": 4,
+      "Skipped": 0
+    },
+    "allRequiredPassed": false
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "part": "torso",
+    "generatorOutput": "/Users/mungyubin/.codex/generated_images/01a167e0-d86f-7633-94a1-40ac5235c4f4/exec-59f8de6c-18df-44bb-a72c-2435ebb24d1f.png",
+    "source": "output/pio-independent-2026-10-24/hanbok-cloud/source/torso-candidate-v1.png",
+    "asset": "pio_cloud_hanbok_v2_torso",
+    "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_hanbok_v2_torso.imageset/pio_cloud_hanbok_v2_torso.png",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alpha16bbox": [
+      120,
+      28,
+      1186,
+      1215
+    ],
+    "sha256": "d184a4d12467be3ea0c0d97141018ce878c44ae7a4e1982bb8deac50d62e4962",
+    "pixelsChanged": false,
+    "approved": false
+  },
+  {
+    "part": "armPair",
+    "generatorOutput": "/Users/mungyubin/.codex/generated_images/01a167e0-d86f-7633-94a1-40ac5235c4f4/exec-6738e81f-aa0c-49dc-b55c-f5bfe690b1d9.png",
+    "source": "output/pio-independent-2026-10-24/hanbok-cloud/source/armPair-candidate-v1.png",
+    "asset": "pio_cloud_hanbok_v2_armPair",
+    "catalog": "Daylog/PioOverhaulTrial.xcassets/pio_cloud_hanbok_v2_armPair.imageset/pio_cloud_hanbok_v2_armPair.png",
+    "nativeSize": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "alpha16bbox": [
+      43,
+      594,
+      1211,
+      1025
+    ],
+    "sha256": "772c1d1d857032ebe7d42d3f45b40931a5acc332df3e23380373453719a25fd3",
+    "pixelsChanged": false,
+    "approved": false
+  }
+]

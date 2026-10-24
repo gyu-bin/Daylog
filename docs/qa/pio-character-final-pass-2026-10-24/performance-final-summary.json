@@ -1,0 +1,93 @@
+{
+  "records": [
+    {
+      "file": "E621F190-7FAB-4B7F-9455-F075DCA40971.json",
+      "scope": "50 Basic visible attach/150ms presentation/detach cycles. Assertions cover visibility, active tracks, detached zero tracks, weak stage and host release",
+      "startMiB": 174.359375,
+      "maxMiB": 227.34375,
+      "endMiB": 212.171875,
+      "seconds": 8.063072583332541,
+      "rows": 50,
+      "monotonic": 104683.1658995417
+    },
+    {
+      "file": "62BC0EE1-FF05-424E-A04E-A51880342CFB.json",
+      "scope": "14 outfit registrations, three sequential passes in one native window; each visible scene starts, stops and is released",
+      "startMiB": 212.375,
+      "maxMiB": 422.53125,
+      "endMiB": 187.90625,
+      "seconds": 7.109647250006674,
+      "rows": 42,
+      "monotonic": 104691.24618729169
+    },
+    {
+      "file": "20BBE65F-C466-4F8D-A4EF-AB13DA88C5F2.json",
+      "scope": "Normal home fallback PioOutfitMotionRig;14 outfits x2 passes, visible idle150ms and explicit stop/release. No DEBUG overhaul, wardrobe equip, ownership or actual dashboard UI",
+      "startMiB": 188.109375,
+      "maxMiB": 291.078125,
+      "endMiB": 289.109375,
+      "seconds": 4.488504291672143,
+      "rows": 28,
+      "monotonic": 104698.37077608335
+    },
+    {
+      "file": "37F741E6-4A96-4487-B7C9-93E27992BE88.json",
+      "scope": "Same Basic selected path and native window; empty2s, warmup2s, three counterbalanced active/stopped pairs of5s each, released2s. Process CPU includes XCTest; excludes GPU/compositor",
+      "startMiB": 289.125,
+      "maxMiB": 289.125,
+      "endMiB": 151.6875,
+      "seconds": 36.32035079166235,
+      "rows": 9,
+      "monotonic": 104702.87657575002
+    },
+    {
+      "file": "0A0C3787-4ADC-4903-BCEC-8366D7E9A5D0.json",
+      "scope": "10 Basic visible attach/150ms presentation/detach cycles. Assertions cover visibility, active tracks, detached zero tracks, weak stage and host release",
+      "startMiB": 156.765625,
+      "maxMiB": 159.90625,
+      "endMiB": 159.90625,
+      "seconds": 1.6060659583454253,
+      "rows": 10,
+      "monotonic": 104739.21244108335
+    },
+    {
+      "file": "CAFDF875-4CD3-43B6-83AE-4B456CE2120C.json",
+      "scope": "20 Basic visible attach/150ms presentation/detach cycles. Assertions cover visibility, active tracks, detached zero tracks, weak stage and host release",
+      "startMiB": 160.0625,
+      "maxMiB": 160.140625,
+      "endMiB": 160.078125,
+      "seconds": 3.221431083336938,
+      "rows": 20,
+      "monotonic": 104740.83629987502
+    },
+    {
+      "file": "F9232BDF-63FE-4C08-A243-C7F137A868C4.json",
+      "scope": "Existing composed vacation rig;14 outfits x day/night x2 passes. First-load includes two generated ambient backdrops per rig;150ms native visibility per state, explicit stop/release. Not independent vacation artwork approval",
+      "startMiB": 160.15625,
+      "maxMiB": 448.296875,
+      "endMiB": 204.25,
+      "seconds": 11.156747958331835,
+      "rows": 28,
+      "monotonic": 104744.07278962502
+    }
+  ],
+  "cpu": {
+    "active": {
+      "1": 0.22696435701566206,
+      "2": 0.19959335027542874,
+      "3": 0.2046494567173636
+    },
+    "stopped": {
+      "1": 0.21106770323241442,
+      "2": 0.2312043346999506,
+      "3": 0.20709935419460562
+    },
+    "activeMean": 0.21040238800281813,
+    "stoppedMean": 0.21645713070899023,
+    "pairedDifferencePP": -0.006054742706172085,
+    "nominalPaired95CI": [
+      -0.06556993900145283,
+      0.053460453589108656
+    ]
+  }
+}

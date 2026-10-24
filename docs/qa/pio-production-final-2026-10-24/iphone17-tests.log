@@ -1,0 +1,95 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioProductionFinalMain.xctestrun -destination "platform=iOS Simulator,id=89B877BB-6094-4A27-B108-3A958EF23D9B" -parallel-testing-enabled NO -resultBundlePath /tmp/PioProductionFinal-iPhone17-20261024.xcresult "-only-testing:DaylogStoreKitTests/PioCloudCandidateReviewTests/testBatchCandidateRegistrationNeutralAndStop" "-only-testing:DaylogStoreKitTests/PioCloudCandidateReviewTests/testBatchActualIndependentBlinkAndHeldPresentation" "-only-testing:DaylogStoreKitTests/PioCloudCandidateReviewTests/testActualPresentationSequence" "-only-testing:DaylogStoreKitTests/PioVacationProductionTests" "-only-testing:DaylogStoreKitTests/PioProductionFinalScreenTests" "-only-testing:DaylogStoreKitTests/PioProductionFinalVisualTests"
+
+Writing result bundle at path:
+	/tmp/PioProductionFinal-iPhone17-20261024.xcresult
+
+2026-10-24 14:37:31.997 xcodebuild[1730:2243534] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 14:38:23.012727+0900 Daylog[2116:2247213] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 14:38:24.306422+0900 Daylog[2116:2247213] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 14:38:24.307918+0900 Daylog[2116:2247213] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 14:38:24.308241+0900 Daylog[2116:2247213] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-24 14:38:24.849.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 14:38:24.849.
+Test Suite 'PioCloudCandidateReviewTests' started at 2026-10-24 14:38:24.849.
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testActualPresentationSequence]' started.
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testActualPresentationSequence]' passed (5.204 seconds).
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testBatchActualIndependentBlinkAndHeldPresentation]' started.
+PIO_CANDIDATE_BATCH_BEGIN presentation basic
+PIO_CANDIDATE_BATCH_BEGIN presentation cherryBlossom
+PIO_CANDIDATE_BATCH_BEGIN presentation summerVacation
+PIO_CANDIDATE_BATCH_BEGIN presentation autumn
+PIO_CANDIDATE_BATCH_BEGIN presentation winter
+PIO_CANDIDATE_BATCH_BEGIN presentation halloween
+PIO_CANDIDATE_BATCH_BEGIN presentation christmas
+PIO_CANDIDATE_BATCH_BEGIN presentation hanbok
+PIO_CANDIDATE_BATCH_BEGIN presentation cafe
+PIO_CANDIDATE_BATCH_BEGIN presentation student
+PIO_CANDIDATE_BATCH_BEGIN presentation fitness
+PIO_CANDIDATE_BATCH_BEGIN presentation rainyDay
+PIO_CANDIDATE_BATCH_BEGIN presentation pajamas
+PIO_CANDIDATE_BATCH_BEGIN presentation astronaut
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudCandidateReviewTests.swift:153: error: -[DaylogStoreKitTests.PioCloudCandidateReviewTests testBatchActualIndependentBlinkAndHeldPresentation] : XCTAssertGreaterThan failed: ("0.0") is not greater than ("0.95")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudCandidateReviewTests.swift:153: error: -[DaylogStoreKitTests.PioCloudCandidateReviewTests testBatchActualIndependentBlinkAndHeldPresentation] : XCTAssertLessThan failed: ("1.0") is not less than ("0.05")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudCandidateReviewTests.swift:153: error: -[DaylogStoreKitTests.PioCloudCandidateReviewTests testBatchActualIndependentBlinkAndHeldPresentation] : XCTAssertGreaterThan failed: ("0.0") is not greater than ("0.95")
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudCandidateReviewTests.swift:153: error: -[DaylogStoreKitTests.PioCloudCandidateReviewTests testBatchActualIndependentBlinkAndHeldPresentation] : XCTAssertLessThan failed: ("1.0") is not less than ("0.05")
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testBatchActualIndependentBlinkAndHeldPresentation]' failed (68.909 seconds).
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testBatchCandidateRegistrationNeutralAndStop]' started.
+PIO_CANDIDATE_BATCH_BEGIN neutral basic
+IOSurfaceClientSetSurfaceNotify failed e00002c7
+PIO_CANDIDATE_BATCH_BEGIN neutral cherryBlossom
+PIO_CANDIDATE_BATCH_BEGIN neutral summerVacation
+PIO_CANDIDATE_BATCH_BEGIN neutral autumn
+PIO_CANDIDATE_BATCH_BEGIN neutral winter
+PIO_CANDIDATE_BATCH_BEGIN neutral halloween
+PIO_CANDIDATE_BATCH_BEGIN neutral christmas
+PIO_CANDIDATE_BATCH_BEGIN neutral hanbok
+PIO_CANDIDATE_BATCH_BEGIN neutral cafe
+PIO_CANDIDATE_BATCH_BEGIN neutral student
+PIO_CANDIDATE_BATCH_BEGIN neutral fitness
+PIO_CANDIDATE_BATCH_BEGIN neutral rainyDay
+PIO_CANDIDATE_BATCH_BEGIN neutral pajamas
+PIO_CANDIDATE_BATCH_BEGIN neutral astronaut
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testBatchCandidateRegistrationNeutralAndStop]' passed (2.454 seconds).
+Test Suite 'PioCloudCandidateReviewTests' failed at 2026-10-24 14:39:41.419.
+	 Executed 3 tests, with 4 failures (0 unexpected) in 76.567 (76.570) seconds
+Test Suite 'PioProductionFinalScreenTests' started at 2026-10-24 14:39:41.423.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalScreenTests testActualDeviceScreensAndAccessibilityLayouts]' started.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalScreenTests testActualDeviceScreensAndAccessibilityLayouts]' passed (4.710 seconds).
+Test Suite 'PioProductionFinalScreenTests' passed at 2026-10-24 14:39:46.133.
+	 Executed 1 test, with 0 failures (0 unexpected) in 4.710 (4.711) seconds
+Test Suite 'PioProductionFinalVisualTests' started at 2026-10-24 14:39:46.134.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalVisualTests testFourteenHomeProductionMotionFrames]' started.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalVisualTests testFourteenHomeProductionMotionFrames]' passed (11.927 seconds).
+Test Case '-[DaylogStoreKitTests.PioProductionFinalVisualTests testFourteenVacationDayNightActualMotionFrames]' started.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalVisualTests testFourteenVacationDayNightActualMotionFrames]' passed (182.160 seconds).
+Test Suite 'PioProductionFinalVisualTests' passed at 2026-10-24 14:43:00.221.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 194.087 (194.087) seconds
+Test Suite 'PioVacationProductionTests' started at 2026-10-24 14:43:00.223.
+Test Case '-[DaylogStoreKitTests.PioVacationProductionTests testBasicDayEyeResourcesAndLifecycle]' started.
+Test Case '-[DaylogStoreKitTests.PioVacationProductionTests testBasicDayEyeResourcesAndLifecycle]' passed (0.389 seconds).
+Test Case '-[DaylogStoreKitTests.PioVacationProductionTests testBasicDayEyesActualUIKitPresentationAt64And220]' started.
+Test Case '-[DaylogStoreKitTests.PioVacationProductionTests testBasicDayEyesActualUIKitPresentationAt64And220]' passed (4.212 seconds).
+Test Suite 'PioVacationProductionTests' passed at 2026-10-24 14:43:04.824.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 4.600 (4.601) seconds
+Test Suite 'DaylogStoreKitTests.xctest' failed at 2026-10-24 14:43:04.824.
+	 Executed 8 tests, with 4 failures (0 unexpected) in 279.964 (279.975) seconds
+Test Suite 'Selected tests' failed at 2026-10-24 14:43:04.825.
+	 Executed 8 tests, with 4 failures (0 unexpected) in 279.964 (279.976) seconds
+2026-10-24 14:43:04.886 xcodebuild[1730:2243534] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 14:43:04.887 xcodebuild[1730:2243534] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 14:43:04.888 xcodebuild[1730:2243534] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 14:43:22.822 xcodebuild[1730:2243534] [MT] IDETestOperationsObserverDebug: 356.583 elapsed -- Testing started completed.
+2026-10-24 14:43:22.822 xcodebuild[1730:2243534] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 14:43:22.822 xcodebuild[1730:2243534] [MT] IDETestOperationsObserverDebug: 356.583 sec, +356.583 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioProductionFinal-iPhone17-20261024.xcresult
+
+Failing tests:
+	PioCloudCandidateReviewTests.testBatchActualIndependentBlinkAndHeldPresentation()
+	PioCloudCandidateReviewTests.testBatchActualIndependentBlinkAndHeldPresentation()
+
+** TEST EXECUTE FAILED **
+
+Testing started

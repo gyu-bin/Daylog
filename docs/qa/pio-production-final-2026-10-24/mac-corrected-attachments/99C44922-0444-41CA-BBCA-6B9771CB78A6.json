@@ -1,0 +1,32 @@
+{
+  "basicRegistration" : "basic-production-hands-v2",
+  "candidateEyesFlag" : false,
+  "candidateHandsFlag" : false,
+  "final" : {
+    "cpuSeconds" : 1.237355,
+    "monotonicSeconds" : 92862.125339875027,
+    "rssBytes" : 412057600
+  },
+  "initial" : {
+    "cpuSeconds" : 0.91366199999999997,
+    "monotonicSeconds" : 92857.600832458353,
+    "rssBytes" : 343244800
+  },
+  "limitations" : "Debug XCTest host; RSS is not a leak assertion. Includes shared image\/cache\/allocator\/renderer residency. Not app cold-launch, production entitlement flow, actual OS backgrounding, full home\/vacation profiling, Instruments allocations, compositor\/GPU\/battery or long-term leak proof. No arbitrary memory threshold or retry sleep.",
+  "os" : "버전 27.0.1(빌드 26A434)",
+  "processorCount" : 10,
+  "rows" : [
+    {
+      "afterDrop" : {
+        "cpuSeconds" : 1.2373339999999999,
+        "monotonicSeconds" : 92862.125319125014,
+        "rssBytes" : 412057600
+      },
+      "clipReleased" : true,
+      "hostingReleased" : false,
+      "nativeReleased" : false,
+      "scrollReleased" : true
+    }
+  ],
+  "scope" : "Actual RoutimoriVacationScene via NSHostingView in a visible scroll container; drop intact outer subtree, observe SwiftUI dismantle and weak native\/hosting\/scroll\/clip release. No purchase\/appearance override"
+}

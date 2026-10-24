@@ -1,0 +1,43 @@
+Command: /usr/bin/xcodebuild -clonedSourcePackagesDirPath /private/tmp/DaylogStage4.noindex/verify/SourcePackages -project /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination 'platform=iOS Simulator,id=87EA3A43-121C-4FFA-A716-A79E614ABEFA' -derivedDataPath /private/tmp/RoutimoriStoreKit.noindex/ios -disableAutomaticPackageResolution -parallel-testing-enabled NO -only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests/testRefundUpdateRevokesAccessAndRefreshResetsEquipment -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-storekit-2026-10-16/isolated-ios-v2/01-02-testRefundUpdateRevokesAccessAndRefreshResetsEquipment.xcresult test-without-building
+
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -clonedSourcePackagesDirPath /private/tmp/DaylogStage4.noindex/verify/SourcePackages -project /Users/mungyubin/Desktop/Coding/Daylog/Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination "platform=iOS Simulator,id=87EA3A43-121C-4FFA-A716-A79E614ABEFA" -derivedDataPath /private/tmp/RoutimoriStoreKit.noindex/ios -disableAutomaticPackageResolution -parallel-testing-enabled NO "-only-testing:DaylogStoreKitTests/PioStoreKitIntegrationTests/testRefundUpdateRevokesAccessAndRefreshResetsEquipment" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-storekit-2026-10-16/isolated-ios-v2/01-02-testRefundUpdateRevokesAccessAndRefreshResetsEquipment.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-storekit-2026-10-16/isolated-ios-v2/01-02-testRefundUpdateRevokesAccessAndRefreshResetsEquipment.xcresult
+
+2026-10-16 15:42:42.576537+0900 Daylog[18323:31452052] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-16 15:42:43.179566+0900 Daylog[18323:31452052] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-16 15:42:43.214109+0900 Daylog[18323:31452052] [API] cannot add handler to 0 from 0 - dropping
+2026-10-16 15:42:43.221479+0900 Daylog[18323:31452052] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-16 15:42:43.393.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-16 15:42:43.394.
+Test Suite 'PioStoreKitIntegrationTests' started at 2026-10-16 15:42:43.394.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment]' started.
+PioStoreKit: Transaction.updates listener started
+objc[18323]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x10ff68398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x1229a4310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+PioStoreKit: raw verified update product=com.mungyubin.daylog.ios.outfit.winter environment=Environment(rawValue: "Xcode") revoked=true
+Test Case '-[DaylogStoreKitTests.PioStoreKitIntegrationTests testRefundUpdateRevokesAccessAndRefreshResetsEquipment]' passed (0.201 seconds).
+Test Suite 'PioStoreKitIntegrationTests' passed at 2026-10-16 15:42:43.604.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.201 (0.210) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-16 15:42:43.604.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.201 (0.210) seconds
+Test Suite 'Selected tests' passed at 2026-10-16 15:42:43.604.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.201 (0.211) seconds
+PioStoreKit: Transaction.updates listener ended
+2026-10-16 15:42:43.895 xcodebuild[18299:31451828] [MT] IDETestOperationsObserverDebug: 4.571 elapsed -- Testing started completed.
+2026-10-16 15:42:43.895 xcodebuild[18299:31451828] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-16 15:42:43.895 xcodebuild[18299:31451828] [MT] IDETestOperationsObserverDebug: 4.571 sec, +4.571 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-storekit-2026-10-16/isolated-ios-v2/01-02-testRefundUpdateRevokesAccessAndRefreshResetsEquipment.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

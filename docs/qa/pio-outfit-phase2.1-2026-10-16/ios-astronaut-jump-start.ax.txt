@@ -1,0 +1,113 @@
+Window: "Daylog Wardrobe iPhone 17", App: Device Hub.
+0 standard window Daylog Wardrobe iPhone 17 – iOS 27.0, ID: com.apple.dt.DeviceKit.DeviceManagementWindow-AppWindow-1, Secondary Actions: Raise
+	1 split group
+		2 split group com.apple.dt.DeviceKit.DeviceManagementWindow-AppWindow-1, SidebarNavigationSplitView
+			3 scroll area
+				4 list Sidebar
+					5 row (selectable) Description: Available, Value: Expanded
+					6 row (selected) Description: Iphone, Third Generation, Value: Daylog Wardrobe iPhone 17
+27.0
+Simulator
+					7 row (selectable) Description: Iphone, Third Generation, Value: Daylog Store iPhone 17 Pro Max
+27.0
+Simulator
+					8 row (selectable) Description: Iphone, Third Generation, Value: iPhone 17
+27.0
+Simulator
+					9 row (selectable) Description: Iphone, Third Generation, Value: iPhone
+27.0.1
+iPhone 14 Pro
+					10 row (selectable) Description: Iphone, First Generation, Value: Daylog QA iPhone-SE-3rd-generation
+27.0
+Simulator
+					11 row (selectable) Description: Ipad, Value: Daylog Store iPad Pro 13
+27.0
+Simulator
+					12 row (selectable) Description: Ipad, Value: iPad Pro 13-inch (M5)
+27.0
+Simulator
+			13 search text field (settable) Search
+				14 button Search
+			15 splitter (disabled, settable, float) 240
+			16 container
+				17 container
+					18 text Description: 피오 동작 검토, Secondary Actions: Cancel
+					19 text Description: 개발 검토 전용 · 원화와 실제 보유 내역을 바꾸지 않아요., Secondary Actions: Cancel
+					20 pop up button Description: 의상, 우주인 피오, ID: outfitQA.outfit, Secondary Actions: Cancel
+					21 pop up button Description: 동작, 점프, ID: outfitQA.motion, Secondary Actions: Cancel
+					22 pop up button Description: 크기, 220pt, ID: outfitQA.size, Secondary Actions: Cancel
+					23 pop up button Description: 단계, 4단계, ID: outfitQA.stage, Secondary Actions: Cancel
+					24 switch Description: 동작 켜기, Value: 1, ID: outfitQA.animate, Secondary Actions: Cancel
+					25 switch Description: 캐릭터 표시, Value: 1, ID: outfitQA.visible, Secondary Actions: Cancel
+					26 switch Description: 정지 요청 검토, Value: 0, ID: outfitQA.reduceMotion, Secondary Actions: Cancel
+					27 switch Description: 어두운 배경, Value: 1, ID: outfitQA.dark, Secondary Actions: Cancel
+					28 text Description: 우주인 피오 · 점프 · 220pt · 4단계, ID: outfitQA.selection, Secondary Actions: Cancel
+					29 text Description: 시스템 움직임 줄이기: 꺼짐 · 화면: 활성, ID: outfitQA.systemReduceMotion, Secondary Actions: Cancel
+					30 text Description: 세 의상은 한 장의 원화예요. 눈·날개·소품의 독립 동작과 단계별 외형은 지원하지 않아요., Secondary Actions: Cancel
+					31 button Description: 30회 의상 전환, ID: outfitQA.switch, Secondary Actions: Cancel
+					32 text Description: 0회, Secondary Actions: Cancel
+					33 button Description: 측정값 초기화, ID: outfitQA.resetMetrics, Secondary Actions: Cancel
+					34 button Description: 측정값 새로고침, ID: outfitQA.metrics, Secondary Actions: Cancel
+					35 text ID: outfitQA.metricValues, Secondary Actions: Cancel, Description: activeAnimationTracks=3 · activeRigs=1 · cachedImages=4 · configurations=1 · effectiveLayouts=2 · hostUpdates=2 · layoutCalls=4 · layoutTransactions=4 · nativeRefreshes=4 · sourceLoads=4
+				36 text Screenshot Saved Open in Finder
+				37 button Description: Forward, ID: chevron.right
+				38 button Description: Home, ID: app.grid.3x3
+				39 button Description: Screenshot, ID: camera.viewfinder
+				40 text 0:00
+				41 button Rotate Left
+				42 button Description: Stop, ID: stop.fill
+		43 splitter (disabled, settable, float) 799
+		44 container
+			45 tab group Inspector Subcategory
+				46 tab Description: Info, Value: 1, ID: InspectorButton.com.apple.devicekit.inspector.info
+				47 tab Description: Apps, Value: 0, ID: InspectorButton.com.apple.devicekit.inspector.apps
+				48 tab Description: Profiles, Value: 0, ID: InspectorButton.com.apple.devicekit.inspector.profiles
+			49 scroll area Description: Info, ID: Inspector.com.apple.devicekit.inspector.info
+				50 container
+					51 text Name, Help: Daylog Wardrobe iPhone 17, Value: iPhone 17 iOS 27.0, ID: info.inspector.item.name.value
+				52 container
+					53 text Model, Help: iPhone 17, Value: iPhone 17 66B81EA7-8132-4677-A443-2C5F96FB06ED
+				54 heading Paired Simulators
+				55 container
+					56 scroll area
+						57 list
+							58 row (selectable) No Paired Watch Simulators
+					59 button (disabled) Description: Add, Help: Pair Apple Watch
+					60 button (disabled) Description: Remove, Help: Unpair Apple Watch
+				61 button Edit Visibility
+			62 container Description: Info, ID: Inspector.com.apple.devicekit.inspector.info
+	63 toolbar
+		64 menu button Add Device, ID: plus
+		65 toggle button Description: Filter, Help: Sort and Filter, Value: off
+		66 button Description: Hide Sidebar, Secondary Actions: Increment, Decrement, Delete, Cancel
+		67 toggle button Description: Capture Keyboard, Value: off
+		68 toggle button Description: Resize mode, Help: Enter resize mode, Value: off
+		69 Zoom
+			70 radio button Description: Zoom Out, Value: 0, ID: minus.magnifyingglass
+			71 radio button Description: Up, Right, Down, And Left Triangles In A Magnifying Glass, Help: Zoom to Fit, Value: 0, ID: arrowtriangles.up.right.down.left.magnifyingglass
+			72 radio button Description: Zoom To Actual Size, Help: Physical Size, Value: 1, ID: 1.magnifyingglass
+			73 radio button Description: Zoom In, Value: 0, ID: plus.magnifyingglass
+		74 button Description: Open in New Window, Help: Switch to compact window, Secondary Actions: Increment, Decrement, Delete, Cancel, Move previous, Move next, Remove from toolbar
+		75 menu button More Actions, ID: ellipsis
+		76 Inspector Category
+			77 radio button Description: Edit, Help: Settings, Value: 0, ID: slider.horizontal.3
+			78 radio button Description: Text Document, Help: Reports, Value: 0, ID: text.document
+			79 radio button Description: Info, Value: 1, ID: info
+	80 close button
+	81 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	82 minimize button
+	83 text Daylog Wardrobe iPhone 17 iOS 27.0
+84 menu bar
+	85 Device Hub
+	86 File
+	87 Edit
+	88 View
+	89 Device
+	90 Controls
+	91 Window
+	92 Help
+
+Selected:
+	6 row (selected)
+
+Note: Pay special attention to the content selected by the user. If the user asks a question or refers to the content they are looking at on-screen, they might be referring to the selected content (but they might be referring to something else that's visible, too).

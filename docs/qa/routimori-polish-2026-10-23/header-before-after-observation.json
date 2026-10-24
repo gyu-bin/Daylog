@@ -1,0 +1,33 @@
+{
+  "status": "NATIVE_IMAGE_OBSERVATION",
+  "method": "Same UIKit TodayCompactView/in-memory fixture/iPhone17/3x; first full content card upper horizontal neutral gray border, observed across center row span. Screenshot analysis only, not a new UI layout assertion.",
+  "images": [
+    {
+      "image": "docs/qa/routimori-polish-2026-10-23/before-green/iphone-home-header.png",
+      "sha256": "899dcf97834f2987aa01b2d73796c9530c666bf6143c5202efe5b3758a78ccc1",
+      "pixelSize": [
+        1206,
+        2622
+      ],
+      "scale": 3,
+      "firstContentCardTopBorderPixelRow": 770,
+      "firstContentCardTopPt": 256.6666666666667
+    },
+    {
+      "image": "docs/qa/routimori-polish-2026-10-23/after/iphone-home-header.png",
+      "sha256": "752c5af72037536e5d7947a1a4ac31d8b597168769b97b6390316118e1ba4294",
+      "pixelSize": [
+        1206,
+        2622
+      ],
+      "scale": 3,
+      "firstContentCardTopBorderPixelRow": 692,
+      "firstContentCardTopPt": 230.66666666666666
+    }
+  ],
+  "firstCardUpwardShiftPt": 26,
+  "limits": [
+    "after is neutral geometry before final metadata/Release fallback/Today minHeight source refinements; those do not alter normal text-sized44pt row geometry",
+    "320/768 snapshots are constrained iPhone hosting widths, not actual device acceptance"
+  ]
+}

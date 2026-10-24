@@ -1,0 +1,78 @@
+ M Daylog.xcodeproj/project.pbxproj
+ M Daylog/App/RootView.swift
+ M Daylog/Components/PioTrial.swift
+ M Daylog/Components/Saessagi.swift
+ M Daylog/Views/Dashboard/SaessagiGrowthCard.swift
+ M Daylog/Views/Dashboard/VacationRestView.swift
+ M Daylog/Views/Onboarding/FirstSyncView.swift
+ M Daylog/Views/Onboarding/SyncScene.swift
+ M Daylog/Views/Settings/SettingsView.swift
+ M DaylogTests/ProductUXTests.swift
+ M DaylogTests/SaessagiTests.swift
+?? Daylog/Components/PioOutfitMotion.swift
+?? Daylog/PioTrial.xcassets/pio_stage4_crest.imageset/
+?? Daylog/PioTrial.xcassets/pio_stage4_tail_left.imageset/
+?? Daylog/PioTrial.xcassets/pio_stage4_tail_right.imageset/
+?? Daylog/PioTrial.xcassets/pio_stage4_wing_left.imageset/
+?? Daylog/PioTrial.xcassets/pio_stage4_wing_right.imageset/
+?? Daylog/PioWardrobe.xcassets/
+?? Daylog/RoutimoriTrial.xcassets/
+?? Daylog/Services/PioWardrobe.swift
+?? Daylog/Views/Dashboard/RoutimoriVacationScene.swift
+?? Daylog/Views/Onboarding/RoutimoriSyncScene.swift
+?? Daylog/Views/Splash/RoutimoriSplashView.swift
+?? Daylog/Views/Wardrobe/
+?? DaylogTests/PioOutfitMotionTests.swift
+?? DaylogTests/PioWardrobeTests.swift
+?? DaylogTests/RoutimoriSplashTests.swift
+?? DaylogTests/RoutimoriSyncTests.swift
+?? DaylogTests/RoutimoriVacationTests.swift
+?? Tools/pio-rig/compare-stage4.swift
+?? Tools/pio-rig/grow-attempt.swift
+?? Tools/pio-rig/stage2-repair-attempt.swift
+?? Tools/pio-rig/validate-stage4.swift
+?? docs/qa/pio-outfit-artwork-v1-2026-10-16/
+?? docs/qa/pio-outfit-phase2-2026-10-16/
+?? docs/qa/pio-outfit-phase2.1-2026-10-16/
+?? docs/qa/pio-outfit-shop-v1-2026-10-16/
+?? docs/qa/pio-stage4-crest-refinement/
+?? docs/qa/pio-stage4-final-review/
+?? docs/qa/pio-trial-2026-10-14/growth-attempt/
+?? docs/qa/pio-trial-2026-10-14/growth-prototype-review/
+?? docs/qa/pio-trial-2026-10-14/growth-stage2-masterlocked-review/
+?? docs/qa/pio-trial-2026-10-14/growth-stage2-parts-review/
+?? docs/qa/pio-trial-2026-10-14/growth-stage2-repair/
+?? docs/qa/pio-trial-2026-10-14/growth-stage2-review/
+?? docs/qa/pio-trial-2026-10-14/growth-stage2-scale-alternative/
+?? docs/qa/pio-trial-2026-10-14/growth-stage2-three-parts-review/
+?? docs/qa/pio-trial-2026-10-14/growth-stage3-3d-v1-review/
+?? docs/qa/pio-trial-2026-10-14/growth-stage3-3parts-review/
+?? docs/qa/pio-trial-2026-10-14/growth-stage3-review/
+?? docs/qa/pio-trial-2026-10-15-stage3/
+?? docs/qa/pio-trial-2026-10-15-stage4/
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/INTEGRATION.md
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/PRESERVATION-CHECKS.txt
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/Pio-Wing-Attachment-Review.zip
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/RESULTS.md
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/asset-manifest.json
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/before/
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/build-logs/
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/candidate-a/
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/candidate-b/
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/candidate-c/
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/candidate-d/
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/final/
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/runtime/
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/stage2-before-after-dark-1x.png
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/stage2-before-after-dark-3x.png
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/stage2-before-after-light-1x.png
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/stage2-before-after-light-3x.png
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/stage3-before-after-dark-1x.png
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/stage3-before-after-dark-3x.png
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/stage3-before-after-light-1x.png
+?? docs/qa/pio-trial-2026-10-15-wing-attachment/stage3-before-after-light-3x.png
+?? docs/qa/routimori-growth-stages-2026-10-15/
+?? docs/qa/routimori-master-preview-2026-10-15/
+?? docs/qa/routimori-splash-2026-10-15/
+?? docs/qa/routimori-vacation-cloud-2026-10-16/
+?? docs/qa/routimori-vacation-night-2026-10-16/

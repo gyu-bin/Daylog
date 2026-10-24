@@ -1,0 +1,639 @@
+{
+  "scope": "Read-only source artwork audit; originalPNG/no independent layer generation. No runtime or performance claims.",
+  "outfitCount": 13,
+  "allStaticPass": true,
+  "wholeCharacterMotionClassification": "PARTIAL",
+  "findings": [
+    {
+      "id": "cherryBlossom",
+      "title": "벚꽃 피오",
+      "sourcePath": "Daylog/PioWardrobe.xcassets/pio_outfit_cherryBlossom.imageset/pio_outfit_cherryBlossom.png",
+      "sha256": "3f0bf2e0260c879286e03de4154379a5d19ca48cbe509813fd86f71e2857803d",
+      "staticArtworkQA": "PASS",
+      "seriousStaticDefects": [],
+      "sizes": {
+        "48": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "64": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "120": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "220": {
+          "light": "PASS",
+          "dark": "PASS"
+        }
+      },
+      "reviewedDensity": "1x",
+      "additionalRenderedDensity": "2x",
+      "smallSizeFinding": "Pink cape and blossom remain distinct; fine floral centers merge at48pt.",
+      "independentLayersAvailable": false,
+      "outfitAnimation": "PARTIAL",
+      "animationMeaning": "whole-character motion only; no independently animated eyes/limbs/accessories from current source",
+      "runtimeAnimationVerification": "NOT_TESTED",
+      "fourStageVisualCompatibility": {
+        "1": "NOT_TESTED",
+        "2": "NOT_TESTED",
+        "3": "NOT_TESTED",
+        "4": "NOT_TESTED"
+      },
+      "layerAuthoringRelativeComplexity": "lower",
+      "remainingAssetRequirements": [
+        "clean body behind flower/cape",
+        "flower and cape/bow",
+        "full free right wing root"
+      ],
+      "excludedFromStaticPreview": false,
+      "fullyArticulatedRigReady": false
+    },
+    {
+      "id": "summerVacation",
+      "title": "여름 휴가 피오",
+      "sourcePath": "Daylog/PioWardrobe.xcassets/pio_outfit_summerVacation.imageset/pio_outfit_summerVacation.png",
+      "sha256": "c1602489cb1ca0e93d652613ac6662a17fcfaa5132f112cf9341493a7bbd1b9e",
+      "staticArtworkQA": "PASS",
+      "seriousStaticDefects": [],
+      "sizes": {
+        "48": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "64": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "120": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "220": {
+          "light": "PASS",
+          "dark": "PASS"
+        }
+      },
+      "reviewedDensity": "1x",
+      "additionalRenderedDensity": "2x",
+      "smallSizeFinding": "Sunglasses intentionally conceal eyes; hat/shirt/drink clearly readable.",
+      "independentLayersAvailable": false,
+      "outfitAnimation": "PARTIAL",
+      "animationMeaning": "whole-character motion only; no independently animated eyes/limbs/accessories from current source",
+      "runtimeAnimationVerification": "NOT_TESTED",
+      "fourStageVisualCompatibility": {
+        "1": "NOT_TESTED",
+        "2": "NOT_TESTED",
+        "3": "NOT_TESTED",
+        "4": "NOT_TESTED"
+      },
+      "layerAuthoringRelativeComplexity": "high",
+      "remainingAssetRequirements": [
+        "clean hidden face/eyes under glasses",
+        "sunglasses",
+        "hat",
+        "shirt",
+        "cup/wing unit"
+      ],
+      "excludedFromStaticPreview": false,
+      "fullyArticulatedRigReady": false
+    },
+    {
+      "id": "autumn",
+      "title": "가을 피오",
+      "sourcePath": "Daylog/PioWardrobe.xcassets/pio_outfit_autumn.imageset/pio_outfit_autumn.png",
+      "sha256": "10c80a3489506751730f0409023699d150a9760775a0cba9f1f53195fec9aa43",
+      "staticArtworkQA": "PASS",
+      "seriousStaticDefects": [],
+      "sizes": {
+        "48": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "64": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "120": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "220": {
+          "light": "PASS",
+          "dark": "PASS"
+        }
+      },
+      "reviewedDensity": "1x",
+      "additionalRenderedDensity": "2x",
+      "smallSizeFinding": "Scarf and hat distinct; plaid microtexture reduces at48pt.",
+      "independentLayersAvailable": false,
+      "outfitAnimation": "PARTIAL",
+      "animationMeaning": "whole-character motion only; no independently animated eyes/limbs/accessories from current source",
+      "runtimeAnimationVerification": "NOT_TESTED",
+      "fourStageVisualCompatibility": {
+        "1": "NOT_TESTED",
+        "2": "NOT_TESTED",
+        "3": "NOT_TESTED",
+        "4": "NOT_TESTED"
+      },
+      "layerAuthoringRelativeComplexity": "medium",
+      "remainingAssetRequirements": [
+        "body behind scarf",
+        "scarf tails",
+        "hat",
+        "maple-leaf hand",
+        "right wing root"
+      ],
+      "excludedFromStaticPreview": false,
+      "fullyArticulatedRigReady": false
+    },
+    {
+      "id": "winter",
+      "title": "겨울 피오",
+      "sourcePath": "Daylog/PioWardrobe.xcassets/pio_outfit_winter.imageset/pio_outfit_winter.png",
+      "sha256": "8ed794f01a9e1039f3ebc691a160907652aac6e79e979879ce13983a687953df",
+      "staticArtworkQA": "PASS",
+      "seriousStaticDefects": [],
+      "sizes": {
+        "48": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "64": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "120": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "220": {
+          "light": "PASS",
+          "dark": "PASS"
+        }
+      },
+      "reviewedDensity": "1x",
+      "additionalRenderedDensity": "2x",
+      "smallSizeFinding": "Blue cap/scarf coherent; pom-pom intact; snowflakes reduce at48pt.",
+      "independentLayersAvailable": false,
+      "outfitAnimation": "PARTIAL",
+      "animationMeaning": "whole-character motion only; no independently animated eyes/limbs/accessories from current source",
+      "runtimeAnimationVerification": "NOT_TESTED",
+      "fourStageVisualCompatibility": {
+        "1": "NOT_TESTED",
+        "2": "NOT_TESTED",
+        "3": "NOT_TESTED",
+        "4": "NOT_TESTED"
+      },
+      "layerAuthoringRelativeComplexity": "medium",
+      "remainingAssetRequirements": [
+        "hidden neck/head",
+        "cap and pom-pom",
+        "scarf tail",
+        "cuff/wing roots"
+      ],
+      "excludedFromStaticPreview": false,
+      "fullyArticulatedRigReady": false
+    },
+    {
+      "id": "halloween",
+      "title": "할로윈 피오",
+      "sourcePath": "Daylog/PioWardrobe.xcassets/pio_outfit_halloween.imageset/pio_outfit_halloween.png",
+      "sha256": "1307965335aaa25d5ca2a85d4467cb832f9a45a3671a47743f936a461394427e",
+      "staticArtworkQA": "PASS",
+      "seriousStaticDefects": [],
+      "sizes": {
+        "48": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "64": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "120": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "220": {
+          "light": "PASS",
+          "dark": "PASS"
+        }
+      },
+      "reviewedDensity": "1x",
+      "additionalRenderedDensity": "2x",
+      "smallSizeFinding": "Pumpkin cap/body/bag distinct; tiny candy details merge at48pt.",
+      "independentLayersAvailable": false,
+      "outfitAnimation": "PARTIAL",
+      "animationMeaning": "whole-character motion only; no independently animated eyes/limbs/accessories from current source",
+      "runtimeAnimationVerification": "NOT_TESTED",
+      "fourStageVisualCompatibility": {
+        "1": "NOT_TESTED",
+        "2": "NOT_TESTED",
+        "3": "NOT_TESTED",
+        "4": "NOT_TESTED"
+      },
+      "layerAuthoringRelativeComplexity": "high",
+      "remainingAssetRequirements": [
+        "hidden torso",
+        "pumpkin shell/headwear",
+        "collar",
+        "both wings",
+        "bag/handle grip"
+      ],
+      "excludedFromStaticPreview": false,
+      "fullyArticulatedRigReady": false
+    },
+    {
+      "id": "christmas",
+      "title": "크리스마스 피오",
+      "sourcePath": "Daylog/PioWardrobe.xcassets/pio_outfit_christmas.imageset/pio_outfit_christmas.png",
+      "sha256": "7df7b6c55397cc00486ed2c83a21ad1583d7f139307efa929d5219917c75b66d",
+      "staticArtworkQA": "PASS",
+      "seriousStaticDefects": [],
+      "sizes": {
+        "48": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "64": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "120": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "220": {
+          "light": "PASS",
+          "dark": "PASS"
+        }
+      },
+      "reviewedDensity": "1x",
+      "additionalRenderedDensity": "2x",
+      "smallSizeFinding": "Santa silhouette and held gift intact; fine ribbon detail reduces at48pt.",
+      "independentLayersAvailable": false,
+      "outfitAnimation": "PARTIAL",
+      "animationMeaning": "whole-character motion only; no independently animated eyes/limbs/accessories from current source",
+      "runtimeAnimationVerification": "NOT_TESTED",
+      "fourStageVisualCompatibility": {
+        "1": "NOT_TESTED",
+        "2": "NOT_TESTED",
+        "3": "NOT_TESTED",
+        "4": "NOT_TESTED"
+      },
+      "layerAuthoringRelativeComplexity": "high",
+      "remainingAssetRequirements": [
+        "torso and cuffs behind gift",
+        "gift/two-hand assembly",
+        "scarf",
+        "hat",
+        "pom-pom"
+      ],
+      "excludedFromStaticPreview": false,
+      "fullyArticulatedRigReady": false
+    },
+    {
+      "id": "hanbok",
+      "title": "한복 피오",
+      "sourcePath": "Daylog/PioWardrobe.xcassets/pio_outfit_hanbok.imageset/pio_outfit_hanbok.png",
+      "sha256": "4ebb837cff050e50db901de0b63dc2221bb52fe52e18530f42901847b5a253e0",
+      "staticArtworkQA": "PASS",
+      "seriousStaticDefects": [],
+      "sizes": {
+        "48": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "64": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "120": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "220": {
+          "light": "PASS",
+          "dark": "PASS"
+        }
+      },
+      "reviewedDensity": "1x",
+      "additionalRenderedDensity": "2x",
+      "smallSizeFinding": "Pink skirt and navy ribbon distinguish from cherry cape; tassels reduce at48pt.",
+      "independentLayersAvailable": false,
+      "outfitAnimation": "PARTIAL",
+      "animationMeaning": "whole-character motion only; no independently animated eyes/limbs/accessories from current source",
+      "runtimeAnimationVerification": "NOT_TESTED",
+      "fourStageVisualCompatibility": {
+        "1": "NOT_TESTED",
+        "2": "NOT_TESTED",
+        "3": "NOT_TESTED",
+        "4": "NOT_TESTED"
+      },
+      "layerAuthoringRelativeComplexity": "high",
+      "remainingAssetRequirements": [
+        "full sleeves and shoulder roots",
+        "torso",
+        "front/back skirt",
+        "ribbon",
+        "hair ornament"
+      ],
+      "excludedFromStaticPreview": false,
+      "fullyArticulatedRigReady": false
+    },
+    {
+      "id": "cafe",
+      "title": "카페 피오",
+      "sourcePath": "Daylog/PioWardrobe.xcassets/pio_outfit_cafe.imageset/pio_outfit_cafe.png",
+      "sha256": "74e139a71fd387accfaf518673544111a41894d6be7eceabeb76786603897aaa",
+      "staticArtworkQA": "PASS",
+      "seriousStaticDefects": [],
+      "sizes": {
+        "48": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "64": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "120": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "220": {
+          "light": "PASS",
+          "dark": "PASS"
+        }
+      },
+      "reviewedDensity": "1x",
+      "additionalRenderedDensity": "2x",
+      "smallSizeFinding": "Beret/apron/cup readable; complete exposed right wing.",
+      "independentLayersAvailable": false,
+      "outfitAnimation": "PARTIAL",
+      "animationMeaning": "whole-character motion only; no independently animated eyes/limbs/accessories from current source",
+      "runtimeAnimationVerification": "NOT_TESTED",
+      "fourStageVisualCompatibility": {
+        "1": "NOT_TESTED",
+        "2": "NOT_TESTED",
+        "3": "NOT_TESTED",
+        "4": "NOT_TESTED"
+      },
+      "layerAuthoringRelativeComplexity": "lower",
+      "remainingAssetRequirements": [
+        "right wing root",
+        "cup/left-wing unit",
+        "apron straps",
+        "hat",
+        "clean shoulder/body"
+      ],
+      "excludedFromStaticPreview": false,
+      "fullyArticulatedRigReady": false
+    },
+    {
+      "id": "student",
+      "title": "학생 피오",
+      "sourcePath": "Daylog/PioWardrobe.xcassets/pio_outfit_student.imageset/pio_outfit_student.png",
+      "sha256": "261d6e89132547e529c85b477490403e0eea4cf87667348dd1fe007da3ded247",
+      "staticArtworkQA": "PASS",
+      "seriousStaticDefects": [],
+      "sizes": {
+        "48": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "64": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "120": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "220": {
+          "light": "PASS",
+          "dark": "PASS"
+        }
+      },
+      "reviewedDensity": "1x",
+      "additionalRenderedDensity": "2x",
+      "smallSizeFinding": "Glasses/book clear at48pt; frames aligned with eyes; backpack intact.",
+      "independentLayersAvailable": false,
+      "outfitAnimation": "PARTIAL",
+      "animationMeaning": "whole-character motion only; no independently animated eyes/limbs/accessories from current source",
+      "runtimeAnimationVerification": "NOT_TESTED",
+      "fourStageVisualCompatibility": {
+        "1": "NOT_TESTED",
+        "2": "NOT_TESTED",
+        "3": "NOT_TESTED",
+        "4": "NOT_TESTED"
+      },
+      "layerAuthoringRelativeComplexity": "medium",
+      "remainingAssetRequirements": [
+        "clean face below glasses",
+        "foreground glasses",
+        "book/wing",
+        "backpack",
+        "right wing"
+      ],
+      "excludedFromStaticPreview": false,
+      "fullyArticulatedRigReady": false
+    },
+    {
+      "id": "fitness",
+      "title": "운동 피오",
+      "sourcePath": "Daylog/PioWardrobe.xcassets/pio_outfit_fitness.imageset/pio_outfit_fitness.png",
+      "sha256": "1f785e0305be4db016b5f68c1874849b0476026e7df0f4e569029afa70c199dd",
+      "staticArtworkQA": "PASS",
+      "seriousStaticDefects": [],
+      "sizes": {
+        "48": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "64": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "120": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "220": {
+          "light": "PASS",
+          "dark": "PASS"
+        }
+      },
+      "reviewedDensity": "1x",
+      "additionalRenderedDensity": "2x",
+      "smallSizeFinding": "Two dumbbells/grips and green tracksuit intact.",
+      "independentLayersAvailable": false,
+      "outfitAnimation": "PARTIAL",
+      "animationMeaning": "whole-character motion only; no independently animated eyes/limbs/accessories from current source",
+      "runtimeAnimationVerification": "NOT_TESTED",
+      "fourStageVisualCompatibility": {
+        "1": "NOT_TESTED",
+        "2": "NOT_TESTED",
+        "3": "NOT_TESTED",
+        "4": "NOT_TESTED"
+      },
+      "layerAuthoringRelativeComplexity": "high",
+      "remainingAssetRequirements": [
+        "two full wing/weight units",
+        "hidden arms/torso",
+        "tracksuit",
+        "headband"
+      ],
+      "excludedFromStaticPreview": false,
+      "fullyArticulatedRigReady": false
+    },
+    {
+      "id": "rainyDay",
+      "title": "비 오는 날 피오",
+      "sourcePath": "Daylog/PioWardrobe.xcassets/pio_outfit_rainyDay.imageset/pio_outfit_rainyDay.png",
+      "sha256": "5bf7081494800cc37fade49caf0398a2d8e075667ea59a37cd10a8b843dcba31",
+      "staticArtworkQA": "PASS",
+      "seriousStaticDefects": [],
+      "sizes": {
+        "48": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "64": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "120": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "220": {
+          "light": "PASS",
+          "dark": "PASS"
+        }
+      },
+      "reviewedDensity": "1x",
+      "additionalRenderedDensity": "2x",
+      "smallSizeFinding": "Umbrella tip complete;14 source-pixel clear right margin, about2.46pt at220pt.",
+      "independentLayersAvailable": false,
+      "outfitAnimation": "PARTIAL",
+      "animationMeaning": "whole-character motion only; no independently animated eyes/limbs/accessories from current source",
+      "runtimeAnimationVerification": "NOT_TESTED",
+      "fourStageVisualCompatibility": {
+        "1": "NOT_TESTED",
+        "2": "NOT_TESTED",
+        "3": "NOT_TESTED",
+        "4": "NOT_TESTED"
+      },
+      "layerAuthoringRelativeComplexity": "high",
+      "remainingAssetRequirements": [
+        "hidden body/hood",
+        "coat",
+        "boots",
+        "umbrella shaft/canopy/hand",
+        "motion viewport padding"
+      ],
+      "excludedFromStaticPreview": false,
+      "fullyArticulatedRigReady": false
+    },
+    {
+      "id": "pajamas",
+      "title": "잠옷 피오",
+      "sourcePath": "Daylog/PioWardrobe.xcassets/pio_outfit_pajamas.imageset/pio_outfit_pajamas.png",
+      "sha256": "d88e9c2b225434b34f4751914625ca23dd38c058e7812a2e5dd15068ee157249",
+      "staticArtworkQA": "PASS",
+      "seriousStaticDefects": [],
+      "sizes": {
+        "48": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "64": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "120": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "220": {
+          "light": "PASS",
+          "dark": "PASS"
+        }
+      },
+      "reviewedDensity": "1x",
+      "additionalRenderedDensity": "2x",
+      "smallSizeFinding": "Closed eyes intentional; pillow/feet intact; sleep identity clear.",
+      "independentLayersAvailable": false,
+      "outfitAnimation": "PARTIAL",
+      "animationMeaning": "whole-character motion only; no independently animated eyes/limbs/accessories from current source",
+      "runtimeAnimationVerification": "NOT_TESTED",
+      "fourStageVisualCompatibility": {
+        "1": "NOT_TESTED",
+        "2": "NOT_TESTED",
+        "3": "NOT_TESTED",
+        "4": "NOT_TESTED"
+      },
+      "layerAuthoringRelativeComplexity": "high",
+      "remainingAssetRequirements": [
+        "new open eyes/lids and clean face",
+        "torso behind pillow",
+        "pillow/hand units",
+        "cap tail"
+      ],
+      "excludedFromStaticPreview": false,
+      "fullyArticulatedRigReady": false
+    },
+    {
+      "id": "astronaut",
+      "title": "우주인 피오",
+      "sourcePath": "Daylog/PioWardrobe.xcassets/pio_outfit_astronaut.imageset/pio_outfit_astronaut.png",
+      "sha256": "6a9741d18e6ed00fc036dc82d9bf579e16694f20001ac7e17261db5784e31fc2",
+      "staticArtworkQA": "PASS",
+      "seriousStaticDefects": [],
+      "sizes": {
+        "48": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "64": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "120": {
+          "light": "PASS",
+          "dark": "PASS"
+        },
+        "220": {
+          "light": "PASS",
+          "dark": "PASS"
+        }
+      },
+      "reviewedDensity": "1x",
+      "additionalRenderedDensity": "2x",
+      "smallSizeFinding": "Face visible through visor; sprout exit stylized; complete gloves and feet.",
+      "independentLayersAvailable": false,
+      "outfitAnimation": "PARTIAL",
+      "animationMeaning": "whole-character motion only; no independently animated eyes/limbs/accessories from current source",
+      "runtimeAnimationVerification": "NOT_TESTED",
+      "fourStageVisualCompatibility": {
+        "1": "NOT_TESTED",
+        "2": "NOT_TESTED",
+        "3": "NOT_TESTED",
+        "4": "NOT_TESTED"
+      },
+      "layerAuthoringRelativeComplexity": "high",
+      "remainingAssetRequirements": [
+        "face/eyes separate from visor/reflection",
+        "helmet shell",
+        "suit",
+        "full glove roots/feet"
+      ],
+      "excludedFromStaticPreview": false,
+      "fullyArticulatedRigReady": false
+    }
+  ]
+}

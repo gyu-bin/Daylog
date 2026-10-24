@@ -1,0 +1,39 @@
+{
+  "leftHandBody" : {
+    "intersectionBoundsTopLeft" : [
+      469,
+      792,
+      327,
+      211
+    ],
+    "intersectionPixelsAlpha128" : 47610
+  },
+  "leftHandGift" : {
+    "intersectionBoundsTopLeft" : [
+      757,
+      848,
+      39,
+      98
+    ],
+    "intersectionPixelsAlpha128" : 2737
+  },
+  "limitation" : "Alpha intersection confirms actual geometric coverage, not aesthetic approval or a dynamic walking\/IK proof. Inspect visible palm and shoulder closeups. Left-hand\/gift identical integer translation preserves their mutual overlap in grip poses; right-wave leaves both fixed.",
+  "rightHandBody" : {
+    "intersectionBoundsTopLeft" : [
+      926,
+      801,
+      122,
+      115
+    ],
+    "intersectionPixelsAlpha128" : 9465
+  },
+  "rightHandGift" : {
+    "intersectionBoundsTopLeft" : [
+      926,
+      801,
+      99,
+      115
+    ],
+    "intersectionPixelsAlpha128" : 7158
+  }
+}

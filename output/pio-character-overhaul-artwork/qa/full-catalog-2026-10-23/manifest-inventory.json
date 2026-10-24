@@ -1,0 +1,1088 @@
+{
+  "catalogCount": 14,
+  "inventory": [
+    {
+      "outfit": "basic",
+      "manifest": "docs/qa/pio-outfit-phase2.2-2026-10-16/runtime-manifests/basic-final.json",
+      "manifestSHA256": "da6135deb1e6af07badd20ac2795818840e5727f2c9c6594ff6965d5c407ec3a",
+      "partCount": 12,
+      "partIDs": [
+        "wingLeft",
+        "wingRight",
+        "footLeft",
+        "footRight",
+        "sprout",
+        "body",
+        "eyeLeft",
+        "eyeRight",
+        "lidLeft",
+        "lidRight",
+        "halfLeft",
+        "halfRight"
+      ],
+      "sourceChecks": [],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    },
+    {
+      "outfit": "christmas",
+      "manifest": "docs/qa/pio-outfit-phase2.2-2026-10-16/runtime-manifests/christmas-final.json",
+      "manifestSHA256": "9635cbcff508da0c1fe5bee69602f28f87e5a2c81d73880e17279dacb0867d69",
+      "partCount": 13,
+      "partIDs": [
+        "footLeft",
+        "footRight",
+        "body",
+        "hat",
+        "eyeLeft",
+        "eyeRight",
+        "lidLeft",
+        "lidRight",
+        "gift",
+        "handLeft",
+        "handRight",
+        "halfLeft",
+        "halfRight"
+      ],
+      "sourceChecks": [],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    },
+    {
+      "outfit": "hanbok",
+      "manifest": "docs/qa/pio-outfit-phase2.2-2026-10-16/runtime-manifests/hanbok-final.json",
+      "manifestSHA256": "2248b2051707706420905caf73f8fb8536b9ba71d399e41af0076b67f62ba919",
+      "partCount": 12,
+      "partIDs": [
+        "wingRight",
+        "footLeft",
+        "footRight",
+        "sprout",
+        "body",
+        "eyeLeft",
+        "eyeRight",
+        "lidLeft",
+        "lidRight",
+        "halfLeft",
+        "halfRight",
+        "wingLeft"
+      ],
+      "sourceChecks": [],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    },
+    {
+      "outfit": "astronaut",
+      "manifest": "docs/qa/pio-outfit-phase2.2-2026-10-16/runtime-manifests/astronaut-final.json",
+      "manifestSHA256": "832f19fbb934df8629e101b73612922dead0b75a4a785591c7e3705811a626ce",
+      "partCount": 14,
+      "partIDs": [
+        "footLeft",
+        "footRight",
+        "wingRight",
+        "sprout",
+        "body",
+        "eyeLeft",
+        "eyeRight",
+        "lidLeft",
+        "lidRight",
+        "halfLeft",
+        "halfRight",
+        "wingLeft",
+        "visor",
+        "helmet"
+      ],
+      "sourceChecks": [],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    },
+    {
+      "outfit": "cherryBlossom",
+      "manifest": "output/pio-character-overhaul-artwork/cherryBlossom-v2/registration/registration-candidate.json",
+      "manifestSHA256": "0c5a1315babc27ebb478ecd4ffb0b8a619f7c464d75d49bc9501dfadd4892325",
+      "partCount": 13,
+      "partIDs": [
+        "wingLeft",
+        "wingRight",
+        "footLeft",
+        "footRight",
+        "sprout",
+        "body",
+        "eyeLeft",
+        "eyeRight",
+        "lidLeft",
+        "lidRight",
+        "halfLeft",
+        "halfRight",
+        "headFlower"
+      ],
+      "sourceChecks": [
+        {
+          "id": "wingLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-outfit-assets/cherryBlossom/v1/wing-left-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-outfit-assets/cherryBlossom/v1/wing-right-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "sprout",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cherryBlossom-v2/source/sprout-v3-review.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "body",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-outfit-assets/cherryBlossom/v1/body-v3-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "headFlower",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-outfit-assets/cherryBlossom/v1/head-flower-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        }
+      ],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    },
+    {
+      "outfit": "summerVacation",
+      "manifest": "output/pio-character-overhaul-artwork/summerVacation-v1/registration/registration-candidate.json",
+      "manifestSHA256": "9cd5617fb3496eb70426c7d78894f91f3ce55f406f7c8336a0ffa0cdb958d53b",
+      "partCount": 10,
+      "partIDs": [
+        "footLeft",
+        "footRight",
+        "wingRight",
+        "body",
+        "eyeLeft",
+        "eyeRight",
+        "sunglasses",
+        "wingLeft",
+        "drink",
+        "headwear"
+      ],
+      "sourceChecks": [
+        {
+          "id": "footLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/wing-right-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "body",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/body-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "sunglasses",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/sunglasses-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/wing-left-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "drink",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/drink-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "headwear",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/headwear-v2-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        }
+      ],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    },
+    {
+      "outfit": "autumn",
+      "manifest": "output/pio-character-overhaul-artwork/autumn-v1/registration/registration-candidate.json",
+      "manifestSHA256": "b9e2b1478d51d1a624bc8071675de7ac29d756b1399e8b06a32d13b7b45c98db",
+      "partCount": 13,
+      "partIDs": [
+        "wingRight",
+        "wingLeft",
+        "footLeft",
+        "footRight",
+        "body",
+        "eyeLeft",
+        "eyeRight",
+        "leaf",
+        "headwear",
+        "halfLeft",
+        "lidLeft",
+        "halfRight",
+        "lidRight"
+      ],
+      "sourceChecks": [
+        {
+          "id": "wingRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/autumn-v1/source/wing-right-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/autumn-v1/source/wing-left-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "body",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/autumn-v1/source/body-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "leaf",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/autumn-v1/source/leaf-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "headwear",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/autumn-v1/source/headwear-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        }
+      ],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    },
+    {
+      "outfit": "winter",
+      "manifest": "output/pio-character-overhaul-artwork/winter-v1/registration/registration-candidate.json",
+      "manifestSHA256": "86bf1f921d1791b842d7321900457fb068643e6a9f3cf75f74f25d5453fca674",
+      "partCount": 12,
+      "partIDs": [
+        "wingRight",
+        "footLeft",
+        "footRight",
+        "body",
+        "wingLeft",
+        "eyeLeft",
+        "eyeRight",
+        "headwear",
+        "halfLeft",
+        "lidLeft",
+        "halfRight",
+        "lidRight"
+      ],
+      "sourceChecks": [
+        {
+          "id": "wingRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/winter-v1/source/wing-right-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "body",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/winter-v1/source/body-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/winter-v1/source/wing-left-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "headwear",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/winter-v1/source/headwear-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        }
+      ],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    },
+    {
+      "outfit": "halloween",
+      "manifest": "output/pio-character-overhaul-artwork/halloween-v1/registration/registration-candidate.json",
+      "manifestSHA256": "2eb951419230a517fc95885c5d47dba14c2b255829e9c4c57bc282525e46cc89",
+      "partCount": 13,
+      "partIDs": [
+        "footLeft",
+        "footRight",
+        "wingLeft",
+        "body",
+        "eyeLeft",
+        "eyeRight",
+        "headwear",
+        "bag",
+        "wingRight",
+        "halfLeft",
+        "lidLeft",
+        "halfRight",
+        "lidRight"
+      ],
+      "sourceChecks": [
+        {
+          "id": "footLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/halloween-v1/source/wing-left-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "body",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/halloween-v1/source/body-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "headwear",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/halloween-v1/source/headwear-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "bag",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/halloween-v1/source/basket-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/halloween-v1/source/wing-right-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        }
+      ],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    },
+    {
+      "outfit": "cafe",
+      "manifest": "output/pio-character-overhaul-artwork/cafe-v1/registration/registration-candidate.json",
+      "manifestSHA256": "fd7c371a5dbefcf246a2e81277a35502b4a43b0156373ee76af665a96823362b",
+      "partCount": 11,
+      "partIDs": [
+        "body",
+        "headwear",
+        "wingLeft",
+        "wingRight",
+        "prop",
+        "eyeLeft",
+        "lidLeft",
+        "footLeft",
+        "eyeRight",
+        "lidRight",
+        "footRight"
+      ],
+      "sourceChecks": [
+        {
+          "id": "body",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/body-v2-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "headwear",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/hat-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/left-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/right-v2-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "prop",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/cup-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        }
+      ],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    },
+    {
+      "outfit": "student",
+      "manifest": "output/pio-character-overhaul-artwork/student-v1/registration/registration-candidate.json",
+      "manifestSHA256": "4561028fb7eaa3cbcb8307c671bd88fa2d15c94e4d0b1ff1776052f906cb2169",
+      "partCount": 12,
+      "partIDs": [
+        "body",
+        "sprout",
+        "wingLeft",
+        "wingRight",
+        "prop",
+        "glasses",
+        "eyeLeft",
+        "lidLeft",
+        "footLeft",
+        "eyeRight",
+        "lidRight",
+        "footRight"
+      ],
+      "sourceChecks": [
+        {
+          "id": "body",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/body-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "sprout",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cherryBlossom-v2/source/sprout-v3-review.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/left-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/right-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "prop",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/book-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "glasses",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/student-v1/source/glasses-v2-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        }
+      ],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    },
+    {
+      "outfit": "fitness",
+      "manifest": "output/pio-character-overhaul-artwork/fitness-v1/registration/registration-candidate.json",
+      "manifestSHA256": "f2c7f08116955a36792f2f32f9a2500a21ca849e235c64ccc1109d56e9f8b109",
+      "partCount": 15,
+      "partIDs": [
+        "footLeft",
+        "footRight",
+        "body",
+        "eyeLeft",
+        "eyeRight",
+        "sprout",
+        "headwear",
+        "dumbbellLeft",
+        "dumbbellRight",
+        "wingLeft",
+        "wingRight",
+        "halfLeft",
+        "lidLeft",
+        "halfRight",
+        "lidRight"
+      ],
+      "sourceChecks": [
+        {
+          "id": "footLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "body",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/fitness-v1/source/body-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "sprout",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cherryBlossom-v2/source/sprout-v3-review.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "headwear",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/fitness-v1/source/headband-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "dumbbellLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/fitness-v1/source/dumbbell-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "dumbbellRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/fitness-v1/source/dumbbell-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/fitness-v1/source/wing-left-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/fitness-v1/source/wing-right-v2-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        }
+      ],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    },
+    {
+      "outfit": "rainyDay",
+      "manifest": "output/pio-character-overhaul-artwork/rainyDay-v1/registration-2026-10-23/registration-and-provenance.json",
+      "manifestSHA256": "b80b34ad3714c77f3b576ab23b1b366afa665bca6a51b93b9bd938327d106b79",
+      "partCount": 14,
+      "partIDs": [
+        "footLeft",
+        "footRight",
+        "wingLeft",
+        "umbrellaCanopy",
+        "body",
+        "eyeLeft",
+        "eyeRight",
+        "sprout",
+        "umbrellaShaft",
+        "wingRight",
+        "halfLeft",
+        "lidLeft",
+        "halfRight",
+        "lidRight"
+      ],
+      "sourceChecks": [
+        {
+          "id": "footLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/boot-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/boot-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/wing-left-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "umbrellaCanopy",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/umbrella-canopy-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "body",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/body-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "sprout",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cherryBlossom-v2/source/sprout-v3-review.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "umbrellaShaft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/umbrella-shaft-v2-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/rainyDay-v1/source/wing-right-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        }
+      ],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    },
+    {
+      "outfit": "pajamas",
+      "manifest": "output/pio-character-overhaul-artwork/pajamas-v1/registration-2026-10-23/registration-candidate.json",
+      "manifestSHA256": "30066bcc89ccc3fa522460c94a73752a4fd4d4391910eb06eb1c89aed0d437ec",
+      "partCount": 13,
+      "partIDs": [
+        "footLeft",
+        "footRight",
+        "body",
+        "eyeLeft",
+        "eyeRight",
+        "headwear",
+        "pillow",
+        "wingLeft",
+        "wingRight",
+        "halfLeft",
+        "lidLeft",
+        "halfRight",
+        "lidRight"
+      ],
+      "sourceChecks": [
+        {
+          "id": "footLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "footRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "body",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/body-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "eyeRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "headwear",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/headwear-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "pillow",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/pillow-candidate.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/wing-left-candidate-v4.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "wingRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/pajamas-v1/source/wing-right-candidate-v2.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidLeft",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "halfRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-half-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        },
+        {
+          "id": "lidRight",
+          "source": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png",
+          "exists": true,
+          "recordedHashMatches": true
+        }
+      ],
+      "scope": "manifest/source audit only; not new visual or runtime approval"
+    }
+  ]
+}

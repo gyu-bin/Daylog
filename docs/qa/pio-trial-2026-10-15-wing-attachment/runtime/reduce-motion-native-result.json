@@ -1,0 +1,20 @@
+{
+  "2": {
+    "native_full_screen_pixels_identical": true,
+    "capture_interval_seconds": 29.769530057907104,
+    "method": "Device Hub native screenshot PNGs decoded to RGB24, full-screen byte comparison. Window JPEG captures contain a moving pointer overlay near header; native capture excludes it.",
+    "source_captures": [
+      "Screenshot Daylog Store iPhone 17 Pro Max 10-15-2026 at 6.16.55\u202fPM.png",
+      "Screenshot Daylog Store iPhone 17 Pro Max 10-15-2026 at 6.17.24\u202fPM.png"
+    ]
+  },
+  "3": {
+    "native_full_screen_pixels_identical": true,
+    "capture_interval_seconds": 36.226972579956055,
+    "method": "Device Hub native screenshot PNGs decoded to RGB24, full-screen byte comparison. Window JPEG captures contain a moving pointer overlay near header; native capture excludes it.",
+    "source_captures": [
+      "Screenshot Daylog Store iPhone 17 Pro Max 10-15-2026 at 6.18.01\u202fPM.png",
+      "Screenshot Daylog Store iPhone 17 Pro Max 10-15-2026 at 6.18.38\u202fPM.png"
+    ]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "pid": 30670,
+  "scenario": "Mac Debug global review fullscreen, astronaut220 jump, original dashboard window remains behind review",
+  "durationSeconds": 15.162289625033736,
+  "cpuDeltaPercent": 0.32976549872419797,
+  "samples": [
+    {
+      "monotonic": 871504.4354035,
+      "cpuSeconds": 5.5,
+      "recentCPUPercent": 0.1,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871505.438865416,
+      "cpuSeconds": 5.5,
+      "recentCPUPercent": 0.1,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871506.45127175,
+      "cpuSeconds": 5.51,
+      "recentCPUPercent": 0.2,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871507.460778541,
+      "cpuSeconds": 5.51,
+      "recentCPUPercent": 0.2,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871508.470832333,
+      "cpuSeconds": 5.51,
+      "recentCPUPercent": 0.2,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871509.482656666,
+      "cpuSeconds": 5.51,
+      "recentCPUPercent": 0.1,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871510.49649525,
+      "cpuSeconds": 5.52,
+      "recentCPUPercent": 0.1,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871511.506933625,
+      "cpuSeconds": 5.52,
+      "recentCPUPercent": 0.1,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871512.516888208,
+      "cpuSeconds": 5.52,
+      "recentCPUPercent": 0.2,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871513.530136,
+      "cpuSeconds": 5.53,
+      "recentCPUPercent": 0.1,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871514.544362208,
+      "cpuSeconds": 5.53,
+      "recentCPUPercent": 0.2,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871515.557056166,
+      "cpuSeconds": 5.53,
+      "recentCPUPercent": 0.1,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871516.570273125,
+      "cpuSeconds": 5.54,
+      "recentCPUPercent": 0.1,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871517.57829075,
+      "cpuSeconds": 5.54,
+      "recentCPUPercent": 0.1,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871518.589228458,
+      "cpuSeconds": 5.54,
+      "recentCPUPercent": 0.1,
+      "rssKiB": 125872
+    },
+    {
+      "monotonic": 871519.597693125,
+      "cpuSeconds": 5.55,
+      "recentCPUPercent": 0.2,
+      "rssKiB": 125872
+    }
+  ]
+}

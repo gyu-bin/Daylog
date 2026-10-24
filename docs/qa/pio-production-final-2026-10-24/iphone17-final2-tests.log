@@ -1,0 +1,78 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioProductionFinalMain.xctestrun -parallel-testing-enabled NO -destination "platform=iOS Simulator,id=89B877BB-6094-4A27-B108-3A958EF23D9B" -resultBundlePath /tmp/PioProductionFinal-iPhone17-final2-20261024.xcresult "-only-testing:DaylogStoreKitTests/PioCloudCandidateReviewTests/testBatchActualIndependentBlinkAndHeldPresentation" "-only-testing:DaylogStoreKitTests/PioCloudCandidateReviewTests/testActualPresentationSequence" "-only-testing:DaylogStoreKitTests/PioCloudTextureAliasesTests" "-only-testing:DaylogStoreKitTests/PioCloudProductionTests/testFourteenProductionRegistrationsAndIndependentHold" "-only-testing:DaylogStoreKitTests/PioCloudProductionTests/testFourteenProductionTransitionsSuppressionAndReduceMotion" "-only-testing:DaylogStoreKitTests/PioCloudProductionTests/testProductionAppearanceAdapterPreservesAuthorizationAndNotes" "-only-testing:DaylogStoreKitTests/PioCloudProductionTests/testProductionOffscreenWindowDetachStopsTracks" "-only-testing:DaylogStoreKitTests/PioProductionFinalScreenTests"
+
+Writing result bundle at path:
+	/tmp/PioProductionFinal-iPhone17-final2-20261024.xcresult
+
+2026-10-24 15:09:01.933 xcodebuild[9745:2320102] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 15:09:14.913066+0900 Daylog[9785:2320741] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 15:09:16.101486+0900 Daylog[9785:2320741] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 15:09:16.105041+0900 Daylog[9785:2320741] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 15:09:16.105274+0900 Daylog[9785:2320741] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-24 15:09:16.383.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 15:09:16.383.
+Test Suite 'PioCloudCandidateReviewTests' started at 2026-10-24 15:09:16.383.
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testActualPresentationSequence]' started.
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testActualPresentationSequence]' passed (5.203 seconds).
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testBatchActualIndependentBlinkAndHeldPresentation]' started.
+PIO_CANDIDATE_BATCH_BEGIN presentation basic
+PIO_CANDIDATE_BATCH_BEGIN presentation cherryBlossom
+PIO_CANDIDATE_BATCH_BEGIN presentation summerVacation
+PIO_CANDIDATE_BATCH_BEGIN presentation autumn
+PIO_CANDIDATE_BATCH_BEGIN presentation winter
+PIO_CANDIDATE_BATCH_BEGIN presentation halloween
+PIO_CANDIDATE_BATCH_BEGIN presentation christmas
+PIO_CANDIDATE_BATCH_BEGIN presentation hanbok
+PIO_CANDIDATE_BATCH_BEGIN presentation cafe
+PIO_CANDIDATE_BATCH_BEGIN presentation student
+PIO_CANDIDATE_BATCH_BEGIN presentation fitness
+PIO_CANDIDATE_BATCH_BEGIN presentation rainyDay
+PIO_CANDIDATE_BATCH_BEGIN presentation pajamas
+PIO_CANDIDATE_BATCH_BEGIN presentation astronaut
+Test Case '-[DaylogStoreKitTests.PioCloudCandidateReviewTests testBatchActualIndependentBlinkAndHeldPresentation]' passed (68.922 seconds).
+Test Suite 'PioCloudCandidateReviewTests' passed at 2026-10-24 15:10:30.511.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 74.126 (74.128) seconds
+Test Suite 'PioCloudProductionTests' started at 2026-10-24 15:10:30.514.
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testFourteenProductionRegistrationsAndIndependentHold]' started.
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testFourteenProductionRegistrationsAndIndependentHold]' passed (0.006 seconds).
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testFourteenProductionTransitionsSuppressionAndReduceMotion]' started.
+IOSurfaceClientSetSurfaceNotify failed e00002c7
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testFourteenProductionTransitionsSuppressionAndReduceMotion]' passed (0.085 seconds).
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testProductionAppearanceAdapterPreservesAuthorizationAndNotes]' started.
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testProductionAppearanceAdapterPreservesAuthorizationAndNotes]' passed (0.001 seconds).
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testProductionOffscreenWindowDetachStopsTracks]' started.
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testProductionOffscreenWindowDetachStopsTracks]' passed (0.013 seconds).
+Test Suite 'PioCloudProductionTests' passed at 2026-10-24 15:10:30.621.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.106 (0.107) seconds
+Test Suite 'PioCloudTextureAliasesTests' started at 2026-10-24 15:10:30.621.
+Test Case '-[DaylogStoreKitTests.PioCloudTextureAliasesTests testAllRegisteredProductionTexturesHaveIdempotentAliases]' started.
+Test Case '-[DaylogStoreKitTests.PioCloudTextureAliasesTests testAllRegisteredProductionTexturesHaveIdempotentAliases]' passed (0.007 seconds).
+Test Case '-[DaylogStoreKitTests.PioCloudTextureAliasesTests testEveryCanonicalTextureHasIdenticalNativeDecodedPixels]' started.
+Test Case '-[DaylogStoreKitTests.PioCloudTextureAliasesTests testEveryCanonicalTextureHasIdenticalNativeDecodedPixels]' passed (1.010 seconds).
+Test Suite 'PioCloudTextureAliasesTests' passed at 2026-10-24 15:10:31.638.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 1.017 (1.018) seconds
+Test Suite 'PioProductionFinalScreenTests' started at 2026-10-24 15:10:31.638.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalScreenTests testActualDeviceScreensAndAccessibilityLayouts]' started.
+2026-10-24 15:10:31.641370+0900 Daylog[9785:2320741] Unbalanced calls to begin/end appearance transitions for <UIViewController: 0x126465c00>.
+2026-10-24 15:10:32.119776+0900 Daylog[9785:2320741] Unbalanced calls to begin/end appearance transitions for <_TtGC7SwiftUI19UIHostingControllerVS_7AnyView_: 0x128c0c000>.
+2026-10-24 15:10:33.061596+0900 Daylog[9785:2320741] Unbalanced calls to begin/end appearance transitions for <_TtGC7SwiftUI19UIHostingControllerVS_7AnyView_: 0x128c0ca00>.
+Test Case '-[DaylogStoreKitTests.PioProductionFinalScreenTests testActualDeviceScreensAndAccessibilityLayouts]' passed (4.213 seconds).
+Test Suite 'PioProductionFinalScreenTests' passed at 2026-10-24 15:10:35.852.
+	 Executed 1 test, with 0 failures (0 unexpected) in 4.213 (4.213) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-24 15:10:35.852.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 79.462 (79.469) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 15:10:35.852.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 79.462 (79.470) seconds
+2026-10-24 15:10:35.901 xcodebuild[9745:2320102] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 15:10:35.901 xcodebuild[9745:2320102] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 15:10:35.902 xcodebuild[9745:2320102] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 15:10:36.179 xcodebuild[9745:2320102] [MT] IDETestOperationsObserverDebug: 95.067 elapsed -- Testing started completed.
+2026-10-24 15:10:36.179 xcodebuild[9745:2320102] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 15:10:36.179 xcodebuild[9745:2320102] [MT] IDETestOperationsObserverDebug: 95.067 sec, +95.067 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioProductionFinal-iPhone17-final2-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

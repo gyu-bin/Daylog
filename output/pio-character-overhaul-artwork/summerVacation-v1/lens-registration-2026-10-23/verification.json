@@ -1,0 +1,209 @@
+{
+  "status": "CANDIDATE_REQUIRES_VISUAL_REVIEW",
+  "method": "Full source canvases, whole-pair uniform downscale and translation; native alpha retained, no masks/cleanup/painting/source-upscaling",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "lensTransform": {
+    "scale": 0.37,
+    "offset": [
+      312,
+      438
+    ]
+  },
+  "frameTransform": {
+    "id": "sunglasses",
+    "offset": [
+      275.16968987712113,
+      421.03861907548276
+    ],
+    "pivot": [
+      650,
+      625
+    ],
+    "scale": 0.4008191925102399,
+    "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/sunglasses-frame-only-candidate.png",
+    "sourceSHA256": "df1ddbbb6e6fe8401492dcd41fbabd03110833f3fc44fec3c901a3e604d030c5"
+  },
+  "alphaStats": [
+    {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/lenses-v1-candidate.png",
+      "size": [
+        1774,
+        887
+      ],
+      "probes": [
+        {
+          "name": "left",
+          "box": [
+            450,
+            470,
+            650,
+            600
+          ],
+          "min": 18,
+          "max": 57,
+          "median": 28.0,
+          "mean": 29.29646153846154
+        },
+        {
+          "name": "right",
+          "box": [
+            1220,
+            350,
+            1420,
+            480
+          ],
+          "min": 22,
+          "max": 51,
+          "median": 33.0,
+          "mean": 33.466076923076926
+        }
+      ]
+    },
+    {
+      "source": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/lenses-v2-candidate.png",
+      "size": [
+        1774,
+        887
+      ],
+      "probes": [
+        {
+          "name": "left",
+          "box": [
+            450,
+            470,
+            650,
+            600
+          ],
+          "min": 214,
+          "max": 240,
+          "median": 224.0,
+          "mean": 224.72057692307692
+        },
+        {
+          "name": "right",
+          "box": [
+            1220,
+            350,
+            1420,
+            480
+          ],
+          "min": 219,
+          "max": 245,
+          "median": 229.0,
+          "mean": 230.81584615384617
+        }
+      ]
+    }
+  ],
+  "nativeSourcesUnchanged": true,
+  "sourceSHA256": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/wing-left-candidate.png": "73ccfddfe0e8e09cc506d02b64e89dc03eb446436009461f0bf76972ab14e2cb",
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png": "e04a6495fe4f7c58404a320793908988279fb612a7837284a40b605b146354f5",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/sunglasses-frame-only-candidate.png": "df1ddbbb6e6fe8401492dcd41fbabd03110833f3fc44fec3c901a3e604d030c5",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/drink-candidate.png": "4bddcb5e1a8ae6764af4a74daff8a2538acbb6bded8b59fcd351b5d7ce47e12b",
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png": "5dde1c85d2e8d33bf3317391e321c7c4490498a54ff59de67a123d2f95225dd2",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/lenses-v1-candidate.png": "62e5f8af15a3185ec317bf15236f7eb17154787b1a27cfeced972705144e5748",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/wing-right-candidate.png": "973a43ab9b9666fb1f968490726df158e900f97bdaec2de8261304230005f7a0",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/sunglasses-candidate.png": "f401e1ccdf582be82673287d9f80244354d6e5bb6f4f42590e76295dceeed65e",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/headwear-v2-candidate.png": "09008d9182fbc5d9c78c4d14b79a86793a3ee9a4083653aa96c36fe693ea12fc",
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png": "f0ff3680c3214c2bc9b7014fd7da519476433706ecb2d226dfef74dd9c470ad4",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/lenses-v2-candidate.png": "ff8302e78142797d88379680614b636361efe542f1849ba5ab0acbecf1221f6f",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/body-candidate.png": "342e0cb81ea9f080652e5b127dd55c43938ed1756767f2eb486ae71e2345d91d"
+  },
+  "primaryRegistrationUnchanged": true,
+  "files": [
+    {
+      "file": "blink-frame-proof.png",
+      "sha256": "45e1085f5513a348703f3781ea8fea7ce90257368c521548934578ac962bf78a",
+      "bytes": 208570
+    },
+    {
+      "file": "comparison-220pt-3x-dark.png",
+      "sha256": "6159ee9b36dc39dac2fe225628e3548204a34450bdd80ae85b33efd50d973166",
+      "bytes": 892604
+    },
+    {
+      "file": "comparison-220pt-3x-light.png",
+      "sha256": "1dc727876ef750f729172404354cefb130e033622ba7f56b3a503989a42611a3",
+      "bytes": 885115
+    },
+    {
+      "file": "comparison-64pt-3x-dark.png",
+      "sha256": "c32d82f52fc885c5930c08a8115a4b28c9ec65cb7d800d0f3df1f0d83d34e468",
+      "bytes": 99603
+    },
+    {
+      "file": "comparison-64pt-3x-light.png",
+      "sha256": "4e21526417c4f75356ded1f4ebd6c27d38a79670cde8ab459d545a4eed1f7fb2",
+      "bytes": 97809
+    },
+    {
+      "file": "lens-v2-blink-offline.gif",
+      "sha256": "943cfe378fa972834cb1ab94d90395701ee8a076b290fb97df5e679bb0255cf0",
+      "bytes": 203379
+    },
+    {
+      "file": "v1-closed-alpha.png",
+      "sha256": "2ec30308da8860a4188cdc0702cf1581fb0361e86a76d2d549e6b314b0e6fb94",
+      "bytes": 1562991
+    },
+    {
+      "file": "v1-closed-dark.png",
+      "sha256": "cfdeb85c3c6243a9b7d1c575f0600d7fa93138eccf7a49e4a3befe5d6b017c37",
+      "bytes": 1327799
+    },
+    {
+      "file": "v1-closed-light.png",
+      "sha256": "69db50a6b5beccb13e5c7001c5ef1f6b225ad9a562dceb35973e7264540c7314",
+      "bytes": 1324063
+    },
+    {
+      "file": "v1-open-alpha.png",
+      "sha256": "5589de8810d937239029defe951b0c4af06e490f42cb2b7c0fa68ab31d09bd58",
+      "bytes": 1565081
+    },
+    {
+      "file": "v1-open-dark.png",
+      "sha256": "363c92830f92cc6307859d5b0fc0aee0ff137155468fa7fc97ba43b7c1749b33",
+      "bytes": 1329909
+    },
+    {
+      "file": "v1-open-light.png",
+      "sha256": "1cf0ac16b152ea609654d63cb38dcc3e3d00dd1470efc6c9abbb25a9a5336bcd",
+      "bytes": 1326209
+    },
+    {
+      "file": "v2-closed-alpha.png",
+      "sha256": "662aa88411ac4b2244f3d3136b5719b1c33af1ccc638538ca1292668c55bac91",
+      "bytes": 1553866
+    },
+    {
+      "file": "v2-closed-dark.png",
+      "sha256": "ef86399a066c602765ec6e34bd24ee50ba3d859730316a90a83a70ff715cccb7",
+      "bytes": 1320126
+    },
+    {
+      "file": "v2-closed-light.png",
+      "sha256": "e641bbe6daa6119cf591ecd21e3bd084da9f0fb9a88d71dbbcadbea120c22984",
+      "bytes": 1316333
+    },
+    {
+      "file": "v2-open-alpha.png",
+      "sha256": "2b3a7fe4eba0bee4170abb1bdefe0049c70423fd491e9a1dbd67e8ac076b9744",
+      "bytes": 1554182
+    },
+    {
+      "file": "v2-open-dark.png",
+      "sha256": "8be86d6e1d21ada0f216364757d7c5e516bd75cf2d6580090399132e1fc34604",
+      "bytes": 1320383
+    },
+    {
+      "file": "v2-open-light.png",
+      "sha256": "1b97e009310f22d6388f039ab4fcfcc43cc15d8f9471b9e95551e8fab26f7909",
+      "bytes": 1316615
+    }
+  ]
+}

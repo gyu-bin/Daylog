@@ -1,0 +1,39 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioDevice20261024.xctestrun -destination "platform=iOS Simulator,id=87F27718-1575-4384-B7DB-1AF4601DBC86" -resultBundlePath /tmp/PioSmallDevice-20261024.xcresult
+
+Writing result bundle at path:
+	/tmp/PioSmallDevice-20261024.xcresult
+
+2026-10-24 11:43:12.990 xcodebuild[50925:1800762] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 11:43:55.346396+0900 Daylog[51209:1804564] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 11:43:56.337101+0900 Daylog[51209:1806111] [General] Failed to send CA Event for app launch measurements for ca_event_type: 0 event_name: com.apple.app_launch_measurement.FirstFramePresentationMetric
+2026-10-24 11:43:56.343569+0900 Daylog[51209:1804564] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 11:43:56.379616+0900 Daylog[51209:1804564] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 11:43:56.383366+0900 Daylog[51209:1804564] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 11:43:56.427657+0900 Daylog[51209:1806107] [General] Failed to send CA Event for app launch measurements for ca_event_type: 1 event_name: com.apple.app_launch_measurement.ExtendedLaunchMetrics
+Test Suite 'Selected tests' started at 2026-10-24 11:43:56.628.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 11:43:56.628.
+Test Suite 'PioDeviceSizeReviewTests' started at 2026-10-24 11:43:56.628.
+Test Case '-[DaylogStoreKitTests.PioDeviceSizeReviewTests testActualDeviceDashboardAndLargeText]' started.
+PIO_DEVICE idiom=phone bounds=(0.0, 0.0, 375.0, 667.0) sizeClass=1 text=normal
+PIO_DEVICE idiom=phone bounds=(0.0, 0.0, 375.0, 667.0) sizeClass=1 text=AX5
+Test Case '-[DaylogStoreKitTests.PioDeviceSizeReviewTests testActualDeviceDashboardAndLargeText]' passed (1.452 seconds).
+Test Suite 'PioDeviceSizeReviewTests' passed at 2026-10-24 11:43:58.082.
+	 Executed 1 test, with 0 failures (0 unexpected) in 1.452 (1.454) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-24 11:43:58.082.
+	 Executed 1 test, with 0 failures (0 unexpected) in 1.452 (1.454) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 11:43:58.083.
+	 Executed 1 test, with 0 failures (0 unexpected) in 1.452 (1.455) seconds
+2026-10-24 11:43:58.109 xcodebuild[50925:1800762] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 11:43:58.110 xcodebuild[50925:1800762] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 11:43:58.112 xcodebuild[50925:1800762] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 11:43:58.388 xcodebuild[50925:1800762] [MT] IDETestOperationsObserverDebug: 51.850 elapsed -- Testing started completed.
+2026-10-24 11:43:58.388 xcodebuild[50925:1800762] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 11:43:58.389 xcodebuild[50925:1800762] [MT] IDETestOperationsObserverDebug: 51.850 sec, +51.850 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioSmallDevice-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

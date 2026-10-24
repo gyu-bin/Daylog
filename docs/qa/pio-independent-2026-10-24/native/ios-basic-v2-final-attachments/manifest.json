@@ -1,0 +1,1217 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "2B26C194-9AB3-4076-8F1F-184C4B06BC91.json",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-actual-native-observations_0_042ABE25-7A1D-4B12-98E8-84FF564AE856.json",
+        "timestamp" : 1792814131.292
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "2DA4E0E1-C655-4C64-8230-0A2BD423E25E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-dark-hold-negative-actual-presentation_0_289FE43B-8602-407C-A175-8B78C1AC3B22.png",
+        "timestamp" : 1792814131.291
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "6BB13AFF-D6C8-439D-A6EF-8E815074EE48.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-light-hold-negative-actual-presentation_0_D5976637-1FBE-4883-80F2-82406FD60A71.png",
+        "timestamp" : 1792814131.274
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "664CD94C-C923-4227-8598-298400A43F26.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-dark-hold-negative-actual-presentation_0_02670DED-FDEA-416F-96D2-8EF96FA04F1E.png",
+        "timestamp" : 1792814131.26
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "482DAAC4-E9B3-47B5-9F3B-DC495AEE3E9C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-light-hold-negative-actual-presentation_0_AB47A1FD-9804-4A2B-BE83-B7271BE8BD9D.png",
+        "timestamp" : 1792814131.251
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "D95EF0FD-46B8-48E3-A813-4A727234CBC0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-dark-reopened-actual-presentation_0_5A7379C8-FEE9-49AE-8DAF-8EDC036A8F1D.png",
+        "timestamp" : 1792814128.793
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "8F6A262F-4F65-4D3D-9F7F-86ACA7303337.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-light-reopened-actual-presentation_0_AA65DF2F-B1F5-4541-ABDE-A6C1C47A28C6.png",
+        "timestamp" : 1792814128.775
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "B1AD4081-59EC-47AC-A174-CD25394B672C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-dark-reopened-actual-presentation_0_6CF9B595-4F4A-4665-BA4A-EBF85264F737.png",
+        "timestamp" : 1792814128.76
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "7AA9FF6F-81FC-4F5D-BD2B-B9BB5AB27E28.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-light-reopened-actual-presentation_0_14866F65-D9AA-482E-B116-15DF7CB8B9A6.png",
+        "timestamp" : 1792814128.751
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "F32E57EA-D3D4-4EA9-BDCC-E580190BC74E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-dark-closed-actual-presentation_0_F03E4C95-4251-4CF7-A810-FC8AAA943BC0.png",
+        "timestamp" : 1792814128.39
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "8AE428F4-6B54-48AD-8B58-68B57768BBD4.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-light-closed-actual-presentation_0_DCFD34F9-B6E2-48F8-A899-F9FBE800EDD9.png",
+        "timestamp" : 1792814128.375
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "F44F6D69-82C1-47BB-BB60-81D45D9B5C1F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-dark-closed-actual-presentation_0_FD647756-542E-4492-BDDC-FE4E20F584BB.png",
+        "timestamp" : 1792814128.361
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "BF2F6D47-5003-48AE-859F-03EB87B23437.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-light-closed-actual-presentation_0_37943536-C2EE-4EBF-825D-C8672345B54C.png",
+        "timestamp" : 1792814128.353
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "B9E5079D-5E84-4990-93F5-3CA31FD760C9.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-dark-hold-positive-actual-presentation_0_F366B782-7170-4050-8B18-5BF4232529AD.png",
+        "timestamp" : 1792814128.103
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "E01B6CBE-4A7E-4EFB-8A03-F3742A15EAD5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-light-hold-positive-actual-presentation_0_20E28C08-29B7-4995-80B2-C66E110F107A.png",
+        "timestamp" : 1792814128.086
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "0E562357-D4E8-4A41-A3A7-89FB3D03C907.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-dark-hold-positive-actual-presentation_0_53221F91-8865-4CC4-A2C6-988E00F866C7.png",
+        "timestamp" : 1792814128.07
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "3323E91B-4B90-4739-979E-0B0C6B1282BB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-light-hold-positive-actual-presentation_0_DB388829-ADDE-4754-8E72-2186A960CC69.png",
+        "timestamp" : 1792814128.063
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "530B5FC0-2172-4B29-A525-BE5DCA452BC5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-dark-open-actual-presentation_0_5604FCC8-B883-4A2A-80E8-8D1F03AFF443.png",
+        "timestamp" : 1792814126.66
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "44523FD9-ED01-4731-8605-7DE8F1DB0795.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-light-open-actual-presentation_0_BF4F1494-4A14-47C9-B237-DFA2D74BDBF1.png",
+        "timestamp" : 1792814126.645
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "26F30413-4A8A-465A-A344-65C6D6D8D41C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-dark-open-actual-presentation_0_56CFC701-2790-4D4C-8A00-E7B0A91756D3.png",
+        "timestamp" : 1792814126.63
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "ED1B1399-F3E4-4D89-9AE6-60DD0507491F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-light-open-actual-presentation_0_E73081A4-9132-490D-A91A-A8D3F3D1F027.png",
+        "timestamp" : 1792814126.623
+      }
+    ],
+    "testIdentifier" : "PioCloudCandidateReviewTests/testActualIndependentBlinkAndHeldPresentation()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioCloudCandidateReviewTests/testActualIndependentBlinkAndHeldPresentation"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "3625F333-7999-4287-A303-E8A6DA5B3A3F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-103_0_18532538-747D-4D8A-8919-63689E7C50C0.png",
+        "timestamp" : 1792814136.503
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "E2461110-9337-44FD-8014-ED28BF92DEB6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-102_0_53048357-C89D-42CA-9BA7-6C5E6C6481E1.png",
+        "timestamp" : 1792814136.446
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "3CB22BF2-DD32-4D78-ABE4-F119B70226B7.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-101_0_73C46F80-CC32-4EA8-8776-CDE130E6C4DF.png",
+        "timestamp" : 1792814136.401
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "99F1107F-89BC-4D7F-AAE3-CACC8DB3CFD0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-100_0_72A50C84-8900-4141-B49F-4133FB8A1968.png",
+        "timestamp" : 1792814136.351
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "1E08D41B-D83E-4A8E-8B56-583EEBA728A6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-099_0_B10ECA95-CF3F-4BFE-8558-26072B10E177.png",
+        "timestamp" : 1792814136.299
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "089D3B03-BB9A-4D37-90C5-5A36B8A224C6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-098_0_2BC3D717-BCA6-4458-BC25-42266234EE4C.png",
+        "timestamp" : 1792814136.254
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "09307381-C4E7-4B07-B960-891C85E96BAA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-097_0_60A06B24-F38A-49C1-B948-278844CB4DDA.png",
+        "timestamp" : 1792814136.198
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "B5FDDC8B-DEF0-49F0-85B6-ABC35FE09B4C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-096_0_15CFC648-6D67-4AB9-AC1E-2A7028F85F16.png",
+        "timestamp" : 1792814136.136
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "9428F7EF-CA91-4979-AEB6-3C3E4879A10C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-095_0_5DC8EE15-D91E-43C0-8A9F-23908E382008.png",
+        "timestamp" : 1792814136.084
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "36D3B3F5-A862-4B46-BB8F-84FBF83FCEF1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-094_0_4133B017-765C-4053-B8A0-D88DA03C787D.png",
+        "timestamp" : 1792814136.034
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "904187A0-5BE5-4E38-8035-67C571D50444.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-093_0_E583204D-1763-4444-BE08-D7A63BD4E00C.png",
+        "timestamp" : 1792814135.984
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "927E0AA8-C0CF-401B-82FA-FE93BE738AFD.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-092_0_35BDFDDF-F799-4439-8DB5-A814073CC7A2.png",
+        "timestamp" : 1792814135.934
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "6D95E083-2EAF-4FE7-9D3C-1C64CCC76575.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-091_0_803CDF4A-05AB-45E6-ABAF-BF6D8880BC06.png",
+        "timestamp" : 1792814135.884
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "B8298115-BA28-49EA-9F1B-14A820C8ED1E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-090_0_2864D66B-E25B-467B-907D-90DAF298C4B7.png",
+        "timestamp" : 1792814135.835
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "F9ABAB23-3DAA-4433-BE55-442D7F48A09D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-089_0_49755A40-9491-4825-9D76-408732389936.png",
+        "timestamp" : 1792814135.784
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "72CDF337-023C-4FC7-A250-29EE0D8B7CC8.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-088_0_9977DF13-BB23-4E8D-954C-02F36C498103.png",
+        "timestamp" : 1792814135.733
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "DB4DBBA8-FACC-401B-94F2-CCF219627992.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-087_0_0BB3A44C-528A-412B-BCE7-27ECE72F26AF.png",
+        "timestamp" : 1792814135.682
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "5ACB0093-5AD2-4F6A-A46C-55774506E770.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-086_0_87A3CD4A-A0AF-4428-AED3-65A2B79D60B4.png",
+        "timestamp" : 1792814135.634
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "63AA2EF5-56F0-483E-86FB-268A5F8207EF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-085_0_7E01971C-DB1F-448B-A566-71BCA5061E40.png",
+        "timestamp" : 1792814135.583
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "CB8164DB-9007-42C4-820C-5191730C8A6C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-084_0_26B488C3-4B91-485A-A1A1-D47A10D128FE.png",
+        "timestamp" : 1792814135.533
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "6BDDB9AB-0D93-4036-9F48-A6BBB6168DEA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-083_0_03FCC94F-5AF9-40F1-A862-6C4AB794E261.png",
+        "timestamp" : 1792814135.484
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "3620644A-89B8-447B-A0F4-C002C961B7F1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-082_0_36B64BDB-F7A6-4554-9395-23245D7CFAD5.png",
+        "timestamp" : 1792814135.434
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "572EA254-EE0F-44FC-8210-E5CCEB03BB03.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-081_0_5569DB91-B143-44DA-8241-2A331D309F7D.png",
+        "timestamp" : 1792814135.384
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "A6D8C1EA-EB8D-4534-9F5C-74F76EFD6ECA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-080_0_6AD0DEA6-AB4B-4350-B527-37AABF99F5A6.png",
+        "timestamp" : 1792814135.334
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "50F1DC6A-FE14-422C-B2C1-909BFC69E7B5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-079_0_2E66C8C6-A054-4E85-A4D4-79A54FD0D4B5.png",
+        "timestamp" : 1792814135.284
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "C92B2626-1B1F-4829-A782-AF0BEDD2CFA2.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-078_0_86D62A89-4B22-4825-8123-956D485EDB8B.png",
+        "timestamp" : 1792814135.234
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "91871EFA-B25E-4832-9A14-8B081B3CEA55.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-077_0_BAAEC638-89EC-4A1A-BC9B-BA68BF8EAA3A.png",
+        "timestamp" : 1792814135.184
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "6EC1B018-9827-493C-A5CE-3BE62E7CCCB7.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-076_0_6C03C3C4-CB20-4C82-BDBB-224E987608BB.png",
+        "timestamp" : 1792814135.134
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "5D539CD4-1888-4FC1-90F4-9C51F8ACFA6C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-075_0_B2F5421E-3F5B-40DA-A7ED-9D98F359C5E7.png",
+        "timestamp" : 1792814135.084
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "244773C9-FA4F-4044-B0A6-3437A735FFA2.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-074_0_CBBEA6AF-1046-415B-960D-72D9E8A66BC5.png",
+        "timestamp" : 1792814135.034
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "6D3C647B-0201-4AD3-8FC1-A60D9756C0DD.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-073_0_8F0A97C2-68F5-48FC-A907-F107F175D0C8.png",
+        "timestamp" : 1792814134.984
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "C46E9C59-63DE-4AFB-9AD2-4CABE082F654.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-072_0_3DC92842-F566-41E2-A4D3-750A51892425.png",
+        "timestamp" : 1792814134.934
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "B53F8C26-B9BB-49F7-AA3A-0E056716271F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-071_0_CABFF207-2133-4C56-9F02-6FAD9DE67E49.png",
+        "timestamp" : 1792814134.883
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "B6A2C5E9-BED8-453A-AC5C-5E70D2E5CD26.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-070_0_7865439E-BB7B-4EA3-99CE-5EC7D070C0DF.png",
+        "timestamp" : 1792814134.839
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "E418FF5D-760E-4597-9DF6-93B226E3C80E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-069_0_33179F3F-DA5D-4F8D-9418-2FED54BC9EC6.png",
+        "timestamp" : 1792814134.786
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "1D1DEE80-33DE-4F38-9D6C-D1EA8053E07E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-068_0_EDE45C72-3612-4729-9806-52A237803B97.png",
+        "timestamp" : 1792814134.736
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "40E8398B-CC98-4C0E-98BE-6F493D4F8C0F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-067_0_6DA9A951-0E91-4DAA-A42B-059842EED186.png",
+        "timestamp" : 1792814134.686
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "BC2BC785-6683-4539-B28C-237D009268D1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-066_0_5D931F7F-94DE-4850-9502-FDA88EB7FD04.png",
+        "timestamp" : 1792814134.636
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "7D72067F-435C-40C2-BC8A-EF8B20B7C642.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-065_0_FA0156F2-1331-4A2C-AEEA-5D4713711FB4.png",
+        "timestamp" : 1792814134.586
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "90A5E6D6-F576-4408-8112-7E28A02C195F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-064_0_0A35BF12-B9BE-4AE6-819B-AF12E0161D1C.png",
+        "timestamp" : 1792814134.533
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "DB1FB035-6F5B-4FED-9C2C-2869995EC30F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-063_0_8121177D-46B9-4DEE-ACBA-8ED8276E2258.png",
+        "timestamp" : 1792814134.484
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "B78D9108-C40D-4485-AE16-0BB0157A6D31.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-062_0_C8A57742-1778-4669-B9E9-3DB1E98261B7.png",
+        "timestamp" : 1792814134.434
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "A49067EF-5F5B-409B-8694-6C22E0C0DEB0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-061_0_0CD5AAB4-99DF-4D9D-AA1E-9D2127704F4D.png",
+        "timestamp" : 1792814134.385
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "A4B47195-8497-4D7B-B9CB-C19005941013.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-060_0_E377BF79-15DA-4717-925F-47E867D0BE53.png",
+        "timestamp" : 1792814134.334
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "7560F0FF-7F2C-491E-A50B-E9815AAD4FA5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-059_0_B396E73C-D9A1-4300-8BFB-96D5C4BDA082.png",
+        "timestamp" : 1792814134.283
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "457836BD-1EBD-4F02-83F9-867B31C0EDBF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-058_0_007E5C41-5594-4FD2-8FF1-6C314A94D51B.png",
+        "timestamp" : 1792814134.235
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "00BB2C62-FC52-44E7-BD17-CC6FB7EEE769.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-057_0_147CC96B-3AA9-4B72-96E7-BEF289C09BC9.png",
+        "timestamp" : 1792814134.186
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "854F4189-0020-44E1-B313-5B0FC6FE1DEC.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-056_0_8444B5CE-2C05-4D4D-A310-361161BCD908.png",
+        "timestamp" : 1792814134.132
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "E60A7237-FA58-4B56-B37A-0096B58D9776.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-055_0_FA7D71C5-10A3-49A7-B992-907F4445CC3A.png",
+        "timestamp" : 1792814134.084
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "3DE37532-AAD2-4AA4-86E7-92469DE4752A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-054_0_90619947-F37E-4839-B890-BAED0855647F.png",
+        "timestamp" : 1792814134.034
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "E937B28D-B1E6-4A4B-8E08-575EC4019426.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-053_0_7E158FAC-0C9C-4842-AAFA-ACEAF1AC220C.png",
+        "timestamp" : 1792814133.983
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "23761553-BBAD-42C8-84F8-FE510E81E14A.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-052_0_451E50A9-B8BB-447D-BF7C-19E83027BAD5.png",
+        "timestamp" : 1792814133.935
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "72520D2E-BF24-43E2-9F9C-F1C5D0C36150.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-051_0_25196147-8492-45D5-80BD-887569B0CF31.png",
+        "timestamp" : 1792814133.885
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "0E946DC3-6F0E-4B40-8099-848AC3EA65FB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-050_0_7C8CB8EF-A156-4329-B4EE-D8D2B4D0E07D.png",
+        "timestamp" : 1792814133.837
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "77E438FD-DB5C-428A-8DB3-13BA57E3D974.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-049_0_577B5E4E-B7D5-45A9-B703-8B5871D080C9.png",
+        "timestamp" : 1792814133.789
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "627CD654-15AC-475C-A7C9-DC091771EEA0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-048_0_69EB01AB-D6E5-467F-BAB9-9DEA68BF1190.png",
+        "timestamp" : 1792814133.735
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "4458C238-2F6C-4EBA-9D73-3F67AC360585.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-047_0_EE5DBF53-FFD2-4351-8638-12DF35E14E3B.png",
+        "timestamp" : 1792814133.684
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "44A1F3EC-F6E1-4608-A2E1-6DF97981E481.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-046_0_280E0837-F585-43E6-813A-AEEA343C47CA.png",
+        "timestamp" : 1792814133.636
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "BA0CF265-DCC8-477C-918E-9DB8180B7BA5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-045_0_FD824710-7B74-405F-81D1-85ABF0052B6B.png",
+        "timestamp" : 1792814133.584
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "48D03081-EB6C-4F61-989D-108EA68AB1C3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-044_0_32409BA2-5E46-43AF-917E-A934629082A2.png",
+        "timestamp" : 1792814133.533
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "A2CB4A8F-2FEE-4D7B-9B4A-7F605AD217C0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-043_0_1249B04A-4E84-453F-8EB7-13800D5D9160.png",
+        "timestamp" : 1792814133.483
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "8F4FAF94-BFC5-4845-B013-1EBDC0A3829C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-042_0_86DBB6F9-471C-4371-AADB-A98672422EAE.png",
+        "timestamp" : 1792814133.433
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "9F87EF39-4402-4E48-B4C4-7A269E3B5979.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-041_0_AB3C6CE5-63A4-491C-9110-F6002C731662.png",
+        "timestamp" : 1792814133.384
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "3032BCBB-E151-4F41-A922-133C06753CAF.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-040_0_C65D12CB-D409-40A1-B405-92CE58FC9F8D.png",
+        "timestamp" : 1792814133.333
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "E0905AE1-B09D-4D5F-9787-916D65AD477F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-039_0_C84C4292-4EE4-41CC-981C-F855E8A6B1AB.png",
+        "timestamp" : 1792814133.283
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "9C2325AA-2031-4412-B56E-B53265EB5156.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-038_0_92EBDCBC-41F2-4AF6-B479-8919BAFA488D.png",
+        "timestamp" : 1792814133.235
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "3E8595F0-91D5-496F-9E06-E8E36B0ECB9D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-037_0_E3C44064-231E-45B1-9736-953429DA0C53.png",
+        "timestamp" : 1792814133.182
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "828C9578-3537-45C6-957E-6C0D871015C0.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-036_0_D341D045-196B-4CA4-80FB-FAC118A426C3.png",
+        "timestamp" : 1792814133.134
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "5CB18FE8-C161-4AC3-90AA-C4D7C584C098.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-035_0_DFAAB487-BB19-4EEF-AF8F-B9B562124C6E.png",
+        "timestamp" : 1792814133.084
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "C0714E7E-34BC-49F1-A941-9D37E82E51F8.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-034_0_40A453AF-0675-4E2B-83A9-AD5266E344AE.png",
+        "timestamp" : 1792814133.035
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "3D316E52-8D28-4106-82C6-70FE9FDDE7EE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-033_0_EA345DB0-453F-41BA-AA27-B3C1B52969C7.png",
+        "timestamp" : 1792814132.984
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "58A2C64F-A84C-4A89-A087-6544F678CBE5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-032_0_6C651F59-5313-402E-8969-D6521D6EAAD0.png",
+        "timestamp" : 1792814132.934
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "17F3D360-44AD-4E1D-A372-7DFEA5F474C9.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-031_0_48AD9131-0177-4A81-A99A-D6555F7B93B3.png",
+        "timestamp" : 1792814132.885
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "E7A37D1A-B0FE-41AA-A496-95D55DCF6BD9.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-030_0_C3CE80F7-997D-4391-95B3-BD28F44BE428.png",
+        "timestamp" : 1792814132.838
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "F23D648B-4ECB-4A6F-8385-01C5E07ADA11.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-029_0_5CE88CBD-7764-4C67-90CF-ECAB0FD35313.png",
+        "timestamp" : 1792814132.785
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "1CA8BFC5-E50D-48D1-885F-39602CA38047.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-028_0_01620E41-2582-4483-8A85-9D67FFDFB6CF.png",
+        "timestamp" : 1792814132.735
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "AEF0BE1F-16AB-4C57-B9B7-55C5D8EBBCA2.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-027_0_FB3852B9-6012-4BD4-9501-F57BE0570024.png",
+        "timestamp" : 1792814132.685
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "5EFFAFC0-4A67-4E4C-873D-F04EF13ABE0F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-026_0_FDD35C33-1C10-47B4-BD43-72687D4ADF32.png",
+        "timestamp" : 1792814132.636
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "9E29E89F-DA71-4EE1-B4D7-D653829BA6E4.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-025_0_1D545882-E360-4A86-99D1-A537E7F0BE16.png",
+        "timestamp" : 1792814132.586
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "C32C120C-9079-4FC7-A80E-24AC878449C7.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-024_0_C311B8DD-EA62-432F-8DBF-2781501FAADB.png",
+        "timestamp" : 1792814132.535
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "EF64340E-E4B3-48A6-A995-096BF91646DE.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-023_0_3C8D12E0-0EAA-47E1-9579-20F453142FA4.png",
+        "timestamp" : 1792814132.486
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "E24F194E-AC27-4053-BFF5-AE2E6249687F.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-022_0_C72B1DF2-D81F-4F97-82B5-CFB1880398B8.png",
+        "timestamp" : 1792814132.436
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "62473009-11F4-4AFF-B72E-1EF0CC456880.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-021_0_26C5F84D-28F1-49AD-A3FB-FD17FD385E7B.png",
+        "timestamp" : 1792814132.385
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "39E3FF02-13C9-4156-8B2A-946ADBBFF724.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-020_0_C7FFC998-ED80-43C7-BBF9-3381F498E29B.png",
+        "timestamp" : 1792814132.334
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "DFDA01AF-1568-4FE9-B21D-DA09E99D34F8.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-019_0_892E11DD-3C1B-478D-9AC8-F7BB759B658B.png",
+        "timestamp" : 1792814132.284
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "16489FD8-E8AF-4DAE-B06C-B05AE3DBAD3C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-018_0_B2D77218-CF5A-4E7A-AD7C-CC5DA39ADF01.png",
+        "timestamp" : 1792814132.234
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "DD14AB2E-78F8-4958-8390-B1BCBAAEAA23.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-017_0_298E6AF4-20F0-44D5-A34B-7B62A520FE10.png",
+        "timestamp" : 1792814132.183
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "54FF5E82-4866-4DE6-B707-1C21ACDA4353.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-016_0_0C2321DA-5EF6-4D1F-883E-0A3E878D63A5.png",
+        "timestamp" : 1792814132.133
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "DA9663C3-FAAE-42C6-86E3-9AA278799AA7.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-015_0_5C9EE791-DF96-4A67-9E2E-EC2716283AD4.png",
+        "timestamp" : 1792814132.083
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "1DF02FCE-199A-49E3-B9DB-2083AD93510E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-014_0_834F3B9D-0887-4FA3-A7F8-03EBF72E4468.png",
+        "timestamp" : 1792814132.033
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "F6776E81-2129-4010-A710-CBC731E36EB3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-013_0_38CBCC46-4C20-4EA9-A0D6-AA365B657FEA.png",
+        "timestamp" : 1792814131.984
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "328D2AAF-B272-4A07-8228-6E4565EC1FA1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-012_0_1F4DD8F1-DBDE-4596-BC98-DCF427AE5BD1.png",
+        "timestamp" : 1792814131.932
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "E0FABA20-2FE9-478A-BECC-1C5BAC13C1E1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-011_0_44548E3E-8FFA-4DF3-8340-9928F34FABF6.png",
+        "timestamp" : 1792814131.884
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "4C711E69-3BE6-446D-81CA-25F32B18200E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-010_0_52B24682-98DF-47D5-8E45-BAF0C9E7A899.png",
+        "timestamp" : 1792814131.834
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "51E1EDBC-F4D8-4E75-BC73-C02FF9BB175C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-009_0_404A9D07-AD4E-4BAA-A73E-07C88BA160E4.png",
+        "timestamp" : 1792814131.784
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "B7E9DD2D-4CF2-44BF-8714-7EA9241A9FE7.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-008_0_FAA28A58-F569-457A-97CF-534369EFEF8B.png",
+        "timestamp" : 1792814131.737
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "2B7861C0-6737-48AB-A36B-540A296E802E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-007_0_258A0C73-67C3-417F-A6C1-F76B6C404A49.png",
+        "timestamp" : 1792814131.687
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "A0685230-4210-40A1-8266-9A90CF092619.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-006_0_E068CBF9-6756-438D-B377-A9AA528D0263.png",
+        "timestamp" : 1792814131.636
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "90062EA6-B265-44F8-A014-29C51C13288B.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-005_0_D3633174-B050-4F31-951F-FACA5A2211C3.png",
+        "timestamp" : 1792814131.583
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "1C2CB9C3-ECE5-4AF8-8B79-7E0C318A13EA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-004_0_06E36CAA-B590-4B1D-9163-E3863B568928.png",
+        "timestamp" : 1792814131.534
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "10BD42E7-6F56-4A0B-8DB5-61ED1E601520.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-003_0_22B792F6-769C-4135-9378-F5B6DE2899AB.png",
+        "timestamp" : 1792814131.483
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "79913EBA-EDE9-4BCF-90FF-E6307957AC5C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-002_0_77EB4BC3-E490-445E-BEC1-1E7FE755DE8E.png",
+        "timestamp" : 1792814131.434
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "94C4BAF7-6155-4539-9952-F6F58BB9B7EA.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-001_0_75CB3BCB-7B47-40CF-AD4B-28D293F93825.png",
+        "timestamp" : 1792814131.388
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "85EA8F2A-6A01-4AE0-BA99-F162552B550E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-native-sequence-000_0_AC8CC771-FC25-4365-A1DF-A32C5D62437F.png",
+        "timestamp" : 1792814131.337
+      }
+    ],
+    "testIdentifier" : "PioCloudCandidateReviewTests/testActualPresentationSequence()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioCloudCandidateReviewTests/testActualPresentationSequence"
+  },
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "0AF9805D-7215-4E79-90CD-734C523A3115.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-trouble-dark-neutral-model_0_2F3D8376-39C1-48F3-970C-D68A0AFA5792.png",
+        "timestamp" : 1792814136.668
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "1C13C39E-C308-486D-BC00-2DEDFBF3D8B3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-trouble-light-neutral-model_0_D4BF89CA-7658-420F-B4B6-5B18E39DDB5D.png",
+        "timestamp" : 1792814136.641
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "D0D5EADE-8395-4B2E-B569-FDB0DAD0B49D.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-receiving-dark-neutral-model_0_9E572E68-E0C3-4CAE-8D10-85CE119F0546.png",
+        "timestamp" : 1792814136.623
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "0B67A194-A624-4CAA-8901-9B0C1EF62469.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-220pt-receiving-light-neutral-model_0_9A1975DE-C1C9-425A-A8C0-475CF8AE053F.png",
+        "timestamp" : 1792814136.604
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "787A609D-705D-4890-AA95-34AFF7383F5B.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-trouble-dark-neutral-model_0_F920985C-786B-4E94-ADD2-7051035B2F2D.png",
+        "timestamp" : 1792814136.569
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "D90F27F1-3E03-49F9-8BF4-186311960E4E.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-trouble-light-neutral-model_0_676BBCF5-570F-4B4B-A6CD-B2BC4A7126FB.png",
+        "timestamp" : 1792814136.562
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "89D5967C-5B7C-457B-A4BE-40F50142437C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-receiving-dark-neutral-model_0_5A5BCE0E-8C90-4E11-8278-D148A32DAB88.png",
+        "timestamp" : 1792814136.538
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "89B877BB-6094-4A27-B108-3A958EF23D9B",
+        "deviceName" : "Pio Motion Review 2026-10-23",
+        "exportedFileName" : "EB504757-D528-48DC-B7B2-9470D5DE821C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "basic-hands-v2-64pt-receiving-light-neutral-model_0_EF768B9F-C445-4205-A957-2CF549161756.png",
+        "timestamp" : 1792814136.526
+      }
+    ],
+    "testIdentifier" : "PioCloudCandidateReviewTests/testCandidateRegistrationNeutralAndStop()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioCloudCandidateReviewTests/testCandidateRegistrationNeutralAndStop"
+  }
+]

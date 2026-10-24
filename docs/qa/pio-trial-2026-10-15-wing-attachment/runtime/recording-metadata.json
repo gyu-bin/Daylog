@@ -1,0 +1,154 @@
+{
+  "iphone-stage2-resumed": {
+    "source": "actual window captures",
+    "frames": 16,
+    "seconds": 10.502,
+    "average_fps": 1.4282993715482766
+  },
+  "iphone-stage3-resumed": {
+    "source": "actual window captures",
+    "frames": 16,
+    "seconds": 10.655,
+    "average_fps": 1.4077897700610043
+  },
+  "mac-stage2-crest-sway": {
+    "source": "actual window captures",
+    "frames": 48,
+    "seconds": 9.088,
+    "average_fps": 5.171654929577465
+  },
+  "mac-stage2-dash": {
+    "source": "actual window captures",
+    "frames": 48,
+    "seconds": 11.058,
+    "average_fps": 4.250316512931814
+  },
+  "mac-stage2-idle": {
+    "source": "actual window captures",
+    "frames": 60,
+    "seconds": 14.176,
+    "average_fps": 4.16196388261851
+  },
+  "mac-stage2-jump": {
+    "source": "actual window captures",
+    "frames": 64,
+    "seconds": 18.211,
+    "average_fps": 3.4594475866234693
+  },
+  "mac-stage2-peek": {
+    "source": "actual window captures",
+    "frames": 48,
+    "seconds": 9.073,
+    "average_fps": 5.1802050038575995
+  },
+  "mac-stage2-walk": {
+    "source": "actual window captures",
+    "frames": 48,
+    "seconds": 14.204,
+    "average_fps": 3.3089270627992113
+  },
+  "mac-stage3-crest-sway": {
+    "source": "actual window captures",
+    "frames": 48,
+    "seconds": 11.783,
+    "average_fps": 3.9887974200118816
+  },
+  "mac-stage3-dash": {
+    "source": "actual window captures",
+    "frames": 48,
+    "seconds": 14.171,
+    "average_fps": 3.316632559452403
+  },
+  "mac-stage3-idle": {
+    "source": "actual window captures",
+    "frames": 60,
+    "seconds": 17.665,
+    "average_fps": 3.339937729974526
+  },
+  "mac-stage3-jump": {
+    "source": "actual window captures",
+    "frames": 64,
+    "seconds": 17.196,
+    "average_fps": 3.66364270760642
+  },
+  "mac-stage3-peek": {
+    "source": "actual window captures",
+    "frames": 48,
+    "seconds": 9.532,
+    "average_fps": 4.930759546789761
+  },
+  "mac-stage3-walk": {
+    "source": "actual window captures",
+    "frames": 48,
+    "seconds": 12.884,
+    "average_fps": 3.6479354237814343
+  },
+  "iphone-stage2-flap": {
+    "source": "Device Hub native screen recording",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1320,
+          "height": 2868,
+          "avg_frame_rate": "918600/15241"
+        }
+      ],
+      "format": {
+        "duration": "25.388333"
+      }
+    }
+  },
+  "iphone-stage3-flap": {
+    "source": "Device Hub native screen recording",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1320,
+          "height": 2868,
+          "avg_frame_rate": "61320/1019"
+        }
+      ],
+      "format": {
+        "duration": "25.463333"
+      }
+    }
+  },
+  "iphone-stage2-wave": {
+    "source": "Device Hub native screen recording",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1320,
+          "height": 2868,
+          "avg_frame_rate": "119100/1979"
+        }
+      ],
+      "format": {
+        "duration": "19.780000"
+      }
+    }
+  },
+  "iphone-stage3-wave": {
+    "source": "Device Hub native screen recording",
+    "probe": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1320,
+          "height": 2868,
+          "avg_frame_rate": "299280/4981"
+        }
+      ],
+      "format": {
+        "duration": "41.505000"
+      }
+    }
+  }
+}

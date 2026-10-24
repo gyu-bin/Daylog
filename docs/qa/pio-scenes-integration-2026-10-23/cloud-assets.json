@@ -1,0 +1,602 @@
+[
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/astronaut/layers/body.png",
+    "asset": "pio_cloud_astronaut_body",
+    "sha256": "33b5a0f8430ac48ffb432be338331eec013ddf79afeeb14f135812c3aef52346"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/astronaut/layers/browLeft.png",
+    "asset": "pio_cloud_astronaut_browLeft",
+    "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/astronaut/layers/browRight.png",
+    "asset": "pio_cloud_astronaut_browRight",
+    "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/astronaut/layers/eyeLeft.png",
+    "asset": "pio_cloud_astronaut_eyeLeft",
+    "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/astronaut/layers/eyeRight.png",
+    "asset": "pio_cloud_astronaut_eyeRight",
+    "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/astronaut/layers/halfLeft.png",
+    "asset": "pio_cloud_astronaut_halfLeft",
+    "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/astronaut/layers/halfRight.png",
+    "asset": "pio_cloud_astronaut_halfRight",
+    "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/astronaut/layers/lidLeft.png",
+    "asset": "pio_cloud_astronaut_lidLeft",
+    "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/astronaut/layers/lidRight.png",
+    "asset": "pio_cloud_astronaut_lidRight",
+    "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/astronaut/layers/optics.png",
+    "asset": "pio_cloud_astronaut_optics",
+    "sha256": "e2b8cf57f99a0fbfb7b91b9af102e765920e0eb4574d4bd635f4a04793d5abf4"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/autumn/layers/body.png",
+    "asset": "pio_cloud_autumn_body",
+    "sha256": "bf48aa4a049f671eb5db7e74c063681e326979e741556b05276b799763a88f0a"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/autumn/layers/browLeft.png",
+    "asset": "pio_cloud_autumn_browLeft",
+    "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/autumn/layers/browRight.png",
+    "asset": "pio_cloud_autumn_browRight",
+    "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/autumn/layers/eyeLeft.png",
+    "asset": "pio_cloud_autumn_eyeLeft",
+    "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/autumn/layers/eyeRight.png",
+    "asset": "pio_cloud_autumn_eyeRight",
+    "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/autumn/layers/halfLeft.png",
+    "asset": "pio_cloud_autumn_halfLeft",
+    "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/autumn/layers/halfRight.png",
+    "asset": "pio_cloud_autumn_halfRight",
+    "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/autumn/layers/lidLeft.png",
+    "asset": "pio_cloud_autumn_lidLeft",
+    "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/autumn/layers/lidRight.png",
+    "asset": "pio_cloud_autumn_lidRight",
+    "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cafe/layers/body.png",
+    "asset": "pio_cloud_cafe_body",
+    "sha256": "6d62ac136ad1e9424f01ff715d342a502d1fbc370cfc9446cbc238b0f9270332"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cafe/layers/browLeft.png",
+    "asset": "pio_cloud_cafe_browLeft",
+    "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cafe/layers/browRight.png",
+    "asset": "pio_cloud_cafe_browRight",
+    "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cafe/layers/eyeLeft.png",
+    "asset": "pio_cloud_cafe_eyeLeft",
+    "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cafe/layers/eyeRight.png",
+    "asset": "pio_cloud_cafe_eyeRight",
+    "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cafe/layers/halfLeft.png",
+    "asset": "pio_cloud_cafe_halfLeft",
+    "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cafe/layers/halfRight.png",
+    "asset": "pio_cloud_cafe_halfRight",
+    "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cafe/layers/lidLeft.png",
+    "asset": "pio_cloud_cafe_lidLeft",
+    "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cafe/layers/lidRight.png",
+    "asset": "pio_cloud_cafe_lidRight",
+    "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cherryBlossom/layers/body.png",
+    "asset": "pio_cloud_cherryBlossom_body",
+    "sha256": "0315c55e0fe8ba14645e7a73e1f45260758e81b0364436410285b37275b36ec3"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cherryBlossom/layers/browLeft.png",
+    "asset": "pio_cloud_cherryBlossom_browLeft",
+    "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cherryBlossom/layers/browRight.png",
+    "asset": "pio_cloud_cherryBlossom_browRight",
+    "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cherryBlossom/layers/eyeLeft.png",
+    "asset": "pio_cloud_cherryBlossom_eyeLeft",
+    "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cherryBlossom/layers/eyeRight.png",
+    "asset": "pio_cloud_cherryBlossom_eyeRight",
+    "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cherryBlossom/layers/halfLeft.png",
+    "asset": "pio_cloud_cherryBlossom_halfLeft",
+    "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cherryBlossom/layers/halfRight.png",
+    "asset": "pio_cloud_cherryBlossom_halfRight",
+    "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cherryBlossom/layers/lidLeft.png",
+    "asset": "pio_cloud_cherryBlossom_lidLeft",
+    "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/cherryBlossom/layers/lidRight.png",
+    "asset": "pio_cloud_cherryBlossom_lidRight",
+    "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/christmas/layers/body.png",
+    "asset": "pio_cloud_christmas_body",
+    "sha256": "15553419f997b1ffaf06e35f0cac632f70166bb5b470eb8ade94501e2d6d2810"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/christmas/layers/browLeft.png",
+    "asset": "pio_cloud_christmas_browLeft",
+    "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/christmas/layers/browRight.png",
+    "asset": "pio_cloud_christmas_browRight",
+    "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/christmas/layers/eyeLeft.png",
+    "asset": "pio_cloud_christmas_eyeLeft",
+    "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/christmas/layers/eyeRight.png",
+    "asset": "pio_cloud_christmas_eyeRight",
+    "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/christmas/layers/halfLeft.png",
+    "asset": "pio_cloud_christmas_halfLeft",
+    "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/christmas/layers/halfRight.png",
+    "asset": "pio_cloud_christmas_halfRight",
+    "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/christmas/layers/lidLeft.png",
+    "asset": "pio_cloud_christmas_lidLeft",
+    "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/christmas/layers/lidRight.png",
+    "asset": "pio_cloud_christmas_lidRight",
+    "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/fitness/layers/body.png",
+    "asset": "pio_cloud_fitness_body",
+    "sha256": "0dae9de72bd83452503d412c3c0677045b8fda94dc51d57b16cffc570bda77b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/fitness/layers/browLeft.png",
+    "asset": "pio_cloud_fitness_browLeft",
+    "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/fitness/layers/browRight.png",
+    "asset": "pio_cloud_fitness_browRight",
+    "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/fitness/layers/eyeLeft.png",
+    "asset": "pio_cloud_fitness_eyeLeft",
+    "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/fitness/layers/eyeRight.png",
+    "asset": "pio_cloud_fitness_eyeRight",
+    "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/fitness/layers/halfLeft.png",
+    "asset": "pio_cloud_fitness_halfLeft",
+    "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/fitness/layers/halfRight.png",
+    "asset": "pio_cloud_fitness_halfRight",
+    "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/fitness/layers/lidLeft.png",
+    "asset": "pio_cloud_fitness_lidLeft",
+    "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/fitness/layers/lidRight.png",
+    "asset": "pio_cloud_fitness_lidRight",
+    "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/halloween/layers/body.png",
+    "asset": "pio_cloud_halloween_body",
+    "sha256": "b69eced2b440043d237a9ac08b7d8bc167ff99fca3b38c3e646e2f6625fd1570"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/halloween/layers/browLeft.png",
+    "asset": "pio_cloud_halloween_browLeft",
+    "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/halloween/layers/browRight.png",
+    "asset": "pio_cloud_halloween_browRight",
+    "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/halloween/layers/eyeLeft.png",
+    "asset": "pio_cloud_halloween_eyeLeft",
+    "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/halloween/layers/eyeRight.png",
+    "asset": "pio_cloud_halloween_eyeRight",
+    "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/halloween/layers/halfLeft.png",
+    "asset": "pio_cloud_halloween_halfLeft",
+    "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/halloween/layers/halfRight.png",
+    "asset": "pio_cloud_halloween_halfRight",
+    "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/halloween/layers/lidLeft.png",
+    "asset": "pio_cloud_halloween_lidLeft",
+    "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/halloween/layers/lidRight.png",
+    "asset": "pio_cloud_halloween_lidRight",
+    "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/hanbok/layers/body.png",
+    "asset": "pio_cloud_hanbok_body",
+    "sha256": "98943fd831b859394fb2aeb98111bab1bd162ea3d0b3734f5987871011b7499d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/hanbok/layers/browLeft.png",
+    "asset": "pio_cloud_hanbok_browLeft",
+    "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/hanbok/layers/browRight.png",
+    "asset": "pio_cloud_hanbok_browRight",
+    "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/hanbok/layers/eyeLeft.png",
+    "asset": "pio_cloud_hanbok_eyeLeft",
+    "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/hanbok/layers/eyeRight.png",
+    "asset": "pio_cloud_hanbok_eyeRight",
+    "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/hanbok/layers/halfLeft.png",
+    "asset": "pio_cloud_hanbok_halfLeft",
+    "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/hanbok/layers/halfRight.png",
+    "asset": "pio_cloud_hanbok_halfRight",
+    "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/hanbok/layers/lidLeft.png",
+    "asset": "pio_cloud_hanbok_lidLeft",
+    "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/hanbok/layers/lidRight.png",
+    "asset": "pio_cloud_hanbok_lidRight",
+    "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/pajamas/layers/body.png",
+    "asset": "pio_cloud_pajamas_body",
+    "sha256": "012fee4c7301725e868698de2982aaff57136344bacd88a65f0661b0059410cb"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/pajamas/layers/browLeft.png",
+    "asset": "pio_cloud_pajamas_browLeft",
+    "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/pajamas/layers/browRight.png",
+    "asset": "pio_cloud_pajamas_browRight",
+    "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/pajamas/layers/eyeLeft.png",
+    "asset": "pio_cloud_pajamas_eyeLeft",
+    "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/pajamas/layers/eyeRight.png",
+    "asset": "pio_cloud_pajamas_eyeRight",
+    "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/pajamas/layers/halfLeft.png",
+    "asset": "pio_cloud_pajamas_halfLeft",
+    "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/pajamas/layers/halfRight.png",
+    "asset": "pio_cloud_pajamas_halfRight",
+    "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/pajamas/layers/lidLeft.png",
+    "asset": "pio_cloud_pajamas_lidLeft",
+    "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/pajamas/layers/lidRight.png",
+    "asset": "pio_cloud_pajamas_lidRight",
+    "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/rainyDay/layers/body.png",
+    "asset": "pio_cloud_rainyDay_body",
+    "sha256": "dd58dc6abb2c4b91d6e7ec372ec2031488345cfca9d6d4c2f789d1ccf066a856"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/rainyDay/layers/browLeft.png",
+    "asset": "pio_cloud_rainyDay_browLeft",
+    "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/rainyDay/layers/browRight.png",
+    "asset": "pio_cloud_rainyDay_browRight",
+    "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/rainyDay/layers/eyeLeft.png",
+    "asset": "pio_cloud_rainyDay_eyeLeft",
+    "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/rainyDay/layers/eyeRight.png",
+    "asset": "pio_cloud_rainyDay_eyeRight",
+    "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/rainyDay/layers/halfLeft.png",
+    "asset": "pio_cloud_rainyDay_halfLeft",
+    "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/rainyDay/layers/halfRight.png",
+    "asset": "pio_cloud_rainyDay_halfRight",
+    "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/rainyDay/layers/lidLeft.png",
+    "asset": "pio_cloud_rainyDay_lidLeft",
+    "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/rainyDay/layers/lidRight.png",
+    "asset": "pio_cloud_rainyDay_lidRight",
+    "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/student/layers/body.png",
+    "asset": "pio_cloud_student_body",
+    "sha256": "ddd814636c4371641f249a5bcfebc2602d6621b52b0b8b1b4e97ddc889b3b435"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/student/layers/browLeft.png",
+    "asset": "pio_cloud_student_browLeft",
+    "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/student/layers/browRight.png",
+    "asset": "pio_cloud_student_browRight",
+    "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/student/layers/eyeLeft.png",
+    "asset": "pio_cloud_student_eyeLeft",
+    "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/student/layers/eyeRight.png",
+    "asset": "pio_cloud_student_eyeRight",
+    "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/student/layers/halfLeft.png",
+    "asset": "pio_cloud_student_halfLeft",
+    "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/student/layers/halfRight.png",
+    "asset": "pio_cloud_student_halfRight",
+    "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/student/layers/lidLeft.png",
+    "asset": "pio_cloud_student_lidLeft",
+    "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/student/layers/lidRight.png",
+    "asset": "pio_cloud_student_lidRight",
+    "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/student/layers/optics.png",
+    "asset": "pio_cloud_student_optics",
+    "sha256": "48b8f0dc849308c0b051a8076d868e6971f76c15e58da7d9e76bbeae8bd23714"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/summerVacation/layers/body.png",
+    "asset": "pio_cloud_summerVacation_body",
+    "sha256": "8f299b181d0db567691201a2c8a4c64fb0a979787a4997c85a991e4fd71abb51"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/summerVacation/layers/browLeft.png",
+    "asset": "pio_cloud_summerVacation_browLeft",
+    "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/summerVacation/layers/browRight.png",
+    "asset": "pio_cloud_summerVacation_browRight",
+    "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/summerVacation/layers/eyeLeft.png",
+    "asset": "pio_cloud_summerVacation_eyeLeft",
+    "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/summerVacation/layers/eyeRight.png",
+    "asset": "pio_cloud_summerVacation_eyeRight",
+    "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/summerVacation/layers/halfLeft.png",
+    "asset": "pio_cloud_summerVacation_halfLeft",
+    "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/summerVacation/layers/halfRight.png",
+    "asset": "pio_cloud_summerVacation_halfRight",
+    "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/summerVacation/layers/lidLeft.png",
+    "asset": "pio_cloud_summerVacation_lidLeft",
+    "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/summerVacation/layers/lidRight.png",
+    "asset": "pio_cloud_summerVacation_lidRight",
+    "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/summerVacation/layers/optics.png",
+    "asset": "pio_cloud_summerVacation_optics",
+    "sha256": "8dd6b762007b397f7235ac3a4510540109a1373615ae083b5df5e1c784366553"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/winter/layers/body.png",
+    "asset": "pio_cloud_winter_body",
+    "sha256": "4069cfad3dc5ad2994fcc96aa26644194d836aa821cd253847e94a0348661824"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/winter/layers/browLeft.png",
+    "asset": "pio_cloud_winter_browLeft",
+    "sha256": "69f41575474c75f6100944bc65319022c41383d15869fb08e908dec3ebd214b0"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/winter/layers/browRight.png",
+    "asset": "pio_cloud_winter_browRight",
+    "sha256": "9902cacbd656ffcf950eb88d9b42d854d50c9048f9f8a468d12061940acccec7"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/winter/layers/eyeLeft.png",
+    "asset": "pio_cloud_winter_eyeLeft",
+    "sha256": "529a22019bd6edc5ff8dcfec069475a893c8e292ced63e5230b23f90b8f4b659"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/winter/layers/eyeRight.png",
+    "asset": "pio_cloud_winter_eyeRight",
+    "sha256": "b08e0e198917d3a906294d37eaaf6e1e368177b81f04b8c6480c3495a919d798"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/winter/layers/halfLeft.png",
+    "asset": "pio_cloud_winter_halfLeft",
+    "sha256": "305645367b4ac10775730da16cffce0d081971c33fda58c198c12dbc9e0356f8"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/winter/layers/halfRight.png",
+    "asset": "pio_cloud_winter_halfRight",
+    "sha256": "bfce08e809f2af4043eacc6cef88ea376bd045d4dbbce6805f3a8e1c3938738d"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/winter/layers/lidLeft.png",
+    "asset": "pio_cloud_winter_lidLeft",
+    "sha256": "5f62a672a3624962e40bec41ee40a845bb3b780639ee39a54ea26841c7764583"
+  },
+  {
+    "source": "output/pio-completion-2026-10-23/cloud/winter/layers/lidRight.png",
+    "asset": "pio_cloud_winter_lidRight",
+    "sha256": "93a4ce2910623fa9c1630b49dc335b952d09e4005aef6dcdf8b6acac82c248f7"
+  }
+]

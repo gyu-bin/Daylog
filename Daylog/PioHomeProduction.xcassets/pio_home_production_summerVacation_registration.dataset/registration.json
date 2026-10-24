@@ -1,0 +1,247 @@
+{
+  "outfit": "summerVacation",
+  "canvas": 1254,
+  "revision": "runtime-v2-candidate",
+  "parts": [
+    {
+      "id": "footLeft",
+      "asset": "pio_home_production_fitness_footRight",
+      "rect": [
+        443,
+        1087,
+        148,
+        130
+      ],
+      "pivot": [
+        520,
+        1135
+      ],
+      "z": 0
+    },
+    {
+      "id": "footRight",
+      "asset": "pio_home_production_summerVacation_footRight",
+      "rect": [
+        748,
+        1107,
+        125,
+        110
+      ],
+      "pivot": [
+        815,
+        1145
+      ],
+      "z": 1
+    },
+    {
+      "id": "wingRight",
+      "asset": "pio_home_production_summerVacation_wingRight",
+      "rect": [
+        977,
+        758,
+        196,
+        217
+      ],
+      "pivot": [
+        1000,
+        930
+      ],
+      "z": 2
+    },
+    {
+      "id": "body",
+      "asset": "pio_home_production_summerVacation_body",
+      "rect": [
+        0,
+        23,
+        1224,
+        1231
+      ],
+      "pivot": [
+        650,
+        800
+      ],
+      "z": 3
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_home_production_summerVacation_eyeLeft",
+      "rect": [
+        472,
+        570,
+        115,
+        131
+      ],
+      "pivot": [
+        540,
+        635
+      ],
+      "z": 4
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_home_production_summerVacation_eyeLeft",
+      "rect": [
+        757,
+        520,
+        115,
+        131
+      ],
+      "pivot": [
+        845,
+        590
+      ],
+      "z": 5
+    },
+    {
+      "id": "sunglasses",
+      "asset": "pio_home_production_summerVacation_sunglasses",
+      "rect": [
+        287,
+        447,
+        690,
+        319
+      ],
+      "pivot": [
+        650,
+        625
+      ],
+      "z": 6
+    },
+    {
+      "id": "wingLeft",
+      "asset": "pio_home_production_summerVacation_wingLeft",
+      "rect": [
+        165,
+        747,
+        243,
+        285
+      ],
+      "pivot": [
+        360,
+        885
+      ],
+      "z": 7
+    },
+    {
+      "id": "drink",
+      "asset": "pio_home_production_summerVacation_drink",
+      "rect": [
+        885,
+        584,
+        334,
+        316
+      ],
+      "pivot": [
+        1000,
+        930
+      ],
+      "z": 8
+    },
+    {
+      "id": "headwear",
+      "asset": "pio_home_production_summerVacation_headwear",
+      "rect": [
+        68,
+        37,
+        1077,
+        704
+      ],
+      "pivot": [
+        650,
+        440
+      ],
+      "z": 9
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_home_production_autumn_lidLeft",
+      "rect": [
+        473,
+        633,
+        108,
+        42
+      ],
+      "pivot": [
+        540,
+        635
+      ],
+      "z": 4
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_home_production_autumn_lidLeft",
+      "rect": [
+        758,
+        583,
+        108,
+        42
+      ],
+      "pivot": [
+        845,
+        590
+      ],
+      "z": 5
+    },
+    {
+      "id": "happyLeft",
+      "asset": "pio_home_production_summerVacation_happyLeft",
+      "rect": [
+        471,
+        620,
+        118,
+        58
+      ],
+      "pivot": [
+        540,
+        635
+      ],
+      "z": 4
+    },
+    {
+      "id": "happyRight",
+      "asset": "pio_home_production_summerVacation_happyLeft",
+      "rect": [
+        756,
+        570,
+        118,
+        58
+      ],
+      "pivot": [
+        845,
+        590
+      ],
+      "z": 5
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_home_production_summerVacation_halfLeft",
+      "rect": [
+        473,
+        592,
+        115,
+        126
+      ],
+      "pivot": [
+        540,
+        635
+      ],
+      "z": 4
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_home_production_summerVacation_halfLeft",
+      "rect": [
+        758,
+        542,
+        115,
+        126
+      ],
+      "pivot": [
+        845,
+        590
+      ],
+      "z": 5
+    }
+  ]
+}

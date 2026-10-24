@@ -218,7 +218,9 @@ struct DashboardHeader: View {
             .saessagiDebugFrame("title")
             // 인사말 옆의 새싹이. 날짜와 인사말 두 줄의 높이 안에 들어가 머리말이 높아지지 않는다.
             // 단추까지 남는 자리를 모두 걸어 다닐 자리로 쓴다(넓은 창에서는 멀리 산책하고 단추 쪽 끝으로 숨는다).
-            TodaySaessagi(size: 48, fillsWidth: true)
+            PioHeaderCompanion(size: 64)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(height: 48)
                 .layoutPriority(-1)
         }
     }
@@ -228,6 +230,8 @@ struct DateNavigator: View {
     @Environment(AppStore.self) private var store
     /// 가운데에 날짜를 적을지. 대시보드 머리말처럼 날짜가 따로 있으면 끈다.
     var showsDate = true
+    /// Compact headers request44pt targets; wide layouts keep existing dimensions.
+    var minimumTouchTarget: CGFloat = 32
 
     var body: some View {
         HStack(spacing: 8) {
@@ -252,7 +256,7 @@ struct DateNavigator: View {
                 }
                 .disabled(!store.canGoToNextDay)
             }
-            .frame(height: 32)
+            .frame(height: minimumTouchTarget)
             .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: 9, style: .continuous))
             .overlay(RoundedRectangle(cornerRadius: 9, style: .continuous).strokeBorder(Theme.cardBorder, lineWidth: 1))
 
@@ -264,7 +268,7 @@ struct DateNavigator: View {
                     .font(.callout.weight(.semibold))
                     .foregroundStyle(store.isViewingToday ? AnyShapeStyle(.tertiary) : AnyShapeStyle(Theme.onAccent))
                     .padding(.horizontal, 14)
-                    .frame(height: 32)
+                    .frame(minHeight: minimumTouchTarget)
                     .background(
                         store.isViewingToday ? AnyShapeStyle(Theme.track) : AnyShapeStyle(Theme.accent),
                         in: RoundedRectangle(cornerRadius: 9, style: .continuous)
@@ -284,7 +288,7 @@ struct DateNavigator: View {
         Button(action: action) {
             Image(systemName: symbol)
                 .font(.system(size: 12, weight: .semibold))
-                .frame(width: 34, height: 32)
+                .frame(width: max(34, minimumTouchTarget), height: minimumTouchTarget)
                 .contentShape(Rectangle())
         }
         .buttonStyle(.plain)

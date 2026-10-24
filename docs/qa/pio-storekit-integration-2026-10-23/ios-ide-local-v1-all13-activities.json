@@ -1,0 +1,134 @@
+{
+  "testIdentifier" : "PioStoreKitIntegrationTests/testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()",
+  "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIntegrationTests/testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork",
+  "testName" : "testEveryPremiumOutfitPurchasesEquipsAndLoadsApprovedArtwork()",
+  "testRuns" : [
+    {
+      "activities" : [
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.attachmentContainer",
+          "attachments" : [
+            {
+              "lifetime" : "keepAlways",
+              "name" : "Local StoreKit session setup_0_FE12102C-D099-41E0-8BAD-22913344A82D.txt",
+              "payloadId" : "0~gX7OQYU17q6cZX1H8NRE7YhRrhAp52SBpmpKqU2SnXixrWSbw7dKU3ldJPPXQI6jZJbeAuSBoWiOn3N5SBrykw==",
+              "timestamp" : 1792750790.308,
+              "uuid" : "2EAB95DF-149A-4780-A9E8-076904FB18C1"
+            }
+          ],
+          "childActivities" : [
+            {
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1792750790.308,
+              "title" : "Local StoreKit session setup"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1792750790.308,
+          "title" : "Added attachment named 'Local StoreKit session setup'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.attachmentContainer",
+          "attachments" : [
+            {
+              "lifetime" : "keepAlways",
+              "name" : "Initial unfinished transaction snapshot_0_AE56CA18-1CEA-4B87-82ED-82422211A2AB.txt",
+              "payloadId" : "0~wpUF7-Lz1pGu95y6ATSPNsk8v8_cBRyQpG6s2L-PHBnfXFFdygc0bwNT65OeBJl-9ysNTwAR33Ace7kYiHIGEg==",
+              "timestamp" : 1792750790.671,
+              "uuid" : "FF37A5CE-7DF7-405E-A233-D9D4C1ECF23B"
+            }
+          ],
+          "childActivities" : [
+            {
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1792750790.671,
+              "title" : "Initial unfinished transaction snapshot"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1792750790.671,
+          "title" : "Added attachment named 'Initial unfinished transaction snapshot'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.attachmentContainer",
+          "attachments" : [
+            {
+              "lifetime" : "keepAlways",
+              "name" : "StoreKit acknowledgement observation (3 second deadline)_0_C3BC459D-A49E-4F1E-A52C-642CAC6A2C9A.txt",
+              "payloadId" : "0~Xqr02LWNmiBJt0-NlkitGYioKv00UAAJUzCMVR5keinVqHR7xP2QOzXcE3nzB713eN_jEwkuDJjMRcSaHojuZQ==",
+              "timestamp" : 1792750793.666,
+              "uuid" : "A22E899D-8F6F-403B-96C2-580E629674EE"
+            }
+          ],
+          "childActivities" : [
+            {
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1792750793.666,
+              "title" : "StoreKit acknowledgement observation (3 second deadline)"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1792750793.666,
+          "title" : "Added attachment named 'StoreKit acknowledgement observation (3 second deadline)'"
+        },
+        {
+          "attachments" : [
+            {
+              "lifetime" : "",
+              "name" : "Complete Issue Description.txt",
+              "uuid" : "C33D7453-4F8D-49B2-A027-E1FEC6F72F8B"
+            }
+          ],
+          "childActivities" : [
+            {
+              "isAssociatedWithFailure" : false,
+              "title" : "Complete Issue Description"
+            },
+            {
+              "isAssociatedWithFailure" : false,
+              "title" : ""
+            }
+          ],
+          "isAssociatedWithFailure" : true,
+          "startTime" : 1792750793.667,
+          "title" : "XCTAssertTrue failed - All registered wardrobe transactions must disappear from Transaction.unfinished within 3 seconds without test-side acknowledgement.\nelapsed=0.004607625 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.109864042 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.213420875 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.317137709 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.420004834 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.522397792 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.629988542 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.732824334 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.835356459 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=0.941748459 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.046135917 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.149834917 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.254861125 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.361215292 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.476444667 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.586758292 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.693832792 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.796614125 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=1.902206709 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.009155167 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.118162875 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.2234265 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.33170525 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.439234334 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.542954667 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.64755325 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.75330325 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.860088375 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000\n\nelapsed=2.964205959 seconds registeredUnfinishedIDs=[12]\nid=12 product=outfit.space verification=verified environment=Environment(rawValue: \"Xcode\") purchased=2026-10-23 10:19:50 +0000"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.attachmentContainer",
+          "attachments" : [
+            {
+              "lifetime" : "keepAlways",
+              "name" : "Local StoreKit transaction ledger_0_EE98D4C2-5F9A-4097-AE32-0C4C0C62229B.txt",
+              "payloadId" : "0~bU1-qsQXLtcPv7JweC-AaUr1nA66Eel1hv9_XPzzaTM7MuxobCXLoTWCvxjT6Bg9QGO7ktBC_7TaSQOxPzHvdQ==",
+              "timestamp" : 1792750793.679,
+              "uuid" : "47D51681-C183-44CB-B3EE-58F2F3609261"
+            }
+          ],
+          "childActivities" : [
+            {
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1792750793.679,
+              "title" : "Local StoreKit transaction ledger"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1792750793.679,
+          "title" : "Added attachment named 'Local StoreKit transaction ledger'"
+        }
+      ],
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "0426CD78-3807-4650-9776-B649780E2884",
+        "deviceName" : "Pio StoreKit Local 2026-10-23",
+        "modelName" : "iPhone 17",
+        "osBuildNumber" : "24A434",
+        "osVersion" : "27.0",
+        "platform" : "iOS Simulator"
+      },
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ]
+}

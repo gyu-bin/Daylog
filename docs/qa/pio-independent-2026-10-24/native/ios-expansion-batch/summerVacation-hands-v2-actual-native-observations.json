@@ -1,0 +1,192 @@
+{
+  "holdIDs" : [
+    "tablet",
+    "armLeft",
+    "armRight"
+  ],
+  "independent" : [
+    "eyes",
+    "lids",
+    "shared arms\/tablet hold joint"
+  ],
+  "limits" : "Native presentation-layer component captures; candidate geometry still requires visual approval. Held parts never detach or wave independently of the prop. No purchase, preference or whole-screen workflow verification.",
+  "observations" : [
+    {
+      "elapsed" : 0.19839537500229198,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00021427648814248339,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 0.24889537499984726,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.00021427648814248339,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "open"
+    },
+    {
+      "elapsed" : 1.6746575833385577,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.728331166668795,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-positive"
+    },
+    {
+      "elapsed" : 1.9731464166688966,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.024606128389347427,
+      "lidOpacity" : 1,
+      "side" : 64,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 2.026476333339815,
+      "eyeOpacity" : 0,
+      "heldRadians" : 0.024606128389347427,
+      "lidOpacity" : 1,
+      "side" : 220,
+      "state" : "closed"
+    },
+    {
+      "elapsed" : 2.3659527499985415,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.016828382810453502,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 2.4175859166716691,
+      "eyeOpacity" : 1,
+      "heldRadians" : 0.016828382810453502,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "reopened"
+    },
+    {
+      "elapsed" : 4.8667936666752212,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 64,
+      "state" : "hold-negative"
+    },
+    {
+      "elapsed" : 4.9165020833315793,
+      "eyeOpacity" : 1,
+      "heldRadians" : -0.026179938779914941,
+      "lidOpacity" : 0,
+      "side" : 220,
+      "state" : "hold-negative"
+    }
+  ],
+  "partAssets" : {
+    "armLeft" : "pio_cloud_summerVacation_v2_armPair",
+    "armRight" : "pio_cloud_summerVacation_v2_armPair",
+    "body" : "pio_cloud_summerVacation_v2_torso",
+    "browLeft" : "pio_cloud_summerVacation_browLeft",
+    "browRight" : "pio_cloud_summerVacation_browRight",
+    "eyeLeft" : "pio_cloud_summerVacation_eyeLeft",
+    "eyeRight" : "pio_cloud_summerVacation_eyeRight",
+    "halfLeft" : "pio_cloud_summerVacation_halfLeft",
+    "halfRight" : "pio_cloud_summerVacation_halfRight",
+    "lidLeft" : "pio_cloud_summerVacation_lidLeft",
+    "lidRight" : "pio_cloud_summerVacation_lidRight",
+    "optics" : "pio_cloud_summerVacation_optics",
+    "tablet" : "pio_cloud_basic_v1_tablet"
+  },
+  "partRects" : {
+    "armLeft" : [
+      210,
+      824,
+      342,
+      250
+    ],
+    "armRight" : [
+      800,
+      824,
+      313,
+      250
+    ],
+    "body" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "browLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "browRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "eyeLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "eyeRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "halfLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "halfRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "lidLeft" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "lidRight" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "optics" : [
+      0,
+      0,
+      1254,
+      1254
+    ],
+    "tablet" : [
+      496,
+      808,
+      360,
+      242
+    ]
+  },
+  "platform" : "iPhone Simulator",
+  "revision" : "summerVacation-hands-v2"
+}

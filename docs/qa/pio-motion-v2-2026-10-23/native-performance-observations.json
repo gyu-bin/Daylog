@@ -1,0 +1,141 @@
+{
+  "comparisons" : [
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 3.2531000895071163,
+      "residentAfterBytes" : 151977984,
+      "residentBeforeBytes" : 160694272,
+      "scenario" : "old-base-jump",
+      "trial" : 1,
+      "wallSeconds" : 2.097383975982666
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.32113479031683378,
+      "residentAfterBytes" : 151715840,
+      "residentBeforeBytes" : 151912448,
+      "scenario" : "new-base-static",
+      "trial" : 1,
+      "wallSeconds" : 2.0695359706878662
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.2475045115218085,
+      "residentAfterBytes" : 151715840,
+      "residentBeforeBytes" : 151715840,
+      "scenario" : "new-base-jump",
+      "trial" : 1,
+      "wallSeconds" : 2.0173369646072388
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.26119892145865131,
+      "residentAfterBytes" : 166658048,
+      "residentBeforeBytes" : 166592512,
+      "scenario" : "new-christmas-static",
+      "trial" : 1,
+      "wallSeconds" : 2.0084309577941895
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.20684992484669312,
+      "residentAfterBytes" : 166658048,
+      "residentBeforeBytes" : 166658048,
+      "scenario" : "new-christmas-jump",
+      "trial" : 1,
+      "wallSeconds" : 2.0188549757003784
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.54507779633986497,
+      "residentAfterBytes" : 161005568,
+      "residentBeforeBytes" : 166674432,
+      "scenario" : "old-base-jump",
+      "trial" : 2,
+      "wallSeconds" : 2.0389750003814697
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.43373715975292182,
+      "residentAfterBytes" : 163610624,
+      "residentBeforeBytes" : 162365440,
+      "scenario" : "new-base-static",
+      "trial" : 2,
+      "wallSeconds" : 2.0178118944168091
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 1.137242364316541,
+      "residentAfterBytes" : 158089216,
+      "residentBeforeBytes" : 163921920,
+      "scenario" : "new-base-jump",
+      "trial" : 2,
+      "wallSeconds" : 2.0199739933013916
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.22595342195036039,
+      "residentAfterBytes" : 149340160,
+      "residentBeforeBytes" : 158072832,
+      "scenario" : "new-christmas-static",
+      "trial" : 2,
+      "wallSeconds" : 2.0181150436401367
+    },
+    {
+      "canvasPoints" : 350,
+      "processCPUPercent" : 0.20105684271883092,
+      "residentAfterBytes" : 126992384,
+      "residentBeforeBytes" : 149340160,
+      "scenario" : "new-christmas-jump",
+      "trial" : 2,
+      "wallSeconds" : 2.0173399448394775
+    }
+  ],
+  "inactiveAfterStop" : {
+    "activeTracksBeforeStop" : 16,
+    "processCPUPercent" : 0.29428107571781847,
+    "residentAfterSettlingBytes" : 129466368,
+    "residentBeforeStopBytes" : 132448256,
+    "tracksAfterStop" : 0,
+    "wallSeconds" : 2.0208570957183838
+  },
+  "limits" : [
+    "Debug CPU process time only; excludes compositor and GPU",
+    "Not iPhone runtime profiling",
+    "Programmatic setActive(false) verified; scroll visibility and Reduce Motion UI require separate verification",
+    "RSS includes XCTest host and cache; no leak verdict from short observation"
+  ],
+  "presentationEvidence" : [
+
+  ],
+  "status" : "OBSERVATIONS_NOT_PERFORMANCE_CERTIFICATION",
+  "switchingBatches" : [
+    {
+      "batch" : 1,
+      "inactiveAnimationTracks" : 0,
+      "residentAfterBytes" : 131858432,
+      "residentAfterSettlingBytes" : 226492416,
+      "residentBeforeBytes" : 127008768,
+      "switchCount" : 42,
+      "wallSeconds" : 1.1122289896011353
+    },
+    {
+      "batch" : 2,
+      "inactiveAnimationTracks" : 0,
+      "residentAfterBytes" : 226934784,
+      "residentAfterSettlingBytes" : 132251648,
+      "residentBeforeBytes" : 226590720,
+      "switchCount" : 42,
+      "wallSeconds" : 1.0387169122695923
+    },
+    {
+      "batch" : 3,
+      "inactiveAnimationTracks" : 0,
+      "residentAfterBytes" : 132251648,
+      "residentAfterSettlingBytes" : 132579328,
+      "residentBeforeBytes" : 132251648,
+      "switchCount" : 42,
+      "wallSeconds" : 1.0470629930496216
+    }
+  ]
+}

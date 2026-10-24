@@ -1,0 +1,22 @@
+{
+  "assets": [
+    {
+      "path": "Daylog/PioVacationProduction.xcassets/pio_vacation_basic_day_clean_v1.imageset/pio_vacation_basic_day_clean_v1.png",
+      "bytes": 1123931,
+      "sha256": "3780cadebc80819d20572dc002f7ba219277b4543246565629840ce43f3b1ab2"
+    },
+    {
+      "path": "Daylog/PioVacationProduction.xcassets/pio_vacation_basic_day_open_left_v1.imageset/pio_vacation_basic_day_open_left_v1.png",
+      "bytes": 12867,
+      "sha256": "b84a58debf997486d813fe5e0cf0bea68a4fba7310699f7bd39dd2257fbe0a99"
+    },
+    {
+      "path": "Daylog/PioVacationProduction.xcassets/pio_vacation_basic_day_open_right_v1.imageset/pio_vacation_basic_day_open_right_v1.png",
+      "bytes": 11738,
+      "sha256": "9780d5d81ea425c1f0a1abcfada96a75a4bbb39517133b69143b678d8df1e6dd"
+    }
+  ],
+  "bytes": 1148536,
+  "uncompressed_rgba_estimate_bytes": 6368344,
+  "originals_modified": false
+}

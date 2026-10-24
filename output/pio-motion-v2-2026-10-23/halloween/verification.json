@@ -1,0 +1,54 @@
+{
+  "outfit": "halloween",
+  "status": "PARTIAL_OFFLINE_STUDY",
+  "canonicalSourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/footLeft.png": "d0ab0b1e53c5d8ca8adf4fec7e26bb5bbefa0576baf8968078ea99793caa0c4d",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/footRight.png": "941f5ff74523eeca39ad63c608f058b4445dee1e25aea43b12617f49046a2446",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/wingLeft.png": "0617d475e4ebb28e9038fb08c1c43919857acda974c1cc77dc2d06f88a88a7eb",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/body.png": "3e319c52a7b95bdec38af56310ea021d0e590931fbd07c303076a9a33fc32a26",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/eyeLeft.png": "3d27d8581484bc16eb23bb5c2fe057f7c3686790d56335c65febc9023c337b71",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/eyeRight.png": "ef2bc90eea4de20f82bff0bbc2fa6cdaf820bddebb56fb369abdfeffd669690c",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/headwear.png": "d85a746188528d52d0d3e2a627117cf08e071d83fac5c9dade059560ab2a2057",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/bag.png": "04eddd522616c216d73fcd0e41dd144fe07e4191a8190b11fb97a890845e7ac0",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/wingRight.png": "48083c3c1bf942dfed89528e02f35ef400069f047c7db0d5502cdbc6bbfb52d6",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/halfLeft.png": "4708222621228c020e19c610a4319f3341c1510892cbe2e0ff7d6ecb2ff5e3b2",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/lidLeft.png": "87b1392adc2dd2178653f9374efee37b686ea89529dd5451d14799516a5803fb",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/halfRight.png": "c4ebf447b025c3821dfa22b812b9103da3557d83044c6d946d78698af1dcf695",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/lidRight.png": "60964a39d38c74f711b2faccab6693a5ed6208d540950ba97f9ebc3e1c06a37c",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/happyLeft.png": "471edea2cb20e97785460047de876041f53044dbd011791bd35443fd3a8a7d65",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/halloween/layers/happyRight.png": "440cb5dc576942a7ed7f6feb50774fac80915ac9b0b9361733a9519557f162de"
+  },
+  "actions": [
+    "idle",
+    "greet",
+    "walk",
+    "bounce",
+    "jump",
+    "celebrate",
+    "bow",
+    "sleepy",
+    "surprised",
+    "encourage",
+    "special"
+  ],
+  "specialAction": "show held candy bag",
+  "framesPerAction": 32,
+  "durationMs": 70,
+  "maxAlphaOnFrameBorder": 0,
+  "canvas": [
+    480,
+    516
+  ],
+  "characterCanvas": [
+    350,
+    350
+  ],
+  "limits": [
+    "2D front-view stepping, no authored turn or gait occlusion change.",
+    "Bow is frontal lean/compression, not a reconstructed 3D head turn.",
+    "Hat and fabric stay rigid with torso.",
+    "Held props rigidly follow hands; no release or articulation.",
+    "No app/runtime/performance claim."
+  ]
+}

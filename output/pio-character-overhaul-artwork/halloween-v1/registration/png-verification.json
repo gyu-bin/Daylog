@@ -1,0 +1,333 @@
+{
+  "pngCount": 32,
+  "pngs": [
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registered-layers/bag.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 180356,
+      "sha256": "c95d5f232654faf70cfbbe69393220c6cc3be707c72b155051deef628032a74c"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registered-layers/body.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 935919,
+      "sha256": "a5684cd1828353cb1e011219eeedf122fb954ff059923de0d272328e9a230f62"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registered-layers/eyeLeft.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 47501,
+      "sha256": "352c7cc6d4ce27e4d283b48e09cc4ba73caccf9fa7ebd095f630f61b15f18a9c"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registered-layers/eyeRight.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 47432,
+      "sha256": "ab183e553391bf87856e7deeb110333932cf657a4e8108f54c0726f610f97d3c"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registered-layers/footLeft.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 57708,
+      "sha256": "d8b1c11089be0463c1abd1bf3536d34dca9f4ac1bd709f6bd0dd258f8ddb126d"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registered-layers/footRight.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 56040,
+      "sha256": "910dbc3b44fabd9d014b3a58daf634d5ea3d67269b4669fcf37c4ea6d7dfda52"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registered-layers/halfLeft.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 38449,
+      "sha256": "7a2bd041ed1f15dd4a242441792493c3df4ef63db842a3dc9df0ad8648e36f18"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registered-layers/halfRight.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 38478,
+      "sha256": "0a6d6d39f504a131e6947c62baec8b7ee2876f2a4eb7436323f20120d84cb121"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registered-layers/headwear.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 620051,
+      "sha256": "aec2b295516e626fb615572c0645c38499b64a2a3e9f8e38ac8d1dc804ad6e9a"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registered-layers/lidLeft.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 35915,
+      "sha256": "2ec57e64b4ef459bb22d33a816214bb6ffe528bc6ae8193d0f2c6e5391979a11"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registered-layers/lidRight.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 35915,
+      "sha256": "e60b2279b718b03d71e1374ced879a68ce7266d4639782ce89c1ac98e92c33f9"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registered-layers/wingLeft.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 65375,
+      "sha256": "c6f285b81f2bd9d7004c508c8e9f607f369e548c173106fa8a5d67df569b7b5f"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registered-layers/wingRight.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 54835,
+      "sha256": "8960f448b991908ba4ceda54d4c4b8c4c01f0095fd85dab438416a9d964af553"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/bag-raised-alpha.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1551084,
+      "sha256": "b0e2ecfb0e8ebac1855964467e8d7a5bd7c23768eae0e22797bf4df617d3dc5e"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/bag-raised-dark.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1493479,
+      "sha256": "e51d3c19733e2bdeced268ea23b7b9c66990fc08d5d19444298ce8483f70d844"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/bag-raised-light.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1496531,
+      "sha256": "93ec6a565daeac8017b3662bceaa4cb04dc7c2e89e67bce4cdadaa6a1ae5fddb"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/closed-alpha.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1538520,
+      "sha256": "20a2b338fa3e593ad5321ff937190f652b17f4ef73e27c974d8f7b4f3011543c"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/closed-dark.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1481312,
+      "sha256": "ef1bdab91b0aacbaaaeca7eea9154cd12ac19e7d0a5507f82fb1421ba96129d1"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/closed-light.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1487028,
+      "sha256": "73bb406914e2c6be9bc04065e6d43fd18662ba792ac73bc19eefbb20691c69b9"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/comparison-220pt-3x-dark.png",
+      "size": [
+        4380,
+        828
+      ],
+      "mode": "RGBA",
+      "bytes": 1097210,
+      "sha256": "efda41e02fc07f15395564da3a37edd1f9efd71643210ebb9defd111ab903879"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/comparison-220pt-3x-light.png",
+      "size": [
+        4380,
+        828
+      ],
+      "mode": "RGBA",
+      "bytes": 1092123,
+      "sha256": "5e669f280eca7794f999f187b9121c6c3467645c21432f97fa0b97bdbf3b4320"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/comparison-64pt-3x-dark.png",
+      "size": [
+        1572,
+        360
+      ],
+      "mode": "RGBA",
+      "bytes": 129709,
+      "sha256": "fc1cf14cabb910f3e2c2a48fad8c1f47c3a4bd8b004ecd62ba195812610a242e"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/comparison-64pt-3x-light.png",
+      "size": [
+        1572,
+        360
+      ],
+      "mode": "RGBA",
+      "bytes": 128332,
+      "sha256": "2c8dfb856d8ce85a75fb576db62b28acd823dad2690b387f0aca69e9be0976bc"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/neutral-alpha.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1542897,
+      "sha256": "fe33d77a292cebf37c441ae4576f4129cf75cd4ce204d2af02d57a0aeafb1635"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/neutral-dark.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1487530,
+      "sha256": "df28ec75156f4ddf52f8d18f058275fa0dc47af14073796e4575700f4fc9e46c"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/neutral-light.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1490935,
+      "sha256": "dd699755d77569cec84def8bb4cd6b30918000d1d8cae3bed4cdf3520d00f04e"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/wing-minus12-alpha.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1545435,
+      "sha256": "47c939c2ec2bce6cb95f5fd9179c5b6aef3ed2d657073bc4baac68bc0654b22e"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/wing-minus12-dark.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1487589,
+      "sha256": "2b20090705f0020b810f699bd2d883c4e106a5d2474f702eecf568c61781dbc6"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/wing-minus12-light.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1491701,
+      "sha256": "9d2fbad14852c30ac7a1f5e7d28403af94576d0aaedc1cba8aa1bd859f635380"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/wing-plus12-alpha.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1538488,
+      "sha256": "a81613256528abffba400d84a80a33abb20d05cda00cc4567687b16f2f2e437d"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/wing-plus12-dark.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1484891,
+      "sha256": "feb7dc5773d10ae6664632532ae94037ad5c93a95c89e76267d536c22cd86c0a"
+    },
+    {
+      "path": "output/pio-character-overhaul-artwork/halloween-v1/registration/wing-plus12-light.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "bytes": 1488590,
+      "sha256": "78da61c3d24bd6972b484d52af38cafec5977d1ecdcd1a79db667de84bdf1df5"
+    }
+  ],
+  "gif": {
+    "frames": 48,
+    "size": [
+      512,
+      512
+    ],
+    "duration": 60
+  }
+}

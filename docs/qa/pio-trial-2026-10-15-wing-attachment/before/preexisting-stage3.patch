@@ -1,0 +1,287 @@
+diff --git a/Daylog/Components/PioTrial.swift b/Daylog/Components/PioTrial.swift
+index 368236d..136393f 100644
+--- a/Daylog/Components/PioTrial.swift
++++ b/Daylog/Components/PioTrial.swift
+@@ -4,7 +4,7 @@ import Foundation
+ /// 피오 시범(검증용 앱에서만): `-DaylogDebugCharacter pio`로 실행하면 머리말·성장 카드·스플래시를 피오로 그린다.
+ ///
+ /// 시범일 뿐 실제 교체가 아니다: Release 빌드에서는 늘 꺼져 있고, 새싹이 원화·애니메이션·저장 값·XP·레벨 계산은 그대로 둔다.
+-/// 피오 그림은 레이어가 나뉘지 않은 한 장짜리라, 걷기는 몸 전체를 옮기며 뒤뚱이고 가는 쪽으로 좌우를 뒤집는다(별도 3D 동작이 아니다).
++/// 기본 피오는 마스터 좌표의 부위 리그로 움직이고, 예전 그림 비교 모드만 한 장짜리 그림을 쓴다.
+ enum PioTrial {
+     static var isEnabled: Bool {
+         #if DEBUG
+@@ -31,8 +31,8 @@ enum PioTrial {
+             : ("pio_idle", CGRect(x: 94, y: 143, width: 819, height: 760))
+     }
+ 
+-    /// 그림이 준비된 성장 단계(2단계: 새 날개 + 1단계 볏). 3·4단계는 아직 없어 그 레벨에서도 2단계 모습을 보인다.
+-    static let implementedStages = 2
++    /// 그림이 준비된 성장 단계. 4단계 그림이 준비될 때까지 그 레벨에서도 3단계를 보여 준다.
++    static let implementedStages = 3
+ 
+     /// 그 레벨에서 보일 성장 단계 그림(1…`implementedStages`). XP·레벨 계산은 그대로 쓰고 경계만 본다.
+     static func artStage(level: Int) -> Int { min(stage(forLevel: level).number, implementedStages) }
+@@ -40,10 +40,11 @@ enum PioTrial {
+     /// 마스터를 부위로 나눈 레이어(`Tools/pio-rig`로 만든다, 모두 1536 캔버스·마스터와 같은 좌표).
+     /// 기준점은 1024 기준 좌표(마스터 픽셀 × 2/3): 볏 밑동, 두 눈의 가운데, 다리 사이, 양 어깨.
+     /// 성장 2단계는 날개(와 날개 그림자)만 바꾼다: 얼굴·몸·발·볏과 모든 기준점은 1단계 그대로다.
++    /// 3단계는 승인된 날개와 새 볏·꼬리를 쓰며, 볏과 꼬리의 부착부는 몸 뒤에 놓는다.
+     static func rigLayers(stage: Int = 1) -> SaessagiLayerSet? {
+         guard isEnabled, !usesOldArt else { return nil }
+         var set = SaessagiLayerSet(
+-            body: "pio_rig_body", leaf: "pio_rig_crest", eyes: "pio_rig_eyes", mouth: nil,
++            body: "pio_rig_body", leaf: stage >= 3 ? "pio_stage3_crest" : "pio_rig_crest", eyes: "pio_rig_eyes", mouth: nil,
+             footLeft: "pio_rig_foot_left", footRight: "pio_rig_foot_right",
+             leafPivot: CGPoint(x: 496.7, y: 392), eyeCenter: CGPoint(x: 512.8, y: 564.5), hip: CGPoint(x: 512, y: 820)
+         )
+@@ -52,6 +53,15 @@ enum PioTrial {
+         set.wingRight = "pio_rig_wing_right" + wings
+         set.wingShadowLeft = "pio_rig_wing_left_shadow" + wings
+         set.wingShadowRight = "pio_rig_wing_right_shadow" + wings
++        if stage >= 3 {
++            set.wingLeft = "pio_stage3_wing_left"
++            set.wingRight = "pio_stage3_wing_right"
++            set.wingShadowLeft = nil
++            set.wingShadowRight = nil
++            set.leafBehindBody = true
++            set.tailLeft = "pio_stage3_tail_left"
++            set.tailRight = "pio_stage3_tail_right"
++        }
+         set.wingLeftPivot = CGPoint(x: 321.3, y: 626.7)
+         set.wingRightPivot = CGPoint(x: 702.7, y: 626.7)
+         // 발: 뒤꿈치 쪽(몸에 붙은 위쪽 가운데)을 중심으로 굴린다.
+diff --git a/Daylog/Components/SaessagiIdleView.swift b/Daylog/Components/SaessagiIdleView.swift
+index 8f3930d..8b65b7f 100644
+--- a/Daylog/Components/SaessagiIdleView.swift
++++ b/Daylog/Components/SaessagiIdleView.swift
+@@ -47,6 +47,10 @@ struct SaessagiLayerSet: Equatable, Sendable {
+     var lidClosed: String?
+     var lidHappy: String?
+     var lidSleepy: String?
++    /// 피오 3단계의 뒤쪽 볏과 꼬리. 몸통을 따라 움직이며 몸 뒤에서 뿌리를 가린다.
++    var leafBehindBody = false
++    var tailLeft: String?
++    var tailRight: String?
+ 
+     static let idle = SaessagiLayerSet(
+         body: SaessagiIdleLayers.body, leaf: SaessagiIdleLayers.leaf, eyes: SaessagiIdleLayers.eyes, mouth: SaessagiIdleLayers.mouth,
+@@ -76,7 +80,7 @@ struct SaessagiLayerSet: Equatable, Sendable {
+     }
+ 
+     var all: [String] {
+-        [body, leaf, eyes] + [mouth, footLeft, footRight, wingLeft, wingRight, wingShadowLeft, wingShadowRight, lidClosed, lidHappy, lidSleepy]
++        [body, leaf, eyes] + [mouth, footLeft, footRight, wingLeft, wingRight, wingShadowLeft, wingShadowRight, lidClosed, lidHappy, lidSleepy, tailLeft, tailRight]
+             .compactMap { $0 }
+     }
+ }
+@@ -148,7 +152,7 @@ struct SaessagiAnimatedView: View {
+     var entrance: SaessagiEntrance?
+     /// 걸을 자리 끝에서 잘라 내 숨바꼭질을 할 수 있게 할지(머리말의 새싹이).
+     var clipsLaneEnd = false
+-    /// 피오 시범의 성장 단계 그림(1·2). 새싹이에는 영향이 없다.
++    /// 피오 시범의 성장 단계 그림(1…3). 새싹이에는 영향이 없다.
+     var pioStage = 1
+     @Environment(\.displayScale) private var displayScale
+     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+@@ -158,7 +162,7 @@ struct SaessagiAnimatedView: View {
+     @State private var isOnScreen = true
+ 
+     var body: some View {
+-        // 피오 성장 2단계는 한 장짜리 그림이 없어, 움직임 줄이기에서도 레이어를 멈춘 채로 그린다.
++        // 피오 성장 2·3단계는 한 장짜리 그림이 없어, 움직임 줄이기에서도 레이어를 멈춘 채로 그린다.
+         let stillLayers = reduceMotion && PioTrial.isEnabled && pioStage > 1
+         if !reduceMotion || stillLayers, let rig = SaessagiRig(pose: pose, size: size, displayScale: displayScale, pioStage: pioStage) {
+             SaessagiStageView(
+@@ -196,6 +200,8 @@ private struct SaessagiOnScreen: ViewModifier {
+ /// 한 모습을 그릴 그림들. 기본 모습은 나뉜 레이어 여섯 장, 성장 단계는 세 장(몸·잎·눈), 그 밖에는 한 장.
+ struct SaessagiRig {
+     let pose: SaessagiPose
++    /// 3단계 날개의 원본 끝을 보존하는 여백. 캐릭터 배율과 카드 크기는 그대로다.
++    let padding: CGFloat
+     /// 나뉜 레이어의 이름과 중심점. 한 장짜리 모습은 nil.
+     let layers: SaessagiLayerSet?
+     /// 몸(나뉜 모습) 또는 그림 전체(한 장짜리 모습).
+@@ -213,16 +219,23 @@ struct SaessagiRig {
+     var lidClosed: CGImage?
+     var lidHappy: CGImage?
+     var lidSleepy: CGImage?
++    var tailLeft: CGImage?
++    var tailRight: CGImage?
+ 
+     /// 발·눈·입·잎이 따로 있는가.
+     var isLayered: Bool { leaf != nil }
+ 
+     @MainActor
+     init?(pose: SaessagiPose, size: CGFloat, displayScale: CGFloat, pioStage: Int = 1) {
++        // 3단계 날개는 기존 맞춤 영역보다 오른쪽으로 약27px 더 나온다(1536 원본 기준).
++        // 몸 배율은 유지하고 래스터 여백만 넓힌다: 48·64·76pt는2pt, 220pt는5pt.
++        let padding: CGFloat = PioTrial.isEnabled && !PioTrial.usesOldArt && pioStage >= 3 && pose == .idle
++            ? max(SaessagiRenderer.padding, ceil(size * 27 / 1228.5)) : SaessagiRenderer.padding
+         func layer(_ asset: String) -> CGImage? {
+-            SaessagiRenderer.image(asset: asset, pose: pose, size: size, displayScale: displayScale)
++            SaessagiRenderer.image(asset: asset, pose: pose, size: size, displayScale: displayScale, padding: padding)
+         }
+         self.pose = pose
++        self.padding = padding
+         guard let set = SaessagiLayerSet.of(pose, pioStage: pioStage) else {
+             guard let whole = SaessagiRenderer.image(pose: pose, size: size, displayScale: displayScale) else { return nil }
+             layers = nil
+@@ -247,6 +260,10 @@ struct SaessagiRig {
+         lidClosed = set.lidClosed.flatMap(layer)
+         lidHappy = set.lidHappy.flatMap(layer)
+         lidSleepy = set.lidSleepy.flatMap(layer)
++        tailLeft = set.tailLeft.flatMap(layer)
++        tailRight = set.tailRight.flatMap(layer)
++        guard (set.tailLeft == nil || tailLeft != nil) && (set.tailRight == nil || tailRight != nil),
++              (set.wingLeft == nil || wingLeft != nil) && (set.wingRight == nil || wingRight != nil) else { return nil }
+         self.body = body
+         self.eyes = eyes
+         self.mouth = mouth
+@@ -283,6 +300,7 @@ final class SaessagiStage {
+     private let mouthLayer = CALayer()
+     private let eyesLayer = CALayer()
+     private let leafLayer = CALayer()
++    private let tailLeftLayer = CALayer(), tailRightLayer = CALayer()
+     /// 날개(어깨를 중심으로 돈다): 늘 하는 살랑임(`wingSway…`) 안에 행동의 움직임(`wing…`)과 그림자.
+     private let wingSwayLeft = CALayer(), wingSwayRight = CALayer()
+     private let wingLeftLayer = CALayer(), wingRightLayer = CALayer()
+@@ -339,7 +357,7 @@ final class SaessagiStage {
+         host.addSublayer(mover)
+         mover.addSublayer(breather)
+         for layer in [footLeft, footRight, torso] { breather.addSublayer(layer) }
+-        for layer in [bodyLayer, wingSwayLeft, wingSwayRight, face, leafLayer] { torso.addSublayer(layer) }
++        for layer in [tailLeftLayer, tailRightLayer, bodyLayer, wingSwayLeft, wingSwayRight, face, leafLayer] { torso.addSublayer(layer) }
+         for layer in [mouthLayer, eyesLayer, lidClosedLayer, lidHappyLayer, lidSleepyLayer] { face.addSublayer(layer) }
+         wingSwayLeft.addSublayer(wingLeftLayer)
+         wingSwayRight.addSublayer(wingRightLayer)
+@@ -458,9 +476,9 @@ final class SaessagiStage {
+         hasWings = rig.wingLeft != nil && rig.wingRight != nil
+         hasLids = rig.lidClosed != nil
+         let pose = rig.pose
+-        let side = size + SaessagiRenderer.padding * 2
++        let side = size + rig.padding * 2
+         let content = pose.content
+-        func unit(_ source: CGPoint) -> CGPoint { SaessagiRenderer.unitPoint(of: source, pose: pose, size: size) }
++        func unit(_ source: CGPoint) -> CGPoint { SaessagiRenderer.unitPoint(of: source, pose: pose, size: size, padding: rig.padding) }
+         let center = CGPoint(x: 0.5, y: 0.5)
+         CATransaction.begin()
+         CATransaction.setDisableActions(true)
+@@ -468,8 +486,8 @@ final class SaessagiStage {
+         let feet = unit(CGPoint(x: content.midX, y: content.maxY))
+         place(mover, anchor: feet, side: side)
+         // 그림은 틀보다 사방으로 여백만큼 크다(정지 그림과 같다).
+-        mover.position.x -= SaessagiRenderer.padding
+-        mover.position.y -= SaessagiRenderer.padding
++        mover.position.x -= rig.padding
++        mover.position.y -= rig.padding
+         place(breather, anchor: feet, side: side)
+         place(footLeft, anchor: rig.layers?.footLeftPivot.map(unit) ?? center, side: side)
+         place(footRight, anchor: rig.layers?.footRightPivot.map(unit) ?? center, side: side)
+@@ -479,6 +497,14 @@ final class SaessagiStage {
+         place(mouthLayer, anchor: center, side: side)
+         place(eyesLayer, anchor: rig.layers.map { unit($0.eyeCenter) } ?? center, side: side)
+         place(leafLayer, anchor: rig.layers.map { unit($0.leafPivot) } ?? center, side: side)
++        place(tailLeftLayer, anchor: center, side: side)
++        place(tailRightLayer, anchor: center, side: side)
++        leafLayer.removeFromSuperlayer()
++        if rig.layers?.leafBehindBody == true {
++            torso.insertSublayer(leafLayer, below: tailLeftLayer)
++        } else {
++            torso.addSublayer(leafLayer)
++        }
+         let wingLeftAnchor = rig.layers.map { unit($0.wingLeftPivot) } ?? center
+         let wingRightAnchor = rig.layers.map { unit($0.wingRightPivot) } ?? center
+         for layer in [wingSwayLeft, wingLeftLayer] { place(layer, anchor: wingLeftAnchor, side: side) }
+@@ -494,6 +520,7 @@ final class SaessagiStage {
+             (wingShadowLeftLayer, rig.wingShadowLeft), (wingShadowRightLayer, rig.wingShadowRight),
+             (wingImageLeft, rig.wingLeft), (wingImageRight, rig.wingRight),
+             (lidClosedLayer, rig.lidClosed), (lidHappyLayer, rig.lidHappy), (lidSleepyLayer, rig.lidSleepy),
++            (tailLeftLayer, rig.tailLeft), (tailRightLayer, rig.tailRight),
+         ]
+         for (layer, image) in contents {
+             layer.contents = image
+diff --git a/Daylog/Components/SaessagiRenderer.swift b/Daylog/Components/SaessagiRenderer.swift
+index 31667e3..d09e193 100644
+--- a/Daylog/Components/SaessagiRenderer.swift
++++ b/Daylog/Components/SaessagiRenderer.swift
+@@ -14,7 +14,7 @@ import UIKit
+ @MainActor
+ enum SaessagiRenderer {
+     /// 틀 바깥으로 남겨 두는 여백(pt). 외곽선의 가장자리가 틀에서 잘리지 않게 한다. 정수라 어느 배율에서도 픽셀에 맞는다.
+-    static let padding: CGFloat = 2
++    nonisolated static let padding: CGFloat = 2
+     /// 기억해 두는 그림 수의 상한. 넘으면 비우고 다시 만든다(평소에는 닿지 않는다).
+     static let cacheLimit = 64
+ 
+@@ -36,7 +36,7 @@ enum SaessagiRenderer {
+     }
+ 
+     /// `pose`와 같은 자리·같은 배율로 `asset`을 그린 그림. 레이어들이 서로, 그리고 한 장짜리 그림과 정확히 겹친다.
+-    static func image(asset: String, pose: SaessagiPose, size: CGFloat, displayScale: CGFloat) -> CGImage? {
++    static func image(asset: String, pose: SaessagiPose, size: CGFloat, displayScale: CGFloat, padding: CGFloat = SaessagiRenderer.padding) -> CGImage? {
+         let scale = max(displayScale, 1)
+         let side = Int(((size + padding * 2) * scale).rounded())
+         let fitted = Int((size * scale).rounded())
+@@ -61,7 +61,7 @@ enum SaessagiRenderer {
+ 
+     /// 원본 그림 위의 한 점(1024 기준 픽셀, 위에서 아래로)이 만들어 둔 그림 안에서 어디인지(0…1).
+     /// 레이어를 돌리거나 접을 때의 기준점으로 쓴다.
+-    static func unitPoint(of source: CGPoint, pose: SaessagiPose, size: CGFloat) -> CGPoint {
++    static func unitPoint(of source: CGPoint, pose: SaessagiPose, size: CGFloat, padding: CGFloat = SaessagiRenderer.padding) -> CGPoint {
+         let scale = size / pose.fitted
+         let x = size / 2 + (source.x - pose.content.midX) * scale
+         let y = size - (pose.content.maxY - source.y) * scale
+diff --git a/DaylogTests/SaessagiTests.swift b/DaylogTests/SaessagiTests.swift
+index f980c06..263e1d2 100644
+--- a/DaylogTests/SaessagiTests.swift
++++ b/DaylogTests/SaessagiTests.swift
+@@ -580,9 +580,48 @@ struct SaessagiHeaderActionTests {
+         #expect(PioTrial.stage(forLevel: 9).number == 1 && PioTrial.stage(forLevel: 10).number == 2)
+         #expect(PioTrial.stage(forLevel: 24).number == 2 && PioTrial.stage(forLevel: 25).number == 3 && PioTrial.stage(forLevel: 50).number == 4)
+         #expect(PioTrial.artStage(level: 1) == 1 && PioTrial.artStage(level: 10) == 2 && PioTrial.artStage(level: 60) == PioTrial.implementedStages)
++        #expect(PioTrial.artStage(level: 24) == 2 && PioTrial.artStage(level: 25) == 3 && PioTrial.artStage(level: 49) == 3)
+         #expect(GrowthCalculator.level(forXP: 900) == 10 && GrowthCalculator.level(forXP: 899) == 9)
+     }
+ 
++    #if DEBUG
++    @Test func pioStageThreePreservesIdentityAndLoadsEveryAttachment() throws {
++        let defaults = UserDefaults.standard
++        let oldCharacter = defaults.object(forKey: "DaylogDebugCharacter")
++        let oldArt = defaults.object(forKey: "DaylogDebugPioArt")
++        defer {
++            defaults.set(oldCharacter, forKey: "DaylogDebugCharacter")
++            defaults.set(oldArt, forKey: "DaylogDebugPioArt")
++        }
++        defaults.set("pio", forKey: "DaylogDebugCharacter")
++        defaults.removeObject(forKey: "DaylogDebugPioArt")
++        let first = try #require(PioTrial.rigLayers(stage: 1))
++        let second = try #require(PioTrial.rigLayers(stage: 2))
++        let third = try #require(PioTrial.rigLayers(stage: 3))
++        #expect(third.body == first.body && third.eyes == first.eyes && third.footLeft == first.footLeft && third.footRight == first.footRight)
++        #expect(first.leaf == second.leaf && third.leaf != second.leaf)
++        #expect(!first.leafBehindBody && !second.leafBehindBody && third.leafBehindBody)
++        #expect(third.tailLeft != nil && third.tailRight != nil && second.tailLeft == nil)
++        #expect(third.wingShadowLeft == nil && third.wingShadowRight == nil)
++        #expect(third.leafPivot == first.leafPivot && third.wingLeftPivot == first.wingLeftPivot && third.hip == first.hip)
++        for name in third.all { #expect(NSImage(named: name) != nil, "Missing Stage 3 layer: \(name)") }
++        for size in [48.0, 64.0, 76.0, 220.0] {
++            let rig = try #require(SaessagiRig(pose: .idle, size: size, displayScale: 2, pioStage: 3))
++            #expect(rig.tailLeft != nil && rig.tailRight != nil && rig.wingLeft != nil && rig.wingRight != nil)
++            #expect(rig.padding == (size == 220 ? 5 : 2))
++            #expect(rig.body.width == Int((size + rig.padding * 2) * 2))
++            let oldRig = try #require(SaessagiRig(pose: .idle, size: size, displayScale: 2, pioStage: 2))
++            #expect(oldRig.padding == 2)
++            // Added viewport space must not shift the shoulder or scale the body in its original frame.
++            let a = SaessagiRenderer.unitPoint(of: third.wingRightPivot, pose: .idle, size: size, padding: rig.padding)
++            let b = SaessagiRenderer.unitPoint(of: third.wingRightPivot, pose: .idle, size: size)
++            #expect(abs(a.x * (size + rig.padding * 2) - rig.padding - (b.x * (size + 4) - 2)) < 0.0001)
++        }
++        defaults.removeObject(forKey: "DaylogDebugCharacter")
++        #expect(PioTrial.rigLayers(stage: 3) == nil)
++    }
++    #endif
++
+     @Test func headerBehaviourMixesTheNewActions() {
+         let actions = Set(SaessagiBehavior.today.choices.map(\.action))
+         #expect(actions == [.hop, .bigHop, .doubleHop, .lookAround, .leafShake])

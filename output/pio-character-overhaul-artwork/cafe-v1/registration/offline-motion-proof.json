@@ -1,0 +1,308 @@
+{
+  "status": "OFFLINE_ARTWORK_CANDIDATE_NOT_NATIVE_APP",
+  "dimensions": [
+    440,
+    440
+  ],
+  "frameCount": 40,
+  "frameMilliseconds": 80,
+  "sourceHashesUnchanged": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/body-v2-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/hat-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/left-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/right-v2-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/cafe-v1/source/cup-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eye-open-v1.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/eyelid-closed-v1.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-outfit-phase2.2-2026-10-16/candidates/base/foot-v1.png": true
+  },
+  "bodyTransform": "fixed",
+  "notes": [
+    "Right wing rotates independently",
+    "Left prop and arm share pivot/angle/translation",
+    "Eyes switch genuine open/closed artwork; no whole-body flattened rotation",
+    "No native performance or animation approval"
+  ],
+  "frames": [
+    {
+      "frame": 0,
+      "eyes": "open",
+      "rightWingDegrees": 0.0,
+      "leftGripDegrees": -0.0,
+      "leftGripTranslateY": -0.0
+    },
+    {
+      "frame": 1,
+      "eyes": "open",
+      "rightWingDegrees": 3.7082039324993685,
+      "leftGripDegrees": -0.03693497821458669,
+      "leftGripTranslateY": -0.15389574256077787
+    },
+    {
+      "frame": 2,
+      "eyes": "open",
+      "rightWingDegrees": 7.053423027509678,
+      "leftGripDegrees": -0.1468304511145394,
+      "leftGripTranslateY": -0.6117935463105808
+    },
+    {
+      "frame": 3,
+      "eyes": "open",
+      "rightWingDegrees": 9.70820393249937,
+      "leftGripDegrees": -0.3269804274348963,
+      "leftGripTranslateY": -1.3624184476454013
+    },
+    {
+      "frame": 4,
+      "eyes": "open",
+      "rightWingDegrees": 11.412678195541842,
+      "leftGripDegrees": -0.5729490168751576,
+      "leftGripTranslateY": -2.387287570313157
+    },
+    {
+      "frame": 5,
+      "eyes": "open",
+      "rightWingDegrees": 12.0,
+      "leftGripDegrees": -0.8786796564403573,
+      "leftGripTranslateY": -3.661165235168155
+    },
+    {
+      "frame": 6,
+      "eyes": "open",
+      "rightWingDegrees": 11.412678195541844,
+      "leftGripDegrees": -1.2366442431225806,
+      "leftGripTranslateY": -5.152684346344086
+    },
+    {
+      "frame": 7,
+      "eyes": "open",
+      "rightWingDegrees": 9.70820393249937,
+      "leftGripDegrees": -1.6380285007813593,
+      "leftGripTranslateY": -6.825118753255664
+    },
+    {
+      "frame": 8,
+      "eyes": "open",
+      "rightWingDegrees": 7.0534230275096785,
+      "leftGripDegrees": -2.0729490168751576,
+      "leftGripTranslateY": -8.637287570313157
+    },
+    {
+      "frame": 9,
+      "eyes": "open",
+      "rightWingDegrees": 3.7082039324993703,
+      "leftGripDegrees": -2.5306966048793074,
+      "leftGripTranslateY": -10.544569186997114
+    },
+    {
+      "frame": 10,
+      "eyes": "closed",
+      "rightWingDegrees": 1.4695761589768238e-15,
+      "leftGripDegrees": -2.9999999999999996,
+      "leftGripTranslateY": -12.499999999999998
+    },
+    {
+      "frame": 11,
+      "eyes": "closed",
+      "rightWingDegrees": -3.708203932499373,
+      "leftGripDegrees": -3.4693033951206926,
+      "leftGripTranslateY": -14.455430813002886
+    },
+    {
+      "frame": 12,
+      "eyes": "open",
+      "rightWingDegrees": -7.053423027509677,
+      "leftGripDegrees": -3.9270509831248424,
+      "leftGripTranslateY": -16.362712429686844
+    },
+    {
+      "frame": 13,
+      "eyes": "open",
+      "rightWingDegrees": -9.708203932499368,
+      "leftGripDegrees": -4.36197149921864,
+      "leftGripTranslateY": -18.174881246744334
+    },
+    {
+      "frame": 14,
+      "eyes": "open",
+      "rightWingDegrees": -11.412678195541842,
+      "leftGripDegrees": -4.763355756877418,
+      "leftGripTranslateY": -19.84731565365591
+    },
+    {
+      "frame": 15,
+      "eyes": "open",
+      "rightWingDegrees": -12.0,
+      "leftGripDegrees": -5.121320343559642,
+      "leftGripTranslateY": -21.338834764831844
+    },
+    {
+      "frame": 16,
+      "eyes": "open",
+      "rightWingDegrees": -11.412678195541844,
+      "leftGripDegrees": -5.427050983124842,
+      "leftGripTranslateY": -22.612712429686844
+    },
+    {
+      "frame": 17,
+      "eyes": "open",
+      "rightWingDegrees": -9.708203932499371,
+      "leftGripDegrees": -5.673019572565103,
+      "leftGripTranslateY": -23.637581552354597
+    },
+    {
+      "frame": 18,
+      "eyes": "open",
+      "rightWingDegrees": -7.05342302750968,
+      "leftGripDegrees": -5.853169548885461,
+      "leftGripTranslateY": -24.38820645368942
+    },
+    {
+      "frame": 19,
+      "eyes": "open",
+      "rightWingDegrees": -3.708203932499372,
+      "leftGripDegrees": -5.963065021785413,
+      "leftGripTranslateY": -24.846104257439222
+    },
+    {
+      "frame": 20,
+      "eyes": "open",
+      "rightWingDegrees": -2.9391523179536475e-15,
+      "leftGripDegrees": -6.0,
+      "leftGripTranslateY": -25.0
+    },
+    {
+      "frame": 21,
+      "eyes": "open",
+      "rightWingDegrees": 3.708203932499366,
+      "leftGripDegrees": -5.963065021785413,
+      "leftGripTranslateY": -24.846104257439222
+    },
+    {
+      "frame": 22,
+      "eyes": "open",
+      "rightWingDegrees": 7.053423027509683,
+      "leftGripDegrees": -5.853169548885461,
+      "leftGripTranslateY": -24.38820645368942
+    },
+    {
+      "frame": 23,
+      "eyes": "open",
+      "rightWingDegrees": 9.708203932499362,
+      "leftGripDegrees": -5.673019572565105,
+      "leftGripTranslateY": -23.637581552354604
+    },
+    {
+      "frame": 24,
+      "eyes": "open",
+      "rightWingDegrees": 11.412678195541842,
+      "leftGripDegrees": -5.427050983124842,
+      "leftGripTranslateY": -22.612712429686844
+    },
+    {
+      "frame": 25,
+      "eyes": "open",
+      "rightWingDegrees": 12.0,
+      "leftGripDegrees": -5.121320343559643,
+      "leftGripTranslateY": -21.338834764831844
+    },
+    {
+      "frame": 26,
+      "eyes": "open",
+      "rightWingDegrees": 11.412678195541844,
+      "leftGripDegrees": -4.76335575687742,
+      "leftGripTranslateY": -19.84731565365592
+    },
+    {
+      "frame": 27,
+      "eyes": "open",
+      "rightWingDegrees": 9.708203932499373,
+      "leftGripDegrees": -4.361971499218641,
+      "leftGripTranslateY": -18.174881246744338
+    },
+    {
+      "frame": 28,
+      "eyes": "open",
+      "rightWingDegrees": 7.05342302750968,
+      "leftGripDegrees": -3.9270509831248424,
+      "leftGripTranslateY": -16.362712429686844
+    },
+    {
+      "frame": 29,
+      "eyes": "open",
+      "rightWingDegrees": 3.7082039324993734,
+      "leftGripDegrees": -3.4693033951206926,
+      "leftGripTranslateY": -14.455430813002886
+    },
+    {
+      "frame": 30,
+      "eyes": "closed",
+      "rightWingDegrees": 4.408728476930472e-15,
+      "leftGripDegrees": -3.000000000000001,
+      "leftGripTranslateY": -12.500000000000004
+    },
+    {
+      "frame": 31,
+      "eyes": "closed",
+      "rightWingDegrees": -3.708203932499365,
+      "leftGripDegrees": -2.530696604879308,
+      "leftGripTranslateY": -10.544569186997116
+    },
+    {
+      "frame": 32,
+      "eyes": "open",
+      "rightWingDegrees": -7.053423027509673,
+      "leftGripDegrees": -2.0729490168751585,
+      "leftGripTranslateY": -8.637287570313159
+    },
+    {
+      "frame": 33,
+      "eyes": "open",
+      "rightWingDegrees": -9.708203932499366,
+      "leftGripDegrees": -1.6380285007813602,
+      "leftGripTranslateY": -6.825118753255667
+    },
+    {
+      "frame": 34,
+      "eyes": "open",
+      "rightWingDegrees": -11.41267819554184,
+      "leftGripDegrees": -1.2366442431225813,
+      "leftGripTranslateY": -5.152684346344088
+    },
+    {
+      "frame": 35,
+      "eyes": "open",
+      "rightWingDegrees": -12.0,
+      "leftGripDegrees": -0.878679656440358,
+      "leftGripTranslateY": -3.6611652351681583
+    },
+    {
+      "frame": 36,
+      "eyes": "open",
+      "rightWingDegrees": -11.412678195541845,
+      "leftGripDegrees": -0.572949016875158,
+      "leftGripTranslateY": -2.387287570313158
+    },
+    {
+      "frame": 37,
+      "eyes": "open",
+      "rightWingDegrees": -9.708203932499373,
+      "leftGripDegrees": -0.32698042743489664,
+      "leftGripTranslateY": -1.3624184476454027
+    },
+    {
+      "frame": 38,
+      "eyes": "open",
+      "rightWingDegrees": -7.053423027509682,
+      "leftGripDegrees": -0.1468304511145394,
+      "leftGripTranslateY": -0.6117935463105808
+    },
+    {
+      "frame": 39,
+      "eyes": "open",
+      "rightWingDegrees": -3.7082039324993747,
+      "leftGripDegrees": -0.03693497821458702,
+      "leftGripTranslateY": -0.15389574256077926
+    }
+  ]
+}

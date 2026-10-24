@@ -1,0 +1,17 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "B7C00E00-29A2-40DE-8408-95FFC1A10492.json",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "production-home-14x2-and-idle-stopped_0_405A0C0B-B889-4219-8D30-D2B5FD0CC767.json",
+        "timestamp" : 1792826875.356
+      }
+    ],
+    "testIdentifier" : "PioCharacterHomePerformanceTests/testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioCharacterHomePerformanceTests/testProductionHomeFourteenOutfitsTwiceAndPairedIdleStop"
+  }
+]

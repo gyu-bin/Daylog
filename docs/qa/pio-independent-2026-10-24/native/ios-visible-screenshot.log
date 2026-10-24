@@ -1,0 +1,37 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-ios/Build/Products/PioCloudProductionFinaliOS.xctestrun -destination "platform=iOS Simulator,id=89B877BB-6094-4A27-B108-3A958EF23D9B" -parallel-testing-enabled NO "-only-testing:DaylogStoreKitTests/PioCloudProductionTests/testVisibleNativeSceneHostForScreenshot" -resultBundlePath /tmp/PioCloudVisibleScreenshot-final-20261024.xcresult
+
+Writing result bundle at path:
+	/tmp/PioCloudVisibleScreenshot-final-20261024.xcresult
+
+2026-10-24 12:53:03.723 xcodebuild[72110:1979240] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 12:53:44.504841+0900 Daylog[72490:1982440] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-24 12:53:45.514600+0900 Daylog[72490:1982440] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-24 12:53:45.517338+0900 Daylog[72490:1982440] [API] cannot add handler to 0 from 0 - dropping
+2026-10-24 12:53:45.517612+0900 Daylog[72490:1982440] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-24 12:53:46.163.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-24 12:53:46.164.
+Test Suite 'PioCloudProductionTests' started at 2026-10-24 12:53:46.164.
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testVisibleNativeSceneHostForScreenshot]' started.
+PIO_NATIVE_VISIBLE_REVIEW_READY productionBasic=true candidateFlags=false
+IOSurfaceClientSetSurfaceNotify failed e00002c7
+Test Case '-[DaylogStoreKitTests.PioCloudProductionTests testVisibleNativeSceneHostForScreenshot]' passed (8.111 seconds).
+Test Suite 'PioCloudProductionTests' passed at 2026-10-24 12:53:54.278.
+	 Executed 1 test, with 0 failures (0 unexpected) in 8.111 (8.114) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-24 12:53:54.278.
+	 Executed 1 test, with 0 failures (0 unexpected) in 8.111 (8.114) seconds
+Test Suite 'Selected tests' passed at 2026-10-24 12:53:54.278.
+	 Executed 1 test, with 0 failures (0 unexpected) in 8.111 (8.115) seconds
+2026-10-24 12:53:54.315 xcodebuild[72110:1979240] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 12:53:54.316 xcodebuild[72110:1979240] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 12:53:54.319 xcodebuild[72110:1979240] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-24 12:53:54.594 xcodebuild[72110:1979240] [MT] IDETestOperationsObserverDebug: 55.055 elapsed -- Testing started completed.
+2026-10-24 12:53:54.594 xcodebuild[72110:1979240] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 12:53:54.594 xcodebuild[72110:1979240] [MT] IDETestOperationsObserverDebug: 55.055 sec, +55.055 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioCloudVisibleScreenshot-final-20261024.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

@@ -68,7 +68,7 @@ struct RoutimoriSplashView: View {
                     Spacer(minLength: 0)
                     VStack(spacing: compact ? 3 : 8) {
                         sprout.frame(width: compact ? 30 : 42, height: compact ? 18 : 25)
-                        Text("Routimori")
+                        Text("RoutiMori")
                             .font(.system(size: min(titleSize, proxy.size.width * 0.14, max(22, proxy.size.height * 0.085)), weight: .heavy, design: .rounded))
                             .foregroundStyle(green)
                             .lineLimit(1).minimumScaleFactor(0.7)
@@ -104,7 +104,7 @@ struct RoutimoriSplashView: View {
         }
         .opacity(isLeaving ? 0 : 1)
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Routimori. 작은 습관, 오래가는 성장. \(appearance.outfit.title). \(appearance.compatibilityNote ?? "")")
+        .accessibilityLabel("RoutiMori. 작은 습관, 오래가는 성장. \(appearance.outfit.title). \(appearance.compatibilityNote ?? "")")
         .onAppear { isVisible = true }
         .onDisappear { isVisible = false }
         .task(id: scenePhase) { await runPresentation() }

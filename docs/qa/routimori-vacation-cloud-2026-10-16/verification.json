@@ -1,0 +1,124 @@
+{
+  "scope": "Animated Routimori vacation and cloud components, opt-in DEBUG only",
+  "head": "702e611aa1a95323bb1a78e27772d583972c383a",
+  "changedPreviouslyExistingApplicationFiles": [
+    "Daylog/Views/Dashboard/VacationRestView.swift",
+    "Daylog/Views/Onboarding/FirstSyncView.swift",
+    "Daylog/Views/Onboarding/SyncScene.swift"
+  ],
+  "unrelatedExistingFilesPreserved": true,
+  "previousPioArtAndIntegrationPreserved": true,
+  "previousRoutimoriSplashPreserved": true,
+  "assets": [
+    {
+      "asset": "routimori_vacation_background",
+      "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/RoutimoriTrial.xcassets/routimori_vacation_background.imageset/routimori_vacation_background.png",
+      "generatedSource": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-7931e940-4f28-4346-80fa-684adc389eb4.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "a08b581b0f5752745512c478151ff748d4680caa438f8e63f033e9545f946c64"
+    },
+    {
+      "asset": "routimori_sync_loading",
+      "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/RoutimoriTrial.xcassets/routimori_sync_loading.imageset/routimori_sync_loading.png",
+      "generatedSource": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-85e0577d-7f1d-4d20-a607-50d0b0efbe46.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "01a7817d0cb6889aa2908014c10cc6b4e92dfaa0f3dc767f98158d7a90ef4cae"
+    },
+    {
+      "asset": "routimori_sync_success",
+      "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/RoutimoriTrial.xcassets/routimori_sync_success.imageset/routimori_sync_success.png",
+      "generatedSource": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-f4560ef0-0143-4797-a685-25e4e09086ce.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "d9efd2aab4422d8aba17730f992c5c83a12ff56fe3471b67c481987a53887c90"
+    },
+    {
+      "asset": "routimori_sync_failure",
+      "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/RoutimoriTrial.xcassets/routimori_sync_failure.imageset/routimori_sync_failure.png",
+      "generatedSource": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-976e34e3-1a95-4c74-913e-e0424da13d41.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "fb9c18d0d00cd6bbe159679d6e89f790bfc3fb99168345b2e60b6f90b73f5c6e"
+    },
+    {
+      "asset": "routimori_vacation_hammock",
+      "path": "/Users/mungyubin/Desktop/Coding/Daylog/Daylog/RoutimoriTrial.xcassets/routimori_vacation_hammock.imageset/routimori_vacation_hammock.png",
+      "generatedSource": "/Users/mungyubin/.codex/generated_images/01a13e4c-eb2f-7c33-a58c-004a195b88c3/exec-70826d6f-fa15-49a7-ad8a-1f34466beeae.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "28ce211117085ac1ff7a4ff9ef77c85ef48c40b5bb96c1254a544fd515f6103e"
+    }
+  ],
+  "generation": {
+    "mode": "built-in image_gen",
+    "prompts": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-vacation-cloud-2026-10-16/imagegen-prompts.json",
+    "alphaNote": "Sampled apparent raw haze RGB has alpha 0; CoreGraphics composite shows no visible haze."
+  },
+  "releaseCatalogExclusions": {
+    "D10000000000000000000019": "PioTrial.xcassets RoutimoriTrial.xcassets",
+    "D20000000000000000000019": "PioTrial.xcassets RoutimoriTrial.xcassets"
+  },
+  "builds": {
+    "MacDebug": "PASS",
+    "iOSSimulatorDebug": "PASS",
+    "productionAppReplaced": false,
+    "dedicatedSimulatorInstalled": true
+  },
+  "tests": {
+    "focusedRun": {
+      "passed": 32,
+      "suites": [
+        "RoutimoriVacationTests",
+        "RoutimoriSyncTests",
+        "SyncSceneTests",
+        "VacationSceneTests",
+        "FirstSyncTests"
+      ],
+      "xcresult": "/tmp/RoutimoriVacationCloud-20261016.xcresult"
+    },
+    "afterFinalVacationEdgeMask": {
+      "passed": 2,
+      "suite": "RoutimoriVacationTests",
+      "xcresult": "/tmp/RoutimoriVacation-final-20261016.xcresult"
+    }
+  },
+  "independentReview": "No blocking issue found in code or offline native component renders",
+  "motion": {
+    "vacation": "Stationary beach; independently swaying hammock+character ±1.5° with 7.6s cycle",
+    "cloud": "Receiving breath/attention; finite ready happy lift; finite concerned tilt; calm breathing",
+    "reduceMotion": "Verified with actual iPhone Settings toggle ON/OFF and native captures; original OFF restored.",
+    "realSyncBehavior": "Existing actual found/empty states still auto-dismiss. Ready/success animation remains available through existing settings preview. No fake sync success or numeric progress."
+  },
+  "previewFiles": [
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-vacation-cloud-2026-10-16/native-render-previews/vacation-motion.gif",
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-vacation-cloud-2026-10-16/native-render-previews/vacation-phone.png",
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-vacation-cloud-2026-10-16/native-render-previews/vacation-mac.png",
+    "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-vacation-cloud-2026-10-16/cloud-render-preview/cloud-motion-render-preview.mp4"
+  ],
+  "previewType": "OFFLINE native component renders sampled from actual registered CA tracks. NOT app screenshots/recordings. Full screen typography/buttons not demonstrated.",
+  "liveUI": {
+    "status": "PASS within recorded runtime scope",
+    "report": "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-vacation-cloud-2026-10-16/live-app/results.json",
+    "screenshots": [
+      "iphone-vacation.png",
+      "iphone-cloud-loading.png",
+      "iphone-cloud-ready.png",
+      "iphone-cloud-trouble.png",
+      "mac-vacation-dark.jpg",
+      "mac-cloud-loading-dark.jpg",
+      "mac-cloud-ready-dark.jpg",
+      "mac-cloud-trouble-dark.jpg"
+    ],
+    "recordings": [
+      "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-vacation-cloud-2026-10-16/live-app/iphone-vacation-motion.mp4",
+      "/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-vacation-cloud-2026-10-16/live-app/iphone-cloud-three-states.mp4"
+    ],
+    "reduceMotion": "Cloud and vacation static captures each changed 0 pixels while enabled; vacation resume changed 324733 pixels after restoring off",
+    "actualCloudNetworkSyncTested": false
+  },
+  "commit": false,
+  "push": false,
+  "deploy": false
+}

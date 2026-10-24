@@ -1,0 +1,70 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project Daylog.xcodeproj -scheme DaylogiOSStoreKit -configuration Debug -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -derivedDataPath /tmp/PioStoreKit-20261023-ios -parallel-testing-enabled NO -collect-test-diagnostics never "-only-testing:DaylogStoreKitTests/PioStoreKitRefundReadbackTests/testRefundWithCurrentEntitlementsReadback" -resultBundlePath docs/qa/pio-storekit-isolation-2026-10-23/readback-factors/testRefundWithCurrentEntitlementsReadback.xcresult test-without-building
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  Sparkle: https://github.com/sparkle-project/Sparkle @ 2.10.0
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/readback-factors/testRefundWithCurrentEntitlementsReadback.xcresult
+
+2026-10-23 21:08:42.155 xcodebuild[7212:943829] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:08:45.388919+0900 Daylog[7227:944075] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 21:08:45.946607+0900 Daylog[7227:944075] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 21:08:45.971459+0900 Daylog[7227:944075] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 21:08:45.975052+0900 Daylog[7227:944075] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 21:08:46.143.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 21:08:46.144.
+Test Suite 'PioStoreKitRefundReadbackTests' started at 2026-10-23 21:08:46.144.
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundReadbackTests testRefundWithCurrentEntitlementsReadback]' started.
+PIO_REFUND_READBACK time=1792757326.2064838 pid=7227 test=-[PioStoreKitRefundReadbackTests testRefundWithCurrentEntitlementsReadback] begin condition=currentEntitlements
+PioStoreKit: client=822CC53E time=1792757326.207007 raw listener started subscription=B4F78657-BBFB-418F-8043-34D23BAC04C0
+PioStoreKit: client=822CC53E time=1792757326.309102 accepted id=225 product=outfit.winter revoked=false
+PioStoreKit: client=822CC53E time=1792757326.309161 finish requested id=225 cached=true inFlight=0
+PioStoreKit: client=822CC53E time=1792757326.309194 finish begin id=225 product=outfit.winter revoked=false
+PioStoreKit: client=822CC53E time=1792757326.3348022 finish returned id=225
+PIO_REFUND_READBACK time=1792757326.348267 pid=7227 test=-[PioStoreKitRefundReadbackTests testRefundWithCurrentEntitlementsReadback] purchase returned=purchased(Daylog.PioOutfitID.winter)
+objc[7227]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x10992c398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x10c2ec310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+PIO_REFUND_READBACK time=1792757326.36109 pid=7227 test=-[PioStoreKitRefundReadbackTests testRefundWithCurrentEntitlementsReadback] BEFORE refund native currentEntitlements=["verified id=225 product=outfit.winter environment=Environment(rawValue: \"Xcode\") revoked=false"]
+PIO_REFUND_READBACK time=1792757326.362815 pid=7227 test=-[PioStoreKitRefundReadbackTests testRefundWithCurrentEntitlementsReadback] refund request driverID=225 product=outfit.winter state=1 pending=false issue=false
+PioStoreKit: client=822CC53E time=1792757326.376313 raw verified update id=225 product=outfit.winter environment=Environment(rawValue: "Xcode") revoked=true
+PioStoreKit: client=822CC53E time=1792757326.376344 accepted id=225 product=outfit.winter revoked=true
+PIO_REFUND_READBACK time=1792757326.391345 pid=7227 test=-[PioStoreKitRefundReadbackTests testRefundWithCurrentEntitlementsReadback] live ownership revocation delivered
+PioStoreKit: client=822CC53E time=1792757326.392294 finish requested id=225 cached=true inFlight=0
+PIO_REFUND_READBACK time=1792757326.392334 pid=7227 test=-[PioStoreKitRefundReadbackTests testRefundWithCurrentEntitlementsReadback] AFTER original ten-second live expectation liveRevocation=true ownsWinter=false effective=basic
+PIO_REFUND_READBACK time=1792757326.3926349 pid=7227 test=-[PioStoreKitRefundReadbackTests testRefundWithCurrentEntitlementsReadback] raw/verification/finish diagnostics:
+client=822CC53E time=1792757326.207007 raw listener started subscription=B4F78657-BBFB-418F-8043-34D23BAC04C0
+client=822CC53E time=1792757326.309102 accepted id=225 product=outfit.winter revoked=false
+client=822CC53E time=1792757326.309161 finish requested id=225 cached=true inFlight=0
+client=822CC53E time=1792757326.309194 finish begin id=225 product=outfit.winter revoked=false
+client=822CC53E time=1792757326.3348022 finish returned id=225
+client=822CC53E time=1792757326.376313 raw verified update id=225 product=outfit.winter environment=Environment(rawValue: "Xcode") revoked=true
+client=822CC53E time=1792757326.376344 accepted id=225 product=outfit.winter revoked=true
+client=822CC53E time=1792757326.392294 finish requested id=225 cached=true inFlight=0
+PIO_REFUND_READBACK time=1792757326.394184 pid=7227 test=-[PioStoreKitRefundReadbackTests testRefundWithCurrentEntitlementsReadback] native driver ledger after live expectation=id=225 product=outfit.winter state=1 pending=false issue=false
+PioStoreKit: client=822CC53E time=1792757326.3945289 finish begin id=225 product=outfit.winter revoked=true
+PioStoreKit: client=822CC53E time=1792757326.395421 finish returned id=225
+PIO_REFUND_READBACK time=1792757326.406457 pid=7227 test=-[PioStoreKitRefundReadbackTests testRefundWithCurrentEntitlementsReadback] EXPLICIT later reconciliation success=true ownsWinter=false effective=basic
+PioStoreKit: client=822CC53E time=1792757326.407844 raw listener ended subscription=B4F78657-BBFB-418F-8043-34D23BAC04C0
+Test Case '-[DaylogStoreKitTests.PioStoreKitRefundReadbackTests testRefundWithCurrentEntitlementsReadback]' passed (0.268 seconds).
+Test Suite 'PioStoreKitRefundReadbackTests' passed at 2026-10-23 21:08:46.418.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.268 (0.274) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-23 21:08:46.418.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.268 (0.275) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 21:08:46.418.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.268 (0.275) seconds
+2026-10-23 21:08:46.437 xcodebuild[7212:943829] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:08:46.437 xcodebuild[7212:943829] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:08:46.437 xcodebuild[7212:943829] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:08:46.706 xcodebuild[7212:943829] [MT] IDETestOperationsObserverDebug: 4.588 elapsed -- Testing started completed.
+2026-10-23 21:08:46.706 xcodebuild[7212:943829] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 21:08:46.706 xcodebuild[7212:943829] [MT] IDETestOperationsObserverDebug: 4.588 sec, +4.588 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/readback-factors/testRefundWithCurrentEntitlementsReadback.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

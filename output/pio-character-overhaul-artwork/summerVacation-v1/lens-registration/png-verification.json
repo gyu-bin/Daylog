@@ -1,0 +1,170 @@
+{
+  "sourceHashesUnchanged": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/lenses-v1-candidate.png": true,
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/summerVacation-v1/source/sunglasses-frame-only-candidate.png": true
+  },
+  "files": [
+    {
+      "file": "frame-panes-diameters-fit-diagnostic.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 114702,
+      "sha256": "dcd61c402a262b0edc8b405411b10330d3f1ac53937c7d0d7e40a9e4ce69d558"
+    },
+    {
+      "file": "optional-diameters-fit-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1332974,
+      "sha256": "7ce94d5583934236b3814be469320d2ac14c2be4a42f152f94447046e442663f"
+    },
+    {
+      "file": "optional-tint-comparison-220pt-3x-light.png",
+      "dimensions": [
+        2220,
+        810
+      ],
+      "bytes": 839952,
+      "sha256": "4c837e938a7070ff8d3a4f50954e770d3c950e9cd9499d321f353a3dafdbde45"
+    },
+    {
+      "file": "frame-panes-centers-fit-diagnostic.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 113885,
+      "sha256": "47a6712cfe17bbe6bf8660f4845bdc0c37fd82c9354625175851d6af255b53f7"
+    },
+    {
+      "file": "optional-tint-comparison-64pt-3x-dark.png",
+      "dimensions": [
+        816,
+        342
+      ],
+      "bytes": 94387,
+      "sha256": "d0ab9b6ffbcc73ad32daac44a98acf9c676d5562248c13e420c4757be9b0528f"
+    },
+    {
+      "file": "optional-tinted-closed-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1324063,
+      "sha256": "69db50a6b5beccb13e5c7001c5ef1f6b225ad9a562dceb35973e7264540c7314"
+    },
+    {
+      "file": "optional-centers-fit-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1329451,
+      "sha256": "5f6d6d8f444bcc1c22ee20a334e66b6a954a97afd3141e494df6d10d210e3937"
+    },
+    {
+      "file": "optional-diameters-fit-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1329683,
+      "sha256": "d147e8d44b67cbeb1c75cf9744cf04f20d8389555512160a82366a1dcb0b780e"
+    },
+    {
+      "file": "optional-tinted-open-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1326209,
+      "sha256": "1cf0ac16b152ea609654d63cb38dcc3e3d00dd1470efc6c9abbb25a9a5336bcd"
+    },
+    {
+      "file": "optional-tinted-closed-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1327799,
+      "sha256": "cfdeb85c3c6243a9b7d1c575f0600d7fa93138eccf7a49e4a3befe5d6b017c37"
+    },
+    {
+      "file": "new-lenses-native-dark.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "bytes": 376927,
+      "sha256": "cc71f610474360dc95c58c40b1309a7ed180d2f51e0947abb371f8433b9a6ee6"
+    },
+    {
+      "file": "optional-tinted-closed-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1562991,
+      "sha256": "2ec30308da8860a4188cdc0702cf1581fb0361e86a76d2d549e6b314b0e6fb94"
+    },
+    {
+      "file": "optional-tint-comparison-220pt-3x-dark.png",
+      "dimensions": [
+        2220,
+        810
+      ],
+      "bytes": 847857,
+      "sha256": "09081aa87000dff1c0a84e69e212131581a05a1383a1b95bd39bcfea426f602d"
+    },
+    {
+      "file": "optional-tinted-open-alpha.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1565081,
+      "sha256": "5589de8810d937239029defe951b0c4af06e490f42cb2b7c0fa68ab31d09bd58"
+    },
+    {
+      "file": "optional-centers-fit-light.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1326072,
+      "sha256": "34c01e0ceb53b3e5ba309449f9400765abfaa11824cae2ffc67bbcc8d3d6565a"
+    },
+    {
+      "file": "optional-tint-comparison-64pt-3x-light.png",
+      "dimensions": [
+        816,
+        342
+      ],
+      "bytes": 92480,
+      "sha256": "122af4efd85386666ca890939869afbd79f5a2d0890c71c6ccf74cf31c6cf092"
+    },
+    {
+      "file": "new-lenses-native-light.png",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "bytes": 388013,
+      "sha256": "c6ef53942afb34a4bb6a4763368d880813e60e135b31f23572d47889df5be2c9"
+    },
+    {
+      "file": "optional-tinted-open-dark.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 1329909,
+      "sha256": "363c92830f92cc6307859d5b0fc0aee0ff137155468fa7fc97ba43b7c1749b33"
+    }
+  ]
+}

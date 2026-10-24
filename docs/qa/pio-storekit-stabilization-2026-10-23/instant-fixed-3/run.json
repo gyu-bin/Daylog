@@ -1,0 +1,8 @@
+{
+  "runID": "09b03086-ef9c-4378-a96d-1eee70fc8d1b",
+  "seedMethod": "product-purchase",
+  "appPurchaseUI": "Product.purchase result asserted",
+  "status": "TWO_PHASE_TEST_COMMANDS_PASSED",
+  "scope": "Local Xcode StoreKit only; separate process PID and same verified transaction asserted by tests",
+  "cleanup": "Verify phase clears local test ledger and UUID preference suite after verification"
+}

@@ -1,0 +1,52 @@
+{
+  "outfit": "cafe",
+  "status": "PARTIAL_OFFLINE_STUDY",
+  "canonicalSourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/footLeft.png": "8af1d494bf148e166d0b2da35c3281ec0ecb0f2441d38cf1876eb99eac869430",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/footRight.png": "879ec278415c185e69f945f37b47dba4f49b3d7dcad3b655c9c173a968a74e26",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/body.png": "11a0e2a452031407ff45064bce77ee99cc8fcba963852df666e045a93d40513e",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/eyeLeft.png": "a0077346615263eb8e196212adfe1e03348e8721b5b57c717475ae88209d0e48",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/eyeRight.png": "2311912df5c481df6d5308975fed69151716ca4a5e0ff31fa340cc61be259e36",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/lidLeft.png": "230c74c14df155d0d02c3a9b70b74250a8a00047c0ff61242a338e453396e042",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/lidRight.png": "14d7a81580b87a648f7b4f073afb85aeb02d231df3e503a9c1d5314a07f794e5",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/wingRight.png": "01e072e18cde79acbb2ff1c3decae0ed9d7cf776a5ca916778ab3cf200e7efbc",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/wingLeft.png": "de63639e1fb6437a258b625e9720bdff0e3d08cc7b1e9d21ec1044f226aa477e",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/prop.png": "c48ad81138a87dbe17cdddfe22ea1cb517b666e8c3424c06c5b5a0ec88a5a1b3",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/headwear.png": "1b00b38495cb96d5f495a90e0def6ffe364d0447374394bfecd195f7a8c134df",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/happyLeft.png": "94a9095331ba4fa9d2b872b3716dcd611d7b30bf5ab41ff70ec04d9bfd3cbf62",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/cafe/layers/happyRight.png": "ecb9f40af541877befc50afc8bd6a7303388429264f2567221c0e22c13d5f6e9"
+  },
+  "actions": [
+    "idle",
+    "greet",
+    "walk",
+    "bounce",
+    "jump",
+    "celebrate",
+    "bow",
+    "sleepy",
+    "surprised",
+    "encourage",
+    "special"
+  ],
+  "specialAction": "held coffee toast",
+  "framesPerAction": 32,
+  "durationMs": 70,
+  "maxAlphaOnFrameBorder": 0,
+  "canvas": [
+    480,
+    516
+  ],
+  "characterCanvas": [
+    350,
+    350
+  ],
+  "limits": [
+    "2D front-view stepping, no authored turn or gait occlusion change.",
+    "Bow is frontal lean/compression, not a reconstructed 3D head turn.",
+    "Hat and fabric stay rigid with torso.",
+    "Held props rigidly follow hands; no release or articulation.",
+    "No app/runtime/performance claim."
+  ]
+}

@@ -1,0 +1,6 @@
+The following is a diff from the previous accessibility tree for Window: "피오 옷장" with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
++					64 버튼 (disabled) Description: 잠옷 피오 아이콘 테마, 잠김, ID: wardrobe.icon.pajamas
++					65 버튼 (disabled) Description: 우주인 피오 아이콘 테마, 잠김, ID: wardrobe.icon.astronaut
+~				44 스크롤 막대 (settable, float) 0.6069906223358909
+~					45 값 표시기 (settable, float) 0.6069906223358909
+The focused UI element is 0 표준 윈도우 피오 옷장, ID: main, Secondary Actions: Raise

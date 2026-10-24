@@ -1,0 +1,18 @@
+[
+  {
+    "generatedOriginal": "/Users/mungyubin/.codex/generated_images/01a168c7-e8fb-7b10-9851-74e8cb6b6131/exec-eb2448f4-5921-4313-a67b-932543566b34.png",
+    "output": "output/pio-independent-2026-10-24/halloween-cloud/torso-candidate-v1.png",
+    "sha256": "1bf1a7575587836b3dfb1f937408aa5451ed7fc5639f900d746f09a0dd23e43a",
+    "catalogCopyByteIdentical": true,
+    "metadata": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-independent-2026-10-24/halloween-cloud/torso-candidate-v1.png\n  pixelWidth: 1254\n  pixelHeight: 1254\n  hasAlpha: yes\n",
+    "prompt": "Precise-object-edit. Existing approved halloween Pio cloud artwork is edit target. Output EXACT1254x1254 transparent RGBA in SAME source coordinates, no recenter/rescale. Remove only green tablet AND both entire arms/hands/sleeves in foreground. Paint naturally complete hidden torso clothing/fur behind them, including hidden shoulder roots, matching existing halloween costume material and pattern. Keep entire head, sprout, hat, cheeks, beak, feet, body silhouette and original costume design and positions unchanged. Face intentionally has no eyes: do not add any eyes/sunglasses. No new accessories. No glow/background/shadow. This is layered animation torso reconstruction, not redesign."
+  },
+  {
+    "generatedOriginal": "/Users/mungyubin/.codex/generated_images/01a168c7-e8fb-7b10-9851-74e8cb6b6131/exec-b0419023-e359-4975-b26a-6cd53060cd9e.png",
+    "output": "output/pio-independent-2026-10-24/halloween-cloud/arms-candidate-v1.png",
+    "sha256": "bae5cfeb219acba6bcfbc4cb43872ddd8f4ee05d777a2c3d8855a97f2b25c81e",
+    "catalogCopyByteIdentical": true,
+    "metadata": "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-independent-2026-10-24/halloween-cloud/arms-candidate-v1.png\n  pixelWidth: 1254\n  pixelHeight: 1254\n  hasAlpha: yes\n",
+    "prompt": "Background-extraction and hidden-root reconstruction. Existing approved halloween Pio cloud art is reference. Output EXACT1254x1254 transparent RGBA atlas with ONLY left and right complete sleeve+cream hand, in same original pose at original positions, separated by clear central emptyspace. Remove head/body/tablet/feet/hat/background entirely. Preserve original sleeve colors/patterns/material, hands point inward gripping invisible tablet. Extend each sleeve only20px at hidden shoulder root to permit overlap. Left part roughlyx220\u2013550,y820\u20131080; rightx800\u20131090,y820\u20131080. No canvas recenter or upscale, no text, no shadow or halo, genuine plush textured source style."
+  }
+]

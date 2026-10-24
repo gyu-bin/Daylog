@@ -1,0 +1,5392 @@
+{
+  "generatedAt": "2026-10-24T06:14:55.648097+00:00",
+  "scope": "Only actual test executions in finalQA *tests.log xcresults. Unique suite/method IDs collapse repeated runs and platform modules, retain device-specific latest status. Skips are not PASS; incomplete/current runs are not inferred. Visual quality is separate.",
+  "runs": [
+    {
+      "log": "SmallPhone-final-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-SmallPhone-final-20261024.xcresult",
+      "logComplete": true,
+      "tests": [
+        {
+          "id": "PioProductionFinalScreenTests/testActualDeviceScreensAndAccessibilityLayouts()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 2.8022539615631104
+        }
+      ],
+      "systemFailures": [],
+      "devices": [
+        {
+          "architecture": "arm64",
+          "deviceId": "87F27718-1575-4384-B7DB-1AF4601DBC86",
+          "deviceName": "Pio Small Phone QA 2026-10-24",
+          "modelName": "iPhone SE (3rd generation)",
+          "osBuildNumber": "24A434",
+          "osVersion": "27.0",
+          "platform": "iOS Simulator"
+        }
+      ],
+      "counts": {
+        "Passed": 1
+      },
+      "status": "PASS",
+      "start": "2026-10-24 15:11:17"
+    },
+    {
+      "log": "SmallPhone-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-SmallPhone-20261024.xcresult",
+      "logComplete": true,
+      "tests": [],
+      "systemFailures": [
+        {
+          "children": [
+            {
+              "name": "Testing was canceled",
+              "nodeType": "Failure Message"
+            }
+          ],
+          "name": "Daylog encountered an error",
+          "nodeIdentifier": "Daylog encountered an error",
+          "nodeType": "Test Case",
+          "result": "Failed"
+        }
+      ],
+      "devices": [
+        {
+          "architecture": "arm64",
+          "deviceId": "87F27718-1575-4384-B7DB-1AF4601DBC86",
+          "deviceName": "Pio Small Phone QA 2026-10-24",
+          "modelName": "iPhone SE (3rd generation)",
+          "osBuildNumber": "24A434",
+          "osVersion": "27.0",
+          "platform": "iOS Simulator"
+        }
+      ],
+      "counts": {},
+      "status": "INTERRUPTED_ENVIRONMENT",
+      "start": "2026-10-24 14:56:56"
+    },
+    {
+      "log": "iPad-final-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-iPad-final-20261024.xcresult",
+      "logComplete": true,
+      "tests": [
+        {
+          "id": "PioProductionFinalScreenTests/testActualDeviceScreensAndAccessibilityLayouts()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 5.046759009361267
+        }
+      ],
+      "systemFailures": [],
+      "devices": [
+        {
+          "architecture": "arm64",
+          "deviceId": "18A1DFA8-796C-4403-9CC0-C02FD790F40A",
+          "deviceName": "Pio iPad QA 2026-10-24",
+          "modelName": "iPad mini (A17 Pro)",
+          "osBuildNumber": "24A434",
+          "osVersion": "27.0",
+          "platform": "iOS Simulator"
+        }
+      ],
+      "counts": {
+        "Passed": 1
+      },
+      "status": "PASS",
+      "start": "2026-10-24 15:13:16"
+    },
+    {
+      "log": "iPad-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-iPad-20261024.xcresult",
+      "logComplete": true,
+      "tests": [],
+      "systemFailures": [
+        {
+          "children": [
+            {
+              "name": "Testing was canceled",
+              "nodeType": "Failure Message"
+            }
+          ],
+          "name": "Daylog encountered an error",
+          "nodeIdentifier": "Daylog encountered an error",
+          "nodeType": "Test Case",
+          "result": "Failed"
+        }
+      ],
+      "devices": [
+        {
+          "architecture": "arm64",
+          "deviceId": "18A1DFA8-796C-4403-9CC0-C02FD790F40A",
+          "deviceName": "Pio iPad QA 2026-10-24",
+          "modelName": "iPad mini (A17 Pro)",
+          "osBuildNumber": "24A434",
+          "osVersion": "27.0",
+          "platform": "iOS Simulator"
+        }
+      ],
+      "counts": {},
+      "status": "INTERRUPTED_ENVIRONMENT",
+      "start": "2026-10-24 14:57:00"
+    },
+    {
+      "log": "iphone17-final-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-iPhone17-final-20261024.xcresult",
+      "logComplete": true,
+      "tests": [],
+      "systemFailures": [
+        {
+          "children": [
+            {
+              "name": "Testing was canceled",
+              "nodeType": "Failure Message"
+            }
+          ],
+          "name": "Daylog encountered an error",
+          "nodeIdentifier": "Daylog encountered an error",
+          "nodeType": "Test Case",
+          "result": "Failed"
+        }
+      ],
+      "devices": [
+        {
+          "architecture": "arm64",
+          "deviceId": "89B877BB-6094-4A27-B108-3A958EF23D9B",
+          "deviceName": "Pio Motion Review 2026-10-23",
+          "modelName": "iPhone 17",
+          "osBuildNumber": "24A434",
+          "osVersion": "27.0",
+          "platform": "iOS Simulator"
+        }
+      ],
+      "counts": {},
+      "status": "INTERRUPTED_ENVIRONMENT",
+      "start": "2026-10-24 14:56:29"
+    },
+    {
+      "log": "iphone17-final2-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-iPhone17-final2-20261024.xcresult",
+      "logComplete": true,
+      "tests": [
+        {
+          "id": "PioCloudCandidateReviewTests/testActualPresentationSequence()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 5.203318953514099
+        },
+        {
+          "id": "PioCloudCandidateReviewTests/testBatchActualIndependentBlinkAndHeldPresentation()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 68.92241203784943
+        },
+        {
+          "id": "PioCloudProductionTests/testFourteenProductionRegistrationsAndIndependentHold()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.006182074546813965
+        },
+        {
+          "id": "PioCloudProductionTests/testFourteenProductionTransitionsSuppressionAndReduceMotion()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.08474099636077881
+        },
+        {
+          "id": "PioCloudProductionTests/testProductionAppearanceAdapterPreservesAuthorizationAndNotes()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.0014569759368896484
+        },
+        {
+          "id": "PioCloudProductionTests/testProductionOffscreenWindowDetachStopsTracks()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.013306021690368652
+        },
+        {
+          "id": "PioCloudTextureAliasesTests/testAllRegisteredProductionTexturesHaveIdempotentAliases()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.007449984550476074
+        },
+        {
+          "id": "PioCloudTextureAliasesTests/testEveryCanonicalTextureHasIdenticalNativeDecodedPixels()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 1.0096720457077026
+        },
+        {
+          "id": "PioProductionFinalScreenTests/testActualDeviceScreensAndAccessibilityLayouts()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 4.212988972663879
+        }
+      ],
+      "systemFailures": [],
+      "devices": [
+        {
+          "architecture": "arm64",
+          "deviceId": "89B877BB-6094-4A27-B108-3A958EF23D9B",
+          "deviceName": "Pio Motion Review 2026-10-23",
+          "modelName": "iPhone 17",
+          "osBuildNumber": "24A434",
+          "osVersion": "27.0",
+          "platform": "iOS Simulator"
+        }
+      ],
+      "counts": {
+        "Passed": 9
+      },
+      "status": "PASS",
+      "start": "2026-10-24 15:09:01"
+    },
+    {
+      "log": "iphone17-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-iPhone17-20261024.xcresult",
+      "logComplete": true,
+      "tests": [
+        {
+          "id": "PioCloudCandidateReviewTests/testActualPresentationSequence()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 5.203748106956482
+        },
+        {
+          "id": "PioCloudCandidateReviewTests/testBatchActualIndependentBlinkAndHeldPresentation()",
+          "framework": "XCTest",
+          "result": "Failed",
+          "durationSeconds": 68.90891003608704
+        },
+        {
+          "id": "PioCloudCandidateReviewTests/testBatchCandidateRegistrationNeutralAndStop()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 2.454218029975891
+        },
+        {
+          "id": "PioProductionFinalScreenTests/testActualDeviceScreensAndAccessibilityLayouts()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 4.710268020629883
+        },
+        {
+          "id": "PioProductionFinalVisualTests/testFourteenHomeProductionMotionFrames()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 11.926843047142029
+        },
+        {
+          "id": "PioProductionFinalVisualTests/testFourteenVacationDayNightActualMotionFrames()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 182.15966594219208
+        },
+        {
+          "id": "PioVacationProductionTests/testBasicDayEyeResourcesAndLifecycle()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.388698935508728
+        },
+        {
+          "id": "PioVacationProductionTests/testBasicDayEyesActualUIKitPresentationAt64And220()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 4.211539030075073
+        }
+      ],
+      "systemFailures": [],
+      "devices": [
+        {
+          "architecture": "arm64",
+          "deviceId": "89B877BB-6094-4A27-B108-3A958EF23D9B",
+          "deviceName": "Pio Motion Review 2026-10-23",
+          "modelName": "iPhone 17",
+          "osBuildNumber": "24A434",
+          "osVersion": "27.0",
+          "platform": "iOS Simulator"
+        }
+      ],
+      "counts": {
+        "Passed": 7,
+        "Failed": 1
+      },
+      "status": "FAIL",
+      "start": "2026-10-24 14:37:31"
+    },
+    {
+      "log": "mac-alias-regression-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-Mac-alias-regression-20261024.xcresult",
+      "logComplete": true,
+      "tests": [
+        {
+          "id": "PioCloudProductionTests/testFourteenProductionRegistrationsAndIndependentHold()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.020420074462890625
+        },
+        {
+          "id": "PioCloudProductionTests/testFourteenProductionTransitionsSuppressionAndReduceMotion()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.03318202495574951
+        },
+        {
+          "id": "PioCloudProductionTests/testProductionOffscreenWindowDetachStopsTracks()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.07860803604125977
+        },
+        {
+          "id": "PioCloudTextureAliasesTests/testAllRegisteredProductionTexturesHaveIdempotentAliases()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.00498199462890625
+        },
+        {
+          "id": "PioCloudTextureAliasesTests/testEveryCanonicalTextureHasIdenticalNativeDecodedPixels()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 1.0206819772720337
+        },
+        {
+          "id": "PioMacStabilityReviewTests/testActualWindowVisibilityTransitions()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.5966500043869019
+        }
+      ],
+      "systemFailures": [],
+      "devices": [
+        {
+          "architecture": "arm64e",
+          "deviceId": "00008132-00111148148B801C",
+          "deviceName": "My Mac",
+          "modelName": "Mac mini",
+          "osBuildNumber": "26A434",
+          "osVersion": "27.0.1",
+          "platform": "macOS"
+        }
+      ],
+      "counts": {
+        "Passed": 6
+      },
+      "status": "PASS",
+      "start": "2026-10-24 14:49:02"
+    },
+    {
+      "log": "mac-art-final-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+      "logComplete": true,
+      "tests": [
+        {
+          "id": "PioHeaderCompletionTests/testGestureAutomaticallyReturnsToIdleWithoutAnotherTap()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 2.8715109825134277
+        },
+        {
+          "id": "PioHeaderInteractionTests/testLeavingScreenCancelsAndRejectsStaleCompletion()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.001683950424194336
+        },
+        {
+          "id": "PioHeaderInteractionTests/testNativeHeaderReusesJointsWithTinyIdleAndFiniteTapTracks()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.023434042930603027
+        },
+        {
+          "id": "PioHeaderInteractionTests/testProductionFallbackUsesOnlyAvailableMotionsForAllOutfits()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.000928044319152832
+        },
+        {
+          "id": "PioHeaderInteractionTests/testProgressReactionDoesNotConsumeTapSequence()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.0006880760192871094
+        },
+        {
+          "id": "PioHeaderInteractionTests/testResponsesAreBoundedAndDoNotOverlap()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.0006510019302368164
+        },
+        {
+          "id": "PioVacationSceneIntegrationTests/allThirteenOutfitsHaveNativeDayAndNightArtworkWithTransparentPixels()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0006806850433349609
+        },
+        {
+          "id": "PioVacationSceneIntegrationTests/everyCandidateRegistrationKeepsPivotFixedAndBeachStationaryAtSwayExtremes()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.6168451309204102
+        },
+        {
+          "id": "PioVacationSceneIntegrationTests/pendingVerificationShowsOnlyBeachAndStopsAnyPreviousForegroundMotion()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0001780986785888672
+        },
+        {
+          "id": "PioVacationSceneIntegrationTests/reduceMotionAndInactiveOrInvisibleScenesRemoveForegroundAnimation()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00011301040649414062
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testMacPlainSwiftUIScrollSubtreeOwnershipControl()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 2.043365955352783
+        },
+        {
+          "id": "RoutimoriSyncTests/sceneTransitionReplacesMotionAndReduceMotionStopsEveryLayer()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.004209280014038086
+        },
+        {
+          "id": "RoutimoriSyncTests/repeatedUpdatesDoNotAccumulateTracksAndActivityStops()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0008490085601806641
+        },
+        {
+          "id": "PioVacationFinalArtworkTests/testBasicDayProductionEyesNativePlayback()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 15.896456003189087
+        },
+        {
+          "id": "PioVacationFinalArtworkTests/testBasicDayProductionEyesPreserveNightPaidAndLifecycle()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.712082028388977
+        },
+        {
+          "id": "PioVacationFinalArtworkTests/testNativeEyeCandidateActualPresentationSequence()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 4.719043016433716
+        },
+        {
+          "id": "PioVacationFinalArtworkTests/testNativePreciselyReconstructedEyeRegions()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 1.1496689319610596
+        },
+        {
+          "id": "RoutimoriVacationTests/swayStopsRestoresAndNeverAnimatesTheBeach()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00014519691467285156
+        },
+        {
+          "id": "RoutimoriVacationTests/registeredImagesStayAlignedAndTheRopeAnchorDoesNotMove()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00014710426330566406
+        },
+        {
+          "id": "RoutimoriVacationTests/changingTimeOfDaySelectsRegisteredArtworkWithoutRestartingSway()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.037950992584228516
+        }
+      ],
+      "systemFailures": [],
+      "devices": [
+        {
+          "architecture": "arm64e",
+          "deviceId": "00008132-00111148148B801C",
+          "deviceName": "My Mac",
+          "modelName": "Mac mini",
+          "osBuildNumber": "26A434",
+          "osVersion": "27.0.1",
+          "platform": "macOS"
+        }
+      ],
+      "counts": {
+        "Passed": 20
+      },
+      "status": "PASS",
+      "start": "2026-10-24 14:33:07"
+    },
+    {
+      "log": "mac-art-lifetime-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-Mac-art-lifetime-20261024.xcresult",
+      "logComplete": true,
+      "tests": [
+        {
+          "id": "PioProductionFinalLifecycleTests/testMacIntactScrollSubtreeReleasesNativeHost()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.13467395305633545
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testMacPlainSwiftUIScrollSubtreeOwnershipControl()",
+          "framework": "XCTest",
+          "result": "Failed",
+          "durationSeconds": 1.5043189525604248
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testMacVacationSwiftUIScrollSubtreeReleasesNativeView()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 2.148841977119446
+        },
+        {
+          "id": "PioVacationFinalArtworkTests/testBasicDayProductionEyesNativePlayback()",
+          "framework": "XCTest",
+          "result": "Failed",
+          "durationSeconds": 11.370023012161255
+        },
+        {
+          "id": "PioVacationFinalArtworkTests/testBasicDayProductionEyesPreserveNightPaidAndLifecycle()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.740157961845398
+        },
+        {
+          "id": "PioVacationFinalArtworkTests/testNativeEyeCandidateActualPresentationSequence()",
+          "framework": "XCTest",
+          "result": "Failed",
+          "durationSeconds": 2.974828004837036
+        },
+        {
+          "id": "PioVacationFinalArtworkTests/testNativePreciselyReconstructedEyeRegions()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 1.311508059501648
+        }
+      ],
+      "systemFailures": [],
+      "devices": [
+        {
+          "architecture": "arm64e",
+          "deviceId": "00008132-00111148148B801C",
+          "deviceName": "My Mac",
+          "modelName": "Mac mini",
+          "osBuildNumber": "26A434",
+          "osVersion": "27.0.1",
+          "platform": "macOS"
+        }
+      ],
+      "counts": {
+        "Passed": 4,
+        "Failed": 3
+      },
+      "status": "FAIL",
+      "start": "2026-10-24 14:28:24"
+    },
+    {
+      "log": "mac-corrected-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+      "logComplete": true,
+      "tests": [
+        {
+          "id": "PioCloudProductionTests/testFourteenProductionRegistrationsAndIndependentHold()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.03661692142486572
+        },
+        {
+          "id": "PioCloudProductionTests/testFourteenProductionTransitionsSuppressionAndReduceMotion()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.02508389949798584
+        },
+        {
+          "id": "PioCloudProductionTests/testProductionAppearanceAdapterPreservesAuthorizationAndNotes()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.0006430149078369141
+        },
+        {
+          "id": "PioCloudProductionTests/testProductionBasicLiveAndStoppedObservations()",
+          "framework": "XCTest",
+          "result": "Skipped",
+          "durationSeconds": 0.0012689828872680664
+        },
+        {
+          "id": "PioCloudProductionTests/testProductionOffscreenWindowDetachStopsTracks()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.08565902709960938
+        },
+        {
+          "id": "PioCloudProductionTests/testProductionReduceMotionSuppressionAndSceneStop()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.002768993377685547
+        },
+        {
+          "id": "PioCloudProductionTests/testProductionRepeatedAttachDetachObservations()",
+          "framework": "XCTest",
+          "result": "Skipped",
+          "durationSeconds": 0.001576066017150879
+        },
+        {
+          "id": "PioCloudProductionTests/testSmallProductionPackAndIndependentEyeFrames()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.002496957778930664
+        },
+        {
+          "id": "PioCloudProductionTests/testVisibleNativeSceneHostForScreenshot()",
+          "framework": "XCTest",
+          "result": "Skipped",
+          "durationSeconds": 0.0008029937744140625
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testMacIntactScrollSubtreeReleasesNativeHost()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.029528021812438965
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testMacVacationSwiftUIScrollSubtreeReleasesNativeView()",
+          "framework": "XCTest",
+          "result": "Failed",
+          "durationSeconds": 4.53328001499176
+        },
+        {
+          "id": "PioAppIconTests/missingPremiumIconFilesCannotBeSelected()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0003180503845214844
+        },
+        {
+          "id": "PioAppIconTests/cancellationIsSilentAndPendingNeverSaysOwned()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 9.417533874511719e-05
+        },
+        {
+          "id": "PioVacationFinalArtworkTests/testNativeEyeCandidateActualPresentationSequence()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 3.976015090942383
+        },
+        {
+          "id": "PioVacationFinalArtworkTests/testNativePreciselyReconstructedEyeRegions()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 1.1418639421463013
+        },
+        {
+          "id": "PioAppearanceTests/stageBoundariesMatchApprovedGrowthWithoutChangingCostume()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0022611618041992188
+        },
+        {
+          "id": "PioAppearanceTests/allFourteenCatalogEntriesResolveTheirApprovedArtwork()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00286102294921875
+        },
+        {
+          "id": "PioAppearanceTests/unknownPreferencesNeverGrantPaidAppearanceOrEraseSelection()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0021216869354248047
+        },
+        {
+          "id": "PioAppearanceTests/previewsNeverAuthorizeEquipOrChangeGlobalAppearance()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0004899501800537109
+        },
+        {
+          "id": "PioAppearanceTests/composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.002074718475341797
+        },
+        {
+          "id": "PioAppearanceTests/standingOutfitsAreNeverCompositedAsRecliningOrSleeping()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0014598369598388672
+        },
+        {
+          "id": "PioAppearanceTests/fallbackMotionsNeverClaimIndependentWingsOrWalking()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0010120868682861328
+        },
+        {
+          "id": "PioAppearanceTests/approvedLayeredPilotRemainsExplicitAndDoesNotInventGrowthStages()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0011098384857177734
+        },
+        {
+          "id": "PioAppearanceTests/growthSourceIsLiveAndAllScreenReadsUseIt()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0014190673828125
+        },
+        {
+          "id": "PioAppearanceTests/appearanceReadsTrackWardrobeAndLiveGrowthChanges()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0031843185424804688
+        },
+        {
+          "id": "PioAppearanceTests/outfitAndAppIconStayIndependentAfterRefreshAndReopen()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0037348270416259766
+        },
+        {
+          "id": "PioAppearanceTests/missingSourceArtworkAndAbsentWidgetSurfacesAreExplicit()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00043392181396484375
+        },
+        {
+          "id": "PioAppearanceTests/testingModeAuthorizesAllCostumesWithoutVerifiedAccess()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0037729740142822266
+        },
+        {
+          "id": "PioAppearanceTests/legacyMockOwnershipCannotAuthorizeGlobalAppearance()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0013418197631835938
+        },
+        {
+          "id": "PioOutfitMotionTests/capabilitiesNeverPretendCostumesHaveIndependentPartsOrGrowthArt()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00037288665771484375
+        },
+        {
+          "id": "PioOutfitMotionTests/visibilityPauseAndReduceMotionRemoveAllTracksIncludingTheBasicWing()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0014977455139160156
+        },
+        {
+          "id": "PioOutfitMotionTests/activeTelemetrySurvivesResetAndDoesNotRetainDestroyedRigs()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0006690025329589844
+        },
+        {
+          "id": "PioOutfitMotionTests/unchangedUpdatesAndPartialStageChangesDoNotReconfigureOrDecode()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0004680156707763672
+        },
+        {
+          "id": "PioOutfitMotionTests/decodedArtworkIsReusedAndUnsupportedWaveFallsBackHonestly()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00020313262939453125
+        },
+        {
+          "id": "PioOverhaulRigTests/allFourteenOutfitsResolveWithoutReplacingOriginalPilots()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.05173802375793457
+        },
+        {
+          "id": "PioOverhaulRigTests/heldPropsShareTheirHandJointAndAnimation()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0018069744110107422
+        },
+        {
+          "id": "PioOverhaulRigTests/eyeStatesAreExclusiveAndStayBehindOpticalLayers()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0037779808044433594
+        },
+        {
+          "id": "PioOverhaulRigTests/motionChangesDoNotRebuildLayersAndStoppingRemovesAllTracks()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0015838146209716797
+        },
+        {
+          "id": "PioOverhaulRigTests/jumpBounceAndGreetingHaveDifferentVisibleTrajectories()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0004870891571044922
+        },
+        {
+          "id": "PioOverhaulRigTests/landingRecoversWithoutStartingAnotherJump()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00024199485778808594
+        },
+        {
+          "id": "PioOverhaulRigTests/twoHandedPropsStayWithinValidatedRotation()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0032079219818115234
+        },
+        {
+          "id": "PioProductRegistryTests/everyPaidOutfitMapsOnceAndBasicIsNotAProduct()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 7.295608520507812e-05
+        },
+        {
+          "id": "PioProductRegistryTests/artworkAndPreferenceKeysRemainIndependentOfRegisteredProductNames()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 3.409385681152344e-05
+        },
+        {
+          "id": "PioPurchaseTests/environmentPoliciesNeverMixLocalAndAppleTransactions()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0001361370086669922
+        },
+        {
+          "id": "PioPurchaseTests/unconfirmedOrUnknownCatalogConfigurationStaysDisabled()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0001323223114013672
+        },
+        {
+          "id": "PioPurchaseTests/revokedSnapshotCannotBeUndoneByDelayedVerifiedUpdate()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00030994415283203125
+        },
+        {
+          "id": "PioPurchaseTests/stalePurchaseResultForPreviouslyRevokedIDNeverReportsPurchased()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00010919570922851562
+        },
+        {
+          "id": "PioPurchaseTests/purchaseRevokedWhileFinishingCannotReportSuccess()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00020503997802734375
+        },
+        {
+          "id": "PioPurchaseTests/publicNestedCancellationIsRecognizedWithoutPrivateServerCodeMapping()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0003521442413330078
+        },
+        {
+          "id": "PioPurchaseTests/explicitStopIsIdempotentAndManagerCanRestartItsListener()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0002579689025878906
+        },
+        {
+          "id": "PioPurchaseTests/stopWaitsForAnAlreadyDeliveredVerifiedTransactionToFinish()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0002899169921875
+        },
+        {
+          "id": "PioPurchaseTests/registryMatchesApprovedCatalogAndOnlyNonBasicProducts()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 9.894371032714844e-05
+        },
+        {
+          "id": "PioPurchaseTests/productsUseLocalizedPricesAndMissingProductsCannotBePurchased()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 4.8160552978515625e-05
+        },
+        {
+          "id": "PioPurchaseTests/productFailureCanBeRetried()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 9.894371032714844e-05
+        },
+        {
+          "id": "PioPurchaseTests/successfulPurchaseGrantsAndFinishesOnlyVerifiedTransaction()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00010275840759277344
+        },
+        {
+          "id": "PioPurchaseTests/cancellationPendingAndVerificationFailureNeverUnlock()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0001251697540283203
+        },
+        {
+          "id": "PioPurchaseTests/purchaseErrorsClearBusyStateAndCanRetry()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 6.699562072753906e-05
+        },
+        {
+          "id": "PioPurchaseTests/mismatchedOrRevokedPurchaseResultNeverUnlocks()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 6.771087646484375e-05
+        },
+        {
+          "id": "PioPurchaseTests/duplicateTapsAndRestoreDuringPaymentAreRejected()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00010919570922851562
+        },
+        {
+          "id": "PioPurchaseTests/refreshFailureRetainsPreviouslyVerifiedOwnership()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00010919570922851562
+        },
+        {
+          "id": "PioPurchaseTests/confirmedAbsenceRevokesAndPreservesOtherPreferences()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0022919178009033203
+        },
+        {
+          "id": "PioPurchaseTests/reopenWaitsForVerifiedLedgerAndNeverTrustsMockDefaults()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0015399456024169922
+        },
+        {
+          "id": "PioPurchaseTests/restoreIsExplicitHandlesEmptySuccessAndCancellation()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00018095970153808594
+        },
+        {
+          "id": "PioPurchaseTests/unverifiedSnapshotCannotGrantOrReportSuccessfulRestore()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00010013580322265625
+        },
+        {
+          "id": "PioPurchaseTests/transactionUpdatesDeliverPendingPurchaseAndRefund()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0017940998077392578
+        },
+        {
+          "id": "PioPurchaseTests/restoreJoiningRefreshWaitsForStableSnapshotAfterUpdate()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0005729198455810547
+        },
+        {
+          "id": "PioPurchaseTests/restoreRequiresPostSyncSnapshotEvenWithoutTransactionUpdate()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00018215179443359375
+        },
+        {
+          "id": "PioPurchaseTests/lateRefundOfOldTransactionPreservesRepurchasedOutfitAndPreference()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0019159317016601562
+        },
+        {
+          "id": "PioPurchaseTests/concurrentFinishCallersWaitForOneAcknowledgementAndCleanUp()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00030112266540527344
+        },
+        {
+          "id": "PioPurchaseTests/managerLifetimeDoesNotRetainOldTransactionListener()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00033283233642578125
+        },
+        {
+          "id": "PioPurchaseTests/localTestingPreferencesNeverChangeProductionSelections()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0027399063110351562
+        },
+        {
+          "id": "PioPurchaseTests/disabledGateNeverTouchesStoreOrImportsMocks()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 7.414817810058594e-05
+        },
+        {
+          "id": "PioWardrobeTests/durableLastSelectionSurvivesReopenButRequiresFreshVerifiedOwnership()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.003251791000366211
+        },
+        {
+          "id": "PioWardrobeTests/corruptOrUnsupportedSelectionFallsBackWithoutGrantingOwnership()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.002652883529663086
+        },
+        {
+          "id": "PioWardrobeTests/failedDurableWriteRejectsEquipAndPreservesPreviousPreference()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.002137899398803711
+        },
+        {
+          "id": "PioWardrobeTests/rejectedUnownedEquipNeverTouchesDurableOrLegacyPreferences()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0024127960205078125
+        },
+        {
+          "id": "PioWardrobeTests/durableSelectionProfilesCannotOverwriteOneAnother()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0018448829650878906
+        },
+        {
+          "id": "PioWardrobeTests/catalogHasFourteenUniqueHonestEntries()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00021600723266601562
+        },
+        {
+          "id": "PioWardrobeTests/everyCatalogArtworkLoadsFromTheAppBundleAtFullResolution()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00028705596923828125
+        },
+        {
+          "id": "PioWardrobeTests/basicIsAlwaysFreeAndUnownedSelectionsAreRejected()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0014193058013916016
+        },
+        {
+          "id": "PioWardrobeTests/unavailableShopNeverGrantsPaidWearingAndPreservesPreferences()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.001241922378540039
+        },
+        {
+          "id": "PioWardrobeTests/invalidOrUnownedStoredSelectionsFallBackSafely()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0009860992431640625
+        },
+        {
+          "id": "PioWardrobeTests/previewStagePersistsWithoutChangingOwnershipOrOutfit()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0014469623565673828
+        },
+        {
+          "id": "PioWardrobeTests/outfitTestingRequiresExactExplicitFlag()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.000102996826171875
+        },
+        {
+          "id": "PioWardrobeTests/outfitTestingAllowsEveryCostumeWithoutOwnershipOrIcons()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.002541065216064453
+        },
+        {
+          "id": "PioWardrobeTests/outfitTestingPreferencesAreSeparateAndSurviveEntitlementRepair()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0030939579010009766
+        },
+        {
+          "id": "PioWardrobeTests/stagePreviewAndLevelBoundariesNeverClearAnOwnedOutfit()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0014967918395996094
+        },
+        {
+          "id": "PioWardrobeTests/productionEntitlementBoundaryIsUnavailable()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 3.0994415283203125e-05
+        },
+        {
+          "id": "PioWardrobeTests/mockOwnershipPersistsWhileOutfitAndIconStayIndependent()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.001260995864868164
+        },
+        {
+          "id": "PioWardrobeTests/unknownMockIDsCannotBecomeOwnedAndResetRepairsOnlyUnownedSelections()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0014522075653076172
+        }
+      ],
+      "systemFailures": [],
+      "devices": [
+        {
+          "architecture": "arm64e",
+          "deviceId": "00008132-00111148148B801C",
+          "deviceName": "My Mac",
+          "modelName": "Mac mini",
+          "osBuildNumber": "26A434",
+          "osVersion": "27.0.1",
+          "platform": "macOS"
+        }
+      ],
+      "counts": {
+        "Passed": 86,
+        "Skipped": 3,
+        "Failed": 1
+      },
+      "status": "FAIL",
+      "start": "2026-10-24 14:17:59"
+    },
+    {
+      "log": "mac-first-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+      "logComplete": true,
+      "tests": [
+        {
+          "id": "PioCloudProductionTests/testFourteenProductionRegistrationsAndIndependentHold()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.03602802753448486
+        },
+        {
+          "id": "PioCloudProductionTests/testFourteenProductionTransitionsSuppressionAndReduceMotion()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.027393102645874023
+        },
+        {
+          "id": "PioCloudProductionTests/testProductionAppearanceAdapterPreservesAuthorizationAndNotes()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.0006920099258422852
+        },
+        {
+          "id": "PioCloudProductionTests/testProductionOffscreenWindowDetachStopsTracks()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.059985995292663574
+        },
+        {
+          "id": "PioCloudProductionTests/testProductionReduceMotionSuppressionAndSceneStop()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.0022019147872924805
+        },
+        {
+          "id": "PioCloudProductionTests/testSmallProductionPackAndIndependentEyeFrames()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 0.0018949508666992188
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testMacIntactScrollSubtreeReleasesNativeHost()",
+          "framework": "XCTest",
+          "result": "Failed",
+          "durationSeconds": 0.3732140064239502
+        },
+        {
+          "id": "PioAppIconTests/missingPremiumIconFilesCannotBeSelected()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0004761219024658203
+        },
+        {
+          "id": "PioAppIconTests/cancellationIsSilentAndPendingNeverSaysOwned()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 9.107589721679688e-05
+        },
+        {
+          "id": "PioVacationFinalArtworkTests/testNativeEyeCandidateActualPresentationSequence()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 4.06737494468689
+        },
+        {
+          "id": "PioVacationFinalArtworkTests/testNativePreciselyReconstructedEyeRegions()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 1.1209440231323242
+        },
+        {
+          "id": "PioAppearanceTests/stageBoundariesMatchApprovedGrowthWithoutChangingCostume()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0012857913970947266
+        },
+        {
+          "id": "PioAppearanceTests/allFourteenCatalogEntriesResolveTheirApprovedArtwork()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.001972198486328125
+        },
+        {
+          "id": "PioAppearanceTests/unknownPreferencesNeverGrantPaidAppearanceOrEraseSelection()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0017881393432617188
+        },
+        {
+          "id": "PioAppearanceTests/previewsNeverAuthorizeEquipOrChangeGlobalAppearance()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00032901763916015625
+        },
+        {
+          "id": "PioAppearanceTests/composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()",
+          "framework": "Swift Testing",
+          "result": "Failed",
+          "durationSeconds": 0.005210161209106445
+        },
+        {
+          "id": "PioAppearanceTests/standingOutfitsAreNeverCompositedAsRecliningOrSleeping()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.001416921615600586
+        },
+        {
+          "id": "PioAppearanceTests/fallbackMotionsNeverClaimIndependentWingsOrWalking()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0015439987182617188
+        },
+        {
+          "id": "PioAppearanceTests/approvedLayeredPilotRemainsExplicitAndDoesNotInventGrowthStages()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0010180473327636719
+        },
+        {
+          "id": "PioAppearanceTests/growthSourceIsLiveAndAllScreenReadsUseIt()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0009608268737792969
+        },
+        {
+          "id": "PioAppearanceTests/appearanceReadsTrackWardrobeAndLiveGrowthChanges()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0008199214935302734
+        },
+        {
+          "id": "PioAppearanceTests/outfitAndAppIconStayIndependentAfterRefreshAndReopen()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0011570453643798828
+        },
+        {
+          "id": "PioAppearanceTests/missingSourceArtworkAndAbsentWidgetSurfacesAreExplicit()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0002620220184326172
+        },
+        {
+          "id": "PioAppearanceTests/testingModeAuthorizesAllCostumesWithoutVerifiedAccess()",
+          "framework": "Swift Testing",
+          "result": "Failed",
+          "durationSeconds": 0.004314899444580078
+        },
+        {
+          "id": "PioAppearanceTests/legacyMockOwnershipCannotAuthorizeGlobalAppearance()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0011570453643798828
+        },
+        {
+          "id": "PioOutfitMotionTests/capabilitiesNeverPretendCostumesHaveIndependentPartsOrGrowthArt()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00019812583923339844
+        },
+        {
+          "id": "PioOutfitMotionTests/visibilityPauseAndReduceMotionRemoveAllTracksIncludingTheBasicWing()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0006399154663085938
+        },
+        {
+          "id": "PioOutfitMotionTests/activeTelemetrySurvivesResetAndDoesNotRetainDestroyedRigs()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.000263214111328125
+        },
+        {
+          "id": "PioOutfitMotionTests/unchangedUpdatesAndPartialStageChangesDoNotReconfigureOrDecode()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00021195411682128906
+        },
+        {
+          "id": "PioOutfitMotionTests/decodedArtworkIsReusedAndUnsupportedWaveFallsBackHonestly()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.000202178955078125
+        },
+        {
+          "id": "PioOverhaulRigTests/allFourteenOutfitsResolveWithoutReplacingOriginalPilots()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.04479789733886719
+        },
+        {
+          "id": "PioOverhaulRigTests/heldPropsShareTheirHandJointAndAnimation()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0016703605651855469
+        },
+        {
+          "id": "PioOverhaulRigTests/eyeStatesAreExclusiveAndStayBehindOpticalLayers()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.003317117691040039
+        },
+        {
+          "id": "PioOverhaulRigTests/motionChangesDoNotRebuildLayersAndStoppingRemovesAllTracks()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.001627206802368164
+        },
+        {
+          "id": "PioOverhaulRigTests/jumpBounceAndGreetingHaveDifferentVisibleTrajectories()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0004818439483642578
+        },
+        {
+          "id": "PioOverhaulRigTests/landingRecoversWithoutStartingAnotherJump()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0002562999725341797
+        },
+        {
+          "id": "PioOverhaulRigTests/twoHandedPropsStayWithinValidatedRotation()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0025920867919921875
+        },
+        {
+          "id": "PioProductRegistryTests/everyPaidOutfitMapsOnceAndBasicIsNotAProduct()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 7.390975952148438e-05
+        },
+        {
+          "id": "PioProductRegistryTests/artworkAndPreferenceKeysRemainIndependentOfRegisteredProductNames()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 3.2901763916015625e-05
+        },
+        {
+          "id": "PioPurchaseTests/environmentPoliciesNeverMixLocalAndAppleTransactions()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0007729530334472656
+        },
+        {
+          "id": "PioPurchaseTests/unconfirmedOrUnknownCatalogConfigurationStaysDisabled()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 9.322166442871094e-05
+        },
+        {
+          "id": "PioPurchaseTests/revokedSnapshotCannotBeUndoneByDelayedVerifiedUpdate()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00026297569274902344
+        },
+        {
+          "id": "PioPurchaseTests/stalePurchaseResultForPreviouslyRevokedIDNeverReportsPurchased()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 9.107589721679688e-05
+        },
+        {
+          "id": "PioPurchaseTests/purchaseRevokedWhileFinishingCannotReportSuccess()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00019288063049316406
+        },
+        {
+          "id": "PioPurchaseTests/publicNestedCancellationIsRecognizedWithoutPrivateServerCodeMapping()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0008449554443359375
+        },
+        {
+          "id": "PioPurchaseTests/explicitStopIsIdempotentAndManagerCanRestartItsListener()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00025916099548339844
+        },
+        {
+          "id": "PioPurchaseTests/stopWaitsForAnAlreadyDeliveredVerifiedTransactionToFinish()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0002777576446533203
+        },
+        {
+          "id": "PioPurchaseTests/registryMatchesApprovedCatalogAndOnlyNonBasicProducts()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 8.606910705566406e-05
+        },
+        {
+          "id": "PioPurchaseTests/productsUseLocalizedPricesAndMissingProductsCannotBePurchased()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 3.790855407714844e-05
+        },
+        {
+          "id": "PioPurchaseTests/productFailureCanBeRetried()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 5.602836608886719e-05
+        },
+        {
+          "id": "PioPurchaseTests/successfulPurchaseGrantsAndFinishesOnlyVerifiedTransaction()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 6.604194641113281e-05
+        },
+        {
+          "id": "PioPurchaseTests/cancellationPendingAndVerificationFailureNeverUnlock()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 9.107589721679688e-05
+        },
+        {
+          "id": "PioPurchaseTests/purchaseErrorsClearBusyStateAndCanRetry()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 5.0067901611328125e-05
+        },
+        {
+          "id": "PioPurchaseTests/mismatchedOrRevokedPurchaseResultNeverUnlocks()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 7.104873657226562e-05
+        },
+        {
+          "id": "PioPurchaseTests/duplicateTapsAndRestoreDuringPaymentAreRejected()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00013065338134765625
+        },
+        {
+          "id": "PioPurchaseTests/refreshFailureRetainsPreviouslyVerifiedOwnership()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 9.512901306152344e-05
+        },
+        {
+          "id": "PioPurchaseTests/confirmedAbsenceRevokesAndPreservesOtherPreferences()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0015683174133300781
+        },
+        {
+          "id": "PioPurchaseTests/reopenWaitsForVerifiedLedgerAndNeverTrustsMockDefaults()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0011301040649414062
+        },
+        {
+          "id": "PioPurchaseTests/restoreIsExplicitHandlesEmptySuccessAndCancellation()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00015783309936523438
+        },
+        {
+          "id": "PioPurchaseTests/unverifiedSnapshotCannotGrantOrReportSuccessfulRestore()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00010275840759277344
+        },
+        {
+          "id": "PioPurchaseTests/transactionUpdatesDeliverPendingPurchaseAndRefund()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0011339187622070312
+        },
+        {
+          "id": "PioPurchaseTests/restoreJoiningRefreshWaitsForStableSnapshotAfterUpdate()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0002512931823730469
+        },
+        {
+          "id": "PioPurchaseTests/restoreRequiresPostSyncSnapshotEvenWithoutTransactionUpdate()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00019598007202148438
+        },
+        {
+          "id": "PioPurchaseTests/lateRefundOfOldTransactionPreservesRepurchasedOutfitAndPreference()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0012021064758300781
+        },
+        {
+          "id": "PioPurchaseTests/concurrentFinishCallersWaitForOneAcknowledgementAndCleanUp()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0001709461212158203
+        },
+        {
+          "id": "PioPurchaseTests/managerLifetimeDoesNotRetainOldTransactionListener()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0001888275146484375
+        },
+        {
+          "id": "PioPurchaseTests/localTestingPreferencesNeverChangeProductionSelections()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0019931793212890625
+        },
+        {
+          "id": "PioPurchaseTests/disabledGateNeverTouchesStoreOrImportsMocks()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 3.600120544433594e-05
+        },
+        {
+          "id": "PioWardrobeTests/durableLastSelectionSurvivesReopenButRequiresFreshVerifiedOwnership()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0024309158325195312
+        },
+        {
+          "id": "PioWardrobeTests/corruptOrUnsupportedSelectionFallsBackWithoutGrantingOwnership()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0017838478088378906
+        },
+        {
+          "id": "PioWardrobeTests/failedDurableWriteRejectsEquipAndPreservesPreviousPreference()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.001367807388305664
+        },
+        {
+          "id": "PioWardrobeTests/rejectedUnownedEquipNeverTouchesDurableOrLegacyPreferences()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0017707347869873047
+        },
+        {
+          "id": "PioWardrobeTests/durableSelectionProfilesCannotOverwriteOneAnother()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0018591880798339844
+        },
+        {
+          "id": "PioWardrobeTests/catalogHasFourteenUniqueHonestEntries()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00021600723266601562
+        },
+        {
+          "id": "PioWardrobeTests/everyCatalogArtworkLoadsFromTheAppBundleAtFullResolution()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.00028586387634277344
+        },
+        {
+          "id": "PioWardrobeTests/basicIsAlwaysFreeAndUnownedSelectionsAreRejected()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.001049041748046875
+        },
+        {
+          "id": "PioWardrobeTests/unavailableShopNeverGrantsPaidWearingAndPreservesPreferences()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0008070468902587891
+        },
+        {
+          "id": "PioWardrobeTests/invalidOrUnownedStoredSelectionsFallBackSafely()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0008988380432128906
+        },
+        {
+          "id": "PioWardrobeTests/previewStagePersistsWithoutChangingOwnershipOrOutfit()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0009801387786865234
+        },
+        {
+          "id": "PioWardrobeTests/outfitTestingRequiresExactExplicitFlag()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 7.796287536621094e-05
+        },
+        {
+          "id": "PioWardrobeTests/outfitTestingAllowsEveryCostumeWithoutOwnershipOrIcons()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0012416839599609375
+        },
+        {
+          "id": "PioWardrobeTests/outfitTestingPreferencesAreSeparateAndSurviveEntitlementRepair()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.002092123031616211
+        },
+        {
+          "id": "PioWardrobeTests/stagePreviewAndLevelBoundariesNeverClearAnOwnedOutfit()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0010962486267089844
+        },
+        {
+          "id": "PioWardrobeTests/productionEntitlementBoundaryIsUnavailable()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 2.7894973754882812e-05
+        },
+        {
+          "id": "PioWardrobeTests/mockOwnershipPersistsWhileOutfitAndIconStayIndependent()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0011050701141357422
+        },
+        {
+          "id": "PioWardrobeTests/unknownMockIDsCannotBecomeOwnedAndResetRepairsOnlyUnownedSelections()",
+          "framework": "Swift Testing",
+          "result": "Passed",
+          "durationSeconds": 0.0013370513916015625
+        }
+      ],
+      "systemFailures": [],
+      "devices": [
+        {
+          "architecture": "arm64e",
+          "deviceId": "00008132-00111148148B801C",
+          "deviceName": "My Mac",
+          "modelName": "Mac mini",
+          "osBuildNumber": "26A434",
+          "osVersion": "27.0.1",
+          "platform": "macOS"
+        }
+      ],
+      "counts": {
+        "Passed": 83,
+        "Failed": 3
+      },
+      "status": "FAIL",
+      "start": "2026-10-24 14:10:27"
+    },
+    {
+      "log": "mac-performance-after-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-Mac-performance-after-20261024.xcresult",
+      "logComplete": true,
+      "tests": [
+        {
+          "id": "PioProductionFinalLifecycleTests/testFiftyVisibleCloudAttachDetachCycles()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 8.075057029724121
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testFourteenOutfitsThreeVisibleSequentialPasses()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 7.051048994064331
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testHomeReferenceFourteenOutfitsTwoVisiblePasses()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 4.570731043815613
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testPairedVisibleActiveStoppedProcessObservations()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 36.341143012046814
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testTenVisibleCloudAttachDetachCycles()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 1.651223063468933
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testTwentyVisibleCloudAttachDetachCycles()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 3.2539960145950317
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testVacationFourteenDayNightTwoVisiblePasses()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 11.235016942024231
+        }
+      ],
+      "systemFailures": [],
+      "devices": [
+        {
+          "architecture": "arm64e",
+          "deviceId": "00008132-00111148148B801C",
+          "deviceName": "My Mac",
+          "modelName": "Mac mini",
+          "osBuildNumber": "26A434",
+          "osVersion": "27.0.1",
+          "platform": "macOS"
+        }
+      ],
+      "counts": {
+        "Passed": 7
+      },
+      "status": "PASS",
+      "start": "2026-10-24 14:46:24"
+    },
+    {
+      "log": "mac-performance-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-Mac-performance-20261024.xcresult",
+      "logComplete": true,
+      "tests": [
+        {
+          "id": "PioProductionFinalLifecycleTests/testFiftyVisibleCloudAttachDetachCycles()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 8.087417006492615
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testFourteenOutfitsThreeVisibleSequentialPasses()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 7.4052019119262695
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testHomeReferenceFourteenOutfitsTwoVisiblePasses()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 4.611771941184998
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testPairedVisibleActiveStoppedProcessObservations()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 36.38346290588379
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testTenVisibleCloudAttachDetachCycles()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 1.6502729654312134
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testTwentyVisibleCloudAttachDetachCycles()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 3.265702962875366
+        },
+        {
+          "id": "PioProductionFinalLifecycleTests/testVacationFourteenDayNightTwoVisiblePasses()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 11.48721194267273
+        }
+      ],
+      "systemFailures": [],
+      "devices": [
+        {
+          "architecture": "arm64e",
+          "deviceId": "00008132-00111148148B801C",
+          "deviceName": "My Mac",
+          "modelName": "Mac mini",
+          "osBuildNumber": "26A434",
+          "osVersion": "27.0.1",
+          "platform": "macOS"
+        }
+      ],
+      "counts": {
+        "Passed": 7
+      },
+      "status": "PASS",
+      "start": "2026-10-24 14:30:15"
+    },
+    {
+      "log": "mac-visual-tests.log",
+      "xcresult": "/tmp/PioProductionFinal-Mac-visual-20261024.xcresult",
+      "logComplete": true,
+      "tests": [
+        {
+          "id": "PioCloudCandidateReviewTests/testActualPresentationSequence()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 5.186954975128174
+        },
+        {
+          "id": "PioCloudCandidateReviewTests/testBatchActualIndependentBlinkAndHeldPresentation()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 68.63511300086975
+        },
+        {
+          "id": "PioCloudCandidateReviewTests/testBatchCandidateRegistrationNeutralAndStop()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 1.2784010171890259
+        },
+        {
+          "id": "PioProductionFinalVisualTests/testFourteenHomeProductionMotionFrames()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 11.987543940544128
+        },
+        {
+          "id": "PioProductionFinalVisualTests/testFourteenVacationDayNightActualMotionFrames()",
+          "framework": "XCTest",
+          "result": "Passed",
+          "durationSeconds": 113.18594110012054
+        }
+      ],
+      "systemFailures": [],
+      "devices": [
+        {
+          "architecture": "arm64e",
+          "deviceId": "00008132-00111148148B801C",
+          "deviceName": "My Mac",
+          "modelName": "Mac mini",
+          "osBuildNumber": "26A434",
+          "osVersion": "27.0.1",
+          "platform": "macOS"
+        }
+      ],
+      "counts": {
+        "Passed": 5
+      },
+      "status": "PASS",
+      "start": "2026-10-24 14:19:58"
+    }
+  ],
+  "uniqueTests": [
+    {
+      "id": "PioAppIconTests/cancellationIsSilentAndPendingNeverSaysOwned()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppIconTests/missingPremiumIconFilesCannotBeSelected()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/allFourteenCatalogEntriesResolveTheirApprovedArtwork()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/appearanceReadsTrackWardrobeAndLiveGrowthChanges()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/approvedLayeredPilotRemainsExplicitAndDoesNotInventGrowthStages()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose()",
+      "framework": "Swift Testing",
+      "everFailed": true,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Failed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/fallbackMotionsNeverClaimIndependentWingsOrWalking()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/growthSourceIsLiveAndAllScreenReadsUseIt()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/legacyMockOwnershipCannotAuthorizeGlobalAppearance()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/missingSourceArtworkAndAbsentWidgetSurfacesAreExplicit()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/outfitAndAppIconStayIndependentAfterRefreshAndReopen()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/previewsNeverAuthorizeEquipOrChangeGlobalAppearance()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/stageBoundariesMatchApprovedGrowthWithoutChangingCostume()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/standingOutfitsAreNeverCompositedAsRecliningOrSleeping()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/testingModeAuthorizesAllCostumesWithoutVerifiedAccess()",
+      "framework": "Swift Testing",
+      "everFailed": true,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Failed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioAppearanceTests/unknownPreferencesNeverGrantPaidAppearanceOrEraseSelection()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudCandidateReviewTests/testActualPresentationSequence()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed",
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-visual-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-visual-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:19:58"
+        },
+        {
+          "log": "iphone17-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:37:31"
+        },
+        {
+          "log": "iphone17-final2-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-final2-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 15:09:01"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudCandidateReviewTests/testBatchActualIndependentBlinkAndHeldPresentation()",
+      "framework": "XCTest",
+      "everFailed": true,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed",
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-visual-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-visual-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:19:58"
+        },
+        {
+          "log": "iphone17-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Failed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:37:31"
+        },
+        {
+          "log": "iphone17-final2-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-final2-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 15:09:01"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudCandidateReviewTests/testBatchCandidateRegistrationNeutralAndStop()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed",
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-visual-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-visual-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:19:58"
+        },
+        {
+          "log": "iphone17-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:37:31"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudProductionTests/testFourteenProductionRegistrationsAndIndependentHold()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed",
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:17:59"
+        },
+        {
+          "log": "mac-alias-regression-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-alias-regression-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:49:02"
+        },
+        {
+          "log": "iphone17-final2-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-final2-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 15:09:01"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudProductionTests/testFourteenProductionTransitionsSuppressionAndReduceMotion()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed",
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:17:59"
+        },
+        {
+          "log": "mac-alias-regression-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-alias-regression-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:49:02"
+        },
+        {
+          "log": "iphone17-final2-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-final2-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 15:09:01"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudProductionTests/testProductionAppearanceAdapterPreservesAuthorizationAndNotes()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed",
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:17:59"
+        },
+        {
+          "log": "iphone17-final2-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-final2-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 15:09:01"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudProductionTests/testProductionBasicLiveAndStoppedObservations()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Skipped"
+      },
+      "observations": [
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Skipped",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudProductionTests/testProductionOffscreenWindowDetachStopsTracks()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed",
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:17:59"
+        },
+        {
+          "log": "mac-alias-regression-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-alias-regression-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:49:02"
+        },
+        {
+          "log": "iphone17-final2-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-final2-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 15:09:01"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudProductionTests/testProductionReduceMotionSuppressionAndSceneStop()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudProductionTests/testProductionRepeatedAttachDetachObservations()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Skipped"
+      },
+      "observations": [
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Skipped",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudProductionTests/testSmallProductionPackAndIndependentEyeFrames()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudProductionTests/testVisibleNativeSceneHostForScreenshot()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Skipped"
+      },
+      "observations": [
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Skipped",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudTextureAliasesTests/testAllRegisteredProductionTexturesHaveIdempotentAliases()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed",
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-alias-regression-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-alias-regression-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:49:02"
+        },
+        {
+          "log": "iphone17-final2-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-final2-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 15:09:01"
+        }
+      ]
+    },
+    {
+      "id": "PioCloudTextureAliasesTests/testEveryCanonicalTextureHasIdenticalNativeDecodedPixels()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed",
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-alias-regression-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-alias-regression-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:49:02"
+        },
+        {
+          "log": "iphone17-final2-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-final2-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 15:09:01"
+        }
+      ]
+    },
+    {
+      "id": "PioHeaderCompletionTests/testGestureAutomaticallyReturnsToIdleWithoutAnotherTap()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioHeaderInteractionTests/testLeavingScreenCancelsAndRejectsStaleCompletion()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioHeaderInteractionTests/testNativeHeaderReusesJointsWithTinyIdleAndFiniteTapTracks()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioHeaderInteractionTests/testProductionFallbackUsesOnlyAvailableMotionsForAllOutfits()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioHeaderInteractionTests/testProgressReactionDoesNotConsumeTapSequence()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioHeaderInteractionTests/testResponsesAreBoundedAndDoNotOverlap()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioMacStabilityReviewTests/testActualWindowVisibilityTransitions()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-alias-regression-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-alias-regression-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:49:02"
+        }
+      ]
+    },
+    {
+      "id": "PioOutfitMotionTests/activeTelemetrySurvivesResetAndDoesNotRetainDestroyedRigs()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioOutfitMotionTests/capabilitiesNeverPretendCostumesHaveIndependentPartsOrGrowthArt()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioOutfitMotionTests/decodedArtworkIsReusedAndUnsupportedWaveFallsBackHonestly()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioOutfitMotionTests/unchangedUpdatesAndPartialStageChangesDoNotReconfigureOrDecode()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioOutfitMotionTests/visibilityPauseAndReduceMotionRemoveAllTracksIncludingTheBasicWing()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioOverhaulRigTests/allFourteenOutfitsResolveWithoutReplacingOriginalPilots()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioOverhaulRigTests/eyeStatesAreExclusiveAndStayBehindOpticalLayers()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioOverhaulRigTests/heldPropsShareTheirHandJointAndAnimation()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioOverhaulRigTests/jumpBounceAndGreetingHaveDifferentVisibleTrajectories()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioOverhaulRigTests/landingRecoversWithoutStartingAnotherJump()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioOverhaulRigTests/motionChangesDoNotRebuildLayersAndStoppingRemovesAllTracks()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioOverhaulRigTests/twoHandedPropsStayWithinValidatedRotation()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioProductRegistryTests/artworkAndPreferenceKeysRemainIndependentOfRegisteredProductNames()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioProductRegistryTests/everyPaidOutfitMapsOnceAndBasicIsNotAProduct()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioProductionFinalLifecycleTests/testFiftyVisibleCloudAttachDetachCycles()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-performance-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:30:15"
+        },
+        {
+          "log": "mac-performance-after-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-after-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:46:24"
+        }
+      ]
+    },
+    {
+      "id": "PioProductionFinalLifecycleTests/testFourteenOutfitsThreeVisibleSequentialPasses()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-performance-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:30:15"
+        },
+        {
+          "log": "mac-performance-after-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-after-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:46:24"
+        }
+      ]
+    },
+    {
+      "id": "PioProductionFinalLifecycleTests/testHomeReferenceFourteenOutfitsTwoVisiblePasses()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-performance-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:30:15"
+        },
+        {
+          "log": "mac-performance-after-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-after-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:46:24"
+        }
+      ]
+    },
+    {
+      "id": "PioProductionFinalLifecycleTests/testMacIntactScrollSubtreeReleasesNativeHost()",
+      "framework": "XCTest",
+      "everFailed": true,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Failed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:17:59"
+        },
+        {
+          "log": "mac-art-lifetime-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-lifetime-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:28:24"
+        }
+      ]
+    },
+    {
+      "id": "PioProductionFinalLifecycleTests/testMacPlainSwiftUIScrollSubtreeOwnershipControl()",
+      "framework": "XCTest",
+      "everFailed": true,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-lifetime-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-lifetime-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Failed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:28:24"
+        },
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioProductionFinalLifecycleTests/testMacVacationSwiftUIScrollSubtreeReleasesNativeView()",
+      "framework": "XCTest",
+      "everFailed": true,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Failed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:17:59"
+        },
+        {
+          "log": "mac-art-lifetime-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-lifetime-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:28:24"
+        }
+      ]
+    },
+    {
+      "id": "PioProductionFinalLifecycleTests/testPairedVisibleActiveStoppedProcessObservations()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-performance-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:30:15"
+        },
+        {
+          "log": "mac-performance-after-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-after-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:46:24"
+        }
+      ]
+    },
+    {
+      "id": "PioProductionFinalLifecycleTests/testTenVisibleCloudAttachDetachCycles()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-performance-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:30:15"
+        },
+        {
+          "log": "mac-performance-after-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-after-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:46:24"
+        }
+      ]
+    },
+    {
+      "id": "PioProductionFinalLifecycleTests/testTwentyVisibleCloudAttachDetachCycles()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-performance-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:30:15"
+        },
+        {
+          "log": "mac-performance-after-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-after-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:46:24"
+        }
+      ]
+    },
+    {
+      "id": "PioProductionFinalLifecycleTests/testVacationFourteenDayNightTwoVisiblePasses()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-performance-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:30:15"
+        },
+        {
+          "log": "mac-performance-after-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-performance-after-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:46:24"
+        }
+      ]
+    },
+    {
+      "id": "PioProductionFinalScreenTests/testActualDeviceScreensAndAccessibilityLayouts()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed",
+        "iOS Simulator / Pio Small Phone QA 2026-10-24": "Passed",
+        "iOS Simulator / Pio iPad QA 2026-10-24": "Passed"
+      },
+      "observations": [
+        {
+          "log": "iphone17-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:37:31"
+        },
+        {
+          "log": "iphone17-final2-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-final2-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 15:09:01"
+        },
+        {
+          "log": "SmallPhone-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-SmallPhone-final-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Small Phone QA 2026-10-24",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 15:11:17"
+        },
+        {
+          "log": "iPad-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPad-final-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio iPad QA 2026-10-24",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 15:13:16"
+        }
+      ]
+    },
+    {
+      "id": "PioProductionFinalVisualTests/testFourteenHomeProductionMotionFrames()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed",
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-visual-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-visual-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:19:58"
+        },
+        {
+          "log": "iphone17-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:37:31"
+        }
+      ]
+    },
+    {
+      "id": "PioProductionFinalVisualTests/testFourteenVacationDayNightActualMotionFrames()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed",
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-visual-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-visual-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:19:58"
+        },
+        {
+          "log": "iphone17-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:37:31"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/cancellationPendingAndVerificationFailureNeverUnlock()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/concurrentFinishCallersWaitForOneAcknowledgementAndCleanUp()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/confirmedAbsenceRevokesAndPreservesOtherPreferences()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/disabledGateNeverTouchesStoreOrImportsMocks()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/duplicateTapsAndRestoreDuringPaymentAreRejected()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/environmentPoliciesNeverMixLocalAndAppleTransactions()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/explicitStopIsIdempotentAndManagerCanRestartItsListener()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/lateRefundOfOldTransactionPreservesRepurchasedOutfitAndPreference()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/localTestingPreferencesNeverChangeProductionSelections()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/managerLifetimeDoesNotRetainOldTransactionListener()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/mismatchedOrRevokedPurchaseResultNeverUnlocks()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/productFailureCanBeRetried()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/productsUseLocalizedPricesAndMissingProductsCannotBePurchased()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/publicNestedCancellationIsRecognizedWithoutPrivateServerCodeMapping()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/purchaseErrorsClearBusyStateAndCanRetry()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/purchaseRevokedWhileFinishingCannotReportSuccess()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/refreshFailureRetainsPreviouslyVerifiedOwnership()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/registryMatchesApprovedCatalogAndOnlyNonBasicProducts()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/reopenWaitsForVerifiedLedgerAndNeverTrustsMockDefaults()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/restoreIsExplicitHandlesEmptySuccessAndCancellation()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/restoreJoiningRefreshWaitsForStableSnapshotAfterUpdate()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/restoreRequiresPostSyncSnapshotEvenWithoutTransactionUpdate()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/revokedSnapshotCannotBeUndoneByDelayedVerifiedUpdate()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/stalePurchaseResultForPreviouslyRevokedIDNeverReportsPurchased()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/stopWaitsForAnAlreadyDeliveredVerifiedTransactionToFinish()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/successfulPurchaseGrantsAndFinishesOnlyVerifiedTransaction()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/transactionUpdatesDeliverPendingPurchaseAndRefund()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/unconfirmedOrUnknownCatalogConfigurationStaysDisabled()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioPurchaseTests/unverifiedSnapshotCannotGrantOrReportSuccessfulRestore()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioVacationFinalArtworkTests/testBasicDayProductionEyesNativePlayback()",
+      "framework": "XCTest",
+      "everFailed": true,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-lifetime-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-lifetime-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Failed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:28:24"
+        },
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioVacationFinalArtworkTests/testBasicDayProductionEyesPreserveNightPaidAndLifecycle()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-lifetime-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-lifetime-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:28:24"
+        },
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioVacationFinalArtworkTests/testNativeEyeCandidateActualPresentationSequence()",
+      "framework": "XCTest",
+      "everFailed": true,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:17:59"
+        },
+        {
+          "log": "mac-art-lifetime-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-lifetime-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Failed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:28:24"
+        },
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioVacationFinalArtworkTests/testNativePreciselyReconstructedEyeRegions()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:17:59"
+        },
+        {
+          "log": "mac-art-lifetime-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-lifetime-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:28:24"
+        },
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioVacationProductionTests/testBasicDayEyeResourcesAndLifecycle()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed"
+      },
+      "observations": [
+        {
+          "log": "iphone17-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:37:31"
+        }
+      ]
+    },
+    {
+      "id": "PioVacationProductionTests/testBasicDayEyesActualUIKitPresentationAt64And220()",
+      "framework": "XCTest",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "iOS Simulator / Pio Motion Review 2026-10-23": "Passed"
+      },
+      "observations": [
+        {
+          "log": "iphone17-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-iPhone17-20261024.xcresult",
+          "platform": "iOS Simulator",
+          "device": "Pio Motion Review 2026-10-23",
+          "result": "Passed",
+          "framework": "XCTest",
+          "start": "2026-10-24 14:37:31"
+        }
+      ]
+    },
+    {
+      "id": "PioVacationSceneIntegrationTests/allThirteenOutfitsHaveNativeDayAndNightArtworkWithTransparentPixels()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioVacationSceneIntegrationTests/everyCandidateRegistrationKeepsPivotFixedAndBeachStationaryAtSwayExtremes()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioVacationSceneIntegrationTests/pendingVerificationShowsOnlyBeachAndStopsAnyPreviousForegroundMotion()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioVacationSceneIntegrationTests/reduceMotionAndInactiveOrInvisibleScenesRemoveForegroundAnimation()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/basicIsAlwaysFreeAndUnownedSelectionsAreRejected()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/catalogHasFourteenUniqueHonestEntries()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/corruptOrUnsupportedSelectionFallsBackWithoutGrantingOwnership()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/durableLastSelectionSurvivesReopenButRequiresFreshVerifiedOwnership()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/durableSelectionProfilesCannotOverwriteOneAnother()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/everyCatalogArtworkLoadsFromTheAppBundleAtFullResolution()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/failedDurableWriteRejectsEquipAndPreservesPreviousPreference()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/invalidOrUnownedStoredSelectionsFallBackSafely()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/mockOwnershipPersistsWhileOutfitAndIconStayIndependent()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/outfitTestingAllowsEveryCostumeWithoutOwnershipOrIcons()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/outfitTestingPreferencesAreSeparateAndSurviveEntitlementRepair()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/outfitTestingRequiresExactExplicitFlag()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/previewStagePersistsWithoutChangingOwnershipOrOutfit()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/productionEntitlementBoundaryIsUnavailable()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/rejectedUnownedEquipNeverTouchesDurableOrLegacyPreferences()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/stagePreviewAndLevelBoundariesNeverClearAnOwnedOutfit()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/unavailableShopNeverGrantsPaidWearingAndPreservesPreferences()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "PioWardrobeTests/unknownMockIDsCannotBecomeOwnedAndResetRepairsOnlyUnownedSelections()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-first-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-first-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:10:27"
+        },
+        {
+          "log": "mac-corrected-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:17:59"
+        }
+      ]
+    },
+    {
+      "id": "RoutimoriSyncTests/repeatedUpdatesDoNotAccumulateTracksAndActivityStops()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "RoutimoriSyncTests/sceneTransitionReplacesMotionAndReduceMotionStopsEveryLayer()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "RoutimoriVacationTests/changingTimeOfDaySelectsRegisteredArtworkWithoutRestartingSway()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "RoutimoriVacationTests/registeredImagesStayAlignedAndTheRopeAnchorDoesNotMove()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    },
+    {
+      "id": "RoutimoriVacationTests/swayStopsRestoresAndNeverAnimatesTheBeach()",
+      "framework": "Swift Testing",
+      "everFailed": false,
+      "latestObservedByDevice": {
+        "macOS / My Mac": "Passed"
+      },
+      "observations": [
+        {
+          "log": "mac-art-final-tests.log",
+          "xcresult": "/tmp/PioProductionFinal-Mac-art-final-20261024.xcresult",
+          "platform": "macOS",
+          "device": "My Mac",
+          "result": "Passed",
+          "framework": "Swift Testing",
+          "start": "2026-10-24 14:33:07"
+        }
+      ]
+    }
+  ],
+  "uniqueCount": 126,
+  "uniqueByFramework": {
+    "Swift Testing": 86,
+    "XCTest": 40
+  },
+  "uniqueExecutedCount": 123,
+  "uniqueExecutedByFramework": {
+    "Swift Testing": 86,
+    "XCTest": 37
+  },
+  "uniqueSkippedOnlyCount": 3
+}

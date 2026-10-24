@@ -1,0 +1,56 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /private/tmp/PioStoreKit-20261023-ios/Build/Products/PioProcessRelaunch-a2414e4d-e306-470a-b90b-00e148eafa51-seed.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitProcessRelaunchTests/testSeedVerifiedLedgerInFirstProcess" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-polish-2026-10-23/verified-relaunch/seed.xcresult
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-polish-2026-10-23/verified-relaunch/seed.xcresult
+
+2026-10-23 23:00:21.607 xcodebuild[34022:1209948] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 23:00:43.308937+0900 Daylog[34226:1212052] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 23:00:44.128436+0900 Daylog[34226:1212052] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 23:00:44.155112+0900 Daylog[34226:1212052] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 23:00:44.159481+0900 Daylog[34226:1212052] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 23:00:44.388.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 23:00:44.388.
+Test Suite 'PioStoreKitProcessRelaunchTests' started at 2026-10-23 23:00:44.388.
+Test Case '-[DaylogStoreKitTests.PioStoreKitProcessRelaunchTests testSeedVerifiedLedgerInFirstProcess]' started.
+objc[34226]: Class UIAccessibilityLoaderWebShared is implemented in both /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebKit.axbundle/WebKit (0x10f3b8398) and /Library/Developer/CoreSimulator/Volumes/iOS_24A434/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 27.0.simruntime/Contents/Resources/RuntimeRoot/System/Library/AccessibilityBundles/WebCore.axbundle/WebCore (0x121bcc310). This may cause spurious casting failures and mysterious crashes. One of the duplicates must be removed or renamed.
+PioStoreKit: client=CAEB6E71 time=1792764044.557681 raw listener started subscription=292EFB70-155E-4819-BCFB-85C93D7B8A4E
+PioStoreKit: client=CAEB6E71 time=1792764044.729512 raw verified update id=0 product=outfit.cafe environment=Environment(rawValue: "Xcode") revoked=false
+PioStoreKit: client=CAEB6E71 time=1792764044.729568 accepted id=0 product=outfit.cafe revoked=false
+PioStoreKit: client=CAEB6E71 time=1792764044.7297158 accepted id=0 product=outfit.cafe revoked=false
+PioStoreKit: client=CAEB6E71 time=1792764044.730616 finish requested id=0 cached=true inFlight=0
+PioStoreKit: client=CAEB6E71 time=1792764044.73069 finish begin id=0 product=outfit.cafe revoked=false
+PioStoreKit: client=CAEB6E71 time=1792764044.736603 finish returned id=0
+PioStoreKit: client=CAEB6E71 time=1792764044.737832 accepted id=0 product=outfit.cafe revoked=false
+PioStoreKit: client=CAEB6E71 time=1792764044.7457151 raw listener ended subscription=292EFB70-155E-4819-BCFB-85C93D7B8A4E
+PIO_VERIFIED_SCENES outfit=cafe contexts=dashboard,cloudDownloading,cloudCompleted,cloudFailed,vacationDay,vacationNight layeredTrial=true ownership=verified-Xcode-fixture previewMutation=false
+PIO_PROCESS_RELAUNCH {
+  "environment" : "Xcode",
+  "phase" : "seed",
+  "pid" : 34226,
+  "productID" : "outfit.cafe",
+  "seedMethod" : "storekit-test",
+  "seedTime" : 1792764044.74455,
+  "suite" : "PioStoreKitProcessRelaunchTests.a2414e4d-e306-470a-b90b-00e148eafa51",
+  "transactionID" : "0"
+}
+Test Case '-[DaylogStoreKitTests.PioStoreKitProcessRelaunchTests testSeedVerifiedLedgerInFirstProcess]' passed (0.357 seconds).
+Test Suite 'PioStoreKitProcessRelaunchTests' passed at 2026-10-23 23:00:44.752.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.357 (0.364) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-23 23:00:44.752.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.357 (0.364) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 23:00:44.752.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.357 (0.365) seconds
+2026-10-23 23:00:44.772 xcodebuild[34022:1209948] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 23:00:44.772 xcodebuild[34022:1209948] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 23:00:44.773 xcodebuild[34022:1209948] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 23:00:45.043 xcodebuild[34022:1209948] [MT] IDETestOperationsObserverDebug: 26.641 elapsed -- Testing started completed.
+2026-10-23 23:00:45.043 xcodebuild[34022:1209948] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 23:00:45.043 xcodebuild[34022:1209948] [MT] IDETestOperationsObserverDebug: 26.641 sec, +26.641 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/routimori-polish-2026-10-23/verified-relaunch/seed.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

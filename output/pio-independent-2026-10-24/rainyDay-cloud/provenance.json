@@ -1,0 +1,22 @@
+[
+  {
+    "source": "output/pio-independent-2026-10-24/rainyDay-cloud/torso-candidate-v1.png",
+    "asset": "pio_cloud_rainyDay_v2_torso",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "8297a67f7c59f7991c775d45e1c731320cede8c6ca0a38d5ac99452ec7e62bcf",
+    "sourcePixelsChanged": false
+  },
+  {
+    "source": "output/pio-independent-2026-10-24/rainyDay-cloud/armPair-candidate-v1.png",
+    "asset": "pio_cloud_rainyDay_v2_armPair",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "8a8c91672dd137335b2957bc054b2fcc12a19ccb8442e100457e7a8fb8a60a98",
+    "sourcePixelsChanged": false
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "runID": "e9ea966e-f31c-4ae7-98cf-3e8b84f1717d",
+  "purpose": "Separate Apple receipt reload from failed custom preference persistence; no overall PASS can result",
+  "seedPhase": "FAIL physical preferences flush",
+  "phase": "verify",
+  "purchaseRequests": false,
+  "cleanup": "Verification defer clears only local test ledger and UUID fixture suite and diagnostic manifest",
+  "xctestrun": "/tmp/PioStoreKit-20261023-ios/Build/Products/PioProcessRelaunch-e9ea966e-diagnostic-verify.xctestrun"
+}

@@ -1,0 +1,46 @@
+{
+  "devicesAndConfigurations": [
+    {
+      "device": {
+        "architecture": "arm64",
+        "deviceId": "0426CD78-3807-4650-9776-B649780E2884",
+        "deviceName": "Pio StoreKit Local 2026-10-23",
+        "modelName": "iPhone 17",
+        "osBuildNumber": "24A434",
+        "osVersion": "27.0",
+        "platform": "iOS Simulator"
+      },
+      "expectedFailures": 0,
+      "failedTests": 1,
+      "passedTests": 0,
+      "skippedTests": 0,
+      "testPlanConfiguration": {
+        "configurationId": "1",
+        "configurationName": "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription": "DaylogiOSStoreKit \u00b7 Built with macOS 27.0.1",
+  "expectedFailures": 0,
+  "failedTests": 1,
+  "finishTime": 1792756975.927,
+  "passedTests": 0,
+  "result": "Failed",
+  "runtimeWarnings": [],
+  "skippedTests": 0,
+  "startTime": 1792756971.382,
+  "statistics": [],
+  "testFailures": [
+    {
+      "failureText": "XCTAssertEqual failed: (\"other\") is not equal to (\"cancelled\")",
+      "targetName": "DaylogStoreKitTests",
+      "testIdentifier": 1,
+      "testIdentifierString": "PioStoreKitIsolationTests/testScenario()",
+      "testIdentifierURL": "test://com.apple.xcode/Daylog/DaylogStoreKitTests/PioStoreKitIsolationTests/testScenario",
+      "testName": "testScenario()"
+    }
+  ],
+  "title": "Test - DaylogiOSStoreKit",
+  "topInsights": [],
+  "totalTestCount": 1
+}

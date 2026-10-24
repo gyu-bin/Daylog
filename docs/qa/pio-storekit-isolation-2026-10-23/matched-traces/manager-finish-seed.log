@@ -1,0 +1,67 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /private/tmp/PioStoreKit-20261023-ios/Build/Products/PioIsolation-a8e8b5f3-802b-473a-8edb-5379aab98053-seed.xctestrun -destination "platform=iOS Simulator,id=0426CD78-3807-4650-9776-B649780E2884" -parallel-testing-enabled NO -collect-test-diagnostics never -test-timeouts-enabled YES -default-test-execution-time-allowance 60 -maximum-test-execution-time-allowance 90 "-only-testing:DaylogStoreKitTests/PioStoreKitIsolationTests/testScenario" -resultBundlePath /Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-finish-seed.xcresult
+
+Writing result bundle at path:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-finish-seed.xcresult
+
+2026-10-23 21:03:16.641 xcodebuild[5667:928658] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:19.974310+0900 Daylog[5678:928747] [unspecified] container_create_or_lookup_app_group_path_by_app_group_identifier: client is not entitled
+2026-10-23 21:03:20.453255+0900 Daylog[5678:928747] [XPCErrors] non-launching port is incompatible with service identifier "com.apple.PointerUI.pointeruid.default-service"
+2026-10-23 21:03:20.454487+0900 Daylog[5678:928747] [API] cannot add handler to 0 from 0 - dropping
+2026-10-23 21:03:20.454732+0900 Daylog[5678:928747] [API] cannot add handler to 0 from 0 - dropping
+Test Suite 'Selected tests' started at 2026-10-23 21:03:20.894.
+Test Suite 'DaylogStoreKitTests.xctest' started at 2026-10-23 21:03:20.895.
+Test Suite 'PioStoreKitIsolationTests' started at 2026-10-23 21:03:20.895.
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario]' started.
+PIO_ISOLATION {"appEnvironment":"Environment(rawValue: \"Xcode\")","elapsed":"0.106332708 seconds","event":"environment","mode":"manager","os":"Version 27.0 (Build 24A434)","phase":"seed","pid":5678,"run":"a8e8b5f3-802b-473a-8edb-5379aab98053","scenario":"finish","wallTime":1792757000.952086}
+PIO_ISOLATION {"elapsed":"0.120261375 seconds","event":"SKTestSession.init.return","wallTime":1792757000.966017}
+PIO_ISOLATION {"elapsed":"0.120792041 seconds","event":"resetToDefaultState.return","wallTime":1792757000.966548}
+PIO_ISOLATION {"elapsed":"0.12653075 seconds","event":"clearTransactions.return","wallTime":1792757000.972286}
+PIO_ISOLATION {"dialogsDisabled":true,"elapsed":"0.153861 seconds","event":"fixture.ready","purchaseError":"nil","storefront":"KOR","wallTime":1792757000.9996171}
+PIO_ISOLATION {"elapsed":"0.155186916 seconds","event":"manager.start.begin","wallTime":1792757001.000941}
+PioStoreKit: client=B75F0219 time=1792757001.0012898 raw listener started subscription=F50A4491-9121-4A82-AAD1-9256EC324327
+PIO_ISOLATION {"elapsed":"0.174237125 seconds","event":"manager.ownership","owned":["basic"],"wallTime":1792757001.0199928}
+PIO_ISOLATION {"elapsed":"0.192861166 seconds","event":"manager.start.return","wallTime":1792757001.0386171}
+PIO_ISOLATION {"elapsed":"0.192936666 seconds","event":"snapshot.begin","label":"before-scenario","wallTime":1792757001.038693}
+PIO_ISOLATION {"currentEntitlements":[],"driverLedger":[],"elapsed":"0.200850333 seconds","equipped":"basic","event":"snapshot.return","label":"before-scenario","managerOwned":["basic"],"unfinished":[],"wallTime":1792757001.0466061}
+PIO_ISOLATION {"elapsed":"0.200995333 seconds","event":"purchase.begin","product":"outfit.space","wallTime":1792757001.046752}
+PioStoreKit: client=B75F0219 time=1792757001.064008 accepted id=202 product=outfit.space revoked=false
+PIO_ISOLATION {"elapsed":"0.21830975 seconds","event":"manager.ownership","owned":["astronaut","basic"],"wallTime":1792757001.0640659}
+PioStoreKit: client=B75F0219 time=1792757001.0641189 finish requested id=202 cached=true inFlight=0
+PioStoreKit: client=B75F0219 time=1792757001.064153 finish begin id=202 product=outfit.space revoked=false
+PioStoreKit: client=B75F0219 time=1792757001.07752 finish returned id=202
+PIO_ISOLATION {"busy":false,"elapsed":"0.238782291 seconds","event":"manager.purchase.return","result":"purchased(Daylog.PioOutfitID.astronaut)","wallTime":1792757001.0845361}
+PIO_ISOLATION {"elapsed":"0.238868375 seconds","event":"snapshot.begin","label":"after-space-finish","wallTime":1792757001.084625}
+PIO_ISOLATION {"currentEntitlements":[{"environment":"Environment(rawValue: \"Xcode\")","id":"202","product":"outfit.space","revoked":false,"verification":"verified"}],"driverLedger":[{"id":"202","issue":false,"pending":false,"product":"outfit.space","state":"SKPaymentTransactionState(rawValue: 1)"}],"elapsed":"0.261685166 seconds","equipped":"basic","event":"snapshot.return","label":"after-space-finish","managerOwned":["astronaut","basic"],"unfinished":[],"wallTime":1792757001.1074409}
+PIO_ISOLATION {"elapsed":"0.26179275 seconds","event":"purchase.begin","product":"outfit.cafe","wallTime":1792757001.107549}
+PioStoreKit: client=B75F0219 time=1792757001.128686 accepted id=203 product=outfit.cafe revoked=false
+PIO_ISOLATION {"elapsed":"0.282973875 seconds","event":"manager.ownership","owned":["astronaut","basic","cafe"],"wallTime":1792757001.1287301}
+PioStoreKit: client=B75F0219 time=1792757001.1287708 finish requested id=203 cached=true inFlight=0
+PioStoreKit: client=B75F0219 time=1792757001.128796 finish begin id=203 product=outfit.cafe revoked=false
+PioStoreKit: client=B75F0219 time=1792757001.1500602 finish returned id=203
+PIO_ISOLATION {"busy":false,"elapsed":"0.304388041 seconds","event":"manager.purchase.return","result":"purchased(Daylog.PioOutfitID.cafe)","wallTime":1792757001.1501441}
+PIO_ISOLATION {"elapsed":"0.304428166 seconds","event":"snapshot.begin","label":"after-final-cafe-finish","wallTime":1792757001.1501851}
+PIO_ISOLATION {"currentEntitlements":[{"environment":"Environment(rawValue: \"Xcode\")","id":"203","product":"outfit.cafe","revoked":false,"verification":"verified"},{"environment":"Environment(rawValue: \"Xcode\")","id":"202","product":"outfit.space","revoked":false,"verification":"verified"}],"driverLedger":[{"id":"202","issue":false,"pending":false,"product":"outfit.space","state":"SKPaymentTransactionState(rawValue: 1)"},{"id":"203","issue":false,"pending":false,"product":"outfit.cafe","state":"SKPaymentTransactionState(rawValue: 1)"}],"elapsed":"0.330366541 seconds","equipped":"basic","event":"snapshot.return","label":"after-final-cafe-finish","managerOwned":["astronaut","basic","cafe"],"unfinished":[],"wallTime":1792757001.176122}
+PIO_ISOLATION {"elapsed":"0.331461291 seconds","event":"handoff.ready","ids":["203","202"],"mode":"manager","pid":5678,"run":"a8e8b5f3-802b-473a-8edb-5379aab98053","timestamp":1792757001.1763201,"wallTime":1792757001.177217}
+PioStoreKit: client=B75F0219 time=1792757001.177722 raw listener ended subscription=F50A4491-9121-4A82-AAD1-9256EC324327
+PIO_ISOLATION {"elapsed":"0.332087416 seconds","event":"adapter.trace","events":["client=B75F0219 time=1792757001.0012898 raw listener started subscription=F50A4491-9121-4A82-AAD1-9256EC324327","client=B75F0219 time=1792757001.064008 accepted id=202 product=outfit.space revoked=false","client=B75F0219 time=1792757001.0641189 finish requested id=202 cached=true inFlight=0","client=B75F0219 time=1792757001.064153 finish begin id=202 product=outfit.space revoked=false","client=B75F0219 time=1792757001.07752 finish returned id=202","client=B75F0219 time=1792757001.128686 accepted id=203 product=outfit.cafe revoked=false","client=B75F0219 time=1792757001.1287708 finish requested id=203 cached=true inFlight=0","client=B75F0219 time=1792757001.128796 finish begin id=203 product=outfit.cafe revoked=false","client=B75F0219 time=1792757001.1500602 finish returned id=203","client=B75F0219 time=1792757001.177722 raw listener ended subscription=F50A4491-9121-4A82-AAD1-9256EC324327"],"remainingListeners":0,"wallTime":1792757001.177844}
+Test Case '-[DaylogStoreKitTests.PioStoreKitIsolationTests testScenario]' passed (0.277 seconds).
+Test Suite 'PioStoreKitIsolationTests' passed at 2026-10-23 21:03:21.179.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.277 (0.284) seconds
+Test Suite 'DaylogStoreKitTests.xctest' passed at 2026-10-23 21:03:21.179.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.277 (0.284) seconds
+Test Suite 'Selected tests' passed at 2026-10-23 21:03:21.179.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.277 (0.285) seconds
+2026-10-23 21:03:21.205 xcodebuild[5667:928658] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:21.206 xcodebuild[5667:928658] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:21.206 xcodebuild[5667:928658] [MT] IDESchemeActionSDKRecord: operatingSystemBuild = <DVTBuildVersion 24A94232>, error = invalidDigitCount(94232).
+2026-10-23 21:03:21.471 xcodebuild[5667:928658] [MT] IDETestOperationsObserverDebug: 4.860 elapsed -- Testing started completed.
+2026-10-23 21:03:21.471 xcodebuild[5667:928658] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-23 21:03:21.471 xcodebuild[5667:928658] [MT] IDETestOperationsObserverDebug: 4.860 sec, +4.860 sec -- end
+
+Test session results, code coverage, and logs:
+	/Users/mungyubin/Desktop/Coding/Daylog/docs/qa/pio-storekit-isolation-2026-10-23/matched-traces/manager-finish-seed.xcresult
+
+** TEST EXECUTE SUCCEEDED **
+
+Testing started

@@ -1,0 +1,205 @@
+{
+  "canvas" : [
+    1254,
+    1254
+  ],
+  "eyeHalfSourceSHA256" : "7f430370c4c119fddf339716714615068dc51ae93286487f90b6035d2ff6e013",
+  "layers" : [
+    {
+      "id" : "wingLeft",
+      "offset" : [
+        153.349609375,
+        695.56640625
+      ],
+      "pivot" : [
+        375,
+        810
+      ],
+      "scale" : 0.322265625,
+      "source" : "wing-left-v1.png",
+      "z" : 0
+    },
+    {
+      "id" : "wingRight",
+      "offset" : [
+        796.74509803921569,
+        583.25490196078431
+      ],
+      "pivot" : [
+        940,
+        830
+      ],
+      "scale" : 0.27450980392156865,
+      "source" : "wing-right-v1.png",
+      "z" : 1
+    },
+    {
+      "id" : "footLeft",
+      "offset" : [
+        466.11971104231168,
+        973.16821465428279
+      ],
+      "pivot" : [
+        550,
+        1010
+      ],
+      "scale" : 0.13415892672858618,
+      "source" : "foot-v1.png",
+      "z" : 2
+    },
+    {
+      "id" : "footRight",
+      "offset" : [
+        731.11971104231168,
+        938.16821465428279
+      ],
+      "pivot" : [
+        815,
+        975
+      ],
+      "scale" : 0.13415892672858618,
+      "source" : "foot-v1.png",
+      "z" : 3
+    },
+    {
+      "id" : "sprout",
+      "offset" : [
+        365.60000000000002,
+        93.400000000000034
+      ],
+      "pivot" : [
+        650,
+        430
+      ],
+      "scale" : 0.35999999999999999,
+      "source" : "sprout-v1.png",
+      "z" : 4
+    },
+    {
+      "id" : "body",
+      "offset" : [
+        160.93785310734464,
+        230.94915254237287
+      ],
+      "pivot" : [
+        650,
+        740
+      ],
+      "scale" : 0.76836158192090398,
+      "source" : "body-clean-v1.png",
+      "z" : 5
+    },
+    {
+      "id" : "eyeLeft",
+      "offset" : [
+        470.64397905759165,
+        610.49738219895289
+      ],
+      "pivot" : [
+        550,
+        689
+      ],
+      "scale" : 0.12041884816753927,
+      "source" : "eye-open-v1.png",
+      "z" : 6
+    },
+    {
+      "id" : "eyeRight",
+      "offset" : [
+        739.09424083769636,
+        568.78010471204186
+      ],
+      "pivot" : [
+        815,
+        644
+      ],
+      "scale" : 0.11518324607329843,
+      "source" : "eye-open-v1.png",
+      "z" : 7
+    },
+    {
+      "id" : "lidLeft",
+      "offset" : [
+        469.50868486352357,
+        609.88337468982627
+      ],
+      "pivot" : [
+        550,
+        695
+      ],
+      "scale" : 0.12158808933002481,
+      "source" : "eyelid-closed-v1.png",
+      "z" : 8
+    },
+    {
+      "id" : "lidRight",
+      "offset" : [
+        737.79404466501239,
+        567.62282878411906
+      ],
+      "pivot" : [
+        815,
+        649
+      ],
+      "scale" : 0.11662531017369727,
+      "source" : "eyelid-closed-v1.png",
+      "z" : 9
+    },
+    {
+      "id" : "halfLeft",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        463.78723404255322,
+        589.35106382978722
+      ],
+      "pivot" : [
+        550.5,
+        685
+      ],
+      "scale" : 0.13829787234042554,
+      "source" : "candidates\/base\/eye-half-v1.png",
+      "sourceGlobeBottom" : 1017,
+      "sourceGlobeWidth" : 658,
+      "targetOpenEyeBounds" : [
+        505,
+        640,
+        91,
+        90
+      ],
+      "z" : 10
+    },
+    {
+      "id" : "halfRight",
+      "neutralAngleDegrees" : 0,
+      "offset" : [
+        731.145896656535,
+        546.98784194528878
+      ],
+      "pivot" : [
+        815,
+        640.5
+      ],
+      "scale" : 0.1337386018237082,
+      "source" : "candidates\/base\/eye-half-v1.png",
+      "sourceGlobeBottom" : 1017,
+      "sourceGlobeWidth" : 658,
+      "targetOpenEyeBounds" : [
+        771,
+        598,
+        88,
+        85
+      ],
+      "z" : 11
+    }
+  ],
+  "origin" : "topLeft",
+  "referenceOffset" : [
+    33,
+    90
+  ],
+  "referenceScale" : 0.90000000000000002,
+  "registrationMethod" : "Manual landmarks; uniform scale plus translation per independently generated part; complete source pixels retained, no alpha cleanup\/repainting",
+  "schemaVersion" : 1,
+  "sourceReference" : "\/Users\/mungyubin\/Desktop\/Coding\/Daylog\/Daylog\/PioWardrobe.xcassets\/pio_wardrobe_basic_reference.imageset\/pio_wardrobe_basic_reference.png",
+  "status" : "HALF_EYE_ART_QA_PENDING"
+}

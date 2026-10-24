@@ -1,0 +1,1 @@
+Focused crest comparison; original layer assets/transforms/crop/downsample. Jump canvas gets512 native pixels of headroom, scaled proportionally at display size. Native composites use full1536 source, never resized for comparison. This is static evidence; no animation/easing/runtime claims.

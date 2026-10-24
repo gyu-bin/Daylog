@@ -1,0 +1,512 @@
+[
+  {
+    "path": "PERFORMANCE.md",
+    "bytes": 5991,
+    "sha256": "1b1136c51f58bf7a2dcc8075c685210b134b85f32aced921704ded2867b4639e"
+  },
+  {
+    "path": "RESULTS.md",
+    "bytes": 10064,
+    "sha256": "01badc5b12139296b1a3243b50cd514c5ee4fefc1a839cc3617510be8d578da4"
+  },
+  {
+    "path": "art-separability-astronaut-dark.png",
+    "bytes": 1219417,
+    "sha256": "8f6f640a66d84cee77b2f1ec9ec83db44da2e62d7a9ea1de0068d9d4c81f50ce"
+  },
+  {
+    "path": "art-separability-astronaut-light.png",
+    "bytes": 1213593,
+    "sha256": "c496c7f6d30c60c27521d8f0115e85f7fc930260be39115548dc611c9f27eab3"
+  },
+  {
+    "path": "art-separability-christmas-dark.png",
+    "bytes": 1581201,
+    "sha256": "1e0fea4b77e29bffde2980fbd5791381414b537f0c9fa2bd1e1c7fc7c3a20320"
+  },
+  {
+    "path": "art-separability-christmas-light.png",
+    "bytes": 1588165,
+    "sha256": "3e9a28f20530bf52217e2f7dae273a9ec6aac5f7d451368f677b54d83ca5f0a2"
+  },
+  {
+    "path": "art-separability-composites.swift",
+    "bytes": 1629,
+    "sha256": "162ffa852df5b53da12c8fdda4477a59ccea34d060bc8aed67170cc000f97d61"
+  },
+  {
+    "path": "art-separability-hanbok-dark.png",
+    "bytes": 1538946,
+    "sha256": "108b1837e4a951f41b7aeeddaace4291c1249fc1f74a5b0fc454e8e863b88018"
+  },
+  {
+    "path": "art-separability-hanbok-light.png",
+    "bytes": 1543159,
+    "sha256": "c018e0273503ba520a73ef312a132571baab3dd61bb97853f857e172f48100b0"
+  },
+  {
+    "path": "art-separability-sources.json",
+    "bytes": 896,
+    "sha256": "c8c911a0784e93efe04e00337c97dbb44f26eafbd80d7a137cdf6714b69f7858"
+  },
+  {
+    "path": "art-separability.json",
+    "bytes": 22769,
+    "sha256": "90762f4e3da18811e2a4312998504cc3d7c73b0a1b7c97cf36b187590dd3cdd4"
+  },
+  {
+    "path": "art-separability.md",
+    "bytes": 11992,
+    "sha256": "47b45992edc1169108c21304c7778391a7986defd2ec6c65a0b931c5ca2eb2d8"
+  },
+  {
+    "path": "baseline-basic-idle.ax.txt",
+    "bytes": 2020,
+    "sha256": "ab3a2bce81c5c9bcfdf1a9275c44af422debb97f647c9113e6e7bf1c1e0edac1"
+  },
+  {
+    "path": "baseline-basic-static.ax.txt",
+    "bytes": 2020,
+    "sha256": "16372a010028782f81ca77355ed5c04021ab4772cee59d00404d858dd836e82b"
+  },
+  {
+    "path": "baseline-christmas-jump.ax.txt",
+    "bytes": 2032,
+    "sha256": "68ed7258c36ac627adce38fbb12a47732c5006295c6c622fc2872bf7f3662394"
+  },
+  {
+    "path": "baseline-christmas-static.ax.txt",
+    "bytes": 2038,
+    "sha256": "e35d5896a2fe27c69be31714e378457938fc3b64f6576a7a14caa88ea0220ca9"
+  },
+  {
+    "path": "before-PioOutfitMotion.swift",
+    "bytes": 14543,
+    "sha256": "00f61ef0ffe49728a059f40ffa099c1fb378dd882ffbe441f55f0e5e83dfee87"
+  },
+  {
+    "path": "before-PioOutfitMotionTests.swift",
+    "bytes": 4094,
+    "sha256": "88b747b94c46b6a10a1724a459499fb9f768f3cc4cee3869b86649211321a4b5"
+  },
+  {
+    "path": "before-RootView.swift",
+    "bytes": 19375,
+    "sha256": "402b19b6db6145ad2df5aebdcfbe49756f8f10358f72eee9cb842721b85cd663"
+  },
+  {
+    "path": "before-hashes.json",
+    "bytes": 69951,
+    "sha256": "9b83aeaee0635801f140620821dcb5ef5a0cd880250a096e812bd5f7bd70071e"
+  },
+  {
+    "path": "before-status.txt",
+    "bytes": 4089,
+    "sha256": "d4c2e0166ce567e27eb8e2f709cc27d2593904cfc5f9a7c2da7b30498fa558f2"
+  },
+  {
+    "path": "code-review.md",
+    "bytes": 8036,
+    "sha256": "9a8145e0c53398d87d637eb600411b7bbf9c581484b38e2fe8d9fc04106c3555"
+  },
+  {
+    "path": "controlled-astronaut-jump-end.ax.txt",
+    "bytes": 2124,
+    "sha256": "c6f7754b15d647c9af3acb70c20e76e8407c16b7b16f3c577d1f09a8d36fd992"
+  },
+  {
+    "path": "controlled-astronaut-jump-start.ax.txt",
+    "bytes": 2124,
+    "sha256": "c6f7754b15d647c9af3acb70c20e76e8407c16b7b16f3c577d1f09a8d36fd992"
+  },
+  {
+    "path": "controlled-base-jump-before-final.ax.txt",
+    "bytes": 2118,
+    "sha256": "c6f247514c7719b9a6049be5fff2fcda574566f730e6beffa677133919813d2e"
+  },
+  {
+    "path": "controlled-base-jump-before.ax.txt",
+    "bytes": 2118,
+    "sha256": "c6f247514c7719b9a6049be5fff2fcda574566f730e6beffa677133919813d2e"
+  },
+  {
+    "path": "controlled-base-static-start.ax.txt",
+    "bytes": 2124,
+    "sha256": "574e0ffdd40e67bf89d97fa060e95b2905df0bc7caeaf564804ea8dd840ea077"
+  },
+  {
+    "path": "controlled-christmas-jump-end.ax.txt",
+    "bytes": 2136,
+    "sha256": "c2cc5d970f2ff7bd4c1593bb904594417a33259e98ef4aa45af35636efd66c3b"
+  },
+  {
+    "path": "controlled-christmas-jump-start.ax.txt",
+    "bytes": 2136,
+    "sha256": "c2cc5d970f2ff7bd4c1593bb904594417a33259e98ef4aa45af35636efd66c3b"
+  },
+  {
+    "path": "controlled-christmas-static-start.ax.txt",
+    "bytes": 2142,
+    "sha256": "ad44763ec44a4d8ffe6510c5c5dad59f2a8f61f77a416f1c5a9e6c7ab9ff19e2"
+  },
+  {
+    "path": "controlled-hanbok-jump-end.ax.txt",
+    "bytes": 2118,
+    "sha256": "22f6c986ca7734f31e1477eb5114f6c2c504664760d8961b04b08d80da097d63"
+  },
+  {
+    "path": "controlled-hanbok-jump-start.ax.txt",
+    "bytes": 2118,
+    "sha256": "22f6c986ca7734f31e1477eb5114f6c2c504664760d8961b04b08d80da097d63"
+  },
+  {
+    "path": "controlled-offscreen-start.ax.txt",
+    "bytes": 2130,
+    "sha256": "dbbacfd109c8862e7b5b5a646e9280904f8949e39e36d82435c5942f4e7d1592"
+  },
+  {
+    "path": "controlled-switch30-end.ax.txt",
+    "bytes": 2130,
+    "sha256": "ef8f1fa0e95b54af23cc9b5d56bc147362d099c4b726f7b2be77ab93cbe87b57"
+  },
+  {
+    "path": "final-status.txt",
+    "bytes": 4141,
+    "sha256": "649bfbb5367cc025aba18824ab04afc7668fe1dc4d2374c957715a1d280cf9fb"
+  },
+  {
+    "path": "focused-tests.log",
+    "bytes": 98576,
+    "sha256": "768241704b699b64be7ff8408c296f34c94277c300080b6dc0a60254cbcb9d63"
+  },
+  {
+    "path": "ios-astronaut-220-dark-jump.mp4",
+    "bytes": 16552312,
+    "sha256": "c2f846d6fea675b4610ca75d6ae6894588f5c3f2152c17930e9acfa27312c236"
+  },
+  {
+    "path": "ios-astronaut-220-dark-stage4.png",
+    "bytes": 506259,
+    "sha256": "75b386f8a5295f96a0cdc20a5319b9af91d332d5649c616034d5529635c9c345"
+  },
+  {
+    "path": "ios-astronaut-jump-contact.png",
+    "bytes": 382442,
+    "sha256": "b2750f8ba65d0d5050c465e6f165a84c73a86faa329d38a6d160e797d42ba6b7"
+  },
+  {
+    "path": "ios-astronaut-jump-start.ax.txt",
+    "bytes": 6660,
+    "sha256": "1a94c8b6ec2d07807e5b2125bfc784aa118df0a5971962ad64c9c9e57b0187f6"
+  },
+  {
+    "path": "ios-christmas-120-light-stage3.ax.txt",
+    "bytes": 6661,
+    "sha256": "942c7fe022be7e023e811015104eabed338aaae55a5ab31a7692c0b618ec0cbd"
+  },
+  {
+    "path": "ios-christmas-120-light-stage3.png",
+    "bytes": 344872,
+    "sha256": "bbe8fc5340821fe46c095d45a6f05064f74e910715d8377a6b11a58217e3df83"
+  },
+  {
+    "path": "ios-final-build.log",
+    "bytes": 64849,
+    "sha256": "d1f2b0755e82f350047ac7bf23e07d07706c1718944830a11e688110740afa30"
+  },
+  {
+    "path": "ios-hanbok-64-light-stage2.ax.txt",
+    "bytes": 6641,
+    "sha256": "9753c53b461b6bd6262f7c8ff3f680deb467778efece00eb0085ed897a4a5c98"
+  },
+  {
+    "path": "ios-hanbok-64-light-stage2.png",
+    "bytes": 269975,
+    "sha256": "1b40d217ff44246ff6126b1ba7f3469abbb9a04ff3f97e2b0a76c6b50b45d2cb"
+  },
+  {
+    "path": "ios-reduce-motion-setting-restored.ax.txt",
+    "bytes": 5715,
+    "sha256": "288c3d1bda1ee071c4cd18666fa47f6aeee5f6707086a41f5f158415985f37ef"
+  },
+  {
+    "path": "ios-reduce-motion-system-on.ax.txt",
+    "bytes": 6268,
+    "sha256": "34225ac96b1c4afcf67aed6714082b27431e83c5bf6553db1a2497397c4b322d"
+  },
+  {
+    "path": "ios-reduce-motion-system-restored.ax.txt",
+    "bytes": 6268,
+    "sha256": "cfef9cee3fc89c751884adfc78f45facf87c220500089038f4ec6b39ff83e958"
+  },
+  {
+    "path": "launch-diagnostics.py",
+    "bytes": 1879,
+    "sha256": "4f59cc1f1b2df23c2fee9c54bfbf4302932fca389eddca76b671505f25bcb050"
+  },
+  {
+    "path": "launch-shop.py",
+    "bytes": 1605,
+    "sha256": "5ad2b397e89f25e162331e3234cead1c9e5864a414c2068ab5adbecc32ca3552"
+  },
+  {
+    "path": "mac-baseline-build-repair.log",
+    "bytes": 31806,
+    "sha256": "f163732412fca9ce1eda966fe27b3eb277f52f1a160ef121fc90f8354a8d8668"
+  },
+  {
+    "path": "mac-baseline-build.log",
+    "bytes": 22290,
+    "sha256": "ca32e5b3d992f7ebac53937b1ca7b397ea884aa1e87e3c85dfacc430f32575cc"
+  },
+  {
+    "path": "mac-christmas-120-dark-stage3.ax.txt",
+    "bytes": 2136,
+    "sha256": "5fe9ec26c435a16ba4141d3bb54e35466a92c3a1459fb2114a86fe26ce074e15"
+  },
+  {
+    "path": "mac-christmas-120-dark-stage3.jpg",
+    "bytes": 62518,
+    "sha256": "b34805e17f2bbe0506532bc1dc6cc37ac215b33c49b6aa27c09d7b6fc0aba069"
+  },
+  {
+    "path": "mac-christmas-220-light.jpg",
+    "bytes": 66033,
+    "sha256": "dff1de6d227ce82814361f9c883605b6e2454b26a30453fe8df689230367bd20"
+  },
+  {
+    "path": "mac-final-build.log",
+    "bytes": 29760,
+    "sha256": "474bc960f533f8db8d2136a3d986b3faaaeb58afe0d27ebf09a88b8121506424"
+  },
+  {
+    "path": "mac-hanbok-64-dark-stage2.ax.txt",
+    "bytes": 2116,
+    "sha256": "19bfc4d3307f46f0e2d5bbb34e35fc9baa7d417c890976339aa575cda72832c6"
+  },
+  {
+    "path": "mac-hanbok-64-dark-stage2.jpg",
+    "bytes": 59228,
+    "sha256": "5024704d579ac2aa7ac9effb8df5f3afc8e8d540d22bcefcd7cd36d69bb07f10"
+  },
+  {
+    "path": "mac-reduce-motion-on.jpg",
+    "bytes": 66128,
+    "sha256": "285347be37d605cac2a88299cda24d7ee752b54a375c0a73061ff723b4309010"
+  },
+  {
+    "path": "performance-actual-shop-astronaut-jump.json",
+    "bytes": 3613,
+    "sha256": "e1cd40556794ff58586db5ab7e3876acb2c4488b215bf448ee1545962ea4ebc7"
+  },
+  {
+    "path": "performance-baseline-basic-idle.json",
+    "bytes": 3579,
+    "sha256": "f0efbbedc1edfeacbc6ff99bc4faa2dd0481c7c580c4e4e69ebe170ae88836a3"
+  },
+  {
+    "path": "performance-baseline-basic-static.json",
+    "bytes": 3525,
+    "sha256": "f4b7ae35865281073500b2809a9d93b0505f07dfae53918e4653f923443bd384"
+  },
+  {
+    "path": "performance-baseline-christmas-jump.json",
+    "bytes": 3581,
+    "sha256": "dd11c31f2fb17a716bd2f575f55e42db1dbc3600ddaa7dab4507f13e5d47545b"
+  },
+  {
+    "path": "performance-baseline-christmas-static.json",
+    "bytes": 3539,
+    "sha256": "c84ad348a4e65d0079f0a7eee6a55edc068554dab63d6c3dfb7773691a3347a5"
+  },
+  {
+    "path": "performance-controlled-astronaut-jump.json",
+    "bytes": 3534,
+    "sha256": "0df734bdf1f683423148815284255f25efa10962cbf8b9ab72382cbafe00d613"
+  },
+  {
+    "path": "performance-controlled-base-jump-before.json",
+    "bytes": 3534,
+    "sha256": "c98f94281e477af8328bf546a3381387c8424bccc0ec03c3f304050f8c130cce"
+  },
+  {
+    "path": "performance-controlled-base-static.json",
+    "bytes": 3524,
+    "sha256": "8df40b9b9636973e542a04f8989ec60a73036855edf5136b674b15eabd3d4e6c"
+  },
+  {
+    "path": "performance-controlled-christmas-jump.json",
+    "bytes": 3536,
+    "sha256": "ddf06b64000fb38af3bc25bf97b87715d26111371e6dee36061353c6e7abb5c0"
+  },
+  {
+    "path": "performance-controlled-christmas-static.json",
+    "bytes": 3513,
+    "sha256": "2d60edf08db27b2b32edfcec9afb272aa1fd4dd073790609023f19826c4948f9"
+  },
+  {
+    "path": "performance-controlled-hanbok-jump.json",
+    "bytes": 3536,
+    "sha256": "75b48ab47b34ff01b3b619937260bdecf088250add6bac11658f5650276e4256"
+  },
+  {
+    "path": "performance-controlled-offscreen.json",
+    "bytes": 3508,
+    "sha256": "3253dda0438fffce7c73ed562744a148a8737a34ae9f56609c619873cfe40dbf"
+  },
+  {
+    "path": "performance-controlled-switch30.json",
+    "bytes": 5136,
+    "sha256": "4adc9c06fbab2323fb2809eb5a4889771477a920d1b0d57191155b59754f2b99"
+  },
+  {
+    "path": "performance-sample.py",
+    "bytes": 2024,
+    "sha256": "46217776403e045860c551941b57af156ca58a61b6a4fa16d101c62bffc7eb44"
+  },
+  {
+    "path": "performance-summary.json",
+    "bytes": 39878,
+    "sha256": "7e189dcad5c8ff07256605e3068fef46409ebbbd444c9c64f1e3f73c243dae4a"
+  },
+  {
+    "path": "phase21-source.diff",
+    "bytes": 15166,
+    "sha256": "550df014378055c85e3863b92e8f792f9b755c3c1b47c519a0e78f4ba00b4246"
+  },
+  {
+    "path": "preservation-check.json",
+    "bytes": 5851,
+    "sha256": "28a9fff5dc909d695dd5cefae3dd8324c4b73558a19a99c2df39cf62b3a315b8"
+  },
+  {
+    "path": "preservation-check.md",
+    "bytes": 2093,
+    "sha256": "bd1e62f520b350ccd3d8eedafab413aa9d390db6e00b44acc9a1e9dc8bfb9c76"
+  },
+  {
+    "path": "reduce-motion-initial.ax.txt",
+    "bytes": 2136,
+    "sha256": "c2cc5d970f2ff7bd4c1593bb904594417a33259e98ef4aa45af35636efd66c3b"
+  },
+  {
+    "path": "reduce-motion-system-on.ax.txt",
+    "bytes": 2136,
+    "sha256": "e4b19849ad3eb6f61e5ef415cf42ecff3d83e6c354652d50f22931f6b9ae77ff"
+  },
+  {
+    "path": "reduce-motion-system-restored.ax.txt",
+    "bytes": 2136,
+    "sha256": "4e9ee7de9fbed713d6878c1929c184f93865502a17e332c8861a94d2142c4da6"
+  },
+  {
+    "path": "reused-evidence/README.md",
+    "bytes": 615,
+    "sha256": "b32786b033566fe4799d3ab2bfc443889c943b42975c656f3ca83f9d65a3acfe"
+  },
+  {
+    "path": "reused-evidence/animation-videos/iphone17-astronaut-jump.mp4",
+    "bytes": 5731904,
+    "sha256": "0131f85cfd9e2b4b13959d506f92fc18671eca270b25eb839c3781bd2127336b"
+  },
+  {
+    "path": "reused-evidence/animation-videos/iphone17-christmas-celebration.mp4",
+    "bytes": 12993323,
+    "sha256": "8387b9c8812d3a051dcd787a1a81c6192b0406dc7d275b8664047fd9bff335f4"
+  },
+  {
+    "path": "reused-evidence/animation-videos/iphone17-hanbok-bounce.mp4",
+    "bytes": 8067983,
+    "sha256": "da788f4645a09a8ae0e9630e22c90415a4d4c79146afc3675f9bce673057b756"
+  },
+  {
+    "path": "reused-evidence/artwork-120pt-dark-1x.png",
+    "bytes": 283950,
+    "sha256": "a048582e9a7cb4f5977973658f9fe9c28f19c40ac3faf5f554bdb9cc870938af"
+  },
+  {
+    "path": "reused-evidence/artwork-120pt-light-1x.png",
+    "bytes": 278536,
+    "sha256": "96663eed0d37c97d0a22024127eeb152019bb02237e767252d9b24dc8a113210"
+  },
+  {
+    "path": "reused-evidence/artwork-220pt-dark-1x.png",
+    "bytes": 774395,
+    "sha256": "6aacb74c680b45c47b4e8662e74961c533b8c0aec51f6e55d61913782dcfc95c"
+  },
+  {
+    "path": "reused-evidence/artwork-220pt-light-1x.png",
+    "bytes": 763710,
+    "sha256": "63630bbb4a1ae3d96634a4300bcdcfaf6e851234835d146c0a8fab9a40790dfb"
+  },
+  {
+    "path": "reused-evidence/artwork-64pt-dark-1x.png",
+    "bytes": 119467,
+    "sha256": "1a7886d370de77d54b8376c0473f56ba5a069f42036cc5f00e2acc759b2df82e"
+  },
+  {
+    "path": "reused-evidence/artwork-64pt-light-1x.png",
+    "bytes": 117061,
+    "sha256": "563a72e64b87df5cb98f3a7ad7f5fab8b8b1606a2d10285054b5a902867d61a7"
+  },
+  {
+    "path": "reused-evidence/artwork-size-QA.md",
+    "bytes": 13929,
+    "sha256": "22d994d88fd65ac9d395c543edc8e3ee84fcc3df3c52bac9d3f9f4034b4c75c2"
+  },
+  {
+    "path": "reused-evidence/artwork-size-manifest.json",
+    "bytes": 50545,
+    "sha256": "5481523297034109a881d0a0020a706cd77d8cd6dbb864bf5e4a72b913589920"
+  },
+  {
+    "path": "reused-evidence/cpu-sample.txt",
+    "bytes": 407391,
+    "sha256": "53547c3937efe6f293bb9f6f4d5421989badf9ac282936a31be4adb598e58518"
+  },
+  {
+    "path": "reused-evidence/manifest.json",
+    "bytes": 6262,
+    "sha256": "178dfcca17a9fe39ab0cb63b09bffeb12a323558378d9395bf8226ba313c0f86"
+  },
+  {
+    "path": "reused-evidence/performance-jump-steady.json",
+    "bytes": 1398,
+    "sha256": "beca94e6198b927ea4d7d722e8725abaa133d0827f6396c297b010ec8d91ff1e"
+  },
+  {
+    "path": "reused-evidence/runtime-contact-astronaut-jump.png",
+    "bytes": 424177,
+    "sha256": "c142b49b2d298e5715d892358969921779d435c039e1698ad170951c3d590d12"
+  },
+  {
+    "path": "reused-evidence/runtime-contact-christmas-celebration.png",
+    "bytes": 445974,
+    "sha256": "5de3e8fd2a4af287eeb673a854de96f7ecd39a43b832a664d8dd04096cefcbaa"
+  },
+  {
+    "path": "reused-evidence/runtime-contact-hanbok-bounce.png",
+    "bytes": 425113,
+    "sha256": "88ad82bb2dcace0e68314268295e063f79603d2c82717df4653c1e97a2b154eb"
+  },
+  {
+    "path": "reused-evidence/visual-runtime-QA.md",
+    "bytes": 5418,
+    "sha256": "f1b64d727071c18fbf1acd2622dac005e2dc5f77691c3aea95d1a9ba0f5b735b"
+  },
+  {
+    "path": "shop-astronaut-jump.ax.txt",
+    "bytes": 1833,
+    "sha256": "0a88ca78ca6d4fe3f2464864f0054858d9c5c248e8ce99f420f0ddcf1a145a2f"
+  },
+  {
+    "path": "shop-astronaut-jump.jpg",
+    "bytes": 45341,
+    "sha256": "faa47685805c8135cbee689ec530202ca4fbc46781a7b551d06d327987261d3d"
+  },
+  {
+    "path": "visual-evidence-review.md",
+    "bytes": 6252,
+    "sha256": "44b3c08949564571366a93758b549c08d905a49459785842b6a03408dec5b5e2"
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "outfit": "pajamas",
+  "status": "PARTIAL_OFFLINE_STUDY",
+  "canonicalSourcesUnchanged": true,
+  "sourceHashes": {
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/footLeft.png": "c98245166380fa6a359a871931daa25ad3f891c98a51dab8ef313df9f8e8fa7d",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/footRight.png": "461ed35ac2c9eb304d6c73c60a255f16a56f61239f754d662b4e0066a11f07ff",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/body.png": "6cdb4e509295bc22ad9614977025f059d6e472abfed813bbc60bae2589247c1a",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/eyeLeft.png": "d0deb937c1d854df1bc1d0dd652e299676510968b30315da5e3b14ac263ce447",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/eyeRight.png": "92d2307366999d1fb45dcbcb561c30b4ac2b382e10957b89520bab73b39dfa58",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/headwear.png": "296ead6c6c0b925f5f3ca682bafc5a83adffdedf28bd7c555617feee975b5e30",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/pillow.png": "7a458c5feb4a91ea6a72ebfa9d1ef8f775f6732b2f189093421943247450cd20",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/wingLeft.png": "f44218539735d04b71347cf61808c25e015d31231cc584a434af0e3a1fbb1ad5",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/wingRight.png": "790be48f9083454810a8cc97a473136b905f00776a6b2b418f82b88f9416d527",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/halfLeft.png": "45135b206fa3556e4e90010fb75e77c3a0389882130ac286c6b99f53b305b176",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/lidLeft.png": "c5cd99fee73e96f98d9143aa7d4bba2a6097f0ca8d1cd5cfc59cb4a937606861",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/halfRight.png": "0aff4e56dd4bbc8de6072ecfb30c415388ed3173cdd289697b37782bda27eba6",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/lidRight.png": "f1eb83610702fd947013e0b8861cb3ceee831481967ec0b0bb70adc531851316",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/happyLeft.png": "dd7cc2ee5b348d4e515bff32e0595911e36c92d391e1820b0ff1dbe7ca28725d",
+    "/Users/mungyubin/Desktop/Coding/Daylog/output/pio-character-overhaul-artwork/full-catalog-v1/pajamas/layers/happyRight.png": "72589fc5d66e8fb40c640ec82e7b1d89b31acb4bcb8349bc20d3c5850c84fae5"
+  },
+  "actions": [
+    "idle",
+    "greet",
+    "walk",
+    "bounce",
+    "jump",
+    "celebrate",
+    "bow",
+    "sleepy",
+    "surprised",
+    "encourage",
+    "special"
+  ],
+  "specialAction": "sleepy pillow hug",
+  "framesPerAction": 32,
+  "durationMs": 70,
+  "maxAlphaOnFrameBorder": 0,
+  "canvas": [
+    480,
+    516
+  ],
+  "characterCanvas": [
+    350,
+    350
+  ],
+  "limits": [
+    "2D front-view stepping, no authored turn or gait occlusion change.",
+    "Bow is frontal lean/compression, not a reconstructed 3D head turn.",
+    "Hat and fabric stay rigid with torso.",
+    "Held props rigidly follow hands; no release or articulation.",
+    "No app/runtime/performance claim."
+  ]
+}

@@ -1,0 +1,262 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test-without-building -xctestrun /tmp/PioStoreKit-20261023-mac/Build/Products/PioProductionFinalMain.xctestrun -destination platform=macOS -resultBundlePath /tmp/PioProductionFinal-Mac-corrected-20261024.xcresult "-only-testing:DaylogTests/PioPurchaseTests" "-only-testing:DaylogTests/PioProductRegistryTests" "-only-testing:DaylogTests/PioWardrobeTests" "-only-testing:DaylogTests/PioAppearanceTests" "-only-testing:DaylogTests/PioAppIconTests" "-only-testing:DaylogTests/PioOverhaulRigTests" "-only-testing:DaylogTests/PioOutfitMotionTests" "-only-testing:DaylogTests/PioCloudProductionTests" "-only-testing:DaylogTests/PioVacationFinalArtworkTests" "-only-testing:DaylogTests/PioProductionFinalLifecycleTests/testMacIntactScrollSubtreeReleasesNativeHost" "-only-testing:DaylogTests/PioProductionFinalLifecycleTests/testMacVacationSwiftUIScrollSubtreeReleasesNativeView"
+
+Writing result bundle at path:
+	/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult
+
+--- xcodebuild: WARNING: Using the first of multiple matching destinations:
+{ platform:macOS, arch:arm64e, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:x86_64, variant:Mac Catalyst, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:DriverKit, id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64e, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+{ platform:macOS, arch:arm64, variant:Designed for [iPad,iPhone], id:00008132-00111148148B801C, name:My Mac }
+2026-10-24 14:17:59.646277+0900 Daylog[98361:2208731] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:17:59.646443+0900 Daylog[98361:2208731] [Application] Error registering app with intents framework: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:17:59.647252+0900 Daylog[98361:2208724] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:17:59.647264+0900 Daylog[98361:2208724] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:17:59.648193+0900 Daylog[98361:2208695] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:17:59.648208+0900 Daylog[98361:2208695] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:17:59.649067+0900 Daylog[98361:2208695] [Connection] Will NOT re-try to establish the connection
+2026-10-24 14:17:59.649086+0900 Daylog[98361:2208731] [Connection] Unable to get synchronousRemoteObjectProxy, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:17:59.649096+0900 Daylog[98361:2208731] [Connection] Unable to re-register with Process Instance Registry, error: Error Domain=NSCocoaErrorDomain Code=4097 "connection to service named com.apple.linkd.autoShortcut" UserInfo={NSDebugDescription=connection to service named com.apple.linkd.autoShortcut}
+2026-10-24 14:17:59.697346+0900 Daylog[98361:2208639] ApplePersistenceIgnoreState: Existing state will not be touched. New state will be written to /var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/com.daylog.verify.savedState
+2026-10-24 14:18:00.134734+0900 Daylog[98361:2208731] [Common] Unable to obtain a task name port right for pid 420: (os/kern) failure (0x5)
+Test Suite 'Selected tests' started at 2026-10-24 14:18:00.243.
+Test Suite 'DaylogTests.xctest' started at 2026-10-24 14:18:00.244.
+Test Suite 'PioCloudProductionTests' started at 2026-10-24 14:18:00.244.
+Test Case '-[DaylogTests.PioCloudProductionTests testFourteenProductionRegistrationsAndIndependentHold]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testFourteenProductionRegistrationsAndIndependentHold]' passed (0.037 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testFourteenProductionTransitionsSuppressionAndReduceMotion]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testFourteenProductionTransitionsSuppressionAndReduceMotion]' passed (0.025 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionAppearanceAdapterPreservesAuthorizationAndNotes]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionAppearanceAdapterPreservesAuthorizationAndNotes]' passed (0.001 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionBasicLiveAndStoppedObservations]' started.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:145: -[DaylogTests.PioCloudProductionTests testProductionBasicLiveAndStoppedObservations] : Test skipped
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionBasicLiveAndStoppedObservations]' skipped (0.001 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionOffscreenWindowDetachStopsTracks]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionOffscreenWindowDetachStopsTracks]' passed (0.086 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionReduceMotionSuppressionAndSceneStop]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionReduceMotionSuppressionAndSceneStop]' passed (0.003 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations]' started.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:267: -[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations] : Test skipped
+Test Case '-[DaylogTests.PioCloudProductionTests testProductionRepeatedAttachDetachObservations]' skipped (0.002 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testSmallProductionPackAndIndependentEyeFrames]' started.
+Test Case '-[DaylogTests.PioCloudProductionTests testSmallProductionPackAndIndependentEyeFrames]' passed (0.002 seconds).
+Test Case '-[DaylogTests.PioCloudProductionTests testVisibleNativeSceneHostForScreenshot]' started.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioCloudProductionTests.swift:205: -[DaylogTests.PioCloudProductionTests testVisibleNativeSceneHostForScreenshot] : Test skipped
+Test Case '-[DaylogTests.PioCloudProductionTests testVisibleNativeSceneHostForScreenshot]' skipped (0.001 seconds).
+Test Suite 'PioCloudProductionTests' passed at 2026-10-24 14:18:00.403.
+	 Executed 9 tests, with 3 tests skipped and 0 failures (0 unexpected) in 0.157 (0.159) seconds
+Test Suite 'PioProductionFinalLifecycleTests' started at 2026-10-24 14:18:00.403.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testMacIntactScrollSubtreeReleasesNativeHost]' started.
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testMacIntactScrollSubtreeReleasesNativeHost]' passed (0.030 seconds).
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testMacVacationSwiftUIScrollSubtreeReleasesNativeView]' started.
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioProductionFinalLifecycleTests.swift:116: error: -[DaylogTests.PioProductionFinalLifecycleTests testMacVacationSwiftUIScrollSubtreeReleasesNativeView] : Asynchronous wait failed: Exceeded timeout of 3 seconds, with unfulfilled expectations: "Expect predicate `BLOCKPREDICATE(0x762de645a0)`".
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioProductionFinalLifecycleTests.swift:122: error: -[DaylogTests.PioProductionFinalLifecycleTests testMacVacationSwiftUIScrollSubtreeReleasesNativeView] : XCTAssertNil failed: "<_TtC6DaylogP33_06BBAB64BF27598CE106B72C0D892F8F27RoutimoriVacationNativeView: 0x762f33e080>"
+/Users/mungyubin/Desktop/Coding/Daylog/DaylogStoreKitTests/PioProductionFinalLifecycleTests.swift:122: error: -[DaylogTests.PioProductionFinalLifecycleTests testMacVacationSwiftUIScrollSubtreeReleasesNativeView] : XCTAssertNil failed: "<_TtGC7SwiftUI13NSHostingViewGVS_15ModifiedContentGS1_V6Daylog22RoutimoriVacationSceneVS_12_FrameLayout_GVS_30_EnvironmentKeyWritingModifierOS_10ScenePhase___: 0x76311b5400>"
+Test Case '-[DaylogTests.PioProductionFinalLifecycleTests testMacVacationSwiftUIScrollSubtreeReleasesNativeView]' failed (4.533 seconds).
+Test Suite 'PioProductionFinalLifecycleTests' failed at 2026-10-24 14:18:04.966.
+	 Executed 2 tests, with 3 failures (0 unexpected) in 4.563 (4.563) seconds
+Test Suite 'PioVacationFinalArtworkTests' started at 2026-10-24 14:18:04.966.
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testNativeEyeCandidateActualPresentationSequence]' started.
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testNativeEyeCandidateActualPresentationSequence]' passed (3.976 seconds).
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testNativePreciselyReconstructedEyeRegions]' started.
+Test Case '-[DaylogTests.PioVacationFinalArtworkTests testNativePreciselyReconstructedEyeRegions]' passed (1.142 seconds).
+Test Suite 'PioVacationFinalArtworkTests' passed at 2026-10-24 14:18:10.084.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 5.118 (5.118) seconds
+Test Suite 'DaylogTests.xctest' failed at 2026-10-24 14:18:10.085.
+	 Executed 13 tests, with 3 tests skipped and 3 failures (0 unexpected) in 9.838 (9.841) seconds
+Test Suite 'Selected tests' failed at 2026-10-24 14:18:10.085.
+	 Executed 13 tests, with 3 tests skipped and 3 failures (0 unexpected) in 9.838 (9.841) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite PioAppIconTests started.
+◇ Test missingPremiumIconFilesCannotBeSelected() started.
+✔ Test missingPremiumIconFilesCannotBeSelected() passed after 0.001 seconds.
+◇ Test cancellationIsSilentAndPendingNeverSaysOwned() started.
+✔ Test cancellationIsSilentAndPendingNeverSaysOwned() passed after 0.001 seconds.
+✔ Suite PioAppIconTests passed after 0.001 seconds.
+◇ Suite PioAppearanceTests started.
+◇ Test stageBoundariesMatchApprovedGrowthWithoutChangingCostume() started.
+✔ Test stageBoundariesMatchApprovedGrowthWithoutChangingCostume() passed after 0.002 seconds.
+◇ Test allFourteenCatalogEntriesResolveTheirApprovedArtwork() started.
+✔ Test allFourteenCatalogEntriesResolveTheirApprovedArtwork() passed after 0.002 seconds.
+◇ Test unknownPreferencesNeverGrantPaidAppearanceOrEraseSelection() started.
+✔ Test unknownPreferencesNeverGrantPaidAppearanceOrEraseSelection() passed after 0.002 seconds.
+◇ Test previewsNeverAuthorizeEquipOrChangeGlobalAppearance() started.
+✔ Test previewsNeverAuthorizeEquipOrChangeGlobalAppearance() passed after 0.001 seconds.
+◇ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() started.
+✔ Test composedScenesKeepRegisteredOriginalAndReportEveryMissingCostumePose() passed after 0.002 seconds.
+◇ Test standingOutfitsAreNeverCompositedAsRecliningOrSleeping() started.
+✔ Test standingOutfitsAreNeverCompositedAsRecliningOrSleeping() passed after 0.001 seconds.
+◇ Test fallbackMotionsNeverClaimIndependentWingsOrWalking() started.
+✔ Test fallbackMotionsNeverClaimIndependentWingsOrWalking() passed after 0.001 seconds.
+◇ Test approvedLayeredPilotRemainsExplicitAndDoesNotInventGrowthStages() started.
+✔ Test approvedLayeredPilotRemainsExplicitAndDoesNotInventGrowthStages() passed after 0.001 seconds.
+◇ Test growthSourceIsLiveAndAllScreenReadsUseIt() started.
+✔ Test growthSourceIsLiveAndAllScreenReadsUseIt() passed after 0.001 seconds.
+◇ Test appearanceReadsTrackWardrobeAndLiveGrowthChanges() started.
+✔ Test appearanceReadsTrackWardrobeAndLiveGrowthChanges() passed after 0.003 seconds.
+◇ Test outfitAndAppIconStayIndependentAfterRefreshAndReopen() started.
+✔ Test outfitAndAppIconStayIndependentAfterRefreshAndReopen() passed after 0.003 seconds.
+◇ Test missingSourceArtworkAndAbsentWidgetSurfacesAreExplicit() started.
+✔ Test missingSourceArtworkAndAbsentWidgetSurfacesAreExplicit() passed after 0.001 seconds.
+◇ Test testingModeAuthorizesAllCostumesWithoutVerifiedAccess() started.
+✔ Test testingModeAuthorizesAllCostumesWithoutVerifiedAccess() passed after 0.003 seconds.
+◇ Test legacyMockOwnershipCannotAuthorizeGlobalAppearance() started.
+✔ Test legacyMockOwnershipCannotAuthorizeGlobalAppearance() passed after 0.001 seconds.
+✔ Suite PioAppearanceTests passed after 0.029 seconds.
+◇ Suite PioOutfitMotionTests started.
+◇ Test capabilitiesNeverPretendCostumesHaveIndependentPartsOrGrowthArt() started.
+✔ Test capabilitiesNeverPretendCostumesHaveIndependentPartsOrGrowthArt() passed after 0.001 seconds.
+◇ Test visibilityPauseAndReduceMotionRemoveAllTracksIncludingTheBasicWing() started.
+✔ Test visibilityPauseAndReduceMotionRemoveAllTracksIncludingTheBasicWing() passed after 0.001 seconds.
+◇ Test activeTelemetrySurvivesResetAndDoesNotRetainDestroyedRigs() started.
+✔ Test activeTelemetrySurvivesResetAndDoesNotRetainDestroyedRigs() passed after 0.001 seconds.
+◇ Test unchangedUpdatesAndPartialStageChangesDoNotReconfigureOrDecode() started.
+✔ Test unchangedUpdatesAndPartialStageChangesDoNotReconfigureOrDecode() passed after 0.001 seconds.
+◇ Test decodedArtworkIsReusedAndUnsupportedWaveFallsBackHonestly() started.
+✔ Test decodedArtworkIsReusedAndUnsupportedWaveFallsBackHonestly() passed after 0.001 seconds.
+✔ Suite PioOutfitMotionTests passed after 0.004 seconds.
+◇ Suite PioOverhaulRigTests started.
+◇ Test allFourteenOutfitsResolveWithoutReplacingOriginalPilots() started.
+✔ Test allFourteenOutfitsResolveWithoutReplacingOriginalPilots() passed after 0.051 seconds.
+◇ Test heldPropsShareTheirHandJointAndAnimation() started.
+✔ Test heldPropsShareTheirHandJointAndAnimation() passed after 0.001 seconds.
+◇ Test eyeStatesAreExclusiveAndStayBehindOpticalLayers() started.
+✔ Test eyeStatesAreExclusiveAndStayBehindOpticalLayers() passed after 0.003 seconds.
+◇ Test motionChangesDoNotRebuildLayersAndStoppingRemovesAllTracks() started.
+✔ Test motionChangesDoNotRebuildLayersAndStoppingRemovesAllTracks() passed after 0.001 seconds.
+◇ Test jumpBounceAndGreetingHaveDifferentVisibleTrajectories() started.
+✔ Test jumpBounceAndGreetingHaveDifferentVisibleTrajectories() passed after 0.001 seconds.
+◇ Test landingRecoversWithoutStartingAnotherJump() started.
+✔ Test landingRecoversWithoutStartingAnotherJump() passed after 0.001 seconds.
+◇ Test twoHandedPropsStayWithinValidatedRotation() started.
+✔ Test twoHandedPropsStayWithinValidatedRotation() passed after 0.003 seconds.
+✔ Suite PioOverhaulRigTests passed after 0.063 seconds.
+◇ Suite PioProductRegistryTests started.
+◇ Test everyPaidOutfitMapsOnceAndBasicIsNotAProduct() started.
+✔ Test everyPaidOutfitMapsOnceAndBasicIsNotAProduct() passed after 0.001 seconds.
+◇ Test artworkAndPreferenceKeysRemainIndependentOfRegisteredProductNames() started.
+✔ Test artworkAndPreferenceKeysRemainIndependentOfRegisteredProductNames() passed after 0.001 seconds.
+✔ Suite PioProductRegistryTests passed after 0.001 seconds.
+◇ Suite PioPurchaseTests started.
+◇ Test environmentPoliciesNeverMixLocalAndAppleTransactions() started.
+✔ Test environmentPoliciesNeverMixLocalAndAppleTransactions() passed after 0.001 seconds.
+◇ Test unconfirmedOrUnknownCatalogConfigurationStaysDisabled() started.
+✔ Test unconfirmedOrUnknownCatalogConfigurationStaysDisabled() passed after 0.001 seconds.
+◇ Test revokedSnapshotCannotBeUndoneByDelayedVerifiedUpdate() started.
+✔ Test revokedSnapshotCannotBeUndoneByDelayedVerifiedUpdate() passed after 0.001 seconds.
+◇ Test stalePurchaseResultForPreviouslyRevokedIDNeverReportsPurchased() started.
+✔ Test stalePurchaseResultForPreviouslyRevokedIDNeverReportsPurchased() passed after 0.001 seconds.
+◇ Test purchaseRevokedWhileFinishingCannotReportSuccess() started.
+✔ Test purchaseRevokedWhileFinishingCannotReportSuccess() passed after 0.001 seconds.
+◇ Test publicNestedCancellationIsRecognizedWithoutPrivateServerCodeMapping() started.
+✔ Test publicNestedCancellationIsRecognizedWithoutPrivateServerCodeMapping() passed after 0.001 seconds.
+◇ Test explicitStopIsIdempotentAndManagerCanRestartItsListener() started.
+✔ Test explicitStopIsIdempotentAndManagerCanRestartItsListener() passed after 0.001 seconds.
+◇ Test stopWaitsForAnAlreadyDeliveredVerifiedTransactionToFinish() started.
+✔ Test stopWaitsForAnAlreadyDeliveredVerifiedTransactionToFinish() passed after 0.001 seconds.
+◇ Test registryMatchesApprovedCatalogAndOnlyNonBasicProducts() started.
+✔ Test registryMatchesApprovedCatalogAndOnlyNonBasicProducts() passed after 0.001 seconds.
+◇ Test productsUseLocalizedPricesAndMissingProductsCannotBePurchased() started.
+✔ Test productsUseLocalizedPricesAndMissingProductsCannotBePurchased() passed after 0.001 seconds.
+◇ Test productFailureCanBeRetried() started.
+✔ Test productFailureCanBeRetried() passed after 0.001 seconds.
+◇ Test successfulPurchaseGrantsAndFinishesOnlyVerifiedTransaction() started.
+✔ Test successfulPurchaseGrantsAndFinishesOnlyVerifiedTransaction() passed after 0.001 seconds.
+◇ Test cancellationPendingAndVerificationFailureNeverUnlock() started.
+✔ Test cancellationPendingAndVerificationFailureNeverUnlock() passed after 0.001 seconds.
+◇ Test purchaseErrorsClearBusyStateAndCanRetry() started.
+✔ Test purchaseErrorsClearBusyStateAndCanRetry() passed after 0.001 seconds.
+◇ Test mismatchedOrRevokedPurchaseResultNeverUnlocks() started.
+✔ Test mismatchedOrRevokedPurchaseResultNeverUnlocks() passed after 0.001 seconds.
+◇ Test duplicateTapsAndRestoreDuringPaymentAreRejected() started.
+✔ Test duplicateTapsAndRestoreDuringPaymentAreRejected() passed after 0.001 seconds.
+◇ Test refreshFailureRetainsPreviouslyVerifiedOwnership() started.
+✔ Test refreshFailureRetainsPreviouslyVerifiedOwnership() passed after 0.001 seconds.
+◇ Test confirmedAbsenceRevokesAndPreservesOtherPreferences() started.
+✔ Test confirmedAbsenceRevokesAndPreservesOtherPreferences() passed after 0.002 seconds.
+◇ Test reopenWaitsForVerifiedLedgerAndNeverTrustsMockDefaults() started.
+✔ Test reopenWaitsForVerifiedLedgerAndNeverTrustsMockDefaults() passed after 0.001 seconds.
+◇ Test restoreIsExplicitHandlesEmptySuccessAndCancellation() started.
+✔ Test restoreIsExplicitHandlesEmptySuccessAndCancellation() passed after 0.001 seconds.
+◇ Test unverifiedSnapshotCannotGrantOrReportSuccessfulRestore() started.
+✔ Test unverifiedSnapshotCannotGrantOrReportSuccessfulRestore() passed after 0.001 seconds.
+◇ Test transactionUpdatesDeliverPendingPurchaseAndRefund() started.
+✔ Test transactionUpdatesDeliverPendingPurchaseAndRefund() passed after 0.001 seconds.
+◇ Test restoreJoiningRefreshWaitsForStableSnapshotAfterUpdate() started.
+✔ Test restoreJoiningRefreshWaitsForStableSnapshotAfterUpdate() passed after 0.001 seconds.
+◇ Test restoreRequiresPostSyncSnapshotEvenWithoutTransactionUpdate() started.
+✔ Test restoreRequiresPostSyncSnapshotEvenWithoutTransactionUpdate() passed after 0.001 seconds.
+◇ Test lateRefundOfOldTransactionPreservesRepurchasedOutfitAndPreference() started.
+✔ Test lateRefundOfOldTransactionPreservesRepurchasedOutfitAndPreference() passed after 0.001 seconds.
+◇ Test concurrentFinishCallersWaitForOneAcknowledgementAndCleanUp() started.
+✔ Test concurrentFinishCallersWaitForOneAcknowledgementAndCleanUp() passed after 0.001 seconds.
+◇ Test managerLifetimeDoesNotRetainOldTransactionListener() started.
+✔ Test managerLifetimeDoesNotRetainOldTransactionListener() passed after 0.001 seconds.
+◇ Test localTestingPreferencesNeverChangeProductionSelections() started.
+✔ Test localTestingPreferencesNeverChangeProductionSelections() passed after 0.002 seconds.
+◇ Test disabledGateNeverTouchesStoreOrImportsMocks() started.
+✔ Test disabledGateNeverTouchesStoreOrImportsMocks() passed after 0.001 seconds.
+✔ Suite PioPurchaseTests passed after 0.019 seconds.
+◇ Suite PioWardrobeTests started.
+◇ Test durableLastSelectionSurvivesReopenButRequiresFreshVerifiedOwnership() started.
+✔ Test durableLastSelectionSurvivesReopenButRequiresFreshVerifiedOwnership() passed after 0.003 seconds.
+◇ Test corruptOrUnsupportedSelectionFallsBackWithoutGrantingOwnership() started.
+✔ Test corruptOrUnsupportedSelectionFallsBackWithoutGrantingOwnership() passed after 0.002 seconds.
+◇ Test failedDurableWriteRejectsEquipAndPreservesPreviousPreference() started.
+✔ Test failedDurableWriteRejectsEquipAndPreservesPreviousPreference() passed after 0.002 seconds.
+◇ Test rejectedUnownedEquipNeverTouchesDurableOrLegacyPreferences() started.
+✔ Test rejectedUnownedEquipNeverTouchesDurableOrLegacyPreferences() passed after 0.002 seconds.
+◇ Test durableSelectionProfilesCannotOverwriteOneAnother() started.
+✔ Test durableSelectionProfilesCannotOverwriteOneAnother() passed after 0.001 seconds.
+◇ Test catalogHasFourteenUniqueHonestEntries() started.
+✔ Test catalogHasFourteenUniqueHonestEntries() passed after 0.001 seconds.
+◇ Test everyCatalogArtworkLoadsFromTheAppBundleAtFullResolution() started.
+✔ Test everyCatalogArtworkLoadsFromTheAppBundleAtFullResolution() passed after 0.001 seconds.
+◇ Test basicIsAlwaysFreeAndUnownedSelectionsAreRejected() started.
+✔ Test basicIsAlwaysFreeAndUnownedSelectionsAreRejected() passed after 0.001 seconds.
+◇ Test unavailableShopNeverGrantsPaidWearingAndPreservesPreferences() started.
+✔ Test unavailableShopNeverGrantsPaidWearingAndPreservesPreferences() passed after 0.001 seconds.
+◇ Test invalidOrUnownedStoredSelectionsFallBackSafely() started.
+✔ Test invalidOrUnownedStoredSelectionsFallBackSafely() passed after 0.001 seconds.
+◇ Test previewStagePersistsWithoutChangingOwnershipOrOutfit() started.
+✔ Test previewStagePersistsWithoutChangingOwnershipOrOutfit() passed after 0.001 seconds.
+◇ Test outfitTestingRequiresExactExplicitFlag() started.
+✔ Test outfitTestingRequiresExactExplicitFlag() passed after 0.001 seconds.
+◇ Test outfitTestingAllowsEveryCostumeWithoutOwnershipOrIcons() started.
+✔ Test outfitTestingAllowsEveryCostumeWithoutOwnershipOrIcons() passed after 0.002 seconds.
+◇ Test outfitTestingPreferencesAreSeparateAndSurviveEntitlementRepair() started.
+✔ Test outfitTestingPreferencesAreSeparateAndSurviveEntitlementRepair() passed after 0.003 seconds.
+◇ Test stagePreviewAndLevelBoundariesNeverClearAnOwnedOutfit() started.
+✔ Test stagePreviewAndLevelBoundariesNeverClearAnOwnedOutfit() passed after 0.001 seconds.
+◇ Test productionEntitlementBoundaryIsUnavailable() started.
+✔ Test productionEntitlementBoundaryIsUnavailable() passed after 0.001 seconds.
+◇ Test mockOwnershipPersistsWhileOutfitAndIconStayIndependent() started.
+✔ Test mockOwnershipPersistsWhileOutfitAndIconStayIndependent() passed after 0.001 seconds.
+◇ Test unknownMockIDsCannotBecomeOwnedAndResetRepairsOnlyUnownedSelections() started.
+✔ Test unknownMockIDsCannotBecomeOwnedAndResetRepairsOnlyUnownedSelections() passed after 0.001 seconds.
+✔ Suite PioWardrobeTests passed after 0.029 seconds.
+✔ Test run with 77 tests in 7 suites passed after 0.148 seconds.
+2026-10-24 14:18:16.705 xcodebuild[98356:2208507] [MT] IDETestOperationsObserverDebug: 17.922 elapsed -- Testing started completed.
+2026-10-24 14:18:16.705 xcodebuild[98356:2208507] [MT] IDETestOperationsObserverDebug: 0.000 sec, +0.000 sec -- start
+2026-10-24 14:18:16.705 xcodebuild[98356:2208507] [MT] IDETestOperationsObserverDebug: 17.922 sec, +17.922 sec -- end
+
+Test session results, code coverage, and logs:
+	/tmp/PioProductionFinal-Mac-corrected-20261024.xcresult
+
+Failing tests:
+	PioProductionFinalLifecycleTests.testMacVacationSwiftUIScrollSubtreeReleasesNativeView()
+	PioProductionFinalLifecycleTests.testMacVacationSwiftUIScrollSubtreeReleasesNativeView()
+	PioProductionFinalLifecycleTests.testMacVacationSwiftUIScrollSubtreeReleasesNativeView()
+
+** TEST EXECUTE FAILED **
+
+Testing started

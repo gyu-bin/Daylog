@@ -1,0 +1,87 @@
+[
+  {
+    "path": "Daylog/Components/PioHomeProductionRig.swift",
+    "status": "new",
+    "sha256": "374480159889e7aa04c84408d82f27f40450a086735103b7e21da5b2585ed7ba"
+  },
+  {
+    "path": "Daylog/Components/PioHeaderCompanion.swift",
+    "status": "modified",
+    "sha256": "cdbca3885765dc9c321e2ce48cba43f9b81552d453636edeb870dc4186843fc3"
+  },
+  {
+    "path": "Daylog/Components/PioHomeProductionCharacter.swift",
+    "status": "new",
+    "sha256": "c8a098cdae817f58ea5a36e6729c4da0962fc251f57507c5e957bc3c62e59129"
+  },
+  {
+    "path": "Daylog/Components/PioAppearanceView.swift",
+    "status": "modified",
+    "sha256": "0ccdd7fc179bee69a3724e64ece4b3cd8eefe3fcc6c2915b69a80e0b33e54e24"
+  },
+  {
+    "path": "Daylog/Views/Dashboard/PioVacationIndependentEyes.swift",
+    "status": "modified",
+    "sha256": "072568698973b53d41fe682bb582d9d71ebda1690e108ff9efbbdd1cea816894"
+  },
+  {
+    "path": "Daylog/Views/Dashboard/RoutimoriVacationScene.swift",
+    "status": "modified",
+    "sha256": "2931732c0e6d2af9f20c975e2f4ae0e1eaa01dd9374bcf5ccc8393b9e26a03a8"
+  },
+  {
+    "path": "Daylog/Views/Dashboard/PioVacationAnchorMotion.swift",
+    "status": "new",
+    "sha256": "9ea65b17da138be1080c02382f58cf27085d9b61b4754eff2dd26b3f943da8dd"
+  },
+  {
+    "path": "DaylogTests/PioCharacterMacScreenTests.swift",
+    "status": "new",
+    "sha256": "8c05a35beb42298361d2c8336ce7b860f010ce4e37da55338bfa680b0f0d6b0c"
+  },
+  {
+    "path": "DaylogTests/PioHomeProductionTests.swift",
+    "status": "new",
+    "sha256": "86f21a250322be872d46f76317dd35a437d45382d69af877529cf704188f1a0c"
+  },
+  {
+    "path": "DaylogTests/PioVacationAnchorMotionTests.swift",
+    "status": "new",
+    "sha256": "fa2c793b35ca023d6441871a6fd572af5ae49ad13388fbe473327be3128b6b5a"
+  },
+  {
+    "path": "DaylogStoreKitTests/PioVacationHingeNativeTests.swift",
+    "status": "new",
+    "sha256": "9fbd028f1a3b0f2a85a4ed80017b03f6fd55603a78e7fd4a94256f694df36528"
+  },
+  {
+    "path": "DaylogStoreKitTests/PioVacationComponentArtworkTests.swift",
+    "status": "new",
+    "sha256": "3b86e702cf2ccdc9acaaa270a06ecace3a079b0c1d2108e887c2e81381111e2f"
+  },
+  {
+    "path": "DaylogStoreKitTests/PioCharacterDeviceLayoutTests.swift",
+    "status": "new",
+    "sha256": "2f4d852693f95941ff4be546444331101d9c63fe6062e27ea12a74eb1ad0b0be"
+  },
+  {
+    "path": "DaylogStoreKitTests/PioCharacterHomeNativeReviewTests.swift",
+    "status": "new",
+    "sha256": "401d9a3508ae3503261d4ebd18346670e90a6b6f1e171966bed7caee06b30ddc"
+  },
+  {
+    "path": "DaylogStoreKitTests/PioCharacterVerifiedSceneIntegrationTests.swift",
+    "status": "new",
+    "sha256": "dcf75d2b4cf4daa262a23706f455763286a1f022ced06071433169d537f7ac91"
+  },
+  {
+    "path": "DaylogStoreKitTests/PioCharacterHomePerformanceTests.swift",
+    "status": "new",
+    "sha256": "df57344144be48fb4e99f9e1c6a66b9141fdb80261ae36f6ab0965d6ac9eb93b"
+  },
+  {
+    "path": "DaylogStoreKitTests/PioVacationNightArtworkTests.swift",
+    "status": "new",
+    "sha256": "9183e3ed11d4b20e381f47ca3c2b4450f3cdca40e08d0804d3a252d225c40021"
+  }
+]

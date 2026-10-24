@@ -1,0 +1,8 @@
+Static geometry review: PASS for inspected candidate A.
+Only candidate crest changed; SHA256 e1bfb19ca5023baa9d39fadd108f72ad339eedab07bd60bc5dd51e593edab3dd. Four wing/tail PNGs byte-identical to before.
+50 Stage3 focused render files byte-identical before/after.
+Inspected native neutral and crest +12 joint; 64pt 1x neutral/minus12/landing; 64pt3x plus12/jump; 220pt3x neutral/minus12/plus12/jump/landing across light/dark.
+No visible crest root gap, detached basal lobe, or crest clipping in inspected images. Root remains occluded behind head with unchanged pivot.
+Jump comparison uses expanded headroom and retains full silhouette. Native pose comparisons use original full-resolution composites without resizing.
+Landing wing tips approach the tile edge as before; this is unchanged non-crest geometry.
+384 candidate PNGs and50 comparison boards generated. No catalog/app modifications performed. Static evidence does not establish live animation/runtime behavior.

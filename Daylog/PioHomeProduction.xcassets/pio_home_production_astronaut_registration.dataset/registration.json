@@ -1,0 +1,247 @@
+{
+  "outfit": "astronaut",
+  "canvas": 1254,
+  "revision": "runtime-v2-candidate",
+  "parts": [
+    {
+      "id": "footLeft",
+      "asset": "pio_home_production_astronaut_footLeft",
+      "rect": [
+        499,
+        1040,
+        146,
+        127
+      ],
+      "pivot": [
+        572,
+        1060
+      ],
+      "z": 0
+    },
+    {
+      "id": "footRight",
+      "asset": "pio_home_production_astronaut_footRight",
+      "rect": [
+        699,
+        1040,
+        141,
+        123
+      ],
+      "pivot": [
+        770,
+        1060
+      ],
+      "z": 1
+    },
+    {
+      "id": "wingRight",
+      "asset": "pio_home_production_astronaut_wingRight",
+      "rect": [
+        890,
+        683,
+        238,
+        218
+      ],
+      "pivot": [
+        933,
+        855
+      ],
+      "z": 2
+    },
+    {
+      "id": "sprout",
+      "asset": "pio_home_production_astronaut_sprout",
+      "rect": [
+        365,
+        75,
+        514,
+        338
+      ],
+      "pivot": [
+        625,
+        400
+      ],
+      "z": 3
+    },
+    {
+      "id": "body",
+      "asset": "pio_home_production_astronaut_body",
+      "rect": [
+        135,
+        190,
+        1015,
+        962
+      ],
+      "pivot": [
+        650,
+        800
+      ],
+      "z": 4
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_home_production_astronaut_eyeLeft",
+      "rect": [
+        502,
+        613,
+        96,
+        111
+      ],
+      "pivot": [
+        550,
+        679
+      ],
+      "z": 5
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_home_production_astronaut_eyeRight",
+      "rect": [
+        753,
+        578,
+        93,
+        107
+      ],
+      "pivot": [
+        799,
+        642
+      ],
+      "z": 6
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_home_production_astronaut_lidLeft",
+      "rect": [
+        502,
+        668,
+        97,
+        36
+      ],
+      "pivot": [
+        550,
+        685
+      ],
+      "z": 7
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_home_production_astronaut_lidRight",
+      "rect": [
+        753,
+        631,
+        94,
+        34
+      ],
+      "pivot": [
+        799,
+        648
+      ],
+      "z": 8
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_home_production_astronaut_halfLeft",
+      "rect": [
+        462,
+        612,
+        149,
+        135
+      ],
+      "pivot": [
+        550,
+        676.5
+      ],
+      "z": 9
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_home_production_astronaut_halfRight",
+      "rect": [
+        715,
+        576,
+        143,
+        131
+      ],
+      "pivot": [
+        799.5,
+        639
+      ],
+      "z": 10
+    },
+    {
+      "id": "wingLeft",
+      "asset": "pio_home_production_astronaut_wingLeft",
+      "rect": [
+        311,
+        825,
+        254,
+        303
+      ],
+      "pivot": [
+        515,
+        870
+      ],
+      "z": 11
+    },
+    {
+      "id": "visor",
+      "asset": "pio_home_production_astronaut_visor",
+      "rect": [
+        297,
+        279,
+        672,
+        668
+      ],
+      "pivot": [
+        650,
+        650
+      ],
+      "z": 12
+    },
+    {
+      "id": "helmet",
+      "asset": "pio_home_production_astronaut_helmet",
+      "rect": [
+        220,
+        292,
+        781,
+        703
+      ],
+      "pivot": [
+        650,
+        650
+      ],
+      "z": 13
+    },
+    {
+      "id": "happyLeft",
+      "asset": "pio_home_production_astronaut_happyLeft",
+      "rect": [
+        499,
+        656,
+        103,
+        51
+      ],
+      "pivot": [
+        550,
+        679
+      ],
+      "z": 5
+    },
+    {
+      "id": "happyRight",
+      "asset": "pio_home_production_astronaut_happyRight",
+      "rect": [
+        750,
+        619,
+        98,
+        49
+      ],
+      "pivot": [
+        799,
+        642
+      ],
+      "z": 6
+    }
+  ]
+}

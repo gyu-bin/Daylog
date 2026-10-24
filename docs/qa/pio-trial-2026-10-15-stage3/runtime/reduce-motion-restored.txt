@@ -1,0 +1,37 @@
+Window: "Daylog Store iPhone 17 Pro Max", App: Device Hub.
+0 standard window Daylog Store iPhone 17 Pro Max – iOS 27.0, ID: deviceWindow-AppWindow-1, Secondary Actions: Raise
+	1 container
+		2 text Daylog Store iPhone 17 Pro Max iOS 27.0
+		3 container
+			4 back button Description: 손쉬운 사용, ID: BackButton, Secondary Actions: Cancel
+			5 heading Description: 동작, Secondary Actions: Cancel
+			6 container Secondary Actions: Cancel
+				7 switch Description: 동작 줄이기, Value: 0, ID: REDUCE_MOTION, Secondary Actions: Cancel
+				8 element Description: 아이콘의 시차 효과를 포함한 사용자 인터페이스 동작을 감소시킵니다., Secondary Actions: Cancel
+				9 switch Description: 움직이는 이미지 자동 재생, Value: 1, ID: REDUCE_MOTION_AUTOPLAY_ANIMATED_IMAGES, Secondary Actions: Cancel
+				10 switch Description: 비디오 미리보기 자동 재생, Value: 1, ID: REDUCE_MOTION_AUTOPLAY_VIDEO_PREVIEWS, Secondary Actions: Cancel
+				11 switch Description: 메시지 효과 자동 재생, Value: 1, ID: ReduceMotionAutoplayMessagesEffects, Secondary Actions: Cancel
+				12 element Description: 메시지 내의 비디오, 움직이는 이미지 및 전체 화면 효과를 자동 재생할지 여부를 제어할 수 있습니다., Secondary Actions: Cancel
+				13 switch Description: 깜박이지 않는 커서 선호, Value: 0, ID: PREFER_NONBLINKING_CURSOR, Secondary Actions: Cancel
+				14 element Description: 텍스트에서 커서 표시가 깜박이지 않는 것을 선호합니다., Secondary Actions: Cancel
+		15 button Description: Home, ID: app.grid.3x3
+		16 button Description: Screenshot, ID: camera.viewfinder
+		17 button Description: Record, ID: record.circle
+		18 button Rotate Left
+	19 toolbar
+		20 button Description: Show in Device Hub, Help: Expand to view all controls, Secondary Actions: Increment, Decrement, Delete, Cancel, Move previous, Move next, Remove from toolbar
+		21 menu button More, Help: View options, ID: ellipsis
+	22 close button
+	23 zoom button
+	24 minimize button
+25 menu bar
+	26 Device Hub
+	27 File
+	28 Edit
+	29 View
+	30 Device
+	31 Controls
+	32 Window
+	33 Help
+
+The focused UI element is 0 standard window Daylog Store iPhone 17 Pro Max – iOS 27.0, ID: deviceWindow-AppWindow-1, Secondary Actions: Raise

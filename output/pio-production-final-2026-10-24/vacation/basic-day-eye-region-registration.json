@@ -1,0 +1,118 @@
+{
+  "status": "MAC_AND_IPHONE17_NATIVE_PASS_BASIC_DAY_ONLY_FINAL_ART_APPROVAL_PENDING",
+  "sourceSize": [
+    1024,
+    1536
+  ],
+  "file": "basic-day-eye-free-candidate-v1.png",
+  "originalSource": "Daylog/RoutimoriTrial.xcassets/routimori_vacation_hammock.imageset/routimori_vacation_hammock.png",
+  "parts": [
+    {
+      "id": "leftCleanEyeRegion",
+      "sourceRect": [
+        422,
+        688,
+        58,
+        44
+      ],
+      "pivotPx": [
+        451,
+        710
+      ],
+      "contentsRectTopLeft": [
+        0.412109375,
+        0.4479166666666667,
+        0.056640625,
+        0.028645833333333332
+      ],
+      "parent": "originalHammock",
+      "z": "above unchanged full foreground, below eye state",
+      "safeTransformRange": "identity for reconstruction region; expression opacity verified in native Mac/iPhone17 Basic day only",
+      "hiddenRootBounds": null,
+      "contentsRectMacUnflippedReference": [
+        0.412109375,
+        0.5234375,
+        0.056640625,
+        0.028645833333333332
+      ],
+      "contentsRectVacationFlippedTree": [
+        0.412109375,
+        0.4479166666666667,
+        0.056640625,
+        0.028645833333333332
+      ]
+    },
+    {
+      "id": "rightCleanEyeRegion",
+      "sourceRect": [
+        531,
+        647,
+        54,
+        43
+      ],
+      "pivotPx": [
+        558,
+        668.5
+      ],
+      "contentsRectTopLeft": [
+        0.5185546875,
+        0.4212239583333333,
+        0.052734375,
+        0.027994791666666668
+      ],
+      "parent": "originalHammock",
+      "z": "above unchanged full foreground, below eye state",
+      "safeTransformRange": "identity for reconstruction region; expression opacity verified in native Mac/iPhone17 Basic day only",
+      "hiddenRootBounds": null,
+      "contentsRectMacUnflippedReference": [
+        0.5185546875,
+        0.55078125,
+        0.052734375,
+        0.027994791666666668
+      ],
+      "contentsRectVacationFlippedTree": [
+        0.5185546875,
+        0.4212239583333333,
+        0.052734375,
+        0.027994791666666668
+      ]
+    }
+  ],
+  "openEyeDonors": [
+    {
+      "asset": "pio_overhaul_basic_eyeLeft",
+      "rect": [
+        431,
+        687,
+        37.8,
+        43.8
+      ]
+    },
+    {
+      "asset": "pio_overhaul_basic_eyeRight",
+      "rect": [
+        540,
+        647,
+        35.2,
+        40.8
+      ]
+    }
+  ],
+  "note": "Do not replace full original. Runtime samples only genuine newly reconstructed local fur. Open donors are separately approved standing eye art; reclining identity must be visually checked.",
+  "sampler_note": "Current vacation root.isGeometryFlipped=true; use PNG top-left y unchanged. Do not copy cloud unflipped Mac Y conversion.",
+  "runtime_helper": "Daylog/Views/Dashboard/PioVacationIndependentEyes.swift",
+  "resource_scope": "Basic day only; original closed eye source sampled at exact same rects; no night/paid reuse",
+  "source_invariants": "Full candidate is not used as scene replacement; only two clean-fur samples",
+  "verification": {
+    "mac": "mac-art-final-tests.log: 4/4 focused methods PASS",
+    "iphone17": "iphone17-tests.log: PioVacationProductionTests 2/2 PASS; eight 64/220pt frames visually inspected",
+    "exclusions": [
+      "paid 13 day/night",
+      "Basic night independent eyes",
+      "independent hands/props",
+      "two-endpoint ropes",
+      "physical iPhone",
+      "final human art approval"
+    ]
+  }
+}

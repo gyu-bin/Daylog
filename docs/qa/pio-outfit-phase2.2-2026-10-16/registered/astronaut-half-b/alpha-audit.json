@@ -1,0 +1,16 @@
+{
+  "alpha" : {
+    "alpha0" : 1077526,
+    "alpha1to254" : 494755,
+    "alpha255" : 235
+  },
+  "boundsAlpha16" : [
+    205,
+    241,
+    853,
+    776
+  ],
+  "height" : 1254,
+  "method" : "Uniform registration of genuine independent source; no alpha cleanup or cap masking",
+  "width" : 1254
+}

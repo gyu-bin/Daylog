@@ -1,0 +1,17 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "00008132-00111148148B801C",
+        "deviceName" : "My Mac",
+        "exportedFileName" : "9126EF83-12F1-4F30-9B86-E3C693085BEA.json",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "native-presentation-and-performance-observations_0_BF61A1FD-9278-4227-B0BE-BCD9E998FA60.json",
+        "timestamp" : 1792746064.705
+      }
+    ],
+    "testIdentifier" : "PioOverhaulNativeReviewTests/testNativePresentationAndComparableObservations()",
+    "testIdentifierURL" : "test://com.apple.xcode/Daylog/DaylogTests/PioOverhaulNativeReviewTests/testNativePresentationAndComparableObservations"
+  }
+]

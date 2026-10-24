@@ -1,0 +1,21 @@
+[
+  "xcodebuild",
+  "-project",
+  "Daylog.xcodeproj",
+  "-scheme",
+  "DaylogiOS",
+  "-configuration",
+  "Debug",
+  "-destination",
+  "generic/platform=iOS",
+  "-derivedDataPath",
+  "/var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/pio-sandbox-build-z6m2zyqj/DerivedData",
+  "CODE_SIGNING_ALLOWED=NO",
+  "INFOPLIST_FILE=$(PIO_SANDBOX_INFO_$(TARGET_NAME))",
+  "PIO_SANDBOX_INFO_DaylogiOS=/var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/pio-sandbox-build-z6m2zyqj/DaylogiOS-Sandbox-Info.plist",
+  "PIO_SANDBOX_INFO_DaylogWidgets=/Users/mungyubin/Desktop/Coding/Daylog/Config/DaylogWidgets-Info.plist",
+  "-clonedSourcePackagesDirPath",
+  "/private/tmp/PioStoreKit-20261023-ios/SourcePackages",
+  "-disableAutomaticPackageResolution",
+  "build"
+]

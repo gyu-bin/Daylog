@@ -1,0 +1,268 @@
+{
+  "sourceSize": [
+    1024,
+    1536
+  ],
+  "assets": [
+    {
+      "asset": "routimori_vacation_day_christmas",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/christmas-day-v1.png",
+      "sha256": "95b721d351550d9054a6fde8f2c539186ccc1d7b2e0571281abcd64dd570235e",
+      "mode": "day",
+      "outfit": "christmas",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_day_hanbok",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/hanbok-day-v1.png",
+      "sha256": "cf186d3c256eb6857dcd82b93fbb579a04fabda29b2196715c35436ab6b8744c",
+      "mode": "day",
+      "outfit": "hanbok",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_day_astronaut",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/astronaut-day-v2.png",
+      "sha256": "071987a2b6000b3475144720356469aeba75aa9aa216ad2626623c3ae22012c5",
+      "mode": "day",
+      "outfit": "astronaut",
+      "version": "v2",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_day_cherryBlossom",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/cherryBlossom-day-v1.png",
+      "sha256": "9af0ff90d7cd7482827b7438d3e9e1fcbfc3c66ff8201531d670ec25cd405e38",
+      "mode": "day",
+      "outfit": "cherryBlossom",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_day_summerVacation",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/summerVacation-day-v1.png",
+      "sha256": "9a8bacaef607704494d52986089d0905735049e400b3ee296be66ce5fe527ef2",
+      "mode": "day",
+      "outfit": "summerVacation",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_day_autumn",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/autumn-day-v1.png",
+      "sha256": "29f370c0cf6c0e84bd2228c07e0dc6b4fa350456a89318a5254c0826672f3dc2",
+      "mode": "day",
+      "outfit": "autumn",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_day_winter",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/winter-day-v1.png",
+      "sha256": "28954ce250520fd2d4c892f2ae8ee248f8a0b7dfeeb1916565fd9a67486312e7",
+      "mode": "day",
+      "outfit": "winter",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_day_halloween",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/halloween-day-v1.png",
+      "sha256": "69fabdccc6be0cabb050b2eb999ad67c44be9c90201fb9b448d4ffd5c711a8f7",
+      "mode": "day",
+      "outfit": "halloween",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_day_cafe",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/cafe-day-v1.png",
+      "sha256": "f3f11907684e96f35ea69e7d18425b9bd930dcba8a0dff04bc6c04329c1c995b",
+      "mode": "day",
+      "outfit": "cafe",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_day_student",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/student-day-v1.png",
+      "sha256": "a969ca540efa24b52d6290f800f69a7e2aaf29c1fbc2c4220f9a19f6c2262a18",
+      "mode": "day",
+      "outfit": "student",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_day_fitness",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/fitness-day-v1.png",
+      "sha256": "6383e8fecf6e7880df8b46e15eaf9b94d306b0dc246c99edbebcd9903bc569fc",
+      "mode": "day",
+      "outfit": "fitness",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_day_rainyDay",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/rainyDay-day-v1.png",
+      "sha256": "305fd26bc8e975d57c9cc7ec4a857bac582f935295747e29f549e182e5ef3c5e",
+      "mode": "day",
+      "outfit": "rainyDay",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_day_pajamas",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/pajamas-day-v1.png",
+      "sha256": "850e7f4051a04a014a68a4a1e7a295081a77083819d7a1fe602d85188c6f2b82",
+      "mode": "day",
+      "outfit": "pajamas",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_night_christmas",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/christmas-night-v1.png",
+      "sha256": "f10a1a440a0f0d1427372f7e7e5042a24cd5f98ab40fa0a991d72506ef38053e",
+      "mode": "night",
+      "outfit": "christmas",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_night_hanbok",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/hanbok-night-v1.png",
+      "sha256": "8c41f63bd384d5bebb6e299d39882f367807c0a73c1cb0ed077b0e9782aabcb8",
+      "mode": "night",
+      "outfit": "hanbok",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_night_astronaut",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/astronaut-night-v2.png",
+      "sha256": "57050520ddd78d9d3a38fc0c2c473c45beb229358d7dae69d7bbb0ce05d1015c",
+      "mode": "night",
+      "outfit": "astronaut",
+      "version": "v2",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_night_cherryBlossom",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/cherryBlossom-night-v1.png",
+      "sha256": "49d66ddb1874431cf26e9ca42f7c10da557a1a55b8dfd5e91bc85458049034d3",
+      "mode": "night",
+      "outfit": "cherryBlossom",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_night_summerVacation",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/summerVacation-night-v1.png",
+      "sha256": "4973b74068787930dca2f50885d1dded19909d53a6235b64171ca8e52fca03f3",
+      "mode": "night",
+      "outfit": "summerVacation",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_night_autumn",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/autumn-night-v1.png",
+      "sha256": "fc3a1a48b224e16297d46b527706383f77212aff4387876bb17ab67ad6d33d48",
+      "mode": "night",
+      "outfit": "autumn",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_night_winter",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/winter-night-v1.png",
+      "sha256": "b1169d3b421b2dd0c1a6c7c16ec27000caeb3b840181efe27bb300d0002eb801",
+      "mode": "night",
+      "outfit": "winter",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_night_halloween",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/halloween-night-v1.png",
+      "sha256": "3eb58554760cfbf50aae563ab037e4b9519283800a5281619ea6bc959cfc7ccb",
+      "mode": "night",
+      "outfit": "halloween",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_night_cafe",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/cafe-night-v1.png",
+      "sha256": "9dd14447e4740358071c96a0aaaf933bd87419b77626c8db4fabcbbf74aa4473",
+      "mode": "night",
+      "outfit": "cafe",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_night_student",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/student-night-v1.png",
+      "sha256": "d5da4030a75f1ad7388cde437a50d9e109d91b8a363e9e6b85c93dd452644649",
+      "mode": "night",
+      "outfit": "student",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_night_fitness",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/fitness-night-v1.png",
+      "sha256": "1be2f9a8c0ca3652e81a65c7039a70838be4af7248a558b32e13cb9bcca831cb",
+      "mode": "night",
+      "outfit": "fitness",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_night_rainyDay",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/rainyDay-night-v1.png",
+      "sha256": "d1f67dd9a71f6e3602fd786943594193f67afde5ec6faac87415a2658913f0cc",
+      "mode": "night",
+      "outfit": "rainyDay",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    },
+    {
+      "asset": "routimori_vacation_night_pajamas",
+      "source": "output/pio-vacation-outfits-2026-10-23/source/pajamas-night-v1.png",
+      "sha256": "4e8954a2657703c3417d19fad81757c5b5a95f1ef0f58279a1a9c3628712c94c",
+      "mode": "night",
+      "outfit": "pajamas",
+      "version": "v1",
+      "independentMotion": false,
+      "registrationStatus": "Visual candidate; exact rope/root clearance at extremes requires runtime review"
+    }
+  ]
+}

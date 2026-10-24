@@ -1,0 +1,8 @@
+{
+  "environment": "Xcode local sheet visibly states testing only/no charge",
+  "product": "outfit.cherryblossom",
+  "price": "₩2,500",
+  "action": "purchase button -> Apple Xcode sheet -> actual close X",
+  "afterCancel": "purchase button enabled again; Basic remains equipped; no paid entitlement shown",
+  "note": "Actual typed manager result is recorded at fixture completion; not simulatedError injection"
+}

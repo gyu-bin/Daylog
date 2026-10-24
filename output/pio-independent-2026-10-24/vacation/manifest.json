@@ -1,0 +1,42 @@
+{
+  "source": "Daylog/RoutimoriTrial.xcassets/routimori_vacation_hammock.imageset/routimori_vacation_hammock.png",
+  "originalsModified": false,
+  "runtimeEnabled": false,
+  "candidates": [
+    {
+      "file": "basic-day-clean-base-candidate-v1.png",
+      "sha256": "ec07af6ac9109a4c855fb834850449923f4c739c6949028049c37810547e0e59",
+      "bytes": 1188027,
+      "status": "NOT_APPROVED_NOT_INTEGRATED",
+      "tool": "built-in image_gen",
+      "size": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "file": "basic-day-eye-fur-patches-candidate-v2.png",
+      "sha256": "4eb8473b718a66b45c10f51b5150cf80f0c54fbce8e184965ec0c05f9e3f88c0",
+      "bytes": 588960,
+      "status": "NOT_APPROVED_NOT_INTEGRATED",
+      "tool": "built-in image_gen",
+      "size": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "file": "basic-day-eye-fur-patches-candidate-v3.png",
+      "sha256": "cb464428fbf327555338122783f70dec6e8d386e4320da0c4acd9b1e467ddd46",
+      "bytes": 549374,
+      "status": "NOT_APPROVED_NOT_INTEGRATED",
+      "tool": "built-in image_gen",
+      "size": [
+        1024,
+        1536
+      ]
+    }
+  ],
+  "status": "FAIL_BLOCKED_ASSET",
+  "nativeEvidencePNGCount": 9
+}

@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "buildOnly": true,
+  "installed": false,
+  "signed": false,
+  "runtimeSandboxTested": false,
+  "temporaryWorkspace": "/var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/pio-sandbox-build-z6m2zyqj",
+  "temporaryInfoPlist": "/var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/pio-sandbox-build-z6m2zyqj/DaylogiOS-Sandbox-Info.plist",
+  "protectedSHA256Before": {
+    "Config/DaylogiOS-Info.plist": "8e05bc6878cb22ce2418c324171d2a8b4b60d70ae3407b06cda47de5d7d9220f",
+    "Daylog/Services/PioProductRegistry.swift": "09058a41019ad3b23fe79af19d0cea924b22abf09c2cdfed0dcceab8c14040f1",
+    "Daylog.xcodeproj/project.pbxproj": "c888f7df3d2660a2f014054cbeb76e4cb3ca61f5a7d28cc961e6404f870cc717",
+    "Config/DaylogiOS.entitlements": "c4535d232dc4c8c0d6bf482c9289274f616388e2280ea78581f59cdac8042a17",
+    "Config/DaylogWidgets-Info.plist": "567714e28ae489b0ac30b44b10e76d6a347bc7547f80811535e4fec28f2ad9cf",
+    "Daylog.xcodeproj/xcshareddata/xcschemes/DaylogiOS.xcscheme": "9b5b2a05ec6e6bdeefe97c142dd235c87a7e2dda87a08d74a20340e8fb591e9a",
+    "Daylog.xcodeproj/xcshareddata/xcschemes/DaylogiOSStoreKit.xcscheme": "2707052f26949462cb71a769142d63b5ba1430fcdd6e2a86aa56df2ca5a31f81"
+  },
+  "productIDs": [
+    "outfit.autumn",
+    "outfit.cafe",
+    "outfit.cherryblossom",
+    "outfit.christmas",
+    "outfit.halloween",
+    "outfit.hanbok",
+    "outfit.pajamas",
+    "outfit.rainy",
+    "outfit.space",
+    "outfit.student",
+    "outfit.summer",
+    "outfit.winter",
+    "outfit.workout"
+  ],
+  "buildExitCode": 0,
+  "app": "/var/folders/ry/8h2v6sp568j5h7d2q9mx73qc0000gn/T/pio-sandbox-build-z6m2zyqj/DerivedData/Build/Products/Debug-iphoneos/Daylog.app",
+  "appInfo": {
+    "CFBundleIdentifier": "com.mungyubin.daylog.ios",
+    "PioStoreKitCatalogConfirmed": true,
+    "PioStoreKitEnvironment": "sandbox"
+  },
+  "widgetBundleID": "com.mungyubin.daylog.ios.widgets",
+  "widgetPreserved": true,
+  "protectedSHA256After": {
+    "Config/DaylogiOS-Info.plist": "8e05bc6878cb22ce2418c324171d2a8b4b60d70ae3407b06cda47de5d7d9220f",
+    "Daylog/Services/PioProductRegistry.swift": "09058a41019ad3b23fe79af19d0cea924b22abf09c2cdfed0dcceab8c14040f1",
+    "Daylog.xcodeproj/project.pbxproj": "c888f7df3d2660a2f014054cbeb76e4cb3ca61f5a7d28cc961e6404f870cc717",
+    "Config/DaylogiOS.entitlements": "c4535d232dc4c8c0d6bf482c9289274f616388e2280ea78581f59cdac8042a17",
+    "Config/DaylogWidgets-Info.plist": "567714e28ae489b0ac30b44b10e76d6a347bc7547f80811535e4fec28f2ad9cf",
+    "Daylog.xcodeproj/xcshareddata/xcschemes/DaylogiOS.xcscheme": "9b5b2a05ec6e6bdeefe97c142dd235c87a7e2dda87a08d74a20340e8fb591e9a",
+    "Daylog.xcodeproj/xcshareddata/xcschemes/DaylogiOSStoreKit.xcscheme": "2707052f26949462cb71a769142d63b5ba1430fcdd6e2a86aa56df2ca5a31f81"
+  },
+  "normalConfigurationUnchanged": true
+}

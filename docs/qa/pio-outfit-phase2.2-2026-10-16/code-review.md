@@ -1,0 +1,66 @@
+# Phase 2.2 independent code review
+
+2026-10-16. Scope: the new layered renderer, diagnostics view, focused test source, new RootView route, runtime packer and Basic/Christmas/Hanbok/Astronaut registrations, genuine half-eye extension, and Christmas-g shared-grip motion extension. Follow-up sections distinguish the scope reviewed at each stage. Art acceptance remains separately scoped in the art-review records. Reviewer changed only this document. No builds or test suites were run by this reviewer; build, runtime, visual and performance outcomes belong to their separate evidence records.
+
+## Findings
+
+No actionable correctness finding remains in the reviewed implementation, including the Christmas-g, three-state blink, Hanbok registry and manual diagnostic-export deltas. This is approval of the limited DEBUG pilot's code structure, not a production or artwork/performance approval.
+
+- **Resolved — diagnostic transition count:** the original loop reported 30 switches after only 29 changes when starting at Basic. The final loop selects the next outfit relative to the current selection every iteration (`PioLayeredDiagnosticsView.swift:111–113`), so 30 completed iterations now represent 30 real changes.
+- **Resolved — attachment wording:** the final title “장식과 들고 있는 소품” includes the carried gift and no longer claims that only the head accessory moves.
+
+## Correctness and isolation
+
+- `PioLayeredCharacter.swift:178–190` creates individually textured part layers, not masks over one full costume image. Blink animates two open-eye, two half-eye and two closed-lid opacities with discrete, mutually exclusive states; wave animates only the right wing/hand. Neither mode adds body or ancestor motion. Idle and combined jump intentionally move the common ancestor, and body telemetry counts those ancestor tracks.
+- Christmas's accepted right-hand pivot is `(1050,790)` and neutral rotation is `−60°` in source coordinates. The renderer changes both vertical position/anchor convention and rotation sign on macOS, preserving the equivalent top-left registration. Animated angles include the neutral rotation rather than replacing it with zero.
+- The final Christmas-g extension parents the gift and left hand under one `leftGrip` layer (`PioLayeredCharacter.swift:191–200`). Its full-canvas bounds, anchor `(513/1254,870/1254)` and matching position give an identity neutral coordinate mapping; macOS inverses both anchor Y and position Y. Existing child coordinates therefore stay registered. The group is inserted at gift z=8, contains gift then hand z=9, and stays below the right hand z=10; the approved manifest has no interleaving part. Flap rotates this shared group ±6° while the free right hand moves ±12° in the opposite phase. Attachment now translates the same group. Both keep the hand/gift relative transform fixed. Celebration keeps the held group neutral while the common ancestor jumps and the free right hand moves.
+- All three reviewed manifests identify a single pilot neutral body and explicitly disable growth-stage support. Unsupported outfits fail lookup; no growth-stage adaptation, Astronaut implementation or thirteen-outfit completion is implied by this three-outfit review. The diagnostics UI states this limitation.
+- New view, renderer, tests and route are enclosed in `#if DEBUG`. Entry requires the existing Routimori trial plus the layered-rig and layered-diagnostics opt-ins. The new catalog is excluded in both Release configurations. No new code changes equipped outfit, entitlement, payment, XP, production records or cloud state.
+
+## Lifecycle and work performed
+
+Animation eligibility combines requested motion, appear/disappear state, scroll visibility on macOS 15/iOS 18+, active scene, Reduce Motion, and native window attachment. Dismantle removes tracks. Flat-reference comparison stays static. Older OS versions retain appear/disappear and scene/window guards but do not have the scroll-visibility callback; full offscreen-scroll guarantees must be scoped accordingly.
+
+Configuration and layout are idempotent for unchanged inputs. Native keyframe animations drive frames without a SwiftUI frame timer. Image/manifest caches are reused across changes; diagnostics counters are non-observable and refreshed manually. The registry holds rigs weakly. These properties reduce obvious redundant work but do not establish lower measured CPU/GPU or battery usage. The bounded switching task is cancellable; it is a deliberate QA workload.
+
+The five focused tests inspect resource dimensions/registrations, isolated track selection, stopped/restarted animations, configuration/layout stability, held-gift constraints and weak lifetime. The final grip test checks shared parent identity, absence of independent child tracks, unchanged child positions, the 12° total grip angle range, and category metrics. They do not independently prove correct rendered orientation, blink pixels, continuous joint coverage, real OS Reduce Motion, or runtime performance. Actual rendered and application evidence is still required for those claims.
+
+## Initial two-outfit packing and preservation evidence
+
+Read-only checks against `before-hashes.json` found **554 baseline files, 552 byte-identical, two changed, zero missing**. The changed files are `Daylog/App/RootView.swift` and `Daylog.xcodeproj/project.pbxproj`. Removing only the added layered diagnostic branch reproduces the exact RootView baseline SHA-256. Removing only the new catalog name from both Release exclusions reproduces the exact project-file baseline SHA-256. All **14 existing wardrobe PNGs (13 costumes plus the basic reference)** are byte-identical.
+
+Independently decoded the PNG alpha channels using a Python standard-library PNG decoder, rather than reusing the packer's CGContext coordinate conversion. For all **21 runtime parts**, the decoded top-left alpha bounding rectangle exactly equals the manifest rectangle, and every packed alpha sample equals the corresponding full-canvas source sample. Every `fullCanvasSHA256` matches its accepted `candidate-a` or `christmas-f` source. Both bundled reference PNGs are byte-identical to their registered reference files. This excludes a vertical-origin/crop mismatch in the inspected assets.
+
+`pack-runtime.swift:29–32` additionally enforces exact decoded premultiplied RGBA equality before it emits each registration entry. The independent reviewer check above verifies alpha and source hashes; it does not claim an independent full-color comparison or native CALayer visual inspection.
+
+## Final Christmas-g delta review
+
+The group is removed on unsupported configuration, outfit/reference changes, and its animations are cleared by the same stop path as all other layers. Total animation count includes the group once. Category counts include it in both wings and accessories because it moves both categories; these category counts are overlapping and must not be summed as a total. Body count correctly excludes the grip while including true character ancestors. Presentation diagnostics include the grip and now expose translation matrix components as well as rotation, position, scale and opacity. Sampling remains manual, with no frame-driven SwiftUI updates.
+
+The compile fix to the diagnostics stop toggle passes `isAnimating: animating && !reduceMotion` instead of attempting to write the read-only system accessibility environment. The character still reads and respects genuine OS Reduce Motion itself; the UI separately labels the manual stop request and real system state. This preserves the intended OR-of-stop-conditions behavior.
+
+The new shared-group architecture is consistent with the approved ±6° grip / ±12° free-hand pilot scope. This targeted read-only review found no further actionable code issue. It does not substitute for native rendered/runtime validation or claim that uninspected intermediate frames, other costumes, growth stages, or performance targets pass.
+
+## Three-state blink / Hanbok / diagnostics follow-up
+
+Read-only follow-up of the three-outfit registry and its 37 parts found no actionable code defect. `PioLayeredCharacter.swift:299–306` uses the same key times and 3.6-second duration for all six discrete opacity tracks. The open/half/closed vectors are binary and sum to one at each segment, including the repeated-cycle seam. The half states last about 57.6 ms each and closed state about 108 ms. No opacity crossfade is left. Model values initialize open to 1 and half/lid to 0, so stop or a switch away from blink returns the neutral open face. The test now checks six tracks, matching times, discrete mode, binary values, and one-hot state sums for each approved outfit. This checks texture-state selection; native pixels/timing remain separately verified.
+
+Hanbok uses `wingLeft`/`wingRight` and the generic wing selection, plus independent feet and sprout. The renderer does not claim that baked flower/tassel/bow/skirt details are independent. Its half-eye and open/closed assets have distinct IDs and packed registrations; no existing eye is reused as a partially transparent half-eye.
+
+The diagnostics export is guarded by DEBUG, the normal layered opt-ins, an explicit process argument, and a manual refresh/reset button. It writes atomic JSON only to the app temporary directory with the fixed filename `pio-layered-evidence.json`; the supplied string cannot select an arbitrary output directory. The exported fields are local QA settings, counters and layer presentation values, with no production records or account information. `onAppear` samples without writing. Accessibility labels expose the latest text; 900pt trailing space enables a genuine scroll-offscreen exercise. The spacer alone does not prove the visibility callback fired. Exported `visible` means the user-facing show toggle, not the scroll visibility state; use actual track counts plus viewport evidence to assess offscreen stopping.
+
+Rechecked every current part against `registered/base-half-a`, `registered/christmas-half-a`, and `registered/hanbok-half-a`: **Basic 12 + Christmas 13 + Hanbok 12 = 37 source hashes, independent top-left alpha bounds, and exact packed alpha planes passed**. All three runtime reference PNGs match their corresponding registered reference bytes. The partial packer's `--only-half` mode retains existing non-half asset files/geometry and updates ordering; its RGBA assertion executes for the newly written half parts. The independent check here covers alpha/source registration for all retained and new parts as well.
+
+The 554-file baseline preservation check still shows only RootView and the project file changed; all 14 original wardrobe PNGs remain byte-identical. No app source, artwork or tests were modified by this reviewer and no build/test suite was rerun.
+
+Evidence scope at this follow-up: `half-eye-art-review.md` explicitly accepts Basic/Christmas; `hanbok-art-review.md` still calls out Hanbok half-eye registration as a separate art gate. Parent was notified to record any later Hanbok half-eye approval. This code review does not silently promote that gate or include the pending Astronaut registry/artwork.
+
+## Final Astronaut shared-rig compatibility review
+
+Read-only review of the final four-entry registry and latest layered renderer, diagnostic view and test source found no actionable implementation defect. Astronaut's six eye textures occupy z5–10, below the fixed visor at z12 and helmet at z13. Neither visor nor helmet is selected by blink, wing, foot or accessory tracks. They retain original texture alpha and model opacity 1; common body breathing/jump transforms move the whole assembly together. Blink/wave leave the assembly ancestors fixed.
+
+The generic wing path correctly uses Astronaut's `wingLeft`/`wingRight`, adding the approved neutral angles −18°/−5° to motion amplitudes at pivots `(515,870)` and `(933,855)`. Feet rotate about `(572,1060)` and `(770,1060)` and receive no Basic-only +35px plant offset. Platform Y/rotation conversion is unchanged. The current per-approved-outfit resource and isolated-motion tests automatically cover Astronaut; their former unsupported-outfit assertion now checks Autumn. Static helmet/visor fit remains art evidence, not something inferred from these tests.
+
+Independently verified all **14 Astronaut parts** against `registered/astronaut-half-a`: source SHA-256, pivot/z/neutral metadata, top-left alpha bounding rectangles, exact packed alpha samples, and byte-identical registered reference all passed. Together with the earlier 37-part audit, this covers the current **51 parts across four pilot outfits**. A final baseline comparison still finds only RootView and project-file changes among the original 554 files; all original wardrobe PNGs remain unchanged.
+
+The earlier Hanbok half-eye documentation gap is resolved by the added Hanbok-specific ACCEPT section in `half-eye-art-review.md`. Astronaut-c fit approval was supplied by the parent for this integration; this reviewer did not independently repeat that art or native-motion inspection. Parent owns final build/test/runtime checks. There is no four-growth-stage or all-thirteen-outfit completion claim, nor a performance pass, in this code-review conclusion. Only this review document was updated.

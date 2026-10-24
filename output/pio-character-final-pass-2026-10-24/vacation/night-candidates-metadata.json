@@ -1,0 +1,104 @@
+{
+  "basic-night-clean-eyes-v1.png": {
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      8,
+      252
+    ],
+    "sha256": "7eec1cf518a84a9b365967b2ef38ffbe52ca903b1986df4d915a59408fe1a4da",
+    "sampleRegions": [
+      {
+        "rect": [
+          419,
+          781,
+          65,
+          57
+        ],
+        "border_mean_abs_rgb": 4.488387978142076,
+        "border_max_abs_rgb": 26
+      },
+      {
+        "rect": [
+          547,
+          732,
+          63,
+          54
+        ],
+        "border_mean_abs_rgb": 3.4935897435897436,
+        "border_max_abs_rgb": 22
+      }
+    ]
+  },
+  "basic-night-open-eyes-v1.png": {
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      1,
+      253
+    ],
+    "sha256": "26e50521bb34b76bc7ae6256aae825408a2e9e06515c1542f24410dd445075da",
+    "sampleRegions": [
+      {
+        "rect": [
+          419,
+          781,
+          65,
+          57
+        ],
+        "border_mean_abs_rgb": 3.110655737704918,
+        "border_max_abs_rgb": 17
+      },
+      {
+        "rect": [
+          547,
+          732,
+          63,
+          54
+        ],
+        "border_mean_abs_rgb": 3.0683760683760686,
+        "border_max_abs_rgb": 23
+      }
+    ]
+  },
+  "basic-night-half-eyes-v1.png": {
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_range": [
+      7,
+      252
+    ],
+    "sha256": "e236653f482d5af846fae42f92a7a1cdbea8c5e2026fb45368bc625cae19d369",
+    "sampleRegions": [
+      {
+        "rect": [
+          419,
+          781,
+          65,
+          57
+        ],
+        "border_mean_abs_rgb": 5.521857923497268,
+        "border_max_abs_rgb": 30
+      },
+      {
+        "rect": [
+          547,
+          732,
+          63,
+          54
+        ],
+        "border_mean_abs_rgb": 4.215099715099715,
+        "border_max_abs_rgb": 21
+      }
+    ]
+  }
+}
