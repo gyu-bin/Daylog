@@ -1,0 +1,17 @@
+STORE_PROBE appTransaction=verified environment=Xcode bundle=com.mungyubin.daylog.ios
+STORE_PROBE products requested=13 returned=13 missing=[]
+STORE_PROBE product id=outfit.cherryblossom type=Non-Consumable name=벚꽃 피오 price=₩2,500 currency=KRW
+STORE_PROBE product id=outfit.summer type=Non-Consumable name=여름휴가 피오 price=₩2,500 currency=KRW
+STORE_PROBE product id=outfit.autumn type=Non-Consumable name=가을 피오 price=₩2,500 currency=KRW
+STORE_PROBE product id=outfit.winter type=Non-Consumable name=겨울 피오 price=₩2,500 currency=KRW
+STORE_PROBE product id=outfit.halloween type=Non-Consumable name=할로윈 피오 price=₩2,500 currency=KRW
+STORE_PROBE product id=outfit.christmas type=Non-Consumable name=크리스마스 피오 price=₩2,500 currency=KRW
+STORE_PROBE product id=outfit.hanbok type=Non-Consumable name=한복 피오 price=₩2,500 currency=KRW
+STORE_PROBE product id=outfit.cafe type=Non-Consumable name=카페 피오 price=₩2,500 currency=KRW
+STORE_PROBE product id=outfit.student type=Non-Consumable name=학생 피오 price=₩2,500 currency=KRW
+STORE_PROBE product id=outfit.workout type=Non-Consumable name=운동 피오 price=₩2,500 currency=KRW
+STORE_PROBE product id=outfit.rainy type=Non-Consumable name=비 오는 날 피오 price=₩2,500 currency=KRW
+STORE_PROBE product id=outfit.pajamas type=Non-Consumable name=잠옷 피오 price=₩2,500 currency=KRW
+STORE_PROBE product id=outfit.space type=Non-Consumable name=우주복 피오 price=₩2,500 currency=KRW
+STORE_PROBE storefront=KOR
+STORE_PROBE done availability=구매 준비 중

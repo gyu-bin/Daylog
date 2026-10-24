@@ -247,6 +247,19 @@ struct PioPurchaseTests {
         #expect(sut.products.count == 13)
     }
 
+    /// 기기에 App Store(Sandbox) 계정이 없으면 "네트워크" 대신 로그인 안내를 보이고, 아무 권한도 주지 않는다.
+    /// (2026-10-24 실제 Sandbox 빌드·계정 없는 시뮬레이터에서 관측: 원인과 다른 연결 오류 문구가 떴다.)
+    @Test func missingAppStoreAccountExplainsSignInAndGrantsNothing() async {
+        let client = FixturePioStoreClient(); let sut = manager(client)
+        client.loadError = PioStoreClientError.accountUnavailable
+        await sut.loadProducts()
+        guard case .failed(let message) = sut.productLoadState else { Issue.record("Missing failure"); return }
+        #expect(message.contains("로그인"))
+        #expect(!message.contains("네트워크"))
+        #expect(sut.products.isEmpty)
+        #expect(sut.ownedOutfits == [.basic])
+    }
+
     @Test func successfulPurchaseGrantsAndFinishesOnlyVerifiedTransaction() async {
         let client = FixturePioStoreClient(); let sut = manager(client)
         client.purchaseResult = .verified(transaction(.cafe))

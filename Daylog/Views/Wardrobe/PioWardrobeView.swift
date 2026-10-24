@@ -369,6 +369,23 @@ struct PioWardrobeView: View {
             .buttonStyle(.borderedProminent)
             .disabled(store.purchases.isBusy || !store.purchases.availability.isEnabled || store.purchases.product(for: selectedOutfit) == nil)
             .accessibilityIdentifier("wardrobe.preview.purchase")
+            // 구매할 수 없는 까닭을 단추 바로 아래에 적는다(전에는 의상 목록 맨 아래에만 있어 "현재 구매 불가"의 이유가 보이지 않았다).
+            if store.purchases.availability.isEnabled, store.purchases.product(for: selectedOutfit) == nil {
+                switch store.purchases.productLoadState {
+                case .failed(let message):
+                    Label(message, systemImage: "exclamationmark.circle")
+                        .font(.footnote).foregroundStyle(palette.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    retryProductsButton(id: "wardrobe.preview.retryProducts")
+                case .unavailable:
+                    Label("이 의상의 상품 정보를 확인하지 못했어요.", systemImage: "exclamationmark.circle")
+                        .font(.footnote).foregroundStyle(palette.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    retryProductsButton(id: "wardrobe.preview.retryProducts")
+                default:
+                    EmptyView()
+                }
+            }
         }
     }
 
@@ -393,8 +410,11 @@ struct PioWardrobeView: View {
                     retryProducts
                 case .available: EmptyView()
                 }
+                // 상품 조회와 구매 내역 확인이 같은 까닭(계정 없음·연결 실패)으로 실패하면 같은 문장을 두 번 쓰지 않는다.
                 if case .failed(let message) = store.purchases.entitlementState {
-                    Text(message).font(.subheadline)
+                    if store.purchases.productLoadState != .failed(message: message) {
+                        Text(message).font(.subheadline)
+                    }
                     Button("구매 내역 다시 확인") { Task { await store.refreshEntitlements() } }
                         .disabled(store.purchases.isBusy)
                 }
@@ -403,11 +423,13 @@ struct PioWardrobeView: View {
         }
     }
 
-    private var retryProducts: some View {
+    private var retryProducts: some View { retryProductsButton(id: "wardrobe.retryProducts") }
+
+    private func retryProductsButton(id: String) -> some View {
         Button("상품 정보 다시 불러오기") { Task { await store.purchases.loadProducts() } }
             .buttonStyle(.bordered)
             .disabled(store.purchases.isBusy || store.purchases.productLoadState == .loading)
-            .accessibilityIdentifier("wardrobe.retryProducts")
+            .accessibilityIdentifier(id)
     }
 
     private var iconCollection: some View {

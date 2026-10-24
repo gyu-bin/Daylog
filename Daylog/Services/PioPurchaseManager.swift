@@ -129,7 +129,11 @@ extension PioStoreClient {
     func stopUpdates() async {}
 }
 
-enum PioStoreClientError: Error { case unavailable, cancelled, wrongEnvironment }
+enum PioStoreClientError: Error {
+    case unavailable, cancelled, wrongEnvironment
+    /// 기기에 App Store(또는 Sandbox) 계정이 없어 앱 영수증을 받을 수 없다. 권한은 주지 않고 안내 문구만 다르다.
+    case accountUnavailable
+}
 
 /// Coalesces acknowledgement of the same verified transaction. A caller joining
 /// an in-flight finish must wait for Apple just as the first caller does.
@@ -185,7 +189,16 @@ final class StoreKitPioClient: PioStoreClient {
     /// configuration must also be attached. A verified local AppTransaction alone
     /// has empirically not prevented misconfigured CLI runs opening Sandbox UI.
     private func requireConfiguredEnvironment() async throws {
-        guard case .verified(let app) = try await AppTransaction.shared,
+        let shared: VerificationResult<AppTransaction>
+        do {
+            shared = try await AppTransaction.shared
+        } catch {
+            // 계정이 없을 때 StoreKit은 내부 오류(noAccount)를 감싸서 던진다. 공개 타입이 없어 설명 글자로만 구분한다.
+            // 안내 문구를 고르는 데만 쓰고, 어느 경우든 요청을 거절한다(검증 정책은 그대로).
+            if String(reflecting: error).contains("noAccount") { throw PioStoreClientError.accountUnavailable }
+            throw error
+        }
+        guard case .verified(let app) = shared,
               environment.accepts(app.environment) else { throw PioStoreClientError.wrongEnvironment }
         if environment != .localTesting {
             guard app.bundleID == PioProductRegistry.verifiedBundleID,
@@ -601,6 +614,9 @@ final class PioPurchaseManager {
         return false
     }
     private static func message(for error: Error) -> String {
+        if case PioStoreClientError.accountUnavailable = error {
+            return "App Store 계정을 확인할 수 없어요. 기기 설정에서 App Store에 로그인한 뒤 다시 시도해 주세요."
+        }
         if case PioStoreClientError.wrongEnvironment = error {
             return "설정된 App Store 구매 환경을 확인하지 못했어요. 올바른 테스트·배포 환경에서 다시 시도해 주세요."
         }

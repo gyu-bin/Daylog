@@ -2,6 +2,7 @@
 import CoreGraphics
 import Foundation
 import ImageIO
+import StoreKit
 import SwiftData
 #if os(iOS)
 import UIKit
@@ -267,6 +268,10 @@ enum DebugScript {
         case "dump":
             store.flush()
             dump(label: argument, store: store, sync: sync, container: container)
+        case "storeProbe":
+            // 읽기 전용 진단(구매·복원·완료 없음): 앱 영수증 환경과 App Store Connect 상품 13종을 조회해 결과만 적는다.
+            // 앱의 구매 관리자(검증·권한 정책)를 거치지 않으므로 권한을 주거나 바꾸지 않는다.
+            await storeProbe()
         case "counts":
             counts(container: container)
             // 동기화 상태도 내용 없이 한 줄로 남긴다.
@@ -506,6 +511,40 @@ enum DebugScript {
     /// `transfer:` 명령이 남긴 상태. 설정 화면의 가져오기 단추와 시트가 읽는다.
     static var pendingTransferFile: URL?
     static var presentsTransfer = false
+
+    private static func storeProbe() async {
+        do {
+            switch try await AppTransaction.shared {
+            case .verified(let app):
+                log("STORE_PROBE appTransaction=verified environment=\(app.environment.rawValue) bundle=\(app.bundleID)")
+            case .unverified(let app, let error):
+                log("STORE_PROBE appTransaction=unverified environment=\(app.environment.rawValue) error=\(error)")
+            }
+        } catch {
+            log("STORE_PROBE appTransaction=error \(error)")
+        }
+        let ids = PioProductRegistry.productIDs
+        do {
+            let products = try await Product.products(for: ids)
+            let byID = Dictionary(uniqueKeysWithValues: products.map { ($0.id, $0) })
+            log("STORE_PROBE products requested=\(ids.count) returned=\(products.count) missing=\(ids.subtracting(byID.keys).sorted())")
+            for entry in PioProductRegistry.entries {
+                if let product = byID[entry.productID] {
+                    log("STORE_PROBE product id=\(product.id) type=\(product.type.rawValue) name=\(product.displayName) price=\(product.displayPrice) currency=\(product.priceFormatStyle.currencyCode)")
+                } else {
+                    log("STORE_PROBE product id=\(entry.productID) MISSING")
+                }
+            }
+            if let storefront = await Storefront.current {
+                log("STORE_PROBE storefront=\(storefront.countryCode)")
+            } else {
+                log("STORE_PROBE storefront=nil")
+            }
+        } catch {
+            log("STORE_PROBE products=error \(error)")
+        }
+        log("STORE_PROBE done availability=\(PioPurchaseAvailability.current.environmentLabel)")
+    }
 
     private static func log(_ message: String) {
         print("DAYLOG_SCRIPT \(message)")
