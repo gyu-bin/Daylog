@@ -67,7 +67,11 @@ struct RoutineManagementView: View {
                     }
                     VStack(alignment: .leading, spacing: 10) {
                         pageTitle
-                        HStack(spacing: 8) { headerButtons }
+                        // 아주 큰 글자에서는 단추 두 개가 한 줄을 넘어 화면 전체가 옆으로 밀렸다. 그때는 세로로 쌓는다.
+                        ViewThatFits(in: .horizontal) {
+                            HStack(spacing: 8) { headerButtons }
+                            VStack(alignment: .leading, spacing: 8) { headerButtons }
+                        }
                     }
                 }
 

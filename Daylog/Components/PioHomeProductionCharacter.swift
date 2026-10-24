@@ -54,6 +54,19 @@ extension PioHomeProductionAction {
     private var gentlePosture: CAKeyframeAnimation?
     var animationCount: Int { rig.animationCount }
 
+    /// 동작이 끝나는 시각에 `fire`를 부르도록 예약한다. 기본은 실제 시간(`Task.sleep`)이고 앱은 늘 이것을 쓴다.
+    /// 테스트는 이 예약을 받아 직접 넘긴다: 전체 테스트 실행에서는 메인 액터가 붐벼 실제 시계로 기다리면
+    /// 깨어나는 때가 1초 넘게 밀려(동작 길이와 무관한 실패) 상태 전이를 확인할 수 없었다(2026-10-24).
+    var completionScheduler: @MainActor (Duration, @escaping @MainActor () -> Void) -> Task<Void, Never> = PioHomeProductionStage.realTimeScheduler
+
+    static func realTimeScheduler(_ duration: Duration, _ fire: @escaping @MainActor () -> Void) -> Task<Void, Never> {
+        Task { @MainActor in
+            do { try await Task.sleep(for: duration) } catch { return }
+            guard !Task.isCancelled else { return }
+            fire()
+        }
+    }
+
     func update(outfit: PioOutfitID, action: PioHomeProductionAction, active: Bool, bounds: CGRect) {
         let outfitChanged = self.outfit != outfit
         let requestChanged = requestedAction != action
@@ -106,9 +119,8 @@ extension PioHomeProductionAction {
                 }
             }
             let expected = generation, duration = displayedAction.duration
-            completion = Task { [weak self] in
-                do { try await Task.sleep(for: duration) } catch { return }
-                guard let self, !Task.isCancelled, self.generation == expected, self.isActive else { return }
+            completion = completionScheduler(duration) { [weak self] in
+                guard let self, self.generation == expected, self.isActive else { return }
                 self.settle()
             }
         }

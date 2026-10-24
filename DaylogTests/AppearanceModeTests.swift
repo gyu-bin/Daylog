@@ -83,23 +83,30 @@ struct BrandIconTests {
         return try #require(rep.colorAt(x: 32, y: y)).brightnessComponent
     }
 
-    /// 앱 안의 브랜드 아이콘은 외관에 따라 라이트·다크 그림으로 바뀐다.
-    @Test func brandIconFollowsAppearance() throws {
+    /// 앱 안의 브랜드 아이콘(사이드바·설정·온보딩)은 공식 RoutiMori 앱 아이콘(피오)과 같은 그림이다.
+    /// 2026-10-24: 옛 Daylog 나뭇잎 아이콘(라이트·다크 두 그림)을 공식 아이콘으로 바꿨다. 공식 아이콘에는 다크 변형이 없어
+    /// 외관과 상관없이 같은 밝은 바탕이다(예전 테스트는 다크에서 어두운 그림을 기대했다).
+    @Test func brandIconIsTheOfficialAppIconInEveryAppearance() throws {
         let image = try #require(NSImage(named: "BrandIcon"))
-        #expect(try backgroundBrightness(of: image, in: .aqua) > 0.9)
-        #expect(try backgroundBrightness(of: image, in: .darkAqua) < 0.5)
+        let light = try backgroundBrightness(of: image, in: .aqua)
+        let dark = try backgroundBrightness(of: image, in: .darkAqua)
+        #expect(light > 0.8)
+        #expect(abs(light - dark) < 0.02)
+        // 공식 아이콘 원본(AppIcon의 iOS 1024)과 같은 파일에서 왔다: 1024 정사각형, 투명 없이 꽉 찬 그림.
+        let rep = try #require(image.representations.first)
+        #expect(rep.pixelsWide == 1024 && rep.pixelsHigh == 1024)
     }
 
-    /// Dock 아이콘: 다크일 때만 다크 그림을 걸고, 라이트에서는 번들의 기본 아이콘으로 되돌린다(nil).
-    @Test func dockIconFollowsAppearance() throws {
+    /// Dock 아이콘: 공식 아이콘에 다크 변형이 없으므로 어느 외관에서도 번들의 앱 아이콘을 그대로 둔다(nil).
+    /// 예전에는 다크에서 옛 나뭇잎 다크 아이콘을 걸었다.
+    @Test func dockIconKeepsTheBundleIconInEveryAppearance() throws {
         let dark = try #require(NSAppearance(named: .darkAqua))
         let light = try #require(NSAppearance(named: .aqua))
         #expect(DockIcon.isDark(dark))
         #expect(!DockIcon.isDark(light))
         #expect(DockIcon.image(for: light) == nil)
-        let image = try #require(DockIcon.image(for: dark))
-        // macOS 아이콘 격자에 맞춘 그림이라 가장자리는 투명하고, 안쪽 배경은 어둡다.
-        #expect(try backgroundBrightness(of: image, in: .darkAqua, at: 12) < 0.5)
+        #expect(DockIcon.image(for: dark) == nil)
+        #expect(NSImage(named: "DockIconDark") == nil, "옛 나뭇잎 다크 Dock 아이콘 에셋이 남아 있으면 안 된다")
     }
 
     /// v1.4: 식사 기록과 캘린더가 따로 생겨 여섯 개. 이후 휴가, 템플릿(Phase 5-C), 피오 옷장이 더해져 아홉 개(설정은 늘 마지막).

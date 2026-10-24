@@ -40,9 +40,11 @@ extension View {
     /// 여러 줄 입력칸은 Return이 줄바꿈이라 키보드를 내릴 방법이 따로 있어야 한다.
     /// `toolbar(.keyboard)`는 시트를 한 번 띄우고 나면 단추가 사라져서 쓰지 않는다. 시트마다 따로 붙인다.
     @ViewBuilder
-    func keyboardDoneBar() -> some View {
+    /// - Parameter defersToSheets: 뿌리 화면용. 시트가 떠 있으면 [완료]를 그 시트의 막대에 맡기고 여기서는 띄우지 않는다
+    ///   (iPad 폼 시트에서 키보드를 열면 시트 안과 뒤 화면에 [완료]가 두 개 떴다, 2026-10-24).
+    func keyboardDoneBar(defersToSheets: Bool = false) -> some View {
         #if os(iOS)
-        modifier(KeyboardDoneBar())
+        modifier(KeyboardDoneBar(defersToSheets: defersToSheets))
         #else
         self
         #endif
@@ -98,6 +100,7 @@ private struct WindowControlsClearance: ViewModifier {
 }
 
 private struct KeyboardDoneBar: ViewModifier {
+    var defersToSheets = false
     @State private var isKeyboardVisible = false
 
     func body(content: Content) -> some View {
@@ -125,6 +128,7 @@ private struct KeyboardDoneBar: ViewModifier {
             .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { notification in
                 let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect ?? .zero
                 isKeyboardVisible = KeyboardVisibility.isSoftwareKeyboard(height: frame.height)
+                    && !(defersToSheets && Platform.isShowingSheet)
             }
             .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
                 isKeyboardVisible = false

@@ -53,11 +53,20 @@ struct TodayCompactView: View {
     @ViewBuilder private var header: some View {
         if dynamicTypeSize.isAccessibilitySize {
             VStack(alignment: .leading, spacing: 8) {
-                brandTitle
-                HStack(alignment: .center, spacing: 12) {
-                    greeting(showsIcon: false).frame(maxWidth: .infinity, alignment: .leading)
-                    PioHeaderCompanion(size: 64)
+                // 피오를 제목 줄에 두어 날짜·인사말이 화면 너비를 다 쓰게 한다(옆에 두면 날짜가 세 줄로 쪼개졌다).
+                ViewThatFits(in: .horizontal) {
+                    HStack(alignment: .center, spacing: 8) {
+                        brandTitle.fixedSize(horizontal: true, vertical: false)
+                        Spacer(minLength: 4)
+                        PioHeaderCompanion(size: 64)
+                    }
+                    VStack(alignment: .leading, spacing: 4) {
+                        brandTitle
+                        PioHeaderCompanion(size: 64)
+                    }
                 }
+                greeting(showsIcon: false).frame(maxWidth: .infinity, alignment: .leading)
+                if store.isVacation(on: store.today) { vacationBadge }
                 ViewThatFits(in: .horizontal) {
                     HStack(spacing: 8) {
                         DateNavigator(showsDate: false, minimumTouchTarget: 44)
@@ -109,13 +118,7 @@ struct TodayCompactView: View {
     private func topRow(pioSize: CGFloat?) -> some View {
         HStack(spacing: 8) {
             brandTitle.fixedSize(horizontal: true, vertical: false)
-            if store.isVacation(on: store.today) {
-                Label("휴가 중", systemImage: "beach.umbrella.fill")
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(GroupColor.coral.ink)
-                    .padding(.horizontal, 8).padding(.vertical, 3)
-                    .background(Theme.vacationTint.opacity(0.16), in: Capsule())
-            }
+            if store.isVacation(on: store.today) { vacationBadge }
             if let pioSize {
                 PioHeaderCompanion(size: pioSize)
                     .frame(minWidth: pioSize, maxWidth: .infinity, alignment: .center)
@@ -123,6 +126,14 @@ struct TodayCompactView: View {
             } else { Spacer(minLength: 4) }
             headerActions
         }
+    }
+
+    private var vacationBadge: some View {
+        Label("휴가 중", systemImage: "beach.umbrella.fill")
+            .font(.caption.weight(.semibold))
+            .foregroundStyle(GroupColor.coral.ink)
+            .padding(.horizontal, 8).padding(.vertical, 3)
+            .background(Theme.vacationTint.opacity(0.16), in: Capsule())
     }
 
     private var headerActions: some View {
@@ -192,6 +203,7 @@ struct TodayCompactView: View {
 /// 보고 있는 날짜의 진행률 고리. 쉬는 날·아직 체크하지 않은 날·다 한 날을 글자로도 구분한다.
 struct TodayProgressCard: View {
     @Environment(AppStore.self) private var store
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         let outcome = store.selectedOutcome
@@ -206,7 +218,53 @@ struct TodayProgressCard: View {
             store.section = .statistics
         } label: {
             Card(fillsHeight: false, padding: 14) {
-                HStack(spacing: 14) {
+                if dynamicTypeSize.isAccessibilitySize {
+                    // 큰 글자: 고리 옆에 두면 설명이 몇 글자 폭으로 눌린다. 고리 아래에 화면 너비로 적는다.
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack {
+                            ring(outcome, hasStarted: hasStarted)
+                            Spacer(minLength: 4)
+                            chevron
+                        }
+                        summary(outcome, headline: headline, detail: detail)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                } else {
+                    HStack(spacing: 14) {
+                        ring(outcome, hasStarted: hasStarted)
+                        summary(outcome, headline: headline, detail: detail)
+                        Spacer(minLength: 4)
+                        chevron
+                    }
+                }
+            }
+        }
+        .buttonStyle(.plain)
+        .accessibilityHint("통계를 엽니다.")
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(store.isViewingToday ? "오늘" : store.selectedDay.shortTitle)의 진행률, \(headline). \(detail)")
+    }
+
+    private var chevron: some View {
+        Image(systemName: "chevron.right")
+            .font(.footnote.weight(.semibold))
+            .foregroundStyle(.tertiary)
+    }
+
+    private func summary(_ outcome: DayOutcome, headline: String, detail: String) -> some View {
+        VStack(alignment: .leading, spacing: 3) {
+            Text(outcome.total > 0 && outcome.status != .vacation ? "\(outcome.done) / \(outcome.total) 완료" : headline)
+                .font(.headline)
+                .monospacedDigit()
+            Text(detail)
+                .font(.footnote)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+    }
+
+    private func ring(_ outcome: DayOutcome, hasStarted: Bool) -> some View {
                     ZStack {
                         ProgressRing(ratio: outcome.ratio, lineWidth: 8)
                         if outcome.status == .vacation {
@@ -225,28 +283,6 @@ struct TodayProgressCard: View {
                     }
                     .frame(width: 68, height: 68)
                     .accessibilityHidden(true)
-
-                    VStack(alignment: .leading, spacing: 3) {
-                        Text(outcome.total > 0 && outcome.status != .vacation ? "\(outcome.done) / \(outcome.total) 완료" : headline)
-                            .font(.headline)
-                            .monospacedDigit()
-                        Text(detail)
-                            .font(.footnote)
-                            .foregroundStyle(.secondary)
-                            .multilineTextAlignment(.leading)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                    Spacer(minLength: 4)
-                    Image(systemName: "chevron.right")
-                        .font(.footnote.weight(.semibold))
-                        .foregroundStyle(.tertiary)
-                }
-            }
-        }
-        .buttonStyle(.plain)
-        .accessibilityHint("통계를 엽니다.")
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(store.isViewingToday ? "오늘" : store.selectedDay.shortTitle)의 진행률, \(headline). \(detail)")
     }
 
     static func headline(_ outcome: DayOutcome, hasStarted: Bool) -> String {
@@ -287,6 +323,7 @@ struct TodayProgressCard: View {
 struct NextRoutineCard: View {
     @Environment(AppStore.self) private var store
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    @ScaledMetric(relativeTo: .title3) private var iconBox: CGFloat = 40
 
     var body: some View {
         // 분이 바뀔 때마다 다시 고른다.
@@ -302,38 +339,69 @@ struct NextRoutineCard: View {
 
     private func card(_ next: NextCheck) -> some View {
         let color = GroupColor(key: next.group.colorKey)
-        return HStack(spacing: 12) {
-            Image(systemName: next.isOverdue ? "clock.badge.exclamationmark" : "clock")
-                .font(.title3)
-                .foregroundStyle(color.ink)
-                .frame(width: 40, height: 40)
-                .background(color.wash, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                .accessibilityHidden(true)
-            VStack(alignment: .leading, spacing: 2) {
-                Text(next.isOverdue ? "아직 안 한 루틴" : "다음 루틴")
-                    .font(.caption.weight(.medium))
-                    .foregroundStyle(.secondary)
-                Text(next.check.title)
-                    .font(.body.weight(.semibold))
-                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? 3 : 1)
-                Text("\(TimeLabel.label(minutes: next.minutes)) · \(next.group.title)")
-                    .font(.footnote)
-                    .monospacedDigit()
-                    .foregroundStyle(.secondary)
-                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? nil : 1)
+        return Group {
+            if dynamicTypeSize.isAccessibilitySize {
+                // 큰 글자: 아이콘·이름·[완료]를 한 줄에 두면 이름과 단추가 한 글자씩 꺾였다. 세로로 쌓는다.
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack(spacing: 10) {
+                        icon(next, color: color)
+                        kindLabel(next)
+                    }
+                    details(next)
+                    doneButton(next, color: color)
+                }
+            } else {
+                HStack(spacing: 12) {
+                    icon(next, color: color)
+                    VStack(alignment: .leading, spacing: 2) {
+                        kindLabel(next)
+                        details(next)
+                    }
+                    Spacer(minLength: 8)
+                    doneButton(next, color: color)
+                }
             }
-            Spacer(minLength: 8)
-            Button("완료") {
-                store.setDone(routineID: next.check.id, true)
-            }
-            .buttonStyle(.borderedProminent)
-            .tint(color.color)
-            .foregroundStyle(Theme.onAccent)
-            .accessibilityLabel("\(next.check.title) 완료로 표시")
         }
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
         .cardChrome(RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous))
+    }
+
+    private func icon(_ next: NextCheck, color: GroupColor) -> some View {
+        Image(systemName: next.isOverdue ? "clock.badge.exclamationmark" : "clock")
+            .font(.title3)
+            .foregroundStyle(color.ink)
+            // 아이콘은 글자 크기를 따라 커진다. 상자를 40pt로 고정하면 큰 글자에서 아이콘이 상자 밖으로 나와 옆 글자와 겹쳤다.
+            .frame(width: iconBox, height: iconBox)
+            .background(color.wash, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+            .accessibilityHidden(true)
+    }
+
+    private func kindLabel(_ next: NextCheck) -> some View {
+        Text(next.isOverdue ? "아직 안 한 루틴" : "다음 루틴")
+            .font(.caption.weight(.medium))
+            .foregroundStyle(.secondary)
+    }
+
+    @ViewBuilder private func details(_ next: NextCheck) -> some View {
+        Text(next.check.title)
+            .font(.body.weight(.semibold))
+            .lineLimit(dynamicTypeSize.isAccessibilitySize ? nil : 1)
+        Text("\(TimeLabel.label(minutes: next.minutes)) · \(next.group.title)")
+            .font(.footnote)
+            .monospacedDigit()
+            .foregroundStyle(.secondary)
+            .lineLimit(dynamicTypeSize.isAccessibilitySize ? nil : 1)
+    }
+
+    private func doneButton(_ next: NextCheck, color: GroupColor) -> some View {
+        Button("완료") {
+            store.setDone(routineID: next.check.id, true)
+        }
+        .buttonStyle(.borderedProminent)
+        .tint(color.color)
+        .foregroundStyle(Theme.onAccent)
+        .accessibilityLabel("\(next.check.title) 완료로 표시")
     }
 }
 

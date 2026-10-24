@@ -44,11 +44,13 @@ struct StatisticsView: View {
 struct PageTitle: View {
     let title: String
     var subtitle: String?
+    /// 기본 크기는 24pt 그대로 두고, 글자 크기 설정을 따라 함께 커진다(설명보다 작아지지 않게).
+    @ScaledMetric(relativeTo: .title2) private var titleSize: CGFloat = 24
 
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
             Text(title)
-                .font(.system(size: 24, weight: .bold))
+                .font(.system(size: titleSize, weight: .bold))
                 .accessibilityAddTraits(.isHeader)
             if let subtitle {
                 Text(subtitle)

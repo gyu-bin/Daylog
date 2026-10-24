@@ -1,0 +1,237 @@
+{
+  "reviewDate": "2026-10-16",
+  "verdict": "PASS within sampled whole-character preview scope; outfit animation remains PARTIAL",
+  "criticalVisualIssues": [],
+  "videoClips": [
+    {
+      "name": "basic-wave",
+      "video": "docs/qa/pio-outfit-phase2-2026-10-16/animation-videos/iphone17-basic-wave.mp4",
+      "metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1206,
+            "height": 2622,
+            "r_frame_rate": "19200/1"
+          }
+        ],
+        "format": {
+          "duration": "8.058333"
+        }
+      },
+      "sampleDirectory": "docs/qa/pio-outfit-phase2-2026-10-16/video-frames/basic-wave",
+      "sampleCount": 24,
+      "sampleRatePerSecond": 4,
+      "visuallyInspectedFrames": "01–24 in full-screen contact; representative source-sized frames inspected separately",
+      "motionVisible": true,
+      "completeCharacterFraming": "PASS sampled frames",
+      "propsAndRoots": "PASS sampled frames",
+      "finding": "Subtle whole-character tilt/shift between frames 01 and 06. No independently articulated wing action claimed.",
+      "contactSheet": "docs/qa/pio-outfit-phase2-2026-10-16/runtime-contact-basic-wave.png"
+    },
+    {
+      "name": "halloween-jump",
+      "video": "docs/qa/pio-outfit-phase2-2026-10-16/animation-videos/iphone17-halloween-jump.mp4",
+      "metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1206,
+            "height": 2622,
+            "r_frame_rate": "19200/1"
+          }
+        ],
+        "format": {
+          "duration": "10.443333"
+        }
+      },
+      "sampleDirectory": "docs/qa/pio-outfit-phase2-2026-10-16/video-frames/halloween-jump",
+      "sampleCount": 24,
+      "sampleRatePerSecond": 4,
+      "visuallyInspectedFrames": "01–24 in full-screen contact; representative source-sized frames inspected separately",
+      "motionVisible": true,
+      "completeCharacterFraming": "PASS sampled frames",
+      "propsAndRoots": "PASS sampled frames",
+      "finding": "Clear vertical jump between frames 02 and 03; pumpkin bag stays attached and all candy remains visible.",
+      "contactSheet": "docs/qa/pio-outfit-phase2-2026-10-16/runtime-contact-halloween-jump.png"
+    },
+    {
+      "name": "christmas-celebration",
+      "video": "docs/qa/pio-outfit-phase2-2026-10-16/animation-videos/iphone17-christmas-celebration.mp4",
+      "metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1206,
+            "height": 2622,
+            "r_frame_rate": "59/1"
+          }
+        ],
+        "format": {
+          "duration": "9.581979"
+        }
+      },
+      "sampleDirectory": "docs/qa/pio-outfit-phase2-2026-10-16/video-frames/christmas-celebration",
+      "sampleCount": 24,
+      "sampleRatePerSecond": 4,
+      "visuallyInspectedFrames": "01–24 in full-screen contact; representative source-sized frames inspected separately",
+      "motionVisible": true,
+      "completeCharacterFraming": "PASS sampled frames",
+      "propsAndRoots": "PASS sampled frames",
+      "finding": "Whole-character lift/tilt between frames 11 and 12; gift, both hands, scarf and pompom remain intact.",
+      "contactSheet": "docs/qa/pio-outfit-phase2-2026-10-16/runtime-contact-christmas-celebration.png"
+    },
+    {
+      "name": "hanbok-bounce",
+      "video": "docs/qa/pio-outfit-phase2-2026-10-16/animation-videos/iphone17-hanbok-bounce.mp4",
+      "metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1206,
+            "height": 2622,
+            "r_frame_rate": "60/1"
+          }
+        ],
+        "format": {
+          "duration": "10.176667"
+        }
+      },
+      "sampleDirectory": "docs/qa/pio-outfit-phase2-2026-10-16/video-frames/hanbok-bounce",
+      "sampleCount": 24,
+      "sampleRatePerSecond": 4,
+      "visuallyInspectedFrames": "01–24 in full-screen contact; representative source-sized frames inspected separately",
+      "motionVisible": true,
+      "completeCharacterFraming": "PASS sampled frames",
+      "propsAndRoots": "PASS sampled frames",
+      "finding": "Small vertical body bounce; skirt, ribbon, sleeves, hair ornament and feet remain joined and visible.",
+      "contactSheet": "docs/qa/pio-outfit-phase2-2026-10-16/runtime-contact-hanbok-bounce.png"
+    },
+    {
+      "name": "astronaut-jump",
+      "video": "docs/qa/pio-outfit-phase2-2026-10-16/animation-videos/iphone17-astronaut-jump.mp4",
+      "metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1206,
+            "height": 2622,
+            "r_frame_rate": "19200/1"
+          }
+        ],
+        "format": {
+          "duration": "9.701667"
+        }
+      },
+      "sampleDirectory": "docs/qa/pio-outfit-phase2-2026-10-16/video-frames/astronaut-jump",
+      "sampleCount": 24,
+      "sampleRatePerSecond": 4,
+      "visuallyInspectedFrames": "01–24 in full-screen contact; representative source-sized frames inspected separately",
+      "motionVisible": true,
+      "completeCharacterFraming": "PASS sampled frames",
+      "propsAndRoots": "PASS sampled frames",
+      "finding": "Vertical lift between frames 19 and 20; helmet, sprout, gloves and feet stay intact.",
+      "contactSheet": "docs/qa/pio-outfit-phase2-2026-10-16/runtime-contact-astronaut-jump.png"
+    }
+  ],
+  "macOutfits": [
+    {
+      "id": "cherryBlossom",
+      "screenshot": "docs/qa/pio-outfit-phase2-2026-10-16/live-app/mac-preview-cherryBlossom.jpg",
+      "staticRuntimeAppearance": "PASS",
+      "sproutFeetPropsFraming": "PASS"
+    },
+    {
+      "id": "summerVacation",
+      "screenshot": "docs/qa/pio-outfit-phase2-2026-10-16/live-app/mac-preview-summerVacation.jpg",
+      "staticRuntimeAppearance": "PASS",
+      "sproutFeetPropsFraming": "PASS"
+    },
+    {
+      "id": "autumn",
+      "screenshot": "docs/qa/pio-outfit-phase2-2026-10-16/live-app/mac-preview-autumn.jpg",
+      "staticRuntimeAppearance": "PASS",
+      "sproutFeetPropsFraming": "PASS"
+    },
+    {
+      "id": "winter",
+      "screenshot": "docs/qa/pio-outfit-phase2-2026-10-16/live-app/mac-preview-winter.jpg",
+      "staticRuntimeAppearance": "PASS",
+      "sproutFeetPropsFraming": "PASS"
+    },
+    {
+      "id": "halloween",
+      "screenshot": "docs/qa/pio-outfit-phase2-2026-10-16/live-app/mac-preview-halloween.jpg",
+      "staticRuntimeAppearance": "PASS",
+      "sproutFeetPropsFraming": "PASS"
+    },
+    {
+      "id": "christmas",
+      "screenshot": "docs/qa/pio-outfit-phase2-2026-10-16/live-app/mac-preview-christmas.jpg",
+      "staticRuntimeAppearance": "PASS",
+      "sproutFeetPropsFraming": "PASS"
+    },
+    {
+      "id": "hanbok",
+      "screenshot": "docs/qa/pio-outfit-phase2-2026-10-16/live-app/mac-preview-hanbok.jpg",
+      "staticRuntimeAppearance": "PASS",
+      "sproutFeetPropsFraming": "PASS"
+    },
+    {
+      "id": "cafe",
+      "screenshot": "docs/qa/pio-outfit-phase2-2026-10-16/live-app/mac-preview-cafe.jpg",
+      "staticRuntimeAppearance": "PASS",
+      "sproutFeetPropsFraming": "PASS"
+    },
+    {
+      "id": "student",
+      "screenshot": "docs/qa/pio-outfit-phase2-2026-10-16/live-app/mac-preview-student.jpg",
+      "staticRuntimeAppearance": "PASS",
+      "sproutFeetPropsFraming": "PASS"
+    },
+    {
+      "id": "fitness",
+      "screenshot": "docs/qa/pio-outfit-phase2-2026-10-16/live-app/mac-preview-fitness.jpg",
+      "staticRuntimeAppearance": "PASS",
+      "sproutFeetPropsFraming": "PASS"
+    },
+    {
+      "id": "rainyDay",
+      "screenshot": "docs/qa/pio-outfit-phase2-2026-10-16/live-app/mac-preview-rainyDay.jpg",
+      "staticRuntimeAppearance": "PASS",
+      "sproutFeetPropsFraming": "PASS"
+    },
+    {
+      "id": "pajamas",
+      "screenshot": "docs/qa/pio-outfit-phase2-2026-10-16/live-app/mac-preview-pajamas.jpg",
+      "staticRuntimeAppearance": "PASS",
+      "sproutFeetPropsFraming": "PASS"
+    },
+    {
+      "id": "astronaut",
+      "screenshot": "docs/qa/pio-outfit-phase2-2026-10-16/live-app/mac-preview-astronaut.jpg",
+      "staticRuntimeAppearance": "PASS",
+      "sproutFeetPropsFraming": "PASS"
+    }
+  ],
+  "limitations": [
+    "Actual native screenshots and sampled video frames; not offline rig renders.",
+    "24 frames per clip at 4fps cover 0.00–5.75s; unsampled instants not certified.",
+    "No continuous FPS, GPU, battery or thermal measurement.",
+    "No independent eyes/limbs/accessory articulation certified; flattened source artwork moves as a whole.",
+    "No four-stage costume rig compatibility approval; selected growth state displays the same artwork with truthful preparation notice.",
+    "All captures reviewed here are light appearance. Dark source compositing was covered by separate static audit, not by these live captures.",
+    "Mac images verify visible preview viewport only; lower scrollable controls are outside some captures.",
+    "The rejected cropped-attempt MP4 is excluded."
+  ]
+}

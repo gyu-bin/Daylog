@@ -93,8 +93,26 @@ import UIKit
         stage.halt(); #expect(stage.animationCount == 0)
     }
 
+    /// 동작 완료 예약을 실제 시계 대신 테스트가 넘긴다. 예약된 길이와, 끝났을 때 실제 완료 코드가 하는 일을 확인한다.
+    /// (전체 실행에서 메인 액터가 붐벼 실제 시계 대기가 1초 넘게 밀리던 불안정, 2026-10-24.) 동작 길이·연출은 그대로다.
+    @MainActor private final class ManualCompletionClock {
+        private(set) var scheduled: [Duration] = []
+        private var pending: [(fire: @MainActor () -> Void, task: Task<Void, Never>)] = []
+        func schedule(_ duration: Duration, _ fire: @escaping @MainActor () -> Void) -> Task<Void, Never> {
+            let task = Task<Void, Never> {}
+            scheduled.append(duration); pending.append((fire, task))
+            return task
+        }
+        /// 가장 최근 예약의 시각이 된 것처럼 완료를 부른다. 그 사이 취소된 예약이면 부르지 않는다(실제 예약과 같다).
+        func elapseLatest() {
+            guard let last = pending.popLast(), !last.task.isCancelled else { return }
+            last.fire()
+        }
+    }
+
     @Test func firstInactiveRequestStartsWhenVisibleButPlayedRequestDoesNotReplay() async throws {
         let stage = PioHomeProductionStage(), bounds = CGRect(x: 0, y: 0, width: 220, height: 220)
+        let clock = ManualCompletionClock(); stage.completionScheduler = clock.schedule
         defer { stage.halt() }
         stage.update(outfit: .basic, action: .jump, active: false, bounds: bounds)
         #expect(stage.animationCount == 0)
@@ -109,29 +127,34 @@ import UIKit
         #expect(stage.animationCount == 0)
         stage.update(outfit: .hanbok, action: .greet, active: true, bounds: bounds)
         #expect(stage.displayedAction == .greet)
-        try await waitForAuthoredCompletion(stage, timeout: .seconds(3.8))
+        // 인사 동작의 완료는 작성된 길이(2.8초)에 예약되고, 그때 실제 완료 코드가 idle로 되돌린다.
+        #expect(clock.scheduled.last == PioHomeProductionAction.greet.duration)
+        #expect(clock.scheduled.last == .milliseconds(2800))
+        clock.elapseLatest()
         #expect(stage.displayedAction == .idle && stage.isActive)
     }
 
     @Test func growthBubbleDismissalDoesNotCutOffAuthoredCelebration() async throws {
         let stage = PioHomeProductionStage(), bounds = CGRect(x: 0, y: 0, width: 220, height: 220)
+        let clock = ManualCompletionClock(); stage.completionScheduler = clock.schedule
         let host = try LiveLayerHost(bounds: bounds)
         host.layer.addSublayer(stage.root)
         defer { stage.halt(); host.close() }
-        let started = ContinuousClock.now
         stage.update(outfit: .basic, action: .celebrate, active: true, bounds: bounds)
         CATransaction.flush()
         #expect(stage.rig.movement.animation(forKey: "transform.translation.x")?.duration == 2.6)
+        #expect(clock.scheduled == [.milliseconds(2600)])
         print("celebrate hosted start keys=\(stage.rig.movement.animationKeys() ?? [])")
-        // Reproduce GrowthCard's real normal-event bubble lifetime, not a synthetic completion.
-        try await Task.sleep(for: .milliseconds(1800))
+        // GrowthCard의 말풍선이 동작 도중(1.8초)에 사라져 idle을 요청한다. 그 요청이 축하 동작을 끊지 않아야 한다.
         stage.update(outfit: .basic, action: .idle, active: true, bounds: bounds)
+        CATransaction.flush()
         #expect(stage.displayedAction == .celebrate)
-        print("celebrate hosted 1.8s keys=\(stage.rig.movement.animationKeys() ?? []) presentation=\(stage.rig.movement.presentation() != nil)")
+        print("celebrate hosted after idle request keys=\(stage.rig.movement.animationKeys() ?? []) presentation=\(stage.rig.movement.presentation() != nil)")
         #expect(stage.rig.movement.presentation() != nil)
         #expect(stage.rig.movement.animation(forKey: "transform.translation.x")?.duration == 2.6)
-        try await waitForAuthoredCompletion(stage, timeout: .seconds(1.8))
-        #expect(started.duration(to: .now) >= .milliseconds(2600))
+        // idle 요청은 기존 2.6초 마감을 취소하거나 새로 잡지 않는다.
+        #expect(clock.scheduled == [.milliseconds(2600)])
+        clock.elapseLatest()
         #expect(stage.displayedAction == .idle)
         stage.update(outfit: .basic, action: .idle, active: true, bounds: bounds)
         #expect(stage.displayedAction == .idle) // cleared bubble cannot replay the event

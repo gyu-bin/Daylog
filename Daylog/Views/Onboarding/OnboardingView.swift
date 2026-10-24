@@ -9,6 +9,7 @@ struct OnboardingView: View {
     @State private var draft = OnboardingRoutineDraft()
     @State private var didCreate = false
     @Environment(\.mobileUI) private var ui
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     #if os(iOS)
     @Environment(RoutineNotifications.self) private var notifications
     /// [알림 켜기]를 누른 뒤의 결과. 누르기 전에는 nil.
@@ -18,22 +19,29 @@ struct OnboardingView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 22) {
-            HStack {
-                BrandIcon(size: 40)
-                Text("RoutiMori 시작하기").font(.headline)
-                Spacer()
-                // 안내 전체를 닫는다. 단계 하나를 넘기는 것은 아래의 단추다.
-                if step != .ready {
-                    Button("안내 닫기", action: finish)
-                        .buttonStyle(.borderless)
-                        .accessibilityHint("남은 안내를 모두 건너뛰고 오늘 화면으로 갑니다.")
+            if dynamicTypeSize.isAccessibilitySize {
+                // 큰 글자: 아이콘·제목·[안내 닫기]를 한 줄에 두면 제목이 "Routi/Mori/시작…"으로 잘렸다. 제목을 아래 줄에 온전히 적는다.
+                VStack(alignment: .leading, spacing: 6) {
+                    HStack {
+                        BrandIcon(size: 40)
+                        Spacer()
+                        closeGuideButton
+                    }
+                    headerTitle
+                }
+            } else {
+                HStack {
+                    BrandIcon(size: 40)
+                    headerTitle
+                    Spacer()
+                    closeGuideButton
                 }
             }
-            Text("\(step.rawValue + 1) / 3")
-                .font(.caption.weight(.semibold)).foregroundStyle(.secondary)
-                .accessibilityLabel("3단계 중 \(step.rawValue + 1)단계")
+            // 큰 글자에서는 단계 표시를 스크롤 안으로 옮겨, 작은 화면에서 내용이 보이는 자리를 넓힌다.
+            if !dynamicTypeSize.isAccessibilitySize { stepCounter }
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
+                    if dynamicTypeSize.isAccessibilitySize { stepCounter }
                     switch step {
                     case .introduction: introduction
                     case .createRoutine: createRoutine
@@ -44,24 +52,18 @@ struct OnboardingView: View {
                 .padding(.bottom, 6)
             }
             .scrollDismissesKeyboard(.interactively)
-            HStack(spacing: 8) {
-                if step != .introduction {
-                    Button("이전") { step = OnboardingStep(rawValue: step.rawValue - 1) ?? .introduction }
+            // 단추가 한 줄에 들어가지 않으면(큰 글자) 오른쪽 정렬로 세로로 쌓는다. 한 줄에 고정하면 단추 글자가 꺾이거나 잘린다.
+            ViewThatFits(in: .horizontal) {
+                HStack(spacing: 8) {
+                    previousButton
+                    Spacer()
+                    stepButtons
                 }
-                Spacer()
-                switch step {
-                case .introduction:
-                    Button("다음") { step = .createRoutine }
-                        .buttonStyle(.borderedProminent)
-                case .createRoutine:
-                    // 루틴을 만들지 않아도 다음 단계(준비 완료)로 간다.
-                    Button(OnboardingFlow.skipRoutineTitle(hasRoutines: !store.activeRoutines.isEmpty)) { step = .ready }
-                    Button("루틴 만들기", action: createRoutineFromDraft)
-                        .buttonStyle(.borderedProminent)
-                        .disabled(draft.validationMessage != nil)
-                case .ready:
-                    readyButtons
+                VStack(alignment: .trailing, spacing: 8) {
+                    stepButtons
+                    previousButton
                 }
+                .frame(maxWidth: .infinity, alignment: .trailing)
             }
         }
         .padding(24)
@@ -73,6 +75,52 @@ struct OnboardingView: View {
         // 안내를 보여 주기 위해 지금 상태만 읽는다. 권한은 [알림 켜기]를 눌렀을 때만 묻는다.
         .task { await notifications.refreshPermission() }
         #endif
+    }
+
+    private var stepCounter: some View {
+        Text("\(step.rawValue + 1) / 3")
+            .font(.caption.weight(.semibold)).foregroundStyle(.secondary)
+            .accessibilityLabel("3단계 중 \(step.rawValue + 1)단계")
+    }
+
+    private var headerTitle: some View {
+        Text("RoutiMori 시작하기").font(.headline)
+    }
+
+    /// 안내 전체를 닫는다. 단계 하나를 넘기는 것은 아래의 단추다.
+    @ViewBuilder private var closeGuideButton: some View {
+        if step != .ready {
+            Button("안내 닫기", action: finish)
+                .buttonStyle(.borderless)
+                .fixedSize()
+                .accessibilityHint("남은 안내를 모두 건너뛰고 오늘 화면으로 갑니다.")
+        }
+    }
+
+    @ViewBuilder private var previousButton: some View {
+        if step != .introduction {
+            Button("이전") { step = OnboardingStep(rawValue: step.rawValue - 1) ?? .introduction }
+                .fixedSize()
+        }
+    }
+
+    @ViewBuilder private var stepButtons: some View {
+        switch step {
+        case .introduction:
+            Button("다음") { step = .createRoutine }
+                .buttonStyle(.borderedProminent)
+                .fixedSize()
+        case .createRoutine:
+            // 루틴을 만들지 않아도 다음 단계(준비 완료)로 간다.
+            Button(OnboardingFlow.skipRoutineTitle(hasRoutines: !store.activeRoutines.isEmpty)) { step = .ready }
+                .fixedSize()
+            Button("루틴 만들기", action: createRoutineFromDraft)
+                .buttonStyle(.borderedProminent)
+                .fixedSize()
+                .disabled(draft.validationMessage != nil)
+        case .ready:
+            readyButtons
+        }
     }
 
     /// 3단계의 아래 단추. 알림을 켤 수 있는 상태면 [나중에] [알림 켜기], 그 밖에는 [오늘 시작하기].

@@ -241,14 +241,31 @@ struct PioWardrobeView: View {
         store.purchases.product(for: outfit)?.displayName ?? outfit.title
     }
 
+    private var previewLabel: some View {
+        Label("미리보기", systemImage: "sparkles")
+            .font(.headline)
+            .fixedSize(horizontal: false, vertical: true)
+    }
+
+    @ViewBuilder private var equippedBadge: some View {
+        if store.equippedOutfit == selectedOutfit {
+            WardrobeBadge(text: "입고 있어요", symbol: "checkmark.circle.fill", palette: palette)
+                .fixedSize()
+        }
+    }
+
     private func previewPanel(artHeight: CGFloat) -> some View {
         VStack(alignment: .leading, spacing: 20) {
-            HStack {
-                Label("미리보기", systemImage: "sparkles")
-                    .font(.headline)
-                Spacer()
-                if store.equippedOutfit == selectedOutfit {
-                    WardrobeBadge(text: "입고 있어요", symbol: "checkmark.circle.fill", palette: palette)
+            // 큰 글자에서 한 줄에 두면 배지 글자가 한 글자씩 꺾였다. 자리가 모자라면 배지를 아래 줄로 내린다.
+            ViewThatFits(in: .horizontal) {
+                HStack {
+                    previewLabel
+                    Spacer()
+                    equippedBadge
+                }
+                VStack(alignment: .leading, spacing: 8) {
+                    previewLabel
+                    equippedBadge
                 }
             }
             ZStack {

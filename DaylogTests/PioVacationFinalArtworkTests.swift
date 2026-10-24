@@ -33,9 +33,15 @@ import QuartzCore
         XCTAssertTrue(eyes.closedEyes.allSatisfy { $0.opacity == 1 })
         rig.setAnimating(true); rig.setCharacterVisible(false)
         XCTAssertEqual(eyes.animationCount, 0); XCTAssertNil(rig.hammock.animationKeys())
+        // 기본 낮 눈 조각을 다른 의상에 쓰지 않는다. 크리스마스 낮만 자기 전용으로 검증된 눈 조각을 쓴다
+        // (2026-10-24 최종 점검에서 추가, 검증: DaylogStoreKitTests/PioVacationNightArtworkTests.testChristmasDayProductionLifecycleAndPresentation).
         for outfit in PioOutfitID.allCases where outfit != .basic {
-            XCTAssertNil(RoutimoriVacationRig(outfit: outfit).independentEyes,
-                         "No unverified Basic patches on \(outfit)")
+            let eyes = RoutimoriVacationRig(outfit: outfit).independentEyes
+            if outfit == .christmas {
+                XCTAssertNotNil(eyes, "Christmas day uses its own verified production eye patches")
+            } else {
+                XCTAssertNil(eyes, "No unverified Basic patches on \(outfit)")
+            }
         }
     }
 

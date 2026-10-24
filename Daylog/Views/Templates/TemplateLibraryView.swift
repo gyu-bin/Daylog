@@ -5,6 +5,7 @@ import SwiftUI
 struct TemplateLibraryView: View {
     @Environment(AppStore.self) private var store
     @Environment(CommunityStore.self) private var community
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     /// 앱에 든 공식 템플릿. 서버와 무관하게 늘 있다.
     var official = TemplateCatalog.official
     /// 시트로 띄웠을 때 닫는 동작. 메뉴로 들어왔으면 nil.
@@ -29,22 +30,38 @@ struct TemplateLibraryView: View {
 
     private var results: [RoutineTemplate] { catalog.filtered(category: category, query: query) }
 
+    private var pageTitle: some View {
+        PageTitle(
+            title: "템플릿",
+            subtitle: community.isAvailable
+                ? "공식 템플릿과 다른 사람이 올린 템플릿을 미리 보고, 필요한 것만 내 RoutiMori에 추가해요."
+                : "공식 루틴 템플릿을 미리 보고, 필요한 것만 내 RoutiMori에 추가해요."
+        )
+    }
+
+    @ViewBuilder private var closeButton: some View {
+        if let onClose {
+            Button("닫기", action: onClose)
+                .buttonStyle(.bordered)
+                .fixedSize()
+        }
+    }
+
     var body: some View {
         let results = results
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
-                HStack(alignment: .top, spacing: 12) {
-                    PageTitle(
-                        title: "템플릿",
-                        subtitle: community.isAvailable
-                            ? "공식 템플릿과 다른 사람이 올린 템플릿을 미리 보고, 필요한 것만 내 RoutiMori에 추가해요."
-                            : "공식 루틴 템플릿을 미리 보고, 필요한 것만 내 RoutiMori에 추가해요."
-                    )
-                    Spacer(minLength: 8)
-                    if let onClose {
-                        Button("닫기", action: onClose)
-                            .buttonStyle(.bordered)
-                            .fixedSize()
+                if dynamicTypeSize.isAccessibilitySize {
+                    // 큰 글자: [닫기] 옆에 두면 설명이 몇 글자 폭의 열로 눌려 단어가 쪼개졌다. 단추를 위 줄로 올린다.
+                    VStack(alignment: .leading, spacing: 8) {
+                        closeButton.frame(maxWidth: .infinity, alignment: .trailing)
+                        pageTitle
+                    }
+                } else {
+                    HStack(alignment: .top, spacing: 12) {
+                        pageTitle
+                        Spacer(minLength: 8)
+                        closeButton
                     }
                 }
                 fileBar

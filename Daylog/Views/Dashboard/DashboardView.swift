@@ -126,7 +126,10 @@ struct DashboardHeader: View {
     @Environment(AppStore.self) private var store
     @Environment(DevicePreferences.self) private var preferences
     @Environment(\.mobileUI) private var ui
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Binding var isEditing: Bool
+    /// 인사말 크기. 기본 24pt 그대로, 글자 크기 설정을 따라 커진다(날짜보다 작아지지 않게).
+    @ScaledMetric(relativeTo: .title2) private var greetingSize: CGFloat = 24
 
     var body: some View {
         ViewThatFits(in: .horizontal) {
@@ -203,7 +206,7 @@ struct DashboardHeader: View {
                     .foregroundStyle(.secondary)
                 HStack(spacing: 6) {
                     Text(verbatim: store.isViewingToday ? ui.string(.dashboardGreeting) : "\(store.selectedDay.shortTitle)의 기록")
-                        .font(.system(size: 24, weight: .bold))
+                        .font(.system(size: greetingSize, weight: .bold))
                     if store.isViewingToday, ui.showsGreetingIcon {
                         Image(systemName: "sun.max.fill")
                             .font(.system(size: 18))
@@ -214,7 +217,8 @@ struct DashboardHeader: View {
             }
             .accessibilityElement(children: .combine)
             .accessibilityAddTraits(.isHeader)
-            .fixedSize()
+            // 큰 글자(iPad)에서는 줄을 바꿀 수 있게 가로 고정을 푼다. 고정하면 날짜 한 줄이 화면보다 넓어져 아래 카드까지 옆으로 밀렸다.
+            .fixedSize(horizontal: !dynamicTypeSize.isAccessibilitySize, vertical: true)
             .saessagiDebugFrame("title")
             // 인사말 옆의 새싹이. 날짜와 인사말 두 줄의 높이 안에 들어가 머리말이 높아지지 않는다.
             // 단추까지 남는 자리를 모두 걸어 다닐 자리로 쓴다(넓은 창에서는 멀리 산책하고 단추 쪽 끝으로 숨는다).
@@ -232,8 +236,25 @@ struct DateNavigator: View {
     var showsDate = true
     /// Compact headers request44pt targets; wide layouts keep existing dimensions.
     var minimumTouchTarget: CGFloat = 32
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
+        if showsDate && dynamicTypeSize.isAccessibilitySize {
+            // 큰 글자: 날짜를 칸 안에 줄여 넣으면 "2026년 10월…"로 잘렸다. 날짜는 위에 온전히 적고 단추는 아래 줄에 둔다.
+            VStack(alignment: .leading, spacing: 6) {
+                Text(store.selectedDay.longTitle)
+                    .font(.callout.weight(.semibold))
+                    .monospacedDigit()
+                    .fixedSize(horizontal: false, vertical: true)
+                    .accessibilityLabel("선택한 날짜 \(store.selectedDay.longTitle)")
+                DateNavigator(showsDate: false, minimumTouchTarget: max(minimumTouchTarget, 44))
+            }
+        } else {
+            row
+        }
+    }
+
+    private var row: some View {
         HStack(spacing: 8) {
             HStack(spacing: 0) {
                 stepButton(symbol: "chevron.left", label: "이전 날짜", help: "이전 날짜 (⌘[)") {

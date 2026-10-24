@@ -84,7 +84,8 @@ struct RoutimoriSyncBrand: View {
             Image(systemName: "leaf.fill").font(.system(size: 19, weight: .medium))
                 .rotationEffect(.degrees(-28)).accessibilityHidden(true)
             Text("RoutiMori").font(.system(size: 34, weight: .bold, design: .rounded))
-            Text("조금씩, 더 나은 나로").font(.subheadline)
+            // 큰 글자에서 두 줄로 넘어가도 위아래 글자처럼 가운데에 맞춘다.
+            Text("조금씩, 더 나은 나로").font(.subheadline).multilineTextAlignment(.center)
         }
         .foregroundStyle(RoutimoriSyncStyle.ink(dark: colorScheme == .dark))
     }
@@ -100,7 +101,7 @@ struct RoutimoriSyncActivity: View {
             RoutimoriActivityLayerView(isAnimating: isVisible && !reduceMotion && scenePhase == .active)
                 .frame(width: 240, height: 8)
                 .accessibilityElement().accessibilityLabel("iCloud 기록 확인 중")
-            Text("조금만 기다려 주세요.").font(.footnote).foregroundStyle(.secondary)
+            Text("조금만 기다려 주세요.").font(.footnote).foregroundStyle(.secondary).multilineTextAlignment(.center)
         }
         .onAppear { isVisible = true }
         .onDisappear { isVisible = false }

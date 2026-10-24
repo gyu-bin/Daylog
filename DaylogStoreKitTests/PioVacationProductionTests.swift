@@ -27,7 +27,9 @@ import QuartzCore
         XCTAssertTrue(eyes.closedEyes.allSatisfy { $0.opacity == 1 })
         rig.setAnimating(true); rig.setCharacterVisible(false)
         XCTAssertEqual(eyes.animationCount, 0); XCTAssertNil(rig.hammock.animationKeys())
-        for outfit in PioOutfitID.allCases where outfit != .basic {
+        // 크리스마스 낮만 자기 전용으로 검증된 눈 조각을 쓴다(2026-10-24 최종 점검에서 추가,
+        // PioVacationNightArtworkTests.testChristmasDayProductionLifecycleAndPresentation). 다른 의상은 기본 눈 조각을 쓰지 않는다.
+        for outfit in PioOutfitID.allCases where outfit != .basic && outfit != .christmas {
             XCTAssertNil(RoutimoriVacationRig(outfit: outfit).independentEyes)
         }
     }

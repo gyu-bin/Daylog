@@ -20,15 +20,23 @@ import StoreKitTest
     private var waitingForResolution = false
     private var expectationDelivered = false
     private var watchedProduct = ""
-    private var mode: String { ProcessInfo.processInfo.environment["PIO_ISOLATION_MODE"]! }
-    private var scenario: String { ProcessInfo.processInfo.environment["PIO_ISOLATION_SCENARIO"]! }
-    private var run: String { ProcessInfo.processInfo.environment["PIO_ISOLATION_RUN_ID"]! }
-    private var phase: String { ProcessInfo.processInfo.environment["PIO_ISOLATION_PHASE"]! }
+    // 환경 변수가 없을 때 강제 해제(!)로 테스트 프로세스 전체가 죽었다(일반 테스트 실행에서 setUp은 건너뛰지만 tearDown은 돈다).
+    // 값이 없으면 빈 글자로 읽고, 하네스가 준비되지 않은 실행은 setUp에서 사유와 함께 건너뛴다.
+    private static func environment(_ key: String) -> String { ProcessInfo.processInfo.environment[key] ?? "" }
+    private var mode: String { Self.environment("PIO_ISOLATION_MODE") }
+    private var scenario: String { Self.environment("PIO_ISOLATION_SCENARIO") }
+    private var run: String { Self.environment("PIO_ISOLATION_RUN_ID") }
+    private var phase: String { Self.environment("PIO_ISOLATION_PHASE") }
+    /// setUp이 하네스 조건을 통과했는지. 건너뛴 실행의 tearDown은 아무것도 하지 않는다.
+    private var harnessReady = false
 
     override func setUp() async throws {
         let env=ProcessInfo.processInfo.environment
         try XCTSkipUnless(ProcessInfo.processInfo.arguments.contains("-pio-storekit-testing") && env["PIO_ISOLATION_RUN_ID"].flatMap(UUID.init(uuidString:)) != nil,
                           "Run the explicit local StoreKit isolation harness")
+        try XCTSkipIf(mode.isEmpty || scenario.isEmpty || phase.isEmpty,
+                      "PIO_ISOLATION_MODE/SCENARIO/PHASE are required by the isolation harness (Tools/pio-storekit/isolate.py)")
+        harnessReady = true
         XCTAssertTrue(["direct","manager"].contains(mode)); XCTAssertTrue(["cancel","interrupt","refund","finish"].contains(scenario))
         guard case .verified(let app)=try await AppTransaction.shared,app.environment == .xcode else { throw PioStoreClientError.wrongEnvironment }
         record("environment",["os":ProcessInfo.processInfo.operatingSystemVersionString,"pid":ProcessInfo.processInfo.processIdentifier,"appEnvironment":String(describing:app.environment),"mode":mode,"scenario":scenario,"phase":phase,"run":run])
@@ -47,6 +55,7 @@ import StoreKitTest
         record("fixture.ready",["storefront":session!.storefront,"dialogsDisabled":session!.disableDialogs,"purchaseError":String(describing:await session!.simulatedError(forAPI:.purchase))])
     }
     override func tearDown() async throws {
+        guard harnessReady else { return }
         await manager?.stop(); listener?.cancel(); await listener?.value
         if mode == "manager" { record("adapter.trace",["events":StoreKitPioClient.debugEvents,"remainingListeners":StoreKitPioClient.debugActiveRawListenerCount]) }
         manager=nil;wardrobe=nil

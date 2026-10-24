@@ -7,6 +7,10 @@ struct WeekdaySelector: View {
     let tint: Color
     /// 요일 버튼의 지름. 손가락으로 누르는 화면에서는 크게 준다.
     var daySize: CGFloat = 32
+    /// 요일 글자의 실제 크기(callout). 단추 크기를 고정해 두면 큰 글자에서 글자가 칸 밖으로 나와 단추끼리 겹쳤다.
+    @ScaledMetric(relativeTo: .callout) private var glyphSize: CGFloat = 16
+    /// 요일 단추의 지름: 기본은 `daySize` 그대로, 글자가 커지면 글자를 감쌀 만큼만 커진다.
+    private var scaledDaySize: CGFloat { max(daySize, glyphSize * 1.4) }
 
     private struct Preset: Identifiable {
         let title: String
@@ -48,7 +52,8 @@ struct WeekdaySelector: View {
                 .foregroundStyle(isOn ? AnyShapeStyle(Theme.onAccent) : AnyShapeStyle(.primary))
                 .lineLimit(1)
                 .padding(.horizontal, 12)
-                .frame(height: max(28, daySize - 4))
+                .padding(.vertical, 4)
+                .frame(minHeight: max(28, daySize - 4))
                 .background(isOn ? AnyShapeStyle(tint) : AnyShapeStyle(Theme.track), in: Capsule())
                 .contentShape(Capsule())
         }
@@ -69,7 +74,7 @@ struct WeekdaySelector: View {
             Text(Weekdays.symbol(weekday))
                 .font(.callout.weight(isOn ? .bold : .regular))
                 .foregroundStyle(isOn ? AnyShapeStyle(Theme.onAccent) : AnyShapeStyle(.secondary))
-                .frame(width: daySize, height: daySize)
+                .frame(width: scaledDaySize, height: scaledDaySize)
                 .background(isOn ? AnyShapeStyle(tint) : AnyShapeStyle(Theme.track), in: Circle())
                 .contentShape(Circle())
         }

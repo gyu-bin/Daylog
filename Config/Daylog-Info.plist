@@ -3,6 +3,8 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleName</key><string>RoutiMori</string>
+    <!-- Finder·Dock이 ko.lproj/InfoPlist.strings의 현지화 이름(RoutiMori)을 쓰게 한다. 번들 파일 이름(Daylog.app)·식별자는 그대로다. -->
+    <key>LSHasLocalizedDisplayName</key><true/>
     <!-- 앱 안의 업데이트(Sparkle). 공개 키는 로그인 키체인의 배포용 서명 키와 짝이다(개인 키는 저장소에 없다). docs/UPDATES.md -->
     <key>DaylogUpdatesEnabled</key><true/>
     <key>SUFeedURL</key><string>https://github.com/gyu-bin/Daylog/releases/latest/download/appcast.xml</string>

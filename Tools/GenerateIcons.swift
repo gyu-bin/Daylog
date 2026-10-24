@@ -1,3 +1,5 @@
+// ⚠️ 2026-10-24 이후 쓰지 않는다: 옛 Daylog 나뭇잎 아이콘을 그리는 도구다. 지금의 공식 RoutiMori 아이콘(피오)은
+//    AppIcon.appiconset의 그림이고, BrandIcon은 그 iOS 1024 그림을 그대로 쓴다. 실행하면 공식 아이콘을 덮어쓴다.
 // Daylog 앱 아이콘을 벡터로 그려 PNG로 내보낸다. 시안 이미지를 확대하지 않고, 시안에서 잰 경계와 색으로 다시 그린다.
 //
 //     swiftc -O Tools/GenerateIcons.swift -o /tmp/daylog-icons && /tmp/daylog-icons Daylog/Assets.xcassets

@@ -96,7 +96,8 @@ struct MonthCalendarCard: View {
         }
         .buttonStyle(.plain)
         .foregroundStyle(Theme.accent)
-        .fixedSize()
+        // 큰 글자에서는 달 이름이 줄을 바꿀 수 있게 가로 고정을 푼다(고정하면 카드가 화면보다 넓어졌다).
+        .fixedSize(horizontal: !dynamicTypeSize.isAccessibilitySize, vertical: true)
     }
 
     private var legend: some View {
@@ -105,13 +106,11 @@ struct MonthCalendarCard: View {
                 // 큰 글자 크기에서는 한 줄로 고정하면 화면 너비를 넘긴다. 들어가는 만큼씩 줄을 바꾼다.
                 FlowLayout(spacing: 10) { legendItems }
             } else {
+                // 한 줄에 다 들어가지 않으면 들어가는 만큼씩 줄을 바꾼다. 예전에는 줄인 그림(scaleEffect)만 작게 보이고
+                // 차지하는 너비는 그대로라, 큰 글자(XXXL)에서 카드와 통계 화면 전체가 화면보다 넓어졌다.
                 ViewThatFits(in: .horizontal) {
                     HStack(spacing: 12) { legendItems }
-                    VStack(alignment: .leading, spacing: 4) {
-                        HStack(spacing: 12) { legendItems }
-                            .fixedSize()
-                            .scaleEffect(0.9, anchor: .leading)
-                    }
+                    FlowLayout(spacing: 10) { legendItems }
                 }
             }
         }

@@ -217,21 +217,23 @@ struct SettingsView: View {
         if let category = compactSelection {
             detail(category)
                 .safeAreaInset(edge: .top, spacing: 0) {
-                    ZStack {
-                        Text(category.title)
-                            .font(.headline)
-                            .accessibilityAddTraits(.isHeader)
-                        HStack {
-                            Button {
-                                compactSelection = nil
-                            } label: {
-                                Label("설정", systemImage: "chevron.left")
-                                    .font(.body.weight(.medium))
-                                    .frame(minHeight: 44)
-                                    .contentShape(Rectangle())
+                    Group {
+                        if dynamicTypeSize.isAccessibilitySize {
+                            // 큰 글자에서는 가운데 제목과 [설정] 단추가 겹쳤다. 단추 아래에 제목을 둔다.
+                            VStack(alignment: .leading, spacing: 0) {
+                                compactBackButton
+                                compactDetailTitle(category).font(.title2.bold())
                             }
-                            .accessibilityLabel("설정 목록으로 돌아가기")
-                            Spacer()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.bottom, 4)
+                        } else {
+                            ZStack {
+                                compactDetailTitle(category).font(.headline)
+                                HStack {
+                                    compactBackButton
+                                    Spacer()
+                                }
+                            }
                         }
                     }
                     .padding(.horizontal, 16)
@@ -249,6 +251,7 @@ struct SettingsView: View {
                                 Image(systemName: "chevron.right")
                                     .font(.footnote.weight(.semibold))
                                     .foregroundStyle(.tertiary)
+                                    .accessibilityHidden(true)
                             }
                             .contentShape(Rectangle())
                         }
@@ -268,6 +271,23 @@ struct SettingsView: View {
                     .accessibilityAddTraits(.isHeader)
             }
         }
+    }
+
+    private var compactBackButton: some View {
+        Button {
+            compactSelection = nil
+        } label: {
+            Label("설정", systemImage: "chevron.left")
+                .font(.body.weight(.medium))
+                .frame(minHeight: 44)
+                .contentShape(Rectangle())
+        }
+        .accessibilityLabel("설정 목록으로 돌아가기")
+    }
+
+    private func compactDetailTitle(_ category: SettingsCategory) -> some View {
+        Text(category.title)
+            .accessibilityAddTraits(.isHeader)
     }
 
     // MARK: - 갈래별 설정
@@ -327,10 +347,14 @@ struct SettingsView: View {
 
     private var aboutSection: some View {
         Section {
-            HStack(spacing: 12) {
-                BrandIcon(size: 44)
+            // 큰 글자에서는 아이콘 아래에 이름·버전을 둔다(옆에 두면 44pt 아이콘이 커진 글자 사이에 끼어 작게 보였다).
+            let aboutLayout = dynamicTypeSize.isAccessibilitySize
+                ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8))
+                : AnyLayout(HStackLayout(spacing: 12))
+            aboutLayout {
+                BrandIcon(size: dynamicTypeSize.isAccessibilitySize ? 64 : 44)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("RoutiMori")
+                    Text(verbatim: AppBrand.name)
                         .font(.headline)
                     Text("버전 \(Self.version)")
                         .font(.callout)
@@ -646,6 +670,7 @@ struct SettingsCategoryRow: View {
     let category: SettingsCategory
     let isSelected: Bool
     var showsChevron = true
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         HStack(spacing: 12) {
@@ -661,7 +686,8 @@ struct SettingsCategoryRow: View {
                 Text(category.subtitle)
                     .font(.caption)
                     .foregroundStyle(.secondary)
-                    .lineLimit(1)
+                    // 큰 글자에서는 "계정 상태,…"처럼 잘리지 않게 줄을 넘긴다.
+                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? nil : 1)
             }
             Spacer(minLength: 4)
             if showsChevron {

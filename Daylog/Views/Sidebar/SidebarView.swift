@@ -42,29 +42,34 @@ struct SidebarView: View {
 }
 
 /// 앱 아이콘과 이름, 슬로건. 사이드바가 좁아지면 글자를 줄이고, 그래도 모자라면 슬로건부터 뺀다.
+/// 글자는 기본 크기(이름 20pt·슬로건 11pt)를 지키면서 iPad의 큰 글자 설정을 따라 커진다(macOS는 그대로).
 struct SidebarBrandHeader: View {
+    @ScaledMetric(relativeTo: .title3) private var titleSize: CGFloat = 20
+    @ScaledMetric(relativeTo: .caption2) private var sloganSize: CGFloat = 11
+    @ScaledMetric(relativeTo: .title3) private var iconSize: CGFloat = 42
+
     var body: some View {
         HStack(spacing: 11) {
-            BrandIcon(size: 42)
+            BrandIcon(size: min(iconSize, 56))
             ViewThatFits(in: .horizontal) {
                 titles(showsSlogan: true)
                 titles(showsSlogan: false)
             }
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("RoutiMori, 하루를 기록하다.")
+        .accessibilityLabel("\(AppBrand.name), 하루를 기록하다.")
         .accessibilityAddTraits(.isHeader)
     }
 
     private func titles(showsSlogan: Bool) -> some View {
         VStack(alignment: .leading, spacing: 1) {
-            Text("RoutiMori")
-                .font(.system(size: 20, weight: .semibold))
+            Text(verbatim: AppBrand.name)
+                .font(.system(size: titleSize, weight: .semibold))
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)
             if showsSlogan {
                 Text("하루를 기록하다.")
-                    .font(.system(size: 11))
+                    .font(.system(size: sloganSize))
                     .foregroundStyle(.secondary)
                     .lineLimit(1)
                     .fixedSize()
@@ -73,17 +78,19 @@ struct SidebarBrandHeader: View {
     }
 }
 
-/// Daylog 앱 아이콘. 앱의 외관(시스템/라이트/다크)에 따라 라이트·다크 그림이 자동으로 바뀐다.
+/// RoutiMori 브랜드 아이콘(공식 앱 아이콘과 같은 그림). 사이드바 머리말, 설정의 앱 정보, 시작 안내에 쓴다.
 struct BrandIcon: View {
     var size: CGFloat = 42
 
     var body: some View {
         let shape = RoundedRectangle(cornerRadius: size * 0.225, style: .continuous)
+        // 공식 앱 아이콘(피오, AppIcon의 iOS 1024 그림과 같은 파일)을 둥근 사각형으로 잘라 쓴다. 다크 변형은 없다.
         Image("BrandIcon")
             .resizable()
             .interpolation(.high)
             .frame(width: size, height: size)
-            // 라이트 아이콘은 바탕이 밝아서, 옅은 선으로 사이드바 바탕과 구분한다.
+            .clipShape(shape)
+            // 바탕이 밝은 그림이라, 옅은 선으로 사이드바 바탕과 구분한다.
             .overlay(shape.strokeBorder(Color.primary.opacity(0.08), lineWidth: 0.5))
             .accessibilityHidden(true)
     }
@@ -98,22 +105,30 @@ private struct SidebarRow: View {
     let action: () -> Void
 
     @State private var isHovered = false
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    /// 메뉴 글자·아이콘·줄 높이. 기본은 14pt·22pt·34pt 그대로, iPad의 큰 글자 설정을 따라 함께 커진다(macOS는 그대로).
+    @ScaledMetric(relativeTo: .body) private var fontSize: CGFloat = 14
+    @ScaledMetric(relativeTo: .body) private var iconWidth: CGFloat = 22
+    @ScaledMetric(relativeTo: .body) private var rowHeight: CGFloat = 34
 
     var body: some View {
         Button(action: action) {
             HStack(spacing: 10) {
                 Image(systemName: isSelected ? section.filledSymbol : section.symbol)
-                    .font(.system(size: 14, weight: isSelected ? .semibold : .regular))
+                    .font(.system(size: fontSize, weight: isSelected ? .semibold : .regular))
                     .foregroundStyle(isSelected ? AnyShapeStyle(section.navigationTint) : Self.unselectedIconStyle(section))
-                    .frame(width: 22)
+                    .frame(width: iconWidth)
                 Text(section.title)
-                    .font(.system(size: 14, weight: isSelected ? .semibold : .regular))
+                    .font(.system(size: fontSize, weight: isSelected ? .semibold : .regular))
                     .foregroundStyle(isSelected ? AnyShapeStyle(section.navigationInk) : AnyShapeStyle(.primary))
-                    .lineLimit(1)
+                    // 큰 글자에서는 메뉴 이름을 자르지 않고 두 줄까지 쓴다.
+                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
+                    .fixedSize(horizontal: false, vertical: true)
                 Spacer(minLength: 0)
             }
             .padding(.horizontal, 10)
-            .frame(height: 34)
+            .padding(.vertical, dynamicTypeSize.isAccessibilitySize ? 6 : 0)
+            .frame(minHeight: rowHeight)
             .background(rowBackground, in: RoundedRectangle(cornerRadius: 9, style: .continuous))
             .contentShape(Rectangle())
         }

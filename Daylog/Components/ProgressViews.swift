@@ -62,12 +62,20 @@ struct FlowLayout: Layout {
         for row in arrange(subviews, width: bounds.width) {
             var x = bounds.minX
             for index in row.indices {
-                let size = subviews[index].sizeThatFits(.unspecified)
+                let size = Self.size(of: subviews[index], width: bounds.width)
                 subviews[index].place(at: CGPoint(x: x, y: y), proposal: ProposedViewSize(size))
                 x += size.width + spacing
             }
             y += row.height + spacing
         }
+    }
+
+    /// 항목의 크기. 보통은 제 크기(한 줄)이고, 항목 하나가 한 줄보다 넓으면 줄 너비에 맞춰 다시 잰다(글자가 줄을 바꾼다).
+    /// 예전에는 제 크기 그대로 두어 큰 글자에서 단추가 화면 밖으로 넘쳤다(템플릿의 [내 루틴 공유하기]).
+    private static func size(of subview: LayoutSubview, width: CGFloat) -> CGSize {
+        let ideal = subview.sizeThatFits(.unspecified)
+        guard width.isFinite, ideal.width > width else { return ideal }
+        return subview.sizeThatFits(ProposedViewSize(width: width, height: nil))
     }
 
     private struct Row {
@@ -80,7 +88,7 @@ struct FlowLayout: Layout {
         var rows: [Row] = []
         var current = Row()
         for index in subviews.indices {
-            let size = subviews[index].sizeThatFits(.unspecified)
+            let size = Self.size(of: subviews[index], width: width)
             let needed = current.indices.isEmpty ? size.width : current.width + spacing + size.width
             if needed > width, !current.indices.isEmpty {
                 rows.append(current)

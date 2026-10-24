@@ -209,7 +209,7 @@ struct RootView: View {
         .overlay { firstSyncOverlay }
         .animation(.easeOut(duration: 0.3), value: firstSync.isActive)
         .preferredColorScheme(Self.debugColorScheme ?? appearance.colorScheme)
-        .keyboardDoneBar()
+        .keyboardDoneBar(defersToSheets: true)
         .clearingWindowControls()
         .overlay(alignment: .bottom) { PioTrialStagePreview() }
         // 실제 화면은 밑에서 이미 준비돼 있다. 스플래시는 그 위를 덮었다가 걷힌다.
@@ -353,6 +353,12 @@ struct SectionContent: View {
 /// 사이드바 + 상세 화면. macOS와, 창이 넓은 iPad에서 쓴다.
 struct SidebarNavigation: View {
     @Environment(AppStore.self) private var store
+    #if os(iOS)
+    /// iPad 사이드바 폭. 기본 글자에서는 216pt 그대로, 큰 글자에서는 메뉴 글자를 따라 넓어지되 288pt를 넘지 않는다
+    /// (상세 화면 자리를 지키기 위해서다. 넘치는 메뉴 이름은 두 줄로 넘기고, 메뉴 목록은 스크롤된다).
+    @ScaledMetric(relativeTo: .body) private var scaledSidebarWidth: CGFloat = 216
+    private var sidebarWidth: CGFloat { min(max(scaledSidebarWidth, 216), 288) }
+    #endif
 
     var body: some View {
         #if os(macOS)
@@ -367,7 +373,7 @@ struct SidebarNavigation: View {
         // 창이 좁아지면 이 화면 대신 아래 탭으로 바뀌므로, 접었다 펴는 단추가 필요 없다.
         HStack(spacing: 0) {
             SidebarView()
-                .frame(width: 216)
+                .frame(width: sidebarWidth)
                 .background(Theme.cardBackground)
             Divider()
             SectionContent(section: store.section)
