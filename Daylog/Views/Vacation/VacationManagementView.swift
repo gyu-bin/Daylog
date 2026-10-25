@@ -90,6 +90,7 @@ struct VacationManagementView: View {
                             Image(systemName: "chevron.right")
                                 .font(.caption.weight(.semibold))
                                 .foregroundStyle(.tertiary)
+                                .accessibilityHidden(true)
                         }
                         .padding(.horizontal, 12)
                         .padding(.vertical, 9)

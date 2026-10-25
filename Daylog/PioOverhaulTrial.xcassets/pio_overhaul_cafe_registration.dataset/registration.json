@@ -1,0 +1,232 @@
+{
+  "outfit": "cafe",
+  "canvas": 1254,
+  "revision": "runtime-v2-candidate",
+  "parts": [
+    {
+      "id": "footLeft",
+      "asset": "pio_overhaul_cafe_footLeft",
+      "rect": [
+        477,
+        1123,
+        114,
+        100
+      ],
+      "pivot": [
+        555.0,
+        1172.5
+      ],
+      "z": 0
+    },
+    {
+      "id": "footRight",
+      "asset": "pio_overhaul_cafe_footRight",
+      "rect": [
+        778,
+        1113,
+        125,
+        115
+      ],
+      "pivot": [
+        842.5,
+        1167.5
+      ],
+      "z": 0
+    },
+    {
+      "id": "body",
+      "asset": "pio_overhaul_cafe_body",
+      "rect": [
+        125,
+        240,
+        1054,
+        1006
+      ],
+      "pivot": [
+        680,
+        800
+      ],
+      "z": 2
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_overhaul_cafe_eyeLeft",
+      "rect": [
+        488,
+        597,
+        105,
+        133
+      ],
+      "pivot": [
+        540.0,
+        666.5
+      ],
+      "z": 3
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_overhaul_cafe_eyeRight",
+      "rect": [
+        773,
+        554,
+        105,
+        133
+      ],
+      "pivot": [
+        825.0,
+        623.5
+      ],
+      "z": 3
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_overhaul_cafe_lidLeft",
+      "rect": [
+        488,
+        657,
+        105,
+        40
+      ],
+      "pivot": [
+        540.0,
+        666.5
+      ],
+      "z": 4
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_overhaul_cafe_lidRight",
+      "rect": [
+        773,
+        614,
+        105,
+        40
+      ],
+      "pivot": [
+        825.0,
+        623.5
+      ],
+      "z": 4
+    },
+    {
+      "id": "wingRight",
+      "asset": "pio_overhaul_cafe_wingRight",
+      "rect": [
+        927,
+        648,
+        255,
+        232
+      ],
+      "pivot": [
+        1000,
+        860
+      ],
+      "z": 5
+    },
+    {
+      "id": "wingLeft",
+      "asset": "pio_overhaul_cafe_wingLeft",
+      "rect": [
+        137,
+        763,
+        336,
+        349
+      ],
+      "pivot": [
+        400,
+        880
+      ],
+      "z": 6
+    },
+    {
+      "id": "prop",
+      "asset": "pio_overhaul_cafe_prop",
+      "rect": [
+        137,
+        694,
+        392,
+        360
+      ],
+      "pivot": [
+        400,
+        880
+      ],
+      "z": 7
+    },
+    {
+      "id": "headwear",
+      "asset": "pio_overhaul_cafe_headwear",
+      "rect": [
+        186,
+        0,
+        759,
+        714
+      ],
+      "pivot": [
+        650,
+        420
+      ],
+      "z": 9
+    },
+    {
+      "id": "happyLeft",
+      "asset": "pio_overhaul_cafe_happyLeft",
+      "rect": [
+        486,
+        643,
+        109,
+        53
+      ],
+      "pivot": [
+        540.0,
+        666.5
+      ],
+      "z": 3
+    },
+    {
+      "id": "happyRight",
+      "asset": "pio_overhaul_cafe_happyRight",
+      "rect": [
+        771,
+        600,
+        109,
+        53
+      ],
+      "pivot": [
+        825.0,
+        623.5
+      ],
+      "z": 3
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_overhaul_cafe_halfLeft",
+      "rect": [
+        488,
+        616,
+        105,
+        97
+      ],
+      "pivot": [
+        540.0,
+        666.5
+      ],
+      "z": 3
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_overhaul_cafe_halfRight",
+      "rect": [
+        773,
+        573,
+        105,
+        97
+      ],
+      "pivot": [
+        825.0,
+        623.5
+      ],
+      "z": 3
+    }
+  ]
+}

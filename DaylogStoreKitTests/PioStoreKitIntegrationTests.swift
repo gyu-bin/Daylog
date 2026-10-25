@@ -14,10 +14,16 @@ import UIKit
 @MainActor
 final class PioStoreKitIntegrationTests: XCTestCase {
     private var session: SKTestSession!
+    private var managers: [PioPurchaseManager] = []
 
     override func setUp() async throws {
         try XCTSkipUnless(ProcessInfo.processInfo.arguments.contains("-pio-storekit-testing"),
                           "Use a dedicated StoreKit testing scheme.")
+        #if DEBUG
+        XCTAssertEqual(StoreKitPioClient.debugActiveRawListenerCount, 0,
+                       "A previous test must join its StoreKit listener before resetting the shared ledger")
+        StoreKitPioClient.resetDebugEvents()
+        #endif
         let configuration = Bundle(for: Self.self).url(forResource: "Routimori", withExtension: "storekit")
             ?? URL(fileURLWithPath: #filePath)
                 .deletingLastPathComponent().deletingLastPathComponent()
@@ -28,7 +34,7 @@ final class PioStoreKitIntegrationTests: XCTestCase {
         XCTAssertEqual(Set(configuredProducts.compactMap { $0["productID"] as? String }), PioProductRegistry.productIDs)
         for product in configuredProducts {
             let configuredPrice = try XCTUnwrap(product["displayPrice"] as? String)
-            XCTAssertEqual(Decimal(string: configuredPrice, locale: Locale(identifier: "en_US_POSIX")), Decimal(2000))
+            XCTAssertEqual(Decimal(string: configuredPrice, locale: Locale(identifier: "en_US_POSIX")), Decimal(2500))
             XCTAssertEqual(product["type"] as? String, "NonConsumable")
         }
         session = try SKTestSession(contentsOf: configuration)
@@ -52,6 +58,18 @@ final class PioStoreKitIntegrationTests: XCTestCase {
     override func tearDown() async throws {
         guard let session else { return }
         defer { self.session = nil }
+        // StoreKitTest controls one shared ledger. Join both listener layers and
+        // their current processing before changing it for the next test.
+        for manager in managers { await manager.stop() }
+        managers.removeAll()
+        #if DEBUG
+        XCTAssertEqual(StoreKitPioClient.debugActiveRawListenerCount, 0,
+                       "No StoreKit subscriptions may survive fixture teardown")
+        let adapter = XCTAttachment(string: StoreKitPioClient.debugEvents.joined(separator: "\n"))
+        adapter.name = "Local StoreKit adapter acknowledgement and updates"
+        adapter.lifetime = .keepAlways
+        add(adapter)
+        #endif
         let ledger = session.allTransactions().map {
             "id=\($0.identifier) product=\($0.productIdentifier) state=\($0.state.rawValue) pending=\($0.pendingAskToBuyConfirmation) issue=\($0.hasPurchaseIssue)"
         }.joined(separator: "\n")
@@ -88,8 +106,14 @@ final class PioStoreKitIntegrationTests: XCTestCase {
         if let firstError { throw firstError }
     }
 
-    private func manager() async throws -> PioPurchaseManager {
+    private func makeManager() -> PioPurchaseManager {
         let manager = PioPurchaseManager(availability: .localTesting)
+        managers.append(manager)
+        return manager
+    }
+
+    private func manager() async throws -> PioPurchaseManager {
+        let manager = makeManager()
         await manager.start()
         XCTAssertEqual(manager.productLoadState, .available, "Local StoreKit preflight/product loading failed")
         XCTAssertEqual(manager.products.count, 13)
@@ -117,9 +141,9 @@ final class PioStoreKitIntegrationTests: XCTestCase {
         for product in products {
             XCTAssertEqual(product.type, .nonConsumable)
             XCTAssertEqual(product.priceFormatStyle.currencyCode, "KRW")
-            XCTAssertEqual(product.displayPrice, "₩2,000")
-            // Xcode 27/macOS 27 local StoreKit currently returns price=2 while
-            // displayPrice=₩2,000 and JSON priceString=2,000. Preserve the raw
+            XCTAssertEqual(product.displayPrice, "₩2,500")
+            // Xcode 27/macOS 27 local StoreKit currently returns price=2.5 while
+            // displayPrice=₩2,500 and JSON priceString=2,500. Preserve the raw
             // evidence above; do not "fix" app prices or inflate configuration.
         }
         let manager = try await manager()
@@ -151,7 +175,7 @@ final class PioStoreKitIntegrationTests: XCTestCase {
         XCTAssertEqual(duplicate, .purchased(.cafe))
         XCTAssertEqual(session.allTransactions().count, count, "Owned non-consumables must not purchase again")
         // A fresh manager has no in-memory ownership. It recovers from Apple's ledger.
-        let reopened = PioPurchaseManager(availability: .localTesting)
+        let reopened = makeManager()
         let reopenedWardrobe = PioWardrobeStore(defaults: defaults, purchases: reopened)
         XCTAssertFalse(reopened.owns(.cafe))
         await reopened.start()
@@ -237,6 +261,21 @@ final class PioStoreKitIntegrationTests: XCTestCase {
             XCTAssertEqual(result, .purchased(entry.outfit))
             XCTAssertTrue(wardrobe.equip(entry.outfit))
             XCTAssertEqual(wardrobe.equippedOutfit, entry.outfit)
+            #if DEBUG
+            // Real purchased/equipped costume must resolve the existing genuine
+            // rig for every action; never modify artwork or animation timings.
+            let rig = PioOverhaulRig()
+            XCTAssertNotNil(PioOverhaulResources.manifest(wardrobe.equippedOutfit))
+            for action in PioOverhaulAction.allCases {
+                rig.configure(wardrobe.equippedOutfit, action: action)
+                rig.setActive(true)
+                XCTAssertGreaterThan(rig.animationCount, 0)
+                XCTAssertNotNil(rig.layers["body"])
+                XCTAssertNotNil(rig.layers["eyeLeft"])
+                rig.setActive(false)
+                XCTAssertEqual(rig.animationCount, 0)
+            }
+            #endif
             purchased.insert(entry.outfit)
             XCTAssertEqual(manager.ownedOutfits, purchased.union([.basic]))
             guard case .verified(let transaction) = await Transaction.latest(for: entry.productID) else {
@@ -300,7 +339,7 @@ final class PioStoreKitIntegrationTests: XCTestCase {
     func testExplicitRestoreRecoversExternalPurchase() async throws {
         let productID = try XCTUnwrap(PioProductRegistry.productID(for: .astronaut))
         _ = try await session.buyProduct(identifier: productID)
-        let manager = PioPurchaseManager(availability: .localTesting)
+        let manager = makeManager()
         XCTAssertFalse(manager.owns(.astronaut))
         let restored = await manager.restore()
         XCTAssertEqual(restored, .restored([.astronaut]))
@@ -344,9 +383,13 @@ final class PioStoreKitIntegrationTests: XCTestCase {
 
     func testVerificationFailureNeverGrantsFreshManagerOwnership() async throws {
         let productID = try XCTUnwrap(PioProductRegistry.productID(for: .christmas))
-        _ = try await session.buyProduct(identifier: productID)
+        // Inject before receipt creation. A receipt already verified and cached
+        // by StoreKit cannot prove that verification-error injection is active.
         try await session.setSimulatedError(.verification(.invalidSignature), forAPI: .verification)
-        let manager = PioPurchaseManager(availability: .localTesting)
+        let seeded = try await session.buyProduct(identifier: productID)
+        XCTAssertEqual(seeded.productID, productID)
+        XCTAssertEqual(session.allTransactions().count, 1)
+        let manager = makeManager()
         let refreshed = await manager.refreshEntitlements()
         XCTAssertFalse(refreshed)
         XCTAssertFalse(manager.owns(.christmas))
@@ -356,17 +399,24 @@ final class PioStoreKitIntegrationTests: XCTestCase {
     func testInterruptedPurchaseOnlyUnlocksAfterResolution() async throws {
         let manager = try await manager()
         session.interruptedPurchasesEnabled = true
+        var ownershipDuringInterruption = false
+        var resolving = false
+        let resolved = expectation(description: "Resolved interrupted purchase updates verified ownership")
+        defer { manager.ownershipDidChange = nil }
+        manager.ownershipDidChange = { _ in
+            if manager.owns(.rainyDay) {
+                if resolving { resolved.fulfill() }
+                else { ownershipDuringInterruption = true }
+            }
+        }
         let result = await manager.purchase(.rainyDay)
         XCTAssertFalse(manager.owns(.rainyDay))
+        XCTAssertFalse(ownershipDuringInterruption,"No verified ownership may arrive before issue resolution")
         XCTAssertFalse(manager.isBusy)
         XCTAssertNotEqual(result, .purchased(.rainyDay))
         let interrupted = try transaction(for: .rainyDay)
         XCTAssertTrue(interrupted.hasPurchaseIssue)
-        let resolved = expectation(description: "Resolved interrupted purchase updates verified ownership")
-        defer { manager.ownershipDidChange = nil }
-        manager.ownershipDidChange = { _ in
-            if manager.owns(.rainyDay) { resolved.fulfill() }
-        }
+        resolving = true
         try session.resolveIssueForTransaction(identifier: interrupted.identifier)
         await fulfillment(of: [resolved], timeout: 10)
         manager.ownershipDidChange = nil

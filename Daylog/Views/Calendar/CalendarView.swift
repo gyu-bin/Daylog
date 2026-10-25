@@ -10,7 +10,7 @@ struct CalendarView: View {
             let isWide = proxy.size.width >= 820
             ScrollView {
                 VStack(alignment: .leading, spacing: Theme.spacing) {
-                    PageTitle(title: "캘린더", subtitle: preferences.mealsEnabled ? "날짜를 누르면 그날의 루틴과 식사를 보고 고칠 수 있어요." : "날짜를 누르면 그날의 루틴을 보고 고칠 수 있어요.")
+                    PageTitle(title: "캘린더", subtitle: preferences.mealsEnabled ? "날짜를 누르면 그날의 루틴과 식사를 보고 고칠 수 있어요." : "날짜를 누르면 그날의 루틴을 보고 고칠 수 있어요.", pio: PioLines.calendar)
                     if isWide {
                         HStack(alignment: .top, spacing: Theme.spacing) {
                             MonthCalendarCard()

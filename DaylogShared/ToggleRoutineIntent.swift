@@ -53,7 +53,7 @@ struct ToggleRoutineIntent: AppIntent {
         case noSharedStorage
 
         var localizedStringResource: LocalizedStringResource {
-            "Daylog와 위젯이 함께 쓰는 저장 공간을 열 수 없어요. Daylog를 열어 체크해 주세요."
+            "RoutiMori와 위젯이 함께 쓰는 저장 공간을 열 수 없어요. RoutiMori를 열어 체크해 주세요."
         }
     }
 }

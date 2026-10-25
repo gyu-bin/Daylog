@@ -39,7 +39,7 @@ enum OnboardingNotificationResult: Equatable {
                 ? "알림을 켰어요. 시간이 정해진 루틴 \(timedRoutines)개를 그 시간에 알려드려요."
                 : "알림을 켰어요. 루틴에 시간을 정하면 그 시간에 알려드려요."
         case .denied:
-            return "알림이 허용되지 않았어요. 앱은 그대로 쓸 수 있고, 나중에 설정 앱에서 Daylog의 알림을 허용하면 바로 울려요."
+            return "알림이 허용되지 않았어요. 앱은 그대로 쓸 수 있고, 나중에 설정 앱에서 RoutiMori의 알림을 허용하면 바로 울려요."
         }
     }
 

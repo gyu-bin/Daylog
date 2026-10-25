@@ -39,7 +39,7 @@ struct NotificationGuideCard: View {
                         .font(.callout).foregroundStyle(Theme.accent)
                 case .blocked:
                     // 이미 거부돼 있으면 다시 물어도 창이 뜨지 않는다. 설정 앱으로 가는 길을 준다.
-                    Text("지금은 \(Platform.thisDevice)의 설정에서 Daylog의 알림이 꺼져 있어요. 설정 앱에서 허용하면 루틴 시간에 알려드려요.")
+                    Text("지금은 \(Platform.thisDevice)의 설정에서 RoutiMori의 알림이 꺼져 있어요. 설정 앱에서 허용하면 루틴 시간에 알려드려요.")
                         .font(.caption).foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
                     Button("알림 설정 열기") { Platform.openNotificationSettings() }

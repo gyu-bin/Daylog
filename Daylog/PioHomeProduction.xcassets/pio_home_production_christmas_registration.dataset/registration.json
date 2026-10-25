@@ -1,0 +1,232 @@
+{
+  "outfit": "christmas",
+  "canvas": 1254,
+  "revision": "runtime-v2-candidate",
+  "parts": [
+    {
+      "id": "footLeft",
+      "asset": "pio_home_production_christmas_footLeft",
+      "rect": [
+        441,
+        1050,
+        167,
+        144
+      ],
+      "pivot": [
+        530,
+        1070
+      ],
+      "z": 0
+    },
+    {
+      "id": "footRight",
+      "asset": "pio_home_production_christmas_footRight",
+      "rect": [
+        739,
+        1060,
+        152,
+        132
+      ],
+      "pivot": [
+        817,
+        1070
+      ],
+      "z": 1
+    },
+    {
+      "id": "body",
+      "asset": "pio_home_production_christmas_body",
+      "rect": [
+        131,
+        208,
+        978,
+        988
+      ],
+      "pivot": [
+        650,
+        780
+      ],
+      "z": 2
+    },
+    {
+      "id": "hat",
+      "asset": "pio_home_production_christmas_hat",
+      "rect": [
+        72,
+        0,
+        909,
+        848
+      ],
+      "pivot": [
+        660,
+        450
+      ],
+      "z": 3
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_home_production_christmas_eyeLeft",
+      "rect": [
+        501,
+        585,
+        99,
+        114
+      ],
+      "pivot": [
+        551,
+        652
+      ],
+      "z": 4
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_home_production_christmas_eyeRight",
+      "rect": [
+        785,
+        552,
+        96,
+        113
+      ],
+      "pivot": [
+        833,
+        618
+      ],
+      "z": 5
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_home_production_christmas_lidLeft",
+      "rect": [
+        500,
+        639,
+        103,
+        37
+      ],
+      "pivot": [
+        551,
+        658
+      ],
+      "z": 6
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_home_production_christmas_lidRight",
+      "rect": [
+        782,
+        603,
+        102,
+        38
+      ],
+      "pivot": [
+        833,
+        622
+      ],
+      "z": 7
+    },
+    {
+      "id": "gift",
+      "asset": "pio_home_production_christmas_gift",
+      "rect": [
+        689,
+        665,
+        391,
+        382
+      ],
+      "pivot": [
+        790,
+        925
+      ],
+      "z": 8
+    },
+    {
+      "id": "handLeft",
+      "asset": "pio_home_production_christmas_handLeft",
+      "rect": [
+        402,
+        623,
+        402,
+        462
+      ],
+      "pivot": [
+        513,
+        870
+      ],
+      "z": 9
+    },
+    {
+      "id": "handRight",
+      "asset": "pio_home_production_christmas_handRight",
+      "rect": [
+        940,
+        758,
+        175,
+        233
+      ],
+      "pivot": [
+        1050,
+        790
+      ],
+      "z": 10
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_home_production_christmas_halfLeft",
+      "rect": [
+        458,
+        580,
+        158,
+        144
+      ],
+      "pivot": [
+        551,
+        650
+      ],
+      "z": 11
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_home_production_christmas_halfRight",
+      "rect": [
+        742,
+        548,
+        155,
+        116
+      ],
+      "pivot": [
+        833,
+        616
+      ],
+      "z": 12
+    },
+    {
+      "id": "happyLeft",
+      "asset": "pio_home_production_christmas_happyLeft",
+      "rect": [
+        498,
+        628,
+        106,
+        52
+      ],
+      "pivot": [
+        551,
+        652
+      ],
+      "z": 4
+    },
+    {
+      "id": "happyRight",
+      "asset": "pio_home_production_christmas_happyRight",
+      "rect": [
+        782,
+        596,
+        104,
+        51
+      ],
+      "pivot": [
+        833,
+        618
+      ],
+      "z": 5
+    }
+  ]
+}

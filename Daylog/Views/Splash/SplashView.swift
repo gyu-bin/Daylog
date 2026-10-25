@@ -82,16 +82,16 @@ struct SplashView: View {
         return VStack(spacing: size * 0.24) {
             HStack(alignment: .firstTextBaseline, spacing: 0) {
                 Text("Rout")
-                Text("\u{0131}")
+                Text("i")
                     .overlay(alignment: .top) {
                         Image("routimori_splash_pio_sprout")
                             .resizable()
                             .interpolation(.high)
                             .frame(width: size * 0.78, height: size * 0.78 * Figure.sproutAspect)
-                            // 새싹 줄기의 밑동이 ı의 윗끝에 닿게 둔다(점 자리).
+                            // 새싹 줄기의 밑동을 i의 점 자리에 맞춘다.
                             .offset(x: size * 0.03, y: -size * 0.12)
                     }
-                Text("mori")
+                Text("Mori")
             }
             .font(.system(size: size, weight: .heavy, design: .rounded))
             .foregroundStyle(isDark ? Color(red: 0.90, green: 0.95, blue: 0.88) : Color(red: 0.07, green: 0.20, blue: 0.13))

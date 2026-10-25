@@ -1,0 +1,219 @@
+{
+  "outfit": "autumn",
+  "canvas": 1254,
+  "revision": "autumn-production-hands-v2",
+  "parts": [
+    {
+      "id": "body",
+      "asset": "pio_cloud_prod_v2_autumn_v2_torso",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 0
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_cloud_prod_v2_autumn_eyeLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 1
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_cloud_prod_v2_autumn_eyeRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 2
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_cloud_prod_v2_autumn_lidLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 3
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_cloud_prod_v2_autumn_lidRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 4
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_cloud_prod_v2_autumn_halfLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 5
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_cloud_prod_v2_autumn_halfRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 6
+    },
+    {
+      "id": "browLeft",
+      "asset": "pio_cloud_prod_v2_autumn_browLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 7
+    },
+    {
+      "id": "browRight",
+      "asset": "pio_cloud_prod_v2_autumn_browRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 8
+    },
+    {
+      "id": "tablet",
+      "asset": "pio_cloud_prod_v2_basic_v1_tablet",
+      "rect": [
+        495,
+        807,
+        362,
+        247
+      ],
+      "pivot": [
+        676,
+        930
+      ],
+      "z": 10,
+      "contentsRect": [
+        0.23046251993620415,
+        0.4059011164274322,
+        0.5422647527910686,
+        0.4354066985645933
+      ]
+    },
+    {
+      "id": "armLeft",
+      "asset": "pio_cloud_prod_v2_autumn_v2_armPair",
+      "rect": [
+        255,
+        842,
+        300,
+        230
+      ],
+      "pivot": [
+        676,
+        930
+      ],
+      "z": 11,
+      "contentsRect": [
+        0.0342902711323764,
+        0.42503987240829344,
+        0.4274322169059011,
+        0.3524720893141946
+      ]
+    },
+    {
+      "id": "armRight",
+      "asset": "pio_cloud_prod_v2_autumn_v2_armPair",
+      "rect": [
+        790,
+        842,
+        290,
+        230
+      ],
+      "pivot": [
+        676,
+        930
+      ],
+      "z": 12,
+      "contentsRect": [
+        0.539872408293461,
+        0.42503987240829344,
+        0.4258373205741627,
+        0.3524720893141946
+      ]
+    }
+  ],
+  "holdGroup": {
+    "ids": [
+      "tablet",
+      "armLeft",
+      "armRight"
+    ],
+    "pivot": [
+      676,
+      930
+    ],
+    "degrees": 1.5
+  },
+  "promotionBasis": "Exact final V2 component artwork and anchors from pio-independent-2026-10-24 native Mac/iOS 64/220pt light/dark and hold extrema checks; production transition validation tracked separately.",
+  "finalUserAestheticApproval": "pending"
+}

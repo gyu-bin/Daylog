@@ -41,10 +41,11 @@ struct RoutineListRow: View {
                     if isStacked {
                         // 좁은 화면(iPhone)과 큰 글자 크기: 이름을 온전히 보여 주고, 요일과 시간은 아랫줄에 둔다.
                         VStack(alignment: .leading, spacing: 4) {
-                            titles(lineLimit: 3)
-                            HStack(spacing: 8) {
+                            titles(lineLimit: dynamicTypeSize.isAccessibilitySize ? nil : 3)
+                            // 큰 글자에서 요일 칩과 시간을 한 줄에 고정하면 시간이 "0…"으로 잘렸다. 들어가는 만큼씩 줄을 바꾼다.
+                            FlowLayout(spacing: 8) {
                                 weekdayChip
-                                if !routine.timeLabel.isEmpty { timeLabel }
+                                if !routine.timeLabel.isEmpty { timeLabel.fixedSize() }
                             }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -103,7 +104,7 @@ struct RoutineListRow: View {
         horizontalSizeClass == .compact || dynamicTypeSize.isAccessibilitySize
     }
 
-    private func titles(lineLimit: Int) -> some View {
+    private func titles(lineLimit: Int?) -> some View {
         VStack(alignment: .leading, spacing: 1) {
             Text(routine.title)
                 .lineLimit(lineLimit)
@@ -112,7 +113,7 @@ struct RoutineListRow: View {
                 Text(routine.note)
                     .font(.caption)
                     .foregroundStyle(.secondary)
-                    .lineLimit(1)
+                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? nil : 1)
             }
         }
     }

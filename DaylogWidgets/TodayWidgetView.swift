@@ -8,9 +8,9 @@ struct TodayWidgetView: View {
     var body: some View {
         switch entry.content {
         case .needsApp:
-            WidgetNotice(symbol: "arrow.up.forward.app", title: "Daylog를 열어 주세요", detail: "오늘의 루틴을 불러와요.")
+            WidgetNotice(symbol: "arrow.up.forward.app", title: "RoutiMori를 열어 주세요", detail: "오늘의 루틴을 불러와요.")
         case .noRoutines:
-            WidgetNotice(symbol: "checklist", title: "아직 루틴이 없어요", detail: "Daylog에서 루틴을 추가해 보세요.")
+            WidgetNotice(symbol: "checklist", title: "아직 루틴이 없어요", detail: "RoutiMori에서 루틴을 추가해 보세요.")
         case .day(let day):
             if day.isVacationRest {
                 WidgetNotice(symbol: "sun.horizon.fill", title: "오늘은 휴가", detail: "루틴 통계에서 제외돼요. 기존 기록은 보관돼요.")
@@ -32,11 +32,11 @@ struct WidgetBrand: View {
             Image(systemName: "leaf.fill")
                 .font(.caption2)
                 .foregroundStyle(GroupColor.mint.color)
-            Text("Daylog")
+            Text("RoutiMori")
                 .font(.caption.weight(.semibold))
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Daylog")
+        .accessibilityLabel("RoutiMori")
     }
 }
 

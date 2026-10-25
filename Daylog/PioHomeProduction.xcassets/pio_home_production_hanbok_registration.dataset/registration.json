@@ -1,0 +1,217 @@
+{
+  "outfit": "hanbok",
+  "canvas": 1254,
+  "revision": "runtime-v2-candidate",
+  "parts": [
+    {
+      "id": "wingRight",
+      "asset": "pio_home_production_hanbok_wingRight",
+      "rect": [
+        890,
+        566,
+        289,
+        289
+      ],
+      "pivot": [
+        975,
+        810
+      ],
+      "z": 0
+    },
+    {
+      "id": "footLeft",
+      "asset": "pio_home_production_hanbok_footLeft",
+      "rect": [
+        449,
+        1080,
+        162,
+        140
+      ],
+      "pivot": [
+        530,
+        1100
+      ],
+      "z": 1
+    },
+    {
+      "id": "footRight",
+      "asset": "pio_home_production_christmas_footRight",
+      "rect": [
+        744,
+        1080,
+        152,
+        132
+      ],
+      "pivot": [
+        817,
+        1095
+      ],
+      "z": 2
+    },
+    {
+      "id": "sprout",
+      "asset": "pio_home_production_astronaut_sprout",
+      "rect": [
+        365,
+        40,
+        514,
+        338
+      ],
+      "pivot": [
+        625,
+        365
+      ],
+      "z": 3
+    },
+    {
+      "id": "body",
+      "asset": "pio_home_production_hanbok_body",
+      "rect": [
+        102,
+        162,
+        1079,
+        1065
+      ],
+      "pivot": [
+        650,
+        780
+      ],
+      "z": 4
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_home_production_hanbok_eyeLeft",
+      "rect": [
+        487,
+        561,
+        104,
+        120
+      ],
+      "pivot": [
+        539,
+        631
+      ],
+      "z": 5
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_home_production_christmas_eyeLeft",
+      "rect": [
+        774,
+        524,
+        99,
+        114
+      ],
+      "pivot": [
+        824,
+        592
+      ],
+      "z": 6
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_home_production_hanbok_lidLeft",
+      "rect": [
+        486,
+        619,
+        105,
+        40
+      ],
+      "pivot": [
+        539,
+        639
+      ],
+      "z": 7
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_home_production_christmas_lidRight",
+      "rect": [
+        773,
+        579,
+        102,
+        38
+      ],
+      "pivot": [
+        824,
+        598
+      ],
+      "z": 8
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_home_production_hanbok_halfLeft",
+      "rect": [
+        444,
+        559,
+        161,
+        147
+      ],
+      "pivot": [
+        539,
+        629
+      ],
+      "z": 9
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_home_production_christmas_halfLeft",
+      "rect": [
+        731,
+        519,
+        158,
+        144
+      ],
+      "pivot": [
+        824,
+        589
+      ],
+      "z": 10
+    },
+    {
+      "id": "wingLeft",
+      "asset": "pio_home_production_hanbok_wingLeft",
+      "rect": [
+        135,
+        679,
+        343,
+        326
+      ],
+      "pivot": [
+        400,
+        790
+      ],
+      "z": 11
+    },
+    {
+      "id": "happyLeft",
+      "asset": "pio_home_production_cherryBlossom_happyRight",
+      "rect": [
+        484,
+        608,
+        110,
+        54
+      ],
+      "pivot": [
+        539,
+        631
+      ],
+      "z": 5
+    },
+    {
+      "id": "happyRight",
+      "asset": "pio_home_production_christmas_happyLeft",
+      "rect": [
+        771,
+        567,
+        106,
+        52
+      ],
+      "pivot": [
+        824,
+        592
+      ],
+      "z": 6
+    }
+  ]
+}

@@ -6,6 +6,7 @@ struct GroupRatesCard: View {
     let rates: [GroupRate]
     let periodLabel: String
     @Binding var selection: UUID?
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         Card(fillsHeight: false) {
@@ -41,12 +42,14 @@ struct GroupRatesCard: View {
                     Text(rate.title)
                         .font(.callout.weight(.medium))
                         .foregroundStyle(rate.isArchived || rate.isRemoved ? .secondary : .primary)
-                        .lineLimit(1)
+                        // 큰 글자에서는 그룹 이름을 자르지 않고 줄을 넘긴다.
+                        .lineLimit(dynamicTypeSize.isAccessibilitySize ? 3 : 1)
                     RateStateBadge(isArchived: rate.isArchived, isRemoved: rate.isRemoved)
                     Spacer(minLength: 6)
                     Text("\(rate.percent)%")
                         .font(.callout.weight(.semibold))
                         .monospacedDigit()
+                        .fixedSize()
                 }
                 ProgressBar(ratio: rate.ratio, height: 7, tint: color.color)
             }
@@ -118,16 +121,18 @@ struct ItemRatesCard: View {
                             .lineLimit(3)
                         RateStateBadge(isArchived: rate.isArchived, isRemoved: rate.isRemoved)
                     }
-                    HStack(alignment: .firstTextBaseline, spacing: 8) {
-                        Text("완료 \(rate.done)일 · 예정 \(rate.scheduled)일")
-                            .foregroundStyle(.secondary)
-                            .monospacedDigit()
-                        Spacer(minLength: 4)
-                        Text("\(rate.percent)%")
-                            .fontWeight(.semibold)
-                            .monospacedDigit()
-                            .lineLimit(1)
-                            .fixedSize()
+                    // 한 줄에 들어가면 나란히, 아니면 달성률을 아랫줄로 내린다
+                    // (나란히 고정하면 "완료 1일 · 예정 1일"이 몇 글자 폭의 열로 눌렸다).
+                    ViewThatFits(in: .horizontal) {
+                        HStack(alignment: .firstTextBaseline, spacing: 8) {
+                            rateCounts(rate).fixedSize()
+                            Spacer(minLength: 4)
+                            ratePercent(rate)
+                        }
+                        VStack(alignment: .leading, spacing: 2) {
+                            rateCounts(rate)
+                            ratePercent(rate)
+                        }
                     }
                 }
                 .font(.callout)
@@ -137,6 +142,20 @@ struct ItemRatesCard: View {
                 .accessibilityValue("달성률 \(rate.percent)%, 예정 \(rate.scheduled)일 중 \(rate.done)일 완료")
             }
         }
+    }
+
+    private func rateCounts(_ rate: RoutineRate) -> some View {
+        Text("완료 \(rate.done)일 · 예정 \(rate.scheduled)일")
+            .foregroundStyle(.secondary)
+            .monospacedDigit()
+    }
+
+    private func ratePercent(_ rate: RoutineRate) -> some View {
+        Text("\(rate.percent)%")
+            .fontWeight(.semibold)
+            .monospacedDigit()
+            .lineLimit(1)
+            .fixedSize()
     }
 
     private var table: some View {

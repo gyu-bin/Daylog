@@ -1,0 +1,234 @@
+{
+  "outfit": "astronaut",
+  "canvas": 1254,
+  "revision": "astronaut-production-hands-v2",
+  "parts": [
+    {
+      "id": "body",
+      "asset": "pio_cloud_prod_v2_astronaut_v2_torso",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 0
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_cloud_prod_v2_astronaut_eyeLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 1
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_cloud_prod_v2_astronaut_eyeRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 2
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_cloud_prod_v2_astronaut_lidLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 3
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_cloud_prod_v2_astronaut_lidRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 4
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_cloud_prod_v2_astronaut_halfLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 5
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_cloud_prod_v2_astronaut_halfRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 6
+    },
+    {
+      "id": "browLeft",
+      "asset": "pio_cloud_prod_v2_astronaut_browLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 7
+    },
+    {
+      "id": "browRight",
+      "asset": "pio_cloud_prod_v2_astronaut_browRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 8
+    },
+    {
+      "id": "tablet",
+      "asset": "pio_cloud_prod_v2_basic_v1_tablet",
+      "rect": [
+        493,
+        804,
+        366,
+        249
+      ],
+      "pivot": [
+        676,
+        930
+      ],
+      "z": 10,
+      "contentsRect": [
+        0.23046251993620415,
+        0.4059011164274322,
+        0.5422647527910686,
+        0.4354066985645933
+      ]
+    },
+    {
+      "id": "armLeft",
+      "asset": "pio_cloud_prod_v2_astronaut_v2_armPairCompact",
+      "rect": [
+        275,
+        850,
+        280,
+        210
+      ],
+      "pivot": [
+        676,
+        930
+      ],
+      "z": 11,
+      "contentsRect": [
+        0.12998405103668262,
+        0.6802232854864434,
+        0.32216905901116427,
+        0.21610845295055822
+      ]
+    },
+    {
+      "id": "armRight",
+      "asset": "pio_cloud_prod_v2_astronaut_v2_armPairCompact",
+      "rect": [
+        790,
+        850,
+        265,
+        210
+      ],
+      "pivot": [
+        676,
+        930
+      ],
+      "z": 12,
+      "contentsRect": [
+        0.5502392344497608,
+        0.6794258373205742,
+        0.3197767145135566,
+        0.21770334928229665
+      ]
+    },
+    {
+      "id": "optics",
+      "asset": "pio_cloud_prod_v2_astronaut_optics",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 9
+    }
+  ],
+  "holdGroup": {
+    "ids": [
+      "tablet",
+      "armLeft",
+      "armRight"
+    ],
+    "pivot": [
+      676,
+      930
+    ],
+    "degrees": 1.5
+  },
+  "promotionBasis": "Exact final V2 component artwork and anchors from pio-independent-2026-10-24 native Mac/iOS 64/220pt light/dark and hold extrema checks; production transition validation tracked separately.",
+  "finalUserAestheticApproval": "pending"
+}

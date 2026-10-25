@@ -8,6 +8,8 @@ import UIKit
 /// 화면의 뿌리. 플랫폼과 창 너비에 맞는 탐색 구조를 고른다.
 struct RootView: View {
     @Environment(AppStore.self) private var store
+    @Environment(CloudSyncMonitor.self) private var sync
+    @Environment(RoutineNotifications.self) private var notifications
     @Environment(\.scenePhase) private var purchaseScenePhase
     @State private var preferences = DevicePreferences.shared
     @State private var templateInbox = TemplateInbox.shared
@@ -22,7 +24,6 @@ struct RootView: View {
     @AppStorage(AppearanceMode.storageKey) private var appearance: AppearanceMode = .system
     /// 원격 UI 설정(iPhone·iPad 전용). 화면 값은 환경으로 내려보낸다.
     @State private var uiConfig = MobileUIConfigStore.shared
-    @Environment(RoutineNotifications.self) private var notifications
     /// 따로 띄우는 알림 안내(시작 안내를 건너뛴 사람, 이 안내가 생기기 전부터 쓰던 사람에게 한 번).
     @State private var showsNotificationGuide = false
     @Environment(\.scenePhase) private var scenePhase
@@ -33,18 +34,24 @@ struct RootView: View {
             .task {
                 let appStore = store
                 PioAppearanceCoordinator.shared.bindGrowthSource { [weak appStore] in appStore?.growth.level ?? 1 }
-                if !RuntimeEnvironment.isRunningTests { await PioWardrobeStore.shared.start() }
+                if !RuntimeEnvironment.isRunningTests {
+                    await PioWardrobeStore.shared.start()
+                    await PioAppIconService.reconcile(store: .shared)
+                }
             }
             .onChange(of: purchaseScenePhase) { _, phase in
                 if phase == .active, !RuntimeEnvironment.isRunningTests {
-                    Task { await PioWardrobeStore.shared.refreshEntitlements() }
+                    Task {
+                        await PioWardrobeStore.shared.refreshEntitlements()
+                        await PioAppIconService.reconcile(store: .shared)
+                    }
                 }
             }
             .environment(preferences)
             .environment(DashboardDecor.shared)
             .environment(CommunityStore.shared)
             .sheet(isPresented: onboardingPresented) {
-                OnboardingView().environment(preferences)
+                OnboardingView().launchSheetEnvironment(store: store, preferences: preferences, sync: sync, notifications: notifications)
             }
             .onChange(of: preferences.mealsEnabled) { _, _ in
                 store.section = preferences.safeSelection(store.section)
@@ -118,7 +125,7 @@ struct RootView: View {
             // 알림 안내: 스플래시와 시작 안내가 끝난 뒤에 필요한 사람에게만 한 번 띄운다.
             .sheet(isPresented: $showsNotificationGuide) {
                 NotificationGuideSheet()
-                    .environment(preferences)
+                    .launchSheetEnvironment(store: store, preferences: preferences, sync: sync, notifications: notifications)
                     .environment(\.mobileUI, uiConfig.settings)
             }
             .task(id: NotificationGuideTrigger(
@@ -209,7 +216,7 @@ struct RootView: View {
         .overlay { firstSyncOverlay }
         .animation(.easeOut(duration: 0.3), value: firstSync.isActive)
         .preferredColorScheme(Self.debugColorScheme ?? appearance.colorScheme)
-        .keyboardDoneBar()
+        .keyboardDoneBar(defersToSheets: true)
         .clearingWindowControls()
         .overlay(alignment: .bottom) { PioTrialStagePreview() }
         // 실제 화면은 밑에서 이미 준비돼 있다. 스플래시는 그 위를 덮었다가 걷힌다.
@@ -303,6 +310,21 @@ struct RootView: View {
     }
 }
 
+private extension View {
+    /// 앱 시작 직후 뿌리 화면이 띄우는 시트(시작 안내·알림 안내)에 공용 객체를 직접 넘긴다.
+    /// Mac에서 iPad 앱으로 실행하면 이 시트가 상위 환경을 물려받지 못해 "No Observable object of type AppStore"로
+    /// 종료됐다(2026-10-25 TestFlight 1.0.1 (14), Mac mini). iPad·iPhone에서는 물려받지만 양쪽 모두 같은 값을 넘긴다.
+    func launchSheetEnvironment(store: AppStore, preferences: DevicePreferences,
+                                sync: CloudSyncMonitor, notifications: RoutineNotifications) -> some View {
+        environment(store)
+            .environment(preferences)
+            .environment(sync)
+            .environment(notifications)
+            .environment(DashboardDecor.shared)
+            .environment(CommunityStore.shared)
+    }
+}
+
 #if os(iOS)
 /// 알림 안내를 다시 판단해야 하는 조건들.
 private struct NotificationGuideTrigger: Equatable {
@@ -353,6 +375,12 @@ struct SectionContent: View {
 /// 사이드바 + 상세 화면. macOS와, 창이 넓은 iPad에서 쓴다.
 struct SidebarNavigation: View {
     @Environment(AppStore.self) private var store
+    #if os(iOS)
+    /// iPad 사이드바 폭. 기본 글자에서는 216pt 그대로, 큰 글자에서는 메뉴 글자를 따라 넓어지되 288pt를 넘지 않는다
+    /// (상세 화면 자리를 지키기 위해서다. 넘치는 메뉴 이름은 두 줄로 넘기고, 메뉴 목록은 스크롤된다).
+    @ScaledMetric(relativeTo: .body) private var scaledSidebarWidth: CGFloat = 216
+    private var sidebarWidth: CGFloat { min(max(scaledSidebarWidth, 216), 288) }
+    #endif
 
     var body: some View {
         #if os(macOS)
@@ -367,7 +395,7 @@ struct SidebarNavigation: View {
         // 창이 좁아지면 이 화면 대신 아래 탭으로 바뀌므로, 접었다 펴는 단추가 필요 없다.
         HStack(spacing: 0) {
             SidebarView()
-                .frame(width: 216)
+                .frame(width: sidebarWidth)
                 .background(Theme.cardBackground)
             Divider()
             SectionContent(section: store.section)

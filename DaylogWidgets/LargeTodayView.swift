@@ -22,7 +22,7 @@ struct LargeTodayView: View {
                     .foregroundStyle(.secondary)
             }
             if day.hasPending {
-                Text("저장 대기 · Daylog를 열어 확인해 주세요")
+                Text("저장 대기 · RoutiMori를 열어 확인해 주세요")
                     .font(.caption2).foregroundStyle(.secondary)
             }
             if let percent = day.percent {
@@ -81,7 +81,7 @@ struct LargeTodayView: View {
                 }
             }
             if fitted.hiddenItems > 0 {
-                Text("외 \(fitted.hiddenItems)개 · 눌러서 Daylog에서 보기")
+                Text("외 \(fitted.hiddenItems)개 · 눌러서 RoutiMori에서 보기")
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             }

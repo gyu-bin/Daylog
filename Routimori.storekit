@@ -3,7 +3,7 @@
   "nonRenewingSubscriptions": [],
   "products": [
     {
-      "displayPrice": "2000.00",
+      "displayPrice": "2500.00",
       "familyShareable": false,
       "internalID": "10000001",
       "localizations": [
@@ -13,27 +13,27 @@
           "locale": "ko_KR"
         }
       ],
-      "productID": "com.mungyubin.daylog.ios.outfit.cherryBlossom",
-      "referenceName": "Pio Outfit - Cherry Blossom",
+      "productID": "outfit.cherryblossom",
+      "referenceName": "벚꽃 피오",
       "type": "NonConsumable"
     },
     {
-      "displayPrice": "2000.00",
+      "displayPrice": "2500.00",
       "familyShareable": false,
       "internalID": "10000002",
       "localizations": [
         {
           "description": "여름 휴가 피오 의상을 영구 소장해요.",
-          "displayName": "여름 휴가 피오",
+          "displayName": "여름휴가 피오",
           "locale": "ko_KR"
         }
       ],
-      "productID": "com.mungyubin.daylog.ios.outfit.summerVacation",
-      "referenceName": "Pio Outfit - Summer Vacation",
+      "productID": "outfit.summer",
+      "referenceName": "여름휴가 피오",
       "type": "NonConsumable"
     },
     {
-      "displayPrice": "2000.00",
+      "displayPrice": "2500.00",
       "familyShareable": false,
       "internalID": "10000003",
       "localizations": [
@@ -43,12 +43,12 @@
           "locale": "ko_KR"
         }
       ],
-      "productID": "com.mungyubin.daylog.ios.outfit.autumn",
-      "referenceName": "Pio Outfit - Autumn",
+      "productID": "outfit.autumn",
+      "referenceName": "가을 피오",
       "type": "NonConsumable"
     },
     {
-      "displayPrice": "2000.00",
+      "displayPrice": "2500.00",
       "familyShareable": false,
       "internalID": "10000004",
       "localizations": [
@@ -58,12 +58,12 @@
           "locale": "ko_KR"
         }
       ],
-      "productID": "com.mungyubin.daylog.ios.outfit.winter",
-      "referenceName": "Pio Outfit - Winter",
+      "productID": "outfit.winter",
+      "referenceName": "겨울 피오",
       "type": "NonConsumable"
     },
     {
-      "displayPrice": "2000.00",
+      "displayPrice": "2500.00",
       "familyShareable": false,
       "internalID": "10000005",
       "localizations": [
@@ -73,12 +73,12 @@
           "locale": "ko_KR"
         }
       ],
-      "productID": "com.mungyubin.daylog.ios.outfit.halloween",
-      "referenceName": "Pio Outfit - Halloween",
+      "productID": "outfit.halloween",
+      "referenceName": "할로윈 피오",
       "type": "NonConsumable"
     },
     {
-      "displayPrice": "2000.00",
+      "displayPrice": "2500.00",
       "familyShareable": false,
       "internalID": "10000006",
       "localizations": [
@@ -88,12 +88,12 @@
           "locale": "ko_KR"
         }
       ],
-      "productID": "com.mungyubin.daylog.ios.outfit.christmas",
-      "referenceName": "Pio Outfit - Christmas",
+      "productID": "outfit.christmas",
+      "referenceName": "크리스마스 피오",
       "type": "NonConsumable"
     },
     {
-      "displayPrice": "2000.00",
+      "displayPrice": "2500.00",
       "familyShareable": false,
       "internalID": "10000007",
       "localizations": [
@@ -103,12 +103,12 @@
           "locale": "ko_KR"
         }
       ],
-      "productID": "com.mungyubin.daylog.ios.outfit.hanbok",
-      "referenceName": "Pio Outfit - Hanbok",
+      "productID": "outfit.hanbok",
+      "referenceName": "한복 피오",
       "type": "NonConsumable"
     },
     {
-      "displayPrice": "2000.00",
+      "displayPrice": "2500.00",
       "familyShareable": false,
       "internalID": "10000008",
       "localizations": [
@@ -118,12 +118,12 @@
           "locale": "ko_KR"
         }
       ],
-      "productID": "com.mungyubin.daylog.ios.outfit.cafe",
-      "referenceName": "Pio Outfit - Cafe",
+      "productID": "outfit.cafe",
+      "referenceName": "카페 피오",
       "type": "NonConsumable"
     },
     {
-      "displayPrice": "2000.00",
+      "displayPrice": "2500.00",
       "familyShareable": false,
       "internalID": "10000009",
       "localizations": [
@@ -133,12 +133,12 @@
           "locale": "ko_KR"
         }
       ],
-      "productID": "com.mungyubin.daylog.ios.outfit.student",
-      "referenceName": "Pio Outfit - Student",
+      "productID": "outfit.student",
+      "referenceName": "학생 피오",
       "type": "NonConsumable"
     },
     {
-      "displayPrice": "2000.00",
+      "displayPrice": "2500.00",
       "familyShareable": false,
       "internalID": "10000010",
       "localizations": [
@@ -148,12 +148,12 @@
           "locale": "ko_KR"
         }
       ],
-      "productID": "com.mungyubin.daylog.ios.outfit.fitness",
-      "referenceName": "Pio Outfit - Fitness",
+      "productID": "outfit.workout",
+      "referenceName": "운동 피오",
       "type": "NonConsumable"
     },
     {
-      "displayPrice": "2000.00",
+      "displayPrice": "2500.00",
       "familyShareable": false,
       "internalID": "10000011",
       "localizations": [
@@ -163,12 +163,12 @@
           "locale": "ko_KR"
         }
       ],
-      "productID": "com.mungyubin.daylog.ios.outfit.rainyDay",
-      "referenceName": "Pio Outfit - Rainy Day",
+      "productID": "outfit.rainy",
+      "referenceName": "비 오는 날 피오",
       "type": "NonConsumable"
     },
     {
-      "displayPrice": "2000.00",
+      "displayPrice": "2500.00",
       "familyShareable": false,
       "internalID": "10000012",
       "localizations": [
@@ -178,23 +178,23 @@
           "locale": "ko_KR"
         }
       ],
-      "productID": "com.mungyubin.daylog.ios.outfit.pajamas",
-      "referenceName": "Pio Outfit - Pajamas",
+      "productID": "outfit.pajamas",
+      "referenceName": "잠옷 피오",
       "type": "NonConsumable"
     },
     {
-      "displayPrice": "2000.00",
+      "displayPrice": "2500.00",
       "familyShareable": false,
       "internalID": "10000013",
       "localizations": [
         {
           "description": "우주인 피오 의상을 영구 소장해요.",
-          "displayName": "우주인 피오",
+          "displayName": "우주복 피오",
           "locale": "ko_KR"
         }
       ],
-      "productID": "com.mungyubin.daylog.ios.outfit.astronaut",
-      "referenceName": "Pio Outfit - Astronaut",
+      "productID": "outfit.space",
+      "referenceName": "우주복 피오",
       "type": "NonConsumable"
     }
   ],

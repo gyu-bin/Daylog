@@ -42,6 +42,6 @@ struct MealsView: View {
     }
 
     private var title: some View {
-        PageTitle(title: "식사 기록", subtitle: "적으면 자동으로 저장돼요. 지난 날짜도 고칠 수 있어요.")
+        PageTitle(title: "식사 기록", subtitle: "적으면 자동으로 저장돼요. 지난 날짜도 고칠 수 있어요.", pio: PioLines.meals())
     }
 }

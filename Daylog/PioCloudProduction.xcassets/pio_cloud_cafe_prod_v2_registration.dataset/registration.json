@@ -1,0 +1,219 @@
+{
+  "outfit": "cafe",
+  "canvas": 1254,
+  "revision": "cafe-production-hands-v2",
+  "parts": [
+    {
+      "id": "body",
+      "asset": "pio_cloud_prod_v2_cafe_v2_torso",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 0
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_cloud_prod_v2_cafe_eyeLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 1
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_cloud_prod_v2_cafe_eyeRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 2
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_cloud_prod_v2_cafe_lidLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 3
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_cloud_prod_v2_cafe_lidRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 4
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_cloud_prod_v2_cafe_halfLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 5
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_cloud_prod_v2_cafe_halfRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 6
+    },
+    {
+      "id": "browLeft",
+      "asset": "pio_cloud_prod_v2_cafe_browLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 7
+    },
+    {
+      "id": "browRight",
+      "asset": "pio_cloud_prod_v2_cafe_browRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 8
+    },
+    {
+      "id": "tablet",
+      "asset": "pio_cloud_prod_v2_basic_v1_tablet",
+      "rect": [
+        495,
+        850,
+        362,
+        238
+      ],
+      "pivot": [
+        676,
+        970
+      ],
+      "z": 10,
+      "contentsRect": [
+        0.23046251993620415,
+        0.4059011164274322,
+        0.5422647527910686,
+        0.4354066985645933
+      ]
+    },
+    {
+      "id": "armLeft",
+      "asset": "pio_cloud_prod_v2_cafe_v2_armPair",
+      "rect": [
+        282,
+        850,
+        270,
+        228
+      ],
+      "pivot": [
+        676,
+        970
+      ],
+      "z": 11,
+      "contentsRect": [
+        0.11403508771929824,
+        0.5685805422647527,
+        0.31658692185007975,
+        0.3269537480063796
+      ]
+    },
+    {
+      "id": "armRight",
+      "asset": "pio_cloud_prod_v2_cafe_v2_armPair",
+      "rect": [
+        803,
+        850,
+        260,
+        228
+      ],
+      "pivot": [
+        676,
+        970
+      ],
+      "z": 12,
+      "contentsRect": [
+        0.5885167464114832,
+        0.5669856459330144,
+        0.32216905901116427,
+        0.3317384370015949
+      ]
+    }
+  ],
+  "holdGroup": {
+    "ids": [
+      "tablet",
+      "armLeft",
+      "armRight"
+    ],
+    "pivot": [
+      676,
+      970
+    ],
+    "degrees": 1.5
+  },
+  "promotionBasis": "Exact final V2 component artwork and anchors from pio-independent-2026-10-24 native Mac/iOS 64/220pt light/dark and hold extrema checks; production transition validation tracked separately.",
+  "finalUserAestheticApproval": "pending"
+}

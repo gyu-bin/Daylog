@@ -15,7 +15,7 @@ struct StatisticsView: View {
             let mealSummary = mealSummary(version: store.dataVersion)
             ScrollView {
                 VStack(alignment: .leading, spacing: Theme.spacing) {
-                    PageTitle(title: "통계", subtitle: "오늘(\(store.today.longTitle)) 기준")
+                    PageTitle(title: "통계", subtitle: "오늘(\(store.today.longTitle)) 기준", pio: PioLines.statistics(store.stats))
 
                     RoutineStatisticsView(isWide: isWide)
 
@@ -44,12 +44,25 @@ struct StatisticsView: View {
 struct PageTitle: View {
     let title: String
     var subtitle: String?
+    /// 피오의 한마디. 있으면 제목 줄 오른쪽 끝에 피오가 앉고, 탭을 열 때 잠깐 말한다.
+    var pio: String? = nil
+    /// 기본 크기는 24pt 그대로 두고, 글자 크기 설정을 따라 함께 커진다(설명보다 작아지지 않게).
+    @ScaledMetric(relativeTo: .title2) private var titleSize: CGFloat = 24
 
     var body: some View {
         VStack(alignment: .leading, spacing: 3) {
-            Text(title)
-                .font(.system(size: 24, weight: .bold))
-                .accessibilityAddTraits(.isHeader)
+            HStack(alignment: .center, spacing: 6) {
+                Text(title)
+                    .font(.system(size: titleSize, weight: .bold))
+                    .accessibilityAddTraits(.isHeader)
+                #if os(iOS)
+                if let pio {
+                    Spacer(minLength: 8)
+                    // 제목 줄 오른쪽 끝: 탭을 열면 말풍선이 잠깐 떴다가 사라지고, 피오를 누르면 다시 뜬다.
+                    PioPeekBubble(line: pio)
+                }
+                #endif
+            }
             if let subtitle {
                 Text(subtitle)
                     .font(.callout)

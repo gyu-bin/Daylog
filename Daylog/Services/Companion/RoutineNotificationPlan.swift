@@ -22,10 +22,10 @@ struct PlannedNotification: Equatable, Identifiable {
         "\(idPrefix)\(routineID.uuidString).\(dateKey)"
     }
 
-    /// 내용이 바뀌었는지 비교하는 값. 이름·그룹·시간이 바뀌면 다시 예약한다.
-    var signature: String { "\(title)|\(groupTitle)|\(hour):\(minute)" }
+    /// 내용이 바뀌었는지 비교하는 값. 이름·그룹·시간·앱 표시명이 바뀌면 같은 ID로 다시 예약한다.
+    var signature: String { "\(title)|\(groupTitle)|\(hour):\(minute)|\(notificationTitle)" }
 
-    var notificationTitle: String { "Daylog · 루틴 시간이에요" }
+    var notificationTitle: String { "RoutiMori · 루틴 시간이에요" }
     var notificationSubtitle: String { "\(TimeLabel.label(minutes: hour * 60 + minute)) · \(groupTitle)" }
     var notificationBody: String { "\(title) — 오늘의 루틴을 완료해 보세요." }
 

@@ -1,0 +1,217 @@
+{
+  "outfit": "basic",
+  "canvas": 1254,
+  "revision": "runtime-v2-candidate",
+  "parts": [
+    {
+      "id": "wingLeft",
+      "asset": "pio_overhaul_basic_wingLeft",
+      "rect": [
+        153,
+        716,
+        397,
+        351
+      ],
+      "pivot": [
+        375,
+        810
+      ],
+      "z": 0
+    },
+    {
+      "id": "wingRight",
+      "asset": "pio_overhaul_basic_wingRight",
+      "rect": [
+        797,
+        586,
+        336,
+        324
+      ],
+      "pivot": [
+        940,
+        830
+      ],
+      "z": 1
+    },
+    {
+      "id": "footLeft",
+      "asset": "pio_overhaul_basic_footLeft",
+      "rect": [
+        490,
+        1000,
+        131,
+        115
+      ],
+      "pivot": [
+        550,
+        1010
+      ],
+      "z": 2
+    },
+    {
+      "id": "footRight",
+      "asset": "pio_overhaul_basic_footRight",
+      "rect": [
+        755,
+        965,
+        131,
+        115
+      ],
+      "pivot": [
+        815,
+        975
+      ],
+      "z": 3
+    },
+    {
+      "id": "sprout",
+      "asset": "pio_overhaul_basic_sprout",
+      "rect": [
+        397,
+        114,
+        501,
+        328
+      ],
+      "pivot": [
+        650,
+        430
+      ],
+      "z": 4
+    },
+    {
+      "id": "body",
+      "asset": "pio_overhaul_basic_body",
+      "rect": [
+        161,
+        247,
+        962,
+        947
+      ],
+      "pivot": [
+        650,
+        740
+      ],
+      "z": 5
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_overhaul_basic_eyeLeft",
+      "rect": [
+        503,
+        623,
+        94,
+        109
+      ],
+      "pivot": [
+        550,
+        689
+      ],
+      "z": 6
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_overhaul_basic_eyeRight",
+      "rect": [
+        771,
+        583,
+        88,
+        102
+      ],
+      "pivot": [
+        815,
+        644
+      ],
+      "z": 7
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_overhaul_basic_lidLeft",
+      "rect": [
+        500,
+        676,
+        99,
+        37
+      ],
+      "pivot": [
+        550,
+        695
+      ],
+      "z": 8
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_overhaul_basic_lidRight",
+      "rect": [
+        767,
+        632,
+        95,
+        35
+      ],
+      "pivot": [
+        815,
+        649
+      ],
+      "z": 9
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_overhaul_basic_halfLeft",
+      "rect": [
+        464,
+        622,
+        147,
+        133
+      ],
+      "pivot": [
+        550.5,
+        685
+      ],
+      "z": 10
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_overhaul_basic_halfRight",
+      "rect": [
+        731,
+        578,
+        142,
+        129
+      ],
+      "pivot": [
+        815,
+        640.5
+      ],
+      "z": 11
+    },
+    {
+      "id": "happyLeft",
+      "asset": "pio_overhaul_basic_happyLeft",
+      "rect": [
+        500,
+        665,
+        100,
+        50
+      ],
+      "pivot": [
+        550,
+        689
+      ],
+      "z": 6
+    },
+    {
+      "id": "happyRight",
+      "asset": "pio_overhaul_basic_happyRight",
+      "rect": [
+        767,
+        622,
+        96,
+        48
+      ],
+      "pivot": [
+        815,
+        644
+      ],
+      "z": 7
+    }
+  ]
+}

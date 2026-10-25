@@ -17,6 +17,9 @@ struct PioWardrobeView: View {
     @State private var motion: PioOutfitMotion = .idle
     @State private var notice: String?
     @State private var actionMessage: String?
+    #if DEBUG
+    @State private var showingMotionReview = false
+    #endif
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.dynamicTypeSize) private var dynamicType
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -83,6 +86,11 @@ struct PioWardrobeView: View {
         .foregroundStyle(palette.ink)
         .tint(palette.accent)
         .navigationTitle("피오 옷장")
+        #if DEBUG
+        .sheet(isPresented: $showingMotionReview) {
+            PioOverhaulMotionReview(outfit: selectedOutfit)
+        }
+        #endif
         .accessibilityIdentifier("wardrobe.screen")
         .task { if !RuntimeEnvironment.isRunningTests { await store.start() } }
         .onChange(of: selectedOutfit) { _, outfit in
@@ -123,12 +131,19 @@ struct PioWardrobeView: View {
                     .background(palette.accent.opacity(0.09), in: RoundedRectangle(cornerRadius: 14))
                     .accessibilityIdentifier("wardrobe.testingBanner")
             }
+            #if DEBUG
+            Button { showingMotionReview = true } label: {
+                Label("새 움직임 미리 보기", systemImage: "figure.wave")
+            }
+            .buttonStyle(.bordered)
+            .accessibilityIdentifier("wardrobe.motionReview")
+            #endif
             Picker("옷장 보기", selection: $section) {
-                ForEach(WardrobeSection.allCases) { Text($0.rawValue).tag($0) }
+                ForEach(WardrobeSection.visibleCases) { Text($0.rawValue).tag($0) }
             }
             .pickerStyle(.segmented)
             .accessibilityIdentifier("wardrobe.section")
-            if section == .icons {
+            if section == .icons && PioAppIconService.hasShippedThemes {
                 iconCollection
             } else {
                 outfitCollection
@@ -195,7 +210,7 @@ struct PioWardrobeView: View {
                         .padding(7).background(palette.surface, in: Circle()).padding(6)
                 }
             }
-            Text(outfit.title)
+            Text(productTitle(outfit))
                 .font(.system(.subheadline, design: .rounded, weight: .semibold))
                 .foregroundStyle(palette.ink).fixedSize(horizontal: false, vertical: true)
             Text(stateText(outfit))
@@ -222,14 +237,35 @@ struct PioWardrobeView: View {
         return "현재 구매 불가"
     }
 
+    private func productTitle(_ outfit: PioOutfitID) -> String {
+        store.purchases.product(for: outfit)?.displayName ?? outfit.title
+    }
+
+    private var previewLabel: some View {
+        Label("미리보기", systemImage: "sparkles")
+            .font(.headline)
+            .fixedSize(horizontal: false, vertical: true)
+    }
+
+    @ViewBuilder private var equippedBadge: some View {
+        if store.equippedOutfit == selectedOutfit {
+            WardrobeBadge(text: "입고 있어요", symbol: "checkmark.circle.fill", palette: palette)
+                .fixedSize()
+        }
+    }
+
     private func previewPanel(artHeight: CGFloat) -> some View {
         VStack(alignment: .leading, spacing: 20) {
-            HStack {
-                Label("미리보기", systemImage: "sparkles")
-                    .font(.headline)
-                Spacer()
-                if store.equippedOutfit == selectedOutfit {
-                    WardrobeBadge(text: "입고 있어요", symbol: "checkmark.circle.fill", palette: palette)
+            // 큰 글자에서 한 줄에 두면 배지 글자가 한 글자씩 꺾였다. 자리가 모자라면 배지를 아래 줄로 내린다.
+            ViewThatFits(in: .horizontal) {
+                HStack {
+                    previewLabel
+                    Spacer()
+                    equippedBadge
+                }
+                VStack(alignment: .leading, spacing: 8) {
+                    previewLabel
+                    equippedBadge
                 }
             }
             ZStack {
@@ -245,7 +281,7 @@ struct PioWardrobeView: View {
             VStack(alignment: .leading, spacing: 7) {
                 Text(selectedOutfit.category.title)
                     .font(.caption.weight(.semibold)).foregroundStyle(palette.accent)
-                Text(selectedOutfit.title)
+                Text(productTitle(selectedOutfit))
                     .font(.system(.title2, design: .rounded, weight: .bold))
                 Text(selectedOutfit.description)
                     .font(.subheadline).foregroundStyle(palette.secondary)
@@ -309,11 +345,16 @@ struct PioWardrobeView: View {
                     .opacity(store.equippedOutfit == selectedOutfit || !WardrobeArt.isAvailable(selectedOutfit) ? 0.55 : 1)
             }
             .buttonStyle(.plain)
-            .disabled(store.equippedOutfit == selectedOutfit || !WardrobeArt.isAvailable(selectedOutfit))
+            .disabled(store.purchases.isBusy || store.equippedOutfit == selectedOutfit || !WardrobeArt.isAvailable(selectedOutfit))
             .accessibilityIdentifier("wardrobe.preview.equip")
         } else {
             Button {
-                Task { actionMessage = (await store.purchase(selectedOutfit)).wardrobeMessage }
+                let requestedOutfit = selectedOutfit
+                Task {
+                    let result = await store.purchase(requestedOutfit)
+                    if selectedOutfit == requestedOutfit { actionMessage = result.wardrobeMessage }
+                    else { notice = result.wardrobeMessage }
+                }
             } label: {
                 Group {
                     if case .purchasing(let outfit) = store.purchases.purchaseState, outfit == selectedOutfit {
@@ -328,6 +369,23 @@ struct PioWardrobeView: View {
             .buttonStyle(.borderedProminent)
             .disabled(store.purchases.isBusy || !store.purchases.availability.isEnabled || store.purchases.product(for: selectedOutfit) == nil)
             .accessibilityIdentifier("wardrobe.preview.purchase")
+            // 구매할 수 없는 까닭을 단추 바로 아래에 적는다(전에는 의상 목록 맨 아래에만 있어 "현재 구매 불가"의 이유가 보이지 않았다).
+            if store.purchases.availability.isEnabled, store.purchases.product(for: selectedOutfit) == nil {
+                switch store.purchases.productLoadState {
+                case .failed(let message):
+                    Label(message, systemImage: "exclamationmark.circle")
+                        .font(.footnote).foregroundStyle(palette.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    retryProductsButton(id: "wardrobe.preview.retryProducts")
+                case .unavailable:
+                    Label("이 의상의 상품 정보를 확인하지 못했어요.", systemImage: "exclamationmark.circle")
+                        .font(.footnote).foregroundStyle(palette.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    retryProductsButton(id: "wardrobe.preview.retryProducts")
+                default:
+                    EmptyView()
+                }
+            }
         }
     }
 
@@ -338,8 +396,12 @@ struct PioWardrobeView: View {
                 .fixedSize(horizontal: false, vertical: true)
         } else {
             VStack(alignment: .leading, spacing: 10) {
-                Label("Apple 로컬 구매 테스트 · 실제 청구 없음", systemImage: "testtube.2")
-                    .font(.caption).foregroundStyle(palette.secondary)
+                // 시험 환경일 때만 표시한다. 출시판(App Store)에는 붙이지 않는다.
+                if store.purchases.availability != .appStore {
+                    Label(store.purchases.availability.environmentLabel,
+                          systemImage: store.purchases.availability == .localTesting ? "testtube.2" : "bag")
+                        .font(.caption).foregroundStyle(palette.secondary)
+                }
                 switch store.purchases.productLoadState {
                 case .idle, .loading:
                     ProgressView("의상 정보를 불러오는 중이에요")
@@ -351,8 +413,11 @@ struct PioWardrobeView: View {
                     retryProducts
                 case .available: EmptyView()
                 }
+                // 상품 조회와 구매 내역 확인이 같은 까닭(계정 없음·연결 실패)으로 실패하면 같은 문장을 두 번 쓰지 않는다.
                 if case .failed(let message) = store.purchases.entitlementState {
-                    Text(message).font(.subheadline)
+                    if store.purchases.productLoadState != .failed(message: message) {
+                        Text(message).font(.subheadline)
+                    }
                     Button("구매 내역 다시 확인") { Task { await store.refreshEntitlements() } }
                         .disabled(store.purchases.isBusy)
                 }
@@ -361,61 +426,66 @@ struct PioWardrobeView: View {
         }
     }
 
-    private var retryProducts: some View {
+    private var retryProducts: some View { retryProductsButton(id: "wardrobe.retryProducts") }
+
+    private func retryProductsButton(id: String) -> some View {
         Button("상품 정보 다시 불러오기") { Task { await store.purchases.loadProducts() } }
             .buttonStyle(.bordered)
             .disabled(store.purchases.isBusy || store.purchases.productLoadState == .loading)
-            .accessibilityIdentifier("wardrobe.retryProducts")
+            .accessibilityIdentifier(id)
     }
 
     private var iconCollection: some View {
         VStack(alignment: .leading, spacing: 20) {
             VStack(alignment: .leading, spacing: 8) {
-                Text("앱 아이콘 미리보기").font(.title3.bold())
-                Text("구매한 의상의 아이콘도 추가 결제 없이 사용할 수 있어요. 현재 전용 아이콘 파일은 준비 중이며, 아래 이미지는 테마 미리보기예요.")
+                Text("앱 아이콘").font(.title3.bold())
+                Text("홈 화면의 RoutiMori 아이콘을 산 의상의 피오로 바꿀 수 있어요. 추가 결제는 없어요.")
                     .font(.subheadline).foregroundStyle(palette.secondary)
                     .fixedSize(horizontal: false, vertical: true)
-                Label("선택한 테마 · \(store.selectedIcon.title)", systemImage: "checkmark.circle.fill")
+                Label("지금 아이콘 · \(store.selectedIcon.title)", systemImage: "checkmark.circle.fill")
                     .font(.caption.weight(.semibold)).foregroundStyle(palette.accent)
             }
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(PioOutfitID.allCases) { outfit in
                     let owned = store.owns(outfit)
+                    let selected = store.selectedIcon == outfit
                     Button {
+                        guard !selected else { return }
                         Task { notice = await PioAppIconService.select(outfit, store: store) }
                     } label: {
                         VStack(spacing: 12) {
                             ZStack(alignment: .bottomTrailing) {
-                                WardrobeArt(outfit: outfit, palette: palette)
+                                Image(outfit == .basic ? "BrandIcon" : "pio_icon_preview_\(outfit.rawValue)")
+                                    .resizable().scaledToFill()
                                     .frame(width: 100, height: 100)
-                                    .background(palette.motif(for: outfit), in: RoundedRectangle(cornerRadius: 25))
-                                    .clipShape(RoundedRectangle(cornerRadius: 25))
-                                Image(systemName: owned ? (store.selectedIcon == outfit ? "checkmark.circle.fill" : "circle") : "lock.fill")
+                                    .clipShape(RoundedRectangle(cornerRadius: 22.5, style: .continuous))
+                                    .opacity(owned ? 1 : 0.55)
+                                Image(systemName: owned ? (selected ? "checkmark.circle.fill" : "circle") : "lock.fill")
                                     .font(.headline)
                                     .padding(5)
                                     .background(palette.surface, in: Circle())
                                     .foregroundStyle(palette.accent)
+                                    .offset(x: 6, y: 6)
                             }
                             Text(outfit.title).font(.subheadline.weight(.semibold))
                                 .fixedSize(horizontal: false, vertical: true)
-                            Text(owned ? "의상 보유 중" : "의상 구매 시 함께 제공")
+                            Text(selected ? "사용 중" : owned ? "눌러서 바꾸기" : "의상을 사면 함께 열려요")
                                 .font(.caption2).foregroundStyle(palette.secondary)
-                            Text(PioAppIconService.isAvailable(outfit) ? "기본 앱 아이콘" : "아이콘 변경 준비 중")
-                                .font(.caption2).foregroundStyle(palette.secondary)
+                                .fixedSize(horizontal: false, vertical: true)
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .padding(16)
                         .background(palette.surface, in: RoundedRectangle(cornerRadius: 24))
                         .overlay {
                             RoundedRectangle(cornerRadius: 24)
-                                .stroke(store.selectedIcon == outfit ? palette.accent : palette.border,
-                                        lineWidth: store.selectedIcon == outfit ? 2 : 1)
+                                .stroke(selected ? palette.accent : palette.border, lineWidth: selected ? 2 : 1)
                         }
                     }
                     .buttonStyle(.plain)
-                    .disabled(!PioAppIconService.canSelect(outfit, store: store))
-                    .accessibilityLabel("\(outfit.title) 아이콘 테마, \(owned ? "보유 중, 아이콘 변경 준비 중" : "잠김")")
-                    .accessibilityAddTraits(store.selectedIcon == outfit ? .isSelected : [])
+                    // 사용 중인 아이콘은 흐리게 만들지 않는다(누르면 아무 일도 하지 않는다).
+                    .disabled(!selected && !PioAppIconService.canSelect(outfit, store: store))
+                    .accessibilityLabel("\(outfit.title) 앱 아이콘, \(selected ? "사용 중" : owned ? "선택할 수 있음" : "잠김, 의상을 사면 사용할 수 있어요")")
+                    .accessibilityAddTraits(selected ? .isSelected : [])
                     .accessibilityIdentifier("wardrobe.icon.\(outfit.rawValue)")
                 }
             }
@@ -425,7 +495,7 @@ struct PioWardrobeView: View {
     private var footer: some View {
         VStack(alignment: .leading, spacing: 14) {
             Divider().overlay(palette.border)
-            Text("의상은 한 번 구매하면 계속 사용할 수 있어요. 아이콘은 준비되는 대로 별도 구매 없이 함께 제공돼요.")
+            Text("의상은 한 번 구매하면 계속 사용할 수 있어요. 기기를 바꾸거나 앱을 다시 설치했다면 구매 복원을 눌러 주세요.")
                 .font(.caption).foregroundStyle(palette.secondary)
                 .fixedSize(horizontal: false, vertical: true)
             Button {
@@ -590,6 +660,10 @@ struct PioOutfitPreviewSheet: View {
 private enum WardrobeSection: String, CaseIterable, Identifiable {
     case browse = "둘러보기", owned = "내 옷장", icons = "앱 아이콘"
     var id: String { rawValue }
+    /// 대체 아이콘 파일이 실제로 들어가기 전에는 '준비 중' 화면을 보이지 않는다(심사 2.1·2.3).
+    @MainActor static var visibleCases: [Self] {
+        allCases.filter { $0 != .icons || PioAppIconService.hasShippedThemes }
+    }
 }
 
 private struct WardrobeBadge: View {

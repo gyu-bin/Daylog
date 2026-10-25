@@ -44,7 +44,7 @@ struct TemplateFileTests {
         // 공식 템플릿 목록과 같은 문서라 같은 읽기 코드로도 읽힌다.
         #expect(try TemplateCatalog(data: data).templates == [template])
         #expect(try TemplateFile.decode(data) == template)
-        #expect(TemplateFile.fileName(for: sample(title: "아침/저녁: 정리?")) == "Daylog 템플릿 - 아침 저녁  정리")
+        #expect(TemplateFile.fileName(for: sample(title: "아침/저녁: 정리?")) == "RoutiMori 템플릿 - 아침 저녁  정리")
         // 올바르지 않은 템플릿은 파일로 만들지 않는다.
         #expect(throws: TemplateFileError.self) { try TemplateFile.encode(sample(title: " ")) }
         #expect(throws: TemplateFileError.self) { try TemplateFile.encode(sample(groups: [])) }

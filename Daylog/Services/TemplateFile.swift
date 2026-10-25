@@ -18,10 +18,10 @@ enum TemplateFileError: LocalizedError, Equatable {
 
     var errorDescription: String? {
         switch self {
-        case .tooLarge: return "파일이 너무 커요. Daylog 템플릿 파일은 \(TemplateFile.maximumBytes / 1_024)KB 이하예요."
-        case .unreadable: return "파일을 읽을 수 없어요. Daylog에서 만든 템플릿 파일인지 확인해 주세요."
-        case .notATemplate: return "Daylog 템플릿 파일이 아니에요."
-        case .unsupportedVersion: return "이 파일은 더 새로운 Daylog에서 만든 것이라 읽을 수 없어요. 앱을 업데이트한 뒤 다시 시도해 주세요."
+        case .tooLarge: return "파일이 너무 커요. RoutiMori 템플릿 파일은 \(TemplateFile.maximumBytes / 1_024)KB 이하예요."
+        case .unreadable: return "파일을 읽을 수 없어요. RoutiMori에서 만든 템플릿 파일인지 확인해 주세요."
+        case .notATemplate: return "RoutiMori 템플릿 파일이 아니에요."
+        case .unsupportedVersion: return "이 파일은 더 새로운 RoutiMori에서 만든 것이라 읽을 수 없어요. 앱을 업데이트한 뒤 다시 시도해 주세요."
         case .wrongCount: return "템플릿이 하나 들어 있는 파일만 가져올 수 있어요."
         case .invalid(let message): return "템플릿 내용이 올바르지 않아요. \(message)"
         }
@@ -105,7 +105,7 @@ enum TemplateFile {
     static func fileName(for template: RoutineTemplate) -> String {
         let cleaned = template.title.components(separatedBy: CharacterSet(charactersIn: "/\\:*?\"<>|\n\r\t")).joined(separator: " ")
             .trimmingCharacters(in: .whitespaces)
-        return "Daylog 템플릿 - \(cleaned.isEmpty ? "루틴" : cleaned)"
+        return "RoutiMori 템플릿 - \(cleaned.isEmpty ? "루틴" : cleaned)"
     }
 }
 

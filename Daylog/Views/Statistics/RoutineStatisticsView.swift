@@ -96,14 +96,30 @@ struct RoutineStatisticsView: View {
                 .font(.callout)
                 .foregroundStyle(.secondary)
                 .monospacedDigit()
-                .lineLimit(wraps ? 2 : 1)
+                .lineLimit(wraps ? nil : 1)
                 .fixedSize(horizontal: !wraps, vertical: true)
         }
     }
 
     // MARK: - 요약
 
+    @ViewBuilder
     private var tiles: some View {
+        if stacksTiles {
+            // 큰 글자 크기: 두 칸으로 나누면 제목과 설명이 잘린다. 한 줄에 하나씩 둔다.
+            // 격자(Grid)는 열 너비를 글자의 한 줄 너비로 잡아 화면 밖으로 넘쳤다. 평범한 세로 쌓기로 화면 너비에 맞춘다.
+            VStack(spacing: Theme.spacing) {
+                averageTile
+                achievedTile
+                streakTile
+                longestTile
+            }
+        } else {
+            tileGrid
+        }
+    }
+
+    private var tileGrid: some View {
         Grid(horizontalSpacing: Theme.spacing, verticalSpacing: Theme.spacing) {
             if isWide {
                 GridRow {
@@ -112,12 +128,6 @@ struct RoutineStatisticsView: View {
                     streakTile
                     longestTile
                 }
-            } else if stacksTiles {
-                // 큰 글자 크기: 두 칸으로 나누면 제목과 설명이 잘린다. 한 줄에 하나씩 둔다.
-                GridRow { averageTile }
-                GridRow { achievedTile }
-                GridRow { streakTile }
-                GridRow { longestTile }
             } else {
                 GridRow {
                     averageTile

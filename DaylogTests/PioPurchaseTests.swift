@@ -1,5 +1,6 @@
 import Foundation
 import Testing
+import StoreKit
 @testable import Daylog
 
 @MainActor
@@ -12,14 +13,19 @@ private final class FixturePioStoreClient: PioStoreClient {
     var purchaseError: Error?
     var syncError: Error?
     var purchaseCalls = 0
+    var updateCalls = 0
+    var stopUpdatesCalls = 0
     var syncCalls = 0
     var finished: [UInt64] = []
     var holdPurchase = false
     var purchaseContinuation: CheckedContinuation<Void, Never>?
     var updateContinuation: AsyncStream<PioTransactionEvent>.Continuation?
+    let updateTermination = AsyncStream<Bool>.makeStream()
     var holdNextSnapshot = false
     var snapshotContinuation: CheckedContinuation<Void, Never>?
     var snapshotCalls = 0
+    var holdNextFinish = false
+    var finishContinuation: CheckedContinuation<Void, Never>?
 
     func loadProducts(ids: Set<String>) async throws -> [PioStoreProduct] {
         if let loadError { throw loadError }; return products
@@ -39,9 +45,28 @@ private final class FixturePioStoreClient: PioStoreClient {
         if let entitlementError { throw entitlementError }; return captured
     }
     func updates() -> AsyncStream<PioTransactionEvent> {
-        AsyncStream { updateContinuation = $0 }
+        updateCalls += 1
+        let termination = updateTermination.continuation
+        return AsyncStream { continuation in
+            updateContinuation = continuation
+            continuation.onTermination = { reason in
+                if case .cancelled = reason { termination.yield(true) }
+                else { termination.yield(false) }
+                termination.finish()
+            }
+        }
     }
-    func finish(transactionID: UInt64) async { finished.append(transactionID) }
+    func stopUpdates() async {
+        stopUpdatesCalls += 1
+        updateContinuation?.finish()
+    }
+    func finish(transactionID: UInt64) async {
+        finished.append(transactionID)
+        if holdNextFinish {
+            holdNextFinish = false
+            await withCheckedContinuation { finishContinuation = $0 }
+        }
+    }
     func sync() async throws { syncCalls += 1; if let syncError { throw syncError } }
 }
 
@@ -60,11 +85,160 @@ struct PioPurchaseTests {
         try await body(defaults)
     }
 
+    @Test func environmentPoliciesNeverMixLocalAndAppleTransactions() {
+        #expect(PioStoreEnvironment.localTesting.accepts(.xcode))
+        #expect(!PioStoreEnvironment.localTesting.accepts(.sandbox))
+        #expect(!PioStoreEnvironment.localTesting.accepts(.production))
+        #expect(PioStoreEnvironment.sandbox.accepts(.sandbox))
+        #expect(!PioStoreEnvironment.sandbox.accepts(.production))
+        #expect(!PioStoreEnvironment.sandbox.accepts(.xcode))
+        #expect(PioStoreEnvironment.appStore.accepts(.production))
+        #expect(PioStoreEnvironment.appStore.accepts(.sandbox)) // TestFlight
+        #expect(!PioStoreEnvironment.appStore.accepts(.xcode))
+    }
+
+    @Test func unconfirmedOrUnknownCatalogConfigurationStaysDisabled() {
+        for environment in [nil,"appStore","sandbox","localTesting","unknown"] as [String?] {
+            #expect(!PioPurchaseAvailability.configured(environment:environment,catalogConfirmed:false).isEnabled)
+        }
+        #expect(PioPurchaseAvailability.configured(environment:"sandbox",catalogConfirmed:true) == .sandbox)
+        #expect(PioPurchaseAvailability.configured(environment:"appStore",catalogConfirmed:true) == .appStore)
+        #expect(!PioPurchaseAvailability.configured(environment:"localTesting",catalogConfirmed:true).isEnabled)
+        #expect(!PioPurchaseAvailability.configured(environment:"unknown",catalogConfirmed:true).isEnabled)
+    }
+
+    /// 출시 구성(2026-10-25): iOS 앱만 appStore로 구매를 켠다. 같은 빌드가 TestFlight·심사(sandbox)와
+    /// 실제 판매(production)를 모두 받고, Xcode 로컬 영수증은 받지 않는다. 위젯과 Mac에는 키가 없다.
+    @Test func shippedIOSInfoPlistEnablesAppStorePurchasesOnlyForTheApp() throws {
+        let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
+        func plist(_ name: String) throws -> [String: Any] {
+            let data = try Data(contentsOf: root.appendingPathComponent("Config/\(name)"))
+            return try #require(try PropertyListSerialization.propertyList(from: data, format: nil) as? [String: Any])
+        }
+        let ios = try plist("DaylogiOS-Info.plist")
+        let environment = ios["PioStoreKitEnvironment"] as? String
+        let confirmed = ios["PioStoreKitCatalogConfirmed"] as? Bool
+        #expect(environment == "appStore")
+        #expect(confirmed == true)
+        #expect(PioPurchaseAvailability.configured(environment: environment, catalogConfirmed: confirmed == true
+                                                    && PioProductRegistry.isAppStoreConnectVerified) == .appStore)
+        for other in ["DaylogWidgets-Info.plist", "Daylog-Info.plist"] {
+            let info = try plist(other)
+            #expect(info["PioStoreKitEnvironment"] == nil, "\(other)")
+            #expect(info["PioStoreKitCatalogConfirmed"] == nil, "\(other)")
+        }
+        // 의상 아이콘 13종이 들어 있어 옷장의 '앱 아이콘' 탭이 보인다(PioAppIconTests가 파일·설정을 확인).
+        #expect(PioAppIconService.hasShippedThemes)
+    }
+
+    @Test func revokedSnapshotCannotBeUndoneByDelayedVerifiedUpdate() async {
+        let client=FixturePioStoreClient();let sut=manager(client)
+        client.snapshot.transactions=[transaction(.cafe,revoked:true,id:41)]
+        await sut.start()
+        #expect(!sut.owns(.cafe))
+        client.updateContinuation?.yield(.verified(transaction(.cafe,id:41)))
+        for _ in 0..<100 where !client.finished.contains(41) { await Task.yield() }
+        #expect(!sut.owns(.cafe))
+        #expect(client.finished.contains(41))
+        client.updateContinuation?.finish()
+    }
+
+    @Test func stalePurchaseResultForPreviouslyRevokedIDNeverReportsPurchased() async {
+        let client=FixturePioStoreClient();let sut=manager(client)
+        client.snapshot.transactions=[transaction(.cafe,revoked:true,id:45)]
+        await sut.start()
+        client.purchaseResult = .verified(transaction(.cafe,id:45))
+        #expect(await sut.purchase(.cafe) == .unverified)
+        #expect(!sut.owns(.cafe))
+        #expect(client.finished.contains(45))
+        client.updateContinuation?.finish()
+    }
+
+    @Test func purchaseRevokedWhileFinishingCannotReportSuccess() async {
+        let client=FixturePioStoreClient();let sut=manager(client)
+        await sut.start()
+        client.purchaseResult = .verified(transaction(.cafe,id:42));client.holdNextFinish=true
+        let payment=Task { await sut.purchase(.cafe) }
+        for _ in 0..<100 where client.finishContinuation == nil { await Task.yield() }
+        #expect(client.finishContinuation != nil)
+        #expect(sut.owns(.cafe))
+        client.updateContinuation?.yield(.verified(transaction(.cafe,revoked:true,id:42)))
+        for _ in 0..<100 where sut.owns(.cafe) { await Task.yield() }
+        client.finishContinuation?.resume()
+        #expect(await payment.value == .unverified)
+        #expect(!sut.owns(.cafe))
+        #expect(!sut.isBusy)
+        client.updateContinuation?.finish()
+    }
+
+    @Test func publicNestedCancellationIsRecognizedWithoutPrivateServerCodeMapping() async {
+        let publicCancellation=SKError(.paymentCancelled)
+        let cancellations:[Error]=[
+            StoreKitError.systemError(publicCancellation),
+            NSError(domain:"PublicWrapper",code:1,userInfo:[NSUnderlyingErrorKey:StoreKitError.userCancelled]),
+            NSError(domain:"PublicWrapper",code:1,userInfo:[NSUnderlyingErrorKey:publicCancellation])
+        ]
+        for error in cancellations {
+            let client=FixturePioStoreClient();let sut=manager(client)
+            await sut.loadProducts();client.purchaseError=error
+            #expect(await sut.purchase(.cafe) == .cancelled)
+            client.syncError=error
+            #expect(await sut.restore() == .cancelled)
+            #expect(sut.ownedOutfits == [.basic] && !sut.isBusy)
+        }
+        let client=FixturePioStoreClient();let sut=manager(client)
+        await sut.loadProducts()
+        client.purchaseError=NSError(domain:"ASDServerErrorDomain",code:907)
+        guard case .failed = await sut.purchase(.cafe) else { Issue.record("A private server code alone is not cancellation proof");return }
+        #expect(sut.ownedOutfits == [.basic] && !sut.isBusy)
+    }
+
+    @Test func explicitStopIsIdempotentAndManagerCanRestartItsListener() async {
+        let client=FixturePioStoreClient();let sut=manager(client)
+        await sut.start();await sut.start()
+        #expect(client.updateCalls == 1)
+        await sut.stop();await sut.stop()
+        #expect(client.stopUpdatesCalls == 1)
+        let afterStop=client.updateContinuation?.yield(.verified(transaction(.cafe,id:91)))
+        if case .terminated = afterStop {} else { Issue.record("Stop must terminate its previous update stream") }
+        #expect(!sut.owns(.cafe))
+        await sut.start()
+        #expect(client.updateCalls == 2)
+        client.updateContinuation?.yield(.verified(transaction(.cafe,id:92)))
+        for _ in 0..<100 where !client.finished.contains(92) { await Task.yield() }
+        #expect(sut.owns(.cafe))
+        await sut.stop()
+        #expect(client.stopUpdatesCalls == 2)
+    }
+
+    @Test func stopWaitsForAnAlreadyDeliveredVerifiedTransactionToFinish() async {
+        let client=FixturePioStoreClient();let sut=manager(client)
+        await sut.start();client.holdNextFinish=true
+        client.updateContinuation?.yield(.verified(transaction(.cafe,id:93)))
+        for _ in 0..<100 where client.finishContinuation == nil { await Task.yield() }
+        #expect(client.finishContinuation != nil)
+        let oldStream=client.updateContinuation
+        var returned=false
+        let stop=Task { await sut.stop();returned=true }
+        for _ in 0..<100 where client.stopUpdatesCalls == 0 { await Task.yield() }
+        #expect(client.stopUpdatesCalls == 1)
+        #expect(!returned,"Shutdown must not leave an in-flight verified acknowledgement behind")
+        let restart=Task { await sut.start() }
+        client.finishContinuation?.resume()
+        await stop.value;await restart.value
+        #expect(returned)
+        #expect(client.updateCalls == 2,"Restart must join the prior stop before making a fresh listener")
+        let late=oldStream?.yield(.verified(transaction(.astronaut,id:94)))
+        if case .terminated = late {} else { Issue.record("Late updates must be rejected after shutdown joins") }
+        #expect(!sut.owns(.astronaut))
+        await sut.stop()
+    }
+
     @Test func registryMatchesApprovedCatalogAndOnlyNonBasicProducts() {
         #expect(PioProductRegistry.entries.count == 13)
         #expect(PioProductRegistry.productIDs.count == 13)
         #expect(PioProductRegistry.productID(for: .basic) == nil)
-        #expect(PioProductRegistry.productID(for: .cherryBlossom) == "com.mungyubin.daylog.ios.outfit.cherryBlossom")
+        #expect(PioProductRegistry.productID(for: .cherryBlossom) == "outfit.cherryblossom")
         for entry in PioProductRegistry.entries {
             #expect(PioProductRegistry.outfit(for: entry.productID) == entry.outfit)
             #expect(entry.artworkReference == entry.outfit.artAssetName)
@@ -95,6 +269,19 @@ struct PioPurchaseTests {
         await sut.loadProducts()
         #expect(sut.productLoadState == .available)
         #expect(sut.products.count == 13)
+    }
+
+    /// 기기에 App Store(Sandbox) 계정이 없으면 "네트워크" 대신 로그인 안내를 보이고, 아무 권한도 주지 않는다.
+    /// (2026-10-24 실제 Sandbox 빌드·계정 없는 시뮬레이터에서 관측: 원인과 다른 연결 오류 문구가 떴다.)
+    @Test func missingAppStoreAccountExplainsSignInAndGrantsNothing() async {
+        let client = FixturePioStoreClient(); let sut = manager(client)
+        client.loadError = PioStoreClientError.accountUnavailable
+        await sut.loadProducts()
+        guard case .failed(let message) = sut.productLoadState else { Issue.record("Missing failure"); return }
+        #expect(message.contains("로그인"))
+        #expect(!message.contains("네트워크"))
+        #expect(sut.products.isEmpty)
+        #expect(sut.ownedOutfits == [.basic])
     }
 
     @Test func successfulPurchaseGrantsAndFinishesOnlyVerifiedTransaction() async {
@@ -277,6 +464,23 @@ struct PioPurchaseTests {
         client.updateContinuation?.finish()
     }
 
+    @Test func restoreRequiresPostSyncSnapshotEvenWithoutTransactionUpdate() async {
+        let client=FixturePioStoreClient();let sut=manager(client)
+        await sut.start();client.holdNextSnapshot=true
+        let foreground=Task { await sut.refreshEntitlements() }
+        for _ in 0..<100 where client.snapshotContinuation == nil { await Task.yield() }
+        let restore=Task { await sut.restore() }
+        for _ in 0..<100 where client.syncCalls == 0 { await Task.yield() }
+        // AppStore.sync can change its local receipt without an updates event.
+        client.snapshot.transactions=[transaction(.cafe,id:73)]
+        client.snapshotContinuation?.resume()
+        #expect(await foreground.value)
+        #expect(await restore.value == .restored([.cafe]))
+        #expect(sut.owns(.cafe))
+        #expect(client.snapshotCalls == 3)
+        client.updateContinuation?.finish()
+    }
+
     @Test func lateRefundOfOldTransactionPreservesRepurchasedOutfitAndPreference() async {
         await withDefaults { defaults in
             let client = FixturePioStoreClient(); let sut = manager(client)
@@ -346,8 +550,25 @@ struct PioPurchaseTests {
         await sut?.start()
         client.updateContinuation?.yield(.verified(transaction(.cafe)))
         for _ in 0..<100 where client.finished.isEmpty { await Task.yield() }
+        let termination = client.updateTermination.stream
         sut = nil
-        for _ in 0..<100 where released != nil { await Task.yield() }
+        // Deinit releases the manager before cancellation has necessarily
+        // propagated through AsyncStream. Observe the real termination event,
+        // with a bounded timeout; scheduler-yield counts are not a clock.
+        let cancelled = await withTaskGroup(of: Bool.self) { group in
+            group.addTask {
+                for await wasCancelled in termination { return wasCancelled }
+                return false
+            }
+            group.addTask {
+                try? await Task.sleep(for: .seconds(2))
+                return false
+            }
+            let result = await group.next() ?? false
+            group.cancelAll()
+            return result
+        }
+        #expect(cancelled, "Manager deinit must cancel its StoreKit update stream within the deadline")
         #expect(released == nil)
         let update = client.updateContinuation?.yield(.verified(transaction(.astronaut, id: 2)))
         if case .terminated = update { } else { Issue.record("Released manager must terminate its old stream") }

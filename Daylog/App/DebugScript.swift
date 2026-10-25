@@ -2,6 +2,7 @@
 import CoreGraphics
 import Foundation
 import ImageIO
+import StoreKit
 import SwiftData
 #if os(iOS)
 import UIKit
@@ -267,6 +268,39 @@ enum DebugScript {
         case "dump":
             store.flush()
             dump(label: argument, store: store, sync: sync, container: container)
+        case "storeSignIn":
+            // Debug 전용: App Store(Sandbox) 로그인 창을 띄워 앱 영수증을 다시 받는다(AppTransaction.refresh).
+            // 설정 앱의 Sandbox 로그인이 실패할 때 Apple이 안내하는 "앱 안에서 로그인" 경로. 계정 정보는 사람이 시스템 창에 직접 넣는다.
+            do {
+                switch try await AppTransaction.refresh() {
+                case .verified(let app): log("STORE_SIGNIN verified environment=\(app.environment.rawValue)")
+                case .unverified(let app, let error): log("STORE_SIGNIN unverified environment=\(app.environment.rawValue) error=\(error)")
+                }
+            } catch {
+                log("STORE_SIGNIN error \(error)")
+            }
+        case "storePurchasePrompt":
+            // Debug 전용: 첫 구매 시도로 Sandbox 로그인 창이 뜨는지만 본다(Apple 안내: 개발 서명 앱의 첫 구매 때 로그인).
+            // 앱의 구매 관리자를 거치지 않으므로 이 경로로 권한을 판정하지 않는다. 결제 시트가 뜨면 사람이 취소한다.
+            if let product = try? await Product.products(for: [argument]).first {
+                do {
+                    let result = try await product.purchase()
+                    switch result {
+                    case .success: log("STORE_PURCHASE_PROMPT success (권한 판정은 앱 구매 관리자가 함)")
+                    case .userCancelled: log("STORE_PURCHASE_PROMPT userCancelled")
+                    case .pending: log("STORE_PURCHASE_PROMPT pending")
+                    @unknown default: log("STORE_PURCHASE_PROMPT unknown")
+                    }
+                } catch {
+                    log("STORE_PURCHASE_PROMPT error \(error)")
+                }
+            } else {
+                log("STORE_PURCHASE_PROMPT product not found \(argument)")
+            }
+        case "storeProbe":
+            // 읽기 전용 진단(구매·복원·완료 없음): 앱 영수증 환경과 App Store Connect 상품 13종을 조회해 결과만 적는다.
+            // 앱의 구매 관리자(검증·권한 정책)를 거치지 않으므로 권한을 주거나 바꾸지 않는다.
+            await storeProbe()
         case "counts":
             counts(container: container)
             // 동기화 상태도 내용 없이 한 줄로 남긴다.
@@ -506,6 +540,40 @@ enum DebugScript {
     /// `transfer:` 명령이 남긴 상태. 설정 화면의 가져오기 단추와 시트가 읽는다.
     static var pendingTransferFile: URL?
     static var presentsTransfer = false
+
+    private static func storeProbe() async {
+        do {
+            switch try await AppTransaction.shared {
+            case .verified(let app):
+                log("STORE_PROBE appTransaction=verified environment=\(app.environment.rawValue) bundle=\(app.bundleID)")
+            case .unverified(let app, let error):
+                log("STORE_PROBE appTransaction=unverified environment=\(app.environment.rawValue) error=\(error)")
+            }
+        } catch {
+            log("STORE_PROBE appTransaction=error \(error)")
+        }
+        let ids = PioProductRegistry.productIDs
+        do {
+            let products = try await Product.products(for: ids)
+            let byID = Dictionary(uniqueKeysWithValues: products.map { ($0.id, $0) })
+            log("STORE_PROBE products requested=\(ids.count) returned=\(products.count) missing=\(ids.subtracting(byID.keys).sorted())")
+            for entry in PioProductRegistry.entries {
+                if let product = byID[entry.productID] {
+                    log("STORE_PROBE product id=\(product.id) type=\(product.type.rawValue) name=\(product.displayName) price=\(product.displayPrice) currency=\(product.priceFormatStyle.currencyCode)")
+                } else {
+                    log("STORE_PROBE product id=\(entry.productID) MISSING")
+                }
+            }
+            if let storefront = await Storefront.current {
+                log("STORE_PROBE storefront=\(storefront.countryCode)")
+            } else {
+                log("STORE_PROBE storefront=nil")
+            }
+        } catch {
+            log("STORE_PROBE products=error \(error)")
+        }
+        log("STORE_PROBE done availability=\(PioPurchaseAvailability.current.environmentLabel)")
+    }
 
     private static func log(_ message: String) {
         print("DAYLOG_SCRIPT \(message)")

@@ -27,8 +27,14 @@ struct PioAppearanceView: View {
     }
 
     @ViewBuilder private var character: some View {
+        if appearance.isAwaitingVerification { Color.clear }
+        else if PioHomeProductionResources.supports(appearance) {
+            PioHomeProductionCharacter(appearance: appearance, isAnimating: isAnimating)
+        } else {
         #if DEBUG
-        if appearance.renderer == .layeredPilot {
+        if PioOverhaulTrial.isEnabled, PioOverhaulResources.manifest(appearance.outfit) != nil {
+            PioOverhaulCharacterView(outfit: appearance.outfit, action: overhaulAction, isAnimating: isAnimating)
+        } else if appearance.renderer == .layeredPilot {
             PioLayeredCharacterView(outfit: appearance.outfit, motion: layeredMotion,
                                     isAnimating: isAnimating && !reduceMotion)
         } else {
@@ -37,6 +43,7 @@ struct PioAppearanceView: View {
         #else
         referenceCharacter
         #endif
+        }
     }
 
     private var referenceCharacter: some View {
@@ -45,6 +52,9 @@ struct PioAppearanceView: View {
     }
 
     #if DEBUG
+    private var overhaulAction: PioOverhaulAction {
+        PioOverhaulAction.resolve(motion: appearance.motion, pose: appearance.pose)
+    }
     private var layeredMotion: PioLayeredMotion {
         if appearance.pose == .walking { return .walk }
         switch appearance.motion {

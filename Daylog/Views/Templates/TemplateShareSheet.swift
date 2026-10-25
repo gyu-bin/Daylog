@@ -283,7 +283,7 @@ struct TemplateShareSheet: View {
             if let message {
                 Label(message, systemImage: "info.circle").font(.caption).foregroundStyle(.secondary)
             }
-            Text("받는 사람은 Daylog의 템플릿 화면에서 [파일에서 가져오기]로 열거나, 파일을 눌러 Daylog로 열 수 있어요.")
+            Text("받는 사람은 RoutiMori의 템플릿 화면에서 [파일에서 가져오기]로 열거나, 파일을 눌러 RoutiMori로 열 수 있어요.")
                 .font(.caption)
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)

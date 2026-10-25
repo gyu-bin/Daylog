@@ -25,7 +25,8 @@ struct RoutineManagementView: View {
     @FocusState private var newGroupFocused: Bool
 
     private var pageTitle: some View {
-        PageTitle(title: "루틴 관리", subtitle: "변경한 내용은 오늘부터 적용되고, 지난 기록은 바뀌지 않아요.")
+        PageTitle(title: "루틴 관리", subtitle: "변경한 내용은 오늘부터 적용되고, 지난 기록은 바뀌지 않아요.",
+                  pio: PioLines.routines(count: store.activeRoutines.count))
     }
 
     @ViewBuilder
@@ -67,7 +68,11 @@ struct RoutineManagementView: View {
                     }
                     VStack(alignment: .leading, spacing: 10) {
                         pageTitle
-                        HStack(spacing: 8) { headerButtons }
+                        // 아주 큰 글자에서는 단추 두 개가 한 줄을 넘어 화면 전체가 옆으로 밀렸다. 그때는 세로로 쌓는다.
+                        ViewThatFits(in: .horizontal) {
+                            HStack(spacing: 8) { headerButtons }
+                            VStack(alignment: .leading, spacing: 8) { headerButtons }
+                        }
                     }
                 }
 

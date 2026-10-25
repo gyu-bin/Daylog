@@ -62,12 +62,13 @@ enum AppearanceMode: String, CaseIterable, Identifiable, Sendable {
 #if os(macOS)
 /// 실행 중인 동안 Dock 아이콘을 앱의 외관에 맞춘다.
 ///
-/// macOS의 에셋 카탈로그는 앱 아이콘의 다크 변형을 iOS에서만 지원한다(macOS는 Icon Composer 파일이 필요하다).
-/// 그래서 번들의 기본 아이콘은 라이트로 두고, 앱이 다크로 보이는 동안에만 `applicationIconImage`로 다크 아이콘을 건다.
-/// 앱을 끄면 Dock과 Finder에는 기본(라이트) 아이콘이 보인다.
+/// 예전(Daylog 나뭇잎 아이콘)에는 다크로 보이는 동안 `applicationIconImage`로 다크 아이콘을 걸었다.
+/// 지금의 공식 RoutiMori 아이콘(피오)에는 승인된 다크 변형이 없어서, 외관과 상관없이 번들의 앱 아이콘을 그대로 둔다
+/// (다크에서 옛 나뭇잎 아이콘이 Dock에 뜨던 문제, 2026-10-24). 다크 변형이 생기면 여기서 다시 건다.
 @MainActor
 enum DockIcon {
-    static let darkImageName = "DockIconDark"
+    /// 다크 외관에서 걸 Dock 아이콘 에셋 이름. 공식 아이콘에 다크 변형이 없으므로 nil(번들 아이콘 유지).
+    static let darkImageName: String? = nil
 
     static func isDark(_ appearance: NSAppearance) -> Bool {
         appearance.bestMatch(from: [.aqua, .darkAqua]) == .darkAqua
@@ -82,7 +83,8 @@ enum DockIcon {
     static func image(for appearance: NSAppearance) -> NSImage? {
         // 피오 시범(검증용 앱에서만)은 번들 아이콘(피오)을 그대로 둔다.
         if PioTrial.isEnabled { return nil }
-        return isDark(appearance) ? NSImage(named: darkImageName) : nil
+        guard isDark(appearance), let darkImageName else { return nil }
+        return NSImage(named: darkImageName)
     }
 }
 #endif

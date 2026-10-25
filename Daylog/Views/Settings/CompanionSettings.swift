@@ -26,7 +26,7 @@ struct NotificationSettingsSection: View {
             LabeledContent("\(Platform.thisDevice)의 알림 권한", value: notifications.permission.title)
 
             if notifications.isEnabled, notifications.permission == .denied {
-                Label("시스템 설정에서 Daylog의 알림을 허용해야 울려요.", systemImage: "exclamationmark.triangle")
+                Label("시스템 설정에서 RoutiMori의 알림을 허용해야 울려요.", systemImage: "exclamationmark.triangle")
                     .font(.callout)
                     .foregroundStyle(.orange)
             }
@@ -95,11 +95,11 @@ struct MenuBarSettingsSection: View {
 
     var body: some View {
         Section {
-            Toggle("메뉴 막대에 Daylog 표시", isOn: $showsMenuBar)
+            Toggle("메뉴 막대에 RoutiMori 표시", isOn: $showsMenuBar)
         } header: {
             Text("메뉴 막대")
         } footer: {
-            Text("아이콘을 누르면 창을 열지 않고 오늘의 루틴을 체크해요. 켜 두면 창을 닫아도 Daylog가 메뉴 막대에 남아요.")
+            Text("아이콘을 누르면 창을 열지 않고 오늘의 루틴을 체크해요. 켜 두면 창을 닫아도 RoutiMori가 메뉴 막대에 남아요.")
         }
     }
 }
@@ -110,11 +110,11 @@ struct WidgetGuideSection: View {
         Section {
             Label("홈 화면의 빈 곳을 길게 눌러요.", systemImage: "1.circle")
             Label("왼쪽 위의 편집(또는 +)을 누르고 위젯 추가를 골라요.", systemImage: "2.circle")
-            Label("Daylog를 찾아 크기를 고르고 추가해요.", systemImage: "3.circle")
+            Label("RoutiMori를 찾아 크기를 고르고 추가해요.", systemImage: "3.circle")
         } header: {
             Text("위젯")
         } footer: {
-            Text("큰 위젯에서는 루틴을 눌러 바로 체크해요. 저장 대기 표시가 남으면 Daylog를 열어 주세요. 위젯은 시스템이 정한 때에 갱신돼 조금 늦게 바뀔 수 있어요.")
+            Text("큰 위젯에서는 루틴을 눌러 바로 체크해요. 저장 대기 표시가 남으면 RoutiMori를 열어 주세요. 위젯은 시스템이 정한 때에 갱신돼 조금 늦게 바뀔 수 있어요.")
         }
     }
 }
@@ -157,7 +157,7 @@ struct ComebackSettingsSection: View {
             if comeback.isEnabled {
                 DatePicker("알림 시각", selection: time, displayedComponents: .hourAndMinute)
                 if comeback.permission == .denied {
-                    Label("시스템 설정에서 Daylog의 알림을 허용해야 울려요.", systemImage: "exclamationmark.triangle")
+                    Label("시스템 설정에서 RoutiMori의 알림을 허용해야 울려요.", systemImage: "exclamationmark.triangle")
                         .font(.callout)
                         .foregroundStyle(.orange)
                 } else if comeback.isWaitingForSync {

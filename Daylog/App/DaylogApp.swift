@@ -24,7 +24,7 @@ struct DaylogApp: App {
 
     var body: some Scene {
         #if os(macOS)
-        Window("Daylog", id: "main") {
+        Window("RoutiMori", id: "main") {
             content
                 .frame(minWidth: 900, minHeight: 650)
         }
@@ -42,7 +42,7 @@ struct DaylogApp: App {
             // 잎사귀와 해를 단색으로 그린 전용 템플릿 아이콘(Assets/MenuBarIcon). 메뉴 막대의 밝기에 따라 색이 맞춰진다.
             Image("MenuBarIcon")
                 .renderingMode(.template)
-                .accessibilityLabel("Daylog 오늘의 루틴")
+                .accessibilityLabel("RoutiMori 오늘의 루틴")
         }
         .menuBarExtraStyle(.window)
         #else

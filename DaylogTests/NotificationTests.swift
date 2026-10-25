@@ -14,7 +14,7 @@ struct NotificationPlanTests {
         #expect(plan.prefix(6).map(\.dateKey) == ["2026-10-05", "2026-10-07", "2026-10-09", "2026-10-12", "2026-10-14", "2026-10-16"])
         #expect(plan.allSatisfy { $0.hour == 7 && $0.minute == 30 })
         let first = try #require(plan.first)
-        #expect(first.notificationTitle == "Daylog · 루틴 시간이에요")
+        #expect(first.notificationTitle == "RoutiMori · 루틴 시간이에요")
         #expect(first.notificationBody == "헬스장 가기 — 오늘의 루틴을 완료해 보세요.")
         #expect(first.notificationSubtitle == "07:30 · 아침")
     }

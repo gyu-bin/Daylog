@@ -1,0 +1,226 @@
+{
+  "outfit": "halloween",
+  "canvas": 1254,
+  "revision": "halloween-hands-v2",
+  "parts": [
+    {
+      "id": "body",
+      "asset": "pio_cloud_halloween_v2_torso",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 0
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_cloud_halloween_eyeLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 1
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_cloud_halloween_eyeRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 2
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_cloud_halloween_lidLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 3
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_cloud_halloween_lidRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 4
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_cloud_halloween_halfLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 5
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_cloud_halloween_halfRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 6
+    },
+    {
+      "id": "browLeft",
+      "asset": "pio_cloud_halloween_browLeft",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 7
+    },
+    {
+      "id": "browRight",
+      "asset": "pio_cloud_halloween_browRight",
+      "rect": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "pivot": [
+        627,
+        627
+      ],
+      "z": 8
+    },
+    {
+      "id": "tablet",
+      "asset": "pio_cloud_basic_v1_tablet",
+      "rect": [
+        500,
+        850,
+        350,
+        213
+      ],
+      "pivot": [
+        676,
+        970
+      ],
+      "z": 10,
+      "contentsRect": [
+        0.23046251993620415,
+        0.4059011164274322,
+        0.5422647527910686,
+        0.4354066985645933
+      ]
+    },
+    {
+      "id": "armLeft",
+      "asset": "pio_cloud_halloween_v2_armPair",
+      "rect": [
+        221,
+        850,
+        331,
+        221
+      ],
+      "pivot": [
+        676,
+        970
+      ],
+      "z": 11,
+      "contentsRect": [
+        0.019936204146730464,
+        0.6539074960127592,
+        0.386762360446571,
+        0.3022328548644338
+      ]
+    },
+    {
+      "id": "armRight",
+      "asset": "pio_cloud_halloween_v2_armPair",
+      "rect": [
+        800,
+        850,
+        290,
+        221
+      ],
+      "pivot": [
+        676,
+        970
+      ],
+      "z": 12,
+      "contentsRect": [
+        0.5940988835725678,
+        0.6539074960127592,
+        0.38596491228070173,
+        0.3022328548644338
+      ]
+    }
+  ],
+  "holdGroup": {
+    "ids": [
+      "tablet",
+      "armLeft",
+      "armRight"
+    ],
+    "pivot": [
+      676,
+      970
+    ],
+    "degrees": 1.5
+  },
+  "approval": "CANDIDATE_NATIVE_QA_REQUIRED_NOT_PROMOTED",
+  "sourcePixelEdits": false,
+  "hiddenPixels": "Newly generated reconstruction, not recovered original pixels",
+  "shoulderRegistration": "provisional sampler/target geometry; reject visible seams at native extremes",
+  "unsupported": [
+    "free hand release or independent wave",
+    "independent gripping hands relative to tablet"
+  ],
+  "originalSource": "output/pio-completion-2026-10-23/cloud/halloween/layers/body.png"
+}

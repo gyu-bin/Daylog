@@ -2,6 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>CFBundleName</key><string>RoutiMori</string>
 	<!-- 정적인 Launch Screen: 스플래시와 같은 아이보리 배경색만 둔다(그림 없음).
 	     앱 안의 SplashView가 이 빈 장면에서 이어서 피오와 로고를 띄운다(Daylog/Views/Splash). 애니메이션은 여기에 넣지 않는다. -->
 	<key>UILaunchScreen</key>
@@ -18,7 +19,7 @@
     <array>
         <dict>
             <key>UTTypeIdentifier</key><string>com.mungyubin.daylog.template</string>
-            <key>UTTypeDescription</key><string>Daylog 루틴 템플릿</string>
+            <key>UTTypeDescription</key><string>RoutiMori 루틴 템플릿</string>
             <key>UTTypeConformsTo</key>
             <array><string>public.json</string></array>
             <key>UTTypeTagSpecification</key>
@@ -33,7 +34,7 @@
     <key>CFBundleDocumentTypes</key>
     <array>
         <dict>
-            <key>CFBundleTypeName</key><string>Daylog 루틴 템플릿</string>
+            <key>CFBundleTypeName</key><string>RoutiMori 루틴 템플릿</string>
             <key>CFBundleTypeRole</key><string>Viewer</string>
             <key>LSHandlerRank</key><string>Owner</string>
             <key>LSItemContentTypes</key>
@@ -42,5 +43,10 @@
     </array>
     <!-- 넘겨받은 파일은 앱의 Inbox에 사본으로 들어온다(원본을 제자리에서 열지 않는다). -->
     <key>LSSupportsOpeningDocumentsInPlace</key><false/>
+    <!-- 피오 의상 구매(2026-10-25 출시 구성). appStore는 서명 검증된 App Store 영수증만 받는다:
+         실제 판매(production)와 TestFlight·앱 심사(sandbox). Xcode 로컬 StoreKit 영수증은 받지 않는다.
+         제품 ID는 App Store Connect 앱 6821788787에서 확인한 13종(PioProductRegistry). -->
+    <key>PioStoreKitEnvironment</key><string>appStore</string>
+    <key>PioStoreKitCatalogConfirmed</key><true/>
 </dict>
 </plist>

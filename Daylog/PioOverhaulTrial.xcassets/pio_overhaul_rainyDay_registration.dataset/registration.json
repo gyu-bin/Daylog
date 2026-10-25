@@ -1,0 +1,247 @@
+{
+  "outfit": "rainyDay",
+  "canvas": 1254,
+  "revision": "runtime-v2-candidate",
+  "parts": [
+    {
+      "id": "footLeft",
+      "asset": "pio_overhaul_rainyDay_footLeft",
+      "rect": [
+        362,
+        1002,
+        207,
+        214
+      ],
+      "pivot": [
+        480,
+        1115
+      ],
+      "z": 0
+    },
+    {
+      "id": "footRight",
+      "asset": "pio_overhaul_rainyDay_footRight",
+      "rect": [
+        607,
+        1002,
+        207,
+        214
+      ],
+      "pivot": [
+        730,
+        1115
+      ],
+      "z": 1
+    },
+    {
+      "id": "wingLeft",
+      "asset": "pio_overhaul_rainyDay_wingLeft",
+      "rect": [
+        122,
+        696,
+        245,
+        269
+      ],
+      "pivot": [
+        320,
+        800
+      ],
+      "z": 2
+    },
+    {
+      "id": "umbrellaShaft",
+      "asset": "pio_overhaul_rainyDay_umbrellaShaft",
+      "rect": [
+        817,
+        460,
+        378,
+        456
+      ],
+      "pivot": [
+        745,
+        875
+      ],
+      "z": 3
+    },
+    {
+      "id": "umbrellaCanopy",
+      "asset": "pio_overhaul_rainyDay_umbrellaCanopy",
+      "rect": [
+        621,
+        189,
+        624,
+        587
+      ],
+      "pivot": [
+        745,
+        875
+      ],
+      "z": 4
+    },
+    {
+      "id": "body",
+      "asset": "pio_overhaul_rainyDay_body",
+      "rect": [
+        20,
+        117,
+        1086,
+        1087
+      ],
+      "pivot": [
+        600,
+        800
+      ],
+      "z": 5
+    },
+    {
+      "id": "eyeLeft",
+      "asset": "pio_overhaul_rainyDay_eyeLeft",
+      "rect": [
+        405,
+        593,
+        92,
+        124
+      ],
+      "pivot": [
+        451,
+        658
+      ],
+      "z": 6
+    },
+    {
+      "id": "eyeRight",
+      "asset": "pio_overhaul_rainyDay_eyeRight",
+      "rect": [
+        670,
+        558,
+        92,
+        124
+      ],
+      "pivot": [
+        716,
+        623
+      ],
+      "z": 7
+    },
+    {
+      "id": "sprout",
+      "asset": "pio_overhaul_rainyDay_sprout",
+      "rect": [
+        210,
+        27,
+        483,
+        299
+      ],
+      "pivot": [
+        500,
+        300
+      ],
+      "z": 8
+    },
+    {
+      "id": "wingRight",
+      "asset": "pio_overhaul_rainyDay_wingRight",
+      "rect": [
+        724,
+        635,
+        231,
+        290
+      ],
+      "pivot": [
+        745,
+        875
+      ],
+      "z": 9
+    },
+    {
+      "id": "halfLeft",
+      "asset": "pio_overhaul_rainyDay_halfLeft",
+      "rect": [
+        404,
+        644,
+        75,
+        88
+      ],
+      "pivot": [
+        451,
+        658
+      ],
+      "z": 10
+    },
+    {
+      "id": "lidLeft",
+      "asset": "pio_overhaul_rainyDay_lidLeft",
+      "rect": [
+        404,
+        655,
+        93,
+        35
+      ],
+      "pivot": [
+        451,
+        658
+      ],
+      "z": 11
+    },
+    {
+      "id": "halfRight",
+      "asset": "pio_overhaul_rainyDay_halfRight",
+      "rect": [
+        669,
+        609,
+        75,
+        88
+      ],
+      "pivot": [
+        716,
+        623
+      ],
+      "z": 12
+    },
+    {
+      "id": "lidRight",
+      "asset": "pio_overhaul_rainyDay_lidRight",
+      "rect": [
+        669,
+        620,
+        93,
+        35
+      ],
+      "pivot": [
+        716,
+        623
+      ],
+      "z": 13
+    },
+    {
+      "id": "happyLeft",
+      "asset": "pio_overhaul_rainyDay_happyLeft",
+      "rect": [
+        401,
+        635,
+        100,
+        50
+      ],
+      "pivot": [
+        451,
+        658
+      ],
+      "z": 6
+    },
+    {
+      "id": "happyRight",
+      "asset": "pio_overhaul_rainyDay_happyRight",
+      "rect": [
+        666,
+        600,
+        100,
+        50
+      ],
+      "pivot": [
+        716,
+        623
+      ],
+      "z": 7
+    }
+  ]
+}

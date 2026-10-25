@@ -6,6 +6,23 @@ struct VacationView: View {
     @Environment(AppStore.self) private var store
     @State private var editing: VacationEditorTarget?
 
+    private var pageTitle: some View {
+        PageTitle(title: "휴가", subtitle: "휴가인 날은 통계에서 빠지고, 기록은 그대로 남아요. 이어 갈 루틴은 휴가마다 고를 수 있어요.",
+                  pio: PioLines.vacation)
+    }
+
+    private func addButton(_ today: Day) -> some View {
+        Button {
+            editing = VacationEditorTarget(day: today)
+        } label: {
+            Label("휴가 추가", systemImage: "plus")
+                .font(.callout.weight(.semibold))
+        }
+        .buttonStyle(.borderedProminent)
+        .tint(Theme.vacationTint)
+        .fixedSize()
+    }
+
     var body: some View {
         let periods = store.vacationPeriods.sorted { ($0.start, $0.end) < ($1.start, $1.end) }
         let today = store.today
@@ -15,18 +32,17 @@ struct VacationView: View {
 
         ScrollView {
             VStack(alignment: .leading, spacing: Theme.spacing) {
-                HStack(alignment: .center, spacing: 12) {
-                    PageTitle(title: "휴가", subtitle: "휴가인 날은 통계에서 빠지고, 기록은 그대로 남아요. 이어 갈 루틴은 휴가마다 고를 수 있어요.")
-                    Spacer(minLength: 8)
-                    Button {
-                        editing = VacationEditorTarget(day: today)
-                    } label: {
-                        Label("휴가 추가", systemImage: "plus")
-                            .font(.callout.weight(.semibold))
+                // 넓으면 제목과 단추를 한 줄에, 좁거나 글자가 크면 단추를 아래 줄로 내린다(설명이 좁은 열로 눌리지 않게).
+                ViewThatFits(in: .horizontal) {
+                    HStack(alignment: .center, spacing: 12) {
+                        pageTitle
+                        Spacer(minLength: 8)
+                        addButton(today)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(Theme.vacationTint)
-                    .fixedSize()
+                    VStack(alignment: .leading, spacing: 10) {
+                        pageTitle
+                        addButton(today)
+                    }
                 }
 
                 // 오늘 기준의 상태(휴가 중 / 다음 휴가 / 없음). 대시보드와 같은 카드다.
@@ -67,6 +83,7 @@ struct VacationView: View {
                                 Image(systemName: "chevron.right")
                                     .font(.caption.weight(.semibold))
                                     .foregroundStyle(.tertiary)
+                                    .accessibilityHidden(true)
                             }
                             .padding(.horizontal, 12)
                             .padding(.vertical, 9)

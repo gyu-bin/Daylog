@@ -47,8 +47,9 @@ struct FirstSyncView: View {
                         .id(kind)
                         .transition(.opacity)
                     if usesRoutimori {
-                        PioAppearanceNotice(appearance: PioAppearanceCoordinator.shared.resolve(
-                            level: store.growth.level, context: kind.pioAppearanceContext))
+                        PioAppearanceNotice(appearance: PioCloudSceneResources.productionAppearance(from:
+                            PioAppearanceCoordinator.shared.resolve(
+                                level: store.growth.level, context: kind.pioAppearanceContext)))
                     }
                     content(phase)
                         .id(kind)
@@ -99,10 +100,10 @@ struct FirstSyncView: View {
             // 실제로는 기록을 찾으면 이 화면 없이 바로 오늘 화면으로 간다. 미리보기에서만 그 순간을 보여 준다.
             message(
                 title: usesRoutimori ? "동기화가 완료됐어요!" : "준비됐어요!\n오늘도 함께해요.",
-                detail: usesRoutimori ? "다른 기기의 기록을 확인했어요.\n오늘도 루티모리와 함께해요." : "다른 기기의 기록을 확인했어요.\n이제 Daylog를 시작할 수 있어요."
+                detail: usesRoutimori ? "다른 기기의 기록을 확인했어요.\n오늘도 RoutiMori와 함께해요." : "다른 기기의 기록을 확인했어요.\n이제 RoutiMori를 시작할 수 있어요."
             ) {
                 Button(action: {}) {
-                    Text(usesRoutimori ? "확인" : "Daylog 시작하기").font(.headline).frame(maxWidth: .infinity)
+                    Text(usesRoutimori ? "확인" : "RoutiMori 시작하기").font(.headline).frame(maxWidth: .infinity)
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(usesRoutimori ? RoutimoriSyncStyle.green : Color(red: 0.3, green: 0.68, blue: 0.34))
@@ -113,7 +114,7 @@ struct FirstSyncView: View {
             // 기록을 찾았거나 없다고 본 순간에는 곧 이 화면이 걷힌다. 그 사이에 문구를 바꿔 깜빡이지 않게 한다.
             // 얼마나 받았는지는 알 수 없어 진행률·완료율은 보여 주지 않는다(점과 왕복 막대는 기다리는 표시일 뿐이다).
             message(
-                title: usesRoutimori ? "루티모리가 iCloud 기록을\n확인하고 있어요" : "새싹이가 iCloud 기록을\n확인하고 있어요!",
+                title: usesRoutimori ? "RoutiMori가 iCloud 기록을\n확인하고 있어요" : "새싹이가 iCloud 기록을\n확인하고 있어요!",
                 detail: "다른 기기의 소중한 기록을\n가져와 정리하고 있어요."
             ) {
                 if usesRoutimori { RoutimoriSyncActivity() } else { SyncWaitingDots() }

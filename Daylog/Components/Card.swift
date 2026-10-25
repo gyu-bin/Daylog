@@ -133,7 +133,7 @@ struct HeaderLink: View {
         Button(action: action) {
             HStack(spacing: 3) {
                 Text(title)
-                Image(systemName: "chevron.right").font(.caption2.weight(.semibold))
+                Image(systemName: "chevron.right").font(.caption2.weight(.semibold)).accessibilityHidden(true)
             }
             .font(.subheadline)
             .foregroundStyle(.secondary)
