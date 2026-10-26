@@ -1,3 +1,4 @@
+import CryptoKit
 import Foundation
 import Observation
 
@@ -131,6 +132,8 @@ final class PioWardrobeStore {
         defaults: preferences(for: PioPurchaseManager.shared.availability), purchases: .shared,
         isOutfitTestingEnabled: outfitTestingEnabled(arguments: ProcessInfo.processInfo.arguments),
         selectionPersistence: PioWardrobeSelectionFile.current(for: PioPurchaseManager.shared.availability,
+            outfitTesting: outfitTestingEnabled(arguments: ProcessInfo.processInfo.arguments)),
+        cloudSelection: PioWardrobeCloudSelection.current(for: PioPurchaseManager.shared.availability,
             outfitTesting: outfitTestingEnabled(arguments: ProcessInfo.processInfo.arguments))
     )
 
@@ -159,9 +162,52 @@ final class PioWardrobeStore {
     let purchases: PioPurchaseManager
     /// A Debug display permission, never an entitlement or app-icon permission.
     let isOutfitTestingEnabled: Bool
-    /// Only the explicit isolated DEBUG wardrobe playground may wear unowned art.
-    /// Store unavailability must never unlock paid outfits in normal builds.
-    var isFreeWearing: Bool { isOutfitTestingEnabled }
+    /// DEBUG 옷장 시험 모드, 또는 옷장의 숨은 해금(2026-10-26, 사용자 결정: 출시 빌드 포함).
+    /// 숨은 해금은 이 기기에서 입히기만 연다(구매 내역·아이콘 선택권은 만들지 않는다). 상점을 못 열어도 자동으로 풀리지는 않는다.
+    var isFreeWearing: Bool { isOutfitTestingEnabled || isSecretUnlocked }
+    static let secretUnlockKey = "pio.wardrobe.secretUnlock.v1"
+    private(set) var isSecretUnlocked = UserDefaults.standard.bool(forKey: PioWardrobeStore.secretUnlockKey)
+    /// 비밀번호는 앱에 넣지 않고 소금을 친 SHA-256 값만 둔다(앱 파일을 열어도 비밀번호를 알 수 없다).
+    static let secretSalt = "routimori.wardrobe.v1:"
+    static let secretDigest = "d43a9769cbad81d66da53f72f1d9e67dac7c7ba70db003dd632ac17b0bcec7c0"
+    static let secretFailuresKey = "pio.wardrobe.secretFailures.v1"
+    static let secretLockedUntilKey = "pio.wardrobe.secretLockedUntil.v1"
+    static let secretMaxFailures = 3
+    static let secretLockout: TimeInterval = 10 * 60
+
+    enum SecretUnlockResult: Equatable { case unlocked, wrong(remaining: Int), lockedOut(until: Date) }
+
+    /// 옷장 미리보기 피오를 다섯 번 누른 뒤 비밀번호를 넣으면 호출한다. 세 번 틀리면 10분 동안 받지 않는다.
+    static func secretMatches(_ password: String, digest: String) -> Bool {
+        SHA256.hash(data: Data((secretSalt + password).utf8)).map { String(format: "%02x", $0) }.joined() == digest
+    }
+
+    @discardableResult func trySecretUnlock(password: String, now: Date = Date(),
+                                            expectedDigest: String = PioWardrobeStore.secretDigest) -> SecretUnlockResult {
+        let defaults = UserDefaults.standard
+        if let until = defaults.object(forKey: Self.secretLockedUntilKey) as? Date, until > now { return .lockedOut(until: until) }
+        guard Self.secretMatches(password, digest: expectedDigest) else {
+            let failures = defaults.integer(forKey: Self.secretFailuresKey) + 1
+            if failures >= Self.secretMaxFailures {
+                defaults.set(0, forKey: Self.secretFailuresKey)
+                let until = now.addingTimeInterval(Self.secretLockout)
+                defaults.set(until, forKey: Self.secretLockedUntilKey)
+                return .lockedOut(until: until)
+            }
+            defaults.set(failures, forKey: Self.secretFailuresKey)
+            return .wrong(remaining: Self.secretMaxFailures - failures)
+        }
+        defaults.set(0, forKey: Self.secretFailuresKey)
+        defaults.removeObject(forKey: Self.secretLockedUntilKey)
+        isSecretUnlocked = true
+        defaults.set(true, forKey: Self.secretUnlockKey)
+        return .unlocked
+    }
+    func secretLock() {
+        isSecretUnlocked = false
+        UserDefaults.standard.set(false, forKey: Self.secretUnlockKey)
+        if !owns(preferredOutfit) { equipLocally(.basic) }
+    }
     #if DEBUG
     static let mockOwnershipKey = "PioWardrobe.debugOwnedOutfits.v1"
     private var mockOwnedOutfits: Set<PioOutfitID> = []
@@ -169,6 +215,9 @@ final class PioWardrobeStore {
     #endif
     @ObservationIgnored private let defaults: UserDefaults
     @ObservationIgnored private let selectionPersistence: (any PioWardrobeSelectionPersisting)?
+    /// 다른 기기에서 입힌 옷(iCloud). 이 기기에서 소유가 확인되면 입힌다.
+    @ObservationIgnored private let cloudSelection: PioWardrobeCloudSelection?
+    @ObservationIgnored private var pendingRemoteOutfit: PioOutfitID?
     private var preferredOutfit: PioOutfitID
     private var preferredIcon: PioOutfitID
     private(set) var previewStage: Int
@@ -190,7 +239,8 @@ final class PioWardrobeStore {
 
     init(defaults: UserDefaults = .standard, purchases: PioPurchaseManager? = nil,
          isOutfitTestingEnabled: Bool = false, outfitTestingDefaults: UserDefaults? = nil,
-         selectionPersistence: (any PioWardrobeSelectionPersisting)? = nil) {
+         selectionPersistence: (any PioWardrobeSelectionPersisting)? = nil,
+         cloudSelection: PioWardrobeCloudSelection? = nil) {
         #if DEBUG
         self.isOutfitTestingEnabled = isOutfitTestingEnabled
         #else
@@ -203,6 +253,7 @@ final class PioWardrobeStore {
             : defaults
         self.defaults = defaults
         self.selectionPersistence = selectionPersistence
+        self.cloudSelection = cloudSelection
         self.purchases = purchases ?? PioPurchaseManager()
         let storedStage = defaults.integer(forKey: Self.previewStageKey)
         previewStage = (1...4).contains(storedStage) ? storedStage : 1
@@ -211,13 +262,23 @@ final class PioWardrobeStore {
         preferredIcon = defaults.string(forKey: Self.selectedIconKey).flatMap(PioOutfitID.init(rawValue:)) ?? .basic
         self.purchases.ownershipDidChange = { [weak self] invalidated in
             self?.repairSelections(invalidated: invalidated)
+            self?.applyPendingRemoteOutfit()
         }
+        cloudSelection?.observe { [weak self] outfit in self?.receiveRemote(outfit) }
     }
 
     func owns(_ outfit: PioOutfitID) -> Bool { ownedOutfits.contains(outfit) }
     func canWear(_ outfit: PioOutfitID) -> Bool { isOutfitTestingEnabled || isFreeWearing || owns(outfit) }
 
+    /// 사용자가 입힌 옷. 같은 계정의 다른 기기에도 알린다(받는 기기는 소유가 확인돼야 입힌다).
     @discardableResult func equip(_ outfit: PioOutfitID) -> Bool {
+        guard equipLocally(outfit) else { return false }
+        pendingRemoteOutfit = nil
+        cloudSelection?.push(outfit)
+        return true
+    }
+
+    @discardableResult private func equipLocally(_ outfit: PioOutfitID) -> Bool {
         guard canWear(outfit) else { return false }
         do { try selectionPersistence?.save(outfit) }
         catch { return false }
@@ -227,6 +288,19 @@ final class PioWardrobeStore {
     }
 
     func unequip() { equip(.basic) }
+
+    private func receiveRemote(_ outfit: PioOutfitID) {
+        guard outfit != preferredOutfit else { pendingRemoteOutfit = nil; return }
+        if canWear(outfit) { equipLocally(outfit); pendingRemoteOutfit = nil }
+        else { pendingRemoteOutfit = outfit }
+    }
+
+    private func applyPendingRemoteOutfit() {
+        if pendingRemoteOutfit == nil, let remote = cloudSelection?.remoteOutfit, remote != preferredOutfit { pendingRemoteOutfit = remote }
+        guard let outfit = pendingRemoteOutfit, canWear(outfit) else { return }
+        equipLocally(outfit)
+        pendingRemoteOutfit = nil
+    }
 
     /// A local preview preference only; never changes XP, level or ownership.
     func selectPreviewStage(_ stage: Int) {
@@ -247,14 +321,17 @@ final class PioWardrobeStore {
     func start() async { await purchases.start() }
     @discardableResult func refreshEntitlements() async -> Bool { await purchases.refreshEntitlements() }
     func purchase(_ outfit: PioOutfitID) async -> PioWardrobeEntitlementResult {
-        await purchases.purchase(outfit)
+        let result = await purchases.purchase(outfit)
+        // 산 옷은 바로 입힌다(2026-10-26). 다른 기기에도 함께 바뀐다.
+        if case .purchased(let bought) = result { equip(bought) }
+        return result
     }
     func restorePurchases() async -> PioWardrobeEntitlementResult {
         await purchases.restore()
     }
 
     private func repairSelections(invalidated: Set<PioOutfitID>? = nil) {
-        if !canWear(preferredOutfit), invalidated == nil || invalidated!.contains(preferredOutfit) { unequip() }
+        if !canWear(preferredOutfit), invalidated == nil || invalidated!.contains(preferredOutfit) { equipLocally(.basic) }
         if !owns(preferredIcon), invalidated == nil || invalidated!.contains(preferredIcon) { selectIcon(.basic) }
         // 환불되면 홈 화면 아이콘도 기본으로 돌린다(검증된 구매 내역 기준).
         Task { @MainActor [weak self] in

@@ -127,7 +127,7 @@ extension PioAppIconService {
 extension PioWardrobeEntitlementResult {
     var wardrobeMessage: String? {
         switch self {
-        case .purchased: return "구매가 완료됐어요. 이제 피오에게 입혀 주세요."
+        case .purchased: return "구매가 완료됐어요. 피오에게 바로 입혔어요."
         case .restored(let outfits):
             return outfits.isEmpty ? "복원할 의상 구매 내역이 없어요." : "의상 \(outfits.count)개의 구매 내역을 복원했어요."
         case .cancelled: return nil

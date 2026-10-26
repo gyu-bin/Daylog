@@ -16,6 +16,9 @@ struct PioWardrobeView: View {
     @State private var previewStage: Int
     @State private var motion: PioOutfitMotion = .idle
     @State private var notice: String?
+    @State private var showsSecretUnlock = false
+    @State private var showsSecretLock = false
+    @State private var secretPassword = ""
     @State private var seasonalIcons = PioSeasonalIconPreference.isEnabled()
     @State private var iconRefresh = 0
     @State private var actionMessage: String?
@@ -99,6 +102,27 @@ struct PioWardrobeView: View {
             actionMessage = nil
             if !PioOutfitCapabilities(outfit: outfit).supportedMotions.contains(motion) { motion = .idle }
         }
+        .alert("비밀번호", isPresented: $showsSecretUnlock) {
+            SecureField("비밀번호", text: $secretPassword)
+                .textContentType(.password)
+                #if os(iOS)
+                .textInputAutocapitalization(.never)
+                #endif
+                .autocorrectionDisabled()
+            Button("취소", role: .cancel) { secretPassword = "" }
+            Button("확인") {
+                switch store.trySecretUnlock(password: secretPassword) {
+                case .unlocked: notice = "모든 의상을 입을 수 있어요."
+                case .wrong(let remaining): notice = "비밀번호가 맞지 않아요. \(remaining)번 더 틀리면 잠시 입력할 수 없어요."
+                case .lockedOut: notice = "잠시 후 다시 시도해 주세요."
+                }
+                secretPassword = ""
+            }
+        }
+        .alert("모든 의상 잠그기", isPresented: $showsSecretLock) {
+            Button("취소", role: .cancel) {}
+            Button("잠그기", role: .destructive) { store.secretLock(); notice = "구매한 의상만 입을 수 있어요." }
+        } message: { Text("구매하지 않은 의상은 다시 잠겨요.") }
         .alert("피오 옷장", isPresented: Binding(get: { notice != nil }, set: { if !$0 { notice = nil } })) {
             Button("확인", role: .cancel) { notice = nil }
         } message: { Text(notice ?? "") }
@@ -299,6 +323,11 @@ struct PioWardrobeView: View {
             }
             .frame(height: artHeight)
             .frame(maxWidth: .infinity)
+            .contentShape(Rectangle())
+            // 숨은 해금: 미리보기 피오를 빠르게 다섯 번 누르면 비밀번호 창(해금된 상태면 다시 잠글지 묻는다).
+            .onTapGesture(count: 5) {
+                if store.isSecretUnlocked { showsSecretLock = true } else { secretPassword = ""; showsSecretUnlock = true }
+            }
             .accessibilityIdentifier("wardrobe.livePreview")
             VStack(alignment: .leading, spacing: 7) {
                 Text(selectedOutfit.category.title)

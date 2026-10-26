@@ -46,6 +46,7 @@ struct ToggleRoutineIntent: AppIntent {
         }
         #endif
         WidgetCenter.shared.reloadTimelines(ofKind: "DaylogToday")
+        WidgetCenter.shared.reloadTimelines(ofKind: "DaylogTodayLockScreen")
         return .result()
     }
 
