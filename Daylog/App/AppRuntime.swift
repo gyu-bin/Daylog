@@ -1,6 +1,9 @@
 import Combine
 import CoreData
 import Foundation
+#if os(iOS)
+import UIKit
+#endif
 import UserNotifications
 #if os(iOS)
 import WidgetKit
@@ -146,6 +149,12 @@ final class AppRuntime: NSObject {
         if try bridge.writeSnapshot(snapshot) {
             reloadWidgets()
         }
+        #if os(iOS)
+        // 잠금 화면 카드(라이브 액티비티)도 같은 내용으로 맞춘다. 새로 켜는 일은 앱이 화면에 있을 때만 된다.
+        let today = snapshot.day(store.today.key)
+        let canStart = UIApplication.shared.applicationState == .active
+        Task { await RoutineLiveActivityController.sync(today: today, canStart: canStart) }
+        #endif
     }
 
     /// A journal entry is acknowledged only after its database save AND confirmed snapshot publication.

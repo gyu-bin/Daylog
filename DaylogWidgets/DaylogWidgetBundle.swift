@@ -6,6 +6,7 @@ struct DaylogWidgetBundle: WidgetBundle {
     var body: some Widget {
         TodayWidget()
         TodayLockScreenWidget()
+        RoutineLiveActivityWidget()
     }
 }
 

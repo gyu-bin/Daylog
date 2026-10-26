@@ -43,6 +43,8 @@
     </array>
     <!-- 넘겨받은 파일은 앱의 Inbox에 사본으로 들어온다(원본을 제자리에서 열지 않는다). -->
     <key>LSSupportsOpeningDocumentsInPlace</key><false/>
+    <!-- 잠금 화면 "오늘의 루틴" 카드(라이브 액티비티, DaylogShared/RoutineLiveActivity.swift). -->
+    <key>NSSupportsLiveActivities</key><true/>
     <!-- 피오 의상 구매(2026-10-25 출시 구성). appStore는 서명 검증된 App Store 영수증만 받는다:
          실제 판매(production)와 TestFlight·앱 심사(sandbox). Xcode 로컬 StoreKit 영수증은 받지 않는다.
          제품 ID는 App Store Connect 앱 6821788787에서 확인한 13종(PioProductRegistry). -->

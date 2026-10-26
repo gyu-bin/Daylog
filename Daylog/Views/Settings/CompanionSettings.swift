@@ -24,6 +24,9 @@ struct NotificationSettingsSection: View {
                 }
             ))
             LabeledContent("\(Platform.thisDevice)의 알림 권한", value: notifications.permission.title)
+            #if os(iOS)
+            LiveActivityToggle()
+            #endif
 
             if notifications.isEnabled, notifications.permission == .denied {
                 Label("시스템 설정에서 RoutiMori의 알림을 허용해야 울려요.", systemImage: "exclamationmark.triangle")
@@ -184,3 +187,20 @@ struct ComebackSettingsSection: View {
         }
     }
 }
+
+#if os(iOS)
+/// 잠금 화면에 오늘의 루틴 카드(라이브 액티비티)를 띄울지.
+private struct LiveActivityToggle: View {
+    @AppStorage(RoutineLiveActivityPreference.key) private var enabled = true
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Toggle("잠금 화면에 오늘 루틴 띄우기", isOn: $enabled)
+                .onChange(of: enabled) { _, on in
+                    if on { AppRuntime.shared?.scheduleRefresh() } else { Task { await RoutineLiveActivityController.endAll() } }
+                }
+            Text("앱을 열면 잠금 화면에 남은 루틴 카드가 떠요. 눌러서 바로 체크할 수 있어요. 카드는 최대 8시간 유지되고, 앱을 다시 열면 이어져요.")
+                .font(.caption).foregroundStyle(.secondary)
+        }
+    }
+}
+#endif

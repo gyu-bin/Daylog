@@ -284,6 +284,12 @@ final class PioWardrobeStore {
         catch { return false }
         preferredOutfit = outfit
         defaults.set(outfit.rawValue, forKey: Self.equippedKey)
+        #if os(iOS)
+        if !isOutfitTestingEnabled {
+            RoutineLiveActivityOutfit.set(outfit.rawValue)
+            AppRuntime.shared?.scheduleRefresh()
+        }
+        #endif
         return true
     }
 

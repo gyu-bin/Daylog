@@ -33,6 +33,8 @@ struct AccessoryTodayView: View {
     }
 
     private func circular(_ day: WidgetDay) -> some View {
+        ZStack {
+        AccessoryWidgetBackground()
         Gauge(value: day.ratio ?? day.keptRatio ?? 0) {
             Image(systemName: "leaf.fill")
         } currentValueLabel: {
@@ -41,6 +43,7 @@ struct AccessoryTodayView: View {
         .gaugeStyle(.accessoryCircularCapacity)
         .widgetAccentable()
         .accessibilityLabel("오늘 \(day.total)개 중 \(day.done)개 완료")
+        }
     }
 
     private func inline(_ day: WidgetDay) -> some View {
@@ -48,32 +51,45 @@ struct AccessoryTodayView: View {
         return Text(next.map { "\(day.done)/\(day.total) · 다음 \($0.title)" } ?? "오늘 \(day.done)/\(day.total) 완료")
     }
 
-    @ViewBuilder private func rectangular(_ day: WidgetDay) -> some View {
-        VStack(alignment: .leading, spacing: 2) {
-            HStack(spacing: 4) {
-                Image(systemName: "leaf.fill").font(.caption2).widgetAccentable()
-                Text("오늘 \(day.done)/\(day.total)").font(.caption.weight(.semibold)).monospacedDigit()
-            }
-            if day.done == day.total {
-                Text("오늘 루틴 완료!").font(.headline).widgetAccentable()
-            } else if let item = day.nextToShow(nowMinutes: entry.nowMinutes) {
-                // 누르면 앱을 열지 않고 바로 완료(잠금이 풀려 있을 때).
-                Button(intent: ToggleRoutineIntent(routineID: item.routineID, dateKey: day.dateKey, isDone: !item.requestedIsDone)) {
-                    HStack(spacing: 5) {
-                        Image(systemName: item.requestedIsDone ? "checkmark.circle.fill" : "circle")
-                            .widgetAccentable()
-                        Text(item.title).font(.headline).lineLimit(1)
+    /// 직사각형: 반투명 바탕 카드 위에 왼쪽 진행 링, 오른쪽 다음 루틴(눌러서 완료). 칸을 꽉 채운다.
+    private func rectangular(_ day: WidgetDay) -> some View {
+        ZStack {
+            AccessoryWidgetBackground()
+            HStack(spacing: 8) {
+                Gauge(value: day.ratio ?? day.keptRatio ?? 0) {
+                    Text("")
+                } currentValueLabel: {
+                    Text("\(day.done)/\(day.total)").font(.system(size: 13, weight: .bold)).monospacedDigit()
+                }
+                .gaugeStyle(.accessoryCircularCapacity)
+                .widgetAccentable()
+                .frame(width: 46, height: 46)
+                VStack(alignment: .leading, spacing: 1) {
+                    if day.done == day.total {
+                        Text("오늘 루틴").font(.system(size: 12, weight: .medium)).foregroundStyle(.secondary)
+                        Text("모두 완료!").font(.system(size: 17, weight: .bold)).widgetAccentable()
+                    } else if let item = day.nextToShow(nowMinutes: entry.nowMinutes) {
+                        Text(TimeLabel.minutes(item.timeLabel).map { "다음 · \(TimeLabel.label(minutes: $0))" } ?? "다음 루틴")
+                            .font(.system(size: 12, weight: .medium)).monospacedDigit().foregroundStyle(.secondary)
+                        // 누르면 앱을 열지 않고 바로 완료(잠금이 풀려 있을 때).
+                        Button(intent: ToggleRoutineIntent(routineID: item.routineID, dateKey: day.dateKey, isDone: !item.requestedIsDone)) {
+                            HStack(spacing: 4) {
+                                Image(systemName: item.requestedIsDone ? "checkmark.circle.fill" : "circle")
+                                    .font(.system(size: 15, weight: .semibold))
+                                    .widgetAccentable()
+                                Text(item.title).font(.system(size: 17, weight: .bold)).lineLimit(1).minimumScaleFactor(0.8)
+                            }
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityHint("누르면 완료로 표시합니다.")
+                    } else {
+                        Text("오늘 루틴").font(.system(size: 12, weight: .medium)).foregroundStyle(.secondary)
+                        Text("남은 루틴 없음").font(.system(size: 17, weight: .bold))
                     }
                 }
-                .buttonStyle(.plain)
-                .accessibilityHint("누르면 완료로 표시합니다.")
-                if let minutes = TimeLabel.minutes(item.timeLabel) {
-                    Text(TimeLabel.label(minutes: minutes)).font(.caption).monospacedDigit().foregroundStyle(.secondary)
-                }
-            } else {
-                Text("남은 루틴 없음").font(.headline)
+                Spacer(minLength: 0)
             }
+            .padding(.horizontal, 8)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
