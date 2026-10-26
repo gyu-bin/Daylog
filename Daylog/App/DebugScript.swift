@@ -297,6 +297,11 @@ enum DebugScript {
             } else {
                 log("STORE_PURCHASE_PROMPT product not found \(argument)")
             }
+        case "equip":
+            // 촬영용: 이미 가진(검증된) 의상을 입힌다. 가지지 않은 의상은 입혀지지 않는다(구매 정책 그대로).
+            await PioWardrobeStore.shared.refreshEntitlements()
+            if let outfit = PioOutfitID(rawValue: argument) { log("EQUIP \(argument) ok=\(PioWardrobeStore.shared.equip(outfit))") }
+            else { log("EQUIP unknown \(argument)") }
         case "storeProbe":
             // 읽기 전용 진단(구매·복원·완료 없음): 앱 영수증 환경과 App Store Connect 상품 13종을 조회해 결과만 적는다.
             // 앱의 구매 관리자(검증·권한 정책)를 거치지 않으므로 권한을 주거나 바꾸지 않는다.

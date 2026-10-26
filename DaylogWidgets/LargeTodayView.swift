@@ -6,10 +6,10 @@ import WidgetKit
 struct LargeTodayView: View {
     let day: WidgetDay
     let date: Date
-    private static let maxRows = 9
+    var maxRows = 9
 
     var body: some View {
-        let fitted = WidgetRows.fit(day, limit: Self.maxRows)
+        let fitted = WidgetRows.fit(day, limit: maxRows)
         VStack(alignment: .leading, spacing: 6) {
             HStack(alignment: .firstTextBaseline) {
                 WidgetBrand()
@@ -91,7 +91,20 @@ struct LargeTodayView: View {
     }
 
     private func itemRow(_ item: WidgetItem, tint: Color) -> some View {
-        Button(intent: ToggleRoutineIntent(routineID: item.routineID, dateKey: day.dateKey, isDone: !item.requestedIsDone)) {
+        WidgetCheckRow(item: item, dateKey: day.dateKey, tint: tint)
+    }
+}
+
+/// 위젯의 체크 한 줄. 누르면 완료/취소가 바뀐다(앱을 열지 않는다). 작게·중간·크게·특대 위젯이 함께 쓴다.
+struct WidgetCheckRow: View {
+    let item: WidgetItem
+    let dateKey: String
+    let tint: Color
+    var font: Font = .callout
+    var showsTime = true
+
+    var body: some View {
+        Button(intent: ToggleRoutineIntent(routineID: item.routineID, dateKey: dateKey, isDone: !item.requestedIsDone)) {
             HStack(spacing: 8) {
                 if item.isSkipped == true, !item.isDone {
                     SkipMark(size: 17)
@@ -101,7 +114,7 @@ struct LargeTodayView: View {
                         .foregroundStyle(item.isDone ? AnyShapeStyle(tint) : AnyShapeStyle(.secondary))
                 }
                 Text(item.title)
-                    .font(.callout)
+                    .font(font)
                     .foregroundStyle(item.isSettled ? .secondary : .primary)
                     .lineLimit(1)
                 Spacer(minLength: 6)
@@ -112,7 +125,7 @@ struct LargeTodayView: View {
                     Text(SkipStyle.label)
                         .font(.caption2).foregroundStyle(.secondary)
                 }
-                if let minutes = TimeLabel.minutes(item.timeLabel) {
+                if showsTime, let minutes = TimeLabel.minutes(item.timeLabel) {
                     Text(TimeLabel.label(minutes: minutes))
                         .font(.caption)
                         .monospacedDigit()

@@ -19,7 +19,7 @@ struct TodayWidget: Widget {
                 .widgetURL(URL(string: "daylog://today"))
         }
         .configurationDisplayName("오늘의 루틴")
-        .description("오늘의 달성률과 루틴을 보여 줘요. 큰 위젯에서는 눌러서 바로 체크할 수 있어요.")
-        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+        .description("오늘의 달성률과 루틴을 보여 줘요. 루틴을 눌러서 앱을 열지 않고 바로 체크할 수 있어요.")
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
     }
 }

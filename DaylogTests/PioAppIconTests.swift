@@ -34,6 +34,38 @@ struct PioAppIconTests {
         }
     }
 
+    /// 시즌 아이콘(모두 무료): 날짜마다 맞는 시즌이 나오고, 겹치면 명절 > 크리스마스 > 할로윈 > 계절 순이다.
+    @Test func seasonFollowsTheCalendar() throws {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = try #require(TimeZone(identifier: "Asia/Seoul"))
+        func on(_ key: String) -> PioSeason? {
+            let p = key.split(separator: "-").compactMap { Int($0) }
+            return PioSeason.current(on: calendar.date(from: DateComponents(year: p[0], month: p[1], day: p[2], hour: 12))!, calendar: calendar)
+        }
+        #expect(on("2026-03-10") == nil)
+        #expect(on("2026-04-05") == .spring)
+        #expect(on("2026-05-20") == nil)
+        #expect(on("2026-06-28") == .rainy)
+        #expect(on("2026-08-10") == .summer)
+        #expect(on("2026-09-25") == .holiday)   // 추석
+        #expect(on("2026-09-28") == .autumn)
+        #expect(on("2026-10-26") == .halloween)
+        #expect(on("2026-11-15") == .autumn)
+        #expect(on("2026-12-24") == .christmas)
+        #expect(on("2026-12-28") == .winter)
+        #expect(on("2027-02-06") == .holiday)   // 설날 하루 전
+        #expect(on("2027-02-20") == .winter)
+    }
+
+    /// 시즌마다 그 시즌 의상의 피오 아이콘을 쓴다(따로 그린 아이콘 없음).
+    @Test func everySeasonUsesARegisteredOutfitIcon() {
+        for season in PioSeason.allCases {
+            #expect(PioAppIconService.registeredThemes[season.outfit] == season.iconName, "\(season)")
+        }
+        #expect(PioSeason.holiday.outfit == .hanbok)
+        #expect(PioSeason.rainy.outfit == .rainyDay)
+    }
+
     /// 빌드된 Info.plist에 대체 아이콘이 없으면 고를 수 없고, 소유하지 않은 의상의 아이콘도 고를 수 없다.
     @Test func unregisteredOrUnownedIconsCannotBeSelected() {
         for outfit in PioOutfitID.allCases where outfit != .basic {

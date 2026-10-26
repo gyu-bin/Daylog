@@ -376,9 +376,9 @@ struct SettingsView: View {
             }
             .padding(.vertical, 2)
             .accessibilityElement(children: .combine)
-            #if os(macOS)
+            #if os(macOS) && !MAC_APP_STORE
             UpdateSettingsRow(currentVersion: Self.version)
-            #else
+            #elseif os(iOS)
             MobileUIConfigRow()
             #endif
             OnboardingReplayButton()

@@ -109,6 +109,39 @@ struct PioPurchaseTests {
 
     /// 출시 구성(2026-10-25): iOS 앱만 appStore로 구매를 켠다. 같은 빌드가 TestFlight·심사(sandbox)와
     /// 실제 판매(production)를 모두 받고, Xcode 로컬 영수증은 받지 않는다. 위젯과 Mac에는 키가 없다.
+    /// Mac App Store판(2026-10-26): iPhone 앱과 같은 번들 ID라 구매가 공유되고, Sparkle·임시 예외가 없다.
+    /// DMG판은 Sparkle이 남고 구매 키가 없다.
+    @Test func macAppStoreAndDirectBuildsStaySeparated() throws {
+        let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
+        func plist(_ name: String) throws -> [String: Any] {
+            let data = try Data(contentsOf: root.appendingPathComponent("Config/\(name)"))
+            return try #require(try PropertyListSerialization.propertyList(from: data, format: nil) as? [String: Any])
+        }
+        let store = try plist("DaylogMacAppStore-Info.plist")
+        #expect(store["PioStoreKitEnvironment"] as? String == "appStore")
+        #expect(store["PioStoreKitCatalogConfirmed"] as? Bool == true)
+        #expect(store.keys.allSatisfy { !$0.hasPrefix("SU") }, "Mac App Store판에 Sparkle 키가 있다")
+        let direct = try plist("Daylog-Info.plist")
+        #expect(direct["SUFeedURL"] != nil)
+        #expect(direct["PioStoreKitEnvironment"] == nil)
+
+        let entitlements = try plist("DaylogMacAppStore.entitlements")
+        #expect(entitlements.keys.allSatisfy { !$0.contains("temporary-exception") }, "Mac App Store판에 임시 예외 권한이 있다")
+        #expect((entitlements["com.apple.developer.icloud-container-identifiers"] as? [String]) == ["iCloud.com.mungyubin.daylog"])
+        #expect(entitlements["com.apple.security.app-sandbox"] as? Bool == true)
+
+        let project = try String(contentsOf: root.appendingPathComponent("Daylog.xcodeproj/project.pbxproj"), encoding: .utf8)
+        let storeConfigs = project.components(separatedBy: "/* Begin XCBuildConfiguration section */")[1]
+            .components(separatedBy: "\t\t};\n").filter { $0.contains("Config/DaylogMacAppStore.entitlements") }
+        #expect(storeConfigs.count == 2)
+        for config in storeConfigs {
+            #expect(config.contains("PRODUCT_BUNDLE_IDENTIFIER = com.mungyubin.daylog.ios;"))
+            #expect(config.contains("MAC_APP_STORE"))
+            #expect(config.contains("PRODUCT_MODULE_NAME = Daylog;"))
+        }
+        #expect(PioProductRegistry.verifiedBundleID == "com.mungyubin.daylog.ios")
+    }
+
     @Test func shippedIOSInfoPlistEnablesAppStorePurchasesOnlyForTheApp() throws {
         let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
         func plist(_ name: String) throws -> [String: Any] {
@@ -127,8 +160,12 @@ struct PioPurchaseTests {
             #expect(info["PioStoreKitEnvironment"] == nil, "\(other)")
             #expect(info["PioStoreKitCatalogConfirmed"] == nil, "\(other)")
         }
-        // 의상 아이콘 13종이 들어 있어 옷장의 '앱 아이콘' 탭이 보인다(PioAppIconTests가 파일·설정을 확인).
+        // 의상 아이콘 13종이 들어 있어 iPhone·iPad 옷장에는 '앱 아이콘' 탭이 보이고, Mac에는 보이지 않는다.
+        #if os(iOS)
         #expect(PioAppIconService.hasShippedThemes)
+        #else
+        #expect(!PioAppIconService.hasShippedThemes)
+        #endif
     }
 
     @Test func revokedSnapshotCannotBeUndoneByDelayedVerifiedUpdate() async {

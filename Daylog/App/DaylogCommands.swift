@@ -5,9 +5,11 @@ struct DaylogCommands: Commands {
 
     var body: some Commands {
         #if os(macOS)
+        #if !MAC_APP_STORE
         CommandGroup(after: .appInfo) {
             CheckForUpdatesButton()
         }
+        #endif
         // 앱 메뉴의 표준 자리(⌘,). 창을 닫아 두었으면 다시 연다.
         CommandGroup(replacing: .appSettings) {
             OpenSettingsButton(store: store)

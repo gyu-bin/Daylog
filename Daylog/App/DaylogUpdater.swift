@@ -1,4 +1,5 @@
-#if os(macOS)
+// Mac App Store판(MAC_APP_STORE)에는 Sparkle이 없다. 업데이트는 App Store가 맡는다(심사 지침 2.4.5).
+#if os(macOS) && !MAC_APP_STORE
 import AppKit
 import Combine
 import Sparkle

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key><string>RoutiMori</string>
+    <!-- Finder·Dock이 ko.lproj/InfoPlist.strings의 현지화 이름(RoutiMori)을 쓰게 한다. Mac App Store판은 번들 파일 이름도 RoutiMori.app이다. -->
+    <key>LSHasLocalizedDisplayName</key><true/>
+    <!-- Daylog 루틴 템플릿 파일(.daylogtemplate, 내용은 JSON). 파일을 열면 Daylog가 미리보기를 띄운다. -->
+    <key>UTExportedTypeDeclarations</key>
+    <array>
+        <dict>
+            <key>UTTypeIdentifier</key><string>com.mungyubin.daylog.template</string>
+            <key>UTTypeDescription</key><string>RoutiMori 루틴 템플릿</string>
+            <key>UTTypeConformsTo</key>
+            <array><string>public.json</string></array>
+            <key>UTTypeTagSpecification</key>
+            <dict>
+                <key>public.filename-extension</key>
+                <array><string>daylogtemplate</string></array>
+                <key>public.mime-type</key>
+                <array><string>application/vnd.daylog.template+json</string></array>
+            </dict>
+        </dict>
+    </array>
+    <key>CFBundleDocumentTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeName</key><string>RoutiMori 루틴 템플릿</string>
+            <key>CFBundleTypeRole</key><string>Viewer</string>
+            <key>LSHandlerRank</key><string>Owner</string>
+            <key>LSItemContentTypes</key>
+            <array><string>com.mungyubin.daylog.template</string></array>
+        </dict>
+    </array>
+    <!-- Mac App Store판(2026-10-26, 계획서 docs/plans/2026-10-25-mac-app-store-universal-purchase.md).
+         iPhone·iPad 앱(com.mungyubin.daylog.ios)과 같은 App Store 앱이라 의상 구매가 기기 사이에 공유된다(유니버설 구매).
+         Sparkle 키는 없다(업데이트는 App Store가 맡는다). -->
+    <!-- 표준 암호화(HTTPS·Apple 서비스)만 쓴다. App Store Connect의 수출 규정 질문을 빌드마다 묻지 않게 한다. -->
+    <key>ITSAppUsesNonExemptEncryption</key><false/>
+    <key>PioStoreKitEnvironment</key><string>appStore</string>
+    <key>PioStoreKitCatalogConfirmed</key><true/>
+</dict>
+</plist>

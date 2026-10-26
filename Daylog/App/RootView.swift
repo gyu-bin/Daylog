@@ -37,6 +37,7 @@ struct RootView: View {
                 if !RuntimeEnvironment.isRunningTests {
                     await PioWardrobeStore.shared.start()
                     await PioAppIconService.reconcile(store: .shared)
+                    await PioAppIconService.applySeason()
                 }
             }
             .onChange(of: purchaseScenePhase) { _, phase in
@@ -44,6 +45,7 @@ struct RootView: View {
                     Task {
                         await PioWardrobeStore.shared.refreshEntitlements()
                         await PioAppIconService.reconcile(store: .shared)
+                        await PioAppIconService.applySeason()
                     }
                 }
             }
@@ -52,6 +54,9 @@ struct RootView: View {
             .environment(CommunityStore.shared)
             .sheet(isPresented: onboardingPresented) {
                 OnboardingView().launchSheetEnvironment(store: store, preferences: preferences, sync: sync, notifications: notifications)
+            }
+            .onChange(of: preferences.onboardingCompleted) { _, done in
+                if done, !RuntimeEnvironment.isRunningTests { Task { await PioAppIconService.applySeason() } }
             }
             .onChange(of: preferences.mealsEnabled) { _, _ in
                 store.section = preferences.safeSelection(store.section)

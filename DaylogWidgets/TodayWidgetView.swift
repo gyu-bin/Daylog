@@ -18,6 +18,7 @@ struct TodayWidgetView: View {
             switch family {
             case .systemSmall: SmallTodayView(day: day, nowMinutes: entry.nowMinutes)
             case .systemMedium: MediumTodayView(day: day)
+            case .systemExtraLarge: ExtraLargeTodayView(day: day, date: entry.date)
             default: LargeTodayView(day: day, date: entry.date)
             }
             }
@@ -153,44 +154,57 @@ struct SmallTodayView: View {
                 .foregroundStyle(.secondary)
                 .lineLimit(1)
         } else if let item = day.nextToShow(nowMinutes: nowMinutes) {
-            VStack(alignment: .leading, spacing: 0) {
-                Text(TimeLabel.minutes(item.timeLabel) == nil ? "남은 루틴" : "다음 루틴")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-                // 이름이 길면 줄이고, 시간은 항상 다 보이게 한다.
-                HStack(spacing: 4) {
-                    Text(item.title)
-                        .lineLimit(1)
-                    if let minutes = TimeLabel.minutes(item.timeLabel) {
-                        Text(TimeLabel.label(minutes: minutes))
-                            .monospacedDigit()
+            // 다음 루틴을 누르면 앱을 열지 않고 바로 완료된다(2026-10-26).
+            Button(intent: ToggleRoutineIntent(routineID: item.routineID, dateKey: day.dateKey, isDone: !item.requestedIsDone)) {
+                HStack(spacing: 6) {
+                    Image(systemName: item.requestedIsDone ? "checkmark.circle.fill" : "circle")
+                        .font(.body)
+                        .foregroundStyle(GroupColor.mint.color)
+                    VStack(alignment: .leading, spacing: 0) {
+                        Text(item.pendingIsDone != nil ? "저장 대기" : TimeLabel.minutes(item.timeLabel) == nil ? "눌러서 완료" : "다음 루틴 · 눌러서 완료")
+                            .font(.caption2)
                             .foregroundStyle(.secondary)
-                            .fixedSize()
+                            .lineLimit(1)
+                        // 이름이 길면 줄이고, 시간은 항상 다 보이게 한다.
+                        HStack(spacing: 4) {
+                            Text(item.title)
+                                .lineLimit(1)
+                            if let minutes = TimeLabel.minutes(item.timeLabel) {
+                                Text(TimeLabel.label(minutes: minutes))
+                                    .monospacedDigit()
+                                    .foregroundStyle(.secondary)
+                                    .fixedSize()
+                            }
+                        }
+                        .font(.caption.weight(.semibold))
                     }
                 }
-                .font(.caption.weight(.semibold))
+                .contentShape(Rectangle())
             }
+            .buttonStyle(.plain)
+            .accessibilityLabel("다음 루틴 \(item.title)")
+            .accessibilityHint("누르면 완료로 표시합니다.")
         }
     }
 }
 
 // MARK: - 중간
 
-/// 그룹별 진행 상황. 자리가 모자라면 아직 남은 그룹부터 보여 준다.
+/// 체크할 수 있는 루틴 목록(남은 것부터, 최대 4개). 누르면 바로 완료/취소된다(2026-10-26).
 struct MediumTodayView: View {
     let day: WidgetDay
-    private static let maxGroups = 3
+    private static let maxItems = 4
 
-    private var groups: [WidgetGroup] {
-        let filled = day.groups.filter { !$0.items.isEmpty }
-        let pending = filled.filter { $0.done < $0.items.count }
-        let finished = filled.filter { $0.done == $0.items.count }
-        return Array((pending + finished).prefix(Self.maxGroups))
+    private var items: [(item: WidgetItem, colorKey: String)] {
+        let all = day.groups.flatMap { group in group.items.map { (item: $0, colorKey: group.colorKey) } }
+        let open = all.filter { !$0.item.isSettled }
+        let settled = all.filter { $0.item.isSettled }
+        return Array((open + settled).prefix(Self.maxItems))
     }
 
     var body: some View {
-        let hidden = day.groups.filter { !$0.items.isEmpty }.count - groups.count
-        VStack(alignment: .leading, spacing: 7) {
+        let hidden = day.total - items.count
+        VStack(alignment: .leading, spacing: 4) {
             HStack(alignment: .firstTextBaseline) {
                 WidgetBrand()
                 Spacer(minLength: 8)
@@ -206,34 +220,20 @@ struct MediumTodayView: View {
                         .foregroundStyle(GroupColor.coral.ink)
                 }
             }
-            if day.hasPending { Text("저장 대기 · 앱에서 확인").font(.caption2).foregroundStyle(.secondary) }
-            if groups.isEmpty {
+            WidgetBar(ratio: day.ratio ?? day.keptRatio ?? 0, tint: day.keptRatio != nil ? GroupColor.coral.color : GroupColor.mint.color, height: 5)
+                .padding(.bottom, 2)
+            if items.isEmpty {
                 Spacer(minLength: 0)
                 Text("오늘은 예정된 루틴이 없어요.")
                     .font(.callout)
                     .foregroundStyle(.secondary)
                 Spacer(minLength: 0)
             } else {
-                ForEach(groups) { group in
-                    let color = GroupColor(key: group.colorKey)
-                    VStack(alignment: .leading, spacing: 3) {
-                        HStack {
-                            Text(group.title)
-                                .font(.caption.weight(.medium))
-                                .lineLimit(1)
-                            Spacer(minLength: 6)
-                            Text("\(group.done)/\(group.items.count)")
-                                .font(.caption)
-                                .monospacedDigit()
-                                .foregroundStyle(.secondary)
-                        }
-                        WidgetBar(ratio: group.ratio, tint: color.color, height: 7)
-                    }
-                    .accessibilityElement(children: .ignore)
-                    .accessibilityLabel("\(group.title), \(group.items.count)개 중 \(group.done)개 완료")
+                ForEach(items, id: \.item.id) { entry in
+                    WidgetCheckRow(item: entry.item, dateKey: day.dateKey, tint: GroupColor(key: entry.colorKey).color, font: .subheadline)
                 }
                 if hidden > 0 {
-                    Text("외 \(hidden)개 그룹")
+                    Text("외 \(hidden)개")
                         .font(.caption2)
                         .foregroundStyle(.secondary)
                 }
@@ -241,5 +241,45 @@ struct MediumTodayView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+    }
+}
+
+// MARK: - 특대(iPad)
+
+/// iPad 특대 위젯: 왼쪽에 오늘 요약, 오른쪽에 체크 목록.
+struct ExtraLargeTodayView: View {
+    let day: WidgetDay
+    let date: Date
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 20) {
+            VStack(alignment: .leading, spacing: 10) {
+                WidgetBrand()
+                Text(date, format: .dateTime.month().day().weekday(.wide))
+                    .font(.caption).foregroundStyle(.secondary)
+                if let percent = day.percent {
+                    Text("\(percent)%")
+                        .font(.system(size: 44, weight: .bold))
+                        .monospacedDigit()
+                        .foregroundStyle(GroupColor.mint.ink)
+                    Text("\(day.done)/\(day.total) 완료")
+                        .font(.callout).monospacedDigit().foregroundStyle(.secondary)
+                    WidgetBar(ratio: day.ratio ?? 0, height: 8)
+                }
+                ForEach(day.groups.filter { !$0.items.isEmpty }.prefix(5)) { group in
+                    VStack(alignment: .leading, spacing: 3) {
+                        HStack {
+                            Text(group.title).font(.caption.weight(.medium)).lineLimit(1)
+                            Spacer(minLength: 6)
+                            Text("\(group.done)/\(group.items.count)").font(.caption).monospacedDigit().foregroundStyle(.secondary)
+                        }
+                        WidgetBar(ratio: group.ratio, tint: GroupColor(key: group.colorKey).color, height: 6)
+                    }
+                }
+                Spacer(minLength: 0)
+            }
+            .frame(width: 210)
+            LargeTodayView(day: day, date: date, maxRows: 14)
+        }
     }
 }

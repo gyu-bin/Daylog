@@ -32,8 +32,9 @@ enum PioPurchaseAvailability: Equatable {
         #if DEBUG
         if ProcessInfo.processInfo.arguments.contains("-pio-storekit-testing") { return .localTesting }
         #endif
-        #if os(macOS)
-        return .disabled(message: "현재 Mac 배포판에서는 의상 구매를 지원하지 않아요. 의상 미리보기는 이용할 수 있어요.")
+        #if os(macOS) && !MAC_APP_STORE
+        // GitHub DMG판: App Store 밖에서 배포해 Apple 앱 내 구입을 쓸 수 없다. 구매는 iPhone·iPad·Mac App Store판에서 한다.
+        return .disabled(message: Self.directDistributionMessage)
         #else
         // The shipped defaults stay closed until product IDs have been confirmed
         // for this bundle in App Store Connect. A debug flag cannot bypass it.
@@ -42,6 +43,7 @@ enum PioPurchaseAvailability: Equatable {
                             && PioProductRegistry.isAppStoreConnectVerified)
         #endif
     }
+    static let directDistributionMessage = "의상은 iPhone·iPad 앱이나 Mac App Store 버전에서 구매할 수 있어요. 여기서는 모든 의상을 미리 볼 수 있어요."
     static func configured(environment: String?, catalogConfirmed: Bool) -> Self {
         guard catalogConfirmed else { return .disabled(message: "의상 구매를 준비 중이에요. 지금은 모든 의상을 미리 볼 수 있어요.") }
         switch environment {

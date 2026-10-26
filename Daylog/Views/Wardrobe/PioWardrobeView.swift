@@ -16,6 +16,8 @@ struct PioWardrobeView: View {
     @State private var previewStage: Int
     @State private var motion: PioOutfitMotion = .idle
     @State private var notice: String?
+    @State private var seasonalIcons = PioSeasonalIconPreference.isEnabled()
+    @State private var iconRefresh = 0
     @State private var actionMessage: String?
     #if DEBUG
     @State private var showingMotionReview = false
@@ -132,11 +134,13 @@ struct PioWardrobeView: View {
                     .accessibilityIdentifier("wardrobe.testingBanner")
             }
             #if DEBUG
+            if !Self.hidesStoreEnvironmentLabel {
             Button { showingMotionReview = true } label: {
                 Label("새 움직임 미리 보기", systemImage: "figure.wave")
             }
             .buttonStyle(.bordered)
             .accessibilityIdentifier("wardrobe.motionReview")
+            }
             #endif
             Picker("옷장 보기", selection: $section) {
                 ForEach(WardrobeSection.visibleCases) { Text($0.rawValue).tag($0) }
@@ -226,6 +230,24 @@ struct PioWardrobeView: View {
         }
     }
 
+    /// App Store 스크린샷 촬영(Debug 전용): 로컬 StoreKit으로 가격을 띄우되 "로컬 구매 테스트" 표시는 숨긴다.
+    private static var hidesStoreEnvironmentLabel: Bool {
+        #if DEBUG
+        return UserDefaults.standard.bool(forKey: "DaylogDebugHideStoreEnvironment")
+        #else
+        return false
+        #endif
+    }
+
+    /// 상품을 살 수 없을 때의 단추·카드 문구. DMG판 Mac은 어디서 사는지 알려 준다.
+    fileprivate static var unavailableText: String {
+        #if os(macOS) && !MAC_APP_STORE
+        return "iPhone·iPad에서 구매"
+        #else
+        return "현재 구매 불가"
+        #endif
+    }
+
     private func stateText(_ outfit: PioOutfitID) -> String {
         if store.equippedOutfit == outfit { return "지금 입고 있어요" }
         if store.isOutfitTestingEnabled { return "테스트로 입혀 보기" }
@@ -234,7 +256,7 @@ struct PioWardrobeView: View {
         if store.isFreeWearing { return "눌러서 입히기" }
         if let product = store.purchases.product(for: outfit) { return product.displayPrice }
         if store.purchases.productLoadState == .loading { return "상품 확인 중" }
-        return "현재 구매 불가"
+        return Self.unavailableText
     }
 
     private func productTitle(_ outfit: PioOutfitID) -> String {
@@ -360,7 +382,7 @@ struct PioWardrobeView: View {
                     if case .purchasing(let outfit) = store.purchases.purchaseState, outfit == selectedOutfit {
                         ProgressView("구매 진행 중").tint(palette.onAccent)
                     } else {
-                        Text(store.purchases.product(for: selectedOutfit).map { "\($0.displayPrice)에 구매하기" } ?? "현재 구매 불가")
+                        Text(store.purchases.product(for: selectedOutfit).map { "\($0.displayPrice)에 구매하기" } ?? Self.unavailableText)
                     }
                 }
                 .foregroundStyle(palette.onAccent)
@@ -397,7 +419,7 @@ struct PioWardrobeView: View {
         } else {
             VStack(alignment: .leading, spacing: 10) {
                 // 시험 환경일 때만 표시한다. 출시판(App Store)에는 붙이지 않는다.
-                if store.purchases.availability != .appStore {
+                if store.purchases.availability != .appStore && !Self.hidesStoreEnvironmentLabel {
                     Label(store.purchases.availability.environmentLabel,
                           systemImage: store.purchases.availability == .localTesting ? "testtube.2" : "bag")
                         .font(.caption).foregroundStyle(palette.secondary)
@@ -435,6 +457,34 @@ struct PioWardrobeView: View {
             .accessibilityIdentifier(id)
     }
 
+    /// 시즌 아이콘(모두 무료): 켜 두면 봄·장마·여름·가을·할로윈·크리스마스·겨울·명절에 맞춰 아이콘이 바뀐다.
+    private var seasonalIconCard: some View {
+        let season = PioSeason.current()
+        return HStack(spacing: 14) {
+            Image(season?.previewAssetName ?? "BrandIcon")
+                .resizable().scaledToFill()
+                .frame(width: 64, height: 64)
+                .clipShape(RoundedRectangle(cornerRadius: 14.5, style: .continuous))
+                .accessibilityHidden(true)
+            VStack(alignment: .leading, spacing: 4) {
+                Toggle(isOn: Binding(get: { seasonalIcons }, set: { value in
+                    seasonalIcons = value
+                    Task { await PioAppIconService.setSeasonal(value, store: store); iconRefresh += 1 }
+                })) {
+                    Text("계절에 맞춰 자동으로 바꾸기").font(.subheadline.weight(.semibold))
+                }
+                Text(season.map { "지금은 \($0.title) 시즌, \($0.outfit.title) 아이콘이에요. 시즌마다 그 계절 옷을 입은 피오로 바뀌어요(의상을 사지 않아도 무료)." }
+                     ?? "봄·장마·여름·가을·할로윈·크리스마스·겨울·명절마다 그 계절 옷을 입은 피오로 바뀌어요(무료). 지금은 기본 아이콘 기간이에요.")
+                    .font(.caption).foregroundStyle(palette.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .padding(14)
+        .background(palette.surface, in: RoundedRectangle(cornerRadius: 20))
+        .overlay(RoundedRectangle(cornerRadius: 20).stroke(seasonalIcons ? palette.accent : palette.border, lineWidth: seasonalIcons ? 2 : 1))
+        .accessibilityIdentifier("wardrobe.icon.seasonal")
+    }
+
     private var iconCollection: some View {
         VStack(alignment: .leading, spacing: 20) {
             VStack(alignment: .leading, spacing: 8) {
@@ -442,16 +492,22 @@ struct PioWardrobeView: View {
                 Text("홈 화면의 RoutiMori 아이콘을 산 의상의 피오로 바꿀 수 있어요. 추가 결제는 없어요.")
                     .font(.subheadline).foregroundStyle(palette.secondary)
                     .fixedSize(horizontal: false, vertical: true)
-                Label("지금 아이콘 · \(store.selectedIcon.title)", systemImage: "checkmark.circle.fill")
+                Label("지금 아이콘 · \(PioAppIconService.activeSeason.map { "\($0.title) 시즌" } ?? store.selectedIcon.title)", systemImage: "checkmark.circle.fill")
                     .font(.caption.weight(.semibold)).foregroundStyle(palette.accent)
+                    .id(iconRefresh)
             }
+            seasonalIconCard
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(PioOutfitID.allCases) { outfit in
                     let owned = store.owns(outfit)
-                    let selected = store.selectedIcon == outfit
+                    let selected = PioAppIconService.activeSeason == nil && store.selectedIcon == outfit
                     Button {
                         guard !selected else { return }
-                        Task { notice = await PioAppIconService.select(outfit, store: store) }
+                        Task {
+                            notice = await PioAppIconService.select(outfit, store: store)
+                            seasonalIcons = PioSeasonalIconPreference.isEnabled()
+                            iconRefresh += 1
+                        }
                     } label: {
                         VStack(spacing: 12) {
                             ZStack(alignment: .bottomTrailing) {
@@ -624,7 +680,7 @@ struct PioOutfitPreviewSheet: View {
                             .foregroundStyle(palette.onAccent)
                             .frame(maxWidth: .infinity).padding(.vertical, 9)
                     } else {
-                        Text(store.purchases.product(for: outfit).map { "\($0.displayPrice)에 구매하기" } ?? "현재 구매 불가")
+                        Text(store.purchases.product(for: outfit).map { "\($0.displayPrice)에 구매하기" } ?? PioWardrobeView.unavailableText)
                             .foregroundStyle(palette.onAccent)
                             .frame(maxWidth: .infinity).padding(.vertical, 9)
                     }
