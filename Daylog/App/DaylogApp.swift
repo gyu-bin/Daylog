@@ -134,8 +134,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     /// 메뉴 막대를 쓰는 동안에는 창을 닫아도 앱이 남는다(메뉴 막대에서 계속 체크할 수 있게).
     /// 메뉴 막대를 껐으면 예전처럼 창을 닫을 때 끝난다.
+    /// 단위 테스트의 호스트로 떠 있을 때는 끝내지 않는다. 테스트가 자기 창을 닫는 순간 호스트가 exit(0)으로 끝나
+    /// 뒤의 테스트가 모두 실패로 집계됐다(2026-10-26, PioPolishLifecycleTests의 창 테스트).
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        !MenuBarSettings.isShown
+        !RuntimeEnvironment.isRunningTests && !MenuBarSettings.isShown
     }
 
     func application(_ application: NSApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

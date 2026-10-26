@@ -276,3 +276,18 @@ struct MenuBarTests {
         #expect(MenuBarSettings.key == "showsMenuBarExtra")
     }
 }
+
+#if os(macOS)
+import AppKit
+/// 테스트 호스트는 마지막 창이 닫혀도 끝나지 않는다(2026-10-26: 창을 닫는 테스트 뒤에 호스트가 exit(0)으로 끝나 남은 테스트가 모두 실패했다).
+@MainActor
+struct TestHostLifetimeTests {
+    @Test func testHostDoesNotQuitWhenItsLastWindowCloses() {
+        let key = MenuBarSettings.key
+        let saved = UserDefaults.standard.object(forKey: key)
+        defer { if let saved { UserDefaults.standard.set(saved, forKey: key) } else { UserDefaults.standard.removeObject(forKey: key) } }
+        UserDefaults.standard.set(false, forKey: key)   // 메뉴 막대를 끈 사용자 설정이어도
+        #expect(AppDelegate().applicationShouldTerminateAfterLastWindowClosed(NSApplication.shared) == false)
+    }
+}
+#endif
