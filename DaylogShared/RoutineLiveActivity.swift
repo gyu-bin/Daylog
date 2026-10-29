@@ -11,7 +11,10 @@ struct RoutineActivityAttributes: ActivityAttributes {
         var title: String
         var timeLabel: String
         var isDone: Bool
+        /// 오늘 건너뛴 항목(완료가 아닐 때만). 이전에 시작한 카드에는 없다.
+        var isSkipped: Bool? = nil
         var id: String { routineID }
+        var showsSkipped: Bool { isSkipped == true && !isDone }
     }
     struct ContentState: Codable, Hashable {
         var dateKey: String
@@ -20,6 +23,19 @@ struct RoutineActivityAttributes: ActivityAttributes {
         var items: [Item]
         /// 지금 입은 피오 의상(PioOutfitID.rawValue). 카드 귀퉁이에 그 피오를 그린다.
         var outfit: String? = nil
+        /// 건너뛴 항목 수. 남은 개수에서 뺀다(달성률은 그대로). 이전에 시작한 카드에는 없다.
+        var skipped: Int? = nil
+        /// 피오의 한마디(앱 오늘 화면의 첫 대사와 같다). 이전에 시작한 카드에는 없다.
+        var line: String? = nil
+
+        var remaining: Int { max(total - done - (skipped ?? 0), 0) }
+        /// 피오의 말. 이전에 시작한 카드(대사가 없는 것)는 개수로 만든다.
+        var displayLine: String {
+            if let line { return line }
+            if total > 0, done >= total { return "오늘 다 해냈어요! 최고!" }
+            if total > 0, remaining == 0 { return "오늘 할 일은 끝! 잘했어요" }
+            return remaining == 1 ? "하나만 더 하면 끝!" : "\(remaining)개 남았어요, 힘내요!"
+        }
     }
     /// 라이브 액티비티 하나는 하루를 맡는다.
     var dateKey: String
@@ -28,15 +44,26 @@ struct RoutineActivityAttributes: ActivityAttributes {
 extension RoutineActivityAttributes.ContentState {
     static let maxItems = 4
     /// 위젯이 쓰는 오늘의 스냅샷으로 카드 내용을 만든다. 남은 루틴을 먼저, 자리가 남으면 끝낸 것을 보인다.
-    init(day: WidgetDay, outfit: String? = RoutineLiveActivityOutfit.current) {
+    @MainActor init(day: WidgetDay, outfit: String? = RoutineLiveActivityOutfit.current) {
         let all = day.items
         let open = all.filter { !$0.isSettled }
         let settled = all.filter(\.isSettled)
         self.init(dateKey: day.dateKey, done: day.done, total: day.total,
                   items: Array((open + settled).prefix(Self.maxItems)).map {
-                      .init(routineID: $0.routineID.uuidString, title: $0.title, timeLabel: $0.timeLabel, isDone: $0.requestedIsDone)
-                  }, outfit: outfit)
+                      .init(routineID: $0.routineID.uuidString, title: $0.title, timeLabel: $0.timeLabel, isDone: $0.requestedIsDone,
+                            isSkipped: $0.isSkipped == true && !$0.requestedIsDone ? true : nil)
+                  }, outfit: outfit, skipped: day.skipped, line: RoutineLiveActivityLine.make(day))
     }
+
+    /// 카드 칸에 놓을 남은 루틴(완료·건너뜀은 아래 한 줄로 모은다).
+    var openItems: [RoutineActivityAttributes.Item] { items.filter { !$0.isDone && !$0.showsSkipped } }
+}
+
+/// 카드에서 피오가 할 말. 앱이 켜질 때 앱의 대사 규칙(`PioLines`)을 넣어 둔다.
+/// 없으면(확장에서 카드를 만들 때) nil이고, 카드가 개수로 말을 만든다(`displayLine`).
+enum RoutineLiveActivityLine {
+    @MainActor static var provider: ((WidgetDay) -> String?)?
+    @MainActor static func make(_ day: WidgetDay) -> String? { provider?(day) }
 }
 
 /// 라이브 액티비티의 체크 단추. 앱 프로세스에서 실행되어(LiveActivityIntent) 저장 뒤 카드가 바로 갱신된다.
@@ -83,12 +110,13 @@ enum RoutineLiveActivityOutfit {
 
 /// 대기 중인 체크까지 반영한 오늘 내용으로 떠 있는 카드를 바꾼다.
 enum RoutineLiveActivityRefresh {
-    static func update(bridge: WidgetBridge) async {
+    @MainActor static func update(bridge: WidgetBridge) async {
         let key = Day.today().key
         guard let day = bridge.readSnapshot()?.day(key)?.applying(bridge.readPending()) else { return }
         let state = RoutineActivityAttributes.ContentState(day: day)
         for activity in Activity<RoutineActivityAttributes>.activities where activity.attributes.dateKey == key {
-            if day.total > 0, day.done >= day.total {
+            if day.total > 0, day.remaining == 0 {
+                // 다 끝내면(남은 것을 건너뛴 경우도) 잠깐 보여 주고 내린다.
                 await activity.end(ActivityContent(state: state, staleDate: nil), dismissalPolicy: .after(Date().addingTimeInterval(30 * 60)))
             } else {
                 await activity.update(ActivityContent(state: state, staleDate: Date().addingTimeInterval(8 * 60 * 60)))

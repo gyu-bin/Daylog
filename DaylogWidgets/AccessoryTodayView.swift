@@ -48,28 +48,35 @@ struct AccessoryTodayView: View {
 
     private func inline(_ day: WidgetDay) -> some View {
         let next = day.nextToShow(nowMinutes: entry.nowMinutes)
-        return Text(next.map { "\(day.done)/\(day.total) · 다음 \($0.title)" } ?? "오늘 \(day.done)/\(day.total) 완료")
+        let skipped = day.skipped > 0 ? " · \(SkipStyle.label) \(day.skipped)" : ""
+        return Text(next.map { "\(day.done)/\(day.total) · 다음 \($0.title)" } ?? "오늘 \(day.done)/\(day.total) 완료\(skipped)")
     }
 
-    /// 직사각형: 반투명 바탕 카드 위에 왼쪽 진행 링, 오른쪽 다음 루틴(눌러서 완료). 칸을 꽉 채운다.
+    /// 직사각형(2026-10-30 피오 중심): 왼쪽 진행 링 안에 피오, 오른쪽에 피오가 알려 주는 다음 루틴(눌러서 완료).
+    /// 잠금 화면 위젯은 시스템이 한 가지 색으로 칠하므로 피오도 단색 톤으로 보인다.
     private func rectangular(_ day: WidgetDay) -> some View {
         ZStack {
             AccessoryWidgetBackground()
             HStack(spacing: 8) {
-                Gauge(value: day.ratio ?? day.keptRatio ?? 0) {
-                    Text("")
-                } currentValueLabel: {
-                    Text("\(day.done)/\(day.total)").font(.system(size: 13, weight: .bold)).monospacedDigit()
+                ZStack {
+                    Gauge(value: day.ratio ?? day.keptRatio ?? 0) {
+                        Text("")
+                    } currentValueLabel: {
+                        Text("")
+                    }
+                    .gaugeStyle(.accessoryCircularCapacity)
+                    .widgetAccentable()
+                    Image("pio_mini_\(RoutineLiveActivityOutfit.current ?? "basic")")
+                        .resizable().scaledToFit()
+                        .frame(width: 32, height: 32)
+                        .accessibilityHidden(true)
                 }
-                .gaugeStyle(.accessoryCircularCapacity)
-                .widgetAccentable()
                 .frame(width: 46, height: 46)
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("오늘 \(day.total)개 중 \(day.done)개 완료")
                 VStack(alignment: .leading, spacing: 1) {
-                    if day.done == day.total {
-                        Text("오늘 루틴").font(.system(size: 12, weight: .medium)).foregroundStyle(.secondary)
-                        Text("모두 완료!").font(.system(size: 17, weight: .bold)).widgetAccentable()
-                    } else if let item = day.nextToShow(nowMinutes: entry.nowMinutes) {
-                        Text(TimeLabel.minutes(item.timeLabel).map { "다음 · \(TimeLabel.label(minutes: $0))" } ?? "다음 루틴")
+                    if day.remaining > 0, let item = day.nextToShow(nowMinutes: entry.nowMinutes) {
+                        Text(TimeLabel.minutes(item.timeLabel).map { "피오: \(TimeLabel.label(minutes: $0))에" } ?? "피오: 다음은")
                             .font(.system(size: 12, weight: .medium)).monospacedDigit().foregroundStyle(.secondary)
                         // 누르면 앱을 열지 않고 바로 완료(잠금이 풀려 있을 때).
                         Button(intent: ToggleRoutineIntent(routineID: item.routineID, dateKey: day.dateKey, isDone: !item.requestedIsDone)) {
@@ -83,8 +90,12 @@ struct AccessoryTodayView: View {
                         .buttonStyle(.plain)
                         .accessibilityHint("누르면 완료로 표시합니다.")
                     } else {
-                        Text("오늘 루틴").font(.system(size: 12, weight: .medium)).foregroundStyle(.secondary)
-                        Text("남은 루틴 없음").font(.system(size: 17, weight: .bold))
+                        // 남은 것이 없다(건너뛴 것만 남은 날도). 건너뛴 수는 따로 적는다(달성률은 그대로).
+                        Text(day.skipped > 0 ? "피오 · \(SkipStyle.label) \(day.skipped)" : "피오")
+                            .font(.system(size: 12, weight: .medium)).foregroundStyle(.secondary)
+                        Text(day.total == 0 ? "오늘은 쉬는 날" : day.done >= day.total ? "오늘 다 해냈어요!" : "오늘 끝! 잘했어요")
+                            .font(.system(size: 16, weight: .bold)).lineLimit(1).minimumScaleFactor(0.8)
+                            .widgetAccentable()
                     }
                 }
                 Spacer(minLength: 0)

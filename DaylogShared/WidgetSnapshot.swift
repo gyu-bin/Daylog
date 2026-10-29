@@ -27,6 +27,8 @@ struct WidgetDay: Codable, Equatable {
     var done: Int { items.filter(\.isDone).count }
     /// 완료하지도 건너뛰지도 않은 항목 수.
     var remaining: Int { items.filter { !$0.isSettled }.count }
+    /// 건너뛴 항목 수(완료한 것은 빼고). 달성률은 그대로 두고, 남은 개수에서만 뺀다(앱의 오늘 화면과 같다).
+    var skipped: Int { items.filter { $0.isSkipped == true && !$0.isDone }.count }
     var percent: Int? { isVacation == true ? nil : Achievement.percent(done: done, total: total) }
     var ratio: Double? { isVacation == true ? nil : Achievement.ratio(done: done, total: total) }
 

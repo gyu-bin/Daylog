@@ -26,13 +26,13 @@ enum RoutineLiveActivityController {
             await activity.end(nil, dismissalPolicy: .immediate)
         }
         if let activity = current.first(where: { $0.attributes.dateKey == today.dateKey && $0.activityState == .active }) {
-            if today.done >= today.total {
-                // 다 끝내면 잠깐 "완료"를 보여 주고 내린다.
+            if today.remaining == 0 {
+                // 다 끝내면(남은 것을 건너뛴 경우도) 잠깐 "완료"를 보여 주고 내린다.
                 await activity.end(content, dismissalPolicy: .after(Date().addingTimeInterval(60 * 30)))
             } else if activity.content.state != state || canStart {
                 await activity.update(content)
             }
-        } else if canStart, today.done < today.total {
+        } else if canStart, today.remaining > 0 {
             _ = try? Activity.request(attributes: RoutineActivityAttributes(dateKey: today.dateKey), content: content, pushType: nil)
         }
     }

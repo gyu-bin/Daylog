@@ -57,7 +57,7 @@ struct TodayPioTalk: View {
     private var skipped: Int { store.checkSections.reduce(0) { $0 + $1.skipped } }
     private var total: Int { store.checkSections.reduce(0) { $0 + $1.total } }
     private var lines: [String] {
-        PioLines.today(done: done, total: total, streak: store.stats.currentStreak,
+        PioLines.today(done: done, total: total, skipped: skipped, streak: store.stats.currentStreak,
                        isToday: store.isViewingToday, isVacation: store.isVacation(on: store.selectedDay),
                        outfit: PioAppearanceCoordinator.shared.resolve(level: store.growth.level, context: .dashboard).outfit)
     }
@@ -168,10 +168,12 @@ struct PioSettingsCard: View {
 /// 피오의 대사. 제목 줄에 한 줄로 들어가도록 짧게(약 14자) 쓴다.
 enum PioLines {
     static let checked = "좋아요! 하나 끝!"
+    static let skippedAllRest = "오늘 할 일은 끝! 잘했어요"
     static let skipped = "괜찮아요, 쉬어 가요"
 
     /// 오늘 화면. 첫 번째가 기본 대사이고, 피오를 누르면 다음으로 넘어간다.
-    static func today(done: Int, total: Int, streak: Int, isToday: Bool, isVacation: Bool,
+    /// - Parameter skipped: 오늘 건너뛴 항목 수. 남은 개수에서 뺀다(앱의 오늘 화면과 같다).
+    static func today(done: Int, total: Int, skipped: Int = 0, streak: Int, isToday: Bool, isVacation: Bool,
                       outfit: PioOutfitID, hour: Int = Calendar.current.component(.hour, from: Date())) -> [String] {
         let outfitLine = self.outfit(outfit)
         func with(_ first: String) -> [String] { [first] + (outfitLine.map { [$0] } ?? []) }
@@ -181,7 +183,9 @@ enum PioLines {
         if done >= total {
             return streak >= 2 ? with("\(streak)일 연속이에요! 최고!") + ["오늘 다 해냈어요!"] : with("오늘 다 해냈어요! 최고!")
         }
-        let remaining = total - done
+        let remaining = max(total - done - skipped, 0)
+        // 남은 것을 모두 건너뛰었다: 안 한 게 아니라 오늘 할 일을 마친 것이다.
+        if remaining == 0 { return with(skippedAllRest) }
         let first: String
         if done == 0 {
             switch hour {

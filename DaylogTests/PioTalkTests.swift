@@ -31,9 +31,21 @@ struct PioTalkTests {
         }
     }
 
+    /// 건너뛴 루틴은 남은 개수에 넣지 않는다(오늘 화면의 "2개 남았어요 · 건너뜀 1"과 같은 수).
+    @Test func skippedRoutinesAreNotCountedAsLeft() {
+        func first(done: Int, total: Int, skipped: Int) -> String {
+            PioLines.today(done: done, total: total, skipped: skipped, streak: 0, isToday: true, isVacation: false, outfit: .basic, hour: 13)[0]
+        }
+        #expect(first(done: 1, total: 6, skipped: 1) == "4개 남았어요, 힘내요!")
+        #expect(first(done: 1, total: 3, skipped: 1) == "하나만 더 하면 끝!")
+        #expect(first(done: 1, total: 2, skipped: 1) == PioLines.skippedAllRest)
+        #expect(first(done: 0, total: 2, skipped: 2) == PioLines.skippedAllRest)
+        #expect(first(done: 2, total: 2, skipped: 0) == "오늘 다 해냈어요! 최고!")
+    }
+
     /// 제목 줄 한 줄에 들어가는 길이(iPhone SE에서 확인한 약 14자, 여유 두고 16자).
     @Test func everyLineFitsOneTitleRow() {
-        var lines = [PioLines.checked, PioLines.skipped, PioLines.settings, PioLines.calendar, PioLines.vacation,
+        var lines = [PioLines.checked, PioLines.skipped, PioLines.skippedAllRest, PioLines.settings, PioLines.calendar, PioLines.vacation,
                      PioLines.templates, PioLines.routines(count: 0), PioLines.routines(count: 12)]
         lines += [6, 12, 17, 23].map { PioLines.meals(hour: $0) }
         lines += PioOutfitID.allCases.compactMap(PioLines.outfit)

@@ -47,6 +47,17 @@ final class AppRuntime: NSObject {
             UNUserNotificationCenter.current().delegate = self
         }
         store.onReload = { [weak self] in self?.scheduleRefresh() }
+        #if os(iOS)
+        // 잠금 화면 카드의 피오도 오늘 화면의 피오와 같은 첫 대사를 한다.
+        RoutineLiveActivityLine.provider = { [weak store] day in
+            guard let store else { return nil }
+            let lines = PioLines.today(
+                done: day.done, total: day.total, skipped: day.skipped, streak: store.stats.currentStreak,
+                isToday: true, isVacation: day.isVacation == true,
+                outfit: PioAppearanceCoordinator.shared.resolve(level: store.growth.level, context: .dashboard).outfit)
+            return lines[PioLines.startIndex(count: lines.count)]
+        }
+        #endif
 
         let center = NotificationCenter.default
         // 자정, 앱 활성화, 잠자기 해제, 시계·시간대 변경.
