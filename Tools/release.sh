@@ -49,7 +49,8 @@ done
 BUNDLE_ID="com.mungyubin.daylog"
 ICLOUD_CONTAINER="iCloud.$BUNDLE_ID"
 NOTARY_PROFILE="${DAYLOG_NOTARY_PROFILE:-daylog-notary}"
-VERSION=$(sed -n 's/.*MARKETING_VERSION = \(.*\);/\1/p' Daylog.xcodeproj/project.pbxproj | head -1)
+# Mac DMG 앱의 버전만 읽는다. 프로젝트 파일의 첫 MARKETING_VERSION은 Mac App Store판(1.0.0)일 수 있다.
+VERSION=$(Tools/bump-version.sh | awk '{print $1}')
 [[ -n "$VERSION" ]] || { echo "버전을 읽지 못했습니다." >&2; exit 1; }
 REPO_URL="https://github.com/gyu-bin/Daylog"
 FEED_URL="$REPO_URL/releases/latest/download/appcast.xml"
