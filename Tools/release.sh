@@ -135,9 +135,12 @@ build_dmg() {
 
   if [[ $SKIP_TESTS -eq 0 ]]; then
     step "전체 테스트"
-    xcodebuild -project Daylog.xcodeproj -scheme Daylog -derivedDataPath build -allowProvisioningUpdates test 2>&1 \
-      | grep -E " error: |✘|Test run with|TEST (SUCCEEDED|FAILED)" || true
-    [[ ${pipestatus[1]} -eq 0 ]] || fail "테스트가 실패했습니다."
+    # 결과를 파일로 받은 뒤 고른다. `| grep … || true`로 이으면 pipefail 때문에 `true`가 돌아 실패가 묻혔다.
+    local test_status=0
+    xcodebuild -project Daylog.xcodeproj -scheme Daylog -derivedDataPath build -allowProvisioningUpdates test \
+      > "$OUT/test.log" 2>&1 || test_status=$?
+    grep -E " error: |✘|Test run with|TEST (SUCCEEDED|FAILED)" "$OUT/test.log" || true
+    [[ $test_status -eq 0 ]] || fail "테스트가 실패했습니다($OUT/test.log)."
   fi
 
   step "Release 아카이브"
