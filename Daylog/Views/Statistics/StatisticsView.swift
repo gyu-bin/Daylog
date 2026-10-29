@@ -55,13 +55,11 @@ struct PageTitle: View {
                 Text(title)
                     .font(.system(size: titleSize, weight: .bold))
                     .accessibilityAddTraits(.isHeader)
-                #if os(iOS)
                 if let pio {
                     Spacer(minLength: 8)
                     // 제목 줄 오른쪽 끝: 탭을 열면 말풍선이 잠깐 떴다가 사라지고, 피오를 누르면 다시 뜬다.
                     PioPeekBubble(line: pio)
                 }
-                #endif
             }
             if let subtitle {
                 Text(subtitle)

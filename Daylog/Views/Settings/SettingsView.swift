@@ -158,13 +158,11 @@ struct SettingsView: View {
                 .padding(.top, Theme.pagePadding)
             HStack(alignment: .top, spacing: 24) {
                 ScrollView {
-                    #if os(iOS)
                     PioSettingsCard()
                         .padding(12)
                         .background(Theme.cardBackground, in: RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous))
                         .overlay(RoundedRectangle(cornerRadius: Theme.cardRadius, style: .continuous).strokeBorder(Theme.cardBorder, lineWidth: 1))
                         .padding(.bottom, 12)
-                    #endif
                     VStack(spacing: 4) {
                         ForEach(SettingsCategory.visible) { category in
                             Button {
@@ -248,10 +246,8 @@ struct SettingsView: View {
                 }
         } else {
             Form {
-                #if os(iOS)
                 // 지금 입은 피오·옷장 바로가기·말풍선 켜고 끄기.
                 Section { PioSettingsCard() }
-                #endif
                 Section {
                     ForEach(SettingsCategory.visible) { category in
                         Button {

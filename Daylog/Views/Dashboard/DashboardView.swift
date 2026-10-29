@@ -128,6 +128,7 @@ struct DashboardHeader: View {
     @Environment(\.mobileUI) private var ui
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Binding var isEditing: Bool
+    @AppStorage(PioTalkPreference.key) private var pioTalks = true
     /// 인사말 크기. 기본 24pt 그대로, 글자 크기 설정을 따라 커진다(날짜보다 작아지지 않게).
     @ScaledMetric(relativeTo: .title2) private var greetingSize: CGFloat = 24
 
@@ -220,13 +221,25 @@ struct DashboardHeader: View {
             // 큰 글자(iPad)에서는 줄을 바꿀 수 있게 가로 고정을 푼다. 고정하면 날짜 한 줄이 화면보다 넓어져 아래 카드까지 옆으로 밀렸다.
             .fixedSize(horizontal: !dynamicTypeSize.isAccessibilitySize, vertical: true)
             .saessagiDebugFrame("title")
-            // 인사말 옆의 새싹이. 날짜와 인사말 두 줄의 높이 안에 들어가 머리말이 높아지지 않는다.
-            // 단추까지 남는 자리를 모두 걸어 다닐 자리로 쓴다(넓은 창에서는 멀리 산책하고 단추 쪽 끝으로 숨는다).
-            PioHeaderCompanion(size: 64)
+            // 인사말 옆의 피오. 날짜와 인사말 두 줄의 높이 안에 들어가 머리말이 높아지지 않는다.
+            pio
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .frame(height: 48)
                 .layoutPriority(-1)
         }
+    }
+
+    /// Mac은 인사말 옆에서 피오가 말풍선으로 말한다(iPhone 오늘 화면과 같은 대사). 말풍선을 끄면 피오만 둔다.
+    @ViewBuilder private var pio: some View {
+        #if os(macOS)
+        if pioTalks {
+            TodayPioTalk(pioSize: 64)
+        } else {
+            PioHeaderCompanion(size: 64)
+        }
+        #else
+        PioHeaderCompanion(size: 64)
+        #endif
     }
 }
 
