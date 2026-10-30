@@ -1,6 +1,9 @@
 import CryptoKit
 import Foundation
 import Observation
+#if os(iOS)
+import WidgetKit
+#endif
 
 enum PioOutfitCategory: String, CaseIterable, Identifiable, Codable, Sendable {
     case seasonal, holiday, everyday, special, free
@@ -288,6 +291,8 @@ final class PioWardrobeStore {
         if !isOutfitTestingEnabled {
             RoutineLiveActivityOutfit.set(outfit.rawValue)
             AppRuntime.shared?.scheduleRefresh()
+            // 잠금 화면 위젯의 피오도 바로 갈아입힌다. 입은 옷은 위젯 데이터에 없어서, 그것만으로는 위젯을 다시 그리지 않는다.
+            WidgetCenter.shared.reloadAllTimelines()
         }
         #endif
         return true
